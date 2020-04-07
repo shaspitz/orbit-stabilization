@@ -1,0 +1,7 @@
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|cacd6bb6-7989-4c1d-ab4f-83be043f4310
+C:\Users\shawn\OneDrive\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|d688f602-c1a4-4e6f-a135-7f7fd16731fb
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|e4629774-0d90-4168-b6f7-a0e218f641ec
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|eba65c35-aef8-4b8c-a89d-17d5f46a230e
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|14af9d78-42b0-4a55-9952-656412bc9e4e
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|705486f3-940d-46ff-a1dc-abd2f5801ac3
+C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC Microcontroller Files\PSOC Microcontroller Files.cydsn\PSOC Microcontroller Files.cyprj|183020ed-c7b1-454a-b870-edc928e1bbd2
