@@ -28,11 +28,6 @@ m = 1500
 # Universal gravitation constant G [m3/(s2kg)]
 G = 6.673*(10**(-11))
 
-
-# Tangential orbit velocity as function of radius from earth core
-def v(r): return np.sqrt(G*M/r)
-
-
 '''
 "In space vehicles, one can find multiple
 sources of disturbances, such as position or velocity measuring errors,
@@ -56,6 +51,10 @@ Could formulate problem as regulating the chaser sattellites orbit to be the
 same as the target sattellite. Then would use "V-bar approach" to increase
 radial velocity along the target orbit until proximity is reached.
 '''
+
+
+# Tangential orbit velocity as function of radius from earth core
+def v_tan(r): return np.sqrt(G*M/r)
 
 
 def nl_dyn_cont(t, x, u=np.zeros(2)):
@@ -93,8 +92,8 @@ def lin_dyn_cont(t, x, r0, u=np.zeros((2, 1))):
     # ODE solver uses 1-d arrays, convert to 2-d nparrays for lin alg
     x = np.array([[x[i]] for i in range(len(x))])
 
-    # Linearize about twice earths radius for now
-    w0 = v(r0)/(r0)
+    # Angular velocity from tangential, see derivation of 'v_tan' above
+    w0 = v_tan(r0)/(r0)
 
     A = np.array([[0, 1, 0, 0],
                   [3*w0**2, 0, 0, 2*r0*w0],
@@ -136,7 +135,7 @@ def main():
         # Simulate continuous linearized system
         t_sim = np.linspace(0, 10, 100)
         x0 = [2*R, 10, 0, 100]
-        r0 = 2*R
+        r0 = 2*R  # Linearize about twice earths radius for now
         u = np.zeros((2, 1))
         sys_sol = solve_ivp(lin_dyn_cont, [t_sim[0], t_sim[-1:]], x0,
                             method='RK45', t_eval=t_sim, args=(r0, u))
