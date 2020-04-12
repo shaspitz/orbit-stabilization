@@ -67,9 +67,15 @@ def nl_dyn_cont(t, x, u=np.zeros(2)):
     F_rad: radial force [N]
     F_tan: tangential force [N]
     '''
-
-    # x1(t) = r, x2(t) = r', u1(t) = F_rad/m
-    # x3(t) = phi, x4(t) = phi' , u2(t) = F_tan/m
+    # States:
+    # x1(t) = r, 
+    # x2(t) = r', 
+    # x3(t) = phi, 
+    # x4(t) = phi'
+    
+    # Input:
+    # u1(t) = F_rad/m,
+    # u2(t) = F_tan/m
 
     x_out = np.array([x[1],
                       x[0]*x[3]**2-G*M*x[0]**2+u[0]/m,
