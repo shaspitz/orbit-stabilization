@@ -2,6 +2,9 @@
 @author: Shawn Marshall-Spitzbart, Muireann Spain, Anthoy Yan
 
 UC Berkeley ME235 Final Project
+
+Dynamics system model from ETH Zurich:
+https://ethz.ch/content/dam/ethz/special-interest/mavt/dynamic-systems-n-control/idsc-dam/Lectures/System-Modeling/Slides_HS17/Lecture12.pdf
 '''
 
 import matplotlib.pyplot as plt
@@ -28,6 +31,12 @@ m = 1500
 # Universal gravitation constant G [m3/(s2kg)]
 G = 6.673*(10**(-11))
 
+# Orbit turn rate for linearization [rad/s]
+w0 = 7.2910**-5
+
+# Geostationary orbit radius for linearization [m]
+r0 = 4.22*10**7
+
 '''
 "In space vehicles, one can find multiple
 sources of disturbances, such as position or velocity measuring errors,
@@ -53,10 +62,6 @@ radial velocity along the target orbit until proximity is reached.
 '''
 
 
-# Tangential orbit velocity as function of radius from earth core
-def v_tan(r): return np.sqrt(G*M/r)
-
-
 def nl_dyn_cont(t, x, u=np.zeros(2)):
     # Continuous nonlinear dynamics of sattellite system (uses 1-d nparrays)
 
@@ -68,11 +73,11 @@ def nl_dyn_cont(t, x, u=np.zeros(2)):
     F_tan: tangential force [N]
     '''
     # States:
-    # x1(t) = r, 
-    # x2(t) = r', 
-    # x3(t) = phi, 
+    # x1(t) = r,
+    # x2(t) = r',
+    # x3(t) = phi,
     # x4(t) = phi'
-    
+
     # Input:
     # u1(t) = F_rad/m,
     # u2(t) = F_tan/m
@@ -97,9 +102,6 @@ def lin_dyn_cont(t, x, r0, u=np.zeros((2, 1))):
 
     # ODE solver uses 1-d arrays, convert to 2-d nparrays for lin alg
     x = np.array([[x[i]] for i in range(len(x))])
-
-    # Angular velocity from tangential, see derivation of 'v_tan' above
-    w0 = v_tan(r0)/(r0)
 
     A = np.array([[0, 1, 0, 0],
                   [3*w0**2, 0, 0, 2*r0*w0],
@@ -139,29 +141,46 @@ def main():
         # Simulations
 
         # Simulate continuous linearized system
-        t_sim = np.linspace(0, 10, 100)
-        x0 = [2*R, 10, 0, 100]
-        r0 = 2*R  # Linearize about twice earths radius for now
-        u = np.zeros((2, 1))
-        sys_sol = solve_ivp(lin_dyn_cont, [t_sim[0], t_sim[-1:]], x0,
-                            method='RK45', t_eval=t_sim, args=(r0, u))
+        t_sim = np.linspace(0, 50000, 100)
 
-        '''
+        # Intial conditions: PROBLEMS HERE, TRY MAKING INITIAL R POSITIVE
+        x0 = [-r0, 0, 0, w0]
+        u = np.zeros((2, 1))
+        sys_sol_lin = solve_ivp(lin_dyn_cont, [t_sim[0], t_sim[-1:]], x0,
+                                method='RK45', t_eval=t_sim, args=(r0, u))
+
+        print(sys_sol_lin.y[2], w0)
         # Simulate continuous nonlinear system (yes it does run, not quickly)
+        '''
         t_sim = np.linspace(0, 10, 100)
-        x0 = [2*R, 10, 0, 10000]
-        sys_sol = solve_ivp(nl_dyn_cont, [t_sim[0], t_sim[-1:]], x0,
+        x0 = [r0, 1, w0, 1]
+        sys_sol_nl = solve_ivp(nl_dyn_cont, [t_sim[0], t_sim[-1:]], x0,
                             method='RK45', t_eval=t_sim)
         '''
 
-        # solution will be sys_sol.y with [0:3] being arrays of state solutions over time
-        print('last 10 values of radius:', sys_sol.y[0][-10:])
+        # solution will be sys_sol.y with [0:3] being arrays of state
+        # print('last 10 values of radius:', sys_sol.y[0][:-10])
+
+        # Convert to 2D cartesian coordinates centered at earth's core
+        x_sat_lin = [sys_sol_lin.y[0][i]*np.cos(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
+        y_sat_lin = [sys_sol_lin.y[0][i]*np.sin(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
+        # x_sat_nl = [sys_sol_nl.y[0][i]*np.cos(sys_sol_nl.y[2][i]) for i in range(len(t_sim))]
+        # y_sat_nl = [sys_sol_nl.y[0][i]*np.sin(sys_sol_nl.y[2][i]) for i in range(len(t_sim))]
+
+        #  Plotting
+        fig, ax = plt.subplots()
+        circle1 = plt.Circle((0, 0), R, color='b')
+        ax.add_artist(circle1)
+        ax.plot(x_sat_lin, y_sat_lin, linewidth=2, color='r')
+        # plt.plot(x_sat_nl, y_sat_nl, linewidth=2)
+        plt.xlabel('x')
+        plt.ylabel('y')
+        plt.title(r'Sattellite Path')
+        plt.gca().set_aspect('equal', adjustable='box')
+        # plt.legend(['Linear model', 'Nonlinear Model'], loc='best')
+        plt.show()
 
         '''
-        # change the satellite position to Cartesian coordinates
-        x_sat = f_x[0]*np.cos(f_x[2])
-        y_sat = f_x[0]*np.sin(f_x[2])
-
         # Main code and simulation here
         X_satellite, Y_satellite, path = NonLinearDynamics(x, u)
 
