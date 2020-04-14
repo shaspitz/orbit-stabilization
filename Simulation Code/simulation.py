@@ -147,7 +147,7 @@ def main():
         # Intial conditions: PROBLEMS HERE, TRY MAKING INITIAL R POSITIVE
         x0 = [0, 0, 0, 0]
         u = np.zeros((2, 1))
-        sys_sol_lin = solve_ivp(nl_dyn_cont, [t_sim[0], t_sim[-1:]], x0,
+        sys_sol_lin = solve_ivp(lin_dyn_cont, [t_sim[0], t_sim[-1:]], x0,
                                 method='RK45', t_eval=t_sim, args=(r0, u))
 
         print(sys_sol_lin.y[2], w0)
