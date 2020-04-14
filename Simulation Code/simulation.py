@@ -141,10 +141,10 @@ def main():
         # Simulations
 
         # Simulate continuous linearized system
-        t_sim = np.linspace(0, 50000, 100)
+        t_sim = np.linspace(0, 100000, 100)
 
         # Intial conditions: PROBLEMS HERE, TRY MAKING INITIAL R POSITIVE
-        x0 = [-r0, 0, 0, w0]
+        x0 = [0, 0, 0, 0]
         u = np.zeros((2, 1))
         sys_sol_lin = solve_ivp(lin_dyn_cont, [t_sim[0], t_sim[-1:]], x0,
                                 method='RK45', t_eval=t_sim, args=(r0, u))
@@ -160,6 +160,15 @@ def main():
 
         # solution will be sys_sol.y with [0:3] being arrays of state
         # print('last 10 values of radius:', sys_sol.y[0][:-10])
+
+        # Add equil trajectory back to solution
+        def equil(t):
+            return np.array([r0, 0, w0*t, w0])
+
+        for i in range(len(sys_sol_lin.y)):
+            sys_sol_lin.y[i] = np.array(
+                [sys_sol_lin.y[i][j]
+                 + equil(t_sim[j])[i] for j in range(len(t_sim))])
 
         # Convert to 2D cartesian coordinates centered at earth's core
         x_sat_lin = [sys_sol_lin.y[0][i]*np.cos(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
