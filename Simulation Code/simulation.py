@@ -116,6 +116,45 @@ def lin_dyn_cont(t, x, r0, u=np.zeros((2, 1))):
 
     return (A @ x + B @ u).ravel()  # output 1-d array again
 
+#kalman Filter
+#A:State scale
+#H:Measurement scale 
+#ss:length of state spac input
+#V:process noise
+#W:sensor noise
+#z:measurements
+#N:number of time steps
+#
+#
+def KalmanFilter(x0,z,N):
+    #using linearized dynamics
+    A = np.array([[0, 1, 0, 0],
+                  [3*w0**2, 0, 0, 2*r0*w0],
+                  [0, 0, 0, 1],
+                  [0, -2*w0/r0, 0, 0]])
+    H=np.eye(4)
+
+
+    # Initialize estimate and covariance of state (at k = 0)
+    XM=x0
+    Pm=np.eye(4)
+    V=np.eye(4)
+    W=np.eye(4)
+
+    for k in range(N):
+        #prior update
+        XP=A*XM
+        Pp=A*Pm*np.transpose(A) + V
+        #measurement update
+        K=Pp*np.transpose(H)*np.linalg.inv(H*Pp*np.transpose(H) + W)
+        XM=XP+K*(z[k]-H*XP)
+        Pm=(np.eye(4)-K*H)*Pp*np.transpose(np.eye(4)-K*H)+K*W*np.transpose(K)
+
+
+    # Return posterior mean and variance
+    return XM, Pm
+
+
 
 def main():
 
@@ -158,7 +197,8 @@ def main():
         sys_sol_nl = solve_ivp(nl_dyn_cont, [t_sim[0], t_sim[-1:]], x0,
                             method='RK45', t_eval=t_sim)
         '''
-
+        #kalman filter
+        XM,Pm=KalmanFilter(x0,[5,5,5.5,6,5.6,7,6.5,5.4,6,5.6],10)
         # solution will be sys_sol.y with [0:3] being arrays of state
         # print('last 10 values of radius:', sys_sol.y[0][:-10])
 
@@ -185,7 +225,7 @@ def main():
         # plt.plot(x_sat_nl, y_sat_nl, linewidth=2)
         plt.xlabel('x')
         plt.ylabel('y')
-        plt.title(r'Sattellite Path')
+        plt.title(r'Satellite Path')
         plt.gca().set_aspect('equal', adjustable='box')
         # plt.legend(['Linear model', 'Nonlinear Model'], loc='best')
         plt.show()
