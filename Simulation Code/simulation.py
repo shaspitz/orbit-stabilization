@@ -38,6 +38,18 @@ w0 = 7.2910**-5
 # Geostationary orbit radius for linearization [m]
 r0 = 4.22*10**7
 
+
+#initialize matrices for LQG
+#NEED TUNING
+H=np.eye(4)
+Pm=np.eye(4)
+V=np.eye(4)
+W=np.eye(4)
+Q=np.eye(4)
+K=np.zeros((2,2))
+x=np.zeros((2,2))
+S=np.array([100,83],[483,901])
+
 '''
 "In space vehicles, one can find multiple
 sources of disturbances, such as position or velocity measuring errors,
@@ -118,42 +130,38 @@ def lin_dyn_cont(t, x, r0, u=np.zeros((2, 1))):
 
 #kalman Filter
 #A:State scale
-#H:Measurement scale 
-#ss:length of state spac input
 #V:process noise
 #W:sensor noise
 #z:measurements
-#N:number of time steps
-#
-#
-def KalmanFilter(x0,z,N):
-    #using linearized dynamics
+
+def KF(A,H,V,W,z,Pm,K,XM):
+    #prior update
+    XP=A.dot(XM)
+    Pp=A.dot(Pm).dot(np.transpose(A)) + V
+    #measurement update
+    K=Pp.dot(np.transpose(H)).dot(np.linalg.inv(H.dot(Pp).dot(np.transpose(H)) + W))
+    XM=XP+K.dot(z-H.dot(XP))
+    Pm=(np.eye(4)-K.dot(H)).dot(Pp).dot(np.eye(4)-K.dot(H))+K.dot(W).dot(np.transpose(K))
+    return K,Pm
+
+def LQR(A,B,S,Q,R):
+    U = np.zeros((4,4))
+    U = Q + np.transpose(A).dot(S).dot(A)-np.transpose(A).dot(S).dot(B).dot(np.linalg.inv(R+np.transpose(B).dot(S).dot(B))).dot(np.transpose(B)).dot(S).dot(A)
+    return U
+
+def linear_dyn(r0,w0):
+
     A = np.array([[0, 1, 0, 0],
                   [3*w0**2, 0, 0, 2*r0*w0],
                   [0, 0, 0, 1],
                   [0, -2*w0/r0, 0, 0]])
-    H=np.eye(4)
 
+    B = np.array([[0, 0],
+                  [1, 0],
+                  [0, 0],
+                  [0, 1/r0]])
 
-    # Initialize estimate and covariance of state (at k = 0)
-    XM=x0
-    Pm=np.eye(4)
-    V=np.eye(4)
-    W=np.eye(4)
-
-    for k in range(N):
-        #prior update
-        XP=A*XM
-        Pp=A*Pm*np.transpose(A) + V
-        #measurement update
-        K=Pp*np.transpose(H)*np.linalg.inv(H*Pp*np.transpose(H) + W)
-        XM=XP+K*(z[k]-H*XP)
-        Pm=(np.eye(4)-K*H)*Pp*np.transpose(np.eye(4)-K*H)+K*W*np.transpose(K)
-
-
-    # Return posterior mean and variance
-    return XM, Pm
-
+    return A,B
 
 
 def main():
@@ -197,8 +205,13 @@ def main():
         sys_sol_nl = solve_ivp(nl_dyn_cont, [t_sim[0], t_sim[-1:]], x0,
                             method='RK45', t_eval=t_sim)
         '''
-        #kalman filter
-        XM,Pm=KalmanFilter(x0,[5,5,5.5,6,5.6,7,6.5,5.4,6,5.6],10)
+        #implement LQR 
+        A,B=linear_dyn(r0,w0)
+        K,Pm=KF(A,B,H,V,W,z,Pm,K,x)
+        U=LQR(A,B,S,Q,R)
+        u=-(np.linalg.inv(R+np.transpose(B).dot(U).dot(B))).dot(np.transpose(B)).dot(U).dot(A).dot(x)
+        x=A.dot(x)+B.dot(u)+K.dot(z-H.dot(A.dot(x)+B.dot(u)))
+    
         # solution will be sys_sol.y with [0:3] being arrays of state
         # print('last 10 values of radius:', sys_sol.y[0][:-10])
 
