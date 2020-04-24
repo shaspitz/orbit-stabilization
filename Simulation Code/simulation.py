@@ -18,7 +18,7 @@ from scipy.integrate import solve_ivp
 # Setup global variables
 
 # Run-type
-hardware_in_loop = True
+hardware_in_loop = False
 
 # Radius of the Earth [m]
 R = 6378000
