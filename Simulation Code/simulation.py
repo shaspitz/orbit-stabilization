@@ -121,6 +121,8 @@ def lin_dyn_cont(t, x, r0, u=np.zeros((2, 1))):
 #V:process noise
 #W:sensor noise
 #z:measurements
+#K:gain matrix at last timestep
+
 
 def KF(A,H,V,W,z,Pm,K,XM):
     #prior update
@@ -214,9 +216,10 @@ def main():
         U=LQR(A,B,N,S,Q,R)
         for i in range(1,N):
             K,Pm=KF(A,H,V,W,sys_sol_lin.y[:,i-1],Pm,K,x[:,i-1])
-            
+            #calculate control input for each time step
             u[:,i-1]=-(np.linalg.inv(R+np.transpose(B).dot(U[:,:,i-1]).dot(B))).dot(np.transpose(B)).dot(U[:,:,i-1]).dot(A).dot(x[:,i-1])
             print(u[:,i-1])
+            #calculate state at each time step
             x[:,i]=A.dot(x[:,i-1])+B.dot(u[:,i-1])+K.dot(sys_sol_lin.y[:,i-1]-H.dot(A.dot(x[:,i-1])+B.dot(u[:,i-1])))
 
         # solution will be sys_sol.y with [0:3] being arrays of state
