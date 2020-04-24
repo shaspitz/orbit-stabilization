@@ -38,18 +38,6 @@ w0 = 7.2910**-5
 # Geostationary orbit radius for linearization [m]
 r0 = 4.22*10**7
 
-
-#initialize matrices for LQG
-#NEED TUNING
-H=np.eye(4)
-Pm=np.eye(4)
-V=np.eye(4)
-W=np.eye(4)
-Q=np.eye(4)
-K=np.zeros((2,2))
-x=np.zeros((2,2))
-S=np.array([100,83],[483,901])
-
 '''
 "In space vehicles, one can find multiple
 sources of disturbances, such as position or velocity measuring errors,
@@ -129,7 +117,7 @@ def lin_dyn_cont(t, x, r0, u=np.zeros((2, 1))):
     return (A @ x + B @ u).ravel()  # output 1-d array again
 
 #kalman Filter
-#A:State scale
+#A:State update
 #V:process noise
 #W:sensor noise
 #z:measurements
@@ -144,9 +132,14 @@ def KF(A,H,V,W,z,Pm,K,XM):
     Pm=(np.eye(4)-K.dot(H)).dot(Pp).dot(np.eye(4)-K.dot(H))+K.dot(W).dot(np.transpose(K))
     return K,Pm
 
-def LQR(A,B,S,Q,R):
-    U = np.zeros((4,4))
-    U = Q + np.transpose(A).dot(S).dot(A)-np.transpose(A).dot(S).dot(B).dot(np.linalg.inv(R+np.transpose(B).dot(S).dot(B))).dot(np.transpose(B)).dot(S).dot(A)
+def LQR(A,B,N,S,Q,R):
+    U = np.zeros((4,4,N+1))
+    #Initialize the Ricatti equation with U(N) = S
+    U[:,:,N] = S
+    #Iterate backwards to compute U(k)
+    for k in range(N):
+        U[:,:,N-k-1] = Q + A.T.dot(U[:,:,N-k]).dot(A)- (A.T).dot(U[:,:,N-k]).dot(B).dot(np.linalg.inv(R+(B.T).dot(U[:,:,N-k]).dot(B))).dot(B.T).dot(U[:,:,N-k]).dot(A)
+        print(U[:,:,N-k-1])
     return U
 
 def linear_dyn(r0,w0):
@@ -197,7 +190,6 @@ def main():
         sys_sol_lin = solve_ivp(lin_dyn_cont, [t_sim[0], t_sim[-1:]], x0,
                                 method='RK45', t_eval=t_sim, args=(r0, u))
 
-        print(sys_sol_lin.y[2], w0)
         # Simulate continuous nonlinear system (yes it does run, not quickly)
         '''
         t_sim = np.linspace(0, 10, 100)
@@ -205,16 +197,31 @@ def main():
         sys_sol_nl = solve_ivp(nl_dyn_cont, [t_sim[0], t_sim[-1:]], x0,
                             method='RK45', t_eval=t_sim)
         '''
-        #implement LQR 
+        #use the output from the IVP as the measurements Z for the KF and LQR
+        N=len(t_sim)
+        x=np.zeros((4,N))
+        Pm=np.eye(4)
+        u=np.zeros((2,N-1))
+        #initialize matrices for LQG
+        #NEED TUNING
+        H=np.eye(4)
+        V=np.eye(4)
+        W=np.eye(4)
+        Q=np.eye(4)
+        K=np.zeros((4,4))
+        S=np.array([[234,56,5,454],[3,6,4,2],[765,35,76,53],[536,765,3,23]])
         A,B=linear_dyn(r0,w0)
-        K,Pm=KF(A,B,H,V,W,z,Pm,K,x)
-        U=LQR(A,B,S,Q,R)
-        u=-(np.linalg.inv(R+np.transpose(B).dot(U).dot(B))).dot(np.transpose(B)).dot(U).dot(A).dot(x)
-        x=A.dot(x)+B.dot(u)+K.dot(z-H.dot(A.dot(x)+B.dot(u)))
-    
-        # solution will be sys_sol.y with [0:3] being arrays of state
-        # print('last 10 values of radius:', sys_sol.y[0][:-10])
+        U=LQR(A,B,N,S,Q,R)
+        for i in range(1,N):
+            K,Pm=KF(A,H,V,W,sys_sol_lin.y[:,i-1],Pm,K,x[:,i-1])
+            
+            u[:,i-1]=-(np.linalg.inv(R+np.transpose(B).dot(U[:,:,i-1]).dot(B))).dot(np.transpose(B)).dot(U[:,:,i-1]).dot(A).dot(x[:,i-1])
+            print(u[:,i-1])
+            x[:,i]=A.dot(x[:,i-1])+B.dot(u[:,i-1])+K.dot(sys_sol_lin.y[:,i-1]-H.dot(A.dot(x[:,i-1])+B.dot(u[:,i-1])))
 
+        # solution will be sys_sol.y with [0:3] being arrays of state
+        # print('last 10 values of radius:', sys_sol.y[0][sys_sol_lin.y[i]:-10])
+        
         # Add equil trajectory back to solution
         def equil(t):
             return np.array([r0, 0, w0*t, w0])
@@ -225,8 +232,11 @@ def main():
                  + equil(t_sim[j])[i] for j in range(len(t_sim))])
 
         # Convert to 2D cartesian coordinates centered at earth's core
-        x_sat_lin = [sys_sol_lin.y[0][i]*np.cos(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
-        y_sat_lin = [sys_sol_lin.y[0][i]*np.sin(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
+        #using states from LQG
+        x_sat_KF=[x[0][i]*np.cos(x[2][i]) for i in range(len(t_sim))]
+        y_sat_KF=[x[0][i]*np.cos(x[2][i]) for i in range(len(t_sim))]
+        #x_sat_lin = [sys_sol_lin.y[0][i]*np.cos(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
+        #y_sat_lin = [sys_sol_lin.y[0][i]*np.sin(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
         # x_sat_nl = [sys_sol_nl.y[0][i]*np.cos(sys_sol_nl.y[2][i]) for i in range(len(t_sim))]
         # y_sat_nl = [sys_sol_nl.y[0][i]*np.sin(sys_sol_nl.y[2][i]) for i in range(len(t_sim))]
 
@@ -234,7 +244,7 @@ def main():
         fig, ax = plt.subplots()
         circle1 = plt.Circle((0, 0), R, color='b')
         ax.add_artist(circle1)
-        ax.plot(x_sat_lin, y_sat_lin, linewidth=2, color='r')
+        ax.plot(x_sat_KF, y_sat_KF, linewidth=2, color='r')
         # plt.plot(x_sat_nl, y_sat_nl, linewidth=2)
         plt.xlabel('x')
         plt.ylabel('y')
