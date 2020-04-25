@@ -21,7 +21,7 @@ from scipy.integrate import solve_ivp
 hardware_in_loop = False
 
 # Radius of the Earth [m]
-R = 6378000
+Radius = 6378000
 
 # Mass of the Earth [kg]
 M = 5.972*(10**24)
@@ -97,6 +97,19 @@ def nl_dyn_cont(t, x, u=np.zeros(2)):
     '''
     return x_out  # , path
 
+def linear_dyn(r0,w0):
+
+    A = np.array([[0, 1, 0, 0],
+                  [3*w0**2, 0, 0, 2*r0*w0],
+                  [0, 0, 0, 1],
+                  [0, -2*w0/r0, 0, 0]])
+
+    B = np.array([[0, 0],
+                  [1, 0],
+                  [0, 0],
+                  [0, 1/r0]])
+
+    return A, B
 
 def lin_dyn_cont(t, x, r0, u=np.zeros((2, 1))):
     # Continuous linear dynamics of sattellite system
@@ -126,12 +139,12 @@ def lin_dyn_cont(t, x, r0, u=np.zeros((2, 1))):
 
 def KF(A,H,V,W,z,Pm,K,XM):
     #prior update
-    XP=A.dot(XM)
-    Pp=A.dot(Pm).dot(np.transpose(A)) + V
+    XP = A @ XM
+    Pp = A @ Pm @ A.T + V
     #measurement update
-    K=Pp.dot(np.transpose(H)).dot(np.linalg.inv(H.dot(Pp).dot(np.transpose(H)) + W))
-    XM=XP+K.dot(z-H.dot(XP))
-    Pm=(np.eye(4)-K.dot(H)).dot(Pp).dot(np.eye(4)-K.dot(H))+K.dot(W).dot(np.transpose(K))
+    K = Pp @ H.T @ (np.linalg.inv(H @ Pp @ H.T + W))
+    XM = XP + K @ (z-H @ XP)
+    Pm = (np.eye(4) - K @ H) @ Pp @ (np.eye(4) - K @ H).T + K @ W @ K.T
     return K,Pm
 
 def LQR(A,B,N,S,Q,R):
@@ -140,23 +153,9 @@ def LQR(A,B,N,S,Q,R):
     U[:,:,N] = S
     #Iterate backwards to compute U(k)
     for k in range(N):
-        U[:,:,N-k-1] = Q + A.T.dot(U[:,:,N-k]).dot(A)- (A.T).dot(U[:,:,N-k]).dot(B).dot(np.linalg.inv(R+(B.T).dot(U[:,:,N-k]).dot(B))).dot(B.T).dot(U[:,:,N-k]).dot(A)
-        print(U[:,:,N-k-1])
+        U[:,:,N-k-1] = Q + A.T @ (U[:,:,N-k]) @ (A)- (A.T) @ (U[:,:,N-k]) @ (B) @ (np.linalg.inv(R+(B.T) @ (U[:,:,N-k]) @ (B))) @ (B.T) @ (U[:,:,N-k]) @ (A)
+        # print(U[:,:,N-k-1])
     return U
-
-def linear_dyn(r0,w0):
-
-    A = np.array([[0, 1, 0, 0],
-                  [3*w0**2, 0, 0, 2*r0*w0],
-                  [0, 0, 0, 1],
-                  [0, -2*w0/r0, 0, 0]])
-
-    B = np.array([[0, 0],
-                  [1, 0],
-                  [0, 0],
-                  [0, 1/r0]])
-
-    return A,B
 
 
 def main():
@@ -187,7 +186,7 @@ def main():
         t_sim = np.linspace(0, 100000, 100)
 
         # Intial conditions: PROBLEMS HERE, TRY MAKING INITIAL R POSITIVE
-        x0 = [0, 0, 0, 0]
+        x0 = [10, 0, 6, 2]
         u = np.zeros((2, 1))
         sys_sol_lin = solve_ivp(lin_dyn_cont, [t_sim[0], t_sim[-1:]], x0,
                                 method='RK45', t_eval=t_sim, args=(r0, u))
@@ -200,27 +199,29 @@ def main():
                             method='RK45', t_eval=t_sim)
         '''
         #use the output from the IVP as the measurements Z for the KF and LQR
-        N=len(t_sim)
-        x=np.zeros((4,N))
-        Pm=np.eye(4)
-        u=np.zeros((2,N-1))
+        N = len(t_sim)
+        x = np.zeros((4,N))
+        Pm = np.eye(4)
+        u = np.zeros((2,N-1))
+
         #initialize matrices for LQG
         #NEED TUNING
-        H=np.eye(4)
-        V=np.eye(4)
-        W=np.eye(4)
-        Q=np.eye(4)
-        K=np.zeros((4,4))
-        S=np.array([[234,56,5,454],[3,6,4,2],[765,35,76,53],[536,765,3,23]])
-        A,B=linear_dyn(r0,w0)
-        U=LQR(A,B,N,S,Q,R)
+        H = np.eye(4)
+        V = np.eye(4)
+        W = np.eye(4)
+        Q = np.eye(4)
+        K = np.zeros((4,4))
+        S = np.array([[234,56,5,454],[3,6,4,2],[765,35,76,53],[536,765,3,23]])
+        R = np.eye(2)
+        A,B = linear_dyn(r0,w0)
+        U = LQR(A,B,N,S,Q,R)
         for i in range(1,N):
-            K,Pm=KF(A,H,V,W,sys_sol_lin.y[:,i-1],Pm,K,x[:,i-1])
+            K,Pm = KF(A,H,V,W,sys_sol_lin.y[:,i-1],Pm,K,x[:,i-1])
             #calculate control input for each time step
-            u[:,i-1]=-(np.linalg.inv(R+np.transpose(B).dot(U[:,:,i-1]).dot(B))).dot(np.transpose(B)).dot(U[:,:,i-1]).dot(A).dot(x[:,i-1])
-            print(u[:,i-1])
+            u[:,i-1] = -(np.linalg.inv(R+B.T @ (U[:,:,i-1]) @ (B))) @ (B.T) @ (U[:,:,i-1]) @ (A) @ (x[:,i-1])
+            # print(u[:,i-1])
             #calculate state at each time step
-            x[:,i]=A.dot(x[:,i-1])+B.dot(u[:,i-1])+K.dot(sys_sol_lin.y[:,i-1]-H.dot(A.dot(x[:,i-1])+B.dot(u[:,i-1])))
+            x[:,i]=A @ x[:,i-1] + B @ u[:,i-1] + K @ ( sys_sol_lin.y[:,i-1] - H @ (A @ x[:,i-1] + B @ u[:,i-1]))
 
         # solution will be sys_sol.y with [0:3] being arrays of state
         # print('last 10 values of radius:', sys_sol.y[0][sys_sol_lin.y[i]:-10])
@@ -245,7 +246,7 @@ def main():
 
         #  Plotting
         fig, ax = plt.subplots()
-        circle1 = plt.Circle((0, 0), R, color='b')
+        circle1 = plt.Circle((0, 0), Radius, color='b')
         ax.add_artist(circle1)
         ax.plot(x_sat_KF, y_sat_KF, linewidth=2, color='r')
         # plt.plot(x_sat_nl, y_sat_nl, linewidth=2)
