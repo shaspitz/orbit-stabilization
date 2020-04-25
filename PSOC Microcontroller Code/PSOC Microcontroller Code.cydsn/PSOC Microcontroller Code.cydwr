@@ -69,14 +69,18 @@
         <Data key="Port Format" value="12,6" />
       </Group>
     </Group>
-    <Group key="cc3bcd7e-5dc0-48ea-9bf6-6aa082be1ada">
-      <Group key="0">
-        <Data key="Port Format" value="0,0" />
-      </Group>
-    </Group>
     <Group key="ed092b9b-d398-4703-be89-cebf998501f6">
       <Group key="0">
         <Data key="Port Format" value="12,7" />
+      </Group>
+    </Group>
+    <Group key="Unlocked Pins">
+      <Group key="cc3bcd7e-5dc0-48ea-9bf6-6aa082be1ada">
+        <Group key="0">
+          <Group key="132322420165928477">
+            <Data key="Port Format" value="0,0" />
+          </Group>
+        </Group>
       </Group>
     </Group>
   </Group>

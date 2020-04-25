@@ -135,42 +135,46 @@ def main():
         else:
             ser.open()
 
-        # Throw out first serial read from previous run
-        s_trash = ser.readline()
-        del s_trash
+        # Send start message
+        ser.write(str.encode('s'))
 
         # IMPLEMENT HANDLER HERE TO ENSURE SIMULATION HAPPENS AT EQUAL TIMING INTERVALS
-        print('Entered loop')
+        print('About to enter loop')
+        t_start = time.time()
+
         while True:
+            # See (https://docs.python.org/3/library/sched.html) to replace this with an event scheduler
+            if (time.time() - t_start >= 1.0):
+                t_start = time.time()
 
-            # Write input command to PSOC
-            ser.write(str.encode('u'))
+                # Write input command to PSOC
+                ser.write(str.encode('u'))
 
-            # Get input integers from PSOC
-            time.sleep(1)
-            s = ser.readline().decode()
-            u = np.array([[int(x.strip())] for x in s.split(',')])
-            print(u)
-            '''
-            x = ser.read()          # read one byte
-            s = ser.read(10)        # read up to ten bytes (timeout)
-            line = ser.readline()   # read a '\n' terminated line
-            '''
+                # Get input integers from PSOC
+                s = ser.readline().decode()
+                s_processed = np.array([[int(x.strip())] for x in s.split(',')])
+                t, u = s_processed[0][0], s_processed[1:3]
+                print('time: ', t, '\n', 'input: ', u)
+                '''
+                x = ser.read()          # read one byte
+                s = ser.read(10)        # read up to ten bytes (timeout)
+                line = ser.readline()   # read a '\n' terminated line
+                '''
 
-            # Need to figure out how to simulate 1 step only here
-            '''
-            # Evaluate solution for each timestep
-            step_sol = solve_ivp(lin_dyn_cont,
-                                 [t_sim[0], t_sim[-1:]],
-                                 x0_step, method='RK45',
-                                 t_eval=t_sim, args=(r0, u))
+                # Need to figure out how to simulate 1 step only here
+                '''
+                # Evaluate solution for each timestep
+                step_sol = solve_ivp(lin_dyn_cont,
+                                     [t_sim[0], t_sim[-1:]],
+                                     x0_step, method='RK45',
+                                     t_eval=t_sim, args=(r0, u))
 
-            # reset IC for next step
-            x0_step = [sol for sol in step_sol.y]
+                # reset IC for next step
+                x0_step = [sol for sol in step_sol.y]
 
-            # Real time visualization (eventually tkinter GUI)
-            print(step_sol.y, u)
-            '''
+                # Real time visualization (eventually tkinter GUI)
+                print(step_sol.y, u)
+                '''
 
         '''
         Psuedocode:

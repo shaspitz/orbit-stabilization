@@ -19,15 +19,11 @@
 #include "cydevice_trm.h"
 #include "cyfitter.h"
 #include "cydisabledsheets.h"
-#include "ADC_DelSig_1.h"
-#include "Vin_aliases.h"
-#include "Vin.h"
 #include "UART_1.h"
-#include "ADC_DelSig_1_AMux.h"
-#include "ADC_DelSig_1_Ext_CP_Clk.h"
-#include "ADC_DelSig_1_IRQ.h"
-#include "ADC_DelSig_1_theACLK.h"
+#include "Timer_1.h"
+#include "TimerInterrupt.h"
 #include "UART_1_IntClock.h"
+#include "cy_em_eeprom.h"
 #include "core_cm3_psoc5.h"
 #include "CyDmac.h"
 #include "CyFlash.h"
@@ -36,7 +32,6 @@
 #include "cyPm.h"
 #include "CySpc.h"
 #include "cytypes.h"
-#include "cy_em_eeprom.h"
 
 /*[]*/
 
