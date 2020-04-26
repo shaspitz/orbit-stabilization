@@ -61,7 +61,45 @@ Could formulate problem as regulating the chaser sattellites orbit to be the
 same as the target sattellite. Then would use "V-bar approach" to increase
 radial velocity along the target orbit until proximity is reached.
 '''
+def linear_dyn(r0,w0):
 
+    A = np.array([[0, 1, 0, 0],
+                  [3*w0**2, 0, 0, 2*r0*w0],
+                  [0, 0, 0, 1],
+                  [0, -2*w0/r0, 0, 0]])
+
+    B = np.array([[0, 0],
+                  [1, 0],
+                  [0, 0],
+                  [0, 1/r0]])
+
+    return A, B
+
+#kalman Filter
+#A:State update
+#V:process noise
+#W:sensor noise
+#z:measurements
+#K:gain matrix at last timestep
+def KF(A,H,V,W,z,Pm,K,XM):
+    #prior update
+    XP = A @ XM
+    Pp = A @ Pm @ A.T + V
+    #measurement update
+    K = Pp @ H.T @ (np.linalg.inv(H @ Pp @ H.T + W))
+    XM = XP + K @ (z-H @ XP)
+    Pm = (np.eye(4) - K @ H) @ Pp @ (np.eye(4) - K @ H).T + K @ W @ K.T
+    return K,Pm
+
+def LQR(A,B,N,S,Q,R_m):
+    U = np.zeros((4,4,N+1))
+    #Initialize the Ricatti equation with U(N) = S
+    U[:,:,N] = S
+    #Iterate backwards to compute U(k)
+    for k in range(N):
+        U[:,:,N-k-1] = Q + A.T @ (U[:,:,N-k]) @ (A)- (A.T) @ (U[:,:,N-k]) @ (B) @ (np.linalg.inv(R_m+(B.T) @ (U[:,:,N-k]) @ (B))) @ (B.T) @ (U[:,:,N-k]) @ (A)
+        # print(U[:,:,N-k-1])
+    return U
 
 def nl_dyn_cont(t, x, u=np.zeros(2)):
     # Continuous nonlinear dynamics of sattellite system (uses 1-d nparrays)
@@ -191,6 +229,10 @@ def main():
         sys_sol_lin = solve_ivp(lin_dyn_cont, [t_sim[0], t_sim[-1:]], x0,
                                 method='RK45', t_eval=t_sim, args=(r0, u))
 
+<<<<<<< Updated upstream
+=======
+        #print(sys_sol_lin.y[2], w0)
+>>>>>>> Stashed changes
         # Simulate continuous nonlinear system (yes it does run, not quickly)
         '''
         t_sim = np.linspace(0, 10, 100)
@@ -198,6 +240,7 @@ def main():
         sys_sol_nl = solve_ivp(nl_dyn_cont, [t_sim[0], t_sim[-1:]], x0,
                             method='RK45', t_eval=t_sim)
         '''
+<<<<<<< Updated upstream
         #use the output from the IVP as the measurements Z for the KF and LQR
         N = len(t_sim)
         x = np.zeros((4,N))
@@ -223,6 +266,9 @@ def main():
             #calculate state at each time step
             x[:,i]=A @ x[:,i-1] + B @ u[:,i-1] + K @ ( sys_sol_lin.y[:,i-1] - H @ (A @ x[:,i-1] + B @ u[:,i-1]))
 
+=======
+        
+>>>>>>> Stashed changes
         # solution will be sys_sol.y with [0:3] being arrays of state
         # print('last 10 values of radius:', sys_sol.y[0][sys_sol_lin.y[i]:-10])
         
@@ -234,12 +280,43 @@ def main():
             sys_sol_lin.y[i] = np.array(
                 [sys_sol_lin.y[i][j]
                  + equil(t_sim[j])[i] for j in range(len(t_sim))])
+            
+        #use the output from the IVP as the measurements Z for the KF and LQR
+        N = len(t_sim)
+        x = np.zeros((4,N))
+        x[:,0]=[42200000,0,0,4.85360589*(10**(-5))]
+        Pm = np.eye(4)
+        u = np.zeros((2,N-1))
 
+        #initialize matrices for LQG
+        #NEED TUNING
+        H = np.eye(4)
+        V = np.ones(4)
+        W = np.eye(4)
+        Q = np.ones(4)
+        K = np.zeros((4,4))
+        S = np.array([[42200000,0,0,0],[0,0,0,0],[0,0,4.85,0],[0,0,0,4.85360589*(10**(-5))]])
+        R_m = np.eye(2)
+        A,B = linear_dyn(r0,w0)
+        U = LQR(A,B,N,S,Q,R_m)
+        for i in range(1,N):
+            K,Pm = KF(A,H,V,W,sys_sol_lin.y[:,i-1]+np.random.normal(0,W),Pm,K,x[:,i-1])
+            #calculate control input for each time step
+            u[:,i-1] = -(np.linalg.inv(R+B.T @ (U[:,:,i-1]) @ (B))) @ (B.T) @ (U[:,:,i-1]) @ (A) @ (x[:,i-1])
+            # print(u[:,i-1])
+            #calculate state at each time step
+            x[:,i]=A @ x[:,i-1] + B @ u[:,i-1] + K @ ( sys_sol_lin.y[:,i-1] - H @ (A @ x[:,i-1] + B @ u[:,i-1]))
         # Convert to 2D cartesian coordinates centered at earth's core
         #using states from LQG
         x_sat_KF=[x[0][i]*np.cos(x[2][i]) for i in range(len(t_sim))]
         y_sat_KF=[x[0][i]*np.cos(x[2][i]) for i in range(len(t_sim))]
+<<<<<<< Updated upstream
         #x_sat_lin = [sys_sol_lin.y[0][i]*np.cos(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
+=======
+        #print(x_sat_KF)
+        #x_sat_lin = [sys_sol_lin.y[0][i]*np.cos(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
+        #print(x_sat_lin)
+>>>>>>> Stashed changes
         #y_sat_lin = [sys_sol_lin.y[0][i]*np.sin(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
         # x_sat_nl = [sys_sol_nl.y[0][i]*np.cos(sys_sol_nl.y[2][i]) for i in range(len(t_sim))]
         # y_sat_nl = [sys_sol_nl.y[0][i]*np.sin(sys_sol_nl.y[2][i]) for i in range(len(t_sim))]
