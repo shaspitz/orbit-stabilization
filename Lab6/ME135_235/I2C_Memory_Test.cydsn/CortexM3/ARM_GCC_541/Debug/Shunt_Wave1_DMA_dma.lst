@@ -1,0 +1,979 @@
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccVGlIoe.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"Shunt_Wave1_DMA_dma.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.Shunt_Wave1_DMA_DmaInitialize,"ax",%progbits
+  20              		.align	2
+  21              		.global	Shunt_Wave1_DMA_DmaInitialize
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	Shunt_Wave1_DMA_DmaInitialize, %function
+  25              	Shunt_Wave1_DMA_DmaInitialize:
+  26              	.LFB0:
+  27              		.file 1 "Generated_Source\\PSoC5\\Shunt_Wave1_DMA_dma.c"
+   1:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** /***************************************************************************
+   2:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * File Name: Shunt_Wave1_DMA_dma.c  
+   3:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * Version 1.70
+   4:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *
+   5:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *  Description:
+   6:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *   Provides an API for the DMAC component. The API includes functions
+   7:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *   for the DMA controller, DMA channels and Transfer Descriptors.
+   8:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *
+   9:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *
+  10:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *   Note:
+  11:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *     This module requires the developer to finish or fill in the auto
+  12:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *     generated funcions and setup the dma channel and TD's.
+  13:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *
+  14:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** ********************************************************************************
+  15:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * Copyright 2008-2010, Cypress Semiconductor Corporation.  All rights reserved.
+  16:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  17:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  18:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * the software package with which this file was provided.
+  19:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** ********************************************************************************/
+  20:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** #include <CYLIB.H>
+  21:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** #include <CYDMAC.H>
+  22:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** #include <Shunt_Wave1_DMA_dma.H>
+  23:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** 
+  24:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** 
+  25:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** 
+  26:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** /****************************************************************************
+  27:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * 
+  28:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * The following defines are available in Cyfitter.h
+  29:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * 
+  30:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * 
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccVGlIoe.s 			page 2
+
+
+  31:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * 
+  32:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * Shunt_Wave1_DMA__DRQ_CTL_REG
+  33:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * 
+  34:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * 
+  35:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * Shunt_Wave1_DMA__DRQ_NUMBER
+  36:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * 
+  37:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * Number of TD's used by this channel.
+  38:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * Shunt_Wave1_DMA__NUMBEROF_TDS
+  39:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * 
+  40:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * Priority of this channel.
+  41:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * Shunt_Wave1_DMA__PRIORITY
+  42:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * 
+  43:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * True if Shunt_Wave1_DMA_TERMIN_SEL is used.
+  44:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * Shunt_Wave1_DMA__TERMIN_EN
+  45:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * 
+  46:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * TERMIN interrupt line to signal terminate.
+  47:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * Shunt_Wave1_DMA__TERMIN_SEL
+  48:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * 
+  49:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * 
+  50:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * True if Shunt_Wave1_DMA_TERMOUT0_SEL is used.
+  51:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * Shunt_Wave1_DMA__TERMOUT0_EN
+  52:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * 
+  53:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * 
+  54:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * TERMOUT0 interrupt line to signal completion.
+  55:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * Shunt_Wave1_DMA__TERMOUT0_SEL
+  56:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * 
+  57:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * 
+  58:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * True if Shunt_Wave1_DMA_TERMOUT1_SEL is used.
+  59:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * Shunt_Wave1_DMA__TERMOUT1_EN
+  60:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * 
+  61:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * 
+  62:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * TERMOUT1 interrupt line to signal completion.
+  63:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * Shunt_Wave1_DMA__TERMOUT1_SEL
+  64:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * 
+  65:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** ****************************************************************************/
+  66:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** 
+  67:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** 
+  68:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** /* Zero based index of Shunt_Wave1_DMA dma channel */
+  69:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** uint8 Shunt_Wave1_DMA_DmaHandle = DMA_INVALID_CHANNEL;
+  70:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** 
+  71:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** /*********************************************************************
+  72:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * Function Name: uint8 Shunt_Wave1_DMA_DmaInitalize
+  73:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** **********************************************************************
+  74:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * Summary:
+  75:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *   Allocates and initialises a channel of the DMAC to be used by the
+  76:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *   caller.
+  77:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *
+  78:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * Parameters:
+  79:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *   BurstCount.
+  80:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *       
+  81:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *       
+  82:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *   ReqestPerBurst.
+  83:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *       
+  84:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *       
+  85:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *   UpperSrcAddress.
+  86:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *       
+  87:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *       
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccVGlIoe.s 			page 3
+
+
+  88:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *   UpperDestAddress.
+  89:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *       
+  90:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *
+  91:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * Return:
+  92:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *   The channel that can be used by the caller for DMA activity.
+  93:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *   DMA_INVALID_CHANNEL (0xFF) if there are no channels left. 
+  94:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *
+  95:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *
+  96:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *******************************************************************/
+  97:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** uint8 Shunt_Wave1_DMA_DmaInitialize(uint8 BurstCount, uint8 ReqestPerBurst, uint16 UpperSrcAddress,
+  98:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** {
+  28              		.loc 1 98 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              	.LVL0:
+  33 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+  34              		.cfi_def_cfa_offset 20
+  35              		.cfi_offset 4, -20
+  36              		.cfi_offset 5, -16
+  37              		.cfi_offset 6, -12
+  38              		.cfi_offset 7, -8
+  39              		.cfi_offset 14, -4
+  40 0002 83B0     		sub	sp, sp, #12
+  41              		.cfi_def_cfa_offset 32
+  42 0004 1646     		mov	r6, r2
+  43 0006 1F46     		mov	r7, r3
+  99:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** 
+ 100:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c ****     /* Allocate a DMA channel. */
+ 101:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c ****     Shunt_Wave1_DMA_DmaHandle = (uint8)Shunt_Wave1_DMA__DRQ_NUMBER;
+  44              		.loc 1 101 0
+  45 0008 0B4C     		ldr	r4, .L3
+  46 000a 0225     		movs	r5, #2
+  47 000c 2570     		strb	r5, [r4]
+ 102:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** 
+ 103:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c ****     /* Configure the channel. */
+ 104:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c ****     (void)CyDmaChSetConfiguration(Shunt_Wave1_DMA_DmaHandle,
+  48              		.loc 1 104 0
+  49 000e 0023     		movs	r3, #0
+  50              	.LVL1:
+  51 0010 0193     		str	r3, [sp, #4]
+  52 0012 0093     		str	r3, [sp]
+  53 0014 0A46     		mov	r2, r1
+  54              	.LVL2:
+  55 0016 0146     		mov	r1, r0
+  56              	.LVL3:
+  57 0018 2846     		mov	r0, r5
+  58              	.LVL4:
+  59 001a FFF7FEFF 		bl	CyDmaChSetConfiguration
+  60              	.LVL5:
+ 105:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c ****                                   BurstCount,
+ 106:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c ****                                   ReqestPerBurst,
+ 107:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c ****                                   (uint8)Shunt_Wave1_DMA__TERMOUT0_SEL,
+ 108:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c ****                                   (uint8)Shunt_Wave1_DMA__TERMOUT1_SEL,
+ 109:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c ****                                   (uint8)Shunt_Wave1_DMA__TERMIN_SEL);
+ 110:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** 
+ 111:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c ****     /* Set the extended address for the transfers */
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccVGlIoe.s 			page 4
+
+
+ 112:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c ****     (void)CyDmaChSetExtendedAddress(Shunt_Wave1_DMA_DmaHandle, UpperSrcAddress, UpperDestAddress);
+  61              		.loc 1 112 0
+  62 001e 3A46     		mov	r2, r7
+  63 0020 3146     		mov	r1, r6
+  64 0022 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
+  65 0024 FFF7FEFF 		bl	CyDmaChSetExtendedAddress
+  66              	.LVL6:
+ 113:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** 
+ 114:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c ****     /* Set the priority for this channel */
+ 115:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c ****     (void)CyDmaChPriority(Shunt_Wave1_DMA_DmaHandle, (uint8)Shunt_Wave1_DMA__PRIORITY);
+  67              		.loc 1 115 0
+  68 0028 2946     		mov	r1, r5
+  69 002a 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
+  70 002c FFF7FEFF 		bl	CyDmaChPriority
+  71              	.LVL7:
+ 116:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c ****     
+ 117:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c ****     return Shunt_Wave1_DMA_DmaHandle;
+ 118:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** }
+  72              		.loc 1 118 0
+  73 0030 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
+  74 0032 03B0     		add	sp, sp, #12
+  75              		.cfi_def_cfa_offset 20
+  76              		@ sp needed
+  77 0034 F0BD     		pop	{r4, r5, r6, r7, pc}
+  78              	.L4:
+  79 0036 00BF     		.align	2
+  80              	.L3:
+  81 0038 00000000 		.word	.LANCHOR0
+  82              		.cfi_endproc
+  83              	.LFE0:
+  84              		.size	Shunt_Wave1_DMA_DmaInitialize, .-Shunt_Wave1_DMA_DmaInitialize
+  85              		.section	.text.Shunt_Wave1_DMA_DmaRelease,"ax",%progbits
+  86              		.align	2
+  87              		.global	Shunt_Wave1_DMA_DmaRelease
+  88              		.thumb
+  89              		.thumb_func
+  90              		.type	Shunt_Wave1_DMA_DmaRelease, %function
+  91              	Shunt_Wave1_DMA_DmaRelease:
+  92              	.LFB1:
+ 119:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** 
+ 120:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** /*********************************************************************
+ 121:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * Function Name: void Shunt_Wave1_DMA_DmaRelease
+ 122:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** **********************************************************************
+ 123:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * Summary:
+ 124:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *   Frees the channel associated with Shunt_Wave1_DMA.
+ 125:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *
+ 126:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *
+ 127:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * Parameters:
+ 128:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *   void.
+ 129:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *
+ 130:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *
+ 131:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *
+ 132:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** * Return:
+ 133:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *   void.
+ 134:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *
+ 135:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** *******************************************************************/
+ 136:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** void Shunt_Wave1_DMA_DmaRelease(void) 
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccVGlIoe.s 			page 5
+
+
+ 137:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c **** {
+  93              		.loc 1 137 0
+  94              		.cfi_startproc
+  95              		@ args = 0, pretend = 0, frame = 0
+  96              		@ frame_needed = 0, uses_anonymous_args = 0
+  97 0000 08B5     		push	{r3, lr}
+  98              		.cfi_def_cfa_offset 8
+  99              		.cfi_offset 3, -8
+ 100              		.cfi_offset 14, -4
+ 138:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c ****     /* Disable the channel */
+ 139:Generated_Source\PSoC5/Shunt_Wave1_DMA_dma.c ****     (void)CyDmaChDisable(Shunt_Wave1_DMA_DmaHandle);
+ 101              		.loc 1 139 0
+ 102 0002 024B     		ldr	r3, .L7
+ 103 0004 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 104 0006 FFF7FEFF 		bl	CyDmaChDisable
+ 105              	.LVL8:
+ 106 000a 08BD     		pop	{r3, pc}
+ 107              	.L8:
+ 108              		.align	2
+ 109              	.L7:
+ 110 000c 00000000 		.word	.LANCHOR0
+ 111              		.cfi_endproc
+ 112              	.LFE1:
+ 113              		.size	Shunt_Wave1_DMA_DmaRelease, .-Shunt_Wave1_DMA_DmaRelease
+ 114              		.global	Shunt_Wave1_DMA_DmaHandle
+ 115              		.data
+ 116              		.set	.LANCHOR0,. + 0
+ 117              		.type	Shunt_Wave1_DMA_DmaHandle, %object
+ 118              		.size	Shunt_Wave1_DMA_DmaHandle, 1
+ 119              	Shunt_Wave1_DMA_DmaHandle:
+ 120 0000 FF       		.byte	-1
+ 121              		.text
+ 122              	.Letext0:
+ 123              		.file 2 "Generated_Source\\PSoC5/cytypes.h"
+ 124              		.file 3 "Generated_Source\\PSoC5/CYDMAC.H"
+ 125              		.section	.debug_info,"",%progbits
+ 126              	.Ldebug_info0:
+ 127 0000 A4010000 		.4byte	0x1a4
+ 128 0004 0400     		.2byte	0x4
+ 129 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 130 000a 04       		.byte	0x4
+ 131 000b 01       		.uleb128 0x1
+ 132 000c DC000000 		.4byte	.LASF24
+ 133 0010 0C       		.byte	0xc
+ 134 0011 2A020000 		.4byte	.LASF25
+ 135 0015 42000000 		.4byte	.LASF26
+ 136 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 137 001d 00000000 		.4byte	0
+ 138 0021 00000000 		.4byte	.Ldebug_line0
+ 139 0025 02       		.uleb128 0x2
+ 140 0026 04       		.byte	0x4
+ 141 0027 05       		.byte	0x5
+ 142 0028 696E7400 		.ascii	"int\000"
+ 143 002c 03       		.uleb128 0x3
+ 144 002d 04       		.byte	0x4
+ 145 002e 07       		.byte	0x7
+ 146 002f 9B010000 		.4byte	.LASF0
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccVGlIoe.s 			page 6
+
+
+ 147 0033 03       		.uleb128 0x3
+ 148 0034 08       		.byte	0x8
+ 149 0035 05       		.byte	0x5
+ 150 0036 D9010000 		.4byte	.LASF1
+ 151 003a 03       		.uleb128 0x3
+ 152 003b 08       		.byte	0x8
+ 153 003c 04       		.byte	0x4
+ 154 003d 60020000 		.4byte	.LASF2
+ 155 0041 03       		.uleb128 0x3
+ 156 0042 01       		.byte	0x1
+ 157 0043 06       		.byte	0x6
+ 158 0044 6C020000 		.4byte	.LASF3
+ 159 0048 03       		.uleb128 0x3
+ 160 0049 01       		.byte	0x1
+ 161 004a 08       		.byte	0x8
+ 162 004b CE000000 		.4byte	.LASF4
+ 163 004f 03       		.uleb128 0x3
+ 164 0050 02       		.byte	0x2
+ 165 0051 05       		.byte	0x5
+ 166 0052 20020000 		.4byte	.LASF5
+ 167 0056 03       		.uleb128 0x3
+ 168 0057 02       		.byte	0x2
+ 169 0058 07       		.byte	0x7
+ 170 0059 2F000000 		.4byte	.LASF6
+ 171 005d 03       		.uleb128 0x3
+ 172 005e 04       		.byte	0x4
+ 173 005f 05       		.byte	0x5
+ 174 0060 57020000 		.4byte	.LASF7
+ 175 0064 03       		.uleb128 0x3
+ 176 0065 04       		.byte	0x4
+ 177 0066 07       		.byte	0x7
+ 178 0067 75010000 		.4byte	.LASF8
+ 179 006b 03       		.uleb128 0x3
+ 180 006c 08       		.byte	0x8
+ 181 006d 07       		.byte	0x7
+ 182 006e A8010000 		.4byte	.LASF9
+ 183 0072 03       		.uleb128 0x3
+ 184 0073 04       		.byte	0x4
+ 185 0074 07       		.byte	0x7
+ 186 0075 D0010000 		.4byte	.LASF10
+ 187 0079 03       		.uleb128 0x3
+ 188 007a 01       		.byte	0x1
+ 189 007b 08       		.byte	0x8
+ 190 007c 01020000 		.4byte	.LASF11
+ 191 0080 04       		.uleb128 0x4
+ 192 0081 87010000 		.4byte	.LASF12
+ 193 0085 02       		.byte	0x2
+ 194 0086 E401     		.2byte	0x1e4
+ 195 0088 48000000 		.4byte	0x48
+ 196 008c 04       		.uleb128 0x4
+ 197 008d 94010000 		.4byte	.LASF13
+ 198 0091 02       		.byte	0x2
+ 199 0092 E501     		.2byte	0x1e5
+ 200 0094 56000000 		.4byte	0x56
+ 201 0098 03       		.uleb128 0x3
+ 202 0099 04       		.byte	0x4
+ 203 009a 04       		.byte	0x4
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccVGlIoe.s 			page 7
+
+
+ 204 009b C8000000 		.4byte	.LASF14
+ 205 009f 03       		.uleb128 0x3
+ 206 00a0 08       		.byte	0x8
+ 207 00a1 04       		.byte	0x4
+ 208 00a2 8D010000 		.4byte	.LASF15
+ 209 00a6 05       		.uleb128 0x5
+ 210 00a7 87020000 		.4byte	.LASF27
+ 211 00ab 01       		.byte	0x1
+ 212 00ac 61       		.byte	0x61
+ 213 00ad 80000000 		.4byte	0x80
+ 214 00b1 00000000 		.4byte	.LFB0
+ 215 00b5 3C000000 		.4byte	.LFE0-.LFB0
+ 216 00b9 01       		.uleb128 0x1
+ 217 00ba 9C       		.byte	0x9c
+ 218 00bb 4B010000 		.4byte	0x14b
+ 219 00bf 06       		.uleb128 0x6
+ 220 00c0 6A010000 		.4byte	.LASF16
+ 221 00c4 01       		.byte	0x1
+ 222 00c5 61       		.byte	0x61
+ 223 00c6 80000000 		.4byte	0x80
+ 224 00ca 00000000 		.4byte	.LLST0
+ 225 00ce 06       		.uleb128 0x6
+ 226 00cf 20000000 		.4byte	.LASF17
+ 227 00d3 01       		.byte	0x1
+ 228 00d4 61       		.byte	0x61
+ 229 00d5 80000000 		.4byte	0x80
+ 230 00d9 21000000 		.4byte	.LLST1
+ 231 00dd 06       		.uleb128 0x6
+ 232 00de 00000000 		.4byte	.LASF18
+ 233 00e2 01       		.byte	0x1
+ 234 00e3 61       		.byte	0x61
+ 235 00e4 8C000000 		.4byte	0x8c
+ 236 00e8 42000000 		.4byte	.LLST2
+ 237 00ec 06       		.uleb128 0x6
+ 238 00ed BF010000 		.4byte	.LASF19
+ 239 00f1 01       		.byte	0x1
+ 240 00f2 61       		.byte	0x61
+ 241 00f3 8C000000 		.4byte	0x8c
+ 242 00f7 63000000 		.4byte	.LLST3
+ 243 00fb 07       		.uleb128 0x7
+ 244 00fc 1E000000 		.4byte	.LVL5
+ 245 0100 7B010000 		.4byte	0x17b
+ 246 0104 20010000 		.4byte	0x120
+ 247 0108 08       		.uleb128 0x8
+ 248 0109 01       		.uleb128 0x1
+ 249 010a 50       		.byte	0x50
+ 250 010b 02       		.uleb128 0x2
+ 251 010c 75       		.byte	0x75
+ 252 010d 00       		.sleb128 0
+ 253 010e 08       		.uleb128 0x8
+ 254 010f 01       		.uleb128 0x1
+ 255 0110 53       		.byte	0x53
+ 256 0111 01       		.uleb128 0x1
+ 257 0112 30       		.byte	0x30
+ 258 0113 08       		.uleb128 0x8
+ 259 0114 02       		.uleb128 0x2
+ 260 0115 7D       		.byte	0x7d
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccVGlIoe.s 			page 8
+
+
+ 261 0116 00       		.sleb128 0
+ 262 0117 01       		.uleb128 0x1
+ 263 0118 30       		.byte	0x30
+ 264 0119 08       		.uleb128 0x8
+ 265 011a 02       		.uleb128 0x2
+ 266 011b 7D       		.byte	0x7d
+ 267 011c 04       		.sleb128 4
+ 268 011d 01       		.uleb128 0x1
+ 269 011e 30       		.byte	0x30
+ 270 011f 00       		.byte	0
+ 271 0120 07       		.uleb128 0x7
+ 272 0121 28000000 		.4byte	.LVL6
+ 273 0125 86010000 		.4byte	0x186
+ 274 0129 3A010000 		.4byte	0x13a
+ 275 012d 08       		.uleb128 0x8
+ 276 012e 01       		.uleb128 0x1
+ 277 012f 51       		.byte	0x51
+ 278 0130 02       		.uleb128 0x2
+ 279 0131 76       		.byte	0x76
+ 280 0132 00       		.sleb128 0
+ 281 0133 08       		.uleb128 0x8
+ 282 0134 01       		.uleb128 0x1
+ 283 0135 52       		.byte	0x52
+ 284 0136 02       		.uleb128 0x2
+ 285 0137 77       		.byte	0x77
+ 286 0138 00       		.sleb128 0
+ 287 0139 00       		.byte	0
+ 288 013a 09       		.uleb128 0x9
+ 289 013b 30000000 		.4byte	.LVL7
+ 290 013f 91010000 		.4byte	0x191
+ 291 0143 08       		.uleb128 0x8
+ 292 0144 01       		.uleb128 0x1
+ 293 0145 51       		.byte	0x51
+ 294 0146 02       		.uleb128 0x2
+ 295 0147 75       		.byte	0x75
+ 296 0148 00       		.sleb128 0
+ 297 0149 00       		.byte	0
+ 298 014a 00       		.byte	0
+ 299 014b 0A       		.uleb128 0xa
+ 300 014c AD000000 		.4byte	.LASF28
+ 301 0150 01       		.byte	0x1
+ 302 0151 88       		.byte	0x88
+ 303 0152 00000000 		.4byte	.LFB1
+ 304 0156 10000000 		.4byte	.LFE1-.LFB1
+ 305 015a 01       		.uleb128 0x1
+ 306 015b 9C       		.byte	0x9c
+ 307 015c 6A010000 		.4byte	0x16a
+ 308 0160 0B       		.uleb128 0xb
+ 309 0161 0A000000 		.4byte	.LVL8
+ 310 0165 9C010000 		.4byte	0x19c
+ 311 0169 00       		.byte	0
+ 312 016a 0C       		.uleb128 0xc
+ 313 016b 06020000 		.4byte	.LASF29
+ 314 016f 01       		.byte	0x1
+ 315 0170 45       		.byte	0x45
+ 316 0171 80000000 		.4byte	0x80
+ 317 0175 05       		.uleb128 0x5
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccVGlIoe.s 			page 9
+
+
+ 318 0176 03       		.byte	0x3
+ 319 0177 00000000 		.4byte	Shunt_Wave1_DMA_DmaHandle
+ 320 017b 0D       		.uleb128 0xd
+ 321 017c A5020000 		.4byte	.LASF20
+ 322 0180 A5020000 		.4byte	.LASF20
+ 323 0184 03       		.byte	0x3
+ 324 0185 33       		.byte	0x33
+ 325 0186 0D       		.uleb128 0xd
+ 326 0187 E7010000 		.4byte	.LASF21
+ 327 018b E7010000 		.4byte	.LASF21
+ 328 018f 03       		.byte	0x3
+ 329 0190 2D       		.byte	0x2d
+ 330 0191 0D       		.uleb128 0xd
+ 331 0192 10000000 		.4byte	.LASF22
+ 332 0196 10000000 		.4byte	.LASF22
+ 333 019a 03       		.byte	0x3
+ 334 019b 2C       		.byte	0x2c
+ 335 019c 0D       		.uleb128 0xd
+ 336 019d 78020000 		.4byte	.LASF23
+ 337 01a1 78020000 		.4byte	.LASF23
+ 338 01a5 03       		.byte	0x3
+ 339 01a6 2A       		.byte	0x2a
+ 340 01a7 00       		.byte	0
+ 341              		.section	.debug_abbrev,"",%progbits
+ 342              	.Ldebug_abbrev0:
+ 343 0000 01       		.uleb128 0x1
+ 344 0001 11       		.uleb128 0x11
+ 345 0002 01       		.byte	0x1
+ 346 0003 25       		.uleb128 0x25
+ 347 0004 0E       		.uleb128 0xe
+ 348 0005 13       		.uleb128 0x13
+ 349 0006 0B       		.uleb128 0xb
+ 350 0007 03       		.uleb128 0x3
+ 351 0008 0E       		.uleb128 0xe
+ 352 0009 1B       		.uleb128 0x1b
+ 353 000a 0E       		.uleb128 0xe
+ 354 000b 55       		.uleb128 0x55
+ 355 000c 17       		.uleb128 0x17
+ 356 000d 11       		.uleb128 0x11
+ 357 000e 01       		.uleb128 0x1
+ 358 000f 10       		.uleb128 0x10
+ 359 0010 17       		.uleb128 0x17
+ 360 0011 00       		.byte	0
+ 361 0012 00       		.byte	0
+ 362 0013 02       		.uleb128 0x2
+ 363 0014 24       		.uleb128 0x24
+ 364 0015 00       		.byte	0
+ 365 0016 0B       		.uleb128 0xb
+ 366 0017 0B       		.uleb128 0xb
+ 367 0018 3E       		.uleb128 0x3e
+ 368 0019 0B       		.uleb128 0xb
+ 369 001a 03       		.uleb128 0x3
+ 370 001b 08       		.uleb128 0x8
+ 371 001c 00       		.byte	0
+ 372 001d 00       		.byte	0
+ 373 001e 03       		.uleb128 0x3
+ 374 001f 24       		.uleb128 0x24
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccVGlIoe.s 			page 10
+
+
+ 375 0020 00       		.byte	0
+ 376 0021 0B       		.uleb128 0xb
+ 377 0022 0B       		.uleb128 0xb
+ 378 0023 3E       		.uleb128 0x3e
+ 379 0024 0B       		.uleb128 0xb
+ 380 0025 03       		.uleb128 0x3
+ 381 0026 0E       		.uleb128 0xe
+ 382 0027 00       		.byte	0
+ 383 0028 00       		.byte	0
+ 384 0029 04       		.uleb128 0x4
+ 385 002a 16       		.uleb128 0x16
+ 386 002b 00       		.byte	0
+ 387 002c 03       		.uleb128 0x3
+ 388 002d 0E       		.uleb128 0xe
+ 389 002e 3A       		.uleb128 0x3a
+ 390 002f 0B       		.uleb128 0xb
+ 391 0030 3B       		.uleb128 0x3b
+ 392 0031 05       		.uleb128 0x5
+ 393 0032 49       		.uleb128 0x49
+ 394 0033 13       		.uleb128 0x13
+ 395 0034 00       		.byte	0
+ 396 0035 00       		.byte	0
+ 397 0036 05       		.uleb128 0x5
+ 398 0037 2E       		.uleb128 0x2e
+ 399 0038 01       		.byte	0x1
+ 400 0039 3F       		.uleb128 0x3f
+ 401 003a 19       		.uleb128 0x19
+ 402 003b 03       		.uleb128 0x3
+ 403 003c 0E       		.uleb128 0xe
+ 404 003d 3A       		.uleb128 0x3a
+ 405 003e 0B       		.uleb128 0xb
+ 406 003f 3B       		.uleb128 0x3b
+ 407 0040 0B       		.uleb128 0xb
+ 408 0041 27       		.uleb128 0x27
+ 409 0042 19       		.uleb128 0x19
+ 410 0043 49       		.uleb128 0x49
+ 411 0044 13       		.uleb128 0x13
+ 412 0045 11       		.uleb128 0x11
+ 413 0046 01       		.uleb128 0x1
+ 414 0047 12       		.uleb128 0x12
+ 415 0048 06       		.uleb128 0x6
+ 416 0049 40       		.uleb128 0x40
+ 417 004a 18       		.uleb128 0x18
+ 418 004b 9742     		.uleb128 0x2117
+ 419 004d 19       		.uleb128 0x19
+ 420 004e 01       		.uleb128 0x1
+ 421 004f 13       		.uleb128 0x13
+ 422 0050 00       		.byte	0
+ 423 0051 00       		.byte	0
+ 424 0052 06       		.uleb128 0x6
+ 425 0053 05       		.uleb128 0x5
+ 426 0054 00       		.byte	0
+ 427 0055 03       		.uleb128 0x3
+ 428 0056 0E       		.uleb128 0xe
+ 429 0057 3A       		.uleb128 0x3a
+ 430 0058 0B       		.uleb128 0xb
+ 431 0059 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccVGlIoe.s 			page 11
+
+
+ 432 005a 0B       		.uleb128 0xb
+ 433 005b 49       		.uleb128 0x49
+ 434 005c 13       		.uleb128 0x13
+ 435 005d 02       		.uleb128 0x2
+ 436 005e 17       		.uleb128 0x17
+ 437 005f 00       		.byte	0
+ 438 0060 00       		.byte	0
+ 439 0061 07       		.uleb128 0x7
+ 440 0062 898201   		.uleb128 0x4109
+ 441 0065 01       		.byte	0x1
+ 442 0066 11       		.uleb128 0x11
+ 443 0067 01       		.uleb128 0x1
+ 444 0068 31       		.uleb128 0x31
+ 445 0069 13       		.uleb128 0x13
+ 446 006a 01       		.uleb128 0x1
+ 447 006b 13       		.uleb128 0x13
+ 448 006c 00       		.byte	0
+ 449 006d 00       		.byte	0
+ 450 006e 08       		.uleb128 0x8
+ 451 006f 8A8201   		.uleb128 0x410a
+ 452 0072 00       		.byte	0
+ 453 0073 02       		.uleb128 0x2
+ 454 0074 18       		.uleb128 0x18
+ 455 0075 9142     		.uleb128 0x2111
+ 456 0077 18       		.uleb128 0x18
+ 457 0078 00       		.byte	0
+ 458 0079 00       		.byte	0
+ 459 007a 09       		.uleb128 0x9
+ 460 007b 898201   		.uleb128 0x4109
+ 461 007e 01       		.byte	0x1
+ 462 007f 11       		.uleb128 0x11
+ 463 0080 01       		.uleb128 0x1
+ 464 0081 31       		.uleb128 0x31
+ 465 0082 13       		.uleb128 0x13
+ 466 0083 00       		.byte	0
+ 467 0084 00       		.byte	0
+ 468 0085 0A       		.uleb128 0xa
+ 469 0086 2E       		.uleb128 0x2e
+ 470 0087 01       		.byte	0x1
+ 471 0088 3F       		.uleb128 0x3f
+ 472 0089 19       		.uleb128 0x19
+ 473 008a 03       		.uleb128 0x3
+ 474 008b 0E       		.uleb128 0xe
+ 475 008c 3A       		.uleb128 0x3a
+ 476 008d 0B       		.uleb128 0xb
+ 477 008e 3B       		.uleb128 0x3b
+ 478 008f 0B       		.uleb128 0xb
+ 479 0090 27       		.uleb128 0x27
+ 480 0091 19       		.uleb128 0x19
+ 481 0092 11       		.uleb128 0x11
+ 482 0093 01       		.uleb128 0x1
+ 483 0094 12       		.uleb128 0x12
+ 484 0095 06       		.uleb128 0x6
+ 485 0096 40       		.uleb128 0x40
+ 486 0097 18       		.uleb128 0x18
+ 487 0098 9742     		.uleb128 0x2117
+ 488 009a 19       		.uleb128 0x19
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccVGlIoe.s 			page 12
+
+
+ 489 009b 01       		.uleb128 0x1
+ 490 009c 13       		.uleb128 0x13
+ 491 009d 00       		.byte	0
+ 492 009e 00       		.byte	0
+ 493 009f 0B       		.uleb128 0xb
+ 494 00a0 898201   		.uleb128 0x4109
+ 495 00a3 00       		.byte	0
+ 496 00a4 11       		.uleb128 0x11
+ 497 00a5 01       		.uleb128 0x1
+ 498 00a6 31       		.uleb128 0x31
+ 499 00a7 13       		.uleb128 0x13
+ 500 00a8 00       		.byte	0
+ 501 00a9 00       		.byte	0
+ 502 00aa 0C       		.uleb128 0xc
+ 503 00ab 34       		.uleb128 0x34
+ 504 00ac 00       		.byte	0
+ 505 00ad 03       		.uleb128 0x3
+ 506 00ae 0E       		.uleb128 0xe
+ 507 00af 3A       		.uleb128 0x3a
+ 508 00b0 0B       		.uleb128 0xb
+ 509 00b1 3B       		.uleb128 0x3b
+ 510 00b2 0B       		.uleb128 0xb
+ 511 00b3 49       		.uleb128 0x49
+ 512 00b4 13       		.uleb128 0x13
+ 513 00b5 3F       		.uleb128 0x3f
+ 514 00b6 19       		.uleb128 0x19
+ 515 00b7 02       		.uleb128 0x2
+ 516 00b8 18       		.uleb128 0x18
+ 517 00b9 00       		.byte	0
+ 518 00ba 00       		.byte	0
+ 519 00bb 0D       		.uleb128 0xd
+ 520 00bc 2E       		.uleb128 0x2e
+ 521 00bd 00       		.byte	0
+ 522 00be 3F       		.uleb128 0x3f
+ 523 00bf 19       		.uleb128 0x19
+ 524 00c0 3C       		.uleb128 0x3c
+ 525 00c1 19       		.uleb128 0x19
+ 526 00c2 6E       		.uleb128 0x6e
+ 527 00c3 0E       		.uleb128 0xe
+ 528 00c4 03       		.uleb128 0x3
+ 529 00c5 0E       		.uleb128 0xe
+ 530 00c6 3A       		.uleb128 0x3a
+ 531 00c7 0B       		.uleb128 0xb
+ 532 00c8 3B       		.uleb128 0x3b
+ 533 00c9 0B       		.uleb128 0xb
+ 534 00ca 00       		.byte	0
+ 535 00cb 00       		.byte	0
+ 536 00cc 00       		.byte	0
+ 537              		.section	.debug_loc,"",%progbits
+ 538              	.Ldebug_loc0:
+ 539              	.LLST0:
+ 540 0000 00000000 		.4byte	.LVL0
+ 541 0004 1A000000 		.4byte	.LVL4
+ 542 0008 0100     		.2byte	0x1
+ 543 000a 50       		.byte	0x50
+ 544 000b 1A000000 		.4byte	.LVL4
+ 545 000f 3C000000 		.4byte	.LFE0
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccVGlIoe.s 			page 13
+
+
+ 546 0013 0400     		.2byte	0x4
+ 547 0015 F3       		.byte	0xf3
+ 548 0016 01       		.uleb128 0x1
+ 549 0017 50       		.byte	0x50
+ 550 0018 9F       		.byte	0x9f
+ 551 0019 00000000 		.4byte	0
+ 552 001d 00000000 		.4byte	0
+ 553              	.LLST1:
+ 554 0021 00000000 		.4byte	.LVL0
+ 555 0025 18000000 		.4byte	.LVL3
+ 556 0029 0100     		.2byte	0x1
+ 557 002b 51       		.byte	0x51
+ 558 002c 18000000 		.4byte	.LVL3
+ 559 0030 3C000000 		.4byte	.LFE0
+ 560 0034 0400     		.2byte	0x4
+ 561 0036 F3       		.byte	0xf3
+ 562 0037 01       		.uleb128 0x1
+ 563 0038 51       		.byte	0x51
+ 564 0039 9F       		.byte	0x9f
+ 565 003a 00000000 		.4byte	0
+ 566 003e 00000000 		.4byte	0
+ 567              	.LLST2:
+ 568 0042 00000000 		.4byte	.LVL0
+ 569 0046 16000000 		.4byte	.LVL2
+ 570 004a 0100     		.2byte	0x1
+ 571 004c 52       		.byte	0x52
+ 572 004d 16000000 		.4byte	.LVL2
+ 573 0051 3C000000 		.4byte	.LFE0
+ 574 0055 0400     		.2byte	0x4
+ 575 0057 F3       		.byte	0xf3
+ 576 0058 01       		.uleb128 0x1
+ 577 0059 52       		.byte	0x52
+ 578 005a 9F       		.byte	0x9f
+ 579 005b 00000000 		.4byte	0
+ 580 005f 00000000 		.4byte	0
+ 581              	.LLST3:
+ 582 0063 00000000 		.4byte	.LVL0
+ 583 0067 10000000 		.4byte	.LVL1
+ 584 006b 0100     		.2byte	0x1
+ 585 006d 53       		.byte	0x53
+ 586 006e 10000000 		.4byte	.LVL1
+ 587 0072 3C000000 		.4byte	.LFE0
+ 588 0076 0400     		.2byte	0x4
+ 589 0078 F3       		.byte	0xf3
+ 590 0079 01       		.uleb128 0x1
+ 591 007a 53       		.byte	0x53
+ 592 007b 9F       		.byte	0x9f
+ 593 007c 00000000 		.4byte	0
+ 594 0080 00000000 		.4byte	0
+ 595              		.section	.debug_aranges,"",%progbits
+ 596 0000 24000000 		.4byte	0x24
+ 597 0004 0200     		.2byte	0x2
+ 598 0006 00000000 		.4byte	.Ldebug_info0
+ 599 000a 04       		.byte	0x4
+ 600 000b 00       		.byte	0
+ 601 000c 0000     		.2byte	0
+ 602 000e 0000     		.2byte	0
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccVGlIoe.s 			page 14
+
+
+ 603 0010 00000000 		.4byte	.LFB0
+ 604 0014 3C000000 		.4byte	.LFE0-.LFB0
+ 605 0018 00000000 		.4byte	.LFB1
+ 606 001c 10000000 		.4byte	.LFE1-.LFB1
+ 607 0020 00000000 		.4byte	0
+ 608 0024 00000000 		.4byte	0
+ 609              		.section	.debug_ranges,"",%progbits
+ 610              	.Ldebug_ranges0:
+ 611 0000 00000000 		.4byte	.LFB0
+ 612 0004 3C000000 		.4byte	.LFE0
+ 613 0008 00000000 		.4byte	.LFB1
+ 614 000c 10000000 		.4byte	.LFE1
+ 615 0010 00000000 		.4byte	0
+ 616 0014 00000000 		.4byte	0
+ 617              		.section	.debug_line,"",%progbits
+ 618              	.Ldebug_line0:
+ 619 0000 88000000 		.section	.debug_str,"MS",%progbits,1
+ 619      02005C00 
+ 619      00000201 
+ 619      FB0E0D00 
+ 619      01010101 
+ 620              	.LASF18:
+ 621 0000 55707065 		.ascii	"UpperSrcAddress\000"
+ 621      72537263 
+ 621      41646472 
+ 621      65737300 
+ 622              	.LASF22:
+ 623 0010 4379446D 		.ascii	"CyDmaChPriority\000"
+ 623      61436850 
+ 623      72696F72 
+ 623      69747900 
+ 624              	.LASF17:
+ 625 0020 52657165 		.ascii	"ReqestPerBurst\000"
+ 625      73745065 
+ 625      72427572 
+ 625      737400
+ 626              	.LASF6:
+ 627 002f 73686F72 		.ascii	"short unsigned int\000"
+ 627      7420756E 
+ 627      7369676E 
+ 627      65642069 
+ 627      6E7400
+ 628              	.LASF26:
+ 629 0042 433A5C55 		.ascii	"C:\\Users\\George Anwar\\Documents\\UC Berkeley\\ME"
+ 629      73657273 
+ 629      5C47656F 
+ 629      72676520 
+ 629      416E7761 
+ 630 0070 31333520 		.ascii	"135 Spring 2020\\PSOC Creator\\ME135_235\\I2C_Memor"
+ 630      53707269 
+ 630      6E672032 
+ 630      3032305C 
+ 630      50534F43 
+ 631 00a0 795F5465 		.ascii	"y_Test.cydsn\000"
+ 631      73742E63 
+ 631      7964736E 
+ 631      00
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccVGlIoe.s 			page 15
+
+
+ 632              	.LASF28:
+ 633 00ad 5368756E 		.ascii	"Shunt_Wave1_DMA_DmaRelease\000"
+ 633      745F5761 
+ 633      7665315F 
+ 633      444D415F 
+ 633      446D6152 
+ 634              	.LASF14:
+ 635 00c8 666C6F61 		.ascii	"float\000"
+ 635      7400
+ 636              	.LASF4:
+ 637 00ce 756E7369 		.ascii	"unsigned char\000"
+ 637      676E6564 
+ 637      20636861 
+ 637      7200
+ 638              	.LASF24:
+ 639 00dc 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 639      43313120 
+ 639      352E342E 
+ 639      31203230 
+ 639      31363036 
+ 640 010f 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 640      20726576 
+ 640      6973696F 
+ 640      6E203233 
+ 640      37373135 
+ 641 0142 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 641      66756E63 
+ 641      74696F6E 
+ 641      2D736563 
+ 641      74696F6E 
+ 642              	.LASF16:
+ 643 016a 42757273 		.ascii	"BurstCount\000"
+ 643      74436F75 
+ 643      6E7400
+ 644              	.LASF8:
+ 645 0175 6C6F6E67 		.ascii	"long unsigned int\000"
+ 645      20756E73 
+ 645      69676E65 
+ 645      6420696E 
+ 645      7400
+ 646              	.LASF12:
+ 647 0187 75696E74 		.ascii	"uint8\000"
+ 647      3800
+ 648              	.LASF15:
+ 649 018d 646F7562 		.ascii	"double\000"
+ 649      6C6500
+ 650              	.LASF13:
+ 651 0194 75696E74 		.ascii	"uint16\000"
+ 651      313600
+ 652              	.LASF0:
+ 653 019b 756E7369 		.ascii	"unsigned int\000"
+ 653      676E6564 
+ 653      20696E74 
+ 653      00
+ 654              	.LASF9:
+ 655 01a8 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 655      206C6F6E 
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccVGlIoe.s 			page 16
+
+
+ 655      6720756E 
+ 655      7369676E 
+ 655      65642069 
+ 656              	.LASF19:
+ 657 01bf 55707065 		.ascii	"UpperDestAddress\000"
+ 657      72446573 
+ 657      74416464 
+ 657      72657373 
+ 657      00
+ 658              	.LASF10:
+ 659 01d0 73697A65 		.ascii	"sizetype\000"
+ 659      74797065 
+ 659      00
+ 660              	.LASF1:
+ 661 01d9 6C6F6E67 		.ascii	"long long int\000"
+ 661      206C6F6E 
+ 661      6720696E 
+ 661      7400
+ 662              	.LASF21:
+ 663 01e7 4379446D 		.ascii	"CyDmaChSetExtendedAddress\000"
+ 663      61436853 
+ 663      65744578 
+ 663      74656E64 
+ 663      65644164 
+ 664              	.LASF11:
+ 665 0201 63686172 		.ascii	"char\000"
+ 665      00
+ 666              	.LASF29:
+ 667 0206 5368756E 		.ascii	"Shunt_Wave1_DMA_DmaHandle\000"
+ 667      745F5761 
+ 667      7665315F 
+ 667      444D415F 
+ 667      446D6148 
+ 668              	.LASF5:
+ 669 0220 73686F72 		.ascii	"short int\000"
+ 669      7420696E 
+ 669      7400
+ 670              	.LASF25:
+ 671 022a 47656E65 		.ascii	"Generated_Source\\PSoC5\\Shunt_Wave1_DMA_dma.c\000"
+ 671      72617465 
+ 671      645F536F 
+ 671      75726365 
+ 671      5C50536F 
+ 672              	.LASF7:
+ 673 0257 6C6F6E67 		.ascii	"long int\000"
+ 673      20696E74 
+ 673      00
+ 674              	.LASF2:
+ 675 0260 6C6F6E67 		.ascii	"long double\000"
+ 675      20646F75 
+ 675      626C6500 
+ 676              	.LASF3:
+ 677 026c 7369676E 		.ascii	"signed char\000"
+ 677      65642063 
+ 677      68617200 
+ 678              	.LASF23:
+ 679 0278 4379446D 		.ascii	"CyDmaChDisable\000"
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccVGlIoe.s 			page 17
+
+
+ 679      61436844 
+ 679      69736162 
+ 679      6C6500
+ 680              	.LASF27:
+ 681 0287 5368756E 		.ascii	"Shunt_Wave1_DMA_DmaInitialize\000"
+ 681      745F5761 
+ 681      7665315F 
+ 681      444D415F 
+ 681      446D6149 
+ 682              	.LASF20:
+ 683 02a5 4379446D 		.ascii	"CyDmaChSetConfiguration\000"
+ 683      61436853 
+ 683      6574436F 
+ 683      6E666967 
+ 683      75726174 
+ 684              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

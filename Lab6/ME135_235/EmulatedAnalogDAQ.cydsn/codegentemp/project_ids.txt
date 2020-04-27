@@ -1,0 +1,15 @@
+C:\Users\George Anwar\Documents\UC Berkeley\ME135 Spring 2020\PSOC Creator\ME135_235\CE195277_ADC_and_UART\CE195277_ADC_and_UART.cydsn\CE195277_ADC_and_UART.cyprj|18621330-c5cd-4690-a05a-a80b24b934f5
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|ffa5017a-e792-4c3c-8e4d-a4d9cbb91a04
+C:\Users\George Anwar\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|abeb031d-aaf2-4dbc-93ac-43b99805b248
+C:\Users\George Anwar\Documents\PSoC Creator\4.1\Downloads ( 4.1).cylib\Downloads ( 4.1).cyprj|cf8b1423-45ab-42d2-b3ab-e6ba7e327cd4
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|df153336-f0b0-4943-b57d-06c5cc8b94e8
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|e9068199-e558-44dd-8526-c4cf5f8a0495
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|8a834f66-5f36-496f-ac74-ee8a7f356de1
+C:\Users\George Anwar\Documents\UC Berkeley\ME135 Spring 2020\PSOC Creator\ME135_235\Variable_Declarations.cydsn\Variable_Declarations.cyprj|57618d9d-146a-418b-9a02-990fd510312e
+C:\Users\George Anwar\Documents\UC Berkeley\ME135 Spring 2020\PSOC Creator\ME135_235\TimerInterrupt.cydsn\TimerInterrupt.cyprj|a4880c95-5126-4359-a501-83c7758d5200
+C:\Users\George Anwar\Documents\UC Berkeley\ME135 Spring 2020\PSOC Creator\ME135_235\Interrupt_Priority.cydsn\Interrupt_Priority.cyprj|6ee1cd09-4134-4159-adf9-b5ff10bcfb5e
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|2a76b9a4-9be9-4829-a538-1b3db293a1ce
+C:\Users\George Anwar\Documents\UC Berkeley\ME135 Spring 2020\PSOC Creator\ME135_235\EmulatedAnalogDAQ.cydsn\EmulatedAnalogDAQ.cyprj|3596b284-edeb-4886-961b-f9b3c15ede82
+C:\Users\George Anwar\Documents\UC Berkeley\ME135 Spring 2020\PSOC Creator\ME135_235\DAQArray.cydsn\DAQArray.cyprj|16c12ecc-5cbf-466f-a01a-4e395ee6b527
+C:\Users\George Anwar\Documents\UC Berkeley\ME135 Spring 2020\PSOC Creator\ME135_235\DAQArrayInterrupt.cydsn\DAQArrayInterrupt.cyprj|66dc4a27-4569-4397-a879-075d3351f451
+C:\Users\George Anwar\Documents\UC Berkeley\ME135 Spring 2020\PSOC Creator\ME135_235\PWM.cydsn\PWM.cyprj|0b1920c4-51f1-4d3c-a653-4a144f813fba

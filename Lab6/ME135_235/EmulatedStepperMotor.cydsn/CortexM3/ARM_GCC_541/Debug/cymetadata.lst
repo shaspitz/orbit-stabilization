@@ -1,0 +1,3190 @@
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_metadata
+  20              		.global	cy_meta_flashprotect
+  21              		.global	cy_meta_wonvl
+  22              		.global	cy_meta_custnvl
+  23              		.global	cy_meta_configecc
+  24              		.section	.cyconfigecc,"a",%progbits
+  25              		.align	2
+  26              		.type	cy_meta_configecc, %object
+  27              		.size	cy_meta_configecc, 2544
+  28              	cy_meta_configecc:
+  29 0000 02       		.byte	2
+  30 0001 52       		.byte	82
+  31 0002 00       		.byte	0
+  32 0003 40       		.byte	64
+  33 0004 06       		.byte	6
+  34 0005 64       		.byte	100
+  35 0006 00       		.byte	0
+  36 0007 40       		.byte	64
+  37 0008 05       		.byte	5
+  38 0009 65       		.byte	101
+  39 000a 00       		.byte	0
+  40 000b 40       		.byte	64
+  41 000c 01       		.byte	1
+  42 000d 01       		.byte	1
+  43 000e 01       		.byte	1
+  44 000f 40       		.byte	64
+  45 0010 02       		.byte	2
+  46 0011 05       		.byte	5
+  47 0012 01       		.byte	1
+  48 0013 40       		.byte	64
+  49 0014 41       		.byte	65
+  50 0015 06       		.byte	6
+  51 0016 01       		.byte	1
+  52 0017 40       		.byte	64
+  53 0018 2E       		.byte	46
+  54 0019 07       		.byte	7
+  55 001a 01       		.byte	1
+  56 001b 40       		.byte	64
+  57 001c 17       		.byte	23
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 2
+
+
+  58 001d 08       		.byte	8
+  59 001e 01       		.byte	1
+  60 001f 40       		.byte	64
+  61 0020 34       		.byte	52
+  62 0021 09       		.byte	9
+  63 0022 01       		.byte	1
+  64 0023 40       		.byte	64
+  65 0024 40       		.byte	64
+  66 0025 0A       		.byte	10
+  67 0026 01       		.byte	1
+  68 0027 40       		.byte	64
+  69 0028 25       		.byte	37
+  70 0029 0B       		.byte	11
+  71 002a 01       		.byte	1
+  72 002b 40       		.byte	64
+  73 002c 3A       		.byte	58
+  74 002d 0C       		.byte	12
+  75 002e 01       		.byte	1
+  76 002f 40       		.byte	64
+  77 0030 1C       		.byte	28
+  78 0031 0D       		.byte	13
+  79 0032 01       		.byte	1
+  80 0033 40       		.byte	64
+  81 0034 4E       		.byte	78
+  82 0035 0E       		.byte	14
+  83 0036 01       		.byte	1
+  84 0037 40       		.byte	64
+  85 0038 29       		.byte	41
+  86 0039 0F       		.byte	15
+  87 003a 01       		.byte	1
+  88 003b 40       		.byte	64
+  89 003c 4B       		.byte	75
+  90 003d 14       		.byte	20
+  91 003e 01       		.byte	1
+  92 003f 40       		.byte	64
+  93 0040 3D       		.byte	61
+  94 0041 15       		.byte	21
+  95 0042 01       		.byte	1
+  96 0043 40       		.byte	64
+  97 0044 45       		.byte	69
+  98 0045 16       		.byte	22
+  99 0046 01       		.byte	1
+ 100 0047 40       		.byte	64
+ 101 0048 33       		.byte	51
+ 102 0049 17       		.byte	23
+ 103 004a 01       		.byte	1
+ 104 004b 40       		.byte	64
+ 105 004c 52       		.byte	82
+ 106 004d 18       		.byte	24
+ 107 004e 01       		.byte	1
+ 108 004f 40       		.byte	64
+ 109 0050 3F       		.byte	63
+ 110 0051 19       		.byte	25
+ 111 0052 01       		.byte	1
+ 112 0053 40       		.byte	64
+ 113 0054 4A       		.byte	74
+ 114 0055 1A       		.byte	26
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 3
+
+
+ 115 0056 01       		.byte	1
+ 116 0057 40       		.byte	64
+ 117 0058 46       		.byte	70
+ 118 0059 1B       		.byte	27
+ 119 005a 01       		.byte	1
+ 120 005b 40       		.byte	64
+ 121 005c 07       		.byte	7
+ 122 005d 40       		.byte	64
+ 123 005e 01       		.byte	1
+ 124 005f 40       		.byte	64
+ 125 0060 05       		.byte	5
+ 126 0061 41       		.byte	65
+ 127 0062 01       		.byte	1
+ 128 0063 40       		.byte	64
+ 129 0064 05       		.byte	5
+ 130 0065 42       		.byte	66
+ 131 0066 01       		.byte	1
+ 132 0067 40       		.byte	64
+ 133 0068 02       		.byte	2
+ 134 0069 43       		.byte	67
+ 135 006a 01       		.byte	1
+ 136 006b 40       		.byte	64
+ 137 006c 05       		.byte	5
+ 138 006d 45       		.byte	69
+ 139 006e 01       		.byte	1
+ 140 006f 40       		.byte	64
+ 141 0070 03       		.byte	3
+ 142 0071 46       		.byte	70
+ 143 0072 01       		.byte	1
+ 144 0073 40       		.byte	64
+ 145 0074 02       		.byte	2
+ 146 0075 47       		.byte	71
+ 147 0076 01       		.byte	1
+ 148 0077 40       		.byte	64
+ 149 0078 04       		.byte	4
+ 150 0079 48       		.byte	72
+ 151 007a 01       		.byte	1
+ 152 007b 40       		.byte	64
+ 153 007c 0B       		.byte	11
+ 154 007d 49       		.byte	73
+ 155 007e 01       		.byte	1
+ 156 007f 40       		.byte	64
+ 157 0080 01       		.byte	1
+ 158 0081 4C       		.byte	76
+ 159 0082 01       		.byte	1
+ 160 0083 40       		.byte	64
+ 161 0084 07       		.byte	7
+ 162 0085 4D       		.byte	77
+ 163 0086 01       		.byte	1
+ 164 0087 40       		.byte	64
+ 165 0088 07       		.byte	7
+ 166 0089 50       		.byte	80
+ 167 008a 01       		.byte	1
+ 168 008b 40       		.byte	64
+ 169 008c 01       		.byte	1
+ 170 008d 51       		.byte	81
+ 171 008e 01       		.byte	1
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 4
+
+
+ 172 008f 40       		.byte	64
+ 173 0090 01       		.byte	1
+ 174 0091 40       		.byte	64
+ 175 0092 11       		.byte	17
+ 176 0093 01       		.byte	1
+ 177 0094 76       		.byte	118
+ 178 0095 01       		.byte	1
+ 179 0096 7F       		.byte	127
+ 180 0097 01       		.byte	1
+ 181 0098 87       		.byte	-121
+ 182 0099 0F       		.byte	15
+ 183 009a 89       		.byte	-119
+ 184 009b 72       		.byte	114
+ 185 009c 8B       		.byte	-117
+ 186 009d 0D       		.byte	13
+ 187 009e 8F       		.byte	-113
+ 188 009f 67       		.byte	103
+ 189 00a0 78       		.byte	120
+ 190 00a1 01       		.byte	1
+ 191 00a2 7B       		.byte	123
+ 192 00a3 01       		.byte	1
+ 193 00a4 86       		.byte	-122
+ 194 00a5 2D       		.byte	45
+ 195 00a6 8A       		.byte	-118
+ 196 00a7 38       		.byte	56
+ 197 00a8 8B       		.byte	-117
+ 198 00a9 67       		.byte	103
+ 199 00aa E2       		.byte	-30
+ 200 00ab 08       		.byte	8
+ 201 00ac E6       		.byte	-26
+ 202 00ad 40       		.byte	64
+ 203 00ae EA       		.byte	-22
+ 204 00af 10       		.byte	16
+ 205 00b0 0D       		.byte	13
+ 206 00b1 01       		.byte	1
+ 207 00b2 1D       		.byte	29
+ 208 00b3 01       		.byte	1
+ 209 00b4 31       		.byte	49
+ 210 00b5 01       		.byte	1
+ 211 00b6 39       		.byte	57
+ 212 00b7 02       		.byte	2
+ 213 00b8 59       		.byte	89
+ 214 00b9 04       		.byte	4
+ 215 00ba 5B       		.byte	91
+ 216 00bb 04       		.byte	4
+ 217 00bc 5F       		.byte	95
+ 218 00bd 01       		.byte	1
+ 219 00be 81       		.byte	-127
+ 220 00bf 12       		.byte	18
+ 221 00c0 83       		.byte	-125
+ 222 00c1 20       		.byte	32
+ 223 00c2 84       		.byte	-124
+ 224 00c3 06       		.byte	6
+ 225 00c4 85       		.byte	-123
+ 226 00c5 3E       		.byte	62
+ 227 00c6 86       		.byte	-122
+ 228 00c7 08       		.byte	8
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 5
+
+
+ 229 00c8 88       		.byte	-120
+ 230 00c9 24       		.byte	36
+ 231 00ca 8A       		.byte	-118
+ 232 00cb 10       		.byte	16
+ 233 00cc 8B       		.byte	-117
+ 234 00cd 06       		.byte	6
+ 235 00ce 8C       		.byte	-116
+ 236 00cf 06       		.byte	6
+ 237 00d0 8D       		.byte	-115
+ 238 00d1 21       		.byte	33
+ 239 00d2 8E       		.byte	-114
+ 240 00d3 38       		.byte	56
+ 241 00d4 8F       		.byte	-113
+ 242 00d5 18       		.byte	24
+ 243 00d6 90       		.byte	-112
+ 244 00d7 01       		.byte	1
+ 245 00d8 94       		.byte	-108
+ 246 00d9 06       		.byte	6
+ 247 00da 96       		.byte	-106
+ 248 00db 10       		.byte	16
+ 249 00dc 97       		.byte	-105
+ 250 00dd 01       		.byte	1
+ 251 00de 98       		.byte	-104
+ 252 00df 40       		.byte	64
+ 253 00e0 99       		.byte	-103
+ 254 00e1 28       		.byte	40
+ 255 00e2 9C       		.byte	-100
+ 256 00e3 06       		.byte	6
+ 257 00e4 9D       		.byte	-99
+ 258 00e5 20       		.byte	32
+ 259 00e6 9E       		.byte	-98
+ 260 00e7 10       		.byte	16
+ 261 00e8 A2       		.byte	-94
+ 262 00e9 20       		.byte	32
+ 263 00ea A3       		.byte	-93
+ 264 00eb 01       		.byte	1
+ 265 00ec A5       		.byte	-91
+ 266 00ed 19       		.byte	25
+ 267 00ee A7       		.byte	-89
+ 268 00ef 22       		.byte	34
+ 269 00f0 A9       		.byte	-87
+ 270 00f1 38       		.byte	56
+ 271 00f2 AA       		.byte	-86
+ 272 00f3 12       		.byte	18
+ 273 00f4 AB       		.byte	-85
+ 274 00f5 05       		.byte	5
+ 275 00f6 B0       		.byte	-80
+ 276 00f7 3E       		.byte	62
+ 277 00f8 B2       		.byte	-78
+ 278 00f9 01       		.byte	1
+ 279 00fa B3       		.byte	-77
+ 280 00fb 3E       		.byte	62
+ 281 00fc B4       		.byte	-76
+ 282 00fd 40       		.byte	64
+ 283 00fe B7       		.byte	-73
+ 284 00ff 01       		.byte	1
+ 285 0100 BA       		.byte	-70
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 6
+
+
+ 286 0101 02       		.byte	2
+ 287 0102 BE       		.byte	-66
+ 288 0103 14       		.byte	20
+ 289 0104 BF       		.byte	-65
+ 290 0105 40       		.byte	64
+ 291 0106 C0       		.byte	-64
+ 292 0107 46       		.byte	70
+ 293 0108 C1       		.byte	-63
+ 294 0109 03       		.byte	3
+ 295 010a C5       		.byte	-59
+ 296 010b CB       		.byte	-53
+ 297 010c C6       		.byte	-58
+ 298 010d 0E       		.byte	14
+ 299 010e C8       		.byte	-56
+ 300 010f 07       		.byte	7
+ 301 0110 C9       		.byte	-55
+ 302 0111 FF       		.byte	-1
+ 303 0112 CA       		.byte	-54
+ 304 0113 FF       		.byte	-1
+ 305 0114 CB       		.byte	-53
+ 306 0115 FF       		.byte	-1
+ 307 0116 CE       		.byte	-50
+ 308 0117 F0       		.byte	-16
+ 309 0118 CF       		.byte	-49
+ 310 0119 44       		.byte	68
+ 311 011a D0       		.byte	-48
+ 312 011b 0C       		.byte	12
+ 313 011c D4       		.byte	-44
+ 314 011d 01       		.byte	1
+ 315 011e D8       		.byte	-40
+ 316 011f 04       		.byte	4
+ 317 0120 D9       		.byte	-39
+ 318 0121 04       		.byte	4
+ 319 0122 DA       		.byte	-38
+ 320 0123 04       		.byte	4
+ 321 0124 DB       		.byte	-37
+ 322 0125 04       		.byte	4
+ 323 0126 DC       		.byte	-36
+ 324 0127 44       		.byte	68
+ 325 0128 DD       		.byte	-35
+ 326 0129 44       		.byte	68
+ 327 012a DF       		.byte	-33
+ 328 012b 0D       		.byte	13
+ 329 012c E6       		.byte	-26
+ 330 012d C0       		.byte	-64
+ 331 012e EA       		.byte	-22
+ 332 012f 40       		.byte	64
+ 333 0130 EB       		.byte	-21
+ 334 0131 02       		.byte	2
+ 335 0132 00       		.byte	0
+ 336 0133 40       		.byte	64
+ 337 0134 01       		.byte	1
+ 338 0135 04       		.byte	4
+ 339 0136 03       		.byte	3
+ 340 0137 08       		.byte	8
+ 341 0138 08       		.byte	8
+ 342 0139 01       		.byte	1
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 7
+
+
+ 343 013a 09       		.byte	9
+ 344 013b 08       		.byte	8
+ 345 013c 0A       		.byte	10
+ 346 013d 08       		.byte	8
+ 347 013e 0B       		.byte	11
+ 348 013f 81       		.byte	-127
+ 349 0140 10       		.byte	16
+ 350 0141 08       		.byte	8
+ 351 0142 11       		.byte	17
+ 352 0143 01       		.byte	1
+ 353 0144 18       		.byte	24
+ 354 0145 40       		.byte	64
+ 355 0146 19       		.byte	25
+ 356 0147 04       		.byte	4
+ 357 0148 1B       		.byte	27
+ 358 0149 20       		.byte	32
+ 359 014a 20       		.byte	32
+ 360 014b 10       		.byte	16
+ 361 014c 22       		.byte	34
+ 362 014d 44       		.byte	68
+ 363 014e 27       		.byte	39
+ 364 014f 80       		.byte	-128
+ 365 0150 28       		.byte	40
+ 366 0151 20       		.byte	32
+ 367 0152 29       		.byte	41
+ 368 0153 01       		.byte	1
+ 369 0154 2B       		.byte	43
+ 370 0155 08       		.byte	8
+ 371 0156 30       		.byte	48
+ 372 0157 A8       		.byte	-88
+ 373 0158 37       		.byte	55
+ 374 0159 80       		.byte	-128
+ 375 015a 38       		.byte	56
+ 376 015b 50       		.byte	80
+ 377 015c 39       		.byte	57
+ 378 015d 0B       		.byte	11
+ 379 015e 3D       		.byte	61
+ 380 015f 80       		.byte	-128
+ 381 0160 40       		.byte	64
+ 382 0161 60       		.byte	96
+ 383 0162 41       		.byte	65
+ 384 0163 08       		.byte	8
+ 385 0164 48       		.byte	72
+ 386 0165 28       		.byte	40
+ 387 0166 49       		.byte	73
+ 388 0167 01       		.byte	1
+ 389 0168 4B       		.byte	75
+ 390 0169 01       		.byte	1
+ 391 016a 53       		.byte	83
+ 392 016b 40       		.byte	64
+ 393 016c 58       		.byte	88
+ 394 016d 01       		.byte	1
+ 395 016e 59       		.byte	89
+ 396 016f 04       		.byte	4
+ 397 0170 5A       		.byte	90
+ 398 0171 80       		.byte	-128
+ 399 0172 5B       		.byte	91
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 8
+
+
+ 400 0173 10       		.byte	16
+ 401 0174 6D       		.byte	109
+ 402 0175 80       		.byte	-128
+ 403 0176 79       		.byte	121
+ 404 0177 0C       		.byte	12
+ 405 0178 8F       		.byte	-113
+ 406 0179 20       		.byte	32
+ 407 017a C0       		.byte	-64
+ 408 017b 07       		.byte	7
+ 409 017c C2       		.byte	-62
+ 410 017d 0F       		.byte	15
+ 411 017e C4       		.byte	-60
+ 412 017f 0A       		.byte	10
+ 413 0180 CA       		.byte	-54
+ 414 0181 07       		.byte	7
+ 415 0182 CC       		.byte	-52
+ 416 0183 1E       		.byte	30
+ 417 0184 CE       		.byte	-50
+ 418 0185 1F       		.byte	31
+ 419 0186 D0       		.byte	-48
+ 420 0187 03       		.byte	3
+ 421 0188 D2       		.byte	-46
+ 422 0189 04       		.byte	4
+ 423 018a D6       		.byte	-42
+ 424 018b 0F       		.byte	15
+ 425 018c DE       		.byte	-34
+ 426 018d 02       		.byte	2
+ 427 018e 38       		.byte	56
+ 428 018f 02       		.byte	2
+ 429 0190 3E       		.byte	62
+ 430 0191 01       		.byte	1
+ 431 0192 40       		.byte	64
+ 432 0193 45       		.byte	69
+ 433 0194 49       		.byte	73
+ 434 0195 FF       		.byte	-1
+ 435 0196 4A       		.byte	74
+ 436 0197 FF       		.byte	-1
+ 437 0198 4B       		.byte	75
+ 438 0199 FF       		.byte	-1
+ 439 019a 4F       		.byte	79
+ 440 019b 01       		.byte	1
+ 441 019c 50       		.byte	80
+ 442 019d 18       		.byte	24
+ 443 019e 52       		.byte	82
+ 444 019f 80       		.byte	-128
+ 445 01a0 58       		.byte	88
+ 446 01a1 04       		.byte	4
+ 447 01a2 5A       		.byte	90
+ 448 01a3 04       		.byte	4
+ 449 01a4 5B       		.byte	91
+ 450 01a5 04       		.byte	4
+ 451 01a6 5D       		.byte	93
+ 452 01a7 13       		.byte	19
+ 453 01a8 5F       		.byte	95
+ 454 01a9 01       		.byte	1
+ 455 01aa 60       		.byte	96
+ 456 01ab 40       		.byte	64
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 9
+
+
+ 457 01ac 62       		.byte	98
+ 458 01ad 40       		.byte	64
+ 459 01ae 64       		.byte	100
+ 460 01af 40       		.byte	64
+ 461 01b0 65       		.byte	101
+ 462 01b1 40       		.byte	64
+ 463 01b2 66       		.byte	102
+ 464 01b3 80       		.byte	-128
+ 465 01b4 68       		.byte	104
+ 466 01b5 80       		.byte	-128
+ 467 01b6 6A       		.byte	106
+ 468 01b7 80       		.byte	-128
+ 469 01b8 6C       		.byte	108
+ 470 01b9 80       		.byte	-128
+ 471 01ba 6E       		.byte	110
+ 472 01bb 80       		.byte	-128
+ 473 01bc 00       		.byte	0
+ 474 01bd 20       		.byte	32
+ 475 01be 01       		.byte	1
+ 476 01bf 08       		.byte	8
+ 477 01c0 03       		.byte	3
+ 478 01c1 02       		.byte	2
+ 479 01c2 08       		.byte	8
+ 480 01c3 80       		.byte	-128
+ 481 01c4 0A       		.byte	10
+ 482 01c5 A0       		.byte	-96
+ 483 01c6 0B       		.byte	11
+ 484 01c7 08       		.byte	8
+ 485 01c8 10       		.byte	16
+ 486 01c9 A0       		.byte	-96
+ 487 01ca 11       		.byte	17
+ 488 01cb 40       		.byte	64
+ 489 01cc 12       		.byte	18
+ 490 01cd 08       		.byte	8
+ 491 01ce 19       		.byte	25
+ 492 01cf 0C       		.byte	12
+ 493 01d0 1D       		.byte	29
+ 494 01d1 02       		.byte	2
+ 495 01d2 21       		.byte	33
+ 496 01d3 40       		.byte	64
+ 497 01d4 22       		.byte	34
+ 498 01d5 74       		.byte	116
+ 499 01d6 28       		.byte	40
+ 500 01d7 06       		.byte	6
+ 501 01d8 29       		.byte	41
+ 502 01d9 04       		.byte	4
+ 503 01da 2A       		.byte	42
+ 504 01db 02       		.byte	2
+ 505 01dc 2C       		.byte	44
+ 506 01dd 04       		.byte	4
+ 507 01de 2D       		.byte	45
+ 508 01df 10       		.byte	16
+ 509 01e0 30       		.byte	48
+ 510 01e1 22       		.byte	34
+ 511 01e2 32       		.byte	50
+ 512 01e3 48       		.byte	72
+ 513 01e4 38       		.byte	56
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 10
+
+
+ 514 01e5 40       		.byte	64
+ 515 01e6 39       		.byte	57
+ 516 01e7 45       		.byte	69
+ 517 01e8 3A       		.byte	58
+ 518 01e9 20       		.byte	32
+ 519 01ea 43       		.byte	67
+ 520 01eb 01       		.byte	1
+ 521 01ec 47       		.byte	71
+ 522 01ed 01       		.byte	1
+ 523 01ee 49       		.byte	73
+ 524 01ef 80       		.byte	-128
+ 525 01f0 4D       		.byte	77
+ 526 01f1 80       		.byte	-128
+ 527 01f2 4F       		.byte	79
+ 528 01f3 80       		.byte	-128
+ 529 01f4 5A       		.byte	90
+ 530 01f5 08       		.byte	8
+ 531 01f6 68       		.byte	104
+ 532 01f7 02       		.byte	2
+ 533 01f8 69       		.byte	105
+ 534 01f9 14       		.byte	20
+ 535 01fa 70       		.byte	112
+ 536 01fb A4       		.byte	-92
+ 537 01fc 72       		.byte	114
+ 538 01fd 22       		.byte	34
+ 539 01fe 76       		.byte	118
+ 540 01ff 40       		.byte	64
+ 541 0200 7B       		.byte	123
+ 542 0201 02       		.byte	2
+ 543 0202 90       		.byte	-112
+ 544 0203 40       		.byte	64
+ 545 0204 95       		.byte	-107
+ 546 0205 01       		.byte	1
+ 547 0206 9B       		.byte	-101
+ 548 0207 01       		.byte	1
+ 549 0208 9D       		.byte	-99
+ 550 0209 01       		.byte	1
+ 551 020a A3       		.byte	-93
+ 552 020b 40       		.byte	64
+ 553 020c A5       		.byte	-91
+ 554 020d 02       		.byte	2
+ 555 020e C0       		.byte	-64
+ 556 020f 07       		.byte	7
+ 557 0210 C2       		.byte	-62
+ 558 0211 0F       		.byte	15
+ 559 0212 C4       		.byte	-60
+ 560 0213 0F       		.byte	15
+ 561 0214 CA       		.byte	-54
+ 562 0215 0F       		.byte	15
+ 563 0216 CC       		.byte	-52
+ 564 0217 0F       		.byte	15
+ 565 0218 CE       		.byte	-50
+ 566 0219 0F       		.byte	15
+ 567 021a D0       		.byte	-48
+ 568 021b 81       		.byte	-127
+ 569 021c D2       		.byte	-46
+ 570 021d 18       		.byte	24
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 11
+
+
+ 571 021e D6       		.byte	-42
+ 572 021f 02       		.byte	2
+ 573 0220 DE       		.byte	-34
+ 574 0221 08       		.byte	8
+ 575 0222 E0       		.byte	-32
+ 576 0223 40       		.byte	64
+ 577 0224 01       		.byte	1
+ 578 0225 01       		.byte	1
+ 579 0226 0F       		.byte	15
+ 580 0227 01       		.byte	1
+ 581 0228 31       		.byte	49
+ 582 0229 01       		.byte	1
+ 583 022a 40       		.byte	64
+ 584 022b 41       		.byte	65
+ 585 022c 49       		.byte	73
+ 586 022d FF       		.byte	-1
+ 587 022e 4A       		.byte	74
+ 588 022f FF       		.byte	-1
+ 589 0230 4B       		.byte	75
+ 590 0231 FF       		.byte	-1
+ 591 0232 4D       		.byte	77
+ 592 0233 83       		.byte	-125
+ 593 0234 4E       		.byte	78
+ 594 0235 03       		.byte	3
+ 595 0236 4F       		.byte	79
+ 596 0237 01       		.byte	1
+ 597 0238 50       		.byte	80
+ 598 0239 18       		.byte	24
+ 599 023a 59       		.byte	89
+ 600 023b 04       		.byte	4
+ 601 023c 5A       		.byte	90
+ 602 023d 04       		.byte	4
+ 603 023e 5B       		.byte	91
+ 604 023f 04       		.byte	4
+ 605 0240 5C       		.byte	92
+ 606 0241 40       		.byte	64
+ 607 0242 5D       		.byte	93
+ 608 0243 03       		.byte	3
+ 609 0244 5F       		.byte	95
+ 610 0245 01       		.byte	1
+ 611 0246 60       		.byte	96
+ 612 0247 40       		.byte	64
+ 613 0248 62       		.byte	98
+ 614 0249 40       		.byte	64
+ 615 024a 64       		.byte	100
+ 616 024b 40       		.byte	64
+ 617 024c 65       		.byte	101
+ 618 024d 40       		.byte	64
+ 619 024e 66       		.byte	102
+ 620 024f 80       		.byte	-128
+ 621 0250 68       		.byte	104
+ 622 0251 80       		.byte	-128
+ 623 0252 6A       		.byte	106
+ 624 0253 80       		.byte	-128
+ 625 0254 6C       		.byte	108
+ 626 0255 80       		.byte	-128
+ 627 0256 6E       		.byte	110
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 12
+
+
+ 628 0257 80       		.byte	-128
+ 629 0258 8E       		.byte	-114
+ 630 0259 01       		.byte	1
+ 631 025a 8F       		.byte	-113
+ 632 025b 01       		.byte	1
+ 633 025c 93       		.byte	-109
+ 634 025d 01       		.byte	1
+ 635 025e 96       		.byte	-106
+ 636 025f 02       		.byte	2
+ 637 0260 9E       		.byte	-98
+ 638 0261 01       		.byte	1
+ 639 0262 A0       		.byte	-96
+ 640 0263 02       		.byte	2
+ 641 0264 B1       		.byte	-79
+ 642 0265 01       		.byte	1
+ 643 0266 B2       		.byte	-78
+ 644 0267 02       		.byte	2
+ 645 0268 B6       		.byte	-74
+ 646 0269 01       		.byte	1
+ 647 026a BE       		.byte	-66
+ 648 026b 40       		.byte	64
+ 649 026c C0       		.byte	-64
+ 650 026d 45       		.byte	69
+ 651 026e C5       		.byte	-59
+ 652 026f EC       		.byte	-20
+ 653 0270 C6       		.byte	-58
+ 654 0271 02       		.byte	2
+ 655 0272 C8       		.byte	-56
+ 656 0273 07       		.byte	7
+ 657 0274 C9       		.byte	-55
+ 658 0275 FF       		.byte	-1
+ 659 0276 CA       		.byte	-54
+ 660 0277 FF       		.byte	-1
+ 661 0278 CB       		.byte	-53
+ 662 0279 FF       		.byte	-1
+ 663 027a CD       		.byte	-51
+ 664 027b 83       		.byte	-125
+ 665 027c CE       		.byte	-50
+ 666 027d 03       		.byte	3
+ 667 027e CF       		.byte	-49
+ 668 027f 01       		.byte	1
+ 669 0280 D0       		.byte	-48
+ 670 0281 18       		.byte	24
+ 671 0282 D4       		.byte	-44
+ 672 0283 01       		.byte	1
+ 673 0284 D8       		.byte	-40
+ 674 0285 04       		.byte	4
+ 675 0286 D9       		.byte	-39
+ 676 0287 04       		.byte	4
+ 677 0288 DA       		.byte	-38
+ 678 0289 04       		.byte	4
+ 679 028a DB       		.byte	-37
+ 680 028b 04       		.byte	4
+ 681 028c DC       		.byte	-36
+ 682 028d 34       		.byte	52
+ 683 028e DD       		.byte	-35
+ 684 028f 33       		.byte	51
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 13
+
+
+ 685 0290 DF       		.byte	-33
+ 686 0291 01       		.byte	1
+ 687 0292 E0       		.byte	-32
+ 688 0293 40       		.byte	64
+ 689 0294 E2       		.byte	-30
+ 690 0295 40       		.byte	64
+ 691 0296 E4       		.byte	-28
+ 692 0297 40       		.byte	64
+ 693 0298 E5       		.byte	-27
+ 694 0299 40       		.byte	64
+ 695 029a E6       		.byte	-26
+ 696 029b 80       		.byte	-128
+ 697 029c E8       		.byte	-24
+ 698 029d 80       		.byte	-128
+ 699 029e EA       		.byte	-22
+ 700 029f 80       		.byte	-128
+ 701 02a0 EC       		.byte	-20
+ 702 02a1 80       		.byte	-128
+ 703 02a2 EE       		.byte	-18
+ 704 02a3 80       		.byte	-128
+ 705 02a4 07       		.byte	7
+ 706 02a5 01       		.byte	1
+ 707 02a6 0C       		.byte	12
+ 708 02a7 80       		.byte	-128
+ 709 02a8 0E       		.byte	14
+ 710 02a9 10       		.byte	16
+ 711 02aa 15       		.byte	21
+ 712 02ab 01       		.byte	1
+ 713 02ac 1E       		.byte	30
+ 714 02ad 10       		.byte	16
+ 715 02ae 1F       		.byte	31
+ 716 02af 40       		.byte	64
+ 717 02b0 20       		.byte	32
+ 718 02b1 40       		.byte	64
+ 719 02b2 27       		.byte	39
+ 720 02b3 40       		.byte	64
+ 721 02b4 37       		.byte	55
+ 722 02b5 01       		.byte	1
+ 723 02b6 38       		.byte	56
+ 724 02b7 40       		.byte	64
+ 725 02b8 39       		.byte	57
+ 726 02b9 01       		.byte	1
+ 727 02ba 3F       		.byte	63
+ 728 02bb 80       		.byte	-128
+ 729 02bc 43       		.byte	67
+ 730 02bd 81       		.byte	-127
+ 731 02be 47       		.byte	71
+ 732 02bf 01       		.byte	1
+ 733 02c0 4B       		.byte	75
+ 734 02c1 C0       		.byte	-64
+ 735 02c2 4D       		.byte	77
+ 736 02c3 04       		.byte	4
+ 737 02c4 4F       		.byte	79
+ 738 02c5 81       		.byte	-127
+ 739 02c6 54       		.byte	84
+ 740 02c7 80       		.byte	-128
+ 741 02c8 57       		.byte	87
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 14
+
+
+ 742 02c9 C0       		.byte	-64
+ 743 02ca 5D       		.byte	93
+ 744 02cb 04       		.byte	4
+ 745 02cc 5F       		.byte	95
+ 746 02cd 41       		.byte	65
+ 747 02ce 69       		.byte	105
+ 748 02cf 80       		.byte	-128
+ 749 02d0 8D       		.byte	-115
+ 750 02d1 41       		.byte	65
+ 751 02d2 9B       		.byte	-101
+ 752 02d3 01       		.byte	1
+ 753 02d4 9F       		.byte	-97
+ 754 02d5 40       		.byte	64
+ 755 02d6 A5       		.byte	-91
+ 756 02d7 02       		.byte	2
+ 757 02d8 B7       		.byte	-73
+ 758 02d9 40       		.byte	64
+ 759 02da C0       		.byte	-64
+ 760 02db 80       		.byte	-128
+ 761 02dc C2       		.byte	-62
+ 762 02dd A0       		.byte	-96
+ 763 02de C4       		.byte	-60
+ 764 02df 10       		.byte	16
+ 765 02e0 CC       		.byte	-52
+ 766 02e1 80       		.byte	-128
+ 767 02e2 CE       		.byte	-50
+ 768 02e3 19       		.byte	25
+ 769 02e4 D0       		.byte	-48
+ 770 02e5 89       		.byte	-119
+ 771 02e6 D2       		.byte	-46
+ 772 02e7 10       		.byte	16
+ 773 02e8 D6       		.byte	-42
+ 774 02e9 D0       		.byte	-48
+ 775 02ea E6       		.byte	-26
+ 776 02eb 40       		.byte	64
+ 777 02ec EA       		.byte	-22
+ 778 02ed 10       		.byte	16
+ 779 02ee 0F       		.byte	15
+ 780 02ef 01       		.byte	1
+ 781 02f0 12       		.byte	18
+ 782 02f1 01       		.byte	1
+ 783 02f2 2C       		.byte	44
+ 784 02f3 01       		.byte	1
+ 785 02f4 31       		.byte	49
+ 786 02f5 01       		.byte	1
+ 787 02f6 34       		.byte	52
+ 788 02f7 01       		.byte	1
+ 789 02f8 3E       		.byte	62
+ 790 02f9 10       		.byte	16
+ 791 02fa 40       		.byte	64
+ 792 02fb 53       		.byte	83
+ 793 02fc 41       		.byte	65
+ 794 02fd 04       		.byte	4
+ 795 02fe 49       		.byte	73
+ 796 02ff FF       		.byte	-1
+ 797 0300 4A       		.byte	74
+ 798 0301 FF       		.byte	-1
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 15
+
+
+ 799 0302 4B       		.byte	75
+ 800 0303 FF       		.byte	-1
+ 801 0304 4D       		.byte	77
+ 802 0305 A0       		.byte	-96
+ 803 0306 4F       		.byte	79
+ 804 0307 01       		.byte	1
+ 805 0308 50       		.byte	80
+ 806 0309 18       		.byte	24
+ 807 030a 58       		.byte	88
+ 808 030b 04       		.byte	4
+ 809 030c 59       		.byte	89
+ 810 030d 04       		.byte	4
+ 811 030e 5A       		.byte	90
+ 812 030f 04       		.byte	4
+ 813 0310 5B       		.byte	91
+ 814 0311 04       		.byte	4
+ 815 0312 5C       		.byte	92
+ 816 0313 20       		.byte	32
+ 817 0314 5D       		.byte	93
+ 818 0315 02       		.byte	2
+ 819 0316 5F       		.byte	95
+ 820 0317 01       		.byte	1
+ 821 0318 60       		.byte	96
+ 822 0319 40       		.byte	64
+ 823 031a 62       		.byte	98
+ 824 031b 80       		.byte	-128
+ 825 031c 64       		.byte	100
+ 826 031d 40       		.byte	64
+ 827 031e 65       		.byte	101
+ 828 031f 40       		.byte	64
+ 829 0320 66       		.byte	102
+ 830 0321 80       		.byte	-128
+ 831 0322 68       		.byte	104
+ 832 0323 40       		.byte	64
+ 833 0324 6A       		.byte	106
+ 834 0325 50       		.byte	80
+ 835 0326 6B       		.byte	107
+ 836 0327 A8       		.byte	-88
+ 837 0328 6C       		.byte	108
+ 838 0329 40       		.byte	64
+ 839 032a 6D       		.byte	109
+ 840 032b 20       		.byte	32
+ 841 032c 6E       		.byte	110
+ 842 032d 50       		.byte	80
+ 843 032e 6F       		.byte	111
+ 844 032f A8       		.byte	-88
+ 845 0330 C0       		.byte	-64
+ 846 0331 52       		.byte	82
+ 847 0332 C1       		.byte	-63
+ 848 0333 04       		.byte	4
+ 849 0334 C9       		.byte	-55
+ 850 0335 FF       		.byte	-1
+ 851 0336 CA       		.byte	-54
+ 852 0337 FF       		.byte	-1
+ 853 0338 CB       		.byte	-53
+ 854 0339 FF       		.byte	-1
+ 855 033a CD       		.byte	-51
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 16
+
+
+ 856 033b AF       		.byte	-81
+ 857 033c CE       		.byte	-50
+ 858 033d 07       		.byte	7
+ 859 033e CF       		.byte	-49
+ 860 033f 01       		.byte	1
+ 861 0340 D0       		.byte	-48
+ 862 0341 18       		.byte	24
+ 863 0342 DA       		.byte	-38
+ 864 0343 04       		.byte	4
+ 865 0344 DB       		.byte	-37
+ 866 0345 04       		.byte	4
+ 867 0346 DD       		.byte	-35
+ 868 0347 02       		.byte	2
+ 869 0348 DF       		.byte	-33
+ 870 0349 01       		.byte	1
+ 871 034a E0       		.byte	-32
+ 872 034b 40       		.byte	64
+ 873 034c E2       		.byte	-30
+ 874 034d 80       		.byte	-128
+ 875 034e E4       		.byte	-28
+ 876 034f 40       		.byte	64
+ 877 0350 E5       		.byte	-27
+ 878 0351 40       		.byte	64
+ 879 0352 E6       		.byte	-26
+ 880 0353 80       		.byte	-128
+ 881 0354 E8       		.byte	-24
+ 882 0355 40       		.byte	64
+ 883 0356 EA       		.byte	-22
+ 884 0357 50       		.byte	80
+ 885 0358 EB       		.byte	-21
+ 886 0359 A8       		.byte	-88
+ 887 035a EC       		.byte	-20
+ 888 035b 40       		.byte	64
+ 889 035c ED       		.byte	-19
+ 890 035d 20       		.byte	32
+ 891 035e EE       		.byte	-18
+ 892 035f 50       		.byte	80
+ 893 0360 EF       		.byte	-17
+ 894 0361 A8       		.byte	-88
+ 895 0362 0F       		.byte	15
+ 896 0363 80       		.byte	-128
+ 897 0364 17       		.byte	23
+ 898 0365 80       		.byte	-128
+ 899 0366 1E       		.byte	30
+ 900 0367 04       		.byte	4
+ 901 0368 27       		.byte	39
+ 902 0369 80       		.byte	-128
+ 903 036a 3F       		.byte	63
+ 904 036b 80       		.byte	-128
+ 905 036c 40       		.byte	64
+ 906 036d 04       		.byte	4
+ 907 036e 41       		.byte	65
+ 908 036f 02       		.byte	2
+ 909 0370 45       		.byte	69
+ 910 0371 02       		.byte	2
+ 911 0372 47       		.byte	71
+ 912 0373 08       		.byte	8
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 17
+
+
+ 913 0374 49       		.byte	73
+ 914 0375 40       		.byte	64
+ 915 0376 4E       		.byte	78
+ 916 0377 01       		.byte	1
+ 917 0378 68       		.byte	104
+ 918 0379 01       		.byte	1
+ 919 037a 6E       		.byte	110
+ 920 037b 40       		.byte	64
+ 921 037c 6F       		.byte	111
+ 922 037d 01       		.byte	1
+ 923 037e 88       		.byte	-120
+ 924 037f 01       		.byte	1
+ 925 0380 90       		.byte	-112
+ 926 0381 04       		.byte	4
+ 927 0382 92       		.byte	-110
+ 928 0383 02       		.byte	2
+ 929 0384 96       		.byte	-106
+ 930 0385 44       		.byte	68
+ 931 0386 99       		.byte	-103
+ 932 0387 40       		.byte	64
+ 933 0388 9B       		.byte	-101
+ 934 0389 08       		.byte	8
+ 935 038a 9F       		.byte	-97
+ 936 038b 40       		.byte	64
+ 937 038c A3       		.byte	-93
+ 938 038d 40       		.byte	64
+ 939 038e A5       		.byte	-91
+ 940 038f 02       		.byte	2
+ 941 0390 C2       		.byte	-62
+ 942 0391 10       		.byte	16
+ 943 0392 C4       		.byte	-60
+ 944 0393 80       		.byte	-128
+ 945 0394 CE       		.byte	-50
+ 946 0395 10       		.byte	16
+ 947 0396 D0       		.byte	-48
+ 948 0397 C5       		.byte	-59
+ 949 0398 D2       		.byte	-46
+ 950 0399 18       		.byte	24
+ 951 039a 02       		.byte	2
+ 952 039b 01       		.byte	1
+ 953 039c 12       		.byte	18
+ 954 039d 01       		.byte	1
+ 955 039e 18       		.byte	24
+ 956 039f 01       		.byte	1
+ 957 03a0 1F       		.byte	31
+ 958 03a1 01       		.byte	1
+ 959 03a2 35       		.byte	53
+ 960 03a3 01       		.byte	1
+ 961 03a4 36       		.byte	54
+ 962 03a5 01       		.byte	1
+ 963 03a6 3E       		.byte	62
+ 964 03a7 40       		.byte	64
+ 965 03a8 40       		.byte	64
+ 966 03a9 52       		.byte	82
+ 967 03aa 41       		.byte	65
+ 968 03ab 04       		.byte	4
+ 969 03ac 49       		.byte	73
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 18
+
+
+ 970 03ad FF       		.byte	-1
+ 971 03ae 4A       		.byte	74
+ 972 03af FF       		.byte	-1
+ 973 03b0 4B       		.byte	75
+ 974 03b1 FF       		.byte	-1
+ 975 03b2 4D       		.byte	77
+ 976 03b3 AF       		.byte	-81
+ 977 03b4 4E       		.byte	78
+ 978 03b5 07       		.byte	7
+ 979 03b6 4F       		.byte	79
+ 980 03b7 01       		.byte	1
+ 981 03b8 50       		.byte	80
+ 982 03b9 18       		.byte	24
+ 983 03ba 58       		.byte	88
+ 984 03bb 04       		.byte	4
+ 985 03bc 59       		.byte	89
+ 986 03bd 04       		.byte	4
+ 987 03be 5A       		.byte	90
+ 988 03bf 04       		.byte	4
+ 989 03c0 5C       		.byte	92
+ 990 03c1 20       		.byte	32
+ 991 03c2 5D       		.byte	93
+ 992 03c3 02       		.byte	2
+ 993 03c4 5F       		.byte	95
+ 994 03c5 01       		.byte	1
+ 995 03c6 60       		.byte	96
+ 996 03c7 40       		.byte	64
+ 997 03c8 62       		.byte	98
+ 998 03c9 80       		.byte	-128
+ 999 03ca 64       		.byte	100
+ 1000 03cb 40       		.byte	64
+ 1001 03cc 65       		.byte	101
+ 1002 03cd 40       		.byte	64
+ 1003 03ce 66       		.byte	102
+ 1004 03cf 80       		.byte	-128
+ 1005 03d0 68       		.byte	104
+ 1006 03d1 40       		.byte	64
+ 1007 03d2 6A       		.byte	106
+ 1008 03d3 50       		.byte	80
+ 1009 03d4 6B       		.byte	107
+ 1010 03d5 A8       		.byte	-88
+ 1011 03d6 6C       		.byte	108
+ 1012 03d7 40       		.byte	64
+ 1013 03d8 6D       		.byte	109
+ 1014 03d9 20       		.byte	32
+ 1015 03da 6E       		.byte	110
+ 1016 03db 50       		.byte	80
+ 1017 03dc 6F       		.byte	111
+ 1018 03dd A8       		.byte	-88
+ 1019 03de 91       		.byte	-111
+ 1020 03df 01       		.byte	1
+ 1021 03e0 9C       		.byte	-100
+ 1022 03e1 01       		.byte	1
+ 1023 03e2 A1       		.byte	-95
+ 1024 03e3 01       		.byte	1
+ 1025 03e4 AE       		.byte	-82
+ 1026 03e5 03       		.byte	3
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 19
+
+
+ 1027 03e6 B0       		.byte	-80
+ 1028 03e7 01       		.byte	1
+ 1029 03e8 B5       		.byte	-75
+ 1030 03e9 01       		.byte	1
+ 1031 03ea B6       		.byte	-74
+ 1032 03eb 02       		.byte	2
+ 1033 03ec B9       		.byte	-71
+ 1034 03ed 20       		.byte	32
+ 1035 03ee BE       		.byte	-66
+ 1036 03ef 01       		.byte	1
+ 1037 03f0 BF       		.byte	-65
+ 1038 03f1 10       		.byte	16
+ 1039 03f2 C0       		.byte	-64
+ 1040 03f3 53       		.byte	83
+ 1041 03f4 C1       		.byte	-63
+ 1042 03f5 04       		.byte	4
+ 1043 03f6 C5       		.byte	-59
+ 1044 03f7 0C       		.byte	12
+ 1045 03f8 C6       		.byte	-58
+ 1046 03f9 20       		.byte	32
+ 1047 03fa C7       		.byte	-57
+ 1048 03fb 4E       		.byte	78
+ 1049 03fc C8       		.byte	-56
+ 1050 03fd 3D       		.byte	61
+ 1051 03fe C9       		.byte	-55
+ 1052 03ff FF       		.byte	-1
+ 1053 0400 CA       		.byte	-54
+ 1054 0401 FF       		.byte	-1
+ 1055 0402 CB       		.byte	-53
+ 1056 0403 FF       		.byte	-1
+ 1057 0404 CD       		.byte	-51
+ 1058 0405 AF       		.byte	-81
+ 1059 0406 CE       		.byte	-50
+ 1060 0407 07       		.byte	7
+ 1061 0408 CF       		.byte	-49
+ 1062 0409 01       		.byte	1
+ 1063 040a D0       		.byte	-48
+ 1064 040b 18       		.byte	24
+ 1065 040c D4       		.byte	-44
+ 1066 040d 07       		.byte	7
+ 1067 040e D6       		.byte	-42
+ 1068 040f 04       		.byte	4
+ 1069 0410 D8       		.byte	-40
+ 1070 0411 04       		.byte	4
+ 1071 0412 D9       		.byte	-39
+ 1072 0413 04       		.byte	4
+ 1073 0414 DA       		.byte	-38
+ 1074 0415 04       		.byte	4
+ 1075 0416 DB       		.byte	-37
+ 1076 0417 04       		.byte	4
+ 1077 0418 DC       		.byte	-36
+ 1078 0419 02       		.byte	2
+ 1079 041a DD       		.byte	-35
+ 1080 041b 22       		.byte	34
+ 1081 041c DF       		.byte	-33
+ 1082 041d 05       		.byte	5
+ 1083 041e E0       		.byte	-32
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 20
+
+
+ 1084 041f 40       		.byte	64
+ 1085 0420 E2       		.byte	-30
+ 1086 0421 80       		.byte	-128
+ 1087 0422 E4       		.byte	-28
+ 1088 0423 40       		.byte	64
+ 1089 0424 E5       		.byte	-27
+ 1090 0425 40       		.byte	64
+ 1091 0426 E6       		.byte	-26
+ 1092 0427 80       		.byte	-128
+ 1093 0428 E8       		.byte	-24
+ 1094 0429 40       		.byte	64
+ 1095 042a EA       		.byte	-22
+ 1096 042b 50       		.byte	80
+ 1097 042c EB       		.byte	-21
+ 1098 042d A8       		.byte	-88
+ 1099 042e EC       		.byte	-20
+ 1100 042f 40       		.byte	64
+ 1101 0430 ED       		.byte	-19
+ 1102 0431 20       		.byte	32
+ 1103 0432 EE       		.byte	-18
+ 1104 0433 50       		.byte	80
+ 1105 0434 EF       		.byte	-17
+ 1106 0435 A8       		.byte	-88
+ 1107 0436 03       		.byte	3
+ 1108 0437 40       		.byte	64
+ 1109 0438 09       		.byte	9
+ 1110 0439 20       		.byte	32
+ 1111 043a 0A       		.byte	10
+ 1112 043b 40       		.byte	64
+ 1113 043c 0E       		.byte	14
+ 1114 043d 02       		.byte	2
+ 1115 043e 16       		.byte	22
+ 1116 043f 02       		.byte	2
+ 1117 0440 19       		.byte	25
+ 1118 0441 40       		.byte	64
+ 1119 0442 1A       		.byte	26
+ 1120 0443 02       		.byte	2
+ 1121 0444 1E       		.byte	30
+ 1122 0445 82       		.byte	-126
+ 1123 0446 1F       		.byte	31
+ 1124 0447 80       		.byte	-128
+ 1125 0448 21       		.byte	33
+ 1126 0449 20       		.byte	32
+ 1127 044a 24       		.byte	36
+ 1128 044b 04       		.byte	4
+ 1129 044c 27       		.byte	39
+ 1130 044d 08       		.byte	8
+ 1131 044e 2F       		.byte	47
+ 1132 044f 80       		.byte	-128
+ 1133 0450 33       		.byte	51
+ 1134 0451 40       		.byte	64
+ 1135 0452 37       		.byte	55
+ 1136 0453 01       		.byte	1
+ 1137 0454 40       		.byte	64
+ 1138 0455 04       		.byte	4
+ 1139 0456 41       		.byte	65
+ 1140 0457 02       		.byte	2
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 21
+
+
+ 1141 0458 42       		.byte	66
+ 1142 0459 30       		.byte	48
+ 1143 045a 45       		.byte	69
+ 1144 045b 02       		.byte	2
+ 1145 045c 47       		.byte	71
+ 1146 045d 08       		.byte	8
+ 1147 045e 49       		.byte	73
+ 1148 045f 40       		.byte	64
+ 1149 0460 4E       		.byte	78
+ 1150 0461 01       		.byte	1
+ 1151 0462 4F       		.byte	79
+ 1152 0463 04       		.byte	4
+ 1153 0464 56       		.byte	86
+ 1154 0465 2A       		.byte	42
+ 1155 0466 57       		.byte	87
+ 1156 0467 40       		.byte	64
+ 1157 0468 5E       		.byte	94
+ 1158 0469 94       		.byte	-108
+ 1159 046a 66       		.byte	102
+ 1160 046b 08       		.byte	8
+ 1161 046c 67       		.byte	103
+ 1162 046d 84       		.byte	-124
+ 1163 046e 6F       		.byte	111
+ 1164 046f 03       		.byte	3
+ 1165 0470 7F       		.byte	127
+ 1166 0471 02       		.byte	2
+ 1167 0472 87       		.byte	-121
+ 1168 0473 40       		.byte	64
+ 1169 0474 C0       		.byte	-64
+ 1170 0475 08       		.byte	8
+ 1171 0476 C2       		.byte	-62
+ 1172 0477 8A       		.byte	-118
+ 1173 0478 C4       		.byte	-60
+ 1174 0479 80       		.byte	-128
+ 1175 047a CA       		.byte	-54
+ 1176 047b 80       		.byte	-128
+ 1177 047c CC       		.byte	-52
+ 1178 047d 88       		.byte	-120
+ 1179 047e D0       		.byte	-48
+ 1180 047f C5       		.byte	-59
+ 1181 0480 D2       		.byte	-46
+ 1182 0481 18       		.byte	24
+ 1183 0482 D6       		.byte	-42
+ 1184 0483 70       		.byte	112
+ 1185 0484 D8       		.byte	-40
+ 1186 0485 E0       		.byte	-32
+ 1187 0486 DE       		.byte	-34
+ 1188 0487 10       		.byte	16
+ 1189 0488 05       		.byte	5
+ 1190 0489 01       		.byte	1
+ 1191 048a 06       		.byte	6
+ 1192 048b 01       		.byte	1
+ 1193 048c 07       		.byte	7
+ 1194 048d 02       		.byte	2
+ 1195 048e 0C       		.byte	12
+ 1196 048f 06       		.byte	6
+ 1197 0490 0F       		.byte	15
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 22
+
+
+ 1198 0491 05       		.byte	5
+ 1199 0492 13       		.byte	19
+ 1200 0493 09       		.byte	9
+ 1201 0494 14       		.byte	20
+ 1202 0495 04       		.byte	4
+ 1203 0496 17       		.byte	23
+ 1204 0497 04       		.byte	4
+ 1205 0498 18       		.byte	24
+ 1206 0499 06       		.byte	6
+ 1207 049a 1B       		.byte	27
+ 1208 049b 0E       		.byte	14
+ 1209 049c 1C       		.byte	28
+ 1210 049d 01       		.byte	1
+ 1211 049e 1F       		.byte	31
+ 1212 049f 08       		.byte	8
+ 1213 04a0 29       		.byte	41
+ 1214 04a1 09       		.byte	9
+ 1215 04a2 2A       		.byte	42
+ 1216 04a3 02       		.byte	2
+ 1217 04a4 2B       		.byte	43
+ 1218 04a5 04       		.byte	4
+ 1219 04a6 32       		.byte	50
+ 1220 04a7 01       		.byte	1
+ 1221 04a8 34       		.byte	52
+ 1222 04a9 06       		.byte	6
+ 1223 04aa 35       		.byte	53
+ 1224 04ab 0F       		.byte	15
+ 1225 04ac 38       		.byte	56
+ 1226 04ad 20       		.byte	32
+ 1227 04ae 3B       		.byte	59
+ 1228 04af 20       		.byte	32
+ 1229 04b0 3E       		.byte	62
+ 1230 04b1 10       		.byte	16
+ 1231 04b2 40       		.byte	64
+ 1232 04b3 02       		.byte	2
+ 1233 04b4 46       		.byte	70
+ 1234 04b5 04       		.byte	4
+ 1235 04b6 49       		.byte	73
+ 1236 04b7 FF       		.byte	-1
+ 1237 04b8 4A       		.byte	74
+ 1238 04b9 07       		.byte	7
+ 1239 04ba 4B       		.byte	75
+ 1240 04bb FF       		.byte	-1
+ 1241 04bc 4C       		.byte	76
+ 1242 04bd 40       		.byte	64
+ 1243 04be 4D       		.byte	77
+ 1244 04bf 20       		.byte	32
+ 1245 04c0 4E       		.byte	78
+ 1246 04c1 F0       		.byte	-16
+ 1247 04c2 4F       		.byte	79
+ 1248 04c3 05       		.byte	5
+ 1249 04c4 50       		.byte	80
+ 1250 04c5 08       		.byte	8
+ 1251 04c6 58       		.byte	88
+ 1252 04c7 04       		.byte	4
+ 1253 04c8 59       		.byte	89
+ 1254 04c9 04       		.byte	4
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 23
+
+
+ 1255 04ca 5A       		.byte	90
+ 1256 04cb 04       		.byte	4
+ 1257 04cc 5B       		.byte	91
+ 1258 04cd 04       		.byte	4
+ 1259 04ce 5C       		.byte	92
+ 1260 04cf 44       		.byte	68
+ 1261 04d0 5D       		.byte	93
+ 1262 04d1 04       		.byte	4
+ 1263 04d2 5F       		.byte	95
+ 1264 04d3 09       		.byte	9
+ 1265 04d4 60       		.byte	96
+ 1266 04d5 40       		.byte	64
+ 1267 04d6 61       		.byte	97
+ 1268 04d7 A8       		.byte	-88
+ 1269 04d8 62       		.byte	98
+ 1270 04d9 40       		.byte	64
+ 1271 04da 63       		.byte	99
+ 1272 04db 20       		.byte	32
+ 1273 04dc 80       		.byte	-128
+ 1274 04dd 01       		.byte	1
+ 1275 04de 89       		.byte	-119
+ 1276 04df 03       		.byte	3
+ 1277 04e0 8F       		.byte	-113
+ 1278 04e1 02       		.byte	2
+ 1279 04e2 90       		.byte	-112
+ 1280 04e3 01       		.byte	1
+ 1281 04e4 9F       		.byte	-97
+ 1282 04e5 01       		.byte	1
+ 1283 04e6 A2       		.byte	-94
+ 1284 04e7 02       		.byte	2
+ 1285 04e8 B0       		.byte	-80
+ 1286 04e9 01       		.byte	1
+ 1287 04ea B1       		.byte	-79
+ 1288 04eb 03       		.byte	3
+ 1289 04ec B6       		.byte	-74
+ 1290 04ed 02       		.byte	2
+ 1291 04ee B8       		.byte	-72
+ 1292 04ef 02       		.byte	2
+ 1293 04f0 C0       		.byte	-64
+ 1294 04f1 10       		.byte	16
+ 1295 04f2 C1       		.byte	-63
+ 1296 04f3 06       		.byte	6
+ 1297 04f4 C9       		.byte	-55
+ 1298 04f5 FF       		.byte	-1
+ 1299 04f6 CA       		.byte	-54
+ 1300 04f7 FF       		.byte	-1
+ 1301 04f8 CB       		.byte	-53
+ 1302 04f9 FF       		.byte	-1
+ 1303 04fa CD       		.byte	-51
+ 1304 04fb A0       		.byte	-96
+ 1305 04fc CF       		.byte	-49
+ 1306 04fd 04       		.byte	4
+ 1307 04fe D0       		.byte	-48
+ 1308 04ff 18       		.byte	24
+ 1309 0500 D2       		.byte	-46
+ 1310 0501 80       		.byte	-128
+ 1311 0502 D8       		.byte	-40
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 24
+
+
+ 1312 0503 04       		.byte	4
+ 1313 0504 D9       		.byte	-39
+ 1314 0505 04       		.byte	4
+ 1315 0506 DA       		.byte	-38
+ 1316 0507 04       		.byte	4
+ 1317 0508 DB       		.byte	-37
+ 1318 0509 04       		.byte	4
+ 1319 050a DF       		.byte	-33
+ 1320 050b 01       		.byte	1
+ 1321 050c E0       		.byte	-32
+ 1322 050d 40       		.byte	64
+ 1323 050e E2       		.byte	-30
+ 1324 050f C0       		.byte	-64
+ 1325 0510 E4       		.byte	-28
+ 1326 0511 40       		.byte	64
+ 1327 0512 E5       		.byte	-27
+ 1328 0513 40       		.byte	64
+ 1329 0514 E6       		.byte	-26
+ 1330 0515 C0       		.byte	-64
+ 1331 0516 E8       		.byte	-24
+ 1332 0517 C0       		.byte	-64
+ 1333 0518 EA       		.byte	-22
+ 1334 0519 C0       		.byte	-64
+ 1335 051a EC       		.byte	-20
+ 1336 051b C0       		.byte	-64
+ 1337 051c EE       		.byte	-18
+ 1338 051d C0       		.byte	-64
+ 1339 051e 00       		.byte	0
+ 1340 051f 40       		.byte	64
+ 1341 0520 01       		.byte	1
+ 1342 0521 08       		.byte	8
+ 1343 0522 06       		.byte	6
+ 1344 0523 80       		.byte	-128
+ 1345 0524 08       		.byte	8
+ 1346 0525 20       		.byte	32
+ 1347 0526 09       		.byte	9
+ 1348 0527 20       		.byte	32
+ 1349 0528 0A       		.byte	10
+ 1350 0529 11       		.byte	17
+ 1351 052a 0E       		.byte	14
+ 1352 052b 80       		.byte	-128
+ 1353 052c 10       		.byte	16
+ 1354 052d 08       		.byte	8
+ 1355 052e 16       		.byte	22
+ 1356 052f 40       		.byte	64
+ 1357 0530 18       		.byte	24
+ 1358 0531 04       		.byte	4
+ 1359 0532 19       		.byte	25
+ 1360 0533 08       		.byte	8
+ 1361 0534 1D       		.byte	29
+ 1362 0535 C0       		.byte	-64
+ 1363 0536 1E       		.byte	30
+ 1364 0537 80       		.byte	-128
+ 1365 0538 1F       		.byte	31
+ 1366 0539 80       		.byte	-128
+ 1367 053a 21       		.byte	33
+ 1368 053b 20       		.byte	32
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 25
+
+
+ 1369 053c 27       		.byte	39
+ 1370 053d 40       		.byte	64
+ 1371 053e 2B       		.byte	43
+ 1372 053f 08       		.byte	8
+ 1373 0540 30       		.byte	48
+ 1374 0541 88       		.byte	-120
+ 1375 0542 31       		.byte	49
+ 1376 0543 20       		.byte	32
+ 1377 0544 32       		.byte	50
+ 1378 0545 02       		.byte	2
+ 1379 0546 37       		.byte	55
+ 1380 0547 40       		.byte	64
+ 1381 0548 38       		.byte	56
+ 1382 0549 40       		.byte	64
+ 1383 054a 39       		.byte	57
+ 1384 054b 08       		.byte	8
+ 1385 054c 3D       		.byte	61
+ 1386 054d 80       		.byte	-128
+ 1387 054e 3E       		.byte	62
+ 1388 054f 80       		.byte	-128
+ 1389 0550 3F       		.byte	63
+ 1390 0551 20       		.byte	32
+ 1391 0552 40       		.byte	64
+ 1392 0553 04       		.byte	4
+ 1393 0554 45       		.byte	69
+ 1394 0555 80       		.byte	-128
+ 1395 0556 4F       		.byte	79
+ 1396 0557 20       		.byte	32
+ 1397 0558 50       		.byte	80
+ 1398 0559 88       		.byte	-120
+ 1399 055a 69       		.byte	105
+ 1400 055b 80       		.byte	-128
+ 1401 055c 76       		.byte	118
+ 1402 055d 40       		.byte	64
+ 1403 055e 79       		.byte	121
+ 1404 055f 08       		.byte	8
+ 1405 0560 85       		.byte	-123
+ 1406 0561 04       		.byte	4
+ 1407 0562 86       		.byte	-122
+ 1408 0563 01       		.byte	1
+ 1409 0564 8D       		.byte	-115
+ 1410 0565 40       		.byte	64
+ 1411 0566 90       		.byte	-112
+ 1412 0567 40       		.byte	64
+ 1413 0568 92       		.byte	-110
+ 1414 0569 10       		.byte	16
+ 1415 056a 95       		.byte	-107
+ 1416 056b 08       		.byte	8
+ 1417 056c 96       		.byte	-106
+ 1418 056d 01       		.byte	1
+ 1419 056e 9C       		.byte	-100
+ 1420 056f 20       		.byte	32
+ 1421 0570 9D       		.byte	-99
+ 1422 0571 40       		.byte	64
+ 1423 0572 9E       		.byte	-98
+ 1424 0573 80       		.byte	-128
+ 1425 0574 A1       		.byte	-95
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 26
+
+
+ 1426 0575 40       		.byte	64
+ 1427 0576 A2       		.byte	-94
+ 1428 0577 02       		.byte	2
+ 1429 0578 A3       		.byte	-93
+ 1430 0579 18       		.byte	24
+ 1431 057a A4       		.byte	-92
+ 1432 057b 88       		.byte	-120
+ 1433 057c A5       		.byte	-91
+ 1434 057d 80       		.byte	-128
+ 1435 057e A7       		.byte	-89
+ 1436 057f 80       		.byte	-128
+ 1437 0580 AF       		.byte	-81
+ 1438 0581 40       		.byte	64
+ 1439 0582 C0       		.byte	-64
+ 1440 0583 15       		.byte	21
+ 1441 0584 C2       		.byte	-62
+ 1442 0585 17       		.byte	23
+ 1443 0586 C4       		.byte	-60
+ 1444 0587 12       		.byte	18
+ 1445 0588 CA       		.byte	-54
+ 1446 0589 04       		.byte	4
+ 1447 058a CC       		.byte	-52
+ 1448 058b 1F       		.byte	31
+ 1449 058c CE       		.byte	-50
+ 1450 058d 3A       		.byte	58
+ 1451 058e D0       		.byte	-48
+ 1452 058f 14       		.byte	20
+ 1453 0590 D2       		.byte	-46
+ 1454 0591 20       		.byte	32
+ 1455 0592 DE       		.byte	-34
+ 1456 0593 02       		.byte	2
+ 1457 0594 E2       		.byte	-30
+ 1458 0595 08       		.byte	8
+ 1459 0596 E6       		.byte	-26
+ 1460 0597 18       		.byte	24
+ 1461 0598 00       		.byte	0
+ 1462 0599 18       		.byte	24
+ 1463 059a 02       		.byte	2
+ 1464 059b 01       		.byte	1
+ 1465 059c 03       		.byte	3
+ 1466 059d 0A       		.byte	10
+ 1467 059e 07       		.byte	7
+ 1468 059f 05       		.byte	5
+ 1469 05a0 0A       		.byte	10
+ 1470 05a1 08       		.byte	8
+ 1471 05a2 0E       		.byte	14
+ 1472 05a3 04       		.byte	4
+ 1473 05a4 10       		.byte	16
+ 1474 05a5 02       		.byte	2
+ 1475 05a6 16       		.byte	22
+ 1476 05a7 04       		.byte	4
+ 1477 05a8 1E       		.byte	30
+ 1478 05a9 10       		.byte	16
+ 1479 05aa 23       		.byte	35
+ 1480 05ab 0C       		.byte	12
+ 1481 05ac 24       		.byte	36
+ 1482 05ad 18       		.byte	24
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 27
+
+
+ 1483 05ae 2D       		.byte	45
+ 1484 05af 0F       		.byte	15
+ 1485 05b0 30       		.byte	48
+ 1486 05b1 18       		.byte	24
+ 1487 05b2 31       		.byte	49
+ 1488 05b3 0C       		.byte	12
+ 1489 05b4 32       		.byte	50
+ 1490 05b5 01       		.byte	1
+ 1491 05b6 34       		.byte	52
+ 1492 05b7 04       		.byte	4
+ 1493 05b8 35       		.byte	53
+ 1494 05b9 03       		.byte	3
+ 1495 05ba 36       		.byte	54
+ 1496 05bb 02       		.byte	2
+ 1497 05bc 3E       		.byte	62
+ 1498 05bd 50       		.byte	80
+ 1499 05be 40       		.byte	64
+ 1500 05bf 10       		.byte	16
+ 1501 05c0 41       		.byte	65
+ 1502 05c1 06       		.byte	6
+ 1503 05c2 45       		.byte	69
+ 1504 05c3 D0       		.byte	-48
+ 1505 05c4 46       		.byte	70
+ 1506 05c5 20       		.byte	32
+ 1507 05c6 47       		.byte	71
+ 1508 05c7 10       		.byte	16
+ 1509 05c8 48       		.byte	72
+ 1510 05c9 3A       		.byte	58
+ 1511 05ca 49       		.byte	73
+ 1512 05cb FF       		.byte	-1
+ 1513 05cc 4A       		.byte	74
+ 1514 05cd FF       		.byte	-1
+ 1515 05ce 4B       		.byte	75
+ 1516 05cf FF       		.byte	-1
+ 1517 05d0 4D       		.byte	77
+ 1518 05d1 AF       		.byte	-81
+ 1519 05d2 4E       		.byte	78
+ 1520 05d3 0F       		.byte	15
+ 1521 05d4 4F       		.byte	79
+ 1522 05d5 04       		.byte	4
+ 1523 05d6 50       		.byte	80
+ 1524 05d7 18       		.byte	24
+ 1525 05d8 54       		.byte	84
+ 1526 05d9 25       		.byte	37
+ 1527 05da 56       		.byte	86
+ 1528 05db 04       		.byte	4
+ 1529 05dc 58       		.byte	88
+ 1530 05dd 04       		.byte	4
+ 1531 05de 59       		.byte	89
+ 1532 05df 04       		.byte	4
+ 1533 05e0 5A       		.byte	90
+ 1534 05e1 04       		.byte	4
+ 1535 05e2 5B       		.byte	91
+ 1536 05e3 04       		.byte	4
+ 1537 05e4 5F       		.byte	95
+ 1538 05e5 01       		.byte	1
+ 1539 05e6 60       		.byte	96
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 28
+
+
+ 1540 05e7 40       		.byte	64
+ 1541 05e8 62       		.byte	98
+ 1542 05e9 C0       		.byte	-64
+ 1543 05ea 64       		.byte	100
+ 1544 05eb 40       		.byte	64
+ 1545 05ec 65       		.byte	101
+ 1546 05ed 40       		.byte	64
+ 1547 05ee 66       		.byte	102
+ 1548 05ef C0       		.byte	-64
+ 1549 05f0 68       		.byte	104
+ 1550 05f1 C0       		.byte	-64
+ 1551 05f2 6A       		.byte	106
+ 1552 05f3 C0       		.byte	-64
+ 1553 05f4 6C       		.byte	108
+ 1554 05f5 C0       		.byte	-64
+ 1555 05f6 6E       		.byte	110
+ 1556 05f7 C0       		.byte	-64
+ 1557 05f8 84       		.byte	-124
+ 1558 05f9 01       		.byte	1
+ 1559 05fa 86       		.byte	-122
+ 1560 05fb 0E       		.byte	14
+ 1561 05fc 8C       		.byte	-116
+ 1562 05fd 02       		.byte	2
+ 1563 05fe 8D       		.byte	-115
+ 1564 05ff 01       		.byte	1
+ 1565 0600 8E       		.byte	-114
+ 1566 0601 05       		.byte	5
+ 1567 0602 94       		.byte	-108
+ 1568 0603 0C       		.byte	12
+ 1569 0604 95       		.byte	-107
+ 1570 0605 02       		.byte	2
+ 1571 0606 96       		.byte	-106
+ 1572 0607 13       		.byte	19
+ 1573 0608 9C       		.byte	-100
+ 1574 0609 1F       		.byte	31
+ 1575 060a A2       		.byte	-94
+ 1576 060b 08       		.byte	8
+ 1577 060c A5       		.byte	-91
+ 1578 060d 01       		.byte	1
+ 1579 060e A8       		.byte	-88
+ 1580 060f 10       		.byte	16
+ 1581 0610 AB       		.byte	-85
+ 1582 0611 01       		.byte	1
+ 1583 0612 AE       		.byte	-82
+ 1584 0613 0C       		.byte	12
+ 1585 0614 B1       		.byte	-79
+ 1586 0615 03       		.byte	3
+ 1587 0616 B2       		.byte	-78
+ 1588 0617 1F       		.byte	31
+ 1589 0618 B9       		.byte	-71
+ 1590 0619 02       		.byte	2
+ 1591 061a D8       		.byte	-40
+ 1592 061b 04       		.byte	4
+ 1593 061c D9       		.byte	-39
+ 1594 061d 04       		.byte	4
+ 1595 061e DC       		.byte	-36
+ 1596 061f 44       		.byte	68
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 29
+
+
+ 1597 0620 DF       		.byte	-33
+ 1598 0621 01       		.byte	1
+ 1599 0622 00       		.byte	0
+ 1600 0623 40       		.byte	64
+ 1601 0624 01       		.byte	1
+ 1602 0625 08       		.byte	8
+ 1603 0626 05       		.byte	5
+ 1604 0627 40       		.byte	64
+ 1605 0628 06       		.byte	6
+ 1606 0629 88       		.byte	-120
+ 1607 062a 0A       		.byte	10
+ 1608 062b 11       		.byte	17
+ 1609 062c 0F       		.byte	15
+ 1610 062d 62       		.byte	98
+ 1611 062e 10       		.byte	16
+ 1612 062f 88       		.byte	-120
+ 1613 0630 12       		.byte	18
+ 1614 0631 02       		.byte	2
+ 1615 0632 17       		.byte	23
+ 1616 0633 08       		.byte	8
+ 1617 0634 1A       		.byte	26
+ 1618 0635 10       		.byte	16
+ 1619 0636 1B       		.byte	27
+ 1620 0637 08       		.byte	8
+ 1621 0638 1E       		.byte	30
+ 1622 0639 88       		.byte	-120
+ 1623 063a 1F       		.byte	31
+ 1624 063b 44       		.byte	68
+ 1625 063c 21       		.byte	33
+ 1626 063d 01       		.byte	1
+ 1627 063e 22       		.byte	34
+ 1628 063f 02       		.byte	2
+ 1629 0640 27       		.byte	39
+ 1630 0641 88       		.byte	-120
+ 1631 0642 28       		.byte	40
+ 1632 0643 20       		.byte	32
+ 1633 0644 29       		.byte	41
+ 1634 0645 08       		.byte	8
+ 1635 0646 2B       		.byte	43
+ 1636 0647 08       		.byte	8
+ 1637 0648 2E       		.byte	46
+ 1638 0649 80       		.byte	-128
+ 1639 064a 2F       		.byte	47
+ 1640 064b 80       		.byte	-128
+ 1641 064c 30       		.byte	48
+ 1642 064d 08       		.byte	8
+ 1643 064e 38       		.byte	56
+ 1644 064f 40       		.byte	64
+ 1645 0650 3E       		.byte	62
+ 1646 0651 08       		.byte	8
+ 1647 0652 3F       		.byte	63
+ 1648 0653 02       		.byte	2
+ 1649 0654 45       		.byte	69
+ 1650 0655 80       		.byte	-128
+ 1651 0656 4F       		.byte	79
+ 1652 0657 21       		.byte	33
+ 1653 0658 56       		.byte	86
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 30
+
+
+ 1654 0659 08       		.byte	8
+ 1655 065a 57       		.byte	87
+ 1656 065b 11       		.byte	17
+ 1657 065c 5E       		.byte	94
+ 1658 065d 88       		.byte	-120
+ 1659 065e 5F       		.byte	95
+ 1660 065f 01       		.byte	1
+ 1661 0660 67       		.byte	103
+ 1662 0661 48       		.byte	72
+ 1663 0662 83       		.byte	-125
+ 1664 0663 80       		.byte	-128
+ 1665 0664 90       		.byte	-112
+ 1666 0665 40       		.byte	64
+ 1667 0666 95       		.byte	-107
+ 1668 0667 0A       		.byte	10
+ 1669 0668 9C       		.byte	-100
+ 1670 0669 20       		.byte	32
+ 1671 066a A1       		.byte	-95
+ 1672 066b 40       		.byte	64
+ 1673 066c A4       		.byte	-92
+ 1674 066d 88       		.byte	-120
+ 1675 066e A7       		.byte	-89
+ 1676 066f 08       		.byte	8
+ 1677 0670 A9       		.byte	-87
+ 1678 0671 01       		.byte	1
+ 1679 0672 AB       		.byte	-85
+ 1680 0673 10       		.byte	16
+ 1681 0674 C0       		.byte	-64
+ 1682 0675 D5       		.byte	-43
+ 1683 0676 C2       		.byte	-62
+ 1684 0677 B5       		.byte	-75
+ 1685 0678 C4       		.byte	-60
+ 1686 0679 2B       		.byte	43
+ 1687 067a CA       		.byte	-54
+ 1688 067b 96       		.byte	-106
+ 1689 067c CC       		.byte	-52
+ 1690 067d 02       		.byte	2
+ 1691 067e CE       		.byte	-50
+ 1692 067f C8       		.byte	-56
+ 1693 0680 D0       		.byte	-48
+ 1694 0681 10       		.byte	16
+ 1695 0682 D2       		.byte	-46
+ 1696 0683 20       		.byte	32
+ 1697 0684 D6       		.byte	-42
+ 1698 0685 D0       		.byte	-48
+ 1699 0686 D8       		.byte	-40
+ 1700 0687 A0       		.byte	-96
+ 1701 0688 02       		.byte	2
+ 1702 0689 03       		.byte	3
+ 1703 068a 03       		.byte	3
+ 1704 068b 01       		.byte	1
+ 1705 068c 10       		.byte	16
+ 1706 068d 01       		.byte	1
+ 1707 068e 1E       		.byte	30
+ 1708 068f 04       		.byte	4
+ 1709 0690 22       		.byte	34
+ 1710 0691 01       		.byte	1
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 31
+
+
+ 1711 0692 24       		.byte	36
+ 1712 0693 04       		.byte	4
+ 1713 0694 30       		.byte	48
+ 1714 0695 02       		.byte	2
+ 1715 0696 34       		.byte	52
+ 1716 0697 04       		.byte	4
+ 1717 0698 35       		.byte	53
+ 1718 0699 01       		.byte	1
+ 1719 069a 36       		.byte	54
+ 1720 069b 01       		.byte	1
+ 1721 069c 3E       		.byte	62
+ 1722 069d 50       		.byte	80
+ 1723 069e 40       		.byte	64
+ 1724 069f 12       		.byte	18
+ 1725 06a0 41       		.byte	65
+ 1726 06a1 04       		.byte	4
+ 1727 06a2 45       		.byte	69
+ 1728 06a3 0C       		.byte	12
+ 1729 06a4 46       		.byte	70
+ 1730 06a5 40       		.byte	64
+ 1731 06a6 47       		.byte	71
+ 1732 06a7 2E       		.byte	46
+ 1733 06a8 48       		.byte	72
+ 1734 06a9 3B       		.byte	59
+ 1735 06aa 49       		.byte	73
+ 1736 06ab FF       		.byte	-1
+ 1737 06ac 4A       		.byte	74
+ 1738 06ad FF       		.byte	-1
+ 1739 06ae 4B       		.byte	75
+ 1740 06af FF       		.byte	-1
+ 1741 06b0 4D       		.byte	77
+ 1742 06b1 A0       		.byte	-96
+ 1743 06b2 4F       		.byte	79
+ 1744 06b3 01       		.byte	1
+ 1745 06b4 50       		.byte	80
+ 1746 06b5 18       		.byte	24
+ 1747 06b6 58       		.byte	88
+ 1748 06b7 04       		.byte	4
+ 1749 06b8 59       		.byte	89
+ 1750 06b9 04       		.byte	4
+ 1751 06ba 5A       		.byte	90
+ 1752 06bb 04       		.byte	4
+ 1753 06bc 5B       		.byte	91
+ 1754 06bd 04       		.byte	4
+ 1755 06be 5C       		.byte	92
+ 1756 06bf 11       		.byte	17
+ 1757 06c0 5D       		.byte	93
+ 1758 06c1 01       		.byte	1
+ 1759 06c2 5F       		.byte	95
+ 1760 06c3 01       		.byte	1
+ 1761 06c4 60       		.byte	96
+ 1762 06c5 40       		.byte	64
+ 1763 06c6 62       		.byte	98
+ 1764 06c7 80       		.byte	-128
+ 1765 06c8 64       		.byte	100
+ 1766 06c9 40       		.byte	64
+ 1767 06ca 65       		.byte	101
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 32
+
+
+ 1768 06cb 40       		.byte	64
+ 1769 06cc 66       		.byte	102
+ 1770 06cd 80       		.byte	-128
+ 1771 06ce 68       		.byte	104
+ 1772 06cf 40       		.byte	64
+ 1773 06d0 6A       		.byte	106
+ 1774 06d1 50       		.byte	80
+ 1775 06d2 6B       		.byte	107
+ 1776 06d3 A8       		.byte	-88
+ 1777 06d4 6C       		.byte	108
+ 1778 06d5 40       		.byte	64
+ 1779 06d6 6D       		.byte	109
+ 1780 06d7 20       		.byte	32
+ 1781 06d8 6E       		.byte	110
+ 1782 06d9 50       		.byte	80
+ 1783 06da 6F       		.byte	111
+ 1784 06db A8       		.byte	-88
+ 1785 06dc 80       		.byte	-128
+ 1786 06dd 3E       		.byte	62
+ 1787 06de 81       		.byte	-127
+ 1788 06df 03       		.byte	3
+ 1789 06e0 84       		.byte	-124
+ 1790 06e1 0E       		.byte	14
+ 1791 06e2 85       		.byte	-123
+ 1792 06e3 18       		.byte	24
+ 1793 06e4 86       		.byte	-122
+ 1794 06e5 31       		.byte	49
+ 1795 06e6 88       		.byte	-120
+ 1796 06e7 20       		.byte	32
+ 1797 06e8 89       		.byte	-119
+ 1798 06e9 08       		.byte	8
+ 1799 06ea 8C       		.byte	-116
+ 1800 06eb 30       		.byte	48
+ 1801 06ec 8F       		.byte	-113
+ 1802 06ed 03       		.byte	3
+ 1803 06ee 91       		.byte	-111
+ 1804 06ef 1B       		.byte	27
+ 1805 06f0 92       		.byte	-110
+ 1806 06f1 32       		.byte	50
+ 1807 06f2 94       		.byte	-108
+ 1808 06f3 0C       		.byte	12
+ 1809 06f4 95       		.byte	-107
+ 1810 06f5 02       		.byte	2
+ 1811 06f6 96       		.byte	-106
+ 1812 06f7 33       		.byte	51
+ 1813 06f8 98       		.byte	-104
+ 1814 06f9 0C       		.byte	12
+ 1815 06fa 99       		.byte	-103
+ 1816 06fb 1B       		.byte	27
+ 1817 06fc 9C       		.byte	-100
+ 1818 06fd 10       		.byte	16
+ 1819 06fe 9D       		.byte	-99
+ 1820 06ff 10       		.byte	16
+ 1821 0700 A0       		.byte	-96
+ 1822 0701 08       		.byte	8
+ 1823 0702 A1       		.byte	-95
+ 1824 0703 01       		.byte	1
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 33
+
+
+ 1825 0704 A4       		.byte	-92
+ 1826 0705 04       		.byte	4
+ 1827 0706 A5       		.byte	-91
+ 1828 0707 18       		.byte	24
+ 1829 0708 A7       		.byte	-89
+ 1830 0709 03       		.byte	3
+ 1831 070a A8       		.byte	-88
+ 1832 070b 33       		.byte	51
+ 1833 070c A9       		.byte	-87
+ 1834 070d 03       		.byte	3
+ 1835 070e AA       		.byte	-86
+ 1836 070f 0C       		.byte	12
+ 1837 0710 AB       		.byte	-85
+ 1838 0711 1C       		.byte	28
+ 1839 0712 AC       		.byte	-84
+ 1840 0713 3F       		.byte	63
+ 1841 0714 AD       		.byte	-83
+ 1842 0715 03       		.byte	3
+ 1843 0716 AF       		.byte	-81
+ 1844 0717 04       		.byte	4
+ 1845 0718 B0       		.byte	-80
+ 1846 0719 30       		.byte	48
+ 1847 071a B3       		.byte	-77
+ 1848 071b 1F       		.byte	31
+ 1849 071c B4       		.byte	-76
+ 1850 071d 0E       		.byte	14
+ 1851 071e B6       		.byte	-74
+ 1852 071f 01       		.byte	1
+ 1853 0720 B8       		.byte	-72
+ 1854 0721 80       		.byte	-128
+ 1855 0722 BB       		.byte	-69
+ 1856 0723 08       		.byte	8
+ 1857 0724 D8       		.byte	-40
+ 1858 0725 04       		.byte	4
+ 1859 0726 D9       		.byte	-39
+ 1860 0727 04       		.byte	4
+ 1861 0728 DC       		.byte	-36
+ 1862 0729 44       		.byte	68
+ 1863 072a DF       		.byte	-33
+ 1864 072b 01       		.byte	1
+ 1865 072c 01       		.byte	1
+ 1866 072d 09       		.byte	9
+ 1867 072e 02       		.byte	2
+ 1868 072f 01       		.byte	1
+ 1869 0730 03       		.byte	3
+ 1870 0731 08       		.byte	8
+ 1871 0732 05       		.byte	5
+ 1872 0733 01       		.byte	1
+ 1873 0734 08       		.byte	8
+ 1874 0735 80       		.byte	-128
+ 1875 0736 0A       		.byte	10
+ 1876 0737 A0       		.byte	-96
+ 1877 0738 0B       		.byte	11
+ 1878 0739 08       		.byte	8
+ 1879 073a 0E       		.byte	14
+ 1880 073b 80       		.byte	-128
+ 1881 073c 0F       		.byte	15
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 34
+
+
+ 1882 073d 02       		.byte	2
+ 1883 073e 10       		.byte	16
+ 1884 073f A1       		.byte	-95
+ 1885 0740 11       		.byte	17
+ 1886 0741 40       		.byte	64
+ 1887 0742 12       		.byte	18
+ 1888 0743 18       		.byte	24
+ 1889 0744 16       		.byte	22
+ 1890 0745 40       		.byte	64
+ 1891 0746 17       		.byte	23
+ 1892 0747 08       		.byte	8
+ 1893 0748 19       		.byte	25
+ 1894 0749 02       		.byte	2
+ 1895 074a 1A       		.byte	26
+ 1896 074b 09       		.byte	9
+ 1897 074c 1D       		.byte	29
+ 1898 074d 80       		.byte	-128
+ 1899 074e 1E       		.byte	30
+ 1900 074f 88       		.byte	-120
+ 1901 0750 22       		.byte	34
+ 1902 0751 08       		.byte	8
+ 1903 0752 27       		.byte	39
+ 1904 0753 08       		.byte	8
+ 1905 0754 28       		.byte	40
+ 1906 0755 80       		.byte	-128
+ 1907 0756 29       		.byte	41
+ 1908 0757 18       		.byte	24
+ 1909 0758 2B       		.byte	43
+ 1910 0759 02       		.byte	2
+ 1911 075a 30       		.byte	48
+ 1912 075b 81       		.byte	-127
+ 1913 075c 32       		.byte	50
+ 1914 075d 10       		.byte	16
+ 1915 075e 33       		.byte	51
+ 1916 075f 08       		.byte	8
+ 1917 0760 38       		.byte	56
+ 1918 0761 08       		.byte	8
+ 1919 0762 39       		.byte	57
+ 1920 0763 82       		.byte	-126
+ 1921 0764 3A       		.byte	58
+ 1922 0765 11       		.byte	17
+ 1923 0766 3B       		.byte	59
+ 1924 0767 08       		.byte	8
+ 1925 0768 3F       		.byte	63
+ 1926 0769 02       		.byte	2
+ 1927 076a 45       		.byte	69
+ 1928 076b 82       		.byte	-126
+ 1929 076c 47       		.byte	71
+ 1930 076d 10       		.byte	16
+ 1931 076e 49       		.byte	73
+ 1932 076f 10       		.byte	16
+ 1933 0770 4A       		.byte	74
+ 1934 0771 08       		.byte	8
+ 1935 0772 4F       		.byte	79
+ 1936 0773 06       		.byte	6
+ 1937 0774 55       		.byte	85
+ 1938 0775 01       		.byte	1
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 35
+
+
+ 1939 0776 56       		.byte	86
+ 1940 0777 08       		.byte	8
+ 1941 0778 57       		.byte	87
+ 1942 0779 10       		.byte	16
+ 1943 077a 6F       		.byte	111
+ 1944 077b 01       		.byte	1
+ 1945 077c 90       		.byte	-112
+ 1946 077d 48       		.byte	72
+ 1947 077e 91       		.byte	-111
+ 1948 077f D4       		.byte	-44
+ 1949 0780 92       		.byte	-110
+ 1950 0781 A0       		.byte	-96
+ 1951 0782 95       		.byte	-107
+ 1952 0783 01       		.byte	1
+ 1953 0784 97       		.byte	-105
+ 1954 0785 08       		.byte	8
+ 1955 0786 99       		.byte	-103
+ 1956 0787 08       		.byte	8
+ 1957 0788 9A       		.byte	-102
+ 1958 0789 40       		.byte	64
+ 1959 078a 9C       		.byte	-100
+ 1960 078b 80       		.byte	-128
+ 1961 078c 9D       		.byte	-99
+ 1962 078d 01       		.byte	1
+ 1963 078e A0       		.byte	-96
+ 1964 078f A0       		.byte	-96
+ 1965 0790 A1       		.byte	-95
+ 1966 0791 02       		.byte	2
+ 1967 0792 A4       		.byte	-92
+ 1968 0793 10       		.byte	16
+ 1969 0794 A6       		.byte	-90
+ 1970 0795 08       		.byte	8
+ 1971 0796 A7       		.byte	-89
+ 1972 0797 02       		.byte	2
+ 1973 0798 B4       		.byte	-76
+ 1974 0799 02       		.byte	2
+ 1975 079a B6       		.byte	-74
+ 1976 079b 20       		.byte	32
+ 1977 079c C0       		.byte	-64
+ 1978 079d 1F       		.byte	31
+ 1979 079e C2       		.byte	-62
+ 1980 079f 9F       		.byte	-97
+ 1981 07a0 C4       		.byte	-60
+ 1982 07a1 3F       		.byte	63
+ 1983 07a2 CA       		.byte	-54
+ 1984 07a3 0F       		.byte	15
+ 1985 07a4 CC       		.byte	-52
+ 1986 07a5 0F       		.byte	15
+ 1987 07a6 CE       		.byte	-50
+ 1988 07a7 8F       		.byte	-113
+ 1989 07a8 D0       		.byte	-48
+ 1990 07a9 B0       		.byte	-80
+ 1991 07aa 01       		.byte	1
+ 1992 07ab 08       		.byte	8
+ 1993 07ac 03       		.byte	3
+ 1994 07ad 32       		.byte	50
+ 1995 07ae 05       		.byte	5
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 36
+
+
+ 1996 07af F8       		.byte	-8
+ 1997 07b0 09       		.byte	9
+ 1998 07b1 F8       		.byte	-8
+ 1999 07b2 1A       		.byte	26
+ 2000 07b3 02       		.byte	2
+ 2001 07b4 1D       		.byte	29
+ 2002 07b5 A0       		.byte	-96
+ 2003 07b6 1E       		.byte	30
+ 2004 07b7 01       		.byte	1
+ 2005 07b8 1F       		.byte	31
+ 2006 07b9 4C       		.byte	76
+ 2007 07ba 21       		.byte	33
+ 2008 07bb 50       		.byte	80
+ 2009 07bc 23       		.byte	35
+ 2010 07bd 8D       		.byte	-115
+ 2011 07be 26       		.byte	38
+ 2012 07bf 02       		.byte	2
+ 2013 07c0 2D       		.byte	45
+ 2014 07c1 F9       		.byte	-7
+ 2015 07c2 2E       		.byte	46
+ 2016 07c3 01       		.byte	1
+ 2017 07c4 30       		.byte	48
+ 2018 07c5 02       		.byte	2
+ 2019 07c6 31       		.byte	49
+ 2020 07c7 38       		.byte	56
+ 2021 07c8 33       		.byte	51
+ 2022 07c9 01       		.byte	1
+ 2023 07ca 34       		.byte	52
+ 2024 07cb 01       		.byte	1
+ 2025 07cc 35       		.byte	53
+ 2026 07cd 06       		.byte	6
+ 2027 07ce 37       		.byte	55
+ 2028 07cf C0       		.byte	-64
+ 2029 07d0 3E       		.byte	62
+ 2030 07d1 11       		.byte	17
+ 2031 07d2 3F       		.byte	63
+ 2032 07d3 10       		.byte	16
+ 2033 07d4 40       		.byte	64
+ 2034 07d5 61       		.byte	97
+ 2035 07d6 41       		.byte	65
+ 2036 07d7 04       		.byte	4
+ 2037 07d8 42       		.byte	66
+ 2038 07d9 03       		.byte	3
+ 2039 07da 44       		.byte	68
+ 2040 07db 02       		.byte	2
+ 2041 07dc 45       		.byte	69
+ 2042 07dd 0C       		.byte	12
+ 2043 07de 47       		.byte	71
+ 2044 07df E0       		.byte	-32
+ 2045 07e0 48       		.byte	72
+ 2046 07e1 21       		.byte	33
+ 2047 07e2 49       		.byte	73
+ 2048 07e3 FF       		.byte	-1
+ 2049 07e4 4A       		.byte	74
+ 2050 07e5 FF       		.byte	-1
+ 2051 07e6 4B       		.byte	75
+ 2052 07e7 FF       		.byte	-1
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 37
+
+
+ 2053 07e8 4C       		.byte	76
+ 2054 07e9 62       		.byte	98
+ 2055 07ea 4D       		.byte	77
+ 2056 07eb A0       		.byte	-96
+ 2057 07ec 4E       		.byte	78
+ 2058 07ed F0       		.byte	-16
+ 2059 07ee 4F       		.byte	79
+ 2060 07ef 41       		.byte	65
+ 2061 07f0 50       		.byte	80
+ 2062 07f1 0C       		.byte	12
+ 2063 07f2 54       		.byte	84
+ 2064 07f3 18       		.byte	24
+ 2065 07f4 56       		.byte	86
+ 2066 07f5 04       		.byte	4
+ 2067 07f6 58       		.byte	88
+ 2068 07f7 04       		.byte	4
+ 2069 07f8 59       		.byte	89
+ 2070 07f9 04       		.byte	4
+ 2071 07fa 5A       		.byte	90
+ 2072 07fb 04       		.byte	4
+ 2073 07fc 5B       		.byte	91
+ 2074 07fd 04       		.byte	4
+ 2075 07fe 5C       		.byte	92
+ 2076 07ff 40       		.byte	64
+ 2077 0800 5D       		.byte	93
+ 2078 0801 44       		.byte	68
+ 2079 0802 5F       		.byte	95
+ 2080 0803 0D       		.byte	13
+ 2081 0804 66       		.byte	102
+ 2082 0805 40       		.byte	64
+ 2083 0806 67       		.byte	103
+ 2084 0807 02       		.byte	2
+ 2085 0808 69       		.byte	105
+ 2086 0809 10       		.byte	16
+ 2087 080a 6A       		.byte	106
+ 2088 080b 30       		.byte	48
+ 2089 080c 6B       		.byte	107
+ 2090 080d 10       		.byte	16
+ 2091 080e 6D       		.byte	109
+ 2092 080f 10       		.byte	16
+ 2093 0810 6E       		.byte	110
+ 2094 0811 10       		.byte	16
+ 2095 0812 6F       		.byte	111
+ 2096 0813 12       		.byte	18
+ 2097 0814 8B       		.byte	-117
+ 2098 0815 02       		.byte	2
+ 2099 0816 91       		.byte	-111
+ 2100 0817 01       		.byte	1
+ 2101 0818 92       		.byte	-110
+ 2102 0819 02       		.byte	2
+ 2103 081a 96       		.byte	-106
+ 2104 081b 01       		.byte	1
+ 2105 081c 9D       		.byte	-99
+ 2106 081d 01       		.byte	1
+ 2107 081e A0       		.byte	-96
+ 2108 081f 01       		.byte	1
+ 2109 0820 B0       		.byte	-80
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 38
+
+
+ 2110 0821 02       		.byte	2
+ 2111 0822 B3       		.byte	-77
+ 2112 0823 01       		.byte	1
+ 2113 0824 B6       		.byte	-74
+ 2114 0825 01       		.byte	1
+ 2115 0826 B7       		.byte	-73
+ 2116 0827 02       		.byte	2
+ 2117 0828 B9       		.byte	-71
+ 2118 0829 08       		.byte	8
+ 2119 082a BE       		.byte	-66
+ 2120 082b 40       		.byte	64
+ 2121 082c BF       		.byte	-65
+ 2122 082d 04       		.byte	4
+ 2123 082e D4       		.byte	-44
+ 2124 082f 07       		.byte	7
+ 2125 0830 D6       		.byte	-42
+ 2126 0831 04       		.byte	4
+ 2127 0832 D8       		.byte	-40
+ 2128 0833 04       		.byte	4
+ 2129 0834 D9       		.byte	-39
+ 2130 0835 04       		.byte	4
+ 2131 0836 DB       		.byte	-37
+ 2132 0837 04       		.byte	4
+ 2133 0838 DC       		.byte	-36
+ 2134 0839 14       		.byte	20
+ 2135 083a DD       		.byte	-35
+ 2136 083b 10       		.byte	16
+ 2137 083c DF       		.byte	-33
+ 2138 083d 05       		.byte	5
+ 2139 083e 08       		.byte	8
+ 2140 083f 20       		.byte	32
+ 2141 0840 0A       		.byte	10
+ 2142 0841 09       		.byte	9
+ 2143 0842 0E       		.byte	14
+ 2144 0843 40       		.byte	64
+ 2145 0844 0F       		.byte	15
+ 2146 0845 20       		.byte	32
+ 2147 0846 10       		.byte	16
+ 2148 0847 22       		.byte	34
+ 2149 0848 17       		.byte	23
+ 2150 0849 02       		.byte	2
+ 2151 084a 18       		.byte	24
+ 2152 084b 04       		.byte	4
+ 2153 084c 1B       		.byte	27
+ 2154 084d 01       		.byte	1
+ 2155 084e 1D       		.byte	29
+ 2156 084f 40       		.byte	64
+ 2157 0850 1F       		.byte	31
+ 2158 0851 02       		.byte	2
+ 2159 0852 20       		.byte	32
+ 2160 0853 20       		.byte	32
+ 2161 0854 21       		.byte	33
+ 2162 0855 91       		.byte	-111
+ 2163 0856 26       		.byte	38
+ 2164 0857 80       		.byte	-128
+ 2165 0858 27       		.byte	39
+ 2166 0859 12       		.byte	18
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 39
+
+
+ 2167 085a 28       		.byte	40
+ 2168 085b 80       		.byte	-128
+ 2169 085c 2B       		.byte	43
+ 2170 085d 02       		.byte	2
+ 2171 085e 31       		.byte	49
+ 2172 085f 80       		.byte	-128
+ 2173 0860 36       		.byte	54
+ 2174 0861 82       		.byte	-126
+ 2175 0862 37       		.byte	55
+ 2176 0863 01       		.byte	1
+ 2177 0864 39       		.byte	57
+ 2178 0865 16       		.byte	22
+ 2179 0866 3F       		.byte	63
+ 2180 0867 20       		.byte	32
+ 2181 0868 40       		.byte	64
+ 2182 0869 60       		.byte	96
+ 2183 086a 41       		.byte	65
+ 2184 086b 50       		.byte	80
+ 2185 086c 48       		.byte	72
+ 2186 086d 20       		.byte	32
+ 2187 086e 4A       		.byte	74
+ 2188 086f 08       		.byte	8
+ 2189 0870 50       		.byte	80
+ 2190 0871 02       		.byte	2
+ 2191 0872 59       		.byte	89
+ 2192 0873 C2       		.byte	-62
+ 2193 0874 5D       		.byte	93
+ 2194 0875 A0       		.byte	-96
+ 2195 0876 5E       		.byte	94
+ 2196 0877 08       		.byte	8
+ 2197 0878 60       		.byte	96
+ 2198 0879 04       		.byte	4
+ 2199 087a 61       		.byte	97
+ 2200 087b 01       		.byte	1
+ 2201 087c 63       		.byte	99
+ 2202 087d 02       		.byte	2
+ 2203 087e 64       		.byte	100
+ 2204 087f 40       		.byte	64
+ 2205 0880 66       		.byte	102
+ 2206 0881 08       		.byte	8
+ 2207 0882 67       		.byte	103
+ 2208 0883 04       		.byte	4
+ 2209 0884 6E       		.byte	110
+ 2210 0885 40       		.byte	64
+ 2211 0886 7B       		.byte	123
+ 2212 0887 02       		.byte	2
+ 2213 0888 7E       		.byte	126
+ 2214 0889 02       		.byte	2
+ 2215 088a 81       		.byte	-127
+ 2216 088b 80       		.byte	-128
+ 2217 088c 83       		.byte	-125
+ 2218 088d 08       		.byte	8
+ 2219 088e 84       		.byte	-124
+ 2220 088f 40       		.byte	64
+ 2221 0890 85       		.byte	-123
+ 2222 0891 01       		.byte	1
+ 2223 0892 87       		.byte	-121
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 40
+
+
+ 2224 0893 02       		.byte	2
+ 2225 0894 88       		.byte	-120
+ 2226 0895 80       		.byte	-128
+ 2227 0896 90       		.byte	-112
+ 2228 0897 40       		.byte	64
+ 2229 0898 91       		.byte	-111
+ 2230 0899 94       		.byte	-108
+ 2231 089a 92       		.byte	-110
+ 2232 089b 09       		.byte	9
+ 2233 089c 93       		.byte	-109
+ 2234 089d 04       		.byte	4
+ 2235 089e 95       		.byte	-107
+ 2236 089f 03       		.byte	3
+ 2237 08a0 99       		.byte	-103
+ 2238 08a1 22       		.byte	34
+ 2239 08a2 9A       		.byte	-102
+ 2240 08a3 08       		.byte	8
+ 2241 08a4 9B       		.byte	-101
+ 2242 08a5 01       		.byte	1
+ 2243 08a6 9C       		.byte	-100
+ 2244 08a7 80       		.byte	-128
+ 2245 08a8 9D       		.byte	-99
+ 2246 08a9 01       		.byte	1
+ 2247 08aa 9F       		.byte	-97
+ 2248 08ab 10       		.byte	16
+ 2249 08ac A2       		.byte	-94
+ 2250 08ad 0C       		.byte	12
+ 2251 08ae A3       		.byte	-93
+ 2252 08af 10       		.byte	16
+ 2253 08b0 A4       		.byte	-92
+ 2254 08b1 10       		.byte	16
+ 2255 08b2 A7       		.byte	-89
+ 2256 08b3 0A       		.byte	10
+ 2257 08b4 B5       		.byte	-75
+ 2258 08b5 21       		.byte	33
+ 2259 08b6 C2       		.byte	-62
+ 2260 08b7 33       		.byte	51
+ 2261 08b8 C4       		.byte	-60
+ 2262 08b9 15       		.byte	21
+ 2263 08ba CA       		.byte	-54
+ 2264 08bb 09       		.byte	9
+ 2265 08bc CC       		.byte	-52
+ 2266 08bd 98       		.byte	-104
+ 2267 08be CE       		.byte	-50
+ 2268 08bf 27       		.byte	39
+ 2269 08c0 D0       		.byte	-48
+ 2270 08c1 0F       		.byte	15
+ 2271 08c2 D2       		.byte	-46
+ 2272 08c3 04       		.byte	4
+ 2273 08c4 D6       		.byte	-42
+ 2274 08c5 71       		.byte	113
+ 2275 08c6 D8       		.byte	-40
+ 2276 08c7 ED       		.byte	-19
+ 2277 08c8 DE       		.byte	-34
+ 2278 08c9 18       		.byte	24
+ 2279 08ca 31       		.byte	49
+ 2280 08cb 20       		.byte	32
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 41
+
+
+ 2281 08cc 33       		.byte	51
+ 2282 08cd 02       		.byte	2
+ 2283 08ce 36       		.byte	54
+ 2284 08cf 80       		.byte	-128
+ 2285 08d0 37       		.byte	55
+ 2286 08d1 08       		.byte	8
+ 2287 08d2 87       		.byte	-121
+ 2288 08d3 08       		.byte	8
+ 2289 08d4 CC       		.byte	-52
+ 2290 08d5 F0       		.byte	-16
+ 2291 08d6 E2       		.byte	-30
+ 2292 08d7 10       		.byte	16
+ 2293 08d8 60       		.byte	96
+ 2294 08d9 10       		.byte	16
+ 2295 08da A5       		.byte	-91
+ 2296 08db 20       		.byte	32
+ 2297 08dc A6       		.byte	-90
+ 2298 08dd 80       		.byte	-128
+ 2299 08de A7       		.byte	-89
+ 2300 08df 02       		.byte	2
+ 2301 08e0 D8       		.byte	-40
+ 2302 08e1 40       		.byte	64
+ 2303 08e2 8D       		.byte	-115
+ 2304 08e3 20       		.byte	32
+ 2305 08e4 A5       		.byte	-91
+ 2306 08e5 20       		.byte	32
+ 2307 08e6 A6       		.byte	-90
+ 2308 08e7 80       		.byte	-128
+ 2309 08e8 A7       		.byte	-89
+ 2310 08e9 02       		.byte	2
+ 2311 08ea B4       		.byte	-76
+ 2312 08eb 10       		.byte	16
+ 2313 08ec A6       		.byte	-90
+ 2314 08ed 80       		.byte	-128
+ 2315 08ee A7       		.byte	-89
+ 2316 08ef 02       		.byte	2
+ 2317 08f0 50       		.byte	80
+ 2318 08f1 08       		.byte	8
+ 2319 08f2 58       		.byte	88
+ 2320 08f3 40       		.byte	64
+ 2321 08f4 88       		.byte	-120
+ 2322 08f5 40       		.byte	64
+ 2323 08f6 D4       		.byte	-44
+ 2324 08f7 05       		.byte	5
+ 2325 08f8 E0       		.byte	-32
+ 2326 08f9 01       		.byte	1
+ 2327 08fa 8C       		.byte	-116
+ 2328 08fb 08       		.byte	8
+ 2329 08fc A4       		.byte	-92
+ 2330 08fd 08       		.byte	8
+ 2331 08fe E4       		.byte	-28
+ 2332 08ff 08       		.byte	8
+ 2333 0900 8D       		.byte	-115
+ 2334 0901 02       		.byte	2
+ 2335 0902 E0       		.byte	-32
+ 2336 0903 02       		.byte	2
+ 2337 0904 83       		.byte	-125
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 42
+
+
+ 2338 0905 20       		.byte	32
+ 2339 0906 A6       		.byte	-90
+ 2340 0907 80       		.byte	-128
+ 2341 0908 A7       		.byte	-89
+ 2342 0909 02       		.byte	2
+ 2343 090a E2       		.byte	-30
+ 2344 090b 80       		.byte	-128
+ 2345 090c 70       		.byte	112
+ 2346 090d 08       		.byte	8
+ 2347 090e 77       		.byte	119
+ 2348 090f 20       		.byte	32
+ 2349 0910 86       		.byte	-122
+ 2350 0911 80       		.byte	-128
+ 2351 0912 8C       		.byte	-116
+ 2352 0913 08       		.byte	8
+ 2353 0914 9B       		.byte	-101
+ 2354 0915 20       		.byte	32
+ 2355 0916 A6       		.byte	-90
+ 2356 0917 80       		.byte	-128
+ 2357 0918 AF       		.byte	-81
+ 2358 0919 02       		.byte	2
+ 2359 091a DC       		.byte	-36
+ 2360 091b 80       		.byte	-128
+ 2361 091c DE       		.byte	-34
+ 2362 091d 20       		.byte	32
+ 2363 091e E6       		.byte	-26
+ 2364 091f 10       		.byte	16
+ 2365 0920 EA       		.byte	-22
+ 2366 0921 10       		.byte	16
+ 2367 0922 99       		.byte	-103
+ 2368 0923 02       		.byte	2
+ 2369 0924 10       		.byte	16
+ 2370 0925 10       		.byte	16
+ 2371 0926 75       		.byte	117
+ 2372 0927 02       		.byte	2
+ 2373 0928 88       		.byte	-120
+ 2374 0929 10       		.byte	16
+ 2375 092a 99       		.byte	-103
+ 2376 092b 02       		.byte	2
+ 2377 092c C4       		.byte	-60
+ 2378 092d 08       		.byte	8
+ 2379 092e DE       		.byte	-34
+ 2380 092f 04       		.byte	4
+ 2381 0930 E2       		.byte	-30
+ 2382 0931 04       		.byte	4
+ 2383 0932 00       		.byte	0
+ 2384 0933 1F       		.byte	31
+ 2385 0934 0A       		.byte	10
+ 2386 0935 11       		.byte	17
+ 2387 0936 0C       		.byte	12
+ 2388 0937 1A       		.byte	26
+ 2389 0938 0E       		.byte	14
+ 2390 0939 04       		.byte	4
+ 2391 093a 10       		.byte	16
+ 2392 093b 13       		.byte	19
+ 2393 093c 1A       		.byte	26
+ 2394 093d 11       		.byte	17
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 43
+
+
+ 2395 093e 1C       		.byte	28
+ 2396 093f 12       		.byte	18
+ 2397 0940 00       		.byte	0
+ 2398 0941 FF       		.byte	-1
+ 2399 0942 00       		.byte	0
+ 2400 0943 00       		.byte	0
+ 2401 0944 88       		.byte	-120
+ 2402 0945 80       		.byte	-128
+ 2403 0946 00       		.byte	0
+ 2404 0947 00       		.byte	0
+ 2405 0948 40       		.byte	64
+ 2406 0949 00       		.byte	0
+ 2407 094a 00       		.byte	0
+ 2408 094b 00       		.byte	0
+ 2409 094c 00       		.byte	0
+ 2410 094d 06       		.byte	6
+ 2411 094e 00       		.byte	0
+ 2412 094f 08       		.byte	8
+ 2413 0950 0E       		.byte	14
+ 2414 0951 01       		.byte	1
+ 2415 0952 30       		.byte	48
+ 2416 0953 00       		.byte	0
+ 2417 0954 00       		.byte	0
+ 2418 0955 06       		.byte	6
+ 2419 0956 02       		.byte	2
+ 2420 0957 00       		.byte	0
+ 2421 0958 0F       		.byte	15
+ 2422 0959 36       		.byte	54
+ 2423 095a 10       		.byte	16
+ 2424 095b 00       		.byte	0
+ 2425 095c 00       		.byte	0
+ 2426 095d 01       		.byte	1
+ 2427 095e 21       		.byte	33
+ 2428 095f 00       		.byte	0
+ 2429 0960 0E       		.byte	14
+ 2430 0961 30       		.byte	48
+ 2431 0962 01       		.byte	1
+ 2432 0963 06       		.byte	6
+ 2433 0964 0C       		.byte	12
+ 2434 0965 02       		.byte	2
+ 2435 0966 00       		.byte	0
+ 2436 0967 00       		.byte	0
+ 2437 0968 02       		.byte	2
+ 2438 0969 00       		.byte	0
+ 2439 096a 00       		.byte	0
+ 2440 096b 10       		.byte	16
+ 2441 096c 08       		.byte	8
+ 2442 096d 04       		.byte	4
+ 2443 096e 00       		.byte	0
+ 2444 096f 00       		.byte	0
+ 2445 0970 04       		.byte	4
+ 2446 0971 26       		.byte	38
+ 2447 0972 00       		.byte	0
+ 2448 0973 10       		.byte	16
+ 2449 0974 23       		.byte	35
+ 2450 0975 01       		.byte	1
+ 2451 0976 0C       		.byte	12
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 44
+
+
+ 2452 0977 00       		.byte	0
+ 2453 0978 2F       		.byte	47
+ 2454 0979 26       		.byte	38
+ 2455 097a 00       		.byte	0
+ 2456 097b 18       		.byte	24
+ 2457 097c 00       		.byte	0
+ 2458 097d 00       		.byte	0
+ 2459 097e 3F       		.byte	63
+ 2460 097f 20       		.byte	32
+ 2461 0980 00       		.byte	0
+ 2462 0981 1E       		.byte	30
+ 2463 0982 00       		.byte	0
+ 2464 0983 01       		.byte	1
+ 2465 0984 00       		.byte	0
+ 2466 0985 00       		.byte	0
+ 2467 0986 08       		.byte	8
+ 2468 0987 20       		.byte	32
+ 2469 0988 00       		.byte	0
+ 2470 0989 00       		.byte	0
+ 2471 098a 00       		.byte	0
+ 2472 098b 04       		.byte	4
+ 2473 098c 45       		.byte	69
+ 2474 098d 00       		.byte	0
+ 2475 098e 00       		.byte	0
+ 2476 098f 00       		.byte	0
+ 2477 0990 00       		.byte	0
+ 2478 0991 00       		.byte	0
+ 2479 0992 00       		.byte	0
+ 2480 0993 00       		.byte	0
+ 2481 0994 00       		.byte	0
+ 2482 0995 FF       		.byte	-1
+ 2483 0996 FF       		.byte	-1
+ 2484 0997 FF       		.byte	-1
+ 2485 0998 00       		.byte	0
+ 2486 0999 83       		.byte	-125
+ 2487 099a 03       		.byte	3
+ 2488 099b 01       		.byte	1
+ 2489 099c 18       		.byte	24
+ 2490 099d 00       		.byte	0
+ 2491 099e 00       		.byte	0
+ 2492 099f 00       		.byte	0
+ 2493 09a0 00       		.byte	0
+ 2494 09a1 00       		.byte	0
+ 2495 09a2 02       		.byte	2
+ 2496 09a3 12       		.byte	18
+ 2497 09a4 04       		.byte	4
+ 2498 09a5 04       		.byte	4
+ 2499 09a6 04       		.byte	4
+ 2500 09a7 04       		.byte	4
+ 2501 09a8 44       		.byte	68
+ 2502 09a9 43       		.byte	67
+ 2503 09aa 08       		.byte	8
+ 2504 09ab 01       		.byte	1
+ 2505 09ac 40       		.byte	64
+ 2506 09ad 00       		.byte	0
+ 2507 09ae 40       		.byte	64
+ 2508 09af 00       		.byte	0
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 45
+
+
+ 2509 09b0 40       		.byte	64
+ 2510 09b1 40       		.byte	64
+ 2511 09b2 80       		.byte	-128
+ 2512 09b3 00       		.byte	0
+ 2513 09b4 80       		.byte	-128
+ 2514 09b5 00       		.byte	0
+ 2515 09b6 80       		.byte	-128
+ 2516 09b7 00       		.byte	0
+ 2517 09b8 80       		.byte	-128
+ 2518 09b9 00       		.byte	0
+ 2519 09ba 80       		.byte	-128
+ 2520 09bb 00       		.byte	0
+ 2521 09bc 00       		.byte	0
+ 2522 09bd 00       		.byte	0
+ 2523 09be 00       		.byte	0
+ 2524 09bf 00       		.byte	0
+ 2525 09c0 00       		.byte	0
+ 2526 09c1 00       		.byte	0
+ 2527 09c2 00       		.byte	0
+ 2528 09c3 00       		.byte	0
+ 2529 09c4 00       		.byte	0
+ 2530 09c5 00       		.byte	0
+ 2531 09c6 00       		.byte	0
+ 2532 09c7 00       		.byte	0
+ 2533 09c8 00       		.byte	0
+ 2534 09c9 00       		.byte	0
+ 2535 09ca 00       		.byte	0
+ 2536 09cb 00       		.byte	0
+ 2537 09cc 00       		.byte	0
+ 2538 09cd 40       		.byte	64
+ 2539 09ce 40       		.byte	64
+ 2540 09cf 00       		.byte	0
+ 2541 09d0 40       		.byte	64
+ 2542 09d1 00       		.byte	0
+ 2543 09d2 00       		.byte	0
+ 2544 09d3 00       		.byte	0
+ 2545 09d4 80       		.byte	-128
+ 2546 09d5 00       		.byte	0
+ 2547 09d6 40       		.byte	64
+ 2548 09d7 8A       		.byte	-118
+ 2549 09d8 8A       		.byte	-118
+ 2550 09d9 00       		.byte	0
+ 2551 09da 8A       		.byte	-118
+ 2552 09db 00       		.byte	0
+ 2553 09dc 00       		.byte	0
+ 2554 09dd 00       		.byte	0
+ 2555 09de 00       		.byte	0
+ 2556 09df 00       		.byte	0
+ 2557 09e0 00       		.byte	0
+ 2558 09e1 0B       		.byte	11
+ 2559 09e2 0B       		.byte	11
+ 2560 09e3 00       		.byte	0
+ 2561 09e4 00       		.byte	0
+ 2562 09e5 00       		.byte	0
+ 2563 09e6 00       		.byte	0
+ 2564 09e7 00       		.byte	0
+ 2565 09e8 00       		.byte	0
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 46
+
+
+ 2566 09e9 03       		.byte	3
+ 2567 09ea 03       		.byte	3
+ 2568 09eb 00       		.byte	0
+ 2569 09ec 03       		.byte	3
+ 2570 09ed 00       		.byte	0
+ 2571 09ee 00       		.byte	0
+ 2572 09ef 00       		.byte	0
+ 2573              		.section	.cywolatch,"a",%progbits
+ 2574              		.align	2
+ 2575              		.type	cy_meta_wonvl, %object
+ 2576              		.size	cy_meta_wonvl, 4
+ 2577              	cy_meta_wonvl:
+ 2578 0000 BC       		.byte	-68
+ 2579 0001 90       		.byte	-112
+ 2580 0002 AC       		.byte	-84
+ 2581 0003 AF       		.byte	-81
+ 2582              		.section	.cycustnvl,"a",%progbits
+ 2583              		.align	2
+ 2584              		.type	cy_meta_custnvl, %object
+ 2585              		.size	cy_meta_custnvl, 4
+ 2586              	cy_meta_custnvl:
+ 2587 0000 00       		.byte	0
+ 2588 0001 00       		.byte	0
+ 2589 0002 40       		.byte	64
+ 2590 0003 05       		.byte	5
+ 2591              		.section	.cymeta,"a",%progbits
+ 2592              		.align	2
+ 2593              		.type	cy_metadata, %object
+ 2594              		.size	cy_metadata, 12
+ 2595              	cy_metadata:
+ 2596 0000 00       		.byte	0
+ 2597 0001 01       		.byte	1
+ 2598 0002 2E       		.byte	46
+ 2599 0003 16       		.byte	22
+ 2600 0004 10       		.byte	16
+ 2601 0005 69       		.byte	105
+ 2602 0006 00       		.byte	0
+ 2603 0007 01       		.byte	1
+ 2604 0008 00       		.byte	0
+ 2605 0009 00       		.byte	0
+ 2606 000a 00       		.byte	0
+ 2607 000b 00       		.byte	0
+ 2608              		.section	.cyflashprotect,"a",%progbits
+ 2609              		.align	2
+ 2610              		.type	cy_meta_flashprotect, %object
+ 2611              		.size	cy_meta_flashprotect, 256
+ 2612              	cy_meta_flashprotect:
+ 2613 0000 00000000 		.space	256
+ 2613      00000000 
+ 2613      00000000 
+ 2613      00000000 
+ 2613      00000000 
+ 2614              		.text
+ 2615              	.Letext0:
+ 2616              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 2617              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 2618              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 47
+
+
+ 2619              		.section	.debug_info,"",%progbits
+ 2620              	.Ldebug_info0:
+ 2621 0000 35010000 		.4byte	0x135
+ 2622 0004 0400     		.2byte	0x4
+ 2623 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 2624 000a 04       		.byte	0x4
+ 2625 000b 01       		.uleb128 0x1
+ 2626 000c 24000000 		.4byte	.LASF17
+ 2627 0010 0C       		.byte	0xc
+ 2628 0011 EE010000 		.4byte	.LASF18
+ 2629 0015 F9000000 		.4byte	.LASF19
+ 2630 0019 00000000 		.4byte	.Ldebug_line0
+ 2631 001d 02       		.uleb128 0x2
+ 2632 001e 01       		.byte	0x1
+ 2633 001f 06       		.byte	0x6
+ 2634 0020 E2010000 		.4byte	.LASF0
+ 2635 0024 03       		.uleb128 0x3
+ 2636 0025 00000000 		.4byte	.LASF9
+ 2637 0029 01       		.byte	0x1
+ 2638 002a 1D       		.byte	0x1d
+ 2639 002b 2F000000 		.4byte	0x2f
+ 2640 002f 02       		.uleb128 0x2
+ 2641 0030 01       		.byte	0x1
+ 2642 0031 08       		.byte	0x8
+ 2643 0032 16000000 		.4byte	.LASF1
+ 2644 0036 02       		.uleb128 0x2
+ 2645 0037 02       		.byte	0x2
+ 2646 0038 05       		.byte	0x5
+ 2647 0039 CF010000 		.4byte	.LASF2
+ 2648 003d 02       		.uleb128 0x2
+ 2649 003e 02       		.byte	0x2
+ 2650 003f 07       		.byte	0x7
+ 2651 0040 C4000000 		.4byte	.LASF3
+ 2652 0044 02       		.uleb128 0x2
+ 2653 0045 04       		.byte	0x4
+ 2654 0046 05       		.byte	0x5
+ 2655 0047 D9010000 		.4byte	.LASF4
+ 2656 004b 02       		.uleb128 0x2
+ 2657 004c 04       		.byte	0x4
+ 2658 004d 07       		.byte	0x7
+ 2659 004e B2000000 		.4byte	.LASF5
+ 2660 0052 02       		.uleb128 0x2
+ 2661 0053 08       		.byte	0x8
+ 2662 0054 05       		.byte	0x5
+ 2663 0055 C1010000 		.4byte	.LASF6
+ 2664 0059 02       		.uleb128 0x2
+ 2665 005a 08       		.byte	0x8
+ 2666 005b 07       		.byte	0x7
+ 2667 005c 76010000 		.4byte	.LASF7
+ 2668 0060 04       		.uleb128 0x4
+ 2669 0061 04       		.byte	0x4
+ 2670 0062 05       		.byte	0x5
+ 2671 0063 696E7400 		.ascii	"int\000"
+ 2672 0067 02       		.uleb128 0x2
+ 2673 0068 04       		.byte	0x4
+ 2674 0069 07       		.byte	0x7
+ 2675 006a 69010000 		.4byte	.LASF8
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 48
+
+
+ 2676 006e 03       		.uleb128 0x3
+ 2677 006f 8D010000 		.4byte	.LASF10
+ 2678 0073 02       		.byte	0x2
+ 2679 0074 18       		.byte	0x18
+ 2680 0075 24000000 		.4byte	0x24
+ 2681 0079 05       		.uleb128 0x5
+ 2682 007a 91000000 		.4byte	0x91
+ 2683 007e 8A000000 		.4byte	0x8a
+ 2684 0082 06       		.uleb128 0x6
+ 2685 0083 8A000000 		.4byte	0x8a
+ 2686 0087 EF09     		.2byte	0x9ef
+ 2687 0089 00       		.byte	0
+ 2688 008a 02       		.uleb128 0x2
+ 2689 008b 04       		.byte	0x4
+ 2690 008c 07       		.byte	0x7
+ 2691 008d B8010000 		.4byte	.LASF11
+ 2692 0091 07       		.uleb128 0x7
+ 2693 0092 6E000000 		.4byte	0x6e
+ 2694 0096 08       		.uleb128 0x8
+ 2695 0097 E7000000 		.4byte	.LASF12
+ 2696 009b 03       		.byte	0x3
+ 2697 009c 1F       		.byte	0x1f
+ 2698 009d A7000000 		.4byte	0xa7
+ 2699 00a1 05       		.uleb128 0x5
+ 2700 00a2 03       		.byte	0x3
+ 2701 00a3 00000000 		.4byte	cy_meta_configecc
+ 2702 00a7 07       		.uleb128 0x7
+ 2703 00a8 79000000 		.4byte	0x79
+ 2704 00ac 05       		.uleb128 0x5
+ 2705 00ad 91000000 		.4byte	0x91
+ 2706 00b1 BC000000 		.4byte	0xbc
+ 2707 00b5 09       		.uleb128 0x9
+ 2708 00b6 8A000000 		.4byte	0x8a
+ 2709 00ba 03       		.byte	0x3
+ 2710 00bb 00       		.byte	0
+ 2711 00bc 0A       		.uleb128 0xa
+ 2712 00bd D7000000 		.4byte	.LASF13
+ 2713 00c1 03       		.byte	0x3
+ 2714 00c2 6A01     		.2byte	0x16a
+ 2715 00c4 CE000000 		.4byte	0xce
+ 2716 00c8 05       		.uleb128 0x5
+ 2717 00c9 03       		.byte	0x3
+ 2718 00ca 00000000 		.4byte	cy_meta_custnvl
+ 2719 00ce 07       		.uleb128 0x7
+ 2720 00cf AC000000 		.4byte	0xac
+ 2721 00d3 0A       		.uleb128 0xa
+ 2722 00d4 AA010000 		.4byte	.LASF14
+ 2723 00d8 03       		.byte	0x3
+ 2724 00d9 7801     		.2byte	0x178
+ 2725 00db E5000000 		.4byte	0xe5
+ 2726 00df 05       		.uleb128 0x5
+ 2727 00e0 03       		.byte	0x3
+ 2728 00e1 00000000 		.4byte	cy_meta_wonvl
+ 2729 00e5 07       		.uleb128 0x7
+ 2730 00e6 AC000000 		.4byte	0xac
+ 2731 00ea 05       		.uleb128 0x5
+ 2732 00eb 91000000 		.4byte	0x91
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 49
+
+
+ 2733 00ef FA000000 		.4byte	0xfa
+ 2734 00f3 09       		.uleb128 0x9
+ 2735 00f4 8A000000 		.4byte	0x8a
+ 2736 00f8 FF       		.byte	0xff
+ 2737 00f9 00       		.byte	0
+ 2738 00fa 0A       		.uleb128 0xa
+ 2739 00fb 95010000 		.4byte	.LASF15
+ 2740 00ff 03       		.byte	0x3
+ 2741 0100 8601     		.2byte	0x186
+ 2742 0102 0C010000 		.4byte	0x10c
+ 2743 0106 05       		.uleb128 0x5
+ 2744 0107 03       		.byte	0x3
+ 2745 0108 00000000 		.4byte	cy_meta_flashprotect
+ 2746 010c 07       		.uleb128 0x7
+ 2747 010d EA000000 		.4byte	0xea
+ 2748 0111 05       		.uleb128 0x5
+ 2749 0112 91000000 		.4byte	0x91
+ 2750 0116 21010000 		.4byte	0x121
+ 2751 011a 09       		.uleb128 0x9
+ 2752 011b 8A000000 		.4byte	0x8a
+ 2753 011f 0B       		.byte	0xb
+ 2754 0120 00       		.byte	0
+ 2755 0121 0A       		.uleb128 0xa
+ 2756 0122 0A000000 		.4byte	.LASF16
+ 2757 0126 03       		.byte	0x3
+ 2758 0127 B301     		.2byte	0x1b3
+ 2759 0129 33010000 		.4byte	0x133
+ 2760 012d 05       		.uleb128 0x5
+ 2761 012e 03       		.byte	0x3
+ 2762 012f 00000000 		.4byte	cy_metadata
+ 2763 0133 07       		.uleb128 0x7
+ 2764 0134 11010000 		.4byte	0x111
+ 2765 0138 00       		.byte	0
+ 2766              		.section	.debug_abbrev,"",%progbits
+ 2767              	.Ldebug_abbrev0:
+ 2768 0000 01       		.uleb128 0x1
+ 2769 0001 11       		.uleb128 0x11
+ 2770 0002 01       		.byte	0x1
+ 2771 0003 25       		.uleb128 0x25
+ 2772 0004 0E       		.uleb128 0xe
+ 2773 0005 13       		.uleb128 0x13
+ 2774 0006 0B       		.uleb128 0xb
+ 2775 0007 03       		.uleb128 0x3
+ 2776 0008 0E       		.uleb128 0xe
+ 2777 0009 1B       		.uleb128 0x1b
+ 2778 000a 0E       		.uleb128 0xe
+ 2779 000b 10       		.uleb128 0x10
+ 2780 000c 17       		.uleb128 0x17
+ 2781 000d 00       		.byte	0
+ 2782 000e 00       		.byte	0
+ 2783 000f 02       		.uleb128 0x2
+ 2784 0010 24       		.uleb128 0x24
+ 2785 0011 00       		.byte	0
+ 2786 0012 0B       		.uleb128 0xb
+ 2787 0013 0B       		.uleb128 0xb
+ 2788 0014 3E       		.uleb128 0x3e
+ 2789 0015 0B       		.uleb128 0xb
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 50
+
+
+ 2790 0016 03       		.uleb128 0x3
+ 2791 0017 0E       		.uleb128 0xe
+ 2792 0018 00       		.byte	0
+ 2793 0019 00       		.byte	0
+ 2794 001a 03       		.uleb128 0x3
+ 2795 001b 16       		.uleb128 0x16
+ 2796 001c 00       		.byte	0
+ 2797 001d 03       		.uleb128 0x3
+ 2798 001e 0E       		.uleb128 0xe
+ 2799 001f 3A       		.uleb128 0x3a
+ 2800 0020 0B       		.uleb128 0xb
+ 2801 0021 3B       		.uleb128 0x3b
+ 2802 0022 0B       		.uleb128 0xb
+ 2803 0023 49       		.uleb128 0x49
+ 2804 0024 13       		.uleb128 0x13
+ 2805 0025 00       		.byte	0
+ 2806 0026 00       		.byte	0
+ 2807 0027 04       		.uleb128 0x4
+ 2808 0028 24       		.uleb128 0x24
+ 2809 0029 00       		.byte	0
+ 2810 002a 0B       		.uleb128 0xb
+ 2811 002b 0B       		.uleb128 0xb
+ 2812 002c 3E       		.uleb128 0x3e
+ 2813 002d 0B       		.uleb128 0xb
+ 2814 002e 03       		.uleb128 0x3
+ 2815 002f 08       		.uleb128 0x8
+ 2816 0030 00       		.byte	0
+ 2817 0031 00       		.byte	0
+ 2818 0032 05       		.uleb128 0x5
+ 2819 0033 01       		.uleb128 0x1
+ 2820 0034 01       		.byte	0x1
+ 2821 0035 49       		.uleb128 0x49
+ 2822 0036 13       		.uleb128 0x13
+ 2823 0037 01       		.uleb128 0x1
+ 2824 0038 13       		.uleb128 0x13
+ 2825 0039 00       		.byte	0
+ 2826 003a 00       		.byte	0
+ 2827 003b 06       		.uleb128 0x6
+ 2828 003c 21       		.uleb128 0x21
+ 2829 003d 00       		.byte	0
+ 2830 003e 49       		.uleb128 0x49
+ 2831 003f 13       		.uleb128 0x13
+ 2832 0040 2F       		.uleb128 0x2f
+ 2833 0041 05       		.uleb128 0x5
+ 2834 0042 00       		.byte	0
+ 2835 0043 00       		.byte	0
+ 2836 0044 07       		.uleb128 0x7
+ 2837 0045 26       		.uleb128 0x26
+ 2838 0046 00       		.byte	0
+ 2839 0047 49       		.uleb128 0x49
+ 2840 0048 13       		.uleb128 0x13
+ 2841 0049 00       		.byte	0
+ 2842 004a 00       		.byte	0
+ 2843 004b 08       		.uleb128 0x8
+ 2844 004c 34       		.uleb128 0x34
+ 2845 004d 00       		.byte	0
+ 2846 004e 03       		.uleb128 0x3
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 51
+
+
+ 2847 004f 0E       		.uleb128 0xe
+ 2848 0050 3A       		.uleb128 0x3a
+ 2849 0051 0B       		.uleb128 0xb
+ 2850 0052 3B       		.uleb128 0x3b
+ 2851 0053 0B       		.uleb128 0xb
+ 2852 0054 49       		.uleb128 0x49
+ 2853 0055 13       		.uleb128 0x13
+ 2854 0056 3F       		.uleb128 0x3f
+ 2855 0057 19       		.uleb128 0x19
+ 2856 0058 02       		.uleb128 0x2
+ 2857 0059 18       		.uleb128 0x18
+ 2858 005a 00       		.byte	0
+ 2859 005b 00       		.byte	0
+ 2860 005c 09       		.uleb128 0x9
+ 2861 005d 21       		.uleb128 0x21
+ 2862 005e 00       		.byte	0
+ 2863 005f 49       		.uleb128 0x49
+ 2864 0060 13       		.uleb128 0x13
+ 2865 0061 2F       		.uleb128 0x2f
+ 2866 0062 0B       		.uleb128 0xb
+ 2867 0063 00       		.byte	0
+ 2868 0064 00       		.byte	0
+ 2869 0065 0A       		.uleb128 0xa
+ 2870 0066 34       		.uleb128 0x34
+ 2871 0067 00       		.byte	0
+ 2872 0068 03       		.uleb128 0x3
+ 2873 0069 0E       		.uleb128 0xe
+ 2874 006a 3A       		.uleb128 0x3a
+ 2875 006b 0B       		.uleb128 0xb
+ 2876 006c 3B       		.uleb128 0x3b
+ 2877 006d 05       		.uleb128 0x5
+ 2878 006e 49       		.uleb128 0x49
+ 2879 006f 13       		.uleb128 0x13
+ 2880 0070 3F       		.uleb128 0x3f
+ 2881 0071 19       		.uleb128 0x19
+ 2882 0072 02       		.uleb128 0x2
+ 2883 0073 18       		.uleb128 0x18
+ 2884 0074 00       		.byte	0
+ 2885 0075 00       		.byte	0
+ 2886 0076 00       		.byte	0
+ 2887              		.section	.debug_aranges,"",%progbits
+ 2888 0000 14000000 		.4byte	0x14
+ 2889 0004 0200     		.2byte	0x2
+ 2890 0006 00000000 		.4byte	.Ldebug_info0
+ 2891 000a 04       		.byte	0x4
+ 2892 000b 00       		.byte	0
+ 2893 000c 0000     		.2byte	0
+ 2894 000e 0000     		.2byte	0
+ 2895 0010 00000000 		.4byte	0
+ 2896 0014 00000000 		.4byte	0
+ 2897              		.section	.debug_line,"",%progbits
+ 2898              	.Ldebug_line0:
+ 2899 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
+ 2899      02003701 
+ 2899      00000201 
+ 2899      FB0E0D00 
+ 2899      01010101 
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 52
+
+
+ 2900              	.LASF9:
+ 2901 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 2901      6E74385F 
+ 2901      7400
+ 2902              	.LASF16:
+ 2903 000a 63795F6D 		.ascii	"cy_metadata\000"
+ 2903      65746164 
+ 2903      61746100 
+ 2904              	.LASF1:
+ 2905 0016 756E7369 		.ascii	"unsigned char\000"
+ 2905      676E6564 
+ 2905      20636861 
+ 2905      7200
+ 2906              	.LASF17:
+ 2907 0024 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2907      43313120 
+ 2907      352E342E 
+ 2907      31203230 
+ 2907      31363036 
+ 2908 0057 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 2908      20726576 
+ 2908      6973696F 
+ 2908      6E203233 
+ 2908      37373135 
+ 2909 008a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2909      66756E63 
+ 2909      74696F6E 
+ 2909      2D736563 
+ 2909      74696F6E 
+ 2910              	.LASF5:
+ 2911 00b2 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2911      20756E73 
+ 2911      69676E65 
+ 2911      6420696E 
+ 2911      7400
+ 2912              	.LASF3:
+ 2913 00c4 73686F72 		.ascii	"short unsigned int\000"
+ 2913      7420756E 
+ 2913      7369676E 
+ 2913      65642069 
+ 2913      6E7400
+ 2914              	.LASF13:
+ 2915 00d7 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 2915      6574615F 
+ 2915      63757374 
+ 2915      6E766C00 
+ 2916              	.LASF12:
+ 2917 00e7 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 2917      6574615F 
+ 2917      636F6E66 
+ 2917      69676563 
+ 2917      6300
+ 2918              	.LASF19:
+ 2919 00f9 433A5C55 		.ascii	"C:\\Users\\George Anwar\\Documents\\UC Berkeley\\ME"
+ 2919      73657273 
+ 2919      5C47656F 
+ 2919      72676520 
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 53
+
+
+ 2919      416E7761 
+ 2920 0127 31333520 		.ascii	"135 Spring 2020\\PSOC Creator\\ME135_235\\EmulatedS"
+ 2920      53707269 
+ 2920      6E672032 
+ 2920      3032305C 
+ 2920      50534F43 
+ 2921 0157 74657070 		.ascii	"tepperMotor.cydsn\000"
+ 2921      65724D6F 
+ 2921      746F722E 
+ 2921      63796473 
+ 2921      6E00
+ 2922              	.LASF8:
+ 2923 0169 756E7369 		.ascii	"unsigned int\000"
+ 2923      676E6564 
+ 2923      20696E74 
+ 2923      00
+ 2924              	.LASF7:
+ 2925 0176 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2925      206C6F6E 
+ 2925      6720756E 
+ 2925      7369676E 
+ 2925      65642069 
+ 2926              	.LASF10:
+ 2927 018d 75696E74 		.ascii	"uint8_t\000"
+ 2927      385F7400 
+ 2928              	.LASF15:
+ 2929 0195 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 2929      6574615F 
+ 2929      666C6173 
+ 2929      6870726F 
+ 2929      74656374 
+ 2930              	.LASF14:
+ 2931 01aa 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 2931      6574615F 
+ 2931      776F6E76 
+ 2931      6C00
+ 2932              	.LASF11:
+ 2933 01b8 73697A65 		.ascii	"sizetype\000"
+ 2933      74797065 
+ 2933      00
+ 2934              	.LASF6:
+ 2935 01c1 6C6F6E67 		.ascii	"long long int\000"
+ 2935      206C6F6E 
+ 2935      6720696E 
+ 2935      7400
+ 2936              	.LASF2:
+ 2937 01cf 73686F72 		.ascii	"short int\000"
+ 2937      7420696E 
+ 2937      7400
+ 2938              	.LASF4:
+ 2939 01d9 6C6F6E67 		.ascii	"long int\000"
+ 2939      20696E74 
+ 2939      00
+ 2940              	.LASF0:
+ 2941 01e2 7369676E 		.ascii	"signed char\000"
+ 2941      65642063 
+ 2941      68617200 
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccsNhizy.s 			page 54
+
+
+ 2942              	.LASF18:
+ 2943 01ee 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 2943      72617465 
+ 2943      645F536F 
+ 2943      75726365 
+ 2943      5C50536F 
+ 2944              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

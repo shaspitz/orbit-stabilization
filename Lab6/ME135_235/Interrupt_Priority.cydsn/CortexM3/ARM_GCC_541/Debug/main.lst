@@ -1,0 +1,1238 @@
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccrhbktB.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.ADC_Interrupt,"ax",%progbits
+  20              		.align	2
+  21              		.global	ADC_Interrupt
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	ADC_Interrupt, %function
+  25              	ADC_Interrupt:
+  26              	.LFB63:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** 
+  14:main.c        **** uint8 LEDState = 0;
+  15:main.c        **** 
+  16:main.c        **** uint16 data;
+  17:main.c        **** 
+  18:main.c        **** CY_ISR(ADC_Interrupt)
+  19:main.c        **** {
+  28              		.loc 1 19 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  20:main.c        ****     data = ADC_DelSig_1_GetResult16();
+  36              		.loc 1 20 0
+  37 0002 FFF7FEFF 		bl	ADC_DelSig_1_GetResult16
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccrhbktB.s 			page 2
+
+
+  38              	.LVL0:
+  39 0006 014B     		ldr	r3, .L3
+  40 0008 1880     		strh	r0, [r3]	@ movhi
+  41 000a 08BD     		pop	{r3, pc}
+  42              	.L4:
+  43              		.align	2
+  44              	.L3:
+  45 000c 00000000 		.word	data
+  46              		.cfi_endproc
+  47              	.LFE63:
+  48              		.size	ADC_Interrupt, .-ADC_Interrupt
+  49              		.section	.text.Timer_Interrupt,"ax",%progbits
+  50              		.align	2
+  51              		.global	Timer_Interrupt
+  52              		.thumb
+  53              		.thumb_func
+  54              		.type	Timer_Interrupt, %function
+  55              	Timer_Interrupt:
+  56              	.LFB64:
+  21:main.c        **** }
+  22:main.c        **** 
+  23:main.c        **** CY_ISR(Timer_Interrupt)
+  24:main.c        **** {
+  57              		.loc 1 24 0
+  58              		.cfi_startproc
+  59              		@ args = 0, pretend = 0, frame = 0
+  60              		@ frame_needed = 0, uses_anonymous_args = 0
+  61 0000 08B5     		push	{r3, lr}
+  62              		.cfi_def_cfa_offset 8
+  63              		.cfi_offset 3, -8
+  64              		.cfi_offset 14, -4
+  25:main.c        ****     
+  26:main.c        ****       LED_Drive_Write(1);
+  65              		.loc 1 26 0
+  66 0002 0120     		movs	r0, #1
+  67 0004 FFF7FEFF 		bl	LED_Drive_Write
+  68              	.LVL1:
+  27:main.c        ****       
+  28:main.c        ****       CyDelay(20);
+  69              		.loc 1 28 0
+  70 0008 1420     		movs	r0, #20
+  71 000a FFF7FEFF 		bl	CyDelay
+  72              	.LVL2:
+  29:main.c        ****     
+  30:main.c        ****      Timer_ReadStatusRegister();
+  73              		.loc 1 30 0
+  74 000e FFF7FEFF 		bl	Timer_ReadStatusRegister
+  75              	.LVL3:
+  31:main.c        ****      LED_Drive_Write(0);
+  76              		.loc 1 31 0
+  77 0012 0020     		movs	r0, #0
+  78 0014 FFF7FEFF 		bl	LED_Drive_Write
+  79              	.LVL4:
+  80 0018 08BD     		pop	{r3, pc}
+  81              		.cfi_endproc
+  82              	.LFE64:
+  83              		.size	Timer_Interrupt, .-Timer_Interrupt
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccrhbktB.s 			page 3
+
+
+  84 001a 00BF     		.section	.text.Timer2_Interrupt,"ax",%progbits
+  85              		.align	2
+  86              		.global	Timer2_Interrupt
+  87              		.thumb
+  88              		.thumb_func
+  89              		.type	Timer2_Interrupt, %function
+  90              	Timer2_Interrupt:
+  91              	.LFB65:
+  32:main.c        ****  }
+  33:main.c        **** 
+  34:main.c        **** CY_ISR(Timer2_Interrupt)
+  35:main.c        ****   {
+  92              		.loc 1 35 0
+  93              		.cfi_startproc
+  94              		@ args = 0, pretend = 0, frame = 0
+  95              		@ frame_needed = 0, uses_anonymous_args = 0
+  96 0000 08B5     		push	{r3, lr}
+  97              		.cfi_def_cfa_offset 8
+  98              		.cfi_offset 3, -8
+  99              		.cfi_offset 14, -4
+  36:main.c        ****     
+  37:main.c        ****       Marker2_Write(1);
+ 100              		.loc 1 37 0
+ 101 0002 0120     		movs	r0, #1
+ 102 0004 FFF7FEFF 		bl	Marker2_Write
+ 103              	.LVL5:
+  38:main.c        ****       CyDelay(1);
+ 104              		.loc 1 38 0
+ 105 0008 0120     		movs	r0, #1
+ 106 000a FFF7FEFF 		bl	CyDelay
+ 107              	.LVL6:
+  39:main.c        ****     
+  40:main.c        ****       Timer2_ReadStatusRegister();
+ 108              		.loc 1 40 0
+ 109 000e FFF7FEFF 		bl	Timer2_ReadStatusRegister
+ 110              	.LVL7:
+  41:main.c        ****       Marker2_Write(0);
+ 111              		.loc 1 41 0
+ 112 0012 0020     		movs	r0, #0
+ 113 0014 FFF7FEFF 		bl	Marker2_Write
+ 114              	.LVL8:
+ 115 0018 08BD     		pop	{r3, pc}
+ 116              		.cfi_endproc
+ 117              	.LFE65:
+ 118              		.size	Timer2_Interrupt, .-Timer2_Interrupt
+ 119 001a 00BF     		.section	.text.main,"ax",%progbits
+ 120              		.align	2
+ 121              		.global	main
+ 122              		.thumb
+ 123              		.thumb_func
+ 124              		.type	main, %function
+ 125              	main:
+ 126              	.LFB66:
+  42:main.c        ****      
+  43:main.c        ****  }  
+  44:main.c        **** 
+  45:main.c        **** int main(void)
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccrhbktB.s 			page 4
+
+
+  46:main.c        **** {
+ 127              		.loc 1 46 0
+ 128              		.cfi_startproc
+ 129              		@ Volatile: function does not return.
+ 130              		@ args = 0, pretend = 0, frame = 0
+ 131              		@ frame_needed = 0, uses_anonymous_args = 0
+ 132 0000 08B5     		push	{r3, lr}
+ 133              		.cfi_def_cfa_offset 8
+ 134              		.cfi_offset 3, -8
+ 135              		.cfi_offset 14, -4
+  47:main.c        ****     ADC_DelSig_1_Start();
+ 136              		.loc 1 47 0
+ 137 0002 FFF7FEFF 		bl	ADC_DelSig_1_Start
+ 138              	.LVL9:
+  48:main.c        ****     
+  49:main.c        ****     ADC_Interrupt_Start();
+ 139              		.loc 1 49 0
+ 140 0006 FFF7FEFF 		bl	ADC_Interrupt_Start
+ 141              	.LVL10:
+  50:main.c        ****     ADC_Interrupt_StartEx(ADC_Interrupt);
+ 142              		.loc 1 50 0
+ 143 000a 0D48     		ldr	r0, .L12
+ 144 000c FFF7FEFF 		bl	ADC_Interrupt_StartEx
+ 145              	.LVL11:
+  51:main.c        ****     ADC_Interrupt_Enable();
+ 146              		.loc 1 51 0
+ 147 0010 FFF7FEFF 		bl	ADC_Interrupt_Enable
+ 148              	.LVL12:
+  52:main.c        ****     
+  53:main.c        ****     ADC_DelSig_1_StartConvert();
+ 149              		.loc 1 53 0
+ 150 0014 FFF7FEFF 		bl	ADC_DelSig_1_StartConvert
+ 151              	.LVL13:
+  54:main.c        ****     
+  55:main.c        ****     
+  56:main.c        ****     Timer_Start();
+ 152              		.loc 1 56 0
+ 153 0018 FFF7FEFF 		bl	Timer_Start
+ 154              	.LVL14:
+  57:main.c        ****     
+  58:main.c        ****     Timer_Interrupt_Start();
+ 155              		.loc 1 58 0
+ 156 001c FFF7FEFF 		bl	Timer_Interrupt_Start
+ 157              	.LVL15:
+  59:main.c        ****     Timer_Interrupt_StartEx(Timer_Interrupt);
+ 158              		.loc 1 59 0
+ 159 0020 0848     		ldr	r0, .L12+4
+ 160 0022 FFF7FEFF 		bl	Timer_Interrupt_StartEx
+ 161              	.LVL16:
+  60:main.c        ****     Timer_Interrupt_Enable();
+ 162              		.loc 1 60 0
+ 163 0026 FFF7FEFF 		bl	Timer_Interrupt_Enable
+ 164              	.LVL17:
+  61:main.c        ****     
+  62:main.c        ****     Timer2_Start();
+ 165              		.loc 1 62 0
+ 166 002a FFF7FEFF 		bl	Timer2_Start
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccrhbktB.s 			page 5
+
+
+ 167              	.LVL18:
+  63:main.c        ****     
+  64:main.c        ****     Timer2_Interrupt_Start();
+ 168              		.loc 1 64 0
+ 169 002e FFF7FEFF 		bl	Timer2_Interrupt_Start
+ 170              	.LVL19:
+  65:main.c        ****     Timer2_Interrupt_StartEx(Timer2_Interrupt);
+ 171              		.loc 1 65 0
+ 172 0032 0548     		ldr	r0, .L12+8
+ 173 0034 FFF7FEFF 		bl	Timer2_Interrupt_StartEx
+ 174              	.LVL20:
+  66:main.c        ****     Timer2_Interrupt_Enable();
+ 175              		.loc 1 66 0
+ 176 0038 FFF7FEFF 		bl	Timer2_Interrupt_Enable
+ 177              	.LVL21:
+  67:main.c        ****     
+  68:main.c        ****     
+  69:main.c        ****     
+  70:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+ 178              		.loc 1 70 0
+ 179              		.syntax unified
+ 180              	@ 70 "main.c" 1
+ 181 003c 62B6     		CPSIE   i
+ 182              	@ 0 "" 2
+ 183              		.thumb
+ 184              		.syntax unified
+ 185              	.L10:
+ 186 003e FEE7     		b	.L10
+ 187              	.L13:
+ 188              		.align	2
+ 189              	.L12:
+ 190 0040 00000000 		.word	ADC_Interrupt
+ 191 0044 00000000 		.word	Timer_Interrupt
+ 192 0048 00000000 		.word	Timer2_Interrupt
+ 193              		.cfi_endproc
+ 194              	.LFE66:
+ 195              		.size	main, .-main
+ 196              		.comm	data,2,2
+ 197              		.global	LEDState
+ 198              		.bss
+ 199              		.type	LEDState, %object
+ 200              		.size	LEDState, 1
+ 201              	LEDState:
+ 202 0000 00       		.space	1
+ 203              		.text
+ 204              	.Letext0:
+ 205              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 206              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 207              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 208              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 209              		.file 6 "Generated_Source\\PSoC5/ADC_DelSig_1.h"
+ 210              		.file 7 "Generated_Source\\PSoC5/LED_Drive.h"
+ 211              		.file 8 "Generated_Source\\PSoC5/CyLib.h"
+ 212              		.file 9 "Generated_Source\\PSoC5/Timer.h"
+ 213              		.file 10 "Generated_Source\\PSoC5/Marker2.h"
+ 214              		.file 11 "Generated_Source\\PSoC5/Timer2.h"
+ 215              		.file 12 "Generated_Source\\PSoC5/ADC_Interrupt.h"
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccrhbktB.s 			page 6
+
+
+ 216              		.file 13 "Generated_Source\\PSoC5/Timer_Interrupt.h"
+ 217              		.file 14 "Generated_Source\\PSoC5/Timer2_Interrupt.h"
+ 218              		.section	.debug_info,"",%progbits
+ 219              	.Ldebug_info0:
+ 220 0000 3D030000 		.4byte	0x33d
+ 221 0004 0400     		.2byte	0x4
+ 222 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 223 000a 04       		.byte	0x4
+ 224 000b 01       		.uleb128 0x1
+ 225 000c EA000000 		.4byte	.LASF43
+ 226 0010 0C       		.byte	0xc
+ 227 0011 90020000 		.4byte	.LASF44
+ 228 0015 12030000 		.4byte	.LASF45
+ 229 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 230 001d 00000000 		.4byte	0
+ 231 0021 00000000 		.4byte	.Ldebug_line0
+ 232 0025 02       		.uleb128 0x2
+ 233 0026 01       		.byte	0x1
+ 234 0027 06       		.byte	0x6
+ 235 0028 06030000 		.4byte	.LASF0
+ 236 002c 02       		.uleb128 0x2
+ 237 002d 01       		.byte	0x1
+ 238 002e 08       		.byte	0x8
+ 239 002f DC000000 		.4byte	.LASF1
+ 240 0033 02       		.uleb128 0x2
+ 241 0034 02       		.byte	0x2
+ 242 0035 05       		.byte	0x5
+ 243 0036 B1020000 		.4byte	.LASF2
+ 244 003a 02       		.uleb128 0x2
+ 245 003b 02       		.byte	0x2
+ 246 003c 07       		.byte	0x7
+ 247 003d 93010000 		.4byte	.LASF3
+ 248 0041 03       		.uleb128 0x3
+ 249 0042 30000000 		.4byte	.LASF9
+ 250 0046 02       		.byte	0x2
+ 251 0047 3F       		.byte	0x3f
+ 252 0048 4C000000 		.4byte	0x4c
+ 253 004c 02       		.uleb128 0x2
+ 254 004d 04       		.byte	0x4
+ 255 004e 05       		.byte	0x5
+ 256 004f D7020000 		.4byte	.LASF4
+ 257 0053 02       		.uleb128 0x2
+ 258 0054 04       		.byte	0x4
+ 259 0055 07       		.byte	0x7
+ 260 0056 81010000 		.4byte	.LASF5
+ 261 005a 02       		.uleb128 0x2
+ 262 005b 08       		.byte	0x8
+ 263 005c 05       		.byte	0x5
+ 264 005d 6C020000 		.4byte	.LASF6
+ 265 0061 02       		.uleb128 0x2
+ 266 0062 08       		.byte	0x8
+ 267 0063 07       		.byte	0x7
+ 268 0064 26020000 		.4byte	.LASF7
+ 269 0068 04       		.uleb128 0x4
+ 270 0069 04       		.byte	0x4
+ 271 006a 05       		.byte	0x5
+ 272 006b 696E7400 		.ascii	"int\000"
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccrhbktB.s 			page 7
+
+
+ 273 006f 02       		.uleb128 0x2
+ 274 0070 04       		.byte	0x4
+ 275 0071 07       		.byte	0x7
+ 276 0072 0C020000 		.4byte	.LASF8
+ 277 0076 03       		.uleb128 0x3
+ 278 0077 5B020000 		.4byte	.LASF10
+ 279 007b 03       		.byte	0x3
+ 280 007c 2C       		.byte	0x2c
+ 281 007d 41000000 		.4byte	0x41
+ 282 0081 05       		.uleb128 0x5
+ 283 0082 BB020000 		.4byte	.LASF11
+ 284 0086 04       		.byte	0x4
+ 285 0087 E401     		.2byte	0x1e4
+ 286 0089 2C000000 		.4byte	0x2c
+ 287 008d 05       		.uleb128 0x5
+ 288 008e E6010000 		.4byte	.LASF12
+ 289 0092 04       		.byte	0x4
+ 290 0093 E501     		.2byte	0x1e5
+ 291 0095 3A000000 		.4byte	0x3a
+ 292 0099 02       		.uleb128 0x2
+ 293 009a 04       		.byte	0x4
+ 294 009b 04       		.byte	0x4
+ 295 009c B9000000 		.4byte	.LASF13
+ 296 00a0 02       		.uleb128 0x2
+ 297 00a1 08       		.byte	0x8
+ 298 00a2 04       		.byte	0x4
+ 299 00a3 DA010000 		.4byte	.LASF14
+ 300 00a7 02       		.uleb128 0x2
+ 301 00a8 01       		.byte	0x1
+ 302 00a9 08       		.byte	0x8
+ 303 00aa 97020000 		.4byte	.LASF15
+ 304 00ae 02       		.uleb128 0x2
+ 305 00af 08       		.byte	0x8
+ 306 00b0 04       		.byte	0x4
+ 307 00b1 FA020000 		.4byte	.LASF16
+ 308 00b5 02       		.uleb128 0x2
+ 309 00b6 04       		.byte	0x4
+ 310 00b7 07       		.byte	0x7
+ 311 00b8 63020000 		.4byte	.LASF17
+ 312 00bc 06       		.uleb128 0x6
+ 313 00bd 4D020000 		.4byte	.LASF18
+ 314 00c1 01       		.byte	0x1
+ 315 00c2 12       		.byte	0x12
+ 316 00c3 00000000 		.4byte	.LFB63
+ 317 00c7 10000000 		.4byte	.LFE63-.LFB63
+ 318 00cb 01       		.uleb128 0x1
+ 319 00cc 9C       		.byte	0x9c
+ 320 00cd DB000000 		.4byte	0xdb
+ 321 00d1 07       		.uleb128 0x7
+ 322 00d2 06000000 		.4byte	.LVL0
+ 323 00d6 6F020000 		.4byte	0x26f
+ 324 00da 00       		.byte	0
+ 325 00db 06       		.uleb128 0x6
+ 326 00dc 3D020000 		.4byte	.LASF19
+ 327 00e0 01       		.byte	0x1
+ 328 00e1 17       		.byte	0x17
+ 329 00e2 00000000 		.4byte	.LFB64
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccrhbktB.s 			page 8
+
+
+ 330 00e6 1A000000 		.4byte	.LFE64-.LFB64
+ 331 00ea 01       		.uleb128 0x1
+ 332 00eb 9C       		.byte	0x9c
+ 333 00ec 2F010000 		.4byte	0x12f
+ 334 00f0 08       		.uleb128 0x8
+ 335 00f1 08000000 		.4byte	.LVL1
+ 336 00f5 7A020000 		.4byte	0x27a
+ 337 00f9 03010000 		.4byte	0x103
+ 338 00fd 09       		.uleb128 0x9
+ 339 00fe 01       		.uleb128 0x1
+ 340 00ff 50       		.byte	0x50
+ 341 0100 01       		.uleb128 0x1
+ 342 0101 31       		.byte	0x31
+ 343 0102 00       		.byte	0
+ 344 0103 08       		.uleb128 0x8
+ 345 0104 0E000000 		.4byte	.LVL2
+ 346 0108 85020000 		.4byte	0x285
+ 347 010c 16010000 		.4byte	0x116
+ 348 0110 09       		.uleb128 0x9
+ 349 0111 01       		.uleb128 0x1
+ 350 0112 50       		.byte	0x50
+ 351 0113 01       		.uleb128 0x1
+ 352 0114 44       		.byte	0x44
+ 353 0115 00       		.byte	0
+ 354 0116 07       		.uleb128 0x7
+ 355 0117 12000000 		.4byte	.LVL3
+ 356 011b 90020000 		.4byte	0x290
+ 357 011f 0A       		.uleb128 0xa
+ 358 0120 18000000 		.4byte	.LVL4
+ 359 0124 7A020000 		.4byte	0x27a
+ 360 0128 09       		.uleb128 0x9
+ 361 0129 01       		.uleb128 0x1
+ 362 012a 50       		.byte	0x50
+ 363 012b 01       		.uleb128 0x1
+ 364 012c 30       		.byte	0x30
+ 365 012d 00       		.byte	0
+ 366 012e 00       		.byte	0
+ 367 012f 06       		.uleb128 0x6
+ 368 0130 7E000000 		.4byte	.LASF20
+ 369 0134 01       		.byte	0x1
+ 370 0135 22       		.byte	0x22
+ 371 0136 00000000 		.4byte	.LFB65
+ 372 013a 1A000000 		.4byte	.LFE65-.LFB65
+ 373 013e 01       		.uleb128 0x1
+ 374 013f 9C       		.byte	0x9c
+ 375 0140 83010000 		.4byte	0x183
+ 376 0144 08       		.uleb128 0x8
+ 377 0145 08000000 		.4byte	.LVL5
+ 378 0149 9B020000 		.4byte	0x29b
+ 379 014d 57010000 		.4byte	0x157
+ 380 0151 09       		.uleb128 0x9
+ 381 0152 01       		.uleb128 0x1
+ 382 0153 50       		.byte	0x50
+ 383 0154 01       		.uleb128 0x1
+ 384 0155 31       		.byte	0x31
+ 385 0156 00       		.byte	0
+ 386 0157 08       		.uleb128 0x8
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccrhbktB.s 			page 9
+
+
+ 387 0158 0E000000 		.4byte	.LVL6
+ 388 015c 85020000 		.4byte	0x285
+ 389 0160 6A010000 		.4byte	0x16a
+ 390 0164 09       		.uleb128 0x9
+ 391 0165 01       		.uleb128 0x1
+ 392 0166 50       		.byte	0x50
+ 393 0167 01       		.uleb128 0x1
+ 394 0168 31       		.byte	0x31
+ 395 0169 00       		.byte	0
+ 396 016a 07       		.uleb128 0x7
+ 397 016b 12000000 		.4byte	.LVL7
+ 398 016f A6020000 		.4byte	0x2a6
+ 399 0173 0A       		.uleb128 0xa
+ 400 0174 18000000 		.4byte	.LVL8
+ 401 0178 9B020000 		.4byte	0x29b
+ 402 017c 09       		.uleb128 0x9
+ 403 017d 01       		.uleb128 0x1
+ 404 017e 50       		.byte	0x50
+ 405 017f 01       		.uleb128 0x1
+ 406 0180 30       		.byte	0x30
+ 407 0181 00       		.byte	0
+ 408 0182 00       		.byte	0
+ 409 0183 0B       		.uleb128 0xb
+ 410 0184 E1010000 		.4byte	.LASF46
+ 411 0188 01       		.byte	0x1
+ 412 0189 2D       		.byte	0x2d
+ 413 018a 68000000 		.4byte	0x68
+ 414 018e 00000000 		.4byte	.LFB66
+ 415 0192 4C000000 		.4byte	.LFE66-.LFB66
+ 416 0196 01       		.uleb128 0x1
+ 417 0197 9C       		.byte	0x9c
+ 418 0198 3C020000 		.4byte	0x23c
+ 419 019c 07       		.uleb128 0x7
+ 420 019d 06000000 		.4byte	.LVL9
+ 421 01a1 B1020000 		.4byte	0x2b1
+ 422 01a5 07       		.uleb128 0x7
+ 423 01a6 0A000000 		.4byte	.LVL10
+ 424 01aa BC020000 		.4byte	0x2bc
+ 425 01ae 08       		.uleb128 0x8
+ 426 01af 10000000 		.4byte	.LVL11
+ 427 01b3 C7020000 		.4byte	0x2c7
+ 428 01b7 C5010000 		.4byte	0x1c5
+ 429 01bb 09       		.uleb128 0x9
+ 430 01bc 01       		.uleb128 0x1
+ 431 01bd 50       		.byte	0x50
+ 432 01be 05       		.uleb128 0x5
+ 433 01bf 03       		.byte	0x3
+ 434 01c0 00000000 		.4byte	ADC_Interrupt
+ 435 01c4 00       		.byte	0
+ 436 01c5 07       		.uleb128 0x7
+ 437 01c6 14000000 		.4byte	.LVL12
+ 438 01ca D2020000 		.4byte	0x2d2
+ 439 01ce 07       		.uleb128 0x7
+ 440 01cf 18000000 		.4byte	.LVL13
+ 441 01d3 DD020000 		.4byte	0x2dd
+ 442 01d7 07       		.uleb128 0x7
+ 443 01d8 1C000000 		.4byte	.LVL14
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccrhbktB.s 			page 10
+
+
+ 444 01dc E8020000 		.4byte	0x2e8
+ 445 01e0 07       		.uleb128 0x7
+ 446 01e1 20000000 		.4byte	.LVL15
+ 447 01e5 F3020000 		.4byte	0x2f3
+ 448 01e9 08       		.uleb128 0x8
+ 449 01ea 26000000 		.4byte	.LVL16
+ 450 01ee FE020000 		.4byte	0x2fe
+ 451 01f2 00020000 		.4byte	0x200
+ 452 01f6 09       		.uleb128 0x9
+ 453 01f7 01       		.uleb128 0x1
+ 454 01f8 50       		.byte	0x50
+ 455 01f9 05       		.uleb128 0x5
+ 456 01fa 03       		.byte	0x3
+ 457 01fb 00000000 		.4byte	Timer_Interrupt
+ 458 01ff 00       		.byte	0
+ 459 0200 07       		.uleb128 0x7
+ 460 0201 2A000000 		.4byte	.LVL17
+ 461 0205 09030000 		.4byte	0x309
+ 462 0209 07       		.uleb128 0x7
+ 463 020a 2E000000 		.4byte	.LVL18
+ 464 020e 14030000 		.4byte	0x314
+ 465 0212 07       		.uleb128 0x7
+ 466 0213 32000000 		.4byte	.LVL19
+ 467 0217 1F030000 		.4byte	0x31f
+ 468 021b 08       		.uleb128 0x8
+ 469 021c 38000000 		.4byte	.LVL20
+ 470 0220 2A030000 		.4byte	0x32a
+ 471 0224 32020000 		.4byte	0x232
+ 472 0228 09       		.uleb128 0x9
+ 473 0229 01       		.uleb128 0x1
+ 474 022a 50       		.byte	0x50
+ 475 022b 05       		.uleb128 0x5
+ 476 022c 03       		.byte	0x3
+ 477 022d 00000000 		.4byte	Timer2_Interrupt
+ 478 0231 00       		.byte	0
+ 479 0232 07       		.uleb128 0x7
+ 480 0233 3C000000 		.4byte	.LVL21
+ 481 0237 35030000 		.4byte	0x335
+ 482 023b 00       		.byte	0
+ 483 023c 0C       		.uleb128 0xc
+ 484 023d BF010000 		.4byte	.LASF21
+ 485 0241 05       		.byte	0x5
+ 486 0242 1207     		.2byte	0x712
+ 487 0244 48020000 		.4byte	0x248
+ 488 0248 0D       		.uleb128 0xd
+ 489 0249 76000000 		.4byte	0x76
+ 490 024d 0E       		.uleb128 0xe
+ 491 024e 78010000 		.4byte	.LASF22
+ 492 0252 01       		.byte	0x1
+ 493 0253 0E       		.byte	0xe
+ 494 0254 81000000 		.4byte	0x81
+ 495 0258 05       		.uleb128 0x5
+ 496 0259 03       		.byte	0x3
+ 497 025a 00000000 		.4byte	LEDState
+ 498 025e 0E       		.uleb128 0xe
+ 499 025f BF000000 		.4byte	.LASF23
+ 500 0263 01       		.byte	0x1
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccrhbktB.s 			page 11
+
+
+ 501 0264 10       		.byte	0x10
+ 502 0265 8D000000 		.4byte	0x8d
+ 503 0269 05       		.uleb128 0x5
+ 504 026a 03       		.byte	0x3
+ 505 026b 00000000 		.4byte	data
+ 506 026f 0F       		.uleb128 0xf
+ 507 0270 A6010000 		.4byte	.LASF24
+ 508 0274 A6010000 		.4byte	.LASF24
+ 509 0278 06       		.byte	0x6
+ 510 0279 41       		.byte	0x41
+ 511 027a 0F       		.uleb128 0xf
+ 512 027b A9000000 		.4byte	.LASF25
+ 513 027f A9000000 		.4byte	.LASF25
+ 514 0283 07       		.byte	0x7
+ 515 0284 2F       		.byte	0x2f
+ 516 0285 0F       		.uleb128 0xf
+ 517 0286 80030000 		.4byte	.LASF26
+ 518 028a 80030000 		.4byte	.LASF26
+ 519 028e 08       		.byte	0x8
+ 520 028f 76       		.byte	0x76
+ 521 0290 0F       		.uleb128 0xf
+ 522 0291 3A000000 		.4byte	.LASF27
+ 523 0295 3A000000 		.4byte	.LASF27
+ 524 0299 09       		.byte	0x9
+ 525 029a 5E       		.byte	0x5e
+ 526 029b 0F       		.uleb128 0xf
+ 527 029c CC010000 		.4byte	.LASF28
+ 528 02a0 CC010000 		.4byte	.LASF28
+ 529 02a4 0A       		.byte	0xa
+ 530 02a5 2F       		.byte	0x2f
+ 531 02a6 0F       		.uleb128 0xf
+ 532 02a7 8F000000 		.4byte	.LASF29
+ 533 02ab 8F000000 		.4byte	.LASF29
+ 534 02af 0B       		.byte	0xb
+ 535 02b0 5E       		.byte	0x5e
+ 536 02b1 0F       		.uleb128 0xf
+ 537 02b2 F9010000 		.4byte	.LASF30
+ 538 02b6 F9010000 		.4byte	.LASF30
+ 539 02ba 06       		.byte	0x6
+ 540 02bb 3A       		.byte	0x3a
+ 541 02bc 0F       		.uleb128 0xf
+ 542 02bd 6A000000 		.4byte	.LASF31
+ 543 02c1 6A000000 		.4byte	.LASF31
+ 544 02c5 0C       		.byte	0xc
+ 545 02c6 17       		.byte	0x17
+ 546 02c7 0F       		.uleb128 0xf
+ 547 02c8 7A020000 		.4byte	.LASF32
+ 548 02cc 7A020000 		.4byte	.LASF32
+ 549 02d0 0C       		.byte	0xc
+ 550 02d1 18       		.byte	0x18
+ 551 02d2 0F       		.uleb128 0xf
+ 552 02d3 9C020000 		.4byte	.LASF33
+ 553 02d7 9C020000 		.4byte	.LASF33
+ 554 02db 0C       		.byte	0xc
+ 555 02dc 23       		.byte	0x23
+ 556 02dd 0F       		.uleb128 0xf
+ 557 02de E0020000 		.4byte	.LASF34
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccrhbktB.s 			page 12
+
+
+ 558 02e2 E0020000 		.4byte	.LASF34
+ 559 02e6 06       		.byte	0x6
+ 560 02e7 3D       		.byte	0x3d
+ 561 02e8 0F       		.uleb128 0xf
+ 562 02e9 ED010000 		.4byte	.LASF35
+ 563 02ed ED010000 		.4byte	.LASF35
+ 564 02f1 09       		.byte	0x9
+ 565 02f2 5A       		.byte	0x5a
+ 566 02f3 0F       		.uleb128 0xf
+ 567 02f4 C1020000 		.4byte	.LASF36
+ 568 02f8 C1020000 		.4byte	.LASF36
+ 569 02fc 0D       		.byte	0xd
+ 570 02fd 17       		.byte	0x17
+ 571 02fe 0F       		.uleb128 0xf
+ 572 02ff C4000000 		.4byte	.LASF37
+ 573 0303 C4000000 		.4byte	.LASF37
+ 574 0307 0D       		.byte	0xd
+ 575 0308 18       		.byte	0x18
+ 576 0309 0F       		.uleb128 0xf
+ 577 030a 53000000 		.4byte	.LASF38
+ 578 030e 53000000 		.4byte	.LASF38
+ 579 0312 0D       		.byte	0xd
+ 580 0313 23       		.byte	0x23
+ 581 0314 0F       		.uleb128 0xf
+ 582 0315 19020000 		.4byte	.LASF39
+ 583 0319 19020000 		.4byte	.LASF39
+ 584 031d 0B       		.byte	0xb
+ 585 031e 5A       		.byte	0x5a
+ 586 031f 0F       		.uleb128 0xf
+ 587 0320 19000000 		.4byte	.LASF40
+ 588 0324 19000000 		.4byte	.LASF40
+ 589 0328 0E       		.byte	0xe
+ 590 0329 17       		.byte	0x17
+ 591 032a 0F       		.uleb128 0xf
+ 592 032b 00000000 		.4byte	.LASF41
+ 593 032f 00000000 		.4byte	.LASF41
+ 594 0333 0E       		.byte	0xe
+ 595 0334 18       		.byte	0x18
+ 596 0335 0F       		.uleb128 0xf
+ 597 0336 88030000 		.4byte	.LASF42
+ 598 033a 88030000 		.4byte	.LASF42
+ 599 033e 0E       		.byte	0xe
+ 600 033f 23       		.byte	0x23
+ 601 0340 00       		.byte	0
+ 602              		.section	.debug_abbrev,"",%progbits
+ 603              	.Ldebug_abbrev0:
+ 604 0000 01       		.uleb128 0x1
+ 605 0001 11       		.uleb128 0x11
+ 606 0002 01       		.byte	0x1
+ 607 0003 25       		.uleb128 0x25
+ 608 0004 0E       		.uleb128 0xe
+ 609 0005 13       		.uleb128 0x13
+ 610 0006 0B       		.uleb128 0xb
+ 611 0007 03       		.uleb128 0x3
+ 612 0008 0E       		.uleb128 0xe
+ 613 0009 1B       		.uleb128 0x1b
+ 614 000a 0E       		.uleb128 0xe
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccrhbktB.s 			page 13
+
+
+ 615 000b 55       		.uleb128 0x55
+ 616 000c 17       		.uleb128 0x17
+ 617 000d 11       		.uleb128 0x11
+ 618 000e 01       		.uleb128 0x1
+ 619 000f 10       		.uleb128 0x10
+ 620 0010 17       		.uleb128 0x17
+ 621 0011 00       		.byte	0
+ 622 0012 00       		.byte	0
+ 623 0013 02       		.uleb128 0x2
+ 624 0014 24       		.uleb128 0x24
+ 625 0015 00       		.byte	0
+ 626 0016 0B       		.uleb128 0xb
+ 627 0017 0B       		.uleb128 0xb
+ 628 0018 3E       		.uleb128 0x3e
+ 629 0019 0B       		.uleb128 0xb
+ 630 001a 03       		.uleb128 0x3
+ 631 001b 0E       		.uleb128 0xe
+ 632 001c 00       		.byte	0
+ 633 001d 00       		.byte	0
+ 634 001e 03       		.uleb128 0x3
+ 635 001f 16       		.uleb128 0x16
+ 636 0020 00       		.byte	0
+ 637 0021 03       		.uleb128 0x3
+ 638 0022 0E       		.uleb128 0xe
+ 639 0023 3A       		.uleb128 0x3a
+ 640 0024 0B       		.uleb128 0xb
+ 641 0025 3B       		.uleb128 0x3b
+ 642 0026 0B       		.uleb128 0xb
+ 643 0027 49       		.uleb128 0x49
+ 644 0028 13       		.uleb128 0x13
+ 645 0029 00       		.byte	0
+ 646 002a 00       		.byte	0
+ 647 002b 04       		.uleb128 0x4
+ 648 002c 24       		.uleb128 0x24
+ 649 002d 00       		.byte	0
+ 650 002e 0B       		.uleb128 0xb
+ 651 002f 0B       		.uleb128 0xb
+ 652 0030 3E       		.uleb128 0x3e
+ 653 0031 0B       		.uleb128 0xb
+ 654 0032 03       		.uleb128 0x3
+ 655 0033 08       		.uleb128 0x8
+ 656 0034 00       		.byte	0
+ 657 0035 00       		.byte	0
+ 658 0036 05       		.uleb128 0x5
+ 659 0037 16       		.uleb128 0x16
+ 660 0038 00       		.byte	0
+ 661 0039 03       		.uleb128 0x3
+ 662 003a 0E       		.uleb128 0xe
+ 663 003b 3A       		.uleb128 0x3a
+ 664 003c 0B       		.uleb128 0xb
+ 665 003d 3B       		.uleb128 0x3b
+ 666 003e 05       		.uleb128 0x5
+ 667 003f 49       		.uleb128 0x49
+ 668 0040 13       		.uleb128 0x13
+ 669 0041 00       		.byte	0
+ 670 0042 00       		.byte	0
+ 671 0043 06       		.uleb128 0x6
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccrhbktB.s 			page 14
+
+
+ 672 0044 2E       		.uleb128 0x2e
+ 673 0045 01       		.byte	0x1
+ 674 0046 3F       		.uleb128 0x3f
+ 675 0047 19       		.uleb128 0x19
+ 676 0048 03       		.uleb128 0x3
+ 677 0049 0E       		.uleb128 0xe
+ 678 004a 3A       		.uleb128 0x3a
+ 679 004b 0B       		.uleb128 0xb
+ 680 004c 3B       		.uleb128 0x3b
+ 681 004d 0B       		.uleb128 0xb
+ 682 004e 27       		.uleb128 0x27
+ 683 004f 19       		.uleb128 0x19
+ 684 0050 11       		.uleb128 0x11
+ 685 0051 01       		.uleb128 0x1
+ 686 0052 12       		.uleb128 0x12
+ 687 0053 06       		.uleb128 0x6
+ 688 0054 40       		.uleb128 0x40
+ 689 0055 18       		.uleb128 0x18
+ 690 0056 9742     		.uleb128 0x2117
+ 691 0058 19       		.uleb128 0x19
+ 692 0059 01       		.uleb128 0x1
+ 693 005a 13       		.uleb128 0x13
+ 694 005b 00       		.byte	0
+ 695 005c 00       		.byte	0
+ 696 005d 07       		.uleb128 0x7
+ 697 005e 898201   		.uleb128 0x4109
+ 698 0061 00       		.byte	0
+ 699 0062 11       		.uleb128 0x11
+ 700 0063 01       		.uleb128 0x1
+ 701 0064 31       		.uleb128 0x31
+ 702 0065 13       		.uleb128 0x13
+ 703 0066 00       		.byte	0
+ 704 0067 00       		.byte	0
+ 705 0068 08       		.uleb128 0x8
+ 706 0069 898201   		.uleb128 0x4109
+ 707 006c 01       		.byte	0x1
+ 708 006d 11       		.uleb128 0x11
+ 709 006e 01       		.uleb128 0x1
+ 710 006f 31       		.uleb128 0x31
+ 711 0070 13       		.uleb128 0x13
+ 712 0071 01       		.uleb128 0x1
+ 713 0072 13       		.uleb128 0x13
+ 714 0073 00       		.byte	0
+ 715 0074 00       		.byte	0
+ 716 0075 09       		.uleb128 0x9
+ 717 0076 8A8201   		.uleb128 0x410a
+ 718 0079 00       		.byte	0
+ 719 007a 02       		.uleb128 0x2
+ 720 007b 18       		.uleb128 0x18
+ 721 007c 9142     		.uleb128 0x2111
+ 722 007e 18       		.uleb128 0x18
+ 723 007f 00       		.byte	0
+ 724 0080 00       		.byte	0
+ 725 0081 0A       		.uleb128 0xa
+ 726 0082 898201   		.uleb128 0x4109
+ 727 0085 01       		.byte	0x1
+ 728 0086 11       		.uleb128 0x11
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccrhbktB.s 			page 15
+
+
+ 729 0087 01       		.uleb128 0x1
+ 730 0088 31       		.uleb128 0x31
+ 731 0089 13       		.uleb128 0x13
+ 732 008a 00       		.byte	0
+ 733 008b 00       		.byte	0
+ 734 008c 0B       		.uleb128 0xb
+ 735 008d 2E       		.uleb128 0x2e
+ 736 008e 01       		.byte	0x1
+ 737 008f 3F       		.uleb128 0x3f
+ 738 0090 19       		.uleb128 0x19
+ 739 0091 03       		.uleb128 0x3
+ 740 0092 0E       		.uleb128 0xe
+ 741 0093 3A       		.uleb128 0x3a
+ 742 0094 0B       		.uleb128 0xb
+ 743 0095 3B       		.uleb128 0x3b
+ 744 0096 0B       		.uleb128 0xb
+ 745 0097 27       		.uleb128 0x27
+ 746 0098 19       		.uleb128 0x19
+ 747 0099 49       		.uleb128 0x49
+ 748 009a 13       		.uleb128 0x13
+ 749 009b 8701     		.uleb128 0x87
+ 750 009d 19       		.uleb128 0x19
+ 751 009e 11       		.uleb128 0x11
+ 752 009f 01       		.uleb128 0x1
+ 753 00a0 12       		.uleb128 0x12
+ 754 00a1 06       		.uleb128 0x6
+ 755 00a2 40       		.uleb128 0x40
+ 756 00a3 18       		.uleb128 0x18
+ 757 00a4 9742     		.uleb128 0x2117
+ 758 00a6 19       		.uleb128 0x19
+ 759 00a7 01       		.uleb128 0x1
+ 760 00a8 13       		.uleb128 0x13
+ 761 00a9 00       		.byte	0
+ 762 00aa 00       		.byte	0
+ 763 00ab 0C       		.uleb128 0xc
+ 764 00ac 34       		.uleb128 0x34
+ 765 00ad 00       		.byte	0
+ 766 00ae 03       		.uleb128 0x3
+ 767 00af 0E       		.uleb128 0xe
+ 768 00b0 3A       		.uleb128 0x3a
+ 769 00b1 0B       		.uleb128 0xb
+ 770 00b2 3B       		.uleb128 0x3b
+ 771 00b3 05       		.uleb128 0x5
+ 772 00b4 49       		.uleb128 0x49
+ 773 00b5 13       		.uleb128 0x13
+ 774 00b6 3F       		.uleb128 0x3f
+ 775 00b7 19       		.uleb128 0x19
+ 776 00b8 3C       		.uleb128 0x3c
+ 777 00b9 19       		.uleb128 0x19
+ 778 00ba 00       		.byte	0
+ 779 00bb 00       		.byte	0
+ 780 00bc 0D       		.uleb128 0xd
+ 781 00bd 35       		.uleb128 0x35
+ 782 00be 00       		.byte	0
+ 783 00bf 49       		.uleb128 0x49
+ 784 00c0 13       		.uleb128 0x13
+ 785 00c1 00       		.byte	0
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccrhbktB.s 			page 16
+
+
+ 786 00c2 00       		.byte	0
+ 787 00c3 0E       		.uleb128 0xe
+ 788 00c4 34       		.uleb128 0x34
+ 789 00c5 00       		.byte	0
+ 790 00c6 03       		.uleb128 0x3
+ 791 00c7 0E       		.uleb128 0xe
+ 792 00c8 3A       		.uleb128 0x3a
+ 793 00c9 0B       		.uleb128 0xb
+ 794 00ca 3B       		.uleb128 0x3b
+ 795 00cb 0B       		.uleb128 0xb
+ 796 00cc 49       		.uleb128 0x49
+ 797 00cd 13       		.uleb128 0x13
+ 798 00ce 3F       		.uleb128 0x3f
+ 799 00cf 19       		.uleb128 0x19
+ 800 00d0 02       		.uleb128 0x2
+ 801 00d1 18       		.uleb128 0x18
+ 802 00d2 00       		.byte	0
+ 803 00d3 00       		.byte	0
+ 804 00d4 0F       		.uleb128 0xf
+ 805 00d5 2E       		.uleb128 0x2e
+ 806 00d6 00       		.byte	0
+ 807 00d7 3F       		.uleb128 0x3f
+ 808 00d8 19       		.uleb128 0x19
+ 809 00d9 3C       		.uleb128 0x3c
+ 810 00da 19       		.uleb128 0x19
+ 811 00db 6E       		.uleb128 0x6e
+ 812 00dc 0E       		.uleb128 0xe
+ 813 00dd 03       		.uleb128 0x3
+ 814 00de 0E       		.uleb128 0xe
+ 815 00df 3A       		.uleb128 0x3a
+ 816 00e0 0B       		.uleb128 0xb
+ 817 00e1 3B       		.uleb128 0x3b
+ 818 00e2 0B       		.uleb128 0xb
+ 819 00e3 00       		.byte	0
+ 820 00e4 00       		.byte	0
+ 821 00e5 00       		.byte	0
+ 822              		.section	.debug_aranges,"",%progbits
+ 823 0000 34000000 		.4byte	0x34
+ 824 0004 0200     		.2byte	0x2
+ 825 0006 00000000 		.4byte	.Ldebug_info0
+ 826 000a 04       		.byte	0x4
+ 827 000b 00       		.byte	0
+ 828 000c 0000     		.2byte	0
+ 829 000e 0000     		.2byte	0
+ 830 0010 00000000 		.4byte	.LFB63
+ 831 0014 10000000 		.4byte	.LFE63-.LFB63
+ 832 0018 00000000 		.4byte	.LFB64
+ 833 001c 1A000000 		.4byte	.LFE64-.LFB64
+ 834 0020 00000000 		.4byte	.LFB65
+ 835 0024 1A000000 		.4byte	.LFE65-.LFB65
+ 836 0028 00000000 		.4byte	.LFB66
+ 837 002c 4C000000 		.4byte	.LFE66-.LFB66
+ 838 0030 00000000 		.4byte	0
+ 839 0034 00000000 		.4byte	0
+ 840              		.section	.debug_ranges,"",%progbits
+ 841              	.Ldebug_ranges0:
+ 842 0000 00000000 		.4byte	.LFB63
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccrhbktB.s 			page 17
+
+
+ 843 0004 10000000 		.4byte	.LFE63
+ 844 0008 00000000 		.4byte	.LFB64
+ 845 000c 1A000000 		.4byte	.LFE64
+ 846 0010 00000000 		.4byte	.LFB65
+ 847 0014 1A000000 		.4byte	.LFE65
+ 848 0018 00000000 		.4byte	.LFB66
+ 849 001c 4C000000 		.4byte	.LFE66
+ 850 0020 00000000 		.4byte	0
+ 851 0024 00000000 		.4byte	0
+ 852              		.section	.debug_line,"",%progbits
+ 853              	.Ldebug_line0:
+ 854 0000 33020000 		.section	.debug_str,"MS",%progbits,1
+ 854      0200DA01 
+ 854      00000201 
+ 854      FB0E0D00 
+ 854      01010101 
+ 855              	.LASF41:
+ 856 0000 54696D65 		.ascii	"Timer2_Interrupt_StartEx\000"
+ 856      72325F49 
+ 856      6E746572 
+ 856      72757074 
+ 856      5F537461 
+ 857              	.LASF40:
+ 858 0019 54696D65 		.ascii	"Timer2_Interrupt_Start\000"
+ 858      72325F49 
+ 858      6E746572 
+ 858      72757074 
+ 858      5F537461 
+ 859              	.LASF9:
+ 860 0030 5F5F696E 		.ascii	"__int32_t\000"
+ 860      7433325F 
+ 860      7400
+ 861              	.LASF27:
+ 862 003a 54696D65 		.ascii	"Timer_ReadStatusRegister\000"
+ 862      725F5265 
+ 862      61645374 
+ 862      61747573 
+ 862      52656769 
+ 863              	.LASF38:
+ 864 0053 54696D65 		.ascii	"Timer_Interrupt_Enable\000"
+ 864      725F496E 
+ 864      74657272 
+ 864      7570745F 
+ 864      456E6162 
+ 865              	.LASF31:
+ 866 006a 4144435F 		.ascii	"ADC_Interrupt_Start\000"
+ 866      496E7465 
+ 866      72727570 
+ 866      745F5374 
+ 866      61727400 
+ 867              	.LASF20:
+ 868 007e 54696D65 		.ascii	"Timer2_Interrupt\000"
+ 868      72325F49 
+ 868      6E746572 
+ 868      72757074 
+ 868      00
+ 869              	.LASF29:
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccrhbktB.s 			page 18
+
+
+ 870 008f 54696D65 		.ascii	"Timer2_ReadStatusRegister\000"
+ 870      72325F52 
+ 870      65616453 
+ 870      74617475 
+ 870      73526567 
+ 871              	.LASF25:
+ 872 00a9 4C45445F 		.ascii	"LED_Drive_Write\000"
+ 872      44726976 
+ 872      655F5772 
+ 872      69746500 
+ 873              	.LASF13:
+ 874 00b9 666C6F61 		.ascii	"float\000"
+ 874      7400
+ 875              	.LASF23:
+ 876 00bf 64617461 		.ascii	"data\000"
+ 876      00
+ 877              	.LASF37:
+ 878 00c4 54696D65 		.ascii	"Timer_Interrupt_StartEx\000"
+ 878      725F496E 
+ 878      74657272 
+ 878      7570745F 
+ 878      53746172 
+ 879              	.LASF1:
+ 880 00dc 756E7369 		.ascii	"unsigned char\000"
+ 880      676E6564 
+ 880      20636861 
+ 880      7200
+ 881              	.LASF43:
+ 882 00ea 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 882      43313120 
+ 882      352E342E 
+ 882      31203230 
+ 882      31363036 
+ 883 011d 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 883      20726576 
+ 883      6973696F 
+ 883      6E203233 
+ 883      37373135 
+ 884 0150 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 884      66756E63 
+ 884      74696F6E 
+ 884      2D736563 
+ 884      74696F6E 
+ 885              	.LASF22:
+ 886 0178 4C454453 		.ascii	"LEDState\000"
+ 886      74617465 
+ 886      00
+ 887              	.LASF5:
+ 888 0181 6C6F6E67 		.ascii	"long unsigned int\000"
+ 888      20756E73 
+ 888      69676E65 
+ 888      6420696E 
+ 888      7400
+ 889              	.LASF3:
+ 890 0193 73686F72 		.ascii	"short unsigned int\000"
+ 890      7420756E 
+ 890      7369676E 
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccrhbktB.s 			page 19
+
+
+ 890      65642069 
+ 890      6E7400
+ 891              	.LASF24:
+ 892 01a6 4144435F 		.ascii	"ADC_DelSig_1_GetResult16\000"
+ 892      44656C53 
+ 892      69675F31 
+ 892      5F476574 
+ 892      52657375 
+ 893              	.LASF21:
+ 894 01bf 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 894      52784275 
+ 894      66666572 
+ 894      00
+ 895              	.LASF28:
+ 896 01cc 4D61726B 		.ascii	"Marker2_Write\000"
+ 896      6572325F 
+ 896      57726974 
+ 896      6500
+ 897              	.LASF14:
+ 898 01da 646F7562 		.ascii	"double\000"
+ 898      6C6500
+ 899              	.LASF46:
+ 900 01e1 6D61696E 		.ascii	"main\000"
+ 900      00
+ 901              	.LASF12:
+ 902 01e6 75696E74 		.ascii	"uint16\000"
+ 902      313600
+ 903              	.LASF35:
+ 904 01ed 54696D65 		.ascii	"Timer_Start\000"
+ 904      725F5374 
+ 904      61727400 
+ 905              	.LASF30:
+ 906 01f9 4144435F 		.ascii	"ADC_DelSig_1_Start\000"
+ 906      44656C53 
+ 906      69675F31 
+ 906      5F537461 
+ 906      727400
+ 907              	.LASF8:
+ 908 020c 756E7369 		.ascii	"unsigned int\000"
+ 908      676E6564 
+ 908      20696E74 
+ 908      00
+ 909              	.LASF39:
+ 910 0219 54696D65 		.ascii	"Timer2_Start\000"
+ 910      72325F53 
+ 910      74617274 
+ 910      00
+ 911              	.LASF7:
+ 912 0226 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 912      206C6F6E 
+ 912      6720756E 
+ 912      7369676E 
+ 912      65642069 
+ 913              	.LASF19:
+ 914 023d 54696D65 		.ascii	"Timer_Interrupt\000"
+ 914      725F496E 
+ 914      74657272 
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccrhbktB.s 			page 20
+
+
+ 914      75707400 
+ 915              	.LASF18:
+ 916 024d 4144435F 		.ascii	"ADC_Interrupt\000"
+ 916      496E7465 
+ 916      72727570 
+ 916      7400
+ 917              	.LASF10:
+ 918 025b 696E7433 		.ascii	"int32_t\000"
+ 918      325F7400 
+ 919              	.LASF17:
+ 920 0263 73697A65 		.ascii	"sizetype\000"
+ 920      74797065 
+ 920      00
+ 921              	.LASF6:
+ 922 026c 6C6F6E67 		.ascii	"long long int\000"
+ 922      206C6F6E 
+ 922      6720696E 
+ 922      7400
+ 923              	.LASF32:
+ 924 027a 4144435F 		.ascii	"ADC_Interrupt_StartEx\000"
+ 924      496E7465 
+ 924      72727570 
+ 924      745F5374 
+ 924      61727445 
+ 925              	.LASF44:
+ 926 0290 6D61696E 		.ascii	"main.c\000"
+ 926      2E6300
+ 927              	.LASF15:
+ 928 0297 63686172 		.ascii	"char\000"
+ 928      00
+ 929              	.LASF33:
+ 930 029c 4144435F 		.ascii	"ADC_Interrupt_Enable\000"
+ 930      496E7465 
+ 930      72727570 
+ 930      745F456E 
+ 930      61626C65 
+ 931              	.LASF2:
+ 932 02b1 73686F72 		.ascii	"short int\000"
+ 932      7420696E 
+ 932      7400
+ 933              	.LASF11:
+ 934 02bb 75696E74 		.ascii	"uint8\000"
+ 934      3800
+ 935              	.LASF36:
+ 936 02c1 54696D65 		.ascii	"Timer_Interrupt_Start\000"
+ 936      725F496E 
+ 936      74657272 
+ 936      7570745F 
+ 936      53746172 
+ 937              	.LASF4:
+ 938 02d7 6C6F6E67 		.ascii	"long int\000"
+ 938      20696E74 
+ 938      00
+ 939              	.LASF34:
+ 940 02e0 4144435F 		.ascii	"ADC_DelSig_1_StartConvert\000"
+ 940      44656C53 
+ 940      69675F31 
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccrhbktB.s 			page 21
+
+
+ 940      5F537461 
+ 940      7274436F 
+ 941              	.LASF16:
+ 942 02fa 6C6F6E67 		.ascii	"long double\000"
+ 942      20646F75 
+ 942      626C6500 
+ 943              	.LASF0:
+ 944 0306 7369676E 		.ascii	"signed char\000"
+ 944      65642063 
+ 944      68617200 
+ 945              	.LASF45:
+ 946 0312 433A5C55 		.ascii	"C:\\Users\\George Anwar\\Documents\\UC Berkeley\\ME"
+ 946      73657273 
+ 946      5C47656F 
+ 946      72676520 
+ 946      416E7761 
+ 947 0340 31333520 		.ascii	"135 Spring 2020\\PSOC Creator\\ME135_235\\Interrupt"
+ 947      53707269 
+ 947      6E672032 
+ 947      3032305C 
+ 947      50534F43 
+ 948 0370 5F507269 		.ascii	"_Priority.cydsn\000"
+ 948      6F726974 
+ 948      792E6379 
+ 948      64736E00 
+ 949              	.LASF26:
+ 950 0380 43794465 		.ascii	"CyDelay\000"
+ 950      6C617900 
+ 951              	.LASF42:
+ 952 0388 54696D65 		.ascii	"Timer2_Interrupt_Enable\000"
+ 952      72325F49 
+ 952      6E746572 
+ 952      72757074 
+ 952      5F456E61 
+ 953              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

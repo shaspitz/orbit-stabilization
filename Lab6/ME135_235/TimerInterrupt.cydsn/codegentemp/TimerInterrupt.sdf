@@ -1,0 +1,27 @@
+(DELAYFILE
+ (SDFVERSION "IEEE 1497 4.0")
+ (DATE "2020-04-21T14:03:12Z")
+ (DESIGN "TimerInterrupt")
+ (VENDOR "Cypress Semiconductor")
+ (PROGRAM "PSoC Creator")
+ (VERSION " 4.2")
+ (DIVIDER .)
+ (TIMESCALE 1 ns)
+ (CELL
+  (CELLTYPE "TimerInterrupt")
+  (INSTANCE *)
+  (DELAY
+   (ABSOLUTE
+    (INTERCONNECT ClockBlock.clk_bus_glb TimerInterrupt.clock (0.000:0.000:0.000))
+    (INTERCONNECT ClockBlock.clk_bus_glb \\LEDDrive\:Sync\:ctrl_reg\\.busclk (0.000:0.000:0.000))
+    (INTERCONNECT LED\(0\).pad_out LED\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT \\Timer_1\:TimerHW\\.irq TimerInterrupt.interrupt (1.000:1.000:1.000))
+    (INTERCONNECT \\LEDDrive\:Sync\:ctrl_reg\\.control_0 LED\(0\).pin_input (5.411:5.411:5.411))
+    (INTERCONNECT __ONE__.q \\Timer_1\:TimerHW\\.enable (0.000:0.000:0.000))
+    (INTERCONNECT ClockBlock.dclk_glb_ff_0 \\Timer_1\:TimerHW\\.clock (0.000:0.000:0.000))
+    (INTERCONNECT LED\(0\).pad_out LED\(0\)_PAD (0.000:0.000:0.000))
+    (INTERCONNECT LED\(0\)_PAD LED\(0\).pad_in (0.000:0.000:0.000))
+   )
+  )
+ )
+)

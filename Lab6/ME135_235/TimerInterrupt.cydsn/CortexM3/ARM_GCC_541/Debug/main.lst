@@ -1,0 +1,732 @@
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccRQeNi1.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.TimerInterrupt,"ax",%progbits
+  20              		.align	2
+  21              		.global	TimerInterrupt
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	TimerInterrupt, %function
+  25              	TimerInterrupt:
+  26              	.LFB63:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** 
+  14:main.c        **** CY_ISR(TimerInterrupt)
+  15:main.c        **** {
+  28              		.loc 1 15 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  16:main.c        ****     LEDDrive_Write(!LEDDrive_Read());
+  36              		.loc 1 16 0
+  37 0002 FFF7FEFF 		bl	LEDDrive_Read
+  38              	.LVL0:
+  39 0006 B0FA80F0 		clz	r0, r0
+  40 000a 4009     		lsrs	r0, r0, #5
+  41 000c FFF7FEFF 		bl	LEDDrive_Write
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccRQeNi1.s 			page 2
+
+
+  42              	.LVL1:
+  17:main.c        ****     
+  18:main.c        ****     Timer_1_ReadStatusRegister();
+  43              		.loc 1 18 0
+  44 0010 FFF7FEFF 		bl	Timer_1_ReadStatusRegister
+  45              	.LVL2:
+  46 0014 08BD     		pop	{r3, pc}
+  47              		.cfi_endproc
+  48              	.LFE63:
+  49              		.size	TimerInterrupt, .-TimerInterrupt
+  50 0016 00BF     		.section	.text.main,"ax",%progbits
+  51              		.align	2
+  52              		.global	main
+  53              		.thumb
+  54              		.thumb_func
+  55              		.type	main, %function
+  56              	main:
+  57              	.LFB64:
+  19:main.c        **** }
+  20:main.c        **** 
+  21:main.c        **** int main(void)
+  22:main.c        **** {
+  58              		.loc 1 22 0
+  59              		.cfi_startproc
+  60              		@ Volatile: function does not return.
+  61              		@ args = 0, pretend = 0, frame = 0
+  62              		@ frame_needed = 0, uses_anonymous_args = 0
+  63 0000 08B5     		push	{r3, lr}
+  64              		.cfi_def_cfa_offset 8
+  65              		.cfi_offset 3, -8
+  66              		.cfi_offset 14, -4
+  23:main.c        ****     Timer_1_Start();
+  67              		.loc 1 23 0
+  68 0002 FFF7FEFF 		bl	Timer_1_Start
+  69              	.LVL3:
+  24:main.c        ****     
+  25:main.c        ****     TimerInterrupt_Start();
+  70              		.loc 1 25 0
+  71 0006 FFF7FEFF 		bl	TimerInterrupt_Start
+  72              	.LVL4:
+  26:main.c        ****     TimerInterrupt_StartEx(TimerInterrupt);
+  73              		.loc 1 26 0
+  74 000a 0448     		ldr	r0, .L6
+  75 000c FFF7FEFF 		bl	TimerInterrupt_StartEx
+  76              	.LVL5:
+  27:main.c        ****     
+  28:main.c        ****     
+  29:main.c        ****     Timer_1_WritePeriod(12000);
+  77              		.loc 1 29 0
+  78 0010 42F6E060 		movw	r0, #12000
+  79 0014 FFF7FEFF 		bl	Timer_1_WritePeriod
+  80              	.LVL6:
+  30:main.c        ****     
+  31:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  81              		.loc 1 31 0
+  82              		.syntax unified
+  83              	@ 31 "main.c" 1
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccRQeNi1.s 			page 3
+
+
+  84 0018 62B6     		CPSIE   i
+  85              	@ 0 "" 2
+  86              		.thumb
+  87              		.syntax unified
+  88              	.L4:
+  89 001a FEE7     		b	.L4
+  90              	.L7:
+  91              		.align	2
+  92              	.L6:
+  93 001c 00000000 		.word	TimerInterrupt
+  94              		.cfi_endproc
+  95              	.LFE64:
+  96              		.size	main, .-main
+  97              		.text
+  98              	.Letext0:
+  99              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 100              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 101              		.file 4 "Generated_Source\\PSoC5/LEDDrive.h"
+ 102              		.file 5 "Generated_Source\\PSoC5/Timer_1.h"
+ 103              		.file 6 "Generated_Source\\PSoC5/TimerInterrupt.h"
+ 104              		.file 7 "Generated_Source\\PSoC5/core_cm3.h"
+ 105              		.section	.debug_info,"",%progbits
+ 106              	.Ldebug_info0:
+ 107 0000 84010000 		.4byte	0x184
+ 108 0004 0400     		.2byte	0x4
+ 109 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 110 000a 04       		.byte	0x4
+ 111 000b 01       		.uleb128 0x1
+ 112 000c 5E000000 		.4byte	.LASF23
+ 113 0010 0C       		.byte	0xc
+ 114 0011 44000000 		.4byte	.LASF24
+ 115 0015 FE000000 		.4byte	.LASF25
+ 116 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 117 001d 00000000 		.4byte	0
+ 118 0021 00000000 		.4byte	.Ldebug_line0
+ 119 0025 02       		.uleb128 0x2
+ 120 0026 01       		.byte	0x1
+ 121 0027 06       		.byte	0x6
+ 122 0028 E5010000 		.4byte	.LASF0
+ 123 002c 02       		.uleb128 0x2
+ 124 002d 01       		.byte	0x1
+ 125 002e 08       		.byte	0x8
+ 126 002f 36000000 		.4byte	.LASF1
+ 127 0033 02       		.uleb128 0x2
+ 128 0034 02       		.byte	0x2
+ 129 0035 05       		.byte	0x5
+ 130 0036 33020000 		.4byte	.LASF2
+ 131 003a 02       		.uleb128 0x2
+ 132 003b 02       		.byte	0x2
+ 133 003c 07       		.byte	0x7
+ 134 003d 7F010000 		.4byte	.LASF3
+ 135 0041 03       		.uleb128 0x3
+ 136 0042 14020000 		.4byte	.LASF9
+ 137 0046 02       		.byte	0x2
+ 138 0047 3F       		.byte	0x3f
+ 139 0048 4C000000 		.4byte	0x4c
+ 140 004c 02       		.uleb128 0x2
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccRQeNi1.s 			page 4
+
+
+ 141 004d 04       		.byte	0x4
+ 142 004e 05       		.byte	0x5
+ 143 004f C8010000 		.4byte	.LASF4
+ 144 0053 02       		.uleb128 0x2
+ 145 0054 04       		.byte	0x4
+ 146 0055 07       		.byte	0x7
+ 147 0056 EC000000 		.4byte	.LASF5
+ 148 005a 02       		.uleb128 0x2
+ 149 005b 08       		.byte	0x8
+ 150 005c 05       		.byte	0x5
+ 151 005d 00000000 		.4byte	.LASF6
+ 152 0061 02       		.uleb128 0x2
+ 153 0062 08       		.byte	0x8
+ 154 0063 07       		.byte	0x7
+ 155 0064 68010000 		.4byte	.LASF7
+ 156 0068 04       		.uleb128 0x4
+ 157 0069 04       		.byte	0x4
+ 158 006a 05       		.byte	0x5
+ 159 006b 696E7400 		.ascii	"int\000"
+ 160 006f 02       		.uleb128 0x2
+ 161 0070 04       		.byte	0x4
+ 162 0071 07       		.byte	0x7
+ 163 0072 29000000 		.4byte	.LASF8
+ 164 0076 03       		.uleb128 0x3
+ 165 0077 3D020000 		.4byte	.LASF10
+ 166 007b 03       		.byte	0x3
+ 167 007c 2C       		.byte	0x2c
+ 168 007d 41000000 		.4byte	0x41
+ 169 0081 02       		.uleb128 0x2
+ 170 0082 04       		.byte	0x4
+ 171 0083 04       		.byte	0x4
+ 172 0084 1E020000 		.4byte	.LASF11
+ 173 0088 02       		.uleb128 0x2
+ 174 0089 08       		.byte	0x8
+ 175 008a 04       		.byte	0x4
+ 176 008b D1010000 		.4byte	.LASF12
+ 177 008f 02       		.uleb128 0x2
+ 178 0090 01       		.byte	0x1
+ 179 0091 08       		.byte	0x8
+ 180 0092 C3010000 		.4byte	.LASF13
+ 181 0096 02       		.uleb128 0x2
+ 182 0097 08       		.byte	0x8
+ 183 0098 04       		.byte	0x4
+ 184 0099 F1010000 		.4byte	.LASF14
+ 185 009d 02       		.uleb128 0x2
+ 186 009e 04       		.byte	0x4
+ 187 009f 07       		.byte	0x7
+ 188 00a0 45020000 		.4byte	.LASF15
+ 189 00a4 05       		.uleb128 0x5
+ 190 00a5 24020000 		.4byte	.LASF26
+ 191 00a9 01       		.byte	0x1
+ 192 00aa 0E       		.byte	0xe
+ 193 00ab 00000000 		.4byte	.LFB63
+ 194 00af 16000000 		.4byte	.LFE63-.LFB63
+ 195 00b3 01       		.uleb128 0x1
+ 196 00b4 9C       		.byte	0x9c
+ 197 00b5 D5000000 		.4byte	0xd5
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccRQeNi1.s 			page 5
+
+
+ 198 00b9 06       		.uleb128 0x6
+ 199 00ba 06000000 		.4byte	.LVL0
+ 200 00be 3A010000 		.4byte	0x13a
+ 201 00c2 06       		.uleb128 0x6
+ 202 00c3 10000000 		.4byte	.LVL1
+ 203 00c7 45010000 		.4byte	0x145
+ 204 00cb 06       		.uleb128 0x6
+ 205 00cc 14000000 		.4byte	.LVL2
+ 206 00d0 50010000 		.4byte	0x150
+ 207 00d4 00       		.byte	0
+ 208 00d5 07       		.uleb128 0x7
+ 209 00d6 4B000000 		.4byte	.LASF27
+ 210 00da 01       		.byte	0x1
+ 211 00db 15       		.byte	0x15
+ 212 00dc 68000000 		.4byte	0x68
+ 213 00e0 00000000 		.4byte	.LFB64
+ 214 00e4 20000000 		.4byte	.LFE64-.LFB64
+ 215 00e8 01       		.uleb128 0x1
+ 216 00e9 9C       		.byte	0x9c
+ 217 00ea 29010000 		.4byte	0x129
+ 218 00ee 06       		.uleb128 0x6
+ 219 00ef 06000000 		.4byte	.LVL3
+ 220 00f3 5B010000 		.4byte	0x15b
+ 221 00f7 06       		.uleb128 0x6
+ 222 00f8 0A000000 		.4byte	.LVL4
+ 223 00fc 66010000 		.4byte	0x166
+ 224 0100 08       		.uleb128 0x8
+ 225 0101 10000000 		.4byte	.LVL5
+ 226 0105 71010000 		.4byte	0x171
+ 227 0109 17010000 		.4byte	0x117
+ 228 010d 09       		.uleb128 0x9
+ 229 010e 01       		.uleb128 0x1
+ 230 010f 50       		.byte	0x50
+ 231 0110 05       		.uleb128 0x5
+ 232 0111 03       		.byte	0x3
+ 233 0112 00000000 		.4byte	TimerInterrupt
+ 234 0116 00       		.byte	0
+ 235 0117 0A       		.uleb128 0xa
+ 236 0118 18000000 		.4byte	.LVL6
+ 237 011c 7C010000 		.4byte	0x17c
+ 238 0120 09       		.uleb128 0x9
+ 239 0121 01       		.uleb128 0x1
+ 240 0122 50       		.byte	0x50
+ 241 0123 03       		.uleb128 0x3
+ 242 0124 0A       		.byte	0xa
+ 243 0125 E02E     		.2byte	0x2ee0
+ 244 0127 00       		.byte	0
+ 245 0128 00       		.byte	0
+ 246 0129 0B       		.uleb128 0xb
+ 247 012a D8010000 		.4byte	.LASF28
+ 248 012e 07       		.byte	0x7
+ 249 012f 1207     		.2byte	0x712
+ 250 0131 35010000 		.4byte	0x135
+ 251 0135 0C       		.uleb128 0xc
+ 252 0136 76000000 		.4byte	0x76
+ 253 013a 0D       		.uleb128 0xd
+ 254 013b 50000000 		.4byte	.LASF16
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccRQeNi1.s 			page 6
+
+
+ 255 013f 50000000 		.4byte	.LASF16
+ 256 0143 04       		.byte	0x4
+ 257 0144 30       		.byte	0x30
+ 258 0145 0D       		.uleb128 0xd
+ 259 0146 92010000 		.4byte	.LASF17
+ 260 014a 92010000 		.4byte	.LASF17
+ 261 014e 04       		.byte	0x4
+ 262 014f 2F       		.byte	0x2f
+ 263 0150 0D       		.uleb128 0xd
+ 264 0151 0E000000 		.4byte	.LASF18
+ 265 0155 0E000000 		.4byte	.LASF18
+ 266 0159 05       		.byte	0x5
+ 267 015a 5E       		.byte	0x5e
+ 268 015b 0D       		.uleb128 0xd
+ 269 015c A1010000 		.4byte	.LASF19
+ 270 0160 A1010000 		.4byte	.LASF19
+ 271 0164 05       		.byte	0x5
+ 272 0165 5A       		.byte	0x5a
+ 273 0166 0D       		.uleb128 0xd
+ 274 0167 4E020000 		.4byte	.LASF20
+ 275 016b 4E020000 		.4byte	.LASF20
+ 276 016f 06       		.byte	0x6
+ 277 0170 17       		.byte	0x17
+ 278 0171 0D       		.uleb128 0xd
+ 279 0172 FD010000 		.4byte	.LASF21
+ 280 0176 FD010000 		.4byte	.LASF21
+ 281 017a 06       		.byte	0x6
+ 282 017b 18       		.byte	0x18
+ 283 017c 0D       		.uleb128 0xd
+ 284 017d AF010000 		.4byte	.LASF22
+ 285 0181 AF010000 		.4byte	.LASF22
+ 286 0185 05       		.byte	0x5
+ 287 0186 68       		.byte	0x68
+ 288 0187 00       		.byte	0
+ 289              		.section	.debug_abbrev,"",%progbits
+ 290              	.Ldebug_abbrev0:
+ 291 0000 01       		.uleb128 0x1
+ 292 0001 11       		.uleb128 0x11
+ 293 0002 01       		.byte	0x1
+ 294 0003 25       		.uleb128 0x25
+ 295 0004 0E       		.uleb128 0xe
+ 296 0005 13       		.uleb128 0x13
+ 297 0006 0B       		.uleb128 0xb
+ 298 0007 03       		.uleb128 0x3
+ 299 0008 0E       		.uleb128 0xe
+ 300 0009 1B       		.uleb128 0x1b
+ 301 000a 0E       		.uleb128 0xe
+ 302 000b 55       		.uleb128 0x55
+ 303 000c 17       		.uleb128 0x17
+ 304 000d 11       		.uleb128 0x11
+ 305 000e 01       		.uleb128 0x1
+ 306 000f 10       		.uleb128 0x10
+ 307 0010 17       		.uleb128 0x17
+ 308 0011 00       		.byte	0
+ 309 0012 00       		.byte	0
+ 310 0013 02       		.uleb128 0x2
+ 311 0014 24       		.uleb128 0x24
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccRQeNi1.s 			page 7
+
+
+ 312 0015 00       		.byte	0
+ 313 0016 0B       		.uleb128 0xb
+ 314 0017 0B       		.uleb128 0xb
+ 315 0018 3E       		.uleb128 0x3e
+ 316 0019 0B       		.uleb128 0xb
+ 317 001a 03       		.uleb128 0x3
+ 318 001b 0E       		.uleb128 0xe
+ 319 001c 00       		.byte	0
+ 320 001d 00       		.byte	0
+ 321 001e 03       		.uleb128 0x3
+ 322 001f 16       		.uleb128 0x16
+ 323 0020 00       		.byte	0
+ 324 0021 03       		.uleb128 0x3
+ 325 0022 0E       		.uleb128 0xe
+ 326 0023 3A       		.uleb128 0x3a
+ 327 0024 0B       		.uleb128 0xb
+ 328 0025 3B       		.uleb128 0x3b
+ 329 0026 0B       		.uleb128 0xb
+ 330 0027 49       		.uleb128 0x49
+ 331 0028 13       		.uleb128 0x13
+ 332 0029 00       		.byte	0
+ 333 002a 00       		.byte	0
+ 334 002b 04       		.uleb128 0x4
+ 335 002c 24       		.uleb128 0x24
+ 336 002d 00       		.byte	0
+ 337 002e 0B       		.uleb128 0xb
+ 338 002f 0B       		.uleb128 0xb
+ 339 0030 3E       		.uleb128 0x3e
+ 340 0031 0B       		.uleb128 0xb
+ 341 0032 03       		.uleb128 0x3
+ 342 0033 08       		.uleb128 0x8
+ 343 0034 00       		.byte	0
+ 344 0035 00       		.byte	0
+ 345 0036 05       		.uleb128 0x5
+ 346 0037 2E       		.uleb128 0x2e
+ 347 0038 01       		.byte	0x1
+ 348 0039 3F       		.uleb128 0x3f
+ 349 003a 19       		.uleb128 0x19
+ 350 003b 03       		.uleb128 0x3
+ 351 003c 0E       		.uleb128 0xe
+ 352 003d 3A       		.uleb128 0x3a
+ 353 003e 0B       		.uleb128 0xb
+ 354 003f 3B       		.uleb128 0x3b
+ 355 0040 0B       		.uleb128 0xb
+ 356 0041 27       		.uleb128 0x27
+ 357 0042 19       		.uleb128 0x19
+ 358 0043 11       		.uleb128 0x11
+ 359 0044 01       		.uleb128 0x1
+ 360 0045 12       		.uleb128 0x12
+ 361 0046 06       		.uleb128 0x6
+ 362 0047 40       		.uleb128 0x40
+ 363 0048 18       		.uleb128 0x18
+ 364 0049 9742     		.uleb128 0x2117
+ 365 004b 19       		.uleb128 0x19
+ 366 004c 01       		.uleb128 0x1
+ 367 004d 13       		.uleb128 0x13
+ 368 004e 00       		.byte	0
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccRQeNi1.s 			page 8
+
+
+ 369 004f 00       		.byte	0
+ 370 0050 06       		.uleb128 0x6
+ 371 0051 898201   		.uleb128 0x4109
+ 372 0054 00       		.byte	0
+ 373 0055 11       		.uleb128 0x11
+ 374 0056 01       		.uleb128 0x1
+ 375 0057 31       		.uleb128 0x31
+ 376 0058 13       		.uleb128 0x13
+ 377 0059 00       		.byte	0
+ 378 005a 00       		.byte	0
+ 379 005b 07       		.uleb128 0x7
+ 380 005c 2E       		.uleb128 0x2e
+ 381 005d 01       		.byte	0x1
+ 382 005e 3F       		.uleb128 0x3f
+ 383 005f 19       		.uleb128 0x19
+ 384 0060 03       		.uleb128 0x3
+ 385 0061 0E       		.uleb128 0xe
+ 386 0062 3A       		.uleb128 0x3a
+ 387 0063 0B       		.uleb128 0xb
+ 388 0064 3B       		.uleb128 0x3b
+ 389 0065 0B       		.uleb128 0xb
+ 390 0066 27       		.uleb128 0x27
+ 391 0067 19       		.uleb128 0x19
+ 392 0068 49       		.uleb128 0x49
+ 393 0069 13       		.uleb128 0x13
+ 394 006a 8701     		.uleb128 0x87
+ 395 006c 19       		.uleb128 0x19
+ 396 006d 11       		.uleb128 0x11
+ 397 006e 01       		.uleb128 0x1
+ 398 006f 12       		.uleb128 0x12
+ 399 0070 06       		.uleb128 0x6
+ 400 0071 40       		.uleb128 0x40
+ 401 0072 18       		.uleb128 0x18
+ 402 0073 9742     		.uleb128 0x2117
+ 403 0075 19       		.uleb128 0x19
+ 404 0076 01       		.uleb128 0x1
+ 405 0077 13       		.uleb128 0x13
+ 406 0078 00       		.byte	0
+ 407 0079 00       		.byte	0
+ 408 007a 08       		.uleb128 0x8
+ 409 007b 898201   		.uleb128 0x4109
+ 410 007e 01       		.byte	0x1
+ 411 007f 11       		.uleb128 0x11
+ 412 0080 01       		.uleb128 0x1
+ 413 0081 31       		.uleb128 0x31
+ 414 0082 13       		.uleb128 0x13
+ 415 0083 01       		.uleb128 0x1
+ 416 0084 13       		.uleb128 0x13
+ 417 0085 00       		.byte	0
+ 418 0086 00       		.byte	0
+ 419 0087 09       		.uleb128 0x9
+ 420 0088 8A8201   		.uleb128 0x410a
+ 421 008b 00       		.byte	0
+ 422 008c 02       		.uleb128 0x2
+ 423 008d 18       		.uleb128 0x18
+ 424 008e 9142     		.uleb128 0x2111
+ 425 0090 18       		.uleb128 0x18
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccRQeNi1.s 			page 9
+
+
+ 426 0091 00       		.byte	0
+ 427 0092 00       		.byte	0
+ 428 0093 0A       		.uleb128 0xa
+ 429 0094 898201   		.uleb128 0x4109
+ 430 0097 01       		.byte	0x1
+ 431 0098 11       		.uleb128 0x11
+ 432 0099 01       		.uleb128 0x1
+ 433 009a 31       		.uleb128 0x31
+ 434 009b 13       		.uleb128 0x13
+ 435 009c 00       		.byte	0
+ 436 009d 00       		.byte	0
+ 437 009e 0B       		.uleb128 0xb
+ 438 009f 34       		.uleb128 0x34
+ 439 00a0 00       		.byte	0
+ 440 00a1 03       		.uleb128 0x3
+ 441 00a2 0E       		.uleb128 0xe
+ 442 00a3 3A       		.uleb128 0x3a
+ 443 00a4 0B       		.uleb128 0xb
+ 444 00a5 3B       		.uleb128 0x3b
+ 445 00a6 05       		.uleb128 0x5
+ 446 00a7 49       		.uleb128 0x49
+ 447 00a8 13       		.uleb128 0x13
+ 448 00a9 3F       		.uleb128 0x3f
+ 449 00aa 19       		.uleb128 0x19
+ 450 00ab 3C       		.uleb128 0x3c
+ 451 00ac 19       		.uleb128 0x19
+ 452 00ad 00       		.byte	0
+ 453 00ae 00       		.byte	0
+ 454 00af 0C       		.uleb128 0xc
+ 455 00b0 35       		.uleb128 0x35
+ 456 00b1 00       		.byte	0
+ 457 00b2 49       		.uleb128 0x49
+ 458 00b3 13       		.uleb128 0x13
+ 459 00b4 00       		.byte	0
+ 460 00b5 00       		.byte	0
+ 461 00b6 0D       		.uleb128 0xd
+ 462 00b7 2E       		.uleb128 0x2e
+ 463 00b8 00       		.byte	0
+ 464 00b9 3F       		.uleb128 0x3f
+ 465 00ba 19       		.uleb128 0x19
+ 466 00bb 3C       		.uleb128 0x3c
+ 467 00bc 19       		.uleb128 0x19
+ 468 00bd 6E       		.uleb128 0x6e
+ 469 00be 0E       		.uleb128 0xe
+ 470 00bf 03       		.uleb128 0x3
+ 471 00c0 0E       		.uleb128 0xe
+ 472 00c1 3A       		.uleb128 0x3a
+ 473 00c2 0B       		.uleb128 0xb
+ 474 00c3 3B       		.uleb128 0x3b
+ 475 00c4 0B       		.uleb128 0xb
+ 476 00c5 00       		.byte	0
+ 477 00c6 00       		.byte	0
+ 478 00c7 00       		.byte	0
+ 479              		.section	.debug_aranges,"",%progbits
+ 480 0000 24000000 		.4byte	0x24
+ 481 0004 0200     		.2byte	0x2
+ 482 0006 00000000 		.4byte	.Ldebug_info0
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccRQeNi1.s 			page 10
+
+
+ 483 000a 04       		.byte	0x4
+ 484 000b 00       		.byte	0
+ 485 000c 0000     		.2byte	0
+ 486 000e 0000     		.2byte	0
+ 487 0010 00000000 		.4byte	.LFB63
+ 488 0014 16000000 		.4byte	.LFE63-.LFB63
+ 489 0018 00000000 		.4byte	.LFB64
+ 490 001c 20000000 		.4byte	.LFE64-.LFB64
+ 491 0020 00000000 		.4byte	0
+ 492 0024 00000000 		.4byte	0
+ 493              		.section	.debug_ranges,"",%progbits
+ 494              	.Ldebug_ranges0:
+ 495 0000 00000000 		.4byte	.LFB63
+ 496 0004 16000000 		.4byte	.LFE63
+ 497 0008 00000000 		.4byte	.LFB64
+ 498 000c 20000000 		.4byte	.LFE64
+ 499 0010 00000000 		.4byte	0
+ 500 0014 00000000 		.4byte	0
+ 501              		.section	.debug_line,"",%progbits
+ 502              	.Ldebug_line0:
+ 503 0000 99010000 		.section	.debug_str,"MS",%progbits,1
+ 503      02006E01 
+ 503      00000201 
+ 503      FB0E0D00 
+ 503      01010101 
+ 504              	.LASF6:
+ 505 0000 6C6F6E67 		.ascii	"long long int\000"
+ 505      206C6F6E 
+ 505      6720696E 
+ 505      7400
+ 506              	.LASF18:
+ 507 000e 54696D65 		.ascii	"Timer_1_ReadStatusRegister\000"
+ 507      725F315F 
+ 507      52656164 
+ 507      53746174 
+ 507      75735265 
+ 508              	.LASF8:
+ 509 0029 756E7369 		.ascii	"unsigned int\000"
+ 509      676E6564 
+ 509      20696E74 
+ 509      00
+ 510              	.LASF1:
+ 511 0036 756E7369 		.ascii	"unsigned char\000"
+ 511      676E6564 
+ 511      20636861 
+ 511      7200
+ 512              	.LASF24:
+ 513 0044 6D61696E 		.ascii	"main.c\000"
+ 513      2E6300
+ 514              	.LASF27:
+ 515 004b 6D61696E 		.ascii	"main\000"
+ 515      00
+ 516              	.LASF16:
+ 517 0050 4C454444 		.ascii	"LEDDrive_Read\000"
+ 517      72697665 
+ 517      5F526561 
+ 517      6400
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccRQeNi1.s 			page 11
+
+
+ 518              	.LASF23:
+ 519 005e 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 519      43313120 
+ 519      352E342E 
+ 519      31203230 
+ 519      31363036 
+ 520 0091 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 520      20726576 
+ 520      6973696F 
+ 520      6E203233 
+ 520      37373135 
+ 521 00c4 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 521      66756E63 
+ 521      74696F6E 
+ 521      2D736563 
+ 521      74696F6E 
+ 522              	.LASF5:
+ 523 00ec 6C6F6E67 		.ascii	"long unsigned int\000"
+ 523      20756E73 
+ 523      69676E65 
+ 523      6420696E 
+ 523      7400
+ 524              	.LASF25:
+ 525 00fe 433A5C55 		.ascii	"C:\\Users\\George Anwar\\Documents\\UC Berkeley\\ME"
+ 525      73657273 
+ 525      5C47656F 
+ 525      72676520 
+ 525      416E7761 
+ 526 012c 31333520 		.ascii	"135 Spring 2020\\PSOC Creator\\ME135_235\\TimerInte"
+ 526      53707269 
+ 526      6E672032 
+ 526      3032305C 
+ 526      50534F43 
+ 527 015c 72727570 		.ascii	"rrupt.cydsn\000"
+ 527      742E6379 
+ 527      64736E00 
+ 528              	.LASF7:
+ 529 0168 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 529      206C6F6E 
+ 529      6720756E 
+ 529      7369676E 
+ 529      65642069 
+ 530              	.LASF3:
+ 531 017f 73686F72 		.ascii	"short unsigned int\000"
+ 531      7420756E 
+ 531      7369676E 
+ 531      65642069 
+ 531      6E7400
+ 532              	.LASF17:
+ 533 0192 4C454444 		.ascii	"LEDDrive_Write\000"
+ 533      72697665 
+ 533      5F577269 
+ 533      746500
+ 534              	.LASF19:
+ 535 01a1 54696D65 		.ascii	"Timer_1_Start\000"
+ 535      725F315F 
+ 535      53746172 
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccRQeNi1.s 			page 12
+
+
+ 535      7400
+ 536              	.LASF22:
+ 537 01af 54696D65 		.ascii	"Timer_1_WritePeriod\000"
+ 537      725F315F 
+ 537      57726974 
+ 537      65506572 
+ 537      696F6400 
+ 538              	.LASF13:
+ 539 01c3 63686172 		.ascii	"char\000"
+ 539      00
+ 540              	.LASF4:
+ 541 01c8 6C6F6E67 		.ascii	"long int\000"
+ 541      20696E74 
+ 541      00
+ 542              	.LASF12:
+ 543 01d1 646F7562 		.ascii	"double\000"
+ 543      6C6500
+ 544              	.LASF28:
+ 545 01d8 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 545      52784275 
+ 545      66666572 
+ 545      00
+ 546              	.LASF0:
+ 547 01e5 7369676E 		.ascii	"signed char\000"
+ 547      65642063 
+ 547      68617200 
+ 548              	.LASF14:
+ 549 01f1 6C6F6E67 		.ascii	"long double\000"
+ 549      20646F75 
+ 549      626C6500 
+ 550              	.LASF21:
+ 551 01fd 54696D65 		.ascii	"TimerInterrupt_StartEx\000"
+ 551      72496E74 
+ 551      65727275 
+ 551      70745F53 
+ 551      74617274 
+ 552              	.LASF9:
+ 553 0214 5F5F696E 		.ascii	"__int32_t\000"
+ 553      7433325F 
+ 553      7400
+ 554              	.LASF11:
+ 555 021e 666C6F61 		.ascii	"float\000"
+ 555      7400
+ 556              	.LASF26:
+ 557 0224 54696D65 		.ascii	"TimerInterrupt\000"
+ 557      72496E74 
+ 557      65727275 
+ 557      707400
+ 558              	.LASF2:
+ 559 0233 73686F72 		.ascii	"short int\000"
+ 559      7420696E 
+ 559      7400
+ 560              	.LASF10:
+ 561 023d 696E7433 		.ascii	"int32_t\000"
+ 561      325F7400 
+ 562              	.LASF15:
+ 563 0245 73697A65 		.ascii	"sizetype\000"
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccRQeNi1.s 			page 13
+
+
+ 563      74797065 
+ 563      00
+ 564              	.LASF20:
+ 565 024e 54696D65 		.ascii	"TimerInterrupt_Start\000"
+ 565      72496E74 
+ 565      65727275 
+ 565      70745F53 
+ 565      74617274 
+ 566              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

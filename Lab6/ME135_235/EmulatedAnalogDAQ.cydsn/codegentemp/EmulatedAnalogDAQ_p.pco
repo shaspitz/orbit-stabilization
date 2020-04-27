@@ -1,0 +1,14 @@
+dont_use_io iocell 1 0
+dont_use_io iocell 1 1
+dont_use_io iocell 1 3
+set_location "__ONE__" macrocell 1 3 0 0
+set_location "\WaveDAC8_1:Wave2_DMA\" drqcell -1 -1 1
+set_location "\WaveDAC8_1:VDAC8:viDAC8\" vidaccell -1 -1 3
+set_location "\ADC_DelSig_1:DSM\" dsmodcell -1 -1 0
+set_location "ClockBlock" clockblockcell -1 -1 0
+set_location "\WaveDAC8_1:Wave1_DMA\" drqcell -1 -1 0
+set_location "\ADC_DelSig_1:IRQ\" interrupt -1 -1 29
+# Note: port 15 is the logical name for port 8
+set_io "Vin(0)" iocell 15 0
+set_io "Vout(0)" iocell 3 0
+set_location "\ADC_DelSig_1:DEC\" decimatorcell -1 -1 0
