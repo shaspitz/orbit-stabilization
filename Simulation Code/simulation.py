@@ -12,8 +12,9 @@ import numpy as np
 import csv
 import time
 import serial as ser
-import scipy
+import scipy as sp
 from scipy.integrate import solve_ivp
+from scipy.signal import cont2discrete
 
 # Setup global variables
 
@@ -62,23 +63,45 @@ same as the target sattellite. Then would use "V-bar approach" to increase
 radial velocity along the target orbit until proximity is reached.
 '''
 def noncont_linear_dyn(r0,w0):
+    dt = 1
     #discretisation obtained from http://users.wpi.edu/~zli11/teaching/rbe595_2017/LectureSlide_PDF/discretization.pdf
     A = np.array([[0, 1, 0, 0],
                   [3*w0**2, 0, 0, 2*r0*w0],
                   [0, 0, 0, 1],
                   [0, -2*w0/r0, 0, 0]])
-    print(np.linalg.inv(A))
+
+    # print(A)
+    # print(np.linalg.inv(A))
+
+    # ERROR HERE!!!
+    # np.linalg.inv(A) is a singular matrix --> rank != 4
+    # therefore, we need to use another way to discretize it instead of using sp.linalg.expm
+
 
     B = np.array([[0, 0],
                   [1, 0],
                   [0, 0],
                   [0, 1/r0]])
-    G=scipy.linalg.expm(A)
-    H=(scipy.linalg.expm(A) - np.eye(4))@ B @ np.linalg.inv(A)
-    print(G)
-    print(H)
 
-    return G,H
+    # G=sp.linalg.expm(A)
+    # H=(sp.linalg.expm(A) - np.eye(4))@ B @ np.linalg.inv(A)
+    # print(G)
+    # print(H)
+
+
+    
+    # Golden Lecutrue Note: P. 34
+    C = np.array([
+        [1/r0, 0, 0, 0],
+        [0   , 0, 1, 0]
+        ])
+
+    # https://docs.scipy.org/doc/scipy-0.15.1/reference/generated/scipy.signal.cont2discrete.html
+    Ad, Bd, Cd, Dd, dtime = sp.signal.cont2discrete((A, B, C, 0), dt, method='zoh')
+    # print(Ad,Bd)
+
+    return Ad, Bd
+    # return G,H
 
 #kalman Filter
 #A:State update
@@ -86,7 +109,7 @@ def noncont_linear_dyn(r0,w0):
 #W:sensor noise
 #z:measurements
 #K:gain matrix at last timestep
-def KF(A,H,V,W,z,Pm,K,XM):
+def KF(A,H,V,W,z,Pm,XM):
     #prior update
     XP = A @ XM
     Pp = A @ Pm @ A.T + V
@@ -246,7 +269,7 @@ def main():
         A,B = noncont_linear_dyn(r0,w0)
         U = LQR(A,B,N,S,Q,R_m)
         for i in range(1,N):
-            K,Pm = KF(A,H,V,W,sys_sol_lin.y[:,i-1]+np.random.normal(0,W),Pm,K,x[:,i-1])
+            K,Pm = KF(A,H,V,W,sys_sol_lin.y[:,i-1]+np.random.normal(0,W),Pm,x[:,i-1])
             #calculate control input for each time step
             u[:,i-1] = -(np.linalg.inv(R_m+B.T @ (U[:,:,i-1]) @ (B))) @ (B.T) @ (U[:,:,i-1]) @ (A) @ (x[:,i-1])
             # print(u[:,i-1])
