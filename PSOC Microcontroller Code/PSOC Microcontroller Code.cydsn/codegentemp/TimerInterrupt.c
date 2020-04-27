@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: ADC_DelSig_1_IRQ.c  
+* File Name: TimerInterrupt.c  
 * Version 1.70
 *
 *  Description:
@@ -18,15 +18,15 @@
 
 #include <cydevice_trm.h>
 #include <CyLib.h>
-#include <ADC_DelSig_1_IRQ.h>
+#include <TimerInterrupt.h>
 #include "cyapicallbacks.h"
 
-#if !defined(ADC_DelSig_1_IRQ__REMOVED) /* Check for removal by optimization */
+#if !defined(TimerInterrupt__REMOVED) /* Check for removal by optimization */
 
 /*******************************************************************************
 *  Place your includes, defines and code here 
 ********************************************************************************/
-/* `#START ADC_DelSig_1_IRQ_intc` */
+/* `#START TimerInterrupt_intc` */
 
 /* `#END` */
 
@@ -42,7 +42,7 @@ CY_ISR_PROTO(IntDefaultHandler);
 
 
 /*******************************************************************************
-* Function Name: ADC_DelSig_1_IRQ_Start
+* Function Name: TimerInterrupt_Start
 ********************************************************************************
 *
 * Summary:
@@ -58,24 +58,24 @@ CY_ISR_PROTO(IntDefaultHandler);
 *   None
 *
 *******************************************************************************/
-void ADC_DelSig_1_IRQ_Start(void)
+void TimerInterrupt_Start(void)
 {
     /* For all we know the interrupt is active. */
-    ADC_DelSig_1_IRQ_Disable();
+    TimerInterrupt_Disable();
 
-    /* Set the ISR to point to the ADC_DelSig_1_IRQ Interrupt. */
-    ADC_DelSig_1_IRQ_SetVector(&ADC_DelSig_1_IRQ_Interrupt);
+    /* Set the ISR to point to the TimerInterrupt Interrupt. */
+    TimerInterrupt_SetVector(&TimerInterrupt_Interrupt);
 
     /* Set the priority. */
-    ADC_DelSig_1_IRQ_SetPriority((uint8)ADC_DelSig_1_IRQ_INTC_PRIOR_NUMBER);
+    TimerInterrupt_SetPriority((uint8)TimerInterrupt_INTC_PRIOR_NUMBER);
 
     /* Enable it. */
-    ADC_DelSig_1_IRQ_Enable();
+    TimerInterrupt_Enable();
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_DelSig_1_IRQ_StartEx
+* Function Name: TimerInterrupt_StartEx
 ********************************************************************************
 *
 * Summary:
@@ -101,24 +101,24 @@ void ADC_DelSig_1_IRQ_Start(void)
 *   None
 *
 *******************************************************************************/
-void ADC_DelSig_1_IRQ_StartEx(cyisraddress address)
+void TimerInterrupt_StartEx(cyisraddress address)
 {
     /* For all we know the interrupt is active. */
-    ADC_DelSig_1_IRQ_Disable();
+    TimerInterrupt_Disable();
 
-    /* Set the ISR to point to the ADC_DelSig_1_IRQ Interrupt. */
-    ADC_DelSig_1_IRQ_SetVector(address);
+    /* Set the ISR to point to the TimerInterrupt Interrupt. */
+    TimerInterrupt_SetVector(address);
 
     /* Set the priority. */
-    ADC_DelSig_1_IRQ_SetPriority((uint8)ADC_DelSig_1_IRQ_INTC_PRIOR_NUMBER);
+    TimerInterrupt_SetPriority((uint8)TimerInterrupt_INTC_PRIOR_NUMBER);
 
     /* Enable it. */
-    ADC_DelSig_1_IRQ_Enable();
+    TimerInterrupt_Enable();
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_DelSig_1_IRQ_Stop
+* Function Name: TimerInterrupt_Stop
 ********************************************************************************
 *
 * Summary:
@@ -131,22 +131,22 @@ void ADC_DelSig_1_IRQ_StartEx(cyisraddress address)
 *   None
 *
 *******************************************************************************/
-void ADC_DelSig_1_IRQ_Stop(void)
+void TimerInterrupt_Stop(void)
 {
     /* Disable this interrupt. */
-    ADC_DelSig_1_IRQ_Disable();
+    TimerInterrupt_Disable();
 
     /* Set the ISR to point to the passive one. */
-    ADC_DelSig_1_IRQ_SetVector(&IntDefaultHandler);
+    TimerInterrupt_SetVector(&IntDefaultHandler);
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_DelSig_1_IRQ_Interrupt
+* Function Name: TimerInterrupt_Interrupt
 ********************************************************************************
 *
 * Summary:
-*   The default Interrupt Service Routine for ADC_DelSig_1_IRQ.
+*   The default Interrupt Service Routine for TimerInterrupt.
 *
 *   Add custom code between the coments to keep the next version of this file
 *   from over writting your code.
@@ -157,27 +157,27 @@ void ADC_DelSig_1_IRQ_Stop(void)
 *   None
 *
 *******************************************************************************/
-CY_ISR(ADC_DelSig_1_IRQ_Interrupt)
+CY_ISR(TimerInterrupt_Interrupt)
 {
-    #ifdef ADC_DelSig_1_IRQ_INTERRUPT_INTERRUPT_CALLBACK
-        ADC_DelSig_1_IRQ_Interrupt_InterruptCallback();
-    #endif /* ADC_DelSig_1_IRQ_INTERRUPT_INTERRUPT_CALLBACK */ 
+    #ifdef TimerInterrupt_INTERRUPT_INTERRUPT_CALLBACK
+        TimerInterrupt_Interrupt_InterruptCallback();
+    #endif /* TimerInterrupt_INTERRUPT_INTERRUPT_CALLBACK */ 
 
     /*  Place your Interrupt code here. */
-    /* `#START ADC_DelSig_1_IRQ_Interrupt` */
+    /* `#START TimerInterrupt_Interrupt` */
 
     /* `#END` */
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_DelSig_1_IRQ_SetVector
+* Function Name: TimerInterrupt_SetVector
 ********************************************************************************
 *
 * Summary:
-*   Change the ISR vector for the Interrupt. Note calling ADC_DelSig_1_IRQ_Start
+*   Change the ISR vector for the Interrupt. Note calling TimerInterrupt_Start
 *   will override any effect this method would have had. To set the vector 
-*   before the component has been started use ADC_DelSig_1_IRQ_StartEx instead.
+*   before the component has been started use TimerInterrupt_StartEx instead.
 * 
 *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
 *   used to provide consistent definition across compilers:
@@ -197,18 +197,18 @@ CY_ISR(ADC_DelSig_1_IRQ_Interrupt)
 *   None
 *
 *******************************************************************************/
-void ADC_DelSig_1_IRQ_SetVector(cyisraddress address)
+void TimerInterrupt_SetVector(cyisraddress address)
 {
     cyisraddress * ramVectorTable;
 
     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
 
-    ramVectorTable[CYINT_IRQ_BASE + (uint32)ADC_DelSig_1_IRQ__INTC_NUMBER] = address;
+    ramVectorTable[CYINT_IRQ_BASE + (uint32)TimerInterrupt__INTC_NUMBER] = address;
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_DelSig_1_IRQ_GetVector
+* Function Name: TimerInterrupt_GetVector
 ********************************************************************************
 *
 * Summary:
@@ -221,26 +221,26 @@ void ADC_DelSig_1_IRQ_SetVector(cyisraddress address)
 *   Address of the ISR in the interrupt vector table.
 *
 *******************************************************************************/
-cyisraddress ADC_DelSig_1_IRQ_GetVector(void)
+cyisraddress TimerInterrupt_GetVector(void)
 {
     cyisraddress * ramVectorTable;
 
     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
 
-    return ramVectorTable[CYINT_IRQ_BASE + (uint32)ADC_DelSig_1_IRQ__INTC_NUMBER];
+    return ramVectorTable[CYINT_IRQ_BASE + (uint32)TimerInterrupt__INTC_NUMBER];
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_DelSig_1_IRQ_SetPriority
+* Function Name: TimerInterrupt_SetPriority
 ********************************************************************************
 *
 * Summary:
 *   Sets the Priority of the Interrupt. 
 *
-*   Note calling ADC_DelSig_1_IRQ_Start or ADC_DelSig_1_IRQ_StartEx will 
+*   Note calling TimerInterrupt_Start or TimerInterrupt_StartEx will 
 *   override any effect this API would have had. This API should only be called
-*   after ADC_DelSig_1_IRQ_Start or ADC_DelSig_1_IRQ_StartEx has been called. 
+*   after TimerInterrupt_Start or TimerInterrupt_StartEx has been called. 
 *   To set the initial priority for the component, use the Design-Wide Resources
 *   Interrupt Editor.
 *
@@ -255,14 +255,14 @@ cyisraddress ADC_DelSig_1_IRQ_GetVector(void)
 *   None
 *
 *******************************************************************************/
-void ADC_DelSig_1_IRQ_SetPriority(uint8 priority)
+void TimerInterrupt_SetPriority(uint8 priority)
 {
-    *ADC_DelSig_1_IRQ_INTC_PRIOR = priority << 5;
+    *TimerInterrupt_INTC_PRIOR = priority << 5;
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_DelSig_1_IRQ_GetPriority
+* Function Name: TimerInterrupt_GetPriority
 ********************************************************************************
 *
 * Summary:
@@ -277,19 +277,19 @@ void ADC_DelSig_1_IRQ_SetPriority(uint8 priority)
 *    PSoC 4: Priority is from 0 to 3.
 *
 *******************************************************************************/
-uint8 ADC_DelSig_1_IRQ_GetPriority(void)
+uint8 TimerInterrupt_GetPriority(void)
 {
     uint8 priority;
 
 
-    priority = *ADC_DelSig_1_IRQ_INTC_PRIOR >> 5;
+    priority = *TimerInterrupt_INTC_PRIOR >> 5;
 
     return priority;
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_DelSig_1_IRQ_Enable
+* Function Name: TimerInterrupt_Enable
 ********************************************************************************
 *
 * Summary:
@@ -304,15 +304,15 @@ uint8 ADC_DelSig_1_IRQ_GetPriority(void)
 *   None
 *
 *******************************************************************************/
-void ADC_DelSig_1_IRQ_Enable(void)
+void TimerInterrupt_Enable(void)
 {
     /* Enable the general interrupt. */
-    *ADC_DelSig_1_IRQ_INTC_SET_EN = ADC_DelSig_1_IRQ__INTC_MASK;
+    *TimerInterrupt_INTC_SET_EN = TimerInterrupt__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_DelSig_1_IRQ_GetState
+* Function Name: TimerInterrupt_GetState
 ********************************************************************************
 *
 * Summary:
@@ -325,15 +325,15 @@ void ADC_DelSig_1_IRQ_Enable(void)
 *   1 if enabled, 0 if disabled.
 *
 *******************************************************************************/
-uint8 ADC_DelSig_1_IRQ_GetState(void)
+uint8 TimerInterrupt_GetState(void)
 {
     /* Get the state of the general interrupt. */
-    return ((*ADC_DelSig_1_IRQ_INTC_SET_EN & (uint32)ADC_DelSig_1_IRQ__INTC_MASK) != 0u) ? 1u:0u;
+    return ((*TimerInterrupt_INTC_SET_EN & (uint32)TimerInterrupt__INTC_MASK) != 0u) ? 1u:0u;
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_DelSig_1_IRQ_Disable
+* Function Name: TimerInterrupt_Disable
 ********************************************************************************
 *
 * Summary:
@@ -346,15 +346,15 @@ uint8 ADC_DelSig_1_IRQ_GetState(void)
 *   None
 *
 *******************************************************************************/
-void ADC_DelSig_1_IRQ_Disable(void)
+void TimerInterrupt_Disable(void)
 {
     /* Disable the general interrupt. */
-    *ADC_DelSig_1_IRQ_INTC_CLR_EN = ADC_DelSig_1_IRQ__INTC_MASK;
+    *TimerInterrupt_INTC_CLR_EN = TimerInterrupt__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_DelSig_1_IRQ_SetPending
+* Function Name: TimerInterrupt_SetPending
 ********************************************************************************
 *
 * Summary:
@@ -373,14 +373,14 @@ void ADC_DelSig_1_IRQ_Disable(void)
 *   interrupts).
 *
 *******************************************************************************/
-void ADC_DelSig_1_IRQ_SetPending(void)
+void TimerInterrupt_SetPending(void)
 {
-    *ADC_DelSig_1_IRQ_INTC_SET_PD = ADC_DelSig_1_IRQ__INTC_MASK;
+    *TimerInterrupt_INTC_SET_PD = TimerInterrupt__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: ADC_DelSig_1_IRQ_ClearPending
+* Function Name: TimerInterrupt_ClearPending
 ********************************************************************************
 *
 * Summary:
@@ -398,9 +398,9 @@ void ADC_DelSig_1_IRQ_SetPending(void)
 *   None
 *
 *******************************************************************************/
-void ADC_DelSig_1_IRQ_ClearPending(void)
+void TimerInterrupt_ClearPending(void)
 {
-    *ADC_DelSig_1_IRQ_INTC_CLR_PD = ADC_DelSig_1_IRQ__INTC_MASK;
+    *TimerInterrupt_INTC_CLR_PD = TimerInterrupt__INTC_MASK;
 }
 
 #endif /* End check for removal by optimization */
