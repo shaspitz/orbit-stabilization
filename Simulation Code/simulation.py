@@ -225,6 +225,9 @@ def main():
             sys_sol_lin.y[i] = np.array(
                 [sys_sol_lin.y[i][j]
                  + equil(t_sim[j])[i] for j in range(len(t_sim))])
+            
+        steady_state=scipy.linalg.solve_discrete_are(A,B,Q, R_m)
+        print(steady_state)
 
         # Convert to 2D cartesian coordinates centered at earth's core
         x_sat_lin = [sys_sol_lin.y[0][i]*np.cos(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
