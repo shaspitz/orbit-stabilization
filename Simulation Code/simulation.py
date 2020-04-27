@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import csv
 import time
-import serial as ser
+import serial
 import scipy
 from scipy.integrate import solve_ivp
 
@@ -159,7 +159,58 @@ def KalmanFilter(x0,z,N):
 def main():
 
     if hardware_in_loop:
-        # Implement serial interfacing here (lets get Python running first)
+        # Serial interfacing
+
+        # Intialize ode solver
+        t_sim = np.linspace(0, 10, 1)  # simulate forward 10 seconds
+        x0_step = [0, 0, 0, 0]
+        u = np.zeros((2, 1))
+
+        # Serial config
+        ser = serial.Serial(port='COM5', baudrate=115200, parity='N')
+        if ser.is_open:
+            ser.close()
+            ser.open()
+        else:
+            ser.open()
+
+        # Throw out first serial read from previous run
+        s_trash = ser.readline()
+        del s_trash
+
+        # IMPLEMENT HANDLER HERE TO ENSURE SIMULATION HAPPENS AT EQUAL TIMING INTERVALS
+        print('Entered loop')
+        while True:
+
+            # Write input command to PSOC
+            ser.write(str.encode('u'))
+
+            # Get input integers from PSOC
+            time.sleep(1)
+            s = ser.readline().decode()
+            u = np.array([[int(x.strip())] for x in s.split(',')])
+            print(u)
+            '''
+            x = ser.read()          # read one byte
+            s = ser.read(10)        # read up to ten bytes (timeout)
+            line = ser.readline()   # read a '\n' terminated line
+            '''
+
+            # Need to figure out how to simulate 1 step only here
+            '''
+            # Evaluate solution for each timestep
+            step_sol = solve_ivp(lin_dyn_cont,
+                                 [t_sim[0], t_sim[-1:]],
+                                 x0_step, method='RK45',
+                                 t_eval=t_sim, args=(r0, u))
+
+            # reset IC for next step
+            x0_step = [sol for sol in step_sol.y]
+
+            # Real time visualization (eventually tkinter GUI)
+            print(step_sol.y, u)
+            '''
+
         '''
         Psuedocode:
 
@@ -183,7 +234,7 @@ def main():
         # Simulate continuous linearized system
         t_sim = np.linspace(0, 100000, 100)
 
-        # Intial conditions: PROBLEMS HERE, TRY MAKING INITIAL R POSITIVE
+        # Intial conditions, remember this is deviation from equil in polar
         x0 = [0, 0, 0, 0]
         u = np.zeros((2, 1))
         sys_sol_lin = solve_ivp(lin_dyn_cont, [t_sim[0], t_sim[-1:]], x0,
