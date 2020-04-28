@@ -1,0 +1,6 @@
+C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\Lab6\CommandInterpreter.cydsn\CommandInterpreter.cyprj|66139aff-d979-4ee2-8635-d674d71fd237
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|d0d74e1d-4a90-4c5f-b57f-aee779531003
+C:\Users\shawn\OneDrive\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|387dd994-2c6a-4c8e-a623-80bb60216155
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|c7b946d3-041f-446f-8ecb-f15400ad4c63
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|2527b715-5c95-4195-9124-639d88bd65d8
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|c508073f-13ef-4af1-bfa1-49182f038a56
