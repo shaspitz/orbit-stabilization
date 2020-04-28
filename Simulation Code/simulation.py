@@ -14,6 +14,7 @@ import time
 import serial
 import scipy
 from scipy.integrate import solve_ivp
+from scipy.signal import cont2discrete
 
 # Setup global variables
 
@@ -61,7 +62,30 @@ Could formulate problem as regulating the chaser sattellites orbit to be the
 same as the target sattellite. Then would use "V-bar approach" to increase
 radial velocity along the target orbit until proximity is reached.
 '''
+def discrete_linear_dyn(r0,w0):
+    dt = 1
+    #discretisation obtained from http://users.wpi.edu/~zli11/teaching/rbe595_2017/LectureSlide_PDF/discretization.pdf
+    A = np.array([[0, 1, 0, 0],
+                  [3*w0**2, 0, 0, 2*r0*w0],
+                  [0, 0, 0, 1],
+                  [0, -2*w0/r0, 0, 0]])
 
+
+    B = np.array([[0, 0],
+                  [1, 0],
+                  [0, 0],
+                  [0, 1/r0]])
+    
+    # Golden Lecutrue Note: P. 34
+    C = np.array([
+        [1/r0, 0, 0, 0],
+        [0   , 0, 1, 0]
+        ])
+
+    # https://docs.scipy.org/doc/scipy-0.15.1/reference/generated/scipy.signal.cont2discrete.html
+    Ad, Bd, Cd, Dd, dtime = scipy.signal.cont2discrete((A, B, C, 0), dt, method='zoh')
+
+    return Ad, Bd
 
 def nl_dyn_cont(t, x, u=np.zeros(2)):
     # Continuous nonlinear dynamics of sattellite system (uses 1-d nparrays)
@@ -205,7 +229,6 @@ def main():
         sys_sol_lin = solve_ivp(lin_dyn_cont, [t_sim[0], t_sim[-1:]], x0,
                                 method='RK45', t_eval=t_sim, args=(r0, u))
 
-        print(sys_sol_lin.y[2], w0)
         # Simulate continuous nonlinear system (yes it does run, not quickly)
         '''
         t_sim = np.linspace(0, 10, 100)
@@ -226,12 +249,39 @@ def main():
                 [sys_sol_lin.y[i][j]
                  + equil(t_sim[j])[i] for j in range(len(t_sim))])
             
-        steady_state=scipy.linalg.solve_discrete_are(A,B,Q, R_m)
-        print(steady_state)
+        #implement steady state LQG
+        A,B=discrete_linear_dyn(r0,w0)
+        R_m = np.eye(2)
+        Q = np.eye(4)
+        H = np.eye(4)
+        V = np.eye(4)
+        W = np.eye(4)
+        N=len(t_sim)
+        x=np.zeros((4,N))
+        #xhat=np.zeros((4,N))
+        xhat=sys_sol_lin.y
+        x[:,0]=[42200000,0,0,4.85360589*(10**(-5))]
+        #xhat[:,0]=[42200000,0,0,4.85360589*(10**(-5))]
+        
+        Uinf=scipy.linalg.solve_discrete_are(A,B,Q, R_m)
+        Pinf=scipy.linalg.solve_discrete_are(A.T,H.T,V, W)
+        Kinf=Pinf.dot(H.T).dot(np.linalg.inv(H.dot(Pinf).dot(H.T)+W))
+        Finf=np.linalg.inv(R_m+(B.T).dot(Uinf).dot(B)).dot(B.T).dot(Uinf).dot(A)
+        
+        
+        for k in range(N-1):
+            x[:,k+1]=A.dot(x[:,k])-B.dot(Finf).dot(xhat[:,k])
+        
+            #xhat[:,k+1]=(A-B.dot(Finf)-Kinf.dot(H).dot(A)).dot(xhat[:,k])+Kinf.dot(H).dot(A).dot(x[:,k])
 
         # Convert to 2D cartesian coordinates centered at earth's core
         x_sat_lin = [sys_sol_lin.y[0][i]*np.cos(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
+        print(x_sat_lin)
         y_sat_lin = [sys_sol_lin.y[0][i]*np.sin(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
+        x_sat_KF = [x[0][i]*np.cos(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
+        print(x_sat_KF)
+        y_sat_KF = [x[0][i]*np.sin(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
+        
         # x_sat_nl = [sys_sol_nl.y[0][i]*np.cos(sys_sol_nl.y[2][i]) for i in range(len(t_sim))]
         # y_sat_nl = [sys_sol_nl.y[0][i]*np.sin(sys_sol_nl.y[2][i]) for i in range(len(t_sim))]
 
@@ -239,7 +289,7 @@ def main():
         fig, ax = plt.subplots()
         circle1 = plt.Circle((0, 0), R, color='b')
         ax.add_artist(circle1)
-        ax.plot(x_sat_lin, y_sat_lin, linewidth=2, color='r')
+        ax.plot(x_sat_KF, y_sat_KF, linewidth=2, color='r')
         # plt.plot(x_sat_nl, y_sat_nl, linewidth=2)
         plt.xlabel('x')
         plt.ylabel('y')
