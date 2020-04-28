@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 1
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc3qG3Ze.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 1
   28:Generated_Source\PSoC5/ByteCounter_PM.c **** *     Save the current user configuration
   29:Generated_Source\PSoC5/ByteCounter_PM.c **** *
   30:Generated_Source\PSoC5/ByteCounter_PM.c **** * Parameters:  
-ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 2
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc3qG3Ze.s 			page 2
 
 
   31:Generated_Source\PSoC5/ByteCounter_PM.c **** *  void
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 1
   52:Generated_Source\PSoC5/ByteCounter_PM.c ****     #endif /* (!ByteCounter_UsingFixedFunction) */
   53:Generated_Source\PSoC5/ByteCounter_PM.c **** }
   54:Generated_Source\PSoC5/ByteCounter_PM.c **** 
-ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 3
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc3qG3Ze.s 			page 3
 
 
   55:Generated_Source\PSoC5/ByteCounter_PM.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 1
   88              		.global	ByteCounter_Sleep
   89              		.thumb
   90              		.thumb_func
-ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 4
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc3qG3Ze.s 			page 4
 
 
   91              		.type	ByteCounter_Sleep, %function
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 1
  114:Generated_Source\PSoC5/ByteCounter_PM.c ****         else
  115:Generated_Source\PSoC5/ByteCounter_PM.c ****         {
  116:Generated_Source\PSoC5/ByteCounter_PM.c ****             /* Counter is disabled */
-ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 5
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc3qG3Ze.s 			page 5
 
 
  117:Generated_Source\PSoC5/ByteCounter_PM.c ****             ByteCounter_backup.CounterEnableState = 0u;
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 1
  143:Generated_Source\PSoC5/ByteCounter_PM.c **** *  void
  144:Generated_Source\PSoC5/ByteCounter_PM.c **** *
  145:Generated_Source\PSoC5/ByteCounter_PM.c **** * Global variables:
-ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 6
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc3qG3Ze.s 			page 6
 
 
  146:Generated_Source\PSoC5/ByteCounter_PM.c **** *  ByteCounter_backup.enableState:  Is used to restore the enable state of 
@@ -358,21 +358,21 @@ ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 1
  183 0004 0400     		.2byte	0x4
  184 0006 00000000 		.4byte	.Ldebug_abbrev0
  185 000a 04       		.byte	0x4
-ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 7
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc3qG3Ze.s 			page 7
 
 
  186 000b 01       		.uleb128 0x1
  187 000c B7000000 		.4byte	.LASF30
  188 0010 0C       		.byte	0xc
  189 0011 61000000 		.4byte	.LASF31
- 190 0015 60020000 		.4byte	.LASF32
+ 190 0015 07020000 		.4byte	.LASF32
  191 0019 00000000 		.4byte	.Ldebug_ranges0+0
  192 001d 00000000 		.4byte	0
  193 0021 00000000 		.4byte	.Ldebug_line0
  194 0025 02       		.uleb128 0x2
  195 0026 01       		.byte	0x1
  196 0027 06       		.byte	0x6
- 197 0028 E9020000 		.4byte	.LASF0
+ 197 0028 FD020000 		.4byte	.LASF0
  198 002c 02       		.uleb128 0x2
  199 002d 01       		.byte	0x1
  200 002e 08       		.byte	0x8
@@ -380,7 +380,7 @@ ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 1
  202 0033 02       		.uleb128 0x2
  203 0034 02       		.byte	0x2
  204 0035 05       		.byte	0x5
- 205 0036 A5010000 		.4byte	.LASF2
+ 205 0036 D8020000 		.4byte	.LASF2
  206 003a 02       		.uleb128 0x2
  207 003b 02       		.byte	0x2
  208 003c 07       		.byte	0x7
@@ -388,7 +388,7 @@ ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 1
  210 0041 02       		.uleb128 0x2
  211 0042 04       		.byte	0x4
  212 0043 05       		.byte	0x5
- 213 0044 D4020000 		.4byte	.LASF4
+ 213 0044 E8020000 		.4byte	.LASF4
  214 0048 02       		.uleb128 0x2
  215 0049 04       		.byte	0x4
  216 004a 07       		.byte	0x7
@@ -396,11 +396,11 @@ ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 1
  218 004f 02       		.uleb128 0x2
  219 0050 08       		.byte	0x8
  220 0051 05       		.byte	0x5
- 221 0052 2D020000 		.4byte	.LASF6
+ 221 0052 A5020000 		.4byte	.LASF6
  222 0056 02       		.uleb128 0x2
  223 0057 08       		.byte	0x8
  224 0058 07       		.byte	0x7
- 225 0059 FA010000 		.4byte	.LASF7
+ 225 0059 F0010000 		.4byte	.LASF7
  226 005d 03       		.uleb128 0x3
  227 005e 04       		.byte	0x4
  228 005f 05       		.byte	0x5
@@ -408,9 +408,9 @@ ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 1
  230 0064 02       		.uleb128 0x2
  231 0065 04       		.byte	0x4
  232 0066 07       		.byte	0x7
- 233 0067 ED010000 		.4byte	.LASF8
+ 233 0067 E3010000 		.4byte	.LASF8
  234 006b 04       		.uleb128 0x4
- 235 006c CE020000 		.4byte	.LASF12
+ 235 006c E2020000 		.4byte	.LASF12
  236 0070 02       		.byte	0x2
  237 0071 E401     		.2byte	0x1e4
  238 0073 2C000000 		.4byte	0x2c
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 1
  240 0078 04       		.byte	0x4
  241 0079 04       		.byte	0x4
  242 007a 89000000 		.4byte	.LASF9
-ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 8
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc3qG3Ze.s 			page 8
 
 
  243 007e 02       		.uleb128 0x2
@@ -428,7 +428,7 @@ ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 1
  247 0085 02       		.uleb128 0x2
  248 0086 01       		.byte	0x1
  249 0087 08       		.byte	0x8
- 250 0088 5B020000 		.4byte	.LASF11
+ 250 0088 D3020000 		.4byte	.LASF11
  251 008c 04       		.uleb128 0x4
  252 008d 45010000 		.4byte	.LASF13
  253 0091 02       		.byte	0x2
@@ -439,18 +439,18 @@ ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 1
  258 009d 02       		.uleb128 0x2
  259 009e 08       		.byte	0x8
  260 009f 04       		.byte	0x4
- 261 00a0 DD020000 		.4byte	.LASF14
+ 261 00a0 F1020000 		.4byte	.LASF14
  262 00a4 02       		.uleb128 0x2
  263 00a5 04       		.byte	0x4
  264 00a6 07       		.byte	0x7
- 265 00a7 11020000 		.4byte	.LASF15
+ 265 00a7 89020000 		.4byte	.LASF15
  266 00ab 06       		.uleb128 0x6
  267 00ac 03       		.byte	0x3
  268 00ad 03       		.byte	0x3
  269 00ae 40       		.byte	0x40
  270 00af D8000000 		.4byte	0xd8
  271 00b3 07       		.uleb128 0x7
- 272 00b4 1A020000 		.4byte	.LASF16
+ 272 00b4 92020000 		.4byte	.LASF16
  273 00b8 03       		.byte	0x3
  274 00b9 42       		.byte	0x42
  275 00ba 6B000000 		.4byte	0x6b
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 1
  297 00e8 01       		.byte	0x1
  298 00e9 2A       		.byte	0x2a
  299 00ea 00000000 		.4byte	.LFB0
-ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 9
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc3qG3Ze.s 			page 9
 
 
  300 00ee 18000000 		.4byte	.LFE0-.LFB0
@@ -525,7 +525,7 @@ ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 1
  341 0156 E3000000 		.4byte	0xe3
  342 015a 00       		.byte	0
  343 015b 09       		.uleb128 0x9
- 344 015c AF010000 		.4byte	.LASF23
+ 344 015c A5010000 		.4byte	.LASF23
  345 0160 01       		.byte	0x1
  346 0161 96       		.byte	0x96
  347 0162 00000000 		.4byte	.LFB3
@@ -538,13 +538,13 @@ ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 1
  354 0175 0B010000 		.4byte	0x10b
  355 0179 0A       		.uleb128 0xa
  356 017a 12000000 		.4byte	.LVL7
-ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 10
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc3qG3Ze.s 			page 10
 
 
  357 017e CB010000 		.4byte	0x1cb
  358 0182 00       		.byte	0
  359 0183 0B       		.uleb128 0xb
- 360 0184 C2010000 		.4byte	.LASF33
+ 360 0184 B8010000 		.4byte	.LASF33
  361 0188 01       		.byte	0x1
  362 0189 15       		.byte	0x15
  363 018a D8000000 		.4byte	0xd8
@@ -552,13 +552,13 @@ ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 1
  365 018f 03       		.byte	0x3
  366 0190 00000000 		.4byte	ByteCounter_backup
  367 0194 0C       		.uleb128 0xc
- 368 0195 D5010000 		.4byte	.LASF24
- 369 0199 D5010000 		.4byte	.LASF24
+ 368 0195 CB010000 		.4byte	.LASF24
+ 369 0199 CB010000 		.4byte	.LASF24
  370 019d 03       		.byte	0x3
  371 019e 5D       		.byte	0x5d
  372 019f 0C       		.uleb128 0xc
- 373 01a0 3B020000 		.4byte	.LASF25
- 374 01a4 3B020000 		.4byte	.LASF25
+ 373 01a0 B3020000 		.4byte	.LASF25
+ 374 01a4 B3020000 		.4byte	.LASF25
  375 01a8 03       		.byte	0x3
  376 01a9 55       		.byte	0x55
  377 01aa 0C       		.uleb128 0xc
@@ -567,13 +567,13 @@ ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 1
  380 01b3 03       		.byte	0x3
  381 01b4 5A       		.byte	0x5a
  382 01b5 0C       		.uleb128 0xc
- 383 01b6 F5020000 		.4byte	.LASF27
- 384 01ba F5020000 		.4byte	.LASF27
+ 383 01b6 09030000 		.4byte	.LASF27
+ 384 01ba 09030000 		.4byte	.LASF27
  385 01be 03       		.byte	0x3
  386 01bf 56       		.byte	0x56
  387 01c0 0C       		.uleb128 0xc
- 388 01c1 16030000 		.4byte	.LASF28
- 389 01c5 16030000 		.4byte	.LASF28
+ 388 01c1 2A030000 		.4byte	.LASF28
+ 389 01c5 2A030000 		.4byte	.LASF28
  390 01c9 03       		.byte	0x3
  391 01ca 50       		.byte	0x50
  392 01cb 0C       		.uleb128 0xc
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 1
  411 000b 55       		.uleb128 0x55
  412 000c 17       		.uleb128 0x17
  413 000d 11       		.uleb128 0x11
-ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 11
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc3qG3Ze.s 			page 11
 
 
  414 000e 01       		.uleb128 0x1
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 1
  468 0044 3B       		.uleb128 0x3b
  469 0045 0B       		.uleb128 0xb
  470 0046 01       		.uleb128 0x1
-ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 12
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc3qG3Ze.s 			page 12
 
 
  471 0047 13       		.uleb128 0x13
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 1
  525 007e 00       		.byte	0
  526 007f 00       		.byte	0
  527 0080 0A       		.uleb128 0xa
-ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 13
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc3qG3Ze.s 			page 13
 
 
  528 0081 898201   		.uleb128 0x4109
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 1
  582 0024 2C000000 		.4byte	.LFE2-.LFB2
  583 0028 00000000 		.4byte	.LFB3
  584 002c 18000000 		.4byte	.LFE3-.LFB3
-ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 14
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc3qG3Ze.s 			page 14
 
 
  585 0030 00000000 		.4byte	0
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 1
  613      5C50536F 
  614              	.LASF9:
  615 0089 666C6F61 		.ascii	"float\000"
-ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 15
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc3qG3Ze.s 			page 15
 
 
  615      7400
@@ -898,108 +898,109 @@ ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 1
  635      436F756E 
  635      7465725F 
  635      6261636B 
-ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 16
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc3qG3Ze.s 			page 16
 
 
  635      75705374 
- 636              	.LASF2:
- 637 01a5 73686F72 		.ascii	"short int\000"
- 637      7420696E 
- 637      7400
- 638              	.LASF23:
- 639 01af 42797465 		.ascii	"ByteCounter_Wakeup\000"
+ 636              	.LASF23:
+ 637 01a5 42797465 		.ascii	"ByteCounter_Wakeup\000"
+ 637      436F756E 
+ 637      7465725F 
+ 637      57616B65 
+ 637      757000
+ 638              	.LASF33:
+ 639 01b8 42797465 		.ascii	"ByteCounter_backup\000"
  639      436F756E 
  639      7465725F 
- 639      57616B65 
+ 639      6261636B 
  639      757000
- 640              	.LASF33:
- 641 01c2 42797465 		.ascii	"ByteCounter_backup\000"
+ 640              	.LASF24:
+ 641 01cb 42797465 		.ascii	"ByteCounter_ReadCounter\000"
  641      436F756E 
  641      7465725F 
- 641      6261636B 
- 641      757000
- 642              	.LASF24:
- 643 01d5 42797465 		.ascii	"ByteCounter_ReadCounter\000"
- 643      436F756E 
- 643      7465725F 
- 643      52656164 
- 643      436F756E 
- 644              	.LASF8:
- 645 01ed 756E7369 		.ascii	"unsigned int\000"
- 645      676E6564 
- 645      20696E74 
- 645      00
- 646              	.LASF7:
- 647 01fa 6C6F6E67 		.ascii	"long long unsigned int\000"
- 647      206C6F6E 
- 647      6720756E 
- 647      7369676E 
- 647      65642069 
- 648              	.LASF15:
- 649 0211 73697A65 		.ascii	"sizetype\000"
- 649      74797065 
- 649      00
- 650              	.LASF16:
- 651 021a 436F756E 		.ascii	"CounterEnableState\000"
- 651      74657245 
- 651      6E61626C 
- 651      65537461 
- 651      746500
- 652              	.LASF6:
- 653 022d 6C6F6E67 		.ascii	"long long int\000"
- 653      206C6F6E 
- 653      6720696E 
- 653      7400
- 654              	.LASF25:
- 655 023b 42797465 		.ascii	"ByteCounter_ReadControlRegister\000"
- 655      436F756E 
- 655      7465725F 
- 655      52656164 
- 655      436F6E74 
- 656              	.LASF11:
- 657 025b 63686172 		.ascii	"char\000"
-ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cc9rSaDl.s 			page 17
+ 641      52656164 
+ 641      436F756E 
+ 642              	.LASF8:
+ 643 01e3 756E7369 		.ascii	"unsigned int\000"
+ 643      676E6564 
+ 643      20696E74 
+ 643      00
+ 644              	.LASF7:
+ 645 01f0 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 645      206C6F6E 
+ 645      6720756E 
+ 645      7369676E 
+ 645      65642069 
+ 646              	.LASF32:
+ 647 0207 433A5C55 		.ascii	"C:\\Users\\shawn\\Desktop\\Real-Time-Estimation-and"
+ 647      73657273 
+ 647      5C736861 
+ 647      776E5C44 
+ 647      65736B74 
+ 648 0236 2D436F6E 		.ascii	"-Control-For-Satellite-Orbit-Stabilization\\Lab6\\M"
+ 648      74726F6C 
+ 648      2D466F72 
+ 648      2D536174 
+ 648      656C6C69 
+ 649 0267 45313335 		.ascii	"E135_235\\CommandInterpreter.cydsn\000"
+ 649      5F323335 
+ 649      5C436F6D 
+ 649      6D616E64 
+ 649      496E7465 
+ 650              	.LASF15:
+ 651 0289 73697A65 		.ascii	"sizetype\000"
+ 651      74797065 
+ 651      00
+ 652              	.LASF16:
+ 653 0292 436F756E 		.ascii	"CounterEnableState\000"
+ 653      74657245 
+ 653      6E61626C 
+ 653      65537461 
+ 653      746500
+ 654              	.LASF6:
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc3qG3Ze.s 			page 17
 
 
- 657      00
- 658              	.LASF32:
- 659 0260 433A5C55 		.ascii	"C:\\Users\\George Anwar\\Documents\\UC Berkeley\\ME"
- 659      73657273 
- 659      5C47656F 
- 659      72676520 
- 659      416E7761 
- 660 028e 31333520 		.ascii	"135 Spring 2020\\PSOC Creator\\ME135_235\\CommandIn"
- 660      53707269 
- 660      6E672032 
- 660      3032305C 
- 660      50534F43 
- 661 02be 74657270 		.ascii	"terpreter.cydsn\000"
- 661      72657465 
- 661      722E6379 
- 661      64736E00 
+ 655 02a5 6C6F6E67 		.ascii	"long long int\000"
+ 655      206C6F6E 
+ 655      6720696E 
+ 655      7400
+ 656              	.LASF25:
+ 657 02b3 42797465 		.ascii	"ByteCounter_ReadControlRegister\000"
+ 657      436F756E 
+ 657      7465725F 
+ 657      52656164 
+ 657      436F6E74 
+ 658              	.LASF11:
+ 659 02d3 63686172 		.ascii	"char\000"
+ 659      00
+ 660              	.LASF2:
+ 661 02d8 73686F72 		.ascii	"short int\000"
+ 661      7420696E 
+ 661      7400
  662              	.LASF12:
- 663 02ce 75696E74 		.ascii	"uint8\000"
+ 663 02e2 75696E74 		.ascii	"uint8\000"
  663      3800
  664              	.LASF4:
- 665 02d4 6C6F6E67 		.ascii	"long int\000"
+ 665 02e8 6C6F6E67 		.ascii	"long int\000"
  665      20696E74 
  665      00
  666              	.LASF14:
- 667 02dd 6C6F6E67 		.ascii	"long double\000"
+ 667 02f1 6C6F6E67 		.ascii	"long double\000"
  667      20646F75 
  667      626C6500 
  668              	.LASF0:
- 669 02e9 7369676E 		.ascii	"signed char\000"
+ 669 02fd 7369676E 		.ascii	"signed char\000"
  669      65642063 
  669      68617200 
  670              	.LASF27:
- 671 02f5 42797465 		.ascii	"ByteCounter_WriteControlRegister\000"
+ 671 0309 42797465 		.ascii	"ByteCounter_WriteControlRegister\000"
  671      436F756E 
  671      7465725F 
  671      57726974 
  671      65436F6E 
  672              	.LASF28:
- 673 0316 42797465 		.ascii	"ByteCounter_Stop\000"
+ 673 032a 42797465 		.ascii	"ByteCounter_Stop\000"
  673      436F756E 
  673      7465725F 
  673      53746F70 

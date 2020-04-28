@@ -1,5 +1,5 @@
--- Project:   C:\Users\George Anwar\Documents\UC Berkeley\ME135 Spring 2020\PSOC Creator\ME135_235\CommandInterpreter.cydsn\CommandInterpreter.cyprj
--- Generated: 04/26/2020 15:09:36
+-- Project:   C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\Lab6\ME135_235\CommandInterpreter.cydsn\CommandInterpreter.cyprj
+-- Generated: 04/27/2020 15:52:05
 -- PSoC Creator  4.2
 
 ENTITY CommandInterpreter IS
