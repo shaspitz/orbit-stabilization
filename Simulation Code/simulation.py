@@ -62,6 +62,7 @@ Could formulate problem as regulating the chaser sattellites orbit to be the
 same as the target sattellite. Then would use "V-bar approach" to increase
 radial velocity along the target orbit until proximity is reached.
 '''
+
 def discrete_linear_dyn(r0,w0):
     dt = 1
     #discretisation obtained from http://users.wpi.edu/~zli11/teaching/rbe595_2017/LectureSlide_PDF/discretization.pdf
@@ -258,8 +259,8 @@ def main():
         W = np.eye(4)
         N=len(t_sim)
         x=np.zeros((4,N))
-        #xhat=np.zeros((4,N))
-        xhat=sys_sol_lin.y
+        xhat=np.zeros((4,N))
+        #xhat=sys_sol_lin.y
         x[:,0]=[42200000,0,0,4.85360589*(10**(-5))]
         #xhat[:,0]=[42200000,0,0,4.85360589*(10**(-5))]
         
@@ -272,14 +273,24 @@ def main():
         for k in range(N-1):
             x[:,k+1]=A.dot(x[:,k])-B.dot(Finf).dot(xhat[:,k])
         
-            #xhat[:,k+1]=(A-B.dot(Finf)-Kinf.dot(H).dot(A)).dot(xhat[:,k])+Kinf.dot(H).dot(A).dot(x[:,k])
-
+            xhat[:,k+1]=(A-B.dot(Finf)-Kinf.dot(H).dot(A)).dot(xhat[:,k])+Kinf.dot(H).dot(A).dot(x[:,k])
+        print(x[1,:])
+        print(sys_sol_lin.y[1])
+#         plt.plot(x[2,:])
+#         plt.plot(sys_sol_lin.y[2])
+#         plt.show()
+#         
+#         plt.plot(x[1,:])
+#         plt.plot(sys_sol_lin.y[1])
+#         plt.show()
+        
+        plt.plot(x[1,:])
+        plt.plot(sys_sol_lin.y[1])
+        plt.show()
         # Convert to 2D cartesian coordinates centered at earth's core
         x_sat_lin = [sys_sol_lin.y[0][i]*np.cos(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
-        print(x_sat_lin)
         y_sat_lin = [sys_sol_lin.y[0][i]*np.sin(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
         x_sat_KF = [x[0][i]*np.cos(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
-        print(x_sat_KF)
         y_sat_KF = [x[0][i]*np.sin(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
         
         # x_sat_nl = [sys_sol_nl.y[0][i]*np.cos(sys_sol_nl.y[2][i]) for i in range(len(t_sim))]
@@ -289,7 +300,7 @@ def main():
         fig, ax = plt.subplots()
         circle1 = plt.Circle((0, 0), R, color='b')
         ax.add_artist(circle1)
-        ax.plot(x_sat_KF, y_sat_KF, linewidth=2, color='r')
+        ax.plot(x_sat_lin, y_sat_lin, linewidth=2, color='r')
         # plt.plot(x_sat_nl, y_sat_nl, linewidth=2)
         plt.xlabel('x')
         plt.ylabel('y')
