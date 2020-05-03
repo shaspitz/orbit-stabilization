@@ -9,12 +9,14 @@ https://ethz.ch/content/dam/ethz/special-interest/mavt/dynamic-systems-n-control
 
 import matplotlib.pyplot as plt
 import numpy as np
+import math
 import csv
 import time
 import serial
 import scipy
 from scipy.integrate import solve_ivp
-from scipy.signal import cont2discrete
+from scipy.signal import cont2discrete as c2d
+from scipy.linalg import solve_discrete_are as DARE
 
 # Setup global variables
 
@@ -25,6 +27,7 @@ hardware_in_loop = False
 R = 6378000
 
 # Mass of the Earth [kg]
+
 M = 5.972*(10**24)
 
 # Mass of satellite [kg]
@@ -84,7 +87,7 @@ def discrete_linear_dyn(r0,w0):
         ])
 
     # https://docs.scipy.org/doc/scipy-0.15.1/reference/generated/scipy.signal.cont2discrete.html
-    Ad, Bd, Cd, Dd, dtime = scipy.signal.cont2discrete((A, B, C, 0), dt, method='zoh')
+    Ad, Bd, Cd, Dd, dtime = c2d((A, B, C, 0), dt, method='zoh')
 
     return Ad, Bd
 
@@ -251,29 +254,27 @@ def main():
                  + equil(t_sim[j])[i] for j in range(len(t_sim))])
             
         #implement steady state LQG
-        A,B=discrete_linear_dyn(r0,w0)
+        A,B = discrete_linear_dyn(r0,w0)
         R_m = np.eye(2)
         Q = np.eye(4)
         H = np.eye(4)
         V = np.eye(4)
         W = np.eye(4)
-        N=len(t_sim)
-        x=np.zeros((4,N))
-        xhat=np.zeros((4,N))
-        #xhat=sys_sol_lin.y
-        x[:,0]=[42200000,0,0,4.85360589*(10**(-5))]
-        #xhat[:,0]=[42200000,0,0,4.85360589*(10**(-5))]
+        N = len(t_sim)
+        x = np.zeros((4,N))
+        xhat = np.zeros((4,N))
+        x[:,0] = [42200000,0,0,4.85360589*(10**(-5))]
         
-        Uinf=scipy.linalg.solve_discrete_are(A,B,Q, R_m)
-        Pinf=scipy.linalg.solve_discrete_are(A.T,H.T,V, W)
-        Kinf=Pinf.dot(H.T).dot(np.linalg.inv(H.dot(Pinf).dot(H.T)+W))
-        Finf=np.linalg.inv(R_m+(B.T).dot(Uinf).dot(B)).dot(B.T).dot(Uinf).dot(A)
+        Uinf = DARE(A.T,B.T,Q, R_m)
+        Pinf = DARE(A.T,H.T,V, W)
+        Kinf = Pinf@(H.T) @ (np.linalg.inv( H@Pinf@H.T + W))
+        Finf = np.linalg.inv(R_m + B.T@Uinf@B) @ B.T@Uinf@A
         
         
         for k in range(N-1):
-            x[:,k+1]=A.dot(x[:,k])-B.dot(Finf).dot(xhat[:,k])
+            x[:,k+1]=A@(x[:,k]) - B@( Finf@(xhat[:,k]) )
         
-            xhat[:,k+1]=(A-B.dot(Finf)-Kinf.dot(H).dot(A)).dot(xhat[:,k])+Kinf.dot(H).dot(A).dot(x[:,k])
+            xhat[:,k+1]=(A - B@Finf - Kinf@H@A)@(xhat[:,k]) + Kinf@H@A@(x[:,k])
         print(x[1,:])
         print(sys_sol_lin.y[1])
 #         plt.plot(x[2,:])
@@ -288,10 +289,10 @@ def main():
         plt.plot(sys_sol_lin.y[1])
         plt.show()
         # Convert to 2D cartesian coordinates centered at earth's core
-        x_sat_lin = [sys_sol_lin.y[0][i]*np.cos(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
-        y_sat_lin = [sys_sol_lin.y[0][i]*np.sin(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
-        x_sat_KF = [x[0][i]*np.cos(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
-        y_sat_KF = [x[0][i]*np.sin(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
+        x_sat_lin = [sys_sol_lin.y[0][i]*math.cos(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
+        y_sat_lin = [sys_sol_lin.y[0][i]*math.sin(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
+        x_sat_KF = [x[0][i]*math.cos(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
+        y_sat_KF = [x[0][i]*math.sin(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
         
         # x_sat_nl = [sys_sol_nl.y[0][i]*np.cos(sys_sol_nl.y[2][i]) for i in range(len(t_sim))]
         # y_sat_nl = [sys_sol_nl.y[0][i]*np.sin(sys_sol_nl.y[2][i]) for i in range(len(t_sim))]
