@@ -67,7 +67,7 @@ radial velocity along the target orbit until proximity is reached.
 '''
 
 def discrete_linear_dyn(r0,w0):
-    dt = 1
+    dt = 1000
     #discretisation obtained from http://users.wpi.edu/~zli11/teaching/rbe595_2017/LectureSlide_PDF/discretization.pdf
     A = np.array([[0, 1, 0, 0],
                   [3*w0**2, 0, 0, 2*r0*w0],
@@ -225,7 +225,7 @@ def main():
         # Simulations
 
         # Simulate continuous linearized system
-        t_sim = np.linspace(0, 100000, 100)
+        t_sim = np.linspace(0, 100000, 10000)
 
         # Intial conditions, remember this is deviation from equil in polar
         x0 = [0, 0, 0, 0]
@@ -256,27 +256,33 @@ def main():
         #implement steady state LQG
         A,B = discrete_linear_dyn(r0,w0)
         R_m = np.eye(2)
-        Q = np.eye(4)
-        H = np.eye(4)
-        V = np.eye(4)
-        W = np.eye(4)
+        Q = np.array([[2,400,200,200],[400,200,200,200],[200,200,400,200],[200,200,200,400]])
+        H = np.array([[10,0,0,0],[0,35,0,0],[0,0,97,0],[0,0,0,96]])
+        V = 0.001*np.eye(4)
+        W = 300*np.eye(4)
         N = len(t_sim)
         x = np.zeros((4,N))
         xhat = np.zeros((4,N))
         x[:,0] = [42200000,0,0,4.85360589*(10**(-5))]
         
-        Uinf = DARE(A.T,B.T,Q, R_m)
+        Uinf = DARE(A.T,B,Q, R_m)
         Pinf = DARE(A.T,H.T,V, W)
         Kinf = Pinf@(H.T) @ (np.linalg.inv( H@Pinf@H.T + W))
         Finf = np.linalg.inv(R_m + B.T@Uinf@B) @ B.T@Uinf@A
         
         
         for k in range(N-1):
+            #x[:,k+1]=A@x[:,k]
             x[:,k+1]=A@(x[:,k]) - B@( Finf@(xhat[:,k]) )
-        
-            xhat[:,k+1]=(A - B@Finf - Kinf@H@A)@(xhat[:,k]) + Kinf@H@A@(x[:,k])
+         
+            #xhat[:,k+1]=(A - B@Finf - Kinf@H@A)@(xhat[:,k]) + Kinf@H@A@(x[:,k])
+            xhat[:,k+1]=sys_sol_lin.y[0][k]
+
         print(x[1,:])
-        print(sys_sol_lin.y[1])
+        print(sys_sol_lin.y[1,:])
+        plt.plot(x[2,:])
+        plt.plot(sys_sol_lin.y[2,:])
+#         print(sys_sol_lin.y[1])
 #         plt.plot(x[2,:])
 #         plt.plot(sys_sol_lin.y[2])
 #         plt.show()
@@ -285,9 +291,9 @@ def main():
 #         plt.plot(sys_sol_lin.y[1])
 #         plt.show()
         
-        plt.plot(x[1,:])
-        plt.plot(sys_sol_lin.y[1])
-        plt.show()
+#         plt.plot(x[0,:])
+#         plt.plot(sys_sol_lin.y[0])
+#         plt.show()
         # Convert to 2D cartesian coordinates centered at earth's core
         x_sat_lin = [sys_sol_lin.y[0][i]*math.cos(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
         y_sat_lin = [sys_sol_lin.y[0][i]*math.sin(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
@@ -301,7 +307,7 @@ def main():
         fig, ax = plt.subplots()
         circle1 = plt.Circle((0, 0), R, color='b')
         ax.add_artist(circle1)
-        ax.plot(x_sat_lin, y_sat_lin, linewidth=2, color='r')
+        ax.plot(x_sat_KF, y_sat_KF, linewidth=2, color='r')
         # plt.plot(x_sat_nl, y_sat_nl, linewidth=2)
         plt.xlabel('x')
         plt.ylabel('y')
@@ -309,7 +315,11 @@ def main():
         plt.gca().set_aspect('equal', adjustable='box')
         # plt.legend(['Linear model', 'Nonlinear Model'], loc='best')
         plt.show()
-
+        fig, ax = plt.subplots()
+        circle1 = plt.Circle((0, 0), R, color='b')
+        ax.add_artist(circle1)
+        ax.plot(x_sat_lin, y_sat_lin, linewidth=2, color='r')
+        plt.show()
         '''
         # Main code and simulation here
         X_satellite, Y_satellite, path = NonLinearDynamics(x, u)
