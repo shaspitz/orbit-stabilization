@@ -1,0 +1,9 @@
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|7461b941-28d2-4392-8006-02594bbfe356
+C:\Users\George Anwar\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|0bbfba04-84df-4fbc-b696-9f5fd51a8c62
+C:\Users\George Anwar\Documents\PSoC Creator\4.1\Downloads ( 4.1).cylib\Downloads ( 4.1).cyprj|9f9316cc-74f9-4ba9-90d6-8e9ed8e38435
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|e5e0b365-da33-45fd-9ce6-3e70a7e66b1e
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|7363349d-3db6-44b0-bc98-4459ebcde778
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|f3fc9549-be3d-4cb0-9240-4e4c70707953
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|f3042f5b-0a5b-4ef6-b7e7-af6b016efeb9
+C:\Users\George Anwar\Documents\Consulting\FPrin\Alexza\My PSOC Prijects\IntensityLED\IntensityLED.cydsn\IntensityLED.cyprj|0f881334-4af4-42d4-a187-c8084fe46d16
+C:\Users\George Anwar\Documents\UC Berkeley\ME135 Spring 2020\PSOC Creator\ME135_235\I2C_Memory_Test.cydsn\I2C_Memory_Test.cyprj|49b9415e-9cb5-48ad-95f9-ee55e8d5d13c

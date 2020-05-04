@@ -65,8 +65,25 @@
 *  None.
 *
 *******************************************************************************/
+uint32 time = 0; //ms
+uint time_start;
+
+// Interrupts 
+CY_ISR(TimerInterrupt)
+{
+    // Timer interrupt runs at 1000Hz
+    ++time;
+    Timer_1_ReadStatusRegister();
+}
+
 int main()
 {
+    Timer_1_Start();
+    TimerInterrupt_Start();
+    TimerInterrupt_StartEx(TimerInterrupt);
+    TimerInterrupt_Enable();
+    CyGlobalIntEnable; // Enable global interrupts
+
     // Variable to store UART received character 
     uint8 Ch;
     // Transmit Buffer 
@@ -75,11 +92,10 @@ int main()
     UART_1_Start();
     // Initialize input flag
     uint8 input_flag = FALSE;
-    // This message is thrown out in Python for initialization
-    UART_1_PutString("COM Port Open\n");
+    uint8 active = FALSE;
 
     for(;;)
-    {        
+    {
         /* Non-blocking call to get the latest data recieved  */
         Ch = UART_1_GetChar();
         
@@ -89,6 +105,10 @@ int main()
             case 0:
                 // No new data was recieved 
                 break;
+            case 's':
+                // Start timing for computation alongside Python
+                time_start = time;
+                active = TRUE;
             case 'u':
                 input_flag = TRUE;
             default:
@@ -96,13 +116,14 @@ int main()
                 break;    
         }
 
-        if(input_flag)
+        if(input_flag && active)
         {
-            uint32 input1 = 101;
-            uint32 input2 = 50;
-            sprintf(TransmitBuffer, "%lu,%lu\n", input1, input2);
+            uint32 input1 = 0;
+            uint32 input2 = 0;
+            sprintf(TransmitBuffer, "%lu,%lu,%lu\n", time-time_start, input1, input2);
             // can send to sending array directly by using array command (and activating at top of script!!!)
             UART_1_PutString(TransmitBuffer);
+            input_flag = FALSE;
         }
     }
 }

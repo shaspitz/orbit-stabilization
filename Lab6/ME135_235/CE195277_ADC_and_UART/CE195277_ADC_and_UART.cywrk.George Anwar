@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="CE195277_ADC_and_UART\CE195277_ADC_and_UART\TopDesign">
+<ExpandedNodeIds>
+<v>CE195277_ADC_and_UART</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\TopDesign</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CE195277_ADC_and_UART.cydwr</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CE195277_ADC_and_UART.cydwr\Pins</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CE195277_ADC_and_UART.cydwr\Analog</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CE195277_ADC_and_UART.cydwr\Clocks</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CE195277_ADC_and_UART.cydwr\Interrupts</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CE195277_ADC_and_UART.cydwr\DMA</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CE195277_ADC_and_UART.cydwr\System</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CE195277_ADC_and_UART.cydwr\Directives</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CE195277_ADC_and_UART.cydwr\Flash Security</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CE195277_ADC_and_UART.cydwr\EEPROM</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\Header Files</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\Source Files</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\Source Files\main.c</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\Generated_Source</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\Generated_Source\PSoC5</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>CE195277_ADC_and_UART</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>CE195277_ADC_and_UART</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\TopDesign</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>CE195277_ADC_and_UART</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\TopDesign</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>CE195277_ADC_and_UART</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_DelSig_1.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_DelSig_1_AMux.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_DelSig_1_Ext_CP_Clk.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_DelSig_1_INT.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_DelSig_1_IRQ.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_DelSig_1_PM.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_DelSig_1_theACLK.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_BOOT.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_INT.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_IntClock.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_PM.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\Vin.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\CE195277_ADC_and_UART.elf</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\CE195277_ADC_and_UART.hex</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\CE195277_ADC_and_UART.map</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CE195277_ADC_and_UART.gpdsc</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CE195277_ADC_and_UART.rpt</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CE195277_ADC_and_UART_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>CE195277_ADC_and_UART</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_DelSig_1.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_DelSig_1_AMux.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_DelSig_1_Ext_CP_Clk.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_DelSig_1_INT.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_DelSig_1_IRQ.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_DelSig_1_PM.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_DelSig_1_theACLK.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_BOOT.lst</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_INT.lst</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>CE195277_ADC_and_UART</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\PSoC 5LP Architecture TRM</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CY8C58LP Family Datasheet</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\System Reference Guides</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\System Reference Guides\cy_boot_v5_80</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\ADC_DelSig_v3_30.pdf</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\cy_pins_v2_20</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\UART_v2_50.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>CE195277_ADC_and_UART</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\PSoC 5LP Architecture TRM</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\CY8C58LP Family Datasheet</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\System Reference Guides</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\System Reference Guides\cy_boot_v5_80</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\ADC_DelSig_v3_30.pdf</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\cy_pins_v2_20</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>CE195277_ADC_and_UART\CE195277_ADC_and_UART\UART_v2_50.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs />
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="974, 339" SelectedTabbedMdiWindow="fbe9227c-bfa2-40c4-aa56-c81427a7f5eb"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="fbe9227c-bfa2-40c4-aa56-c81427a7f5eb" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>

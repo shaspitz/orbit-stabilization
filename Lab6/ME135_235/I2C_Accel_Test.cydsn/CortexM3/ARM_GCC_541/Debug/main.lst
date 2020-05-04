@@ -1,0 +1,971 @@
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cclYN1fi.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	main, %function
+  25              	main:
+  26              	.LFB63:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** 
+  14:main.c        **** uint8 datain[16];
+  15:main.c        **** uint8 dataout[17];
+  16:main.c        **** 
+  17:main.c        **** uint8 i;
+  18:main.c        **** 
+  19:main.c        **** uint8 error;
+  20:main.c        **** 
+  21:main.c        **** int main(void)
+  22:main.c        **** {
+  28              		.loc 1 22 0
+  29              		.cfi_startproc
+  30              		@ Volatile: function does not return.
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 08B5     		push	{r3, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 3, -8
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cclYN1fi.s 			page 2
+
+
+  36              		.cfi_offset 14, -4
+  23:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  37              		.loc 1 23 0
+  38              		.syntax unified
+  39              	@ 23 "main.c" 1
+  40 0002 62B6     		CPSIE   i
+  41              	@ 0 "" 2
+  24:main.c        ****     
+  25:main.c        ****     I2C_1_Start();
+  42              		.loc 1 25 0
+  43              		.thumb
+  44              		.syntax unified
+  45 0004 FFF7FEFF 		bl	I2C_1_Start
+  46              	.LVL0:
+  26:main.c        ****     
+  27:main.c        ****     dataout[0] = 0x00;
+  47              		.loc 1 27 0
+  48 0008 0022     		movs	r2, #0
+  49 000a 1F4B     		ldr	r3, .L6
+  50 000c 1A70     		strb	r2, [r3]
+  28:main.c        ****     for(i=1;i<17;i++)
+  51              		.loc 1 28 0
+  52 000e 0122     		movs	r2, #1
+  53 0010 1E4B     		ldr	r3, .L6+4
+  54 0012 1A70     		strb	r2, [r3]
+  55 0014 05E0     		b	.L2
+  56              	.L3:
+  29:main.c        ****     {
+  30:main.c        ****         dataout[i] = i*2;
+  57              		.loc 1 30 0 discriminator 3
+  58 0016 5900     		lsls	r1, r3, #1
+  59 0018 1B4A     		ldr	r2, .L6
+  60 001a D154     		strb	r1, [r2, r3]
+  28:main.c        ****     for(i=1;i<17;i++)
+  61              		.loc 1 28 0 discriminator 3
+  62 001c 0133     		adds	r3, r3, #1
+  63 001e 1B4A     		ldr	r2, .L6+4
+  64 0020 1370     		strb	r3, [r2]
+  65              	.L2:
+  28:main.c        ****     for(i=1;i<17;i++)
+  66              		.loc 1 28 0 is_stmt 0 discriminator 1
+  67 0022 1A4B     		ldr	r3, .L6+4
+  68 0024 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  69 0026 102B     		cmp	r3, #16
+  70 0028 F5D9     		bls	.L3
+  31:main.c        ****     }
+  32:main.c        **** 
+  33:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  34:main.c        ****     error = I2C_1_MasterWriteBuf(0x1D, dataout, 1, I2C_1_MODE_NO_STOP);
+  71              		.loc 1 34 0 is_stmt 1
+  72 002a 174C     		ldr	r4, .L6
+  73 002c 0223     		movs	r3, #2
+  74 002e 0122     		movs	r2, #1
+  75 0030 2146     		mov	r1, r4
+  76 0032 1D20     		movs	r0, #29
+  77 0034 FFF7FEFF 		bl	I2C_1_MasterWriteBuf
+  78              	.LVL1:
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cclYN1fi.s 			page 3
+
+
+  79 0038 154D     		ldr	r5, .L6+8
+  80 003a 2870     		strb	r0, [r5]
+  35:main.c        ****     CyDelayUs(200);
+  81              		.loc 1 35 0
+  82 003c C820     		movs	r0, #200
+  83 003e FFF7FEFF 		bl	CyDelayUs
+  84              	.LVL2:
+  36:main.c        ****     error = I2C_1_MasterReadBuf(0x1D, datain, 1, I2C_1_MODE_REPEAT_START);
+  85              		.loc 1 36 0
+  86 0042 0123     		movs	r3, #1
+  87 0044 1A46     		mov	r2, r3
+  88 0046 1349     		ldr	r1, .L6+12
+  89 0048 1D20     		movs	r0, #29
+  90 004a FFF7FEFF 		bl	I2C_1_MasterReadBuf
+  91              	.LVL3:
+  92 004e 2870     		strb	r0, [r5]
+  37:main.c        ****     CyDelayUs(250);
+  93              		.loc 1 37 0
+  94 0050 FA20     		movs	r0, #250
+  95 0052 FFF7FEFF 		bl	CyDelayUs
+  96              	.LVL4:
+  38:main.c        ****     
+  39:main.c        ****       
+  40:main.c        **** 
+  41:main.c        ****     dataout[0] = 0x32;
+  97              		.loc 1 41 0
+  98 0056 3223     		movs	r3, #50
+  99 0058 2370     		strb	r3, [r4]
+ 100              	.L4:
+  42:main.c        ****     for(;;)
+  43:main.c        ****     {
+  44:main.c        ****         /* Place your application code here. */
+  45:main.c        ****         error = I2C_1_MasterWriteBuf(0x1D, dataout, 1, I2C_1_MODE_NO_STOP);
+ 101              		.loc 1 45 0 discriminator 1
+ 102 005a 0223     		movs	r3, #2
+ 103 005c 0122     		movs	r2, #1
+ 104 005e 0A49     		ldr	r1, .L6
+ 105 0060 1D20     		movs	r0, #29
+ 106 0062 FFF7FEFF 		bl	I2C_1_MasterWriteBuf
+ 107              	.LVL5:
+ 108 0066 0A4C     		ldr	r4, .L6+8
+ 109 0068 2070     		strb	r0, [r4]
+  46:main.c        ****         CyDelayUs(200);
+ 110              		.loc 1 46 0 discriminator 1
+ 111 006a C820     		movs	r0, #200
+ 112 006c FFF7FEFF 		bl	CyDelayUs
+ 113              	.LVL6:
+  47:main.c        ****         error = I2C_1_MasterReadBuf(0x1D, datain, 6, I2C_1_MODE_REPEAT_START);
+ 114              		.loc 1 47 0 discriminator 1
+ 115 0070 0123     		movs	r3, #1
+ 116 0072 0622     		movs	r2, #6
+ 117 0074 0749     		ldr	r1, .L6+12
+ 118 0076 1D20     		movs	r0, #29
+ 119 0078 FFF7FEFF 		bl	I2C_1_MasterReadBuf
+ 120              	.LVL7:
+ 121 007c 2070     		strb	r0, [r4]
+  48:main.c        ****         CyDelayUs(10000);
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cclYN1fi.s 			page 4
+
+
+ 122              		.loc 1 48 0 discriminator 1
+ 123 007e 42F21070 		movw	r0, #10000
+ 124 0082 FFF7FEFF 		bl	CyDelayUs
+ 125              	.LVL8:
+ 126 0086 E8E7     		b	.L4
+ 127              	.L7:
+ 128              		.align	2
+ 129              	.L6:
+ 130 0088 00000000 		.word	dataout
+ 131 008c 00000000 		.word	i
+ 132 0090 00000000 		.word	error
+ 133 0094 00000000 		.word	datain
+ 134              		.cfi_endproc
+ 135              	.LFE63:
+ 136              		.size	main, .-main
+ 137              		.comm	error,1,1
+ 138              		.comm	i,1,1
+ 139              		.comm	dataout,17,4
+ 140              		.comm	datain,16,4
+ 141              		.text
+ 142              	.Letext0:
+ 143              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 144              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 145              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 146              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 147              		.file 6 "Generated_Source\\PSoC5/I2C_1.h"
+ 148              		.file 7 "Generated_Source\\PSoC5/CyLib.h"
+ 149              		.section	.debug_info,"",%progbits
+ 150              	.Ldebug_info0:
+ 151 0000 51020000 		.4byte	0x251
+ 152 0004 0400     		.2byte	0x4
+ 153 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 154 000a 04       		.byte	0x4
+ 155 000b 01       		.uleb128 0x1
+ 156 000c 33000000 		.4byte	.LASF25
+ 157 0010 0C       		.byte	0xc
+ 158 0011 D8010000 		.4byte	.LASF26
+ 159 0015 1D010000 		.4byte	.LASF27
+ 160 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 161 001d 00000000 		.4byte	0
+ 162 0021 00000000 		.4byte	.Ldebug_line0
+ 163 0025 02       		.uleb128 0x2
+ 164 0026 01       		.byte	0x1
+ 165 0027 06       		.byte	0x6
+ 166 0028 15020000 		.4byte	.LASF0
+ 167 002c 02       		.uleb128 0x2
+ 168 002d 01       		.byte	0x1
+ 169 002e 08       		.byte	0x8
+ 170 002f 25000000 		.4byte	.LASF1
+ 171 0033 02       		.uleb128 0x2
+ 172 0034 02       		.byte	0x2
+ 173 0035 05       		.byte	0x5
+ 174 0036 F0010000 		.4byte	.LASF2
+ 175 003a 02       		.uleb128 0x2
+ 176 003b 02       		.byte	0x2
+ 177 003c 07       		.byte	0x7
+ 178 003d D3000000 		.4byte	.LASF3
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cclYN1fi.s 			page 5
+
+
+ 179 0041 03       		.uleb128 0x3
+ 180 0042 00000000 		.4byte	.LASF9
+ 181 0046 02       		.byte	0x2
+ 182 0047 3F       		.byte	0x3f
+ 183 0048 4C000000 		.4byte	0x4c
+ 184 004c 02       		.uleb128 0x2
+ 185 004d 04       		.byte	0x4
+ 186 004e 05       		.byte	0x5
+ 187 004f 00020000 		.4byte	.LASF4
+ 188 0053 02       		.uleb128 0x2
+ 189 0054 04       		.byte	0x4
+ 190 0055 07       		.byte	0x7
+ 191 0056 C1000000 		.4byte	.LASF5
+ 192 005a 02       		.uleb128 0x2
+ 193 005b 08       		.byte	0x8
+ 194 005c 05       		.byte	0x5
+ 195 005d CA010000 		.4byte	.LASF6
+ 196 0061 02       		.uleb128 0x2
+ 197 0062 08       		.byte	0x8
+ 198 0063 07       		.byte	0x7
+ 199 0064 94010000 		.4byte	.LASF7
+ 200 0068 04       		.uleb128 0x4
+ 201 0069 04       		.byte	0x4
+ 202 006a 05       		.byte	0x5
+ 203 006b 696E7400 		.ascii	"int\000"
+ 204 006f 02       		.uleb128 0x2
+ 205 0070 04       		.byte	0x4
+ 206 0071 07       		.byte	0x7
+ 207 0072 87010000 		.4byte	.LASF8
+ 208 0076 03       		.uleb128 0x3
+ 209 0077 B3010000 		.4byte	.LASF10
+ 210 007b 03       		.byte	0x3
+ 211 007c 2C       		.byte	0x2c
+ 212 007d 41000000 		.4byte	0x41
+ 213 0081 05       		.uleb128 0x5
+ 214 0082 FA010000 		.4byte	.LASF11
+ 215 0086 04       		.byte	0x4
+ 216 0087 E401     		.2byte	0x1e4
+ 217 0089 2C000000 		.4byte	0x2c
+ 218 008d 02       		.uleb128 0x2
+ 219 008e 04       		.byte	0x4
+ 220 008f 04       		.byte	0x4
+ 221 0090 1F000000 		.4byte	.LASF12
+ 222 0094 02       		.uleb128 0x2
+ 223 0095 08       		.byte	0x8
+ 224 0096 04       		.byte	0x4
+ 225 0097 F3000000 		.4byte	.LASF13
+ 226 009b 02       		.uleb128 0x2
+ 227 009c 01       		.byte	0x1
+ 228 009d 08       		.byte	0x8
+ 229 009e DF010000 		.4byte	.LASF14
+ 230 00a2 02       		.uleb128 0x2
+ 231 00a3 08       		.byte	0x8
+ 232 00a4 04       		.byte	0x4
+ 233 00a5 09020000 		.4byte	.LASF15
+ 234 00a9 02       		.uleb128 0x2
+ 235 00aa 04       		.byte	0x4
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cclYN1fi.s 			page 6
+
+
+ 236 00ab 07       		.byte	0x7
+ 237 00ac BB010000 		.4byte	.LASF16
+ 238 00b0 06       		.uleb128 0x6
+ 239 00b1 0E010000 		.4byte	.LASF28
+ 240 00b5 01       		.byte	0x1
+ 241 00b6 15       		.byte	0x15
+ 242 00b7 68000000 		.4byte	0x68
+ 243 00bb 00000000 		.4byte	.LFB63
+ 244 00bf 98000000 		.4byte	.LFE63-.LFB63
+ 245 00c3 01       		.uleb128 0x1
+ 246 00c4 9C       		.byte	0x9c
+ 247 00c5 B5010000 		.4byte	0x1b5
+ 248 00c9 07       		.uleb128 0x7
+ 249 00ca 08000000 		.4byte	.LVL0
+ 250 00ce 28020000 		.4byte	0x228
+ 251 00d2 08       		.uleb128 0x8
+ 252 00d3 38000000 		.4byte	.LVL1
+ 253 00d7 33020000 		.4byte	0x233
+ 254 00db F5000000 		.4byte	0xf5
+ 255 00df 09       		.uleb128 0x9
+ 256 00e0 01       		.uleb128 0x1
+ 257 00e1 50       		.byte	0x50
+ 258 00e2 01       		.uleb128 0x1
+ 259 00e3 4D       		.byte	0x4d
+ 260 00e4 09       		.uleb128 0x9
+ 261 00e5 01       		.uleb128 0x1
+ 262 00e6 51       		.byte	0x51
+ 263 00e7 02       		.uleb128 0x2
+ 264 00e8 74       		.byte	0x74
+ 265 00e9 00       		.sleb128 0
+ 266 00ea 09       		.uleb128 0x9
+ 267 00eb 01       		.uleb128 0x1
+ 268 00ec 52       		.byte	0x52
+ 269 00ed 01       		.uleb128 0x1
+ 270 00ee 31       		.byte	0x31
+ 271 00ef 09       		.uleb128 0x9
+ 272 00f0 01       		.uleb128 0x1
+ 273 00f1 53       		.byte	0x53
+ 274 00f2 01       		.uleb128 0x1
+ 275 00f3 32       		.byte	0x32
+ 276 00f4 00       		.byte	0
+ 277 00f5 08       		.uleb128 0x8
+ 278 00f6 42000000 		.4byte	.LVL2
+ 279 00fa 3E020000 		.4byte	0x23e
+ 280 00fe 09010000 		.4byte	0x109
+ 281 0102 09       		.uleb128 0x9
+ 282 0103 01       		.uleb128 0x1
+ 283 0104 50       		.byte	0x50
+ 284 0105 02       		.uleb128 0x2
+ 285 0106 08       		.byte	0x8
+ 286 0107 C8       		.byte	0xc8
+ 287 0108 00       		.byte	0
+ 288 0109 08       		.uleb128 0x8
+ 289 010a 4E000000 		.4byte	.LVL3
+ 290 010e 49020000 		.4byte	0x249
+ 291 0112 2F010000 		.4byte	0x12f
+ 292 0116 09       		.uleb128 0x9
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cclYN1fi.s 			page 7
+
+
+ 293 0117 01       		.uleb128 0x1
+ 294 0118 50       		.byte	0x50
+ 295 0119 01       		.uleb128 0x1
+ 296 011a 4D       		.byte	0x4d
+ 297 011b 09       		.uleb128 0x9
+ 298 011c 01       		.uleb128 0x1
+ 299 011d 51       		.byte	0x51
+ 300 011e 05       		.uleb128 0x5
+ 301 011f 03       		.byte	0x3
+ 302 0120 00000000 		.4byte	datain
+ 303 0124 09       		.uleb128 0x9
+ 304 0125 01       		.uleb128 0x1
+ 305 0126 52       		.byte	0x52
+ 306 0127 01       		.uleb128 0x1
+ 307 0128 31       		.byte	0x31
+ 308 0129 09       		.uleb128 0x9
+ 309 012a 01       		.uleb128 0x1
+ 310 012b 53       		.byte	0x53
+ 311 012c 01       		.uleb128 0x1
+ 312 012d 31       		.byte	0x31
+ 313 012e 00       		.byte	0
+ 314 012f 08       		.uleb128 0x8
+ 315 0130 56000000 		.4byte	.LVL4
+ 316 0134 3E020000 		.4byte	0x23e
+ 317 0138 43010000 		.4byte	0x143
+ 318 013c 09       		.uleb128 0x9
+ 319 013d 01       		.uleb128 0x1
+ 320 013e 50       		.byte	0x50
+ 321 013f 02       		.uleb128 0x2
+ 322 0140 08       		.byte	0x8
+ 323 0141 FA       		.byte	0xfa
+ 324 0142 00       		.byte	0
+ 325 0143 08       		.uleb128 0x8
+ 326 0144 66000000 		.4byte	.LVL5
+ 327 0148 33020000 		.4byte	0x233
+ 328 014c 69010000 		.4byte	0x169
+ 329 0150 09       		.uleb128 0x9
+ 330 0151 01       		.uleb128 0x1
+ 331 0152 50       		.byte	0x50
+ 332 0153 01       		.uleb128 0x1
+ 333 0154 4D       		.byte	0x4d
+ 334 0155 09       		.uleb128 0x9
+ 335 0156 01       		.uleb128 0x1
+ 336 0157 51       		.byte	0x51
+ 337 0158 05       		.uleb128 0x5
+ 338 0159 03       		.byte	0x3
+ 339 015a 00000000 		.4byte	dataout
+ 340 015e 09       		.uleb128 0x9
+ 341 015f 01       		.uleb128 0x1
+ 342 0160 52       		.byte	0x52
+ 343 0161 01       		.uleb128 0x1
+ 344 0162 31       		.byte	0x31
+ 345 0163 09       		.uleb128 0x9
+ 346 0164 01       		.uleb128 0x1
+ 347 0165 53       		.byte	0x53
+ 348 0166 01       		.uleb128 0x1
+ 349 0167 32       		.byte	0x32
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cclYN1fi.s 			page 8
+
+
+ 350 0168 00       		.byte	0
+ 351 0169 08       		.uleb128 0x8
+ 352 016a 70000000 		.4byte	.LVL6
+ 353 016e 3E020000 		.4byte	0x23e
+ 354 0172 7D010000 		.4byte	0x17d
+ 355 0176 09       		.uleb128 0x9
+ 356 0177 01       		.uleb128 0x1
+ 357 0178 50       		.byte	0x50
+ 358 0179 02       		.uleb128 0x2
+ 359 017a 08       		.byte	0x8
+ 360 017b C8       		.byte	0xc8
+ 361 017c 00       		.byte	0
+ 362 017d 08       		.uleb128 0x8
+ 363 017e 7C000000 		.4byte	.LVL7
+ 364 0182 49020000 		.4byte	0x249
+ 365 0186 A3010000 		.4byte	0x1a3
+ 366 018a 09       		.uleb128 0x9
+ 367 018b 01       		.uleb128 0x1
+ 368 018c 50       		.byte	0x50
+ 369 018d 01       		.uleb128 0x1
+ 370 018e 4D       		.byte	0x4d
+ 371 018f 09       		.uleb128 0x9
+ 372 0190 01       		.uleb128 0x1
+ 373 0191 51       		.byte	0x51
+ 374 0192 05       		.uleb128 0x5
+ 375 0193 03       		.byte	0x3
+ 376 0194 00000000 		.4byte	datain
+ 377 0198 09       		.uleb128 0x9
+ 378 0199 01       		.uleb128 0x1
+ 379 019a 52       		.byte	0x52
+ 380 019b 01       		.uleb128 0x1
+ 381 019c 36       		.byte	0x36
+ 382 019d 09       		.uleb128 0x9
+ 383 019e 01       		.uleb128 0x1
+ 384 019f 53       		.byte	0x53
+ 385 01a0 01       		.uleb128 0x1
+ 386 01a1 31       		.byte	0x31
+ 387 01a2 00       		.byte	0
+ 388 01a3 0A       		.uleb128 0xa
+ 389 01a4 86000000 		.4byte	.LVL8
+ 390 01a8 3E020000 		.4byte	0x23e
+ 391 01ac 09       		.uleb128 0x9
+ 392 01ad 01       		.uleb128 0x1
+ 393 01ae 50       		.byte	0x50
+ 394 01af 03       		.uleb128 0x3
+ 395 01b0 0A       		.byte	0xa
+ 396 01b1 1027     		.2byte	0x2710
+ 397 01b3 00       		.byte	0
+ 398 01b4 00       		.byte	0
+ 399 01b5 0B       		.uleb128 0xb
+ 400 01b6 E6000000 		.4byte	.LASF17
+ 401 01ba 05       		.byte	0x5
+ 402 01bb 1207     		.2byte	0x712
+ 403 01bd C1010000 		.4byte	0x1c1
+ 404 01c1 0C       		.uleb128 0xc
+ 405 01c2 76000000 		.4byte	0x76
+ 406 01c6 0D       		.uleb128 0xd
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cclYN1fi.s 			page 9
+
+
+ 407 01c7 81000000 		.4byte	0x81
+ 408 01cb D6010000 		.4byte	0x1d6
+ 409 01cf 0E       		.uleb128 0xe
+ 410 01d0 A9000000 		.4byte	0xa9
+ 411 01d4 0F       		.byte	0xf
+ 412 01d5 00       		.byte	0
+ 413 01d6 0F       		.uleb128 0xf
+ 414 01d7 21020000 		.4byte	.LASF18
+ 415 01db 01       		.byte	0x1
+ 416 01dc 0E       		.byte	0xe
+ 417 01dd C6010000 		.4byte	0x1c6
+ 418 01e1 05       		.uleb128 0x5
+ 419 01e2 03       		.byte	0x3
+ 420 01e3 00000000 		.4byte	datain
+ 421 01e7 0D       		.uleb128 0xd
+ 422 01e8 81000000 		.4byte	0x81
+ 423 01ec F7010000 		.4byte	0x1f7
+ 424 01f0 0E       		.uleb128 0xe
+ 425 01f1 A9000000 		.4byte	0xa9
+ 426 01f5 10       		.byte	0x10
+ 427 01f6 00       		.byte	0
+ 428 01f7 0F       		.uleb128 0xf
+ 429 01f8 AB010000 		.4byte	.LASF19
+ 430 01fc 01       		.byte	0x1
+ 431 01fd 0F       		.byte	0xf
+ 432 01fe E7010000 		.4byte	0x1e7
+ 433 0202 05       		.uleb128 0x5
+ 434 0203 03       		.byte	0x3
+ 435 0204 00000000 		.4byte	dataout
+ 436 0208 10       		.uleb128 0x10
+ 437 0209 6900     		.ascii	"i\000"
+ 438 020b 01       		.byte	0x1
+ 439 020c 11       		.byte	0x11
+ 440 020d 81000000 		.4byte	0x81
+ 441 0211 05       		.uleb128 0x5
+ 442 0212 03       		.byte	0x3
+ 443 0213 00000000 		.4byte	i
+ 444 0217 0F       		.uleb128 0xf
+ 445 0218 C4010000 		.4byte	.LASF20
+ 446 021c 01       		.byte	0x1
+ 447 021d 13       		.byte	0x13
+ 448 021e 81000000 		.4byte	0x81
+ 449 0222 05       		.uleb128 0x5
+ 450 0223 03       		.byte	0x3
+ 451 0224 00000000 		.4byte	error
+ 452 0228 11       		.uleb128 0x11
+ 453 0229 E4010000 		.4byte	.LASF21
+ 454 022d E4010000 		.4byte	.LASF21
+ 455 0231 06       		.byte	0x6
+ 456 0232 93       		.byte	0x93
+ 457 0233 11       		.uleb128 0x11
+ 458 0234 0A000000 		.4byte	.LASF22
+ 459 0238 0A000000 		.4byte	.LASF22
+ 460 023c 06       		.byte	0x6
+ 461 023d A7       		.byte	0xa7
+ 462 023e 11       		.uleb128 0x11
+ 463 023f 13010000 		.4byte	.LASF23
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cclYN1fi.s 			page 10
+
+
+ 464 0243 13010000 		.4byte	.LASF23
+ 465 0247 07       		.byte	0x7
+ 466 0248 77       		.byte	0x77
+ 467 0249 11       		.uleb128 0x11
+ 468 024a FA000000 		.4byte	.LASF24
+ 469 024e FA000000 		.4byte	.LASF24
+ 470 0252 06       		.byte	0x6
+ 471 0253 A9       		.byte	0xa9
+ 472 0254 00       		.byte	0
+ 473              		.section	.debug_abbrev,"",%progbits
+ 474              	.Ldebug_abbrev0:
+ 475 0000 01       		.uleb128 0x1
+ 476 0001 11       		.uleb128 0x11
+ 477 0002 01       		.byte	0x1
+ 478 0003 25       		.uleb128 0x25
+ 479 0004 0E       		.uleb128 0xe
+ 480 0005 13       		.uleb128 0x13
+ 481 0006 0B       		.uleb128 0xb
+ 482 0007 03       		.uleb128 0x3
+ 483 0008 0E       		.uleb128 0xe
+ 484 0009 1B       		.uleb128 0x1b
+ 485 000a 0E       		.uleb128 0xe
+ 486 000b 55       		.uleb128 0x55
+ 487 000c 17       		.uleb128 0x17
+ 488 000d 11       		.uleb128 0x11
+ 489 000e 01       		.uleb128 0x1
+ 490 000f 10       		.uleb128 0x10
+ 491 0010 17       		.uleb128 0x17
+ 492 0011 00       		.byte	0
+ 493 0012 00       		.byte	0
+ 494 0013 02       		.uleb128 0x2
+ 495 0014 24       		.uleb128 0x24
+ 496 0015 00       		.byte	0
+ 497 0016 0B       		.uleb128 0xb
+ 498 0017 0B       		.uleb128 0xb
+ 499 0018 3E       		.uleb128 0x3e
+ 500 0019 0B       		.uleb128 0xb
+ 501 001a 03       		.uleb128 0x3
+ 502 001b 0E       		.uleb128 0xe
+ 503 001c 00       		.byte	0
+ 504 001d 00       		.byte	0
+ 505 001e 03       		.uleb128 0x3
+ 506 001f 16       		.uleb128 0x16
+ 507 0020 00       		.byte	0
+ 508 0021 03       		.uleb128 0x3
+ 509 0022 0E       		.uleb128 0xe
+ 510 0023 3A       		.uleb128 0x3a
+ 511 0024 0B       		.uleb128 0xb
+ 512 0025 3B       		.uleb128 0x3b
+ 513 0026 0B       		.uleb128 0xb
+ 514 0027 49       		.uleb128 0x49
+ 515 0028 13       		.uleb128 0x13
+ 516 0029 00       		.byte	0
+ 517 002a 00       		.byte	0
+ 518 002b 04       		.uleb128 0x4
+ 519 002c 24       		.uleb128 0x24
+ 520 002d 00       		.byte	0
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cclYN1fi.s 			page 11
+
+
+ 521 002e 0B       		.uleb128 0xb
+ 522 002f 0B       		.uleb128 0xb
+ 523 0030 3E       		.uleb128 0x3e
+ 524 0031 0B       		.uleb128 0xb
+ 525 0032 03       		.uleb128 0x3
+ 526 0033 08       		.uleb128 0x8
+ 527 0034 00       		.byte	0
+ 528 0035 00       		.byte	0
+ 529 0036 05       		.uleb128 0x5
+ 530 0037 16       		.uleb128 0x16
+ 531 0038 00       		.byte	0
+ 532 0039 03       		.uleb128 0x3
+ 533 003a 0E       		.uleb128 0xe
+ 534 003b 3A       		.uleb128 0x3a
+ 535 003c 0B       		.uleb128 0xb
+ 536 003d 3B       		.uleb128 0x3b
+ 537 003e 05       		.uleb128 0x5
+ 538 003f 49       		.uleb128 0x49
+ 539 0040 13       		.uleb128 0x13
+ 540 0041 00       		.byte	0
+ 541 0042 00       		.byte	0
+ 542 0043 06       		.uleb128 0x6
+ 543 0044 2E       		.uleb128 0x2e
+ 544 0045 01       		.byte	0x1
+ 545 0046 3F       		.uleb128 0x3f
+ 546 0047 19       		.uleb128 0x19
+ 547 0048 03       		.uleb128 0x3
+ 548 0049 0E       		.uleb128 0xe
+ 549 004a 3A       		.uleb128 0x3a
+ 550 004b 0B       		.uleb128 0xb
+ 551 004c 3B       		.uleb128 0x3b
+ 552 004d 0B       		.uleb128 0xb
+ 553 004e 27       		.uleb128 0x27
+ 554 004f 19       		.uleb128 0x19
+ 555 0050 49       		.uleb128 0x49
+ 556 0051 13       		.uleb128 0x13
+ 557 0052 8701     		.uleb128 0x87
+ 558 0054 19       		.uleb128 0x19
+ 559 0055 11       		.uleb128 0x11
+ 560 0056 01       		.uleb128 0x1
+ 561 0057 12       		.uleb128 0x12
+ 562 0058 06       		.uleb128 0x6
+ 563 0059 40       		.uleb128 0x40
+ 564 005a 18       		.uleb128 0x18
+ 565 005b 9742     		.uleb128 0x2117
+ 566 005d 19       		.uleb128 0x19
+ 567 005e 01       		.uleb128 0x1
+ 568 005f 13       		.uleb128 0x13
+ 569 0060 00       		.byte	0
+ 570 0061 00       		.byte	0
+ 571 0062 07       		.uleb128 0x7
+ 572 0063 898201   		.uleb128 0x4109
+ 573 0066 00       		.byte	0
+ 574 0067 11       		.uleb128 0x11
+ 575 0068 01       		.uleb128 0x1
+ 576 0069 31       		.uleb128 0x31
+ 577 006a 13       		.uleb128 0x13
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cclYN1fi.s 			page 12
+
+
+ 578 006b 00       		.byte	0
+ 579 006c 00       		.byte	0
+ 580 006d 08       		.uleb128 0x8
+ 581 006e 898201   		.uleb128 0x4109
+ 582 0071 01       		.byte	0x1
+ 583 0072 11       		.uleb128 0x11
+ 584 0073 01       		.uleb128 0x1
+ 585 0074 31       		.uleb128 0x31
+ 586 0075 13       		.uleb128 0x13
+ 587 0076 01       		.uleb128 0x1
+ 588 0077 13       		.uleb128 0x13
+ 589 0078 00       		.byte	0
+ 590 0079 00       		.byte	0
+ 591 007a 09       		.uleb128 0x9
+ 592 007b 8A8201   		.uleb128 0x410a
+ 593 007e 00       		.byte	0
+ 594 007f 02       		.uleb128 0x2
+ 595 0080 18       		.uleb128 0x18
+ 596 0081 9142     		.uleb128 0x2111
+ 597 0083 18       		.uleb128 0x18
+ 598 0084 00       		.byte	0
+ 599 0085 00       		.byte	0
+ 600 0086 0A       		.uleb128 0xa
+ 601 0087 898201   		.uleb128 0x4109
+ 602 008a 01       		.byte	0x1
+ 603 008b 11       		.uleb128 0x11
+ 604 008c 01       		.uleb128 0x1
+ 605 008d 31       		.uleb128 0x31
+ 606 008e 13       		.uleb128 0x13
+ 607 008f 00       		.byte	0
+ 608 0090 00       		.byte	0
+ 609 0091 0B       		.uleb128 0xb
+ 610 0092 34       		.uleb128 0x34
+ 611 0093 00       		.byte	0
+ 612 0094 03       		.uleb128 0x3
+ 613 0095 0E       		.uleb128 0xe
+ 614 0096 3A       		.uleb128 0x3a
+ 615 0097 0B       		.uleb128 0xb
+ 616 0098 3B       		.uleb128 0x3b
+ 617 0099 05       		.uleb128 0x5
+ 618 009a 49       		.uleb128 0x49
+ 619 009b 13       		.uleb128 0x13
+ 620 009c 3F       		.uleb128 0x3f
+ 621 009d 19       		.uleb128 0x19
+ 622 009e 3C       		.uleb128 0x3c
+ 623 009f 19       		.uleb128 0x19
+ 624 00a0 00       		.byte	0
+ 625 00a1 00       		.byte	0
+ 626 00a2 0C       		.uleb128 0xc
+ 627 00a3 35       		.uleb128 0x35
+ 628 00a4 00       		.byte	0
+ 629 00a5 49       		.uleb128 0x49
+ 630 00a6 13       		.uleb128 0x13
+ 631 00a7 00       		.byte	0
+ 632 00a8 00       		.byte	0
+ 633 00a9 0D       		.uleb128 0xd
+ 634 00aa 01       		.uleb128 0x1
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cclYN1fi.s 			page 13
+
+
+ 635 00ab 01       		.byte	0x1
+ 636 00ac 49       		.uleb128 0x49
+ 637 00ad 13       		.uleb128 0x13
+ 638 00ae 01       		.uleb128 0x1
+ 639 00af 13       		.uleb128 0x13
+ 640 00b0 00       		.byte	0
+ 641 00b1 00       		.byte	0
+ 642 00b2 0E       		.uleb128 0xe
+ 643 00b3 21       		.uleb128 0x21
+ 644 00b4 00       		.byte	0
+ 645 00b5 49       		.uleb128 0x49
+ 646 00b6 13       		.uleb128 0x13
+ 647 00b7 2F       		.uleb128 0x2f
+ 648 00b8 0B       		.uleb128 0xb
+ 649 00b9 00       		.byte	0
+ 650 00ba 00       		.byte	0
+ 651 00bb 0F       		.uleb128 0xf
+ 652 00bc 34       		.uleb128 0x34
+ 653 00bd 00       		.byte	0
+ 654 00be 03       		.uleb128 0x3
+ 655 00bf 0E       		.uleb128 0xe
+ 656 00c0 3A       		.uleb128 0x3a
+ 657 00c1 0B       		.uleb128 0xb
+ 658 00c2 3B       		.uleb128 0x3b
+ 659 00c3 0B       		.uleb128 0xb
+ 660 00c4 49       		.uleb128 0x49
+ 661 00c5 13       		.uleb128 0x13
+ 662 00c6 3F       		.uleb128 0x3f
+ 663 00c7 19       		.uleb128 0x19
+ 664 00c8 02       		.uleb128 0x2
+ 665 00c9 18       		.uleb128 0x18
+ 666 00ca 00       		.byte	0
+ 667 00cb 00       		.byte	0
+ 668 00cc 10       		.uleb128 0x10
+ 669 00cd 34       		.uleb128 0x34
+ 670 00ce 00       		.byte	0
+ 671 00cf 03       		.uleb128 0x3
+ 672 00d0 08       		.uleb128 0x8
+ 673 00d1 3A       		.uleb128 0x3a
+ 674 00d2 0B       		.uleb128 0xb
+ 675 00d3 3B       		.uleb128 0x3b
+ 676 00d4 0B       		.uleb128 0xb
+ 677 00d5 49       		.uleb128 0x49
+ 678 00d6 13       		.uleb128 0x13
+ 679 00d7 3F       		.uleb128 0x3f
+ 680 00d8 19       		.uleb128 0x19
+ 681 00d9 02       		.uleb128 0x2
+ 682 00da 18       		.uleb128 0x18
+ 683 00db 00       		.byte	0
+ 684 00dc 00       		.byte	0
+ 685 00dd 11       		.uleb128 0x11
+ 686 00de 2E       		.uleb128 0x2e
+ 687 00df 00       		.byte	0
+ 688 00e0 3F       		.uleb128 0x3f
+ 689 00e1 19       		.uleb128 0x19
+ 690 00e2 3C       		.uleb128 0x3c
+ 691 00e3 19       		.uleb128 0x19
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cclYN1fi.s 			page 14
+
+
+ 692 00e4 6E       		.uleb128 0x6e
+ 693 00e5 0E       		.uleb128 0xe
+ 694 00e6 03       		.uleb128 0x3
+ 695 00e7 0E       		.uleb128 0xe
+ 696 00e8 3A       		.uleb128 0x3a
+ 697 00e9 0B       		.uleb128 0xb
+ 698 00ea 3B       		.uleb128 0x3b
+ 699 00eb 0B       		.uleb128 0xb
+ 700 00ec 00       		.byte	0
+ 701 00ed 00       		.byte	0
+ 702 00ee 00       		.byte	0
+ 703              		.section	.debug_aranges,"",%progbits
+ 704 0000 1C000000 		.4byte	0x1c
+ 705 0004 0200     		.2byte	0x2
+ 706 0006 00000000 		.4byte	.Ldebug_info0
+ 707 000a 04       		.byte	0x4
+ 708 000b 00       		.byte	0
+ 709 000c 0000     		.2byte	0
+ 710 000e 0000     		.2byte	0
+ 711 0010 00000000 		.4byte	.LFB63
+ 712 0014 98000000 		.4byte	.LFE63-.LFB63
+ 713 0018 00000000 		.4byte	0
+ 714 001c 00000000 		.4byte	0
+ 715              		.section	.debug_ranges,"",%progbits
+ 716              	.Ldebug_ranges0:
+ 717 0000 00000000 		.4byte	.LFB63
+ 718 0004 98000000 		.4byte	.LFE63
+ 719 0008 00000000 		.4byte	0
+ 720 000c 00000000 		.4byte	0
+ 721              		.section	.debug_line,"",%progbits
+ 722              	.Ldebug_line0:
+ 723 0000 A5010000 		.section	.debug_str,"MS",%progbits,1
+ 723      02006201 
+ 723      00000201 
+ 723      FB0E0D00 
+ 723      01010101 
+ 724              	.LASF9:
+ 725 0000 5F5F696E 		.ascii	"__int32_t\000"
+ 725      7433325F 
+ 725      7400
+ 726              	.LASF22:
+ 727 000a 4932435F 		.ascii	"I2C_1_MasterWriteBuf\000"
+ 727      315F4D61 
+ 727      73746572 
+ 727      57726974 
+ 727      65427566 
+ 728              	.LASF12:
+ 729 001f 666C6F61 		.ascii	"float\000"
+ 729      7400
+ 730              	.LASF1:
+ 731 0025 756E7369 		.ascii	"unsigned char\000"
+ 731      676E6564 
+ 731      20636861 
+ 731      7200
+ 732              	.LASF25:
+ 733 0033 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 733      43313120 
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cclYN1fi.s 			page 15
+
+
+ 733      352E342E 
+ 733      31203230 
+ 733      31363036 
+ 734 0066 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 734      20726576 
+ 734      6973696F 
+ 734      6E203233 
+ 734      37373135 
+ 735 0099 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 735      66756E63 
+ 735      74696F6E 
+ 735      2D736563 
+ 735      74696F6E 
+ 736              	.LASF5:
+ 737 00c1 6C6F6E67 		.ascii	"long unsigned int\000"
+ 737      20756E73 
+ 737      69676E65 
+ 737      6420696E 
+ 737      7400
+ 738              	.LASF3:
+ 739 00d3 73686F72 		.ascii	"short unsigned int\000"
+ 739      7420756E 
+ 739      7369676E 
+ 739      65642069 
+ 739      6E7400
+ 740              	.LASF17:
+ 741 00e6 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 741      52784275 
+ 741      66666572 
+ 741      00
+ 742              	.LASF13:
+ 743 00f3 646F7562 		.ascii	"double\000"
+ 743      6C6500
+ 744              	.LASF24:
+ 745 00fa 4932435F 		.ascii	"I2C_1_MasterReadBuf\000"
+ 745      315F4D61 
+ 745      73746572 
+ 745      52656164 
+ 745      42756600 
+ 746              	.LASF28:
+ 747 010e 6D61696E 		.ascii	"main\000"
+ 747      00
+ 748              	.LASF23:
+ 749 0113 43794465 		.ascii	"CyDelayUs\000"
+ 749      6C617955 
+ 749      7300
+ 750              	.LASF27:
+ 751 011d 433A5C55 		.ascii	"C:\\Users\\George Anwar\\Documents\\UC Berkeley\\ME"
+ 751      73657273 
+ 751      5C47656F 
+ 751      72676520 
+ 751      416E7761 
+ 752 014b 31333520 		.ascii	"135 Spring 2020\\PSOC Creator\\ME135_235\\I2C_Accel"
+ 752      53707269 
+ 752      6E672032 
+ 752      3032305C 
+ 752      50534F43 
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cclYN1fi.s 			page 16
+
+
+ 753 017b 5F546573 		.ascii	"_Test.cydsn\000"
+ 753      742E6379 
+ 753      64736E00 
+ 754              	.LASF8:
+ 755 0187 756E7369 		.ascii	"unsigned int\000"
+ 755      676E6564 
+ 755      20696E74 
+ 755      00
+ 756              	.LASF7:
+ 757 0194 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 757      206C6F6E 
+ 757      6720756E 
+ 757      7369676E 
+ 757      65642069 
+ 758              	.LASF19:
+ 759 01ab 64617461 		.ascii	"dataout\000"
+ 759      6F757400 
+ 760              	.LASF10:
+ 761 01b3 696E7433 		.ascii	"int32_t\000"
+ 761      325F7400 
+ 762              	.LASF16:
+ 763 01bb 73697A65 		.ascii	"sizetype\000"
+ 763      74797065 
+ 763      00
+ 764              	.LASF20:
+ 765 01c4 6572726F 		.ascii	"error\000"
+ 765      7200
+ 766              	.LASF6:
+ 767 01ca 6C6F6E67 		.ascii	"long long int\000"
+ 767      206C6F6E 
+ 767      6720696E 
+ 767      7400
+ 768              	.LASF26:
+ 769 01d8 6D61696E 		.ascii	"main.c\000"
+ 769      2E6300
+ 770              	.LASF14:
+ 771 01df 63686172 		.ascii	"char\000"
+ 771      00
+ 772              	.LASF21:
+ 773 01e4 4932435F 		.ascii	"I2C_1_Start\000"
+ 773      315F5374 
+ 773      61727400 
+ 774              	.LASF2:
+ 775 01f0 73686F72 		.ascii	"short int\000"
+ 775      7420696E 
+ 775      7400
+ 776              	.LASF11:
+ 777 01fa 75696E74 		.ascii	"uint8\000"
+ 777      3800
+ 778              	.LASF4:
+ 779 0200 6C6F6E67 		.ascii	"long int\000"
+ 779      20696E74 
+ 779      00
+ 780              	.LASF15:
+ 781 0209 6C6F6E67 		.ascii	"long double\000"
+ 781      20646F75 
+ 781      626C6500 
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\cclYN1fi.s 			page 17
+
+
+ 782              	.LASF0:
+ 783 0215 7369676E 		.ascii	"signed char\000"
+ 783      65642063 
+ 783      68617200 
+ 784              	.LASF18:
+ 785 0221 64617461 		.ascii	"datain\000"
+ 785      696E00
+ 786              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -1,0 +1,2197 @@
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"ByteCounter.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.ByteCounter_Enable,"ax",%progbits
+  20              		.align	2
+  21              		.global	ByteCounter_Enable
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	ByteCounter_Enable, %function
+  25              	ByteCounter_Enable:
+  26              	.LFB1:
+  27              		.file 1 "Generated_Source\\PSoC5\\ByteCounter.c"
+   1:Generated_Source\PSoC5/ByteCounter.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/ByteCounter.c **** * File Name: ByteCounter.c  
+   3:Generated_Source\PSoC5/ByteCounter.c **** * Version 3.0
+   4:Generated_Source\PSoC5/ByteCounter.c **** *
+   5:Generated_Source\PSoC5/ByteCounter.c **** *  Description:
+   6:Generated_Source\PSoC5/ByteCounter.c **** *     The Counter component consists of a 8, 16, 24 or 32-bit counter with
+   7:Generated_Source\PSoC5/ByteCounter.c **** *     a selectable period between 2 and 2^Width - 1.  
+   8:Generated_Source\PSoC5/ByteCounter.c **** *
+   9:Generated_Source\PSoC5/ByteCounter.c **** *   Note:
+  10:Generated_Source\PSoC5/ByteCounter.c **** *     None
+  11:Generated_Source\PSoC5/ByteCounter.c **** *
+  12:Generated_Source\PSoC5/ByteCounter.c **** ********************************************************************************
+  13:Generated_Source\PSoC5/ByteCounter.c **** * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC5/ByteCounter.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  15:Generated_Source\PSoC5/ByteCounter.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  16:Generated_Source\PSoC5/ByteCounter.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC5/ByteCounter.c **** *******************************************************************************/
+  18:Generated_Source\PSoC5/ByteCounter.c **** 
+  19:Generated_Source\PSoC5/ByteCounter.c **** #include "ByteCounter.h"
+  20:Generated_Source\PSoC5/ByteCounter.c **** 
+  21:Generated_Source\PSoC5/ByteCounter.c **** uint8 ByteCounter_initVar = 0u;
+  22:Generated_Source\PSoC5/ByteCounter.c **** 
+  23:Generated_Source\PSoC5/ByteCounter.c **** 
+  24:Generated_Source\PSoC5/ByteCounter.c **** /*******************************************************************************
+  25:Generated_Source\PSoC5/ByteCounter.c **** * Function Name: ByteCounter_Init
+  26:Generated_Source\PSoC5/ByteCounter.c **** ********************************************************************************
+  27:Generated_Source\PSoC5/ByteCounter.c **** * Summary:
+  28:Generated_Source\PSoC5/ByteCounter.c **** *     Initialize to the schematic state
+  29:Generated_Source\PSoC5/ByteCounter.c **** * 
+  30:Generated_Source\PSoC5/ByteCounter.c **** * Parameters:  
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 2
+
+
+  31:Generated_Source\PSoC5/ByteCounter.c **** *  void  
+  32:Generated_Source\PSoC5/ByteCounter.c **** *
+  33:Generated_Source\PSoC5/ByteCounter.c **** * Return: 
+  34:Generated_Source\PSoC5/ByteCounter.c **** *  void
+  35:Generated_Source\PSoC5/ByteCounter.c **** *
+  36:Generated_Source\PSoC5/ByteCounter.c **** *******************************************************************************/
+  37:Generated_Source\PSoC5/ByteCounter.c **** void ByteCounter_Init(void) 
+  38:Generated_Source\PSoC5/ByteCounter.c **** {
+  39:Generated_Source\PSoC5/ByteCounter.c ****         #if (!ByteCounter_UsingFixedFunction && !ByteCounter_ControlRegRemoved)
+  40:Generated_Source\PSoC5/ByteCounter.c ****             uint8 ctrl;
+  41:Generated_Source\PSoC5/ByteCounter.c ****         #endif /* (!ByteCounter_UsingFixedFunction && !ByteCounter_ControlRegRemoved) */
+  42:Generated_Source\PSoC5/ByteCounter.c ****         
+  43:Generated_Source\PSoC5/ByteCounter.c ****         #if(!ByteCounter_UsingFixedFunction) 
+  44:Generated_Source\PSoC5/ByteCounter.c ****             /* Interrupt State Backup for Critical Region*/
+  45:Generated_Source\PSoC5/ByteCounter.c ****             uint8 ByteCounter_interruptState;
+  46:Generated_Source\PSoC5/ByteCounter.c ****         #endif /* (!ByteCounter_UsingFixedFunction) */
+  47:Generated_Source\PSoC5/ByteCounter.c ****         
+  48:Generated_Source\PSoC5/ByteCounter.c ****         #if (ByteCounter_UsingFixedFunction)
+  49:Generated_Source\PSoC5/ByteCounter.c ****             /* Clear all bits but the enable bit (if it's already set for Timer operation */
+  50:Generated_Source\PSoC5/ByteCounter.c ****             ByteCounter_CONTROL &= ByteCounter_CTRL_ENABLE;
+  51:Generated_Source\PSoC5/ByteCounter.c ****             
+  52:Generated_Source\PSoC5/ByteCounter.c ****             /* Clear the mode bits for continuous run mode */
+  53:Generated_Source\PSoC5/ByteCounter.c ****             #if (CY_PSOC5A)
+  54:Generated_Source\PSoC5/ByteCounter.c ****                 ByteCounter_CONTROL2 &= ((uint8)(~ByteCounter_CTRL_MODE_MASK));
+  55:Generated_Source\PSoC5/ByteCounter.c ****             #endif /* (CY_PSOC5A) */
+  56:Generated_Source\PSoC5/ByteCounter.c ****             #if (CY_PSOC3 || CY_PSOC5LP)
+  57:Generated_Source\PSoC5/ByteCounter.c ****                 ByteCounter_CONTROL3 &= ((uint8)(~ByteCounter_CTRL_MODE_MASK));                
+  58:Generated_Source\PSoC5/ByteCounter.c ****             #endif /* (CY_PSOC3 || CY_PSOC5LP) */
+  59:Generated_Source\PSoC5/ByteCounter.c ****             /* Check if One Shot mode is enabled i.e. RunMode !=0*/
+  60:Generated_Source\PSoC5/ByteCounter.c ****             #if (ByteCounter_RunModeUsed != 0x0u)
+  61:Generated_Source\PSoC5/ByteCounter.c ****                 /* Set 3rd bit of Control register to enable one shot mode */
+  62:Generated_Source\PSoC5/ByteCounter.c ****                 ByteCounter_CONTROL |= ByteCounter_ONESHOT;
+  63:Generated_Source\PSoC5/ByteCounter.c ****             #endif /* (ByteCounter_RunModeUsed != 0x0u) */
+  64:Generated_Source\PSoC5/ByteCounter.c ****             
+  65:Generated_Source\PSoC5/ByteCounter.c ****             /* Set the IRQ to use the status register interrupts */
+  66:Generated_Source\PSoC5/ByteCounter.c ****             ByteCounter_CONTROL2 |= ByteCounter_CTRL2_IRQ_SEL;
+  67:Generated_Source\PSoC5/ByteCounter.c ****             
+  68:Generated_Source\PSoC5/ByteCounter.c ****             /* Clear and Set SYNCTC and SYNCCMP bits of RT1 register */
+  69:Generated_Source\PSoC5/ByteCounter.c ****             ByteCounter_RT1 &= ((uint8)(~ByteCounter_RT1_MASK));
+  70:Generated_Source\PSoC5/ByteCounter.c ****             ByteCounter_RT1 |= ByteCounter_SYNC;     
+  71:Generated_Source\PSoC5/ByteCounter.c ****                     
+  72:Generated_Source\PSoC5/ByteCounter.c ****             /*Enable DSI Sync all all inputs of the Timer*/
+  73:Generated_Source\PSoC5/ByteCounter.c ****             ByteCounter_RT1 &= ((uint8)(~ByteCounter_SYNCDSI_MASK));
+  74:Generated_Source\PSoC5/ByteCounter.c ****             ByteCounter_RT1 |= ByteCounter_SYNCDSI_EN;
+  75:Generated_Source\PSoC5/ByteCounter.c **** 
+  76:Generated_Source\PSoC5/ByteCounter.c ****         #else
+  77:Generated_Source\PSoC5/ByteCounter.c ****             #if(!ByteCounter_ControlRegRemoved)
+  78:Generated_Source\PSoC5/ByteCounter.c ****             /* Set the default compare mode defined in the parameter */
+  79:Generated_Source\PSoC5/ByteCounter.c ****             ctrl = ByteCounter_CONTROL & ((uint8)(~ByteCounter_CTRL_CMPMODE_MASK));
+  80:Generated_Source\PSoC5/ByteCounter.c ****             ByteCounter_CONTROL = ctrl | ByteCounter_DEFAULT_COMPARE_MODE;
+  81:Generated_Source\PSoC5/ByteCounter.c ****             
+  82:Generated_Source\PSoC5/ByteCounter.c ****             /* Set the default capture mode defined in the parameter */
+  83:Generated_Source\PSoC5/ByteCounter.c ****             ctrl = ByteCounter_CONTROL & ((uint8)(~ByteCounter_CTRL_CAPMODE_MASK));
+  84:Generated_Source\PSoC5/ByteCounter.c ****             
+  85:Generated_Source\PSoC5/ByteCounter.c ****             #if( 0 != ByteCounter_CAPTURE_MODE_CONF)
+  86:Generated_Source\PSoC5/ByteCounter.c ****                 ByteCounter_CONTROL = ctrl | ByteCounter_DEFAULT_CAPTURE_MODE;
+  87:Generated_Source\PSoC5/ByteCounter.c ****             #else
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 3
+
+
+  88:Generated_Source\PSoC5/ByteCounter.c ****                 ByteCounter_CONTROL = ctrl;
+  89:Generated_Source\PSoC5/ByteCounter.c ****             #endif /* 0 != ByteCounter_CAPTURE_MODE */ 
+  90:Generated_Source\PSoC5/ByteCounter.c ****             
+  91:Generated_Source\PSoC5/ByteCounter.c ****             #endif /* (!ByteCounter_ControlRegRemoved) */
+  92:Generated_Source\PSoC5/ByteCounter.c ****         #endif /* (ByteCounter_UsingFixedFunction) */
+  93:Generated_Source\PSoC5/ByteCounter.c ****         
+  94:Generated_Source\PSoC5/ByteCounter.c ****         /* Clear all data in the FIFO's */
+  95:Generated_Source\PSoC5/ByteCounter.c ****         #if (!ByteCounter_UsingFixedFunction)
+  96:Generated_Source\PSoC5/ByteCounter.c ****             ByteCounter_ClearFIFO();
+  97:Generated_Source\PSoC5/ByteCounter.c ****         #endif /* (!ByteCounter_UsingFixedFunction) */
+  98:Generated_Source\PSoC5/ByteCounter.c ****         
+  99:Generated_Source\PSoC5/ByteCounter.c ****         /* Set Initial values from Configuration */
+ 100:Generated_Source\PSoC5/ByteCounter.c ****         ByteCounter_WritePeriod(ByteCounter_INIT_PERIOD_VALUE);
+ 101:Generated_Source\PSoC5/ByteCounter.c ****         #if (!(ByteCounter_UsingFixedFunction && (CY_PSOC5A)))
+ 102:Generated_Source\PSoC5/ByteCounter.c ****             ByteCounter_WriteCounter(ByteCounter_INIT_COUNTER_VALUE);
+ 103:Generated_Source\PSoC5/ByteCounter.c ****         #endif /* (!(ByteCounter_UsingFixedFunction && (CY_PSOC5A))) */
+ 104:Generated_Source\PSoC5/ByteCounter.c ****         ByteCounter_SetInterruptMode(ByteCounter_INIT_INTERRUPTS_MASK);
+ 105:Generated_Source\PSoC5/ByteCounter.c ****         
+ 106:Generated_Source\PSoC5/ByteCounter.c ****         #if (!ByteCounter_UsingFixedFunction)
+ 107:Generated_Source\PSoC5/ByteCounter.c ****             /* Read the status register to clear the unwanted interrupts */
+ 108:Generated_Source\PSoC5/ByteCounter.c ****             (void)ByteCounter_ReadStatusRegister();
+ 109:Generated_Source\PSoC5/ByteCounter.c ****             /* Set the compare value (only available to non-fixed function implementation */
+ 110:Generated_Source\PSoC5/ByteCounter.c ****             ByteCounter_WriteCompare(ByteCounter_INIT_COMPARE_VALUE);
+ 111:Generated_Source\PSoC5/ByteCounter.c ****             /* Use the interrupt output of the status register for IRQ output */
+ 112:Generated_Source\PSoC5/ByteCounter.c ****             
+ 113:Generated_Source\PSoC5/ByteCounter.c ****             /* CyEnterCriticalRegion and CyExitCriticalRegion are used to mark following region cri
+ 114:Generated_Source\PSoC5/ByteCounter.c ****             /* Enter Critical Region*/
+ 115:Generated_Source\PSoC5/ByteCounter.c ****             ByteCounter_interruptState = CyEnterCriticalSection();
+ 116:Generated_Source\PSoC5/ByteCounter.c ****             
+ 117:Generated_Source\PSoC5/ByteCounter.c ****             ByteCounter_STATUS_AUX_CTRL |= ByteCounter_STATUS_ACTL_INT_EN_MASK;
+ 118:Generated_Source\PSoC5/ByteCounter.c ****             
+ 119:Generated_Source\PSoC5/ByteCounter.c ****             /* Exit Critical Region*/
+ 120:Generated_Source\PSoC5/ByteCounter.c ****             CyExitCriticalSection(ByteCounter_interruptState);
+ 121:Generated_Source\PSoC5/ByteCounter.c ****             
+ 122:Generated_Source\PSoC5/ByteCounter.c ****         #endif /* (!ByteCounter_UsingFixedFunction) */
+ 123:Generated_Source\PSoC5/ByteCounter.c **** }
+ 124:Generated_Source\PSoC5/ByteCounter.c **** 
+ 125:Generated_Source\PSoC5/ByteCounter.c **** 
+ 126:Generated_Source\PSoC5/ByteCounter.c **** /*******************************************************************************
+ 127:Generated_Source\PSoC5/ByteCounter.c **** * Function Name: ByteCounter_Enable
+ 128:Generated_Source\PSoC5/ByteCounter.c **** ********************************************************************************
+ 129:Generated_Source\PSoC5/ByteCounter.c **** * Summary:
+ 130:Generated_Source\PSoC5/ByteCounter.c **** *     Enable the Counter
+ 131:Generated_Source\PSoC5/ByteCounter.c **** * 
+ 132:Generated_Source\PSoC5/ByteCounter.c **** * Parameters:  
+ 133:Generated_Source\PSoC5/ByteCounter.c **** *  void  
+ 134:Generated_Source\PSoC5/ByteCounter.c **** *
+ 135:Generated_Source\PSoC5/ByteCounter.c **** * Return: 
+ 136:Generated_Source\PSoC5/ByteCounter.c **** *  void
+ 137:Generated_Source\PSoC5/ByteCounter.c **** *
+ 138:Generated_Source\PSoC5/ByteCounter.c **** * Side Effects: 
+ 139:Generated_Source\PSoC5/ByteCounter.c **** *   If the Enable mode is set to Hardware only then this function has no effect 
+ 140:Generated_Source\PSoC5/ByteCounter.c **** *   on the operation of the counter.
+ 141:Generated_Source\PSoC5/ByteCounter.c **** *
+ 142:Generated_Source\PSoC5/ByteCounter.c **** *******************************************************************************/
+ 143:Generated_Source\PSoC5/ByteCounter.c **** void ByteCounter_Enable(void) 
+ 144:Generated_Source\PSoC5/ByteCounter.c **** {
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 4
+
+
+  28              		.loc 1 144 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+ 145:Generated_Source\PSoC5/ByteCounter.c ****     /* Globally Enable the Fixed Function Block chosen */
+ 146:Generated_Source\PSoC5/ByteCounter.c ****     #if (ByteCounter_UsingFixedFunction)
+ 147:Generated_Source\PSoC5/ByteCounter.c ****         ByteCounter_GLOBAL_ENABLE |= ByteCounter_BLOCK_EN_MASK;
+ 148:Generated_Source\PSoC5/ByteCounter.c ****         ByteCounter_GLOBAL_STBY_ENABLE |= ByteCounter_BLOCK_STBY_EN_MASK;
+ 149:Generated_Source\PSoC5/ByteCounter.c ****     #endif /* (ByteCounter_UsingFixedFunction) */  
+ 150:Generated_Source\PSoC5/ByteCounter.c ****         
+ 151:Generated_Source\PSoC5/ByteCounter.c ****     /* Enable the counter from the control register  */
+ 152:Generated_Source\PSoC5/ByteCounter.c ****     /* If Fixed Function then make sure Mode is set correctly */
+ 153:Generated_Source\PSoC5/ByteCounter.c ****     /* else make sure reset is clear */
+ 154:Generated_Source\PSoC5/ByteCounter.c ****     #if(!ByteCounter_ControlRegRemoved || ByteCounter_UsingFixedFunction)
+ 155:Generated_Source\PSoC5/ByteCounter.c ****         ByteCounter_CONTROL |= ByteCounter_CTRL_ENABLE;                
+  33              		.loc 1 155 0
+  34 0000 024A     		ldr	r2, .L2
+  35 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  36 0004 43F08003 		orr	r3, r3, #128
+  37 0008 1370     		strb	r3, [r2]
+  38 000a 7047     		bx	lr
+  39              	.L3:
+  40              		.align	2
+  41              	.L2:
+  42 000c 79640040 		.word	1073767545
+  43              		.cfi_endproc
+  44              	.LFE1:
+  45              		.size	ByteCounter_Enable, .-ByteCounter_Enable
+  46              		.section	.text.ByteCounter_Stop,"ax",%progbits
+  47              		.align	2
+  48              		.global	ByteCounter_Stop
+  49              		.thumb
+  50              		.thumb_func
+  51              		.type	ByteCounter_Stop, %function
+  52              	ByteCounter_Stop:
+  53              	.LFB3:
+ 156:Generated_Source\PSoC5/ByteCounter.c ****     #endif /* (!ByteCounter_ControlRegRemoved || ByteCounter_UsingFixedFunction) */
+ 157:Generated_Source\PSoC5/ByteCounter.c ****     
+ 158:Generated_Source\PSoC5/ByteCounter.c **** }
+ 159:Generated_Source\PSoC5/ByteCounter.c **** 
+ 160:Generated_Source\PSoC5/ByteCounter.c **** 
+ 161:Generated_Source\PSoC5/ByteCounter.c **** /*******************************************************************************
+ 162:Generated_Source\PSoC5/ByteCounter.c **** * Function Name: ByteCounter_Start
+ 163:Generated_Source\PSoC5/ByteCounter.c **** ********************************************************************************
+ 164:Generated_Source\PSoC5/ByteCounter.c **** * Summary:
+ 165:Generated_Source\PSoC5/ByteCounter.c **** *  Enables the counter for operation 
+ 166:Generated_Source\PSoC5/ByteCounter.c **** *
+ 167:Generated_Source\PSoC5/ByteCounter.c **** * Parameters:  
+ 168:Generated_Source\PSoC5/ByteCounter.c **** *  void  
+ 169:Generated_Source\PSoC5/ByteCounter.c **** *
+ 170:Generated_Source\PSoC5/ByteCounter.c **** * Return: 
+ 171:Generated_Source\PSoC5/ByteCounter.c **** *  void
+ 172:Generated_Source\PSoC5/ByteCounter.c **** *
+ 173:Generated_Source\PSoC5/ByteCounter.c **** * Global variables:
+ 174:Generated_Source\PSoC5/ByteCounter.c **** *  ByteCounter_initVar: Is modified when this function is called for the  
+ 175:Generated_Source\PSoC5/ByteCounter.c **** *   first time. Is used to ensure that initialization happens only once.
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 5
+
+
+ 176:Generated_Source\PSoC5/ByteCounter.c **** *
+ 177:Generated_Source\PSoC5/ByteCounter.c **** *******************************************************************************/
+ 178:Generated_Source\PSoC5/ByteCounter.c **** void ByteCounter_Start(void) 
+ 179:Generated_Source\PSoC5/ByteCounter.c **** {
+ 180:Generated_Source\PSoC5/ByteCounter.c ****     if(ByteCounter_initVar == 0u)
+ 181:Generated_Source\PSoC5/ByteCounter.c ****     {
+ 182:Generated_Source\PSoC5/ByteCounter.c ****         ByteCounter_Init();
+ 183:Generated_Source\PSoC5/ByteCounter.c ****         
+ 184:Generated_Source\PSoC5/ByteCounter.c ****         ByteCounter_initVar = 1u; /* Clear this bit for Initialization */        
+ 185:Generated_Source\PSoC5/ByteCounter.c ****     }
+ 186:Generated_Source\PSoC5/ByteCounter.c ****     
+ 187:Generated_Source\PSoC5/ByteCounter.c ****     /* Enable the Counter */
+ 188:Generated_Source\PSoC5/ByteCounter.c ****     ByteCounter_Enable();        
+ 189:Generated_Source\PSoC5/ByteCounter.c **** }
+ 190:Generated_Source\PSoC5/ByteCounter.c **** 
+ 191:Generated_Source\PSoC5/ByteCounter.c **** 
+ 192:Generated_Source\PSoC5/ByteCounter.c **** /*******************************************************************************
+ 193:Generated_Source\PSoC5/ByteCounter.c **** * Function Name: ByteCounter_Stop
+ 194:Generated_Source\PSoC5/ByteCounter.c **** ********************************************************************************
+ 195:Generated_Source\PSoC5/ByteCounter.c **** * Summary:
+ 196:Generated_Source\PSoC5/ByteCounter.c **** * Halts the counter, but does not change any modes or disable interrupts.
+ 197:Generated_Source\PSoC5/ByteCounter.c **** *
+ 198:Generated_Source\PSoC5/ByteCounter.c **** * Parameters:  
+ 199:Generated_Source\PSoC5/ByteCounter.c **** *  void  
+ 200:Generated_Source\PSoC5/ByteCounter.c **** *
+ 201:Generated_Source\PSoC5/ByteCounter.c **** * Return: 
+ 202:Generated_Source\PSoC5/ByteCounter.c **** *  void
+ 203:Generated_Source\PSoC5/ByteCounter.c **** *
+ 204:Generated_Source\PSoC5/ByteCounter.c **** * Side Effects: If the Enable mode is set to Hardware only then this function
+ 205:Generated_Source\PSoC5/ByteCounter.c **** *               has no effect on the operation of the counter.
+ 206:Generated_Source\PSoC5/ByteCounter.c **** *
+ 207:Generated_Source\PSoC5/ByteCounter.c **** *******************************************************************************/
+ 208:Generated_Source\PSoC5/ByteCounter.c **** void ByteCounter_Stop(void) 
+ 209:Generated_Source\PSoC5/ByteCounter.c **** {
+  54              		.loc 1 209 0
+  55              		.cfi_startproc
+  56              		@ args = 0, pretend = 0, frame = 0
+  57              		@ frame_needed = 0, uses_anonymous_args = 0
+  58              		@ link register save eliminated.
+ 210:Generated_Source\PSoC5/ByteCounter.c ****     /* Disable Counter */
+ 211:Generated_Source\PSoC5/ByteCounter.c ****     #if(!ByteCounter_ControlRegRemoved || ByteCounter_UsingFixedFunction)
+ 212:Generated_Source\PSoC5/ByteCounter.c ****         ByteCounter_CONTROL &= ((uint8)(~ByteCounter_CTRL_ENABLE));        
+  59              		.loc 1 212 0
+  60 0000 024A     		ldr	r2, .L5
+  61 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  62 0004 03F07F03 		and	r3, r3, #127
+  63 0008 1370     		strb	r3, [r2]
+  64 000a 7047     		bx	lr
+  65              	.L6:
+  66              		.align	2
+  67              	.L5:
+  68 000c 79640040 		.word	1073767545
+  69              		.cfi_endproc
+  70              	.LFE3:
+  71              		.size	ByteCounter_Stop, .-ByteCounter_Stop
+  72              		.section	.text.ByteCounter_SetInterruptMode,"ax",%progbits
+  73              		.align	2
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 6
+
+
+  74              		.global	ByteCounter_SetInterruptMode
+  75              		.thumb
+  76              		.thumb_func
+  77              		.type	ByteCounter_SetInterruptMode, %function
+  78              	ByteCounter_SetInterruptMode:
+  79              	.LFB4:
+ 213:Generated_Source\PSoC5/ByteCounter.c ****     #endif /* (!ByteCounter_ControlRegRemoved || ByteCounter_UsingFixedFunction) */
+ 214:Generated_Source\PSoC5/ByteCounter.c ****     
+ 215:Generated_Source\PSoC5/ByteCounter.c ****     /* Globally disable the Fixed Function Block chosen */
+ 216:Generated_Source\PSoC5/ByteCounter.c ****     #if (ByteCounter_UsingFixedFunction)
+ 217:Generated_Source\PSoC5/ByteCounter.c ****         ByteCounter_GLOBAL_ENABLE &= ((uint8)(~ByteCounter_BLOCK_EN_MASK));
+ 218:Generated_Source\PSoC5/ByteCounter.c ****         ByteCounter_GLOBAL_STBY_ENABLE &= ((uint8)(~ByteCounter_BLOCK_STBY_EN_MASK));
+ 219:Generated_Source\PSoC5/ByteCounter.c ****     #endif /* (ByteCounter_UsingFixedFunction) */
+ 220:Generated_Source\PSoC5/ByteCounter.c **** }
+ 221:Generated_Source\PSoC5/ByteCounter.c **** 
+ 222:Generated_Source\PSoC5/ByteCounter.c **** 
+ 223:Generated_Source\PSoC5/ByteCounter.c **** /*******************************************************************************
+ 224:Generated_Source\PSoC5/ByteCounter.c **** * Function Name: ByteCounter_SetInterruptMode
+ 225:Generated_Source\PSoC5/ByteCounter.c **** ********************************************************************************
+ 226:Generated_Source\PSoC5/ByteCounter.c **** * Summary:
+ 227:Generated_Source\PSoC5/ByteCounter.c **** * Configures which interrupt sources are enabled to generate the final interrupt
+ 228:Generated_Source\PSoC5/ByteCounter.c **** *
+ 229:Generated_Source\PSoC5/ByteCounter.c **** * Parameters:  
+ 230:Generated_Source\PSoC5/ByteCounter.c **** *  InterruptsMask: This parameter is an or'd collection of the status bits
+ 231:Generated_Source\PSoC5/ByteCounter.c **** *                   which will be allowed to generate the counters interrupt.   
+ 232:Generated_Source\PSoC5/ByteCounter.c **** *
+ 233:Generated_Source\PSoC5/ByteCounter.c **** * Return: 
+ 234:Generated_Source\PSoC5/ByteCounter.c **** *  void
+ 235:Generated_Source\PSoC5/ByteCounter.c **** *
+ 236:Generated_Source\PSoC5/ByteCounter.c **** *******************************************************************************/
+ 237:Generated_Source\PSoC5/ByteCounter.c **** void ByteCounter_SetInterruptMode(uint8 interruptsMask) 
+ 238:Generated_Source\PSoC5/ByteCounter.c **** {
+  80              		.loc 1 238 0
+  81              		.cfi_startproc
+  82              		@ args = 0, pretend = 0, frame = 0
+  83              		@ frame_needed = 0, uses_anonymous_args = 0
+  84              		@ link register save eliminated.
+  85              	.LVL0:
+ 239:Generated_Source\PSoC5/ByteCounter.c ****     ByteCounter_STATUS_MASK = interruptsMask;
+  86              		.loc 1 239 0
+  87 0000 014B     		ldr	r3, .L8
+  88 0002 1870     		strb	r0, [r3]
+  89 0004 7047     		bx	lr
+  90              	.L9:
+  91 0006 00BF     		.align	2
+  92              	.L8:
+  93 0008 8A650040 		.word	1073767818
+  94              		.cfi_endproc
+  95              	.LFE4:
+  96              		.size	ByteCounter_SetInterruptMode, .-ByteCounter_SetInterruptMode
+  97              		.section	.text.ByteCounter_ReadStatusRegister,"ax",%progbits
+  98              		.align	2
+  99              		.global	ByteCounter_ReadStatusRegister
+ 100              		.thumb
+ 101              		.thumb_func
+ 102              		.type	ByteCounter_ReadStatusRegister, %function
+ 103              	ByteCounter_ReadStatusRegister:
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 7
+
+
+ 104              	.LFB5:
+ 240:Generated_Source\PSoC5/ByteCounter.c **** }
+ 241:Generated_Source\PSoC5/ByteCounter.c **** 
+ 242:Generated_Source\PSoC5/ByteCounter.c **** 
+ 243:Generated_Source\PSoC5/ByteCounter.c **** /*******************************************************************************
+ 244:Generated_Source\PSoC5/ByteCounter.c **** * Function Name: ByteCounter_ReadStatusRegister
+ 245:Generated_Source\PSoC5/ByteCounter.c **** ********************************************************************************
+ 246:Generated_Source\PSoC5/ByteCounter.c **** * Summary:
+ 247:Generated_Source\PSoC5/ByteCounter.c **** *   Reads the status register and returns it's state. This function should use
+ 248:Generated_Source\PSoC5/ByteCounter.c **** *       defined types for the bit-field information as the bits in this
+ 249:Generated_Source\PSoC5/ByteCounter.c **** *       register may be permuteable.
+ 250:Generated_Source\PSoC5/ByteCounter.c **** *
+ 251:Generated_Source\PSoC5/ByteCounter.c **** * Parameters:  
+ 252:Generated_Source\PSoC5/ByteCounter.c **** *  void
+ 253:Generated_Source\PSoC5/ByteCounter.c **** *
+ 254:Generated_Source\PSoC5/ByteCounter.c **** * Return: 
+ 255:Generated_Source\PSoC5/ByteCounter.c **** *  (uint8) The contents of the status register
+ 256:Generated_Source\PSoC5/ByteCounter.c **** *
+ 257:Generated_Source\PSoC5/ByteCounter.c **** * Side Effects:
+ 258:Generated_Source\PSoC5/ByteCounter.c **** *   Status register bits may be clear on read. 
+ 259:Generated_Source\PSoC5/ByteCounter.c **** *
+ 260:Generated_Source\PSoC5/ByteCounter.c **** *******************************************************************************/
+ 261:Generated_Source\PSoC5/ByteCounter.c **** uint8   ByteCounter_ReadStatusRegister(void) 
+ 262:Generated_Source\PSoC5/ByteCounter.c **** {
+ 105              		.loc 1 262 0
+ 106              		.cfi_startproc
+ 107              		@ args = 0, pretend = 0, frame = 0
+ 108              		@ frame_needed = 0, uses_anonymous_args = 0
+ 109              		@ link register save eliminated.
+ 263:Generated_Source\PSoC5/ByteCounter.c ****     return ByteCounter_STATUS;
+ 110              		.loc 1 263 0
+ 111 0000 014B     		ldr	r3, .L11
+ 112 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 264:Generated_Source\PSoC5/ByteCounter.c **** }
+ 113              		.loc 1 264 0
+ 114 0004 7047     		bx	lr
+ 115              	.L12:
+ 116 0006 00BF     		.align	2
+ 117              	.L11:
+ 118 0008 6A650040 		.word	1073767786
+ 119              		.cfi_endproc
+ 120              	.LFE5:
+ 121              		.size	ByteCounter_ReadStatusRegister, .-ByteCounter_ReadStatusRegister
+ 122              		.section	.text.ByteCounter_ReadControlRegister,"ax",%progbits
+ 123              		.align	2
+ 124              		.global	ByteCounter_ReadControlRegister
+ 125              		.thumb
+ 126              		.thumb_func
+ 127              		.type	ByteCounter_ReadControlRegister, %function
+ 128              	ByteCounter_ReadControlRegister:
+ 129              	.LFB6:
+ 265:Generated_Source\PSoC5/ByteCounter.c **** 
+ 266:Generated_Source\PSoC5/ByteCounter.c **** 
+ 267:Generated_Source\PSoC5/ByteCounter.c **** #if(!ByteCounter_ControlRegRemoved)
+ 268:Generated_Source\PSoC5/ByteCounter.c **** /*******************************************************************************
+ 269:Generated_Source\PSoC5/ByteCounter.c **** * Function Name: ByteCounter_ReadControlRegister
+ 270:Generated_Source\PSoC5/ByteCounter.c **** ********************************************************************************
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 8
+
+
+ 271:Generated_Source\PSoC5/ByteCounter.c **** * Summary:
+ 272:Generated_Source\PSoC5/ByteCounter.c **** *   Reads the control register and returns it's state. This function should use
+ 273:Generated_Source\PSoC5/ByteCounter.c **** *       defined types for the bit-field information as the bits in this
+ 274:Generated_Source\PSoC5/ByteCounter.c **** *       register may be permuteable.
+ 275:Generated_Source\PSoC5/ByteCounter.c **** *
+ 276:Generated_Source\PSoC5/ByteCounter.c **** * Parameters:  
+ 277:Generated_Source\PSoC5/ByteCounter.c **** *  void
+ 278:Generated_Source\PSoC5/ByteCounter.c **** *
+ 279:Generated_Source\PSoC5/ByteCounter.c **** * Return: 
+ 280:Generated_Source\PSoC5/ByteCounter.c **** *  (uint8) The contents of the control register
+ 281:Generated_Source\PSoC5/ByteCounter.c **** *
+ 282:Generated_Source\PSoC5/ByteCounter.c **** *******************************************************************************/
+ 283:Generated_Source\PSoC5/ByteCounter.c **** uint8   ByteCounter_ReadControlRegister(void) 
+ 284:Generated_Source\PSoC5/ByteCounter.c **** {
+ 130              		.loc 1 284 0
+ 131              		.cfi_startproc
+ 132              		@ args = 0, pretend = 0, frame = 0
+ 133              		@ frame_needed = 0, uses_anonymous_args = 0
+ 134              		@ link register save eliminated.
+ 285:Generated_Source\PSoC5/ByteCounter.c ****     return ByteCounter_CONTROL;
+ 135              		.loc 1 285 0
+ 136 0000 014B     		ldr	r3, .L14
+ 137 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 286:Generated_Source\PSoC5/ByteCounter.c **** }
+ 138              		.loc 1 286 0
+ 139 0004 7047     		bx	lr
+ 140              	.L15:
+ 141 0006 00BF     		.align	2
+ 142              	.L14:
+ 143 0008 79640040 		.word	1073767545
+ 144              		.cfi_endproc
+ 145              	.LFE6:
+ 146              		.size	ByteCounter_ReadControlRegister, .-ByteCounter_ReadControlRegister
+ 147              		.section	.text.ByteCounter_WriteControlRegister,"ax",%progbits
+ 148              		.align	2
+ 149              		.global	ByteCounter_WriteControlRegister
+ 150              		.thumb
+ 151              		.thumb_func
+ 152              		.type	ByteCounter_WriteControlRegister, %function
+ 153              	ByteCounter_WriteControlRegister:
+ 154              	.LFB7:
+ 287:Generated_Source\PSoC5/ByteCounter.c **** 
+ 288:Generated_Source\PSoC5/ByteCounter.c **** 
+ 289:Generated_Source\PSoC5/ByteCounter.c **** /*******************************************************************************
+ 290:Generated_Source\PSoC5/ByteCounter.c **** * Function Name: ByteCounter_WriteControlRegister
+ 291:Generated_Source\PSoC5/ByteCounter.c **** ********************************************************************************
+ 292:Generated_Source\PSoC5/ByteCounter.c **** * Summary:
+ 293:Generated_Source\PSoC5/ByteCounter.c **** *   Sets the bit-field of the control register.  This function should use
+ 294:Generated_Source\PSoC5/ByteCounter.c **** *       defined types for the bit-field information as the bits in this
+ 295:Generated_Source\PSoC5/ByteCounter.c **** *       register may be permuteable.
+ 296:Generated_Source\PSoC5/ByteCounter.c **** *
+ 297:Generated_Source\PSoC5/ByteCounter.c **** * Parameters:  
+ 298:Generated_Source\PSoC5/ByteCounter.c **** *  void
+ 299:Generated_Source\PSoC5/ByteCounter.c **** *
+ 300:Generated_Source\PSoC5/ByteCounter.c **** * Return: 
+ 301:Generated_Source\PSoC5/ByteCounter.c **** *  (uint8) The contents of the control register
+ 302:Generated_Source\PSoC5/ByteCounter.c **** *
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 9
+
+
+ 303:Generated_Source\PSoC5/ByteCounter.c **** *******************************************************************************/
+ 304:Generated_Source\PSoC5/ByteCounter.c **** void    ByteCounter_WriteControlRegister(uint8 control) 
+ 305:Generated_Source\PSoC5/ByteCounter.c **** {
+ 155              		.loc 1 305 0
+ 156              		.cfi_startproc
+ 157              		@ args = 0, pretend = 0, frame = 0
+ 158              		@ frame_needed = 0, uses_anonymous_args = 0
+ 159              		@ link register save eliminated.
+ 160              	.LVL1:
+ 306:Generated_Source\PSoC5/ByteCounter.c ****     ByteCounter_CONTROL = control;
+ 161              		.loc 1 306 0
+ 162 0000 014B     		ldr	r3, .L17
+ 163 0002 1870     		strb	r0, [r3]
+ 164 0004 7047     		bx	lr
+ 165              	.L18:
+ 166 0006 00BF     		.align	2
+ 167              	.L17:
+ 168 0008 79640040 		.word	1073767545
+ 169              		.cfi_endproc
+ 170              	.LFE7:
+ 171              		.size	ByteCounter_WriteControlRegister, .-ByteCounter_WriteControlRegister
+ 172              		.section	.text.ByteCounter_WriteCounter,"ax",%progbits
+ 173              		.align	2
+ 174              		.global	ByteCounter_WriteCounter
+ 175              		.thumb
+ 176              		.thumb_func
+ 177              		.type	ByteCounter_WriteCounter, %function
+ 178              	ByteCounter_WriteCounter:
+ 179              	.LFB8:
+ 307:Generated_Source\PSoC5/ByteCounter.c **** }
+ 308:Generated_Source\PSoC5/ByteCounter.c **** 
+ 309:Generated_Source\PSoC5/ByteCounter.c **** #endif  /* (!ByteCounter_ControlRegRemoved) */
+ 310:Generated_Source\PSoC5/ByteCounter.c **** 
+ 311:Generated_Source\PSoC5/ByteCounter.c **** 
+ 312:Generated_Source\PSoC5/ByteCounter.c **** #if (!(ByteCounter_UsingFixedFunction && (CY_PSOC5A)))
+ 313:Generated_Source\PSoC5/ByteCounter.c **** /*******************************************************************************
+ 314:Generated_Source\PSoC5/ByteCounter.c **** * Function Name: ByteCounter_WriteCounter
+ 315:Generated_Source\PSoC5/ByteCounter.c **** ********************************************************************************
+ 316:Generated_Source\PSoC5/ByteCounter.c **** * Summary:
+ 317:Generated_Source\PSoC5/ByteCounter.c **** *   This funtion is used to set the counter to a specific value
+ 318:Generated_Source\PSoC5/ByteCounter.c **** *
+ 319:Generated_Source\PSoC5/ByteCounter.c **** * Parameters:  
+ 320:Generated_Source\PSoC5/ByteCounter.c **** *  counter:  New counter value. 
+ 321:Generated_Source\PSoC5/ByteCounter.c **** *
+ 322:Generated_Source\PSoC5/ByteCounter.c **** * Return: 
+ 323:Generated_Source\PSoC5/ByteCounter.c **** *  void 
+ 324:Generated_Source\PSoC5/ByteCounter.c **** *
+ 325:Generated_Source\PSoC5/ByteCounter.c **** *******************************************************************************/
+ 326:Generated_Source\PSoC5/ByteCounter.c **** void ByteCounter_WriteCounter(uint8 counter) \
+ 327:Generated_Source\PSoC5/ByteCounter.c ****                                    
+ 328:Generated_Source\PSoC5/ByteCounter.c **** {
+ 180              		.loc 1 328 0
+ 181              		.cfi_startproc
+ 182              		@ args = 0, pretend = 0, frame = 0
+ 183              		@ frame_needed = 0, uses_anonymous_args = 0
+ 184              		@ link register save eliminated.
+ 185              	.LVL2:
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 10
+
+
+ 329:Generated_Source\PSoC5/ByteCounter.c ****     #if(ByteCounter_UsingFixedFunction)
+ 330:Generated_Source\PSoC5/ByteCounter.c ****         /* assert if block is already enabled */
+ 331:Generated_Source\PSoC5/ByteCounter.c ****         CYASSERT (0u == (ByteCounter_GLOBAL_ENABLE & ByteCounter_BLOCK_EN_MASK));
+ 332:Generated_Source\PSoC5/ByteCounter.c ****         /* If block is disabled, enable it and then write the counter */
+ 333:Generated_Source\PSoC5/ByteCounter.c ****         ByteCounter_GLOBAL_ENABLE |= ByteCounter_BLOCK_EN_MASK;
+ 334:Generated_Source\PSoC5/ByteCounter.c ****         CY_SET_REG16(ByteCounter_COUNTER_LSB_PTR, (uint16)counter);
+ 335:Generated_Source\PSoC5/ByteCounter.c ****         ByteCounter_GLOBAL_ENABLE &= ((uint8)(~ByteCounter_BLOCK_EN_MASK));
+ 336:Generated_Source\PSoC5/ByteCounter.c ****     #else
+ 337:Generated_Source\PSoC5/ByteCounter.c ****         CY_SET_REG8(ByteCounter_COUNTER_LSB_PTR, counter);
+ 186              		.loc 1 337 0
+ 187 0000 014B     		ldr	r3, .L20
+ 188 0002 1870     		strb	r0, [r3]
+ 189 0004 7047     		bx	lr
+ 190              	.L21:
+ 191 0006 00BF     		.align	2
+ 192              	.L20:
+ 193 0008 0A650040 		.word	1073767690
+ 194              		.cfi_endproc
+ 195              	.LFE8:
+ 196              		.size	ByteCounter_WriteCounter, .-ByteCounter_WriteCounter
+ 197              		.section	.text.ByteCounter_ReadCounter,"ax",%progbits
+ 198              		.align	2
+ 199              		.global	ByteCounter_ReadCounter
+ 200              		.thumb
+ 201              		.thumb_func
+ 202              		.type	ByteCounter_ReadCounter, %function
+ 203              	ByteCounter_ReadCounter:
+ 204              	.LFB9:
+ 338:Generated_Source\PSoC5/ByteCounter.c ****     #endif /* (ByteCounter_UsingFixedFunction) */
+ 339:Generated_Source\PSoC5/ByteCounter.c **** }
+ 340:Generated_Source\PSoC5/ByteCounter.c **** #endif /* (!(ByteCounter_UsingFixedFunction && (CY_PSOC5A))) */
+ 341:Generated_Source\PSoC5/ByteCounter.c **** 
+ 342:Generated_Source\PSoC5/ByteCounter.c **** 
+ 343:Generated_Source\PSoC5/ByteCounter.c **** /*******************************************************************************
+ 344:Generated_Source\PSoC5/ByteCounter.c **** * Function Name: ByteCounter_ReadCounter
+ 345:Generated_Source\PSoC5/ByteCounter.c **** ********************************************************************************
+ 346:Generated_Source\PSoC5/ByteCounter.c **** * Summary:
+ 347:Generated_Source\PSoC5/ByteCounter.c **** * Returns the current value of the counter.  It doesn't matter
+ 348:Generated_Source\PSoC5/ByteCounter.c **** * if the counter is enabled or running.
+ 349:Generated_Source\PSoC5/ByteCounter.c **** *
+ 350:Generated_Source\PSoC5/ByteCounter.c **** * Parameters:  
+ 351:Generated_Source\PSoC5/ByteCounter.c **** *  void:  
+ 352:Generated_Source\PSoC5/ByteCounter.c **** *
+ 353:Generated_Source\PSoC5/ByteCounter.c **** * Return: 
+ 354:Generated_Source\PSoC5/ByteCounter.c **** *  (uint8) The present value of the counter.
+ 355:Generated_Source\PSoC5/ByteCounter.c **** *
+ 356:Generated_Source\PSoC5/ByteCounter.c **** *******************************************************************************/
+ 357:Generated_Source\PSoC5/ByteCounter.c **** uint8 ByteCounter_ReadCounter(void) 
+ 358:Generated_Source\PSoC5/ByteCounter.c **** {
+ 205              		.loc 1 358 0
+ 206              		.cfi_startproc
+ 207              		@ args = 0, pretend = 0, frame = 0
+ 208              		@ frame_needed = 0, uses_anonymous_args = 0
+ 209              		@ link register save eliminated.
+ 359:Generated_Source\PSoC5/ByteCounter.c ****     /* Force capture by reading Accumulator */
+ 360:Generated_Source\PSoC5/ByteCounter.c ****     /* Must first do a software capture to be able to read the counter */
+ 361:Generated_Source\PSoC5/ByteCounter.c ****     /* It is up to the user code to make sure there isn't already captured data in the FIFO */
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 11
+
+
+ 362:Generated_Source\PSoC5/ByteCounter.c ****     #if(ByteCounter_UsingFixedFunction)
+ 363:Generated_Source\PSoC5/ByteCounter.c **** 		(void)CY_GET_REG16(ByteCounter_COUNTER_LSB_PTR);
+ 364:Generated_Source\PSoC5/ByteCounter.c **** 	#else
+ 365:Generated_Source\PSoC5/ByteCounter.c **** 		(void)CY_GET_REG8(ByteCounter_COUNTER_LSB_PTR_8BIT);
+ 210              		.loc 1 365 0
+ 211 0000 024B     		ldr	r3, .L23
+ 212 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 366:Generated_Source\PSoC5/ByteCounter.c **** 	#endif/* (ByteCounter_UsingFixedFunction) */
+ 367:Generated_Source\PSoC5/ByteCounter.c ****     
+ 368:Generated_Source\PSoC5/ByteCounter.c ****     /* Read the data from the FIFO (or capture register for Fixed Function)*/
+ 369:Generated_Source\PSoC5/ByteCounter.c ****     #if(ByteCounter_UsingFixedFunction)
+ 370:Generated_Source\PSoC5/ByteCounter.c ****         return ((uint8)CY_GET_REG16(ByteCounter_STATICCOUNT_LSB_PTR));
+ 371:Generated_Source\PSoC5/ByteCounter.c ****     #else
+ 372:Generated_Source\PSoC5/ByteCounter.c ****         return (CY_GET_REG8(ByteCounter_STATICCOUNT_LSB_PTR));
+ 213              		.loc 1 372 0
+ 214 0004 024B     		ldr	r3, .L23+4
+ 215 0006 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 373:Generated_Source\PSoC5/ByteCounter.c ****     #endif /* (ByteCounter_UsingFixedFunction) */
+ 374:Generated_Source\PSoC5/ByteCounter.c **** }
+ 216              		.loc 1 374 0
+ 217 0008 7047     		bx	lr
+ 218              	.L24:
+ 219 000a 00BF     		.align	2
+ 220              	.L23:
+ 221 000c 0A650040 		.word	1073767690
+ 222 0010 4A650040 		.word	1073767754
+ 223              		.cfi_endproc
+ 224              	.LFE9:
+ 225              		.size	ByteCounter_ReadCounter, .-ByteCounter_ReadCounter
+ 226              		.section	.text.ByteCounter_ReadCapture,"ax",%progbits
+ 227              		.align	2
+ 228              		.global	ByteCounter_ReadCapture
+ 229              		.thumb
+ 230              		.thumb_func
+ 231              		.type	ByteCounter_ReadCapture, %function
+ 232              	ByteCounter_ReadCapture:
+ 233              	.LFB10:
+ 375:Generated_Source\PSoC5/ByteCounter.c **** 
+ 376:Generated_Source\PSoC5/ByteCounter.c **** 
+ 377:Generated_Source\PSoC5/ByteCounter.c **** /*******************************************************************************
+ 378:Generated_Source\PSoC5/ByteCounter.c **** * Function Name: ByteCounter_ReadCapture
+ 379:Generated_Source\PSoC5/ByteCounter.c **** ********************************************************************************
+ 380:Generated_Source\PSoC5/ByteCounter.c **** * Summary:
+ 381:Generated_Source\PSoC5/ByteCounter.c **** *   This function returns the last value captured.
+ 382:Generated_Source\PSoC5/ByteCounter.c **** *
+ 383:Generated_Source\PSoC5/ByteCounter.c **** * Parameters:  
+ 384:Generated_Source\PSoC5/ByteCounter.c **** *  void
+ 385:Generated_Source\PSoC5/ByteCounter.c **** *
+ 386:Generated_Source\PSoC5/ByteCounter.c **** * Return: 
+ 387:Generated_Source\PSoC5/ByteCounter.c **** *  (uint8) Present Capture value.
+ 388:Generated_Source\PSoC5/ByteCounter.c **** *
+ 389:Generated_Source\PSoC5/ByteCounter.c **** *******************************************************************************/
+ 390:Generated_Source\PSoC5/ByteCounter.c **** uint8 ByteCounter_ReadCapture(void) 
+ 391:Generated_Source\PSoC5/ByteCounter.c **** {
+ 234              		.loc 1 391 0
+ 235              		.cfi_startproc
+ 236              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 12
+
+
+ 237              		@ frame_needed = 0, uses_anonymous_args = 0
+ 238              		@ link register save eliminated.
+ 392:Generated_Source\PSoC5/ByteCounter.c ****     #if(ByteCounter_UsingFixedFunction)
+ 393:Generated_Source\PSoC5/ByteCounter.c ****         return ((uint8)CY_GET_REG16(ByteCounter_STATICCOUNT_LSB_PTR));
+ 394:Generated_Source\PSoC5/ByteCounter.c ****     #else
+ 395:Generated_Source\PSoC5/ByteCounter.c ****         return (CY_GET_REG8(ByteCounter_STATICCOUNT_LSB_PTR));
+ 239              		.loc 1 395 0
+ 240 0000 014B     		ldr	r3, .L26
+ 241 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 396:Generated_Source\PSoC5/ByteCounter.c ****     #endif /* (ByteCounter_UsingFixedFunction) */
+ 397:Generated_Source\PSoC5/ByteCounter.c **** }
+ 242              		.loc 1 397 0
+ 243 0004 7047     		bx	lr
+ 244              	.L27:
+ 245 0006 00BF     		.align	2
+ 246              	.L26:
+ 247 0008 4A650040 		.word	1073767754
+ 248              		.cfi_endproc
+ 249              	.LFE10:
+ 250              		.size	ByteCounter_ReadCapture, .-ByteCounter_ReadCapture
+ 251              		.section	.text.ByteCounter_WritePeriod,"ax",%progbits
+ 252              		.align	2
+ 253              		.global	ByteCounter_WritePeriod
+ 254              		.thumb
+ 255              		.thumb_func
+ 256              		.type	ByteCounter_WritePeriod, %function
+ 257              	ByteCounter_WritePeriod:
+ 258              	.LFB11:
+ 398:Generated_Source\PSoC5/ByteCounter.c **** 
+ 399:Generated_Source\PSoC5/ByteCounter.c **** 
+ 400:Generated_Source\PSoC5/ByteCounter.c **** /*******************************************************************************
+ 401:Generated_Source\PSoC5/ByteCounter.c **** * Function Name: ByteCounter_WritePeriod
+ 402:Generated_Source\PSoC5/ByteCounter.c **** ********************************************************************************
+ 403:Generated_Source\PSoC5/ByteCounter.c **** * Summary:
+ 404:Generated_Source\PSoC5/ByteCounter.c **** * Changes the period of the counter.  The new period 
+ 405:Generated_Source\PSoC5/ByteCounter.c **** * will be loaded the next time terminal count is detected.
+ 406:Generated_Source\PSoC5/ByteCounter.c **** *
+ 407:Generated_Source\PSoC5/ByteCounter.c **** * Parameters:  
+ 408:Generated_Source\PSoC5/ByteCounter.c **** *  period: (uint8) A value of 0 will result in
+ 409:Generated_Source\PSoC5/ByteCounter.c **** *         the counter remaining at zero.  
+ 410:Generated_Source\PSoC5/ByteCounter.c **** *
+ 411:Generated_Source\PSoC5/ByteCounter.c **** * Return: 
+ 412:Generated_Source\PSoC5/ByteCounter.c **** *  void
+ 413:Generated_Source\PSoC5/ByteCounter.c **** *
+ 414:Generated_Source\PSoC5/ByteCounter.c **** *******************************************************************************/
+ 415:Generated_Source\PSoC5/ByteCounter.c **** void ByteCounter_WritePeriod(uint8 period) 
+ 416:Generated_Source\PSoC5/ByteCounter.c **** {
+ 259              		.loc 1 416 0
+ 260              		.cfi_startproc
+ 261              		@ args = 0, pretend = 0, frame = 0
+ 262              		@ frame_needed = 0, uses_anonymous_args = 0
+ 263              		@ link register save eliminated.
+ 264              	.LVL3:
+ 417:Generated_Source\PSoC5/ByteCounter.c ****     #if(ByteCounter_UsingFixedFunction)
+ 418:Generated_Source\PSoC5/ByteCounter.c ****         CY_SET_REG16(ByteCounter_PERIOD_LSB_PTR,(uint16)period);
+ 419:Generated_Source\PSoC5/ByteCounter.c ****     #else
+ 420:Generated_Source\PSoC5/ByteCounter.c ****         CY_SET_REG8(ByteCounter_PERIOD_LSB_PTR, period);
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 13
+
+
+ 265              		.loc 1 420 0
+ 266 0000 014B     		ldr	r3, .L29
+ 267 0002 1870     		strb	r0, [r3]
+ 268 0004 7047     		bx	lr
+ 269              	.L30:
+ 270 0006 00BF     		.align	2
+ 271              	.L29:
+ 272 0008 2A650040 		.word	1073767722
+ 273              		.cfi_endproc
+ 274              	.LFE11:
+ 275              		.size	ByteCounter_WritePeriod, .-ByteCounter_WritePeriod
+ 276              		.section	.text.ByteCounter_ReadPeriod,"ax",%progbits
+ 277              		.align	2
+ 278              		.global	ByteCounter_ReadPeriod
+ 279              		.thumb
+ 280              		.thumb_func
+ 281              		.type	ByteCounter_ReadPeriod, %function
+ 282              	ByteCounter_ReadPeriod:
+ 283              	.LFB12:
+ 421:Generated_Source\PSoC5/ByteCounter.c ****     #endif /* (ByteCounter_UsingFixedFunction) */
+ 422:Generated_Source\PSoC5/ByteCounter.c **** }
+ 423:Generated_Source\PSoC5/ByteCounter.c **** 
+ 424:Generated_Source\PSoC5/ByteCounter.c **** 
+ 425:Generated_Source\PSoC5/ByteCounter.c **** /*******************************************************************************
+ 426:Generated_Source\PSoC5/ByteCounter.c **** * Function Name: ByteCounter_ReadPeriod
+ 427:Generated_Source\PSoC5/ByteCounter.c **** ********************************************************************************
+ 428:Generated_Source\PSoC5/ByteCounter.c **** * Summary:
+ 429:Generated_Source\PSoC5/ByteCounter.c **** * Reads the current period value without affecting counter operation.
+ 430:Generated_Source\PSoC5/ByteCounter.c **** *
+ 431:Generated_Source\PSoC5/ByteCounter.c **** * Parameters:  
+ 432:Generated_Source\PSoC5/ByteCounter.c **** *  void:  
+ 433:Generated_Source\PSoC5/ByteCounter.c **** *
+ 434:Generated_Source\PSoC5/ByteCounter.c **** * Return: 
+ 435:Generated_Source\PSoC5/ByteCounter.c **** *  (uint8) Present period value.
+ 436:Generated_Source\PSoC5/ByteCounter.c **** *
+ 437:Generated_Source\PSoC5/ByteCounter.c **** *******************************************************************************/
+ 438:Generated_Source\PSoC5/ByteCounter.c **** uint8 ByteCounter_ReadPeriod(void) 
+ 439:Generated_Source\PSoC5/ByteCounter.c **** {
+ 284              		.loc 1 439 0
+ 285              		.cfi_startproc
+ 286              		@ args = 0, pretend = 0, frame = 0
+ 287              		@ frame_needed = 0, uses_anonymous_args = 0
+ 288              		@ link register save eliminated.
+ 440:Generated_Source\PSoC5/ByteCounter.c ****     #if(ByteCounter_UsingFixedFunction)
+ 441:Generated_Source\PSoC5/ByteCounter.c ****         return ((uint8)CY_GET_REG16(ByteCounter_PERIOD_LSB_PTR));
+ 442:Generated_Source\PSoC5/ByteCounter.c ****     #else
+ 443:Generated_Source\PSoC5/ByteCounter.c ****         return (CY_GET_REG8(ByteCounter_PERIOD_LSB_PTR));
+ 289              		.loc 1 443 0
+ 290 0000 014B     		ldr	r3, .L32
+ 291 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 444:Generated_Source\PSoC5/ByteCounter.c ****     #endif /* (ByteCounter_UsingFixedFunction) */
+ 445:Generated_Source\PSoC5/ByteCounter.c **** }
+ 292              		.loc 1 445 0
+ 293 0004 7047     		bx	lr
+ 294              	.L33:
+ 295 0006 00BF     		.align	2
+ 296              	.L32:
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 14
+
+
+ 297 0008 2A650040 		.word	1073767722
+ 298              		.cfi_endproc
+ 299              	.LFE12:
+ 300              		.size	ByteCounter_ReadPeriod, .-ByteCounter_ReadPeriod
+ 301              		.section	.text.ByteCounter_WriteCompare,"ax",%progbits
+ 302              		.align	2
+ 303              		.global	ByteCounter_WriteCompare
+ 304              		.thumb
+ 305              		.thumb_func
+ 306              		.type	ByteCounter_WriteCompare, %function
+ 307              	ByteCounter_WriteCompare:
+ 308              	.LFB13:
+ 446:Generated_Source\PSoC5/ByteCounter.c **** 
+ 447:Generated_Source\PSoC5/ByteCounter.c **** 
+ 448:Generated_Source\PSoC5/ByteCounter.c **** #if (!ByteCounter_UsingFixedFunction)
+ 449:Generated_Source\PSoC5/ByteCounter.c **** /*******************************************************************************
+ 450:Generated_Source\PSoC5/ByteCounter.c **** * Function Name: ByteCounter_WriteCompare
+ 451:Generated_Source\PSoC5/ByteCounter.c **** ********************************************************************************
+ 452:Generated_Source\PSoC5/ByteCounter.c **** * Summary:
+ 453:Generated_Source\PSoC5/ByteCounter.c **** * Changes the compare value.  The compare output will 
+ 454:Generated_Source\PSoC5/ByteCounter.c **** * reflect the new value on the next UDB clock.  The compare output will be 
+ 455:Generated_Source\PSoC5/ByteCounter.c **** * driven high when the present counter value compares true based on the 
+ 456:Generated_Source\PSoC5/ByteCounter.c **** * configured compare mode setting. 
+ 457:Generated_Source\PSoC5/ByteCounter.c **** *
+ 458:Generated_Source\PSoC5/ByteCounter.c **** * Parameters:  
+ 459:Generated_Source\PSoC5/ByteCounter.c **** *  Compare:  New compare value. 
+ 460:Generated_Source\PSoC5/ByteCounter.c **** *
+ 461:Generated_Source\PSoC5/ByteCounter.c **** * Return: 
+ 462:Generated_Source\PSoC5/ByteCounter.c **** *  void
+ 463:Generated_Source\PSoC5/ByteCounter.c **** *
+ 464:Generated_Source\PSoC5/ByteCounter.c **** *******************************************************************************/
+ 465:Generated_Source\PSoC5/ByteCounter.c **** void ByteCounter_WriteCompare(uint8 compare) \
+ 466:Generated_Source\PSoC5/ByteCounter.c ****                                    
+ 467:Generated_Source\PSoC5/ByteCounter.c **** {
+ 309              		.loc 1 467 0
+ 310              		.cfi_startproc
+ 311              		@ args = 0, pretend = 0, frame = 0
+ 312              		@ frame_needed = 0, uses_anonymous_args = 0
+ 313              		@ link register save eliminated.
+ 314              	.LVL4:
+ 468:Generated_Source\PSoC5/ByteCounter.c ****     #if(ByteCounter_UsingFixedFunction)
+ 469:Generated_Source\PSoC5/ByteCounter.c ****         CY_SET_REG16(ByteCounter_COMPARE_LSB_PTR, (uint16)compare);
+ 470:Generated_Source\PSoC5/ByteCounter.c ****     #else
+ 471:Generated_Source\PSoC5/ByteCounter.c ****         CY_SET_REG8(ByteCounter_COMPARE_LSB_PTR, compare);
+ 315              		.loc 1 471 0
+ 316 0000 014B     		ldr	r3, .L35
+ 317 0002 1870     		strb	r0, [r3]
+ 318 0004 7047     		bx	lr
+ 319              	.L36:
+ 320 0006 00BF     		.align	2
+ 321              	.L35:
+ 322 0008 3A650040 		.word	1073767738
+ 323              		.cfi_endproc
+ 324              	.LFE13:
+ 325              		.size	ByteCounter_WriteCompare, .-ByteCounter_WriteCompare
+ 326              		.section	.text.ByteCounter_ReadCompare,"ax",%progbits
+ 327              		.align	2
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 15
+
+
+ 328              		.global	ByteCounter_ReadCompare
+ 329              		.thumb
+ 330              		.thumb_func
+ 331              		.type	ByteCounter_ReadCompare, %function
+ 332              	ByteCounter_ReadCompare:
+ 333              	.LFB14:
+ 472:Generated_Source\PSoC5/ByteCounter.c ****     #endif /* (ByteCounter_UsingFixedFunction) */
+ 473:Generated_Source\PSoC5/ByteCounter.c **** }
+ 474:Generated_Source\PSoC5/ByteCounter.c **** 
+ 475:Generated_Source\PSoC5/ByteCounter.c **** 
+ 476:Generated_Source\PSoC5/ByteCounter.c **** /*******************************************************************************
+ 477:Generated_Source\PSoC5/ByteCounter.c **** * Function Name: ByteCounter_ReadCompare
+ 478:Generated_Source\PSoC5/ByteCounter.c **** ********************************************************************************
+ 479:Generated_Source\PSoC5/ByteCounter.c **** * Summary:
+ 480:Generated_Source\PSoC5/ByteCounter.c **** * Returns the compare value.
+ 481:Generated_Source\PSoC5/ByteCounter.c **** *
+ 482:Generated_Source\PSoC5/ByteCounter.c **** * Parameters:  
+ 483:Generated_Source\PSoC5/ByteCounter.c **** *  void:
+ 484:Generated_Source\PSoC5/ByteCounter.c **** *
+ 485:Generated_Source\PSoC5/ByteCounter.c **** * Return: 
+ 486:Generated_Source\PSoC5/ByteCounter.c **** *  (uint8) Present compare value.
+ 487:Generated_Source\PSoC5/ByteCounter.c **** *
+ 488:Generated_Source\PSoC5/ByteCounter.c **** *******************************************************************************/
+ 489:Generated_Source\PSoC5/ByteCounter.c **** uint8 ByteCounter_ReadCompare(void) 
+ 490:Generated_Source\PSoC5/ByteCounter.c **** {
+ 334              		.loc 1 490 0
+ 335              		.cfi_startproc
+ 336              		@ args = 0, pretend = 0, frame = 0
+ 337              		@ frame_needed = 0, uses_anonymous_args = 0
+ 338              		@ link register save eliminated.
+ 491:Generated_Source\PSoC5/ByteCounter.c ****     return (CY_GET_REG8(ByteCounter_COMPARE_LSB_PTR));
+ 339              		.loc 1 491 0
+ 340 0000 014B     		ldr	r3, .L38
+ 341 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 492:Generated_Source\PSoC5/ByteCounter.c **** }
+ 342              		.loc 1 492 0
+ 343 0004 7047     		bx	lr
+ 344              	.L39:
+ 345 0006 00BF     		.align	2
+ 346              	.L38:
+ 347 0008 3A650040 		.word	1073767738
+ 348              		.cfi_endproc
+ 349              	.LFE14:
+ 350              		.size	ByteCounter_ReadCompare, .-ByteCounter_ReadCompare
+ 351              		.section	.text.ByteCounter_ClearFIFO,"ax",%progbits
+ 352              		.align	2
+ 353              		.global	ByteCounter_ClearFIFO
+ 354              		.thumb
+ 355              		.thumb_func
+ 356              		.type	ByteCounter_ClearFIFO, %function
+ 357              	ByteCounter_ClearFIFO:
+ 358              	.LFB15:
+ 493:Generated_Source\PSoC5/ByteCounter.c **** 
+ 494:Generated_Source\PSoC5/ByteCounter.c **** 
+ 495:Generated_Source\PSoC5/ByteCounter.c **** #if (ByteCounter_COMPARE_MODE_SOFTWARE)
+ 496:Generated_Source\PSoC5/ByteCounter.c **** /*******************************************************************************
+ 497:Generated_Source\PSoC5/ByteCounter.c **** * Function Name: ByteCounter_SetCompareMode
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 16
+
+
+ 498:Generated_Source\PSoC5/ByteCounter.c **** ********************************************************************************
+ 499:Generated_Source\PSoC5/ByteCounter.c **** * Summary:
+ 500:Generated_Source\PSoC5/ByteCounter.c **** *  Sets the software controlled Compare Mode.
+ 501:Generated_Source\PSoC5/ByteCounter.c **** *
+ 502:Generated_Source\PSoC5/ByteCounter.c **** * Parameters:
+ 503:Generated_Source\PSoC5/ByteCounter.c **** *  compareMode:  Compare Mode Enumerated Type.
+ 504:Generated_Source\PSoC5/ByteCounter.c **** *
+ 505:Generated_Source\PSoC5/ByteCounter.c **** * Return:
+ 506:Generated_Source\PSoC5/ByteCounter.c **** *  void
+ 507:Generated_Source\PSoC5/ByteCounter.c **** *
+ 508:Generated_Source\PSoC5/ByteCounter.c **** *******************************************************************************/
+ 509:Generated_Source\PSoC5/ByteCounter.c **** void ByteCounter_SetCompareMode(uint8 compareMode) 
+ 510:Generated_Source\PSoC5/ByteCounter.c **** {
+ 511:Generated_Source\PSoC5/ByteCounter.c ****     /* Clear the compare mode bits in the control register */
+ 512:Generated_Source\PSoC5/ByteCounter.c ****     ByteCounter_CONTROL &= ((uint8)(~ByteCounter_CTRL_CMPMODE_MASK));
+ 513:Generated_Source\PSoC5/ByteCounter.c ****     
+ 514:Generated_Source\PSoC5/ByteCounter.c ****     /* Write the new setting */
+ 515:Generated_Source\PSoC5/ByteCounter.c ****     ByteCounter_CONTROL |= compareMode;
+ 516:Generated_Source\PSoC5/ByteCounter.c **** }
+ 517:Generated_Source\PSoC5/ByteCounter.c **** #endif  /* (ByteCounter_COMPARE_MODE_SOFTWARE) */
+ 518:Generated_Source\PSoC5/ByteCounter.c **** 
+ 519:Generated_Source\PSoC5/ByteCounter.c **** 
+ 520:Generated_Source\PSoC5/ByteCounter.c **** #if (ByteCounter_CAPTURE_MODE_SOFTWARE)
+ 521:Generated_Source\PSoC5/ByteCounter.c **** /*******************************************************************************
+ 522:Generated_Source\PSoC5/ByteCounter.c **** * Function Name: ByteCounter_SetCaptureMode
+ 523:Generated_Source\PSoC5/ByteCounter.c **** ********************************************************************************
+ 524:Generated_Source\PSoC5/ByteCounter.c **** * Summary:
+ 525:Generated_Source\PSoC5/ByteCounter.c **** *  Sets the software controlled Capture Mode.
+ 526:Generated_Source\PSoC5/ByteCounter.c **** *
+ 527:Generated_Source\PSoC5/ByteCounter.c **** * Parameters:
+ 528:Generated_Source\PSoC5/ByteCounter.c **** *  captureMode:  Capture Mode Enumerated Type.
+ 529:Generated_Source\PSoC5/ByteCounter.c **** *
+ 530:Generated_Source\PSoC5/ByteCounter.c **** * Return:
+ 531:Generated_Source\PSoC5/ByteCounter.c **** *  void
+ 532:Generated_Source\PSoC5/ByteCounter.c **** *
+ 533:Generated_Source\PSoC5/ByteCounter.c **** *******************************************************************************/
+ 534:Generated_Source\PSoC5/ByteCounter.c **** void ByteCounter_SetCaptureMode(uint8 captureMode) 
+ 535:Generated_Source\PSoC5/ByteCounter.c **** {
+ 536:Generated_Source\PSoC5/ByteCounter.c ****     /* Clear the capture mode bits in the control register */
+ 537:Generated_Source\PSoC5/ByteCounter.c ****     ByteCounter_CONTROL &= ((uint8)(~ByteCounter_CTRL_CAPMODE_MASK));
+ 538:Generated_Source\PSoC5/ByteCounter.c ****     
+ 539:Generated_Source\PSoC5/ByteCounter.c ****     /* Write the new setting */
+ 540:Generated_Source\PSoC5/ByteCounter.c ****     ByteCounter_CONTROL |= ((uint8)((uint8)captureMode << ByteCounter_CTRL_CAPMODE0_SHIFT));
+ 541:Generated_Source\PSoC5/ByteCounter.c **** }
+ 542:Generated_Source\PSoC5/ByteCounter.c **** #endif  /* (ByteCounter_CAPTURE_MODE_SOFTWARE) */
+ 543:Generated_Source\PSoC5/ByteCounter.c **** 
+ 544:Generated_Source\PSoC5/ByteCounter.c **** 
+ 545:Generated_Source\PSoC5/ByteCounter.c **** /*******************************************************************************
+ 546:Generated_Source\PSoC5/ByteCounter.c **** * Function Name: ByteCounter_ClearFIFO
+ 547:Generated_Source\PSoC5/ByteCounter.c **** ********************************************************************************
+ 548:Generated_Source\PSoC5/ByteCounter.c **** * Summary:
+ 549:Generated_Source\PSoC5/ByteCounter.c **** *   This function clears all capture data from the capture FIFO
+ 550:Generated_Source\PSoC5/ByteCounter.c **** *
+ 551:Generated_Source\PSoC5/ByteCounter.c **** * Parameters:  
+ 552:Generated_Source\PSoC5/ByteCounter.c **** *  void:
+ 553:Generated_Source\PSoC5/ByteCounter.c **** *
+ 554:Generated_Source\PSoC5/ByteCounter.c **** * Return: 
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 17
+
+
+ 555:Generated_Source\PSoC5/ByteCounter.c **** *  None
+ 556:Generated_Source\PSoC5/ByteCounter.c **** *
+ 557:Generated_Source\PSoC5/ByteCounter.c **** *******************************************************************************/
+ 558:Generated_Source\PSoC5/ByteCounter.c **** void ByteCounter_ClearFIFO(void) 
+ 559:Generated_Source\PSoC5/ByteCounter.c **** {
+ 359              		.loc 1 559 0
+ 360              		.cfi_startproc
+ 361              		@ args = 0, pretend = 0, frame = 0
+ 362              		@ frame_needed = 0, uses_anonymous_args = 0
+ 363 0000 08B5     		push	{r3, lr}
+ 364              		.cfi_def_cfa_offset 8
+ 365              		.cfi_offset 3, -8
+ 366              		.cfi_offset 14, -4
+ 560:Generated_Source\PSoC5/ByteCounter.c **** 
+ 561:Generated_Source\PSoC5/ByteCounter.c ****     while(0u != (ByteCounter_ReadStatusRegister() & ByteCounter_STATUS_FIFONEMP))
+ 367              		.loc 1 561 0
+ 368 0002 01E0     		b	.L41
+ 369              	.L42:
+ 562:Generated_Source\PSoC5/ByteCounter.c ****     {
+ 563:Generated_Source\PSoC5/ByteCounter.c ****         (void)ByteCounter_ReadCapture();
+ 370              		.loc 1 563 0
+ 371 0004 FFF7FEFF 		bl	ByteCounter_ReadCapture
+ 372              	.LVL5:
+ 373              	.L41:
+ 561:Generated_Source\PSoC5/ByteCounter.c ****     {
+ 374              		.loc 1 561 0
+ 375 0008 FFF7FEFF 		bl	ByteCounter_ReadStatusRegister
+ 376              	.LVL6:
+ 377 000c 10F0400F 		tst	r0, #64
+ 378 0010 F8D1     		bne	.L42
+ 564:Generated_Source\PSoC5/ByteCounter.c ****     }
+ 565:Generated_Source\PSoC5/ByteCounter.c **** 
+ 566:Generated_Source\PSoC5/ByteCounter.c **** }
+ 379              		.loc 1 566 0
+ 380 0012 08BD     		pop	{r3, pc}
+ 381              		.cfi_endproc
+ 382              	.LFE15:
+ 383              		.size	ByteCounter_ClearFIFO, .-ByteCounter_ClearFIFO
+ 384              		.section	.text.ByteCounter_Init,"ax",%progbits
+ 385              		.align	2
+ 386              		.global	ByteCounter_Init
+ 387              		.thumb
+ 388              		.thumb_func
+ 389              		.type	ByteCounter_Init, %function
+ 390              	ByteCounter_Init:
+ 391              	.LFB0:
+  38:Generated_Source\PSoC5/ByteCounter.c ****         #if (!ByteCounter_UsingFixedFunction && !ByteCounter_ControlRegRemoved)
+ 392              		.loc 1 38 0
+ 393              		.cfi_startproc
+ 394              		@ args = 0, pretend = 0, frame = 0
+ 395              		@ frame_needed = 0, uses_anonymous_args = 0
+ 396 0000 08B5     		push	{r3, lr}
+ 397              		.cfi_def_cfa_offset 8
+ 398              		.cfi_offset 3, -8
+ 399              		.cfi_offset 14, -4
+  79:Generated_Source\PSoC5/ByteCounter.c ****             ByteCounter_CONTROL = ctrl | ByteCounter_DEFAULT_COMPARE_MODE;
+ 400              		.loc 1 79 0
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 18
+
+
+ 401 0002 114B     		ldr	r3, .L46
+ 402 0004 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 403 0006 02F0F802 		and	r2, r2, #248
+ 404              	.LVL7:
+  80:Generated_Source\PSoC5/ByteCounter.c ****             
+ 405              		.loc 1 80 0
+ 406 000a 1A70     		strb	r2, [r3]
+  83:Generated_Source\PSoC5/ByteCounter.c ****             
+ 407              		.loc 1 83 0
+ 408 000c 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 409              	.LVL8:
+ 410 000e 02F0FC02 		and	r2, r2, #252
+ 411              	.LVL9:
+  88:Generated_Source\PSoC5/ByteCounter.c ****             #endif /* 0 != ByteCounter_CAPTURE_MODE */ 
+ 412              		.loc 1 88 0
+ 413 0012 1A70     		strb	r2, [r3]
+  96:Generated_Source\PSoC5/ByteCounter.c ****         #endif /* (!ByteCounter_UsingFixedFunction) */
+ 414              		.loc 1 96 0
+ 415 0014 FFF7FEFF 		bl	ByteCounter_ClearFIFO
+ 416              	.LVL10:
+ 100:Generated_Source\PSoC5/ByteCounter.c ****         #if (!(ByteCounter_UsingFixedFunction && (CY_PSOC5A)))
+ 417              		.loc 1 100 0
+ 418 0018 FE20     		movs	r0, #254
+ 419 001a FFF7FEFF 		bl	ByteCounter_WritePeriod
+ 420              	.LVL11:
+ 102:Generated_Source\PSoC5/ByteCounter.c ****         #endif /* (!(ByteCounter_UsingFixedFunction && (CY_PSOC5A))) */
+ 421              		.loc 1 102 0
+ 422 001e 0020     		movs	r0, #0
+ 423 0020 FFF7FEFF 		bl	ByteCounter_WriteCounter
+ 424              	.LVL12:
+ 104:Generated_Source\PSoC5/ByteCounter.c ****         
+ 425              		.loc 1 104 0
+ 426 0024 0120     		movs	r0, #1
+ 427 0026 FFF7FEFF 		bl	ByteCounter_SetInterruptMode
+ 428              	.LVL13:
+ 108:Generated_Source\PSoC5/ByteCounter.c ****             /* Set the compare value (only available to non-fixed function implementation */
+ 429              		.loc 1 108 0
+ 430 002a FFF7FEFF 		bl	ByteCounter_ReadStatusRegister
+ 431              	.LVL14:
+ 110:Generated_Source\PSoC5/ByteCounter.c ****             /* Use the interrupt output of the status register for IRQ output */
+ 432              		.loc 1 110 0
+ 433 002e 8020     		movs	r0, #128
+ 434 0030 FFF7FEFF 		bl	ByteCounter_WriteCompare
+ 435              	.LVL15:
+ 115:Generated_Source\PSoC5/ByteCounter.c ****             
+ 436              		.loc 1 115 0
+ 437 0034 FFF7FEFF 		bl	CyEnterCriticalSection
+ 438              	.LVL16:
+ 117:Generated_Source\PSoC5/ByteCounter.c ****             
+ 439              		.loc 1 117 0
+ 440 0038 044A     		ldr	r2, .L46+4
+ 441 003a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 442 003c 43F01003 		orr	r3, r3, #16
+ 443 0040 1370     		strb	r3, [r2]
+ 120:Generated_Source\PSoC5/ByteCounter.c ****             
+ 444              		.loc 1 120 0
+ 445 0042 FFF7FEFF 		bl	CyExitCriticalSection
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 19
+
+
+ 446              	.LVL17:
+ 447 0046 08BD     		pop	{r3, pc}
+ 448              	.L47:
+ 449              		.align	2
+ 450              	.L46:
+ 451 0048 79640040 		.word	1073767545
+ 452 004c 9A650040 		.word	1073767834
+ 453              		.cfi_endproc
+ 454              	.LFE0:
+ 455              		.size	ByteCounter_Init, .-ByteCounter_Init
+ 456              		.section	.text.ByteCounter_Start,"ax",%progbits
+ 457              		.align	2
+ 458              		.global	ByteCounter_Start
+ 459              		.thumb
+ 460              		.thumb_func
+ 461              		.type	ByteCounter_Start, %function
+ 462              	ByteCounter_Start:
+ 463              	.LFB2:
+ 179:Generated_Source\PSoC5/ByteCounter.c ****     if(ByteCounter_initVar == 0u)
+ 464              		.loc 1 179 0
+ 465              		.cfi_startproc
+ 466              		@ args = 0, pretend = 0, frame = 0
+ 467              		@ frame_needed = 0, uses_anonymous_args = 0
+ 468 0000 08B5     		push	{r3, lr}
+ 469              		.cfi_def_cfa_offset 8
+ 470              		.cfi_offset 3, -8
+ 471              		.cfi_offset 14, -4
+ 180:Generated_Source\PSoC5/ByteCounter.c ****     {
+ 472              		.loc 1 180 0
+ 473 0002 054B     		ldr	r3, .L51
+ 474 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 475 0006 23B9     		cbnz	r3, .L49
+ 182:Generated_Source\PSoC5/ByteCounter.c ****         
+ 476              		.loc 1 182 0
+ 477 0008 FFF7FEFF 		bl	ByteCounter_Init
+ 478              	.LVL18:
+ 184:Generated_Source\PSoC5/ByteCounter.c ****     }
+ 479              		.loc 1 184 0
+ 480 000c 0122     		movs	r2, #1
+ 481 000e 024B     		ldr	r3, .L51
+ 482 0010 1A70     		strb	r2, [r3]
+ 483              	.L49:
+ 188:Generated_Source\PSoC5/ByteCounter.c **** }
+ 484              		.loc 1 188 0
+ 485 0012 FFF7FEFF 		bl	ByteCounter_Enable
+ 486              	.LVL19:
+ 487 0016 08BD     		pop	{r3, pc}
+ 488              	.L52:
+ 489              		.align	2
+ 490              	.L51:
+ 491 0018 00000000 		.word	.LANCHOR0
+ 492              		.cfi_endproc
+ 493              	.LFE2:
+ 494              		.size	ByteCounter_Start, .-ByteCounter_Start
+ 495              		.global	ByteCounter_initVar
+ 496              		.bss
+ 497              		.set	.LANCHOR0,. + 0
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 20
+
+
+ 498              		.type	ByteCounter_initVar, %object
+ 499              		.size	ByteCounter_initVar, 1
+ 500              	ByteCounter_initVar:
+ 501 0000 00       		.space	1
+ 502              		.text
+ 503              	.Letext0:
+ 504              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 505              		.file 3 "Generated_Source\\PSoC5\\CyLib.h"
+ 506              		.section	.debug_info,"",%progbits
+ 507              	.Ldebug_info0:
+ 508 0000 23030000 		.4byte	0x323
+ 509 0004 0400     		.2byte	0x4
+ 510 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 511 000a 04       		.byte	0x4
+ 512 000b 01       		.uleb128 0x1
+ 513 000c B6000000 		.4byte	.LASF41
+ 514 0010 0C       		.byte	0xc
+ 515 0011 D9020000 		.4byte	.LASF42
+ 516 0015 35020000 		.4byte	.LASF43
+ 517 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 518 001d 00000000 		.4byte	0
+ 519 0021 00000000 		.4byte	.Ldebug_line0
+ 520 0025 02       		.uleb128 0x2
+ 521 0026 01       		.byte	0x1
+ 522 0027 06       		.byte	0x6
+ 523 0028 84030000 		.4byte	.LASF0
+ 524 002c 02       		.uleb128 0x2
+ 525 002d 01       		.byte	0x1
+ 526 002e 08       		.byte	0x8
+ 527 002f A8000000 		.4byte	.LASF1
+ 528 0033 02       		.uleb128 0x2
+ 529 0034 02       		.byte	0x2
+ 530 0035 05       		.byte	0x5
+ 531 0036 60030000 		.4byte	.LASF2
+ 532 003a 02       		.uleb128 0x2
+ 533 003b 02       		.byte	0x2
+ 534 003c 07       		.byte	0x7
+ 535 003d 33000000 		.4byte	.LASF3
+ 536 0041 02       		.uleb128 0x2
+ 537 0042 04       		.byte	0x4
+ 538 0043 05       		.byte	0x5
+ 539 0044 6F030000 		.4byte	.LASF4
+ 540 0048 02       		.uleb128 0x2
+ 541 0049 04       		.byte	0x4
+ 542 004a 07       		.byte	0x7
+ 543 004b 49010000 		.4byte	.LASF5
+ 544 004f 02       		.uleb128 0x2
+ 545 0050 08       		.byte	0x8
+ 546 0051 05       		.byte	0x5
+ 547 0052 15030000 		.4byte	.LASF6
+ 548 0056 02       		.uleb128 0x2
+ 549 0057 08       		.byte	0x8
+ 550 0058 07       		.byte	0x7
+ 551 0059 91000000 		.4byte	.LASF7
+ 552 005d 03       		.uleb128 0x3
+ 553 005e 04       		.byte	0x4
+ 554 005f 05       		.byte	0x5
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 21
+
+
+ 555 0060 696E7400 		.ascii	"int\000"
+ 556 0064 02       		.uleb128 0x2
+ 557 0065 04       		.byte	0x4
+ 558 0066 07       		.byte	0x7
+ 559 0067 46000000 		.4byte	.LASF8
+ 560 006b 04       		.uleb128 0x4
+ 561 006c 5B010000 		.4byte	.LASF12
+ 562 0070 02       		.byte	0x2
+ 563 0071 E401     		.2byte	0x1e4
+ 564 0073 2C000000 		.4byte	0x2c
+ 565 0077 02       		.uleb128 0x2
+ 566 0078 04       		.byte	0x4
+ 567 0079 04       		.byte	0x4
+ 568 007a 83000000 		.4byte	.LASF9
+ 569 007e 02       		.uleb128 0x2
+ 570 007f 08       		.byte	0x8
+ 571 0080 04       		.byte	0x4
+ 572 0081 78010000 		.4byte	.LASF10
+ 573 0085 02       		.uleb128 0x2
+ 574 0086 01       		.byte	0x1
+ 575 0087 08       		.byte	0x8
+ 576 0088 5B030000 		.4byte	.LASF11
+ 577 008c 04       		.uleb128 0x4
+ 578 008d 44010000 		.4byte	.LASF13
+ 579 0091 02       		.byte	0x2
+ 580 0092 8E02     		.2byte	0x28e
+ 581 0094 98000000 		.4byte	0x98
+ 582 0098 05       		.uleb128 0x5
+ 583 0099 6B000000 		.4byte	0x6b
+ 584 009d 02       		.uleb128 0x2
+ 585 009e 08       		.byte	0x8
+ 586 009f 04       		.byte	0x4
+ 587 00a0 78030000 		.4byte	.LASF14
+ 588 00a4 02       		.uleb128 0x2
+ 589 00a5 04       		.byte	0x4
+ 590 00a6 07       		.byte	0x7
+ 591 00a7 D0020000 		.4byte	.LASF15
+ 592 00ab 06       		.uleb128 0x6
+ 593 00ac 19000000 		.4byte	.LASF16
+ 594 00b0 01       		.byte	0x1
+ 595 00b1 8F       		.byte	0x8f
+ 596 00b2 00000000 		.4byte	.LFB1
+ 597 00b6 10000000 		.4byte	.LFE1-.LFB1
+ 598 00ba 01       		.uleb128 0x1
+ 599 00bb 9C       		.byte	0x9c
+ 600 00bc 06       		.uleb128 0x6
+ 601 00bd B9030000 		.4byte	.LASF17
+ 602 00c1 01       		.byte	0x1
+ 603 00c2 D0       		.byte	0xd0
+ 604 00c3 00000000 		.4byte	.LFB3
+ 605 00c7 10000000 		.4byte	.LFE3-.LFB3
+ 606 00cb 01       		.uleb128 0x1
+ 607 00cc 9C       		.byte	0x9c
+ 608 00cd 07       		.uleb128 0x7
+ 609 00ce DF010000 		.4byte	.LASF20
+ 610 00d2 01       		.byte	0x1
+ 611 00d3 ED       		.byte	0xed
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 22
+
+
+ 612 00d4 00000000 		.4byte	.LFB4
+ 613 00d8 0C000000 		.4byte	.LFE4-.LFB4
+ 614 00dc 01       		.uleb128 0x1
+ 615 00dd 9C       		.byte	0x9c
+ 616 00de F0000000 		.4byte	0xf0
+ 617 00e2 08       		.uleb128 0x8
+ 618 00e3 69010000 		.4byte	.LASF22
+ 619 00e7 01       		.byte	0x1
+ 620 00e8 ED       		.byte	0xed
+ 621 00e9 6B000000 		.4byte	0x6b
+ 622 00ed 01       		.uleb128 0x1
+ 623 00ee 50       		.byte	0x50
+ 624 00ef 00       		.byte	0
+ 625 00f0 09       		.uleb128 0x9
+ 626 00f1 DE030000 		.4byte	.LASF18
+ 627 00f5 01       		.byte	0x1
+ 628 00f6 0501     		.2byte	0x105
+ 629 00f8 6B000000 		.4byte	0x6b
+ 630 00fc 00000000 		.4byte	.LFB5
+ 631 0100 0C000000 		.4byte	.LFE5-.LFB5
+ 632 0104 01       		.uleb128 0x1
+ 633 0105 9C       		.byte	0x9c
+ 634 0106 09       		.uleb128 0x9
+ 635 0107 23030000 		.4byte	.LASF19
+ 636 010b 01       		.byte	0x1
+ 637 010c 1B01     		.2byte	0x11b
+ 638 010e 6B000000 		.4byte	0x6b
+ 639 0112 00000000 		.4byte	.LFB6
+ 640 0116 0C000000 		.4byte	.LFE6-.LFB6
+ 641 011a 01       		.uleb128 0x1
+ 642 011b 9C       		.byte	0x9c
+ 643 011c 0A       		.uleb128 0xa
+ 644 011d 98030000 		.4byte	.LASF21
+ 645 0121 01       		.byte	0x1
+ 646 0122 3001     		.2byte	0x130
+ 647 0124 00000000 		.4byte	.LFB7
+ 648 0128 0C000000 		.4byte	.LFE7-.LFB7
+ 649 012c 01       		.uleb128 0x1
+ 650 012d 9C       		.byte	0x9c
+ 651 012e 41010000 		.4byte	0x141
+ 652 0132 0B       		.uleb128 0xb
+ 653 0133 61010000 		.4byte	.LASF23
+ 654 0137 01       		.byte	0x1
+ 655 0138 3001     		.2byte	0x130
+ 656 013a 6B000000 		.4byte	0x6b
+ 657 013e 01       		.uleb128 0x1
+ 658 013f 50       		.byte	0x50
+ 659 0140 00       		.byte	0
+ 660 0141 0A       		.uleb128 0xa
+ 661 0142 00000000 		.4byte	.LASF24
+ 662 0146 01       		.byte	0x1
+ 663 0147 4601     		.2byte	0x146
+ 664 0149 00000000 		.4byte	.LFB8
+ 665 014d 0C000000 		.4byte	.LFE8-.LFB8
+ 666 0151 01       		.uleb128 0x1
+ 667 0152 9C       		.byte	0x9c
+ 668 0153 66010000 		.4byte	0x166
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 23
+
+
+ 669 0157 0B       		.uleb128 0xb
+ 670 0158 89000000 		.4byte	.LASF25
+ 671 015c 01       		.byte	0x1
+ 672 015d 4601     		.2byte	0x146
+ 673 015f 6B000000 		.4byte	0x6b
+ 674 0163 01       		.uleb128 0x1
+ 675 0164 50       		.byte	0x50
+ 676 0165 00       		.byte	0
+ 677 0166 09       		.uleb128 0x9
+ 678 0167 B0010000 		.4byte	.LASF26
+ 679 016b 01       		.byte	0x1
+ 680 016c 6501     		.2byte	0x165
+ 681 016e 6B000000 		.4byte	0x6b
+ 682 0172 00000000 		.4byte	.LFB9
+ 683 0176 14000000 		.4byte	.LFE9-.LFB9
+ 684 017a 01       		.uleb128 0x1
+ 685 017b 9C       		.byte	0x9c
+ 686 017c 09       		.uleb128 0x9
+ 687 017d 6B000000 		.4byte	.LASF27
+ 688 0181 01       		.byte	0x1
+ 689 0182 8601     		.2byte	0x186
+ 690 0184 6B000000 		.4byte	0x6b
+ 691 0188 00000000 		.4byte	.LFB10
+ 692 018c 0C000000 		.4byte	.LFE10-.LFB10
+ 693 0190 01       		.uleb128 0x1
+ 694 0191 9C       		.byte	0x9c
+ 695 0192 0A       		.uleb128 0xa
+ 696 0193 43030000 		.4byte	.LASF28
+ 697 0197 01       		.byte	0x1
+ 698 0198 9F01     		.2byte	0x19f
+ 699 019a 00000000 		.4byte	.LFB11
+ 700 019e 0C000000 		.4byte	.LFE11-.LFB11
+ 701 01a2 01       		.uleb128 0x1
+ 702 01a3 9C       		.byte	0x9c
+ 703 01a4 B7010000 		.4byte	0x1b7
+ 704 01a8 0B       		.uleb128 0xb
+ 705 01a9 2C000000 		.4byte	.LASF29
+ 706 01ad 01       		.byte	0x1
+ 707 01ae 9F01     		.2byte	0x19f
+ 708 01b0 6B000000 		.4byte	0x6b
+ 709 01b4 01       		.uleb128 0x1
+ 710 01b5 50       		.byte	0x50
+ 711 01b6 00       		.byte	0
+ 712 01b7 09       		.uleb128 0x9
+ 713 01b8 C8010000 		.4byte	.LASF30
+ 714 01bc 01       		.byte	0x1
+ 715 01bd B601     		.2byte	0x1b6
+ 716 01bf 6B000000 		.4byte	0x6b
+ 717 01c3 00000000 		.4byte	.LFB12
+ 718 01c7 0C000000 		.4byte	.LFE12-.LFB12
+ 719 01cb 01       		.uleb128 0x1
+ 720 01cc 9C       		.byte	0x9c
+ 721 01cd 0A       		.uleb128 0xa
+ 722 01ce B7020000 		.4byte	.LASF31
+ 723 01d2 01       		.byte	0x1
+ 724 01d3 D101     		.2byte	0x1d1
+ 725 01d5 00000000 		.4byte	.LFB13
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 24
+
+
+ 726 01d9 0C000000 		.4byte	.LFE13-.LFB13
+ 727 01dd 01       		.uleb128 0x1
+ 728 01de 9C       		.byte	0x9c
+ 729 01df F2010000 		.4byte	0x1f2
+ 730 01e3 0B       		.uleb128 0xb
+ 731 01e4 90030000 		.4byte	.LASF32
+ 732 01e8 01       		.byte	0x1
+ 733 01e9 D101     		.2byte	0x1d1
+ 734 01eb 6B000000 		.4byte	0x6b
+ 735 01ef 01       		.uleb128 0x1
+ 736 01f0 50       		.byte	0x50
+ 737 01f1 00       		.byte	0
+ 738 01f2 09       		.uleb128 0x9
+ 739 01f3 53000000 		.4byte	.LASF33
+ 740 01f7 01       		.byte	0x1
+ 741 01f8 E901     		.2byte	0x1e9
+ 742 01fa 6B000000 		.4byte	0x6b
+ 743 01fe 00000000 		.4byte	.LFB14
+ 744 0202 0C000000 		.4byte	.LFE14-.LFB14
+ 745 0206 01       		.uleb128 0x1
+ 746 0207 9C       		.byte	0x9c
+ 747 0208 0A       		.uleb128 0xa
+ 748 0209 7F010000 		.4byte	.LASF34
+ 749 020d 01       		.byte	0x1
+ 750 020e 2E02     		.2byte	0x22e
+ 751 0210 00000000 		.4byte	.LFB15
+ 752 0214 14000000 		.4byte	.LFE15-.LFB15
+ 753 0218 01       		.uleb128 0x1
+ 754 0219 9C       		.byte	0x9c
+ 755 021a 31020000 		.4byte	0x231
+ 756 021e 0C       		.uleb128 0xc
+ 757 021f 08000000 		.4byte	.LVL5
+ 758 0223 7C010000 		.4byte	0x17c
+ 759 0227 0C       		.uleb128 0xc
+ 760 0228 0C000000 		.4byte	.LVL6
+ 761 022c F0000000 		.4byte	0xf0
+ 762 0230 00       		.byte	0
+ 763 0231 07       		.uleb128 0x7
+ 764 0232 24020000 		.4byte	.LASF35
+ 765 0236 01       		.byte	0x1
+ 766 0237 25       		.byte	0x25
+ 767 0238 00000000 		.4byte	.LFB0
+ 768 023c 50000000 		.4byte	.LFE0-.LFB0
+ 769 0240 01       		.uleb128 0x1
+ 770 0241 9C       		.byte	0x9c
+ 771 0242 D7020000 		.4byte	0x2d7
+ 772 0246 0D       		.uleb128 0xd
+ 773 0247 6A030000 		.4byte	.LASF36
+ 774 024b 01       		.byte	0x1
+ 775 024c 28       		.byte	0x28
+ 776 024d 6B000000 		.4byte	0x6b
+ 777 0251 00000000 		.4byte	.LLST0
+ 778 0255 0D       		.uleb128 0xd
+ 779 0256 95010000 		.4byte	.LASF37
+ 780 025a 01       		.byte	0x1
+ 781 025b 2D       		.byte	0x2d
+ 782 025c 6B000000 		.4byte	0x6b
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 25
+
+
+ 783 0260 2A000000 		.4byte	.LLST1
+ 784 0264 0C       		.uleb128 0xc
+ 785 0265 18000000 		.4byte	.LVL10
+ 786 0269 08020000 		.4byte	0x208
+ 787 026d 0E       		.uleb128 0xe
+ 788 026e 1E000000 		.4byte	.LVL11
+ 789 0272 92010000 		.4byte	0x192
+ 790 0276 81020000 		.4byte	0x281
+ 791 027a 0F       		.uleb128 0xf
+ 792 027b 01       		.uleb128 0x1
+ 793 027c 50       		.byte	0x50
+ 794 027d 02       		.uleb128 0x2
+ 795 027e 09       		.byte	0x9
+ 796 027f FE       		.byte	0xfe
+ 797 0280 00       		.byte	0
+ 798 0281 0E       		.uleb128 0xe
+ 799 0282 24000000 		.4byte	.LVL12
+ 800 0286 41010000 		.4byte	0x141
+ 801 028a 94020000 		.4byte	0x294
+ 802 028e 0F       		.uleb128 0xf
+ 803 028f 01       		.uleb128 0x1
+ 804 0290 50       		.byte	0x50
+ 805 0291 01       		.uleb128 0x1
+ 806 0292 30       		.byte	0x30
+ 807 0293 00       		.byte	0
+ 808 0294 0E       		.uleb128 0xe
+ 809 0295 2A000000 		.4byte	.LVL13
+ 810 0299 CD000000 		.4byte	0xcd
+ 811 029d A7020000 		.4byte	0x2a7
+ 812 02a1 0F       		.uleb128 0xf
+ 813 02a2 01       		.uleb128 0x1
+ 814 02a3 50       		.byte	0x50
+ 815 02a4 01       		.uleb128 0x1
+ 816 02a5 31       		.byte	0x31
+ 817 02a6 00       		.byte	0
+ 818 02a7 0C       		.uleb128 0xc
+ 819 02a8 2E000000 		.4byte	.LVL14
+ 820 02ac F0000000 		.4byte	0xf0
+ 821 02b0 0E       		.uleb128 0xe
+ 822 02b1 34000000 		.4byte	.LVL15
+ 823 02b5 CD010000 		.4byte	0x1cd
+ 824 02b9 C4020000 		.4byte	0x2c4
+ 825 02bd 0F       		.uleb128 0xf
+ 826 02be 01       		.uleb128 0x1
+ 827 02bf 50       		.byte	0x50
+ 828 02c0 02       		.uleb128 0x2
+ 829 02c1 09       		.byte	0x9
+ 830 02c2 80       		.byte	0x80
+ 831 02c3 00       		.byte	0
+ 832 02c4 0C       		.uleb128 0xc
+ 833 02c5 38000000 		.4byte	.LVL16
+ 834 02c9 10030000 		.4byte	0x310
+ 835 02cd 0C       		.uleb128 0xc
+ 836 02ce 46000000 		.4byte	.LVL17
+ 837 02d2 1B030000 		.4byte	0x31b
+ 838 02d6 00       		.byte	0
+ 839 02d7 07       		.uleb128 0x7
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 26
+
+
+ 840 02d8 12020000 		.4byte	.LASF38
+ 841 02dc 01       		.byte	0x1
+ 842 02dd B2       		.byte	0xb2
+ 843 02de 00000000 		.4byte	.LFB2
+ 844 02e2 1C000000 		.4byte	.LFE2-.LFB2
+ 845 02e6 01       		.uleb128 0x1
+ 846 02e7 9C       		.byte	0x9c
+ 847 02e8 FF020000 		.4byte	0x2ff
+ 848 02ec 0C       		.uleb128 0xc
+ 849 02ed 0C000000 		.4byte	.LVL18
+ 850 02f1 31020000 		.4byte	0x231
+ 851 02f5 0C       		.uleb128 0xc
+ 852 02f6 16000000 		.4byte	.LVL19
+ 853 02fa AB000000 		.4byte	0xab
+ 854 02fe 00       		.byte	0
+ 855 02ff 10       		.uleb128 0x10
+ 856 0300 CA030000 		.4byte	.LASF44
+ 857 0304 01       		.byte	0x1
+ 858 0305 15       		.byte	0x15
+ 859 0306 6B000000 		.4byte	0x6b
+ 860 030a 05       		.uleb128 0x5
+ 861 030b 03       		.byte	0x3
+ 862 030c 00000000 		.4byte	ByteCounter_initVar
+ 863 0310 11       		.uleb128 0x11
+ 864 0311 FE020000 		.4byte	.LASF39
+ 865 0315 FE020000 		.4byte	.LASF39
+ 866 0319 03       		.byte	0x3
+ 867 031a 7D       		.byte	0x7d
+ 868 031b 11       		.uleb128 0x11
+ 869 031c FC010000 		.4byte	.LASF40
+ 870 0320 FC010000 		.4byte	.LASF40
+ 871 0324 03       		.byte	0x3
+ 872 0325 7E       		.byte	0x7e
+ 873 0326 00       		.byte	0
+ 874              		.section	.debug_abbrev,"",%progbits
+ 875              	.Ldebug_abbrev0:
+ 876 0000 01       		.uleb128 0x1
+ 877 0001 11       		.uleb128 0x11
+ 878 0002 01       		.byte	0x1
+ 879 0003 25       		.uleb128 0x25
+ 880 0004 0E       		.uleb128 0xe
+ 881 0005 13       		.uleb128 0x13
+ 882 0006 0B       		.uleb128 0xb
+ 883 0007 03       		.uleb128 0x3
+ 884 0008 0E       		.uleb128 0xe
+ 885 0009 1B       		.uleb128 0x1b
+ 886 000a 0E       		.uleb128 0xe
+ 887 000b 55       		.uleb128 0x55
+ 888 000c 17       		.uleb128 0x17
+ 889 000d 11       		.uleb128 0x11
+ 890 000e 01       		.uleb128 0x1
+ 891 000f 10       		.uleb128 0x10
+ 892 0010 17       		.uleb128 0x17
+ 893 0011 00       		.byte	0
+ 894 0012 00       		.byte	0
+ 895 0013 02       		.uleb128 0x2
+ 896 0014 24       		.uleb128 0x24
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 27
+
+
+ 897 0015 00       		.byte	0
+ 898 0016 0B       		.uleb128 0xb
+ 899 0017 0B       		.uleb128 0xb
+ 900 0018 3E       		.uleb128 0x3e
+ 901 0019 0B       		.uleb128 0xb
+ 902 001a 03       		.uleb128 0x3
+ 903 001b 0E       		.uleb128 0xe
+ 904 001c 00       		.byte	0
+ 905 001d 00       		.byte	0
+ 906 001e 03       		.uleb128 0x3
+ 907 001f 24       		.uleb128 0x24
+ 908 0020 00       		.byte	0
+ 909 0021 0B       		.uleb128 0xb
+ 910 0022 0B       		.uleb128 0xb
+ 911 0023 3E       		.uleb128 0x3e
+ 912 0024 0B       		.uleb128 0xb
+ 913 0025 03       		.uleb128 0x3
+ 914 0026 08       		.uleb128 0x8
+ 915 0027 00       		.byte	0
+ 916 0028 00       		.byte	0
+ 917 0029 04       		.uleb128 0x4
+ 918 002a 16       		.uleb128 0x16
+ 919 002b 00       		.byte	0
+ 920 002c 03       		.uleb128 0x3
+ 921 002d 0E       		.uleb128 0xe
+ 922 002e 3A       		.uleb128 0x3a
+ 923 002f 0B       		.uleb128 0xb
+ 924 0030 3B       		.uleb128 0x3b
+ 925 0031 05       		.uleb128 0x5
+ 926 0032 49       		.uleb128 0x49
+ 927 0033 13       		.uleb128 0x13
+ 928 0034 00       		.byte	0
+ 929 0035 00       		.byte	0
+ 930 0036 05       		.uleb128 0x5
+ 931 0037 35       		.uleb128 0x35
+ 932 0038 00       		.byte	0
+ 933 0039 49       		.uleb128 0x49
+ 934 003a 13       		.uleb128 0x13
+ 935 003b 00       		.byte	0
+ 936 003c 00       		.byte	0
+ 937 003d 06       		.uleb128 0x6
+ 938 003e 2E       		.uleb128 0x2e
+ 939 003f 00       		.byte	0
+ 940 0040 3F       		.uleb128 0x3f
+ 941 0041 19       		.uleb128 0x19
+ 942 0042 03       		.uleb128 0x3
+ 943 0043 0E       		.uleb128 0xe
+ 944 0044 3A       		.uleb128 0x3a
+ 945 0045 0B       		.uleb128 0xb
+ 946 0046 3B       		.uleb128 0x3b
+ 947 0047 0B       		.uleb128 0xb
+ 948 0048 27       		.uleb128 0x27
+ 949 0049 19       		.uleb128 0x19
+ 950 004a 11       		.uleb128 0x11
+ 951 004b 01       		.uleb128 0x1
+ 952 004c 12       		.uleb128 0x12
+ 953 004d 06       		.uleb128 0x6
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 28
+
+
+ 954 004e 40       		.uleb128 0x40
+ 955 004f 18       		.uleb128 0x18
+ 956 0050 9742     		.uleb128 0x2117
+ 957 0052 19       		.uleb128 0x19
+ 958 0053 00       		.byte	0
+ 959 0054 00       		.byte	0
+ 960 0055 07       		.uleb128 0x7
+ 961 0056 2E       		.uleb128 0x2e
+ 962 0057 01       		.byte	0x1
+ 963 0058 3F       		.uleb128 0x3f
+ 964 0059 19       		.uleb128 0x19
+ 965 005a 03       		.uleb128 0x3
+ 966 005b 0E       		.uleb128 0xe
+ 967 005c 3A       		.uleb128 0x3a
+ 968 005d 0B       		.uleb128 0xb
+ 969 005e 3B       		.uleb128 0x3b
+ 970 005f 0B       		.uleb128 0xb
+ 971 0060 27       		.uleb128 0x27
+ 972 0061 19       		.uleb128 0x19
+ 973 0062 11       		.uleb128 0x11
+ 974 0063 01       		.uleb128 0x1
+ 975 0064 12       		.uleb128 0x12
+ 976 0065 06       		.uleb128 0x6
+ 977 0066 40       		.uleb128 0x40
+ 978 0067 18       		.uleb128 0x18
+ 979 0068 9742     		.uleb128 0x2117
+ 980 006a 19       		.uleb128 0x19
+ 981 006b 01       		.uleb128 0x1
+ 982 006c 13       		.uleb128 0x13
+ 983 006d 00       		.byte	0
+ 984 006e 00       		.byte	0
+ 985 006f 08       		.uleb128 0x8
+ 986 0070 05       		.uleb128 0x5
+ 987 0071 00       		.byte	0
+ 988 0072 03       		.uleb128 0x3
+ 989 0073 0E       		.uleb128 0xe
+ 990 0074 3A       		.uleb128 0x3a
+ 991 0075 0B       		.uleb128 0xb
+ 992 0076 3B       		.uleb128 0x3b
+ 993 0077 0B       		.uleb128 0xb
+ 994 0078 49       		.uleb128 0x49
+ 995 0079 13       		.uleb128 0x13
+ 996 007a 02       		.uleb128 0x2
+ 997 007b 18       		.uleb128 0x18
+ 998 007c 00       		.byte	0
+ 999 007d 00       		.byte	0
+ 1000 007e 09       		.uleb128 0x9
+ 1001 007f 2E       		.uleb128 0x2e
+ 1002 0080 00       		.byte	0
+ 1003 0081 3F       		.uleb128 0x3f
+ 1004 0082 19       		.uleb128 0x19
+ 1005 0083 03       		.uleb128 0x3
+ 1006 0084 0E       		.uleb128 0xe
+ 1007 0085 3A       		.uleb128 0x3a
+ 1008 0086 0B       		.uleb128 0xb
+ 1009 0087 3B       		.uleb128 0x3b
+ 1010 0088 05       		.uleb128 0x5
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 29
+
+
+ 1011 0089 27       		.uleb128 0x27
+ 1012 008a 19       		.uleb128 0x19
+ 1013 008b 49       		.uleb128 0x49
+ 1014 008c 13       		.uleb128 0x13
+ 1015 008d 11       		.uleb128 0x11
+ 1016 008e 01       		.uleb128 0x1
+ 1017 008f 12       		.uleb128 0x12
+ 1018 0090 06       		.uleb128 0x6
+ 1019 0091 40       		.uleb128 0x40
+ 1020 0092 18       		.uleb128 0x18
+ 1021 0093 9742     		.uleb128 0x2117
+ 1022 0095 19       		.uleb128 0x19
+ 1023 0096 00       		.byte	0
+ 1024 0097 00       		.byte	0
+ 1025 0098 0A       		.uleb128 0xa
+ 1026 0099 2E       		.uleb128 0x2e
+ 1027 009a 01       		.byte	0x1
+ 1028 009b 3F       		.uleb128 0x3f
+ 1029 009c 19       		.uleb128 0x19
+ 1030 009d 03       		.uleb128 0x3
+ 1031 009e 0E       		.uleb128 0xe
+ 1032 009f 3A       		.uleb128 0x3a
+ 1033 00a0 0B       		.uleb128 0xb
+ 1034 00a1 3B       		.uleb128 0x3b
+ 1035 00a2 05       		.uleb128 0x5
+ 1036 00a3 27       		.uleb128 0x27
+ 1037 00a4 19       		.uleb128 0x19
+ 1038 00a5 11       		.uleb128 0x11
+ 1039 00a6 01       		.uleb128 0x1
+ 1040 00a7 12       		.uleb128 0x12
+ 1041 00a8 06       		.uleb128 0x6
+ 1042 00a9 40       		.uleb128 0x40
+ 1043 00aa 18       		.uleb128 0x18
+ 1044 00ab 9742     		.uleb128 0x2117
+ 1045 00ad 19       		.uleb128 0x19
+ 1046 00ae 01       		.uleb128 0x1
+ 1047 00af 13       		.uleb128 0x13
+ 1048 00b0 00       		.byte	0
+ 1049 00b1 00       		.byte	0
+ 1050 00b2 0B       		.uleb128 0xb
+ 1051 00b3 05       		.uleb128 0x5
+ 1052 00b4 00       		.byte	0
+ 1053 00b5 03       		.uleb128 0x3
+ 1054 00b6 0E       		.uleb128 0xe
+ 1055 00b7 3A       		.uleb128 0x3a
+ 1056 00b8 0B       		.uleb128 0xb
+ 1057 00b9 3B       		.uleb128 0x3b
+ 1058 00ba 05       		.uleb128 0x5
+ 1059 00bb 49       		.uleb128 0x49
+ 1060 00bc 13       		.uleb128 0x13
+ 1061 00bd 02       		.uleb128 0x2
+ 1062 00be 18       		.uleb128 0x18
+ 1063 00bf 00       		.byte	0
+ 1064 00c0 00       		.byte	0
+ 1065 00c1 0C       		.uleb128 0xc
+ 1066 00c2 898201   		.uleb128 0x4109
+ 1067 00c5 00       		.byte	0
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 30
+
+
+ 1068 00c6 11       		.uleb128 0x11
+ 1069 00c7 01       		.uleb128 0x1
+ 1070 00c8 31       		.uleb128 0x31
+ 1071 00c9 13       		.uleb128 0x13
+ 1072 00ca 00       		.byte	0
+ 1073 00cb 00       		.byte	0
+ 1074 00cc 0D       		.uleb128 0xd
+ 1075 00cd 34       		.uleb128 0x34
+ 1076 00ce 00       		.byte	0
+ 1077 00cf 03       		.uleb128 0x3
+ 1078 00d0 0E       		.uleb128 0xe
+ 1079 00d1 3A       		.uleb128 0x3a
+ 1080 00d2 0B       		.uleb128 0xb
+ 1081 00d3 3B       		.uleb128 0x3b
+ 1082 00d4 0B       		.uleb128 0xb
+ 1083 00d5 49       		.uleb128 0x49
+ 1084 00d6 13       		.uleb128 0x13
+ 1085 00d7 02       		.uleb128 0x2
+ 1086 00d8 17       		.uleb128 0x17
+ 1087 00d9 00       		.byte	0
+ 1088 00da 00       		.byte	0
+ 1089 00db 0E       		.uleb128 0xe
+ 1090 00dc 898201   		.uleb128 0x4109
+ 1091 00df 01       		.byte	0x1
+ 1092 00e0 11       		.uleb128 0x11
+ 1093 00e1 01       		.uleb128 0x1
+ 1094 00e2 31       		.uleb128 0x31
+ 1095 00e3 13       		.uleb128 0x13
+ 1096 00e4 01       		.uleb128 0x1
+ 1097 00e5 13       		.uleb128 0x13
+ 1098 00e6 00       		.byte	0
+ 1099 00e7 00       		.byte	0
+ 1100 00e8 0F       		.uleb128 0xf
+ 1101 00e9 8A8201   		.uleb128 0x410a
+ 1102 00ec 00       		.byte	0
+ 1103 00ed 02       		.uleb128 0x2
+ 1104 00ee 18       		.uleb128 0x18
+ 1105 00ef 9142     		.uleb128 0x2111
+ 1106 00f1 18       		.uleb128 0x18
+ 1107 00f2 00       		.byte	0
+ 1108 00f3 00       		.byte	0
+ 1109 00f4 10       		.uleb128 0x10
+ 1110 00f5 34       		.uleb128 0x34
+ 1111 00f6 00       		.byte	0
+ 1112 00f7 03       		.uleb128 0x3
+ 1113 00f8 0E       		.uleb128 0xe
+ 1114 00f9 3A       		.uleb128 0x3a
+ 1115 00fa 0B       		.uleb128 0xb
+ 1116 00fb 3B       		.uleb128 0x3b
+ 1117 00fc 0B       		.uleb128 0xb
+ 1118 00fd 49       		.uleb128 0x49
+ 1119 00fe 13       		.uleb128 0x13
+ 1120 00ff 3F       		.uleb128 0x3f
+ 1121 0100 19       		.uleb128 0x19
+ 1122 0101 02       		.uleb128 0x2
+ 1123 0102 18       		.uleb128 0x18
+ 1124 0103 00       		.byte	0
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 31
+
+
+ 1125 0104 00       		.byte	0
+ 1126 0105 11       		.uleb128 0x11
+ 1127 0106 2E       		.uleb128 0x2e
+ 1128 0107 00       		.byte	0
+ 1129 0108 3F       		.uleb128 0x3f
+ 1130 0109 19       		.uleb128 0x19
+ 1131 010a 3C       		.uleb128 0x3c
+ 1132 010b 19       		.uleb128 0x19
+ 1133 010c 6E       		.uleb128 0x6e
+ 1134 010d 0E       		.uleb128 0xe
+ 1135 010e 03       		.uleb128 0x3
+ 1136 010f 0E       		.uleb128 0xe
+ 1137 0110 3A       		.uleb128 0x3a
+ 1138 0111 0B       		.uleb128 0xb
+ 1139 0112 3B       		.uleb128 0x3b
+ 1140 0113 0B       		.uleb128 0xb
+ 1141 0114 00       		.byte	0
+ 1142 0115 00       		.byte	0
+ 1143 0116 00       		.byte	0
+ 1144              		.section	.debug_loc,"",%progbits
+ 1145              	.Ldebug_loc0:
+ 1146              	.LLST0:
+ 1147 0000 0A000000 		.4byte	.LVL7
+ 1148 0004 0E000000 		.4byte	.LVL8
+ 1149 0008 0100     		.2byte	0x1
+ 1150 000a 52       		.byte	0x52
+ 1151 000b 0E000000 		.4byte	.LVL8
+ 1152 000f 12000000 		.4byte	.LVL9
+ 1153 0013 0200     		.2byte	0x2
+ 1154 0015 73       		.byte	0x73
+ 1155 0016 00       		.sleb128 0
+ 1156 0017 12000000 		.4byte	.LVL9
+ 1157 001b 17000000 		.4byte	.LVL10-1
+ 1158 001f 0100     		.2byte	0x1
+ 1159 0021 52       		.byte	0x52
+ 1160 0022 00000000 		.4byte	0
+ 1161 0026 00000000 		.4byte	0
+ 1162              	.LLST1:
+ 1163 002a 38000000 		.4byte	.LVL16
+ 1164 002e 45000000 		.4byte	.LVL17-1
+ 1165 0032 0100     		.2byte	0x1
+ 1166 0034 50       		.byte	0x50
+ 1167 0035 00000000 		.4byte	0
+ 1168 0039 00000000 		.4byte	0
+ 1169              		.section	.debug_aranges,"",%progbits
+ 1170 0000 94000000 		.4byte	0x94
+ 1171 0004 0200     		.2byte	0x2
+ 1172 0006 00000000 		.4byte	.Ldebug_info0
+ 1173 000a 04       		.byte	0x4
+ 1174 000b 00       		.byte	0
+ 1175 000c 0000     		.2byte	0
+ 1176 000e 0000     		.2byte	0
+ 1177 0010 00000000 		.4byte	.LFB1
+ 1178 0014 10000000 		.4byte	.LFE1-.LFB1
+ 1179 0018 00000000 		.4byte	.LFB3
+ 1180 001c 10000000 		.4byte	.LFE3-.LFB3
+ 1181 0020 00000000 		.4byte	.LFB4
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 32
+
+
+ 1182 0024 0C000000 		.4byte	.LFE4-.LFB4
+ 1183 0028 00000000 		.4byte	.LFB5
+ 1184 002c 0C000000 		.4byte	.LFE5-.LFB5
+ 1185 0030 00000000 		.4byte	.LFB6
+ 1186 0034 0C000000 		.4byte	.LFE6-.LFB6
+ 1187 0038 00000000 		.4byte	.LFB7
+ 1188 003c 0C000000 		.4byte	.LFE7-.LFB7
+ 1189 0040 00000000 		.4byte	.LFB8
+ 1190 0044 0C000000 		.4byte	.LFE8-.LFB8
+ 1191 0048 00000000 		.4byte	.LFB9
+ 1192 004c 14000000 		.4byte	.LFE9-.LFB9
+ 1193 0050 00000000 		.4byte	.LFB10
+ 1194 0054 0C000000 		.4byte	.LFE10-.LFB10
+ 1195 0058 00000000 		.4byte	.LFB11
+ 1196 005c 0C000000 		.4byte	.LFE11-.LFB11
+ 1197 0060 00000000 		.4byte	.LFB12
+ 1198 0064 0C000000 		.4byte	.LFE12-.LFB12
+ 1199 0068 00000000 		.4byte	.LFB13
+ 1200 006c 0C000000 		.4byte	.LFE13-.LFB13
+ 1201 0070 00000000 		.4byte	.LFB14
+ 1202 0074 0C000000 		.4byte	.LFE14-.LFB14
+ 1203 0078 00000000 		.4byte	.LFB15
+ 1204 007c 14000000 		.4byte	.LFE15-.LFB15
+ 1205 0080 00000000 		.4byte	.LFB0
+ 1206 0084 50000000 		.4byte	.LFE0-.LFB0
+ 1207 0088 00000000 		.4byte	.LFB2
+ 1208 008c 1C000000 		.4byte	.LFE2-.LFB2
+ 1209 0090 00000000 		.4byte	0
+ 1210 0094 00000000 		.4byte	0
+ 1211              		.section	.debug_ranges,"",%progbits
+ 1212              	.Ldebug_ranges0:
+ 1213 0000 00000000 		.4byte	.LFB1
+ 1214 0004 10000000 		.4byte	.LFE1
+ 1215 0008 00000000 		.4byte	.LFB3
+ 1216 000c 10000000 		.4byte	.LFE3
+ 1217 0010 00000000 		.4byte	.LFB4
+ 1218 0014 0C000000 		.4byte	.LFE4
+ 1219 0018 00000000 		.4byte	.LFB5
+ 1220 001c 0C000000 		.4byte	.LFE5
+ 1221 0020 00000000 		.4byte	.LFB6
+ 1222 0024 0C000000 		.4byte	.LFE6
+ 1223 0028 00000000 		.4byte	.LFB7
+ 1224 002c 0C000000 		.4byte	.LFE7
+ 1225 0030 00000000 		.4byte	.LFB8
+ 1226 0034 0C000000 		.4byte	.LFE8
+ 1227 0038 00000000 		.4byte	.LFB9
+ 1228 003c 14000000 		.4byte	.LFE9
+ 1229 0040 00000000 		.4byte	.LFB10
+ 1230 0044 0C000000 		.4byte	.LFE10
+ 1231 0048 00000000 		.4byte	.LFB11
+ 1232 004c 0C000000 		.4byte	.LFE11
+ 1233 0050 00000000 		.4byte	.LFB12
+ 1234 0054 0C000000 		.4byte	.LFE12
+ 1235 0058 00000000 		.4byte	.LFB13
+ 1236 005c 0C000000 		.4byte	.LFE13
+ 1237 0060 00000000 		.4byte	.LFB14
+ 1238 0064 0C000000 		.4byte	.LFE14
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 33
+
+
+ 1239 0068 00000000 		.4byte	.LFB15
+ 1240 006c 14000000 		.4byte	.LFE15
+ 1241 0070 00000000 		.4byte	.LFB0
+ 1242 0074 50000000 		.4byte	.LFE0
+ 1243 0078 00000000 		.4byte	.LFB2
+ 1244 007c 1C000000 		.4byte	.LFE2
+ 1245 0080 00000000 		.4byte	0
+ 1246 0084 00000000 		.4byte	0
+ 1247              		.section	.debug_line,"",%progbits
+ 1248              	.Ldebug_line0:
+ 1249 0000 87010000 		.section	.debug_str,"MS",%progbits,1
+ 1249      02005300 
+ 1249      00000201 
+ 1249      FB0E0D00 
+ 1249      01010101 
+ 1250              	.LASF24:
+ 1251 0000 42797465 		.ascii	"ByteCounter_WriteCounter\000"
+ 1251      436F756E 
+ 1251      7465725F 
+ 1251      57726974 
+ 1251      65436F75 
+ 1252              	.LASF16:
+ 1253 0019 42797465 		.ascii	"ByteCounter_Enable\000"
+ 1253      436F756E 
+ 1253      7465725F 
+ 1253      456E6162 
+ 1253      6C6500
+ 1254              	.LASF29:
+ 1255 002c 70657269 		.ascii	"period\000"
+ 1255      6F6400
+ 1256              	.LASF3:
+ 1257 0033 73686F72 		.ascii	"short unsigned int\000"
+ 1257      7420756E 
+ 1257      7369676E 
+ 1257      65642069 
+ 1257      6E7400
+ 1258              	.LASF8:
+ 1259 0046 756E7369 		.ascii	"unsigned int\000"
+ 1259      676E6564 
+ 1259      20696E74 
+ 1259      00
+ 1260              	.LASF33:
+ 1261 0053 42797465 		.ascii	"ByteCounter_ReadCompare\000"
+ 1261      436F756E 
+ 1261      7465725F 
+ 1261      52656164 
+ 1261      436F6D70 
+ 1262              	.LASF27:
+ 1263 006b 42797465 		.ascii	"ByteCounter_ReadCapture\000"
+ 1263      436F756E 
+ 1263      7465725F 
+ 1263      52656164 
+ 1263      43617074 
+ 1264              	.LASF9:
+ 1265 0083 666C6F61 		.ascii	"float\000"
+ 1265      7400
+ 1266              	.LASF25:
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 34
+
+
+ 1267 0089 636F756E 		.ascii	"counter\000"
+ 1267      74657200 
+ 1268              	.LASF7:
+ 1269 0091 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1269      206C6F6E 
+ 1269      6720756E 
+ 1269      7369676E 
+ 1269      65642069 
+ 1270              	.LASF1:
+ 1271 00a8 756E7369 		.ascii	"unsigned char\000"
+ 1271      676E6564 
+ 1271      20636861 
+ 1271      7200
+ 1272              	.LASF41:
+ 1273 00b6 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1273      43313120 
+ 1273      352E342E 
+ 1273      31203230 
+ 1273      31363036 
+ 1274 00e9 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1274      20726576 
+ 1274      6973696F 
+ 1274      6E203233 
+ 1274      37373135 
+ 1275 011c 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1275      66756E63 
+ 1275      74696F6E 
+ 1275      2D736563 
+ 1275      74696F6E 
+ 1276              	.LASF13:
+ 1277 0144 72656738 		.ascii	"reg8\000"
+ 1277      00
+ 1278              	.LASF5:
+ 1279 0149 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1279      20756E73 
+ 1279      69676E65 
+ 1279      6420696E 
+ 1279      7400
+ 1280              	.LASF12:
+ 1281 015b 75696E74 		.ascii	"uint8\000"
+ 1281      3800
+ 1282              	.LASF23:
+ 1283 0161 636F6E74 		.ascii	"control\000"
+ 1283      726F6C00 
+ 1284              	.LASF22:
+ 1285 0169 696E7465 		.ascii	"interruptsMask\000"
+ 1285      72727570 
+ 1285      74734D61 
+ 1285      736B00
+ 1286              	.LASF10:
+ 1287 0178 646F7562 		.ascii	"double\000"
+ 1287      6C6500
+ 1288              	.LASF34:
+ 1289 017f 42797465 		.ascii	"ByteCounter_ClearFIFO\000"
+ 1289      436F756E 
+ 1289      7465725F 
+ 1289      436C6561 
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 35
+
+
+ 1289      72464946 
+ 1290              	.LASF37:
+ 1291 0195 42797465 		.ascii	"ByteCounter_interruptState\000"
+ 1291      436F756E 
+ 1291      7465725F 
+ 1291      696E7465 
+ 1291      72727570 
+ 1292              	.LASF26:
+ 1293 01b0 42797465 		.ascii	"ByteCounter_ReadCounter\000"
+ 1293      436F756E 
+ 1293      7465725F 
+ 1293      52656164 
+ 1293      436F756E 
+ 1294              	.LASF30:
+ 1295 01c8 42797465 		.ascii	"ByteCounter_ReadPeriod\000"
+ 1295      436F756E 
+ 1295      7465725F 
+ 1295      52656164 
+ 1295      50657269 
+ 1296              	.LASF20:
+ 1297 01df 42797465 		.ascii	"ByteCounter_SetInterruptMode\000"
+ 1297      436F756E 
+ 1297      7465725F 
+ 1297      53657449 
+ 1297      6E746572 
+ 1298              	.LASF40:
+ 1299 01fc 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1299      69744372 
+ 1299      69746963 
+ 1299      616C5365 
+ 1299      6374696F 
+ 1300              	.LASF38:
+ 1301 0212 42797465 		.ascii	"ByteCounter_Start\000"
+ 1301      436F756E 
+ 1301      7465725F 
+ 1301      53746172 
+ 1301      7400
+ 1302              	.LASF35:
+ 1303 0224 42797465 		.ascii	"ByteCounter_Init\000"
+ 1303      436F756E 
+ 1303      7465725F 
+ 1303      496E6974 
+ 1303      00
+ 1304              	.LASF43:
+ 1305 0235 433A5C55 		.ascii	"C:\\Users\\shawn\\Desktop\\Real-Time-Estimation-and"
+ 1305      73657273 
+ 1305      5C736861 
+ 1305      776E5C44 
+ 1305      65736B74 
+ 1306 0264 2D436F6E 		.ascii	"-Control-For-Satellite-Orbit-Stabilization\\Lab6\\M"
+ 1306      74726F6C 
+ 1306      2D466F72 
+ 1306      2D536174 
+ 1306      656C6C69 
+ 1307 0295 45313335 		.ascii	"E135_235\\CommandInterpreter.cydsn\000"
+ 1307      5F323335 
+ 1307      5C436F6D 
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 36
+
+
+ 1307      6D616E64 
+ 1307      496E7465 
+ 1308              	.LASF31:
+ 1309 02b7 42797465 		.ascii	"ByteCounter_WriteCompare\000"
+ 1309      436F756E 
+ 1309      7465725F 
+ 1309      57726974 
+ 1309      65436F6D 
+ 1310              	.LASF15:
+ 1311 02d0 73697A65 		.ascii	"sizetype\000"
+ 1311      74797065 
+ 1311      00
+ 1312              	.LASF42:
+ 1313 02d9 47656E65 		.ascii	"Generated_Source\\PSoC5\\ByteCounter.c\000"
+ 1313      72617465 
+ 1313      645F536F 
+ 1313      75726365 
+ 1313      5C50536F 
+ 1314              	.LASF39:
+ 1315 02fe 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1315      74657243 
+ 1315      72697469 
+ 1315      63616C53 
+ 1315      65637469 
+ 1316              	.LASF6:
+ 1317 0315 6C6F6E67 		.ascii	"long long int\000"
+ 1317      206C6F6E 
+ 1317      6720696E 
+ 1317      7400
+ 1318              	.LASF19:
+ 1319 0323 42797465 		.ascii	"ByteCounter_ReadControlRegister\000"
+ 1319      436F756E 
+ 1319      7465725F 
+ 1319      52656164 
+ 1319      436F6E74 
+ 1320              	.LASF28:
+ 1321 0343 42797465 		.ascii	"ByteCounter_WritePeriod\000"
+ 1321      436F756E 
+ 1321      7465725F 
+ 1321      57726974 
+ 1321      65506572 
+ 1322              	.LASF11:
+ 1323 035b 63686172 		.ascii	"char\000"
+ 1323      00
+ 1324              	.LASF2:
+ 1325 0360 73686F72 		.ascii	"short int\000"
+ 1325      7420696E 
+ 1325      7400
+ 1326              	.LASF36:
+ 1327 036a 6374726C 		.ascii	"ctrl\000"
+ 1327      00
+ 1328              	.LASF4:
+ 1329 036f 6C6F6E67 		.ascii	"long int\000"
+ 1329      20696E74 
+ 1329      00
+ 1330              	.LASF14:
+ 1331 0378 6C6F6E67 		.ascii	"long double\000"
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc0DFNTh.s 			page 37
+
+
+ 1331      20646F75 
+ 1331      626C6500 
+ 1332              	.LASF0:
+ 1333 0384 7369676E 		.ascii	"signed char\000"
+ 1333      65642063 
+ 1333      68617200 
+ 1334              	.LASF32:
+ 1335 0390 636F6D70 		.ascii	"compare\000"
+ 1335      61726500 
+ 1336              	.LASF21:
+ 1337 0398 42797465 		.ascii	"ByteCounter_WriteControlRegister\000"
+ 1337      436F756E 
+ 1337      7465725F 
+ 1337      57726974 
+ 1337      65436F6E 
+ 1338              	.LASF17:
+ 1339 03b9 42797465 		.ascii	"ByteCounter_Stop\000"
+ 1339      436F756E 
+ 1339      7465725F 
+ 1339      53746F70 
+ 1339      00
+ 1340              	.LASF44:
+ 1341 03ca 42797465 		.ascii	"ByteCounter_initVar\000"
+ 1341      436F756E 
+ 1341      7465725F 
+ 1341      696E6974 
+ 1341      56617200 
+ 1342              	.LASF18:
+ 1343 03de 42797465 		.ascii	"ByteCounter_ReadStatusRegister\000"
+ 1343      436F756E 
+ 1343      7465725F 
+ 1343      52656164 
+ 1343      53746174 
+ 1344              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

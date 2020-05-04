@@ -1,0 +1,1675 @@
+Archive member included to satisfy reference by file (symbol)
+
+.\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (WaveDAC8_1_Start)
+.\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (ADC_DelSig_1_Start)
+.\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_INT.o)
+                              .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o) (ADC_DelSig_1_ISR1)
+.\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_DacClk.o)
+                              .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1.o) (WaveDAC8_1_DacClk_Start)
+.\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave1_DMA_dma.o)
+                              .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1.o) (WaveDAC8_1_Wave1_DMA_DmaInitialize)
+.\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave2_DMA_dma.o)
+                              .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1.o) (WaveDAC8_1_Wave2_DMA_DmaInitialize)
+.\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_VDAC8.o)
+                              .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1.o) (WaveDAC8_1_VDAC8_Enable)
+.\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_AMux.o)
+                              .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o) (ADC_DelSig_1_AMux_Select)
+.\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_Ext_CP_Clk.o)
+                              .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o) (ADC_DelSig_1_Ext_CP_Clk_SetModeRegister)
+.\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_theACLK.o)
+                              .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o) (ADC_DelSig_1_theACLK_SetModeRegister)
+.\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o (CyDmacConfigure)
+.\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o (CyHalt)
+.\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+                              .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o) (CyPmReadStatus)
+.\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDone.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (WaveDone_Enable)
+.\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADCInterrupt.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (ADCInterrupt_Enable)
+.\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (UART_1_Start)
+.\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1_IntClock.o)
+                              .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o) (UART_1_IntClock_Start)
+.\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(LEDDrive.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (LEDDrive_Write)
+.\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(Marker1Drive.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (Marker1Drive_Write)
+.\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyBootAsmGnu.o)
+                              .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o (CyDelayCycles)
+.\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+                              .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o) (CyFlash_SetWaitCycles)
+.\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CySpc.o)
+                              .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o) (CySpcStart)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubdf3.o)
+                              .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o) (__aeabi_f2d)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_cmpdf2.o)
+                              .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o) (__aeabi_dcmpgt)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubsf3.o)
+                              .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o) (__aeabi_ui2f)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivsf3.o)
+                              .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o) (__aeabi_fmul)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixunssfsi.o)
+                              .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o) (__aeabi_f2uiz)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o (__errno)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+                              c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o (exit)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                              c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o) (_global_impure_ptr)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+                              c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o (__libc_init_array)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+                              .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o (memcpy)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+                              c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o (memset)
+
+Allocating common symbols
+Common symbol       size              file
+
+ADC_DelSig_1_CountsPerVolt
+                    0x4               .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+Ch                  0x1               .\CortexM3\ARM_GCC_541\Debug\main.o
+i                   0x2               .\CortexM3\ARM_GCC_541\Debug\main.o
+Output              0x400             .\CortexM3\ARM_GCC_541\Debug\main.o
+dieTemperature      0x2               .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+
+Discarded input sections
+
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+ .data          0x00000000        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .text          0x00000000       0x74 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
+ .ARM.extab     0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
+ .ARM.exidx     0x00000000        0x8 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.SetAnalogRoutingPumps
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .data          0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .text._exit    0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .text._sbrk    0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1.o)
+ .text.WaveDAC8_1_Stop
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1.o)
+ .text.WaveDAC8_1_StartEx
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .text.ADC_DelSig_1_Stop
+                0x00000000       0xe4 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .text.ADC_DelSig_1_SetBufferGain
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .text.ADC_DelSig_1_SetCoherency
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .text.ADC_DelSig_1_SetGCOR
+                0x00000000       0x74 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .text.ADC_DelSig_1_ReadGCOR
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .text.ADC_DelSig_1_StopConvert
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .text.ADC_DelSig_1_IsEndConversion
+                0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .text.ADC_DelSig_1_GetResult16
+                0x00000000       0x50 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .text.ADC_DelSig_1_GetResult32
+                0x00000000       0x6c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .text.ADC_DelSig_1_SetOffset
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .text.ADC_DelSig_1_SetGain
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .text.ADC_DelSig_1_CountsTo_mVolts
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .text.ADC_DelSig_1_CountsTo_Volts
+                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .text.ADC_DelSig_1_CountsTo_uVolts
+                0x00000000       0x64 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .text.ADC_DelSig_1_SelectConfiguration
+                0x00000000       0x64 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .text.ADC_DelSig_1_Read8
+                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .text.ADC_DelSig_1_Read16
+                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .text.ADC_DelSig_1_Read32
+                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_INT.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_INT.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_INT.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_DacClk.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_DacClk.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_DacClk.o)
+ .text.WaveDAC8_1_DacClk_Stop
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_DacClk.o)
+ .text.WaveDAC8_1_DacClk_StopBlock
+                0x00000000       0x6c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_DacClk.o)
+ .text.WaveDAC8_1_DacClk_StandbyPower
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_DacClk.o)
+ .text.WaveDAC8_1_DacClk_GetDividerRegister
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_DacClk.o)
+ .text.WaveDAC8_1_DacClk_SetModeRegister
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_DacClk.o)
+ .text.WaveDAC8_1_DacClk_ClearModeRegister
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_DacClk.o)
+ .text.WaveDAC8_1_DacClk_GetModeRegister
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_DacClk.o)
+ .text.WaveDAC8_1_DacClk_GetSourceRegister
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_DacClk.o)
+ .text.WaveDAC8_1_DacClk_SetDividerRegister
+                0x00000000       0xdc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_DacClk.o)
+ .text.WaveDAC8_1_DacClk_SetSourceRegister
+                0x00000000       0x5c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_DacClk.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave1_DMA_dma.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave1_DMA_dma.o)
+ .text.WaveDAC8_1_Wave1_DMA_DmaRelease
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave1_DMA_dma.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave2_DMA_dma.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave2_DMA_dma.o)
+ .text.WaveDAC8_1_Wave2_DMA_DmaRelease
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave2_DMA_dma.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_VDAC8.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_VDAC8.o)
+ .bss           0x00000000        0x1 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_VDAC8.o)
+ .text.WaveDAC8_1_VDAC8_Stop
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_VDAC8.o)
+ .text.WaveDAC8_1_VDAC8_Start
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_VDAC8.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_AMux.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_AMux.o)
+ .text.ADC_DelSig_1_AMux_FastSelect
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_AMux.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_Ext_CP_Clk.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_Ext_CP_Clk.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_Ext_CP_Clk.o)
+ .text.ADC_DelSig_1_Ext_CP_Clk_Start
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_Ext_CP_Clk.o)
+ .text.ADC_DelSig_1_Ext_CP_Clk_Stop
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_Ext_CP_Clk.o)
+ .text.ADC_DelSig_1_Ext_CP_Clk_StopBlock
+                0x00000000       0x6c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_Ext_CP_Clk.o)
+ .text.ADC_DelSig_1_Ext_CP_Clk_StandbyPower
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_Ext_CP_Clk.o)
+ .text.ADC_DelSig_1_Ext_CP_Clk_ClearModeRegister
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_Ext_CP_Clk.o)
+ .text.ADC_DelSig_1_Ext_CP_Clk_GetModeRegister
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_Ext_CP_Clk.o)
+ .text.ADC_DelSig_1_Ext_CP_Clk_SetSourceRegister
+                0x00000000       0x5c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_Ext_CP_Clk.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_theACLK.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_theACLK.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_theACLK.o)
+ .text.ADC_DelSig_1_theACLK_Start
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_theACLK.o)
+ .text.ADC_DelSig_1_theACLK_Stop
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_theACLK.o)
+ .text.ADC_DelSig_1_theACLK_StopBlock
+                0x00000000       0x6c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_theACLK.o)
+ .text.ADC_DelSig_1_theACLK_StandbyPower
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_theACLK.o)
+ .text.ADC_DelSig_1_theACLK_ClearModeRegister
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_theACLK.o)
+ .text.ADC_DelSig_1_theACLK_GetModeRegister
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_theACLK.o)
+ .text.ADC_DelSig_1_theACLK_SetSourceRegister
+                0x00000000       0x5c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_theACLK.o)
+ .text.ADC_DelSig_1_theACLK_SetPhaseRegister
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_theACLK.o)
+ .text.ADC_DelSig_1_theACLK_GetPhaseRegister
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_theACLK.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+ .text.CyDmacError
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+ .text.CyDmacClearError
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+ .text.CyDmacErrorAddress
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+ .text.CyDmaChAlloc
+                0x00000000       0x38 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+ .text.CyDmaChFree
+                0x00000000       0x2c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+ .text.CyDmaChDisable
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+ .text.CyDmaClearPendingDrq
+                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+ .text.CyDmaChSetRequest
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+ .text.CyDmaChGetRequest
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+ .text.CyDmaChStatus
+                0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+ .text.CyDmaTdFree
+                0x00000000       0x34 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+ .text.CyDmaTdFreeCount
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+ .text.CyDmaTdGetConfiguration
+                0x00000000       0x4c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+ .text.CyDmaTdGetAddress
+                0x00000000       0x34 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+ .text.CyDmaChRoundRobin
+                0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .bss           0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyUSB_PowerOnCheck
+                0x00000000       0x48 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyBusClk_Internal_SetDivider
+                0x00000000       0x48 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyPLL_OUT_Stop
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyIMO_Stop
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyIMO_EnableDoubler
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyIMO_DisableDoubler
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyMasterClk_SetSource
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyMasterClk_SetDivider
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyBusClk_SetDivider
+                0x00000000       0x70 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyUsbClk_SetSource
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyILO_Start1K
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyILO_Stop1K
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyILO_Start100K
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyILO_Stop100K
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyPLL_OUT_Start
+                0x00000000       0x78 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyIMO_Start
+                0x00000000       0x60 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyILO_Enable33K
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyILO_Disable33K
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyILO_SetSource
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyILO_SetPowerMode
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyXTAL_32KHZ_Stop
+                0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyXTAL_32KHZ_ReadStatus
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyXTAL_Start
+                0x00000000       0xac .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyXTAL_Stop
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyXTAL_EnableErrStatus
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyXTAL_DisableErrStatus
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyXTAL_ReadStatus
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyXTAL_EnableFaultRecovery
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyXTAL_DisableFaultRecovery
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyXTAL_SetStartup
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyXTAL_SetFbVoltage
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyXTAL_SetWdVoltage
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyPLL_OUT_SetPQ
+                0x00000000       0x60 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyPLL_OUT_SetSource
+                0x00000000       0x34 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyIMO_SetTrimValue
+                0x00000000       0xcc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyIMO_SetFreq
+                0x00000000       0xf4 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyIMO_SetSource
+                0x00000000       0x58 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CySoftwareReset
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyDelay  0x00000000       0x2c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyXTAL_32KHZ_SetPowerMode
+                0x00000000       0x84 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyXTAL_32KHZ_Start
+                0x00000000       0x74 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyDelayFreq
+                0x00000000       0x4c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyWdtStart
+                0x00000000       0x40 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyWdtClear
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyVdStickyStatus
+                0x00000000       0x2c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyVdLvDigitEnable
+                0x00000000       0x84 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyVdLvAnalogEnable
+                0x00000000       0x80 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyVdLvDigitDisable
+                0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyVdLvAnalogDisable
+                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyVdHvAnalogEnable
+                0x00000000       0x54 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyVdHvAnalogDisable
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyVdRealTimeStatus
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyDisableInts
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyEnableInts
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyFlushCache
+                0x00000000       0x44 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyIntSetSysVector
+                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyIntGetSysVector
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyIntGetVector
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyIntGetPriority
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyIntGetState
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CySysTickStop
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CySysTickEnableInterrupt
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CySysTickEnable
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CySysTickDisableInterrupt
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CySysTickSetReload
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CySysTickGetReload
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CySysTickGetValue
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CySysTickSetClockSource
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CySysTickGetClockSource
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CySysTickGetCountFlag
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CySysTickServiceCallbacks
+                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CySysTickClear
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CySysTickInit
+                0x00000000       0x58 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CySysTickStart
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CySysTickSetCallback
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CySysTickGetCallback
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text.CyGetUniqueId
+                0x00000000       0x70 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .bss           0x00000000       0x43 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .text.CyPmHibSlpSaveSet
+                0x00000000      0x1dc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .text.CyPmHibSlpRestore
+                0x00000000       0xd8 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .text.CyPmHviLviSaveDisable
+                0x00000000       0xa0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .text.CyPmHibSaveSet
+                0x00000000       0x98 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .text.CyPmHviLviRestore
+                0x00000000       0x48 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .text.CyPmHibRestore
+                0x00000000       0x60 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .text.CyPmSaveClocks
+                0x00000000      0x218 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .text.CyPmRestoreClocks
+                0x00000000      0x24c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .text.CyPmAltAct
+                0x00000000       0x6c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .text.CyPmSleep
+                0x00000000       0xf4 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .text.CyPmHibernateEx
+                0x00000000       0xf4 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .text.CyPmHibernate
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .text.CyPmReadStatus
+                0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .text.CyPmCtwSetInterval
+                0x00000000       0x5c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .text.CyPmOppsSet
+                0x00000000       0x2c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .text.CyPmFtwSetInterval
+                0x00000000       0x5c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .rodata        0x00000000        0xf .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDone.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDone.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDone.o)
+ .text.WaveDone_GetVector
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDone.o)
+ .text.WaveDone_GetPriority
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDone.o)
+ .text.WaveDone_GetState
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDone.o)
+ .text.WaveDone_Stop
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDone.o)
+ .text.WaveDone_SetPending
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDone.o)
+ .text.WaveDone_ClearPending
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDone.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADCInterrupt.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADCInterrupt.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADCInterrupt.o)
+ .text.ADCInterrupt_GetVector
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADCInterrupt.o)
+ .text.ADCInterrupt_GetPriority
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADCInterrupt.o)
+ .text.ADCInterrupt_GetState
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADCInterrupt.o)
+ .text.ADCInterrupt_Stop
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADCInterrupt.o)
+ .text.ADCInterrupt_SetPending
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADCInterrupt.o)
+ .text.ADCInterrupt_ClearPending
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADCInterrupt.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .text.UART_1_Stop
+                0x00000000       0x3c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .text.UART_1_ReadControlRegister
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .text.UART_1_WriteControlRegister
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .text.UART_1_SetRxInterruptMode
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .text.UART_1_ReadRxData
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .text.UART_1_ReadRxStatus
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .text.UART_1_GetByte
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .text.UART_1_GetRxBufferSize
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .text.UART_1_ClearRxBuffer
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .text.UART_1_SetRxAddressMode
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .text.UART_1_SetRxAddress1
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .text.UART_1_SetRxAddress2
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .text.UART_1_SetTxInterruptMode
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .text.UART_1_WriteTxData
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .text.UART_1_ReadTxStatus
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .text.UART_1_PutString
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .text.UART_1_PutCRLF
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .text.UART_1_GetTxBufferSize
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .text.UART_1_ClearTxBuffer
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .text.UART_1_SendBreak
+                0x00000000       0x5c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .text.UART_1_SetTxAddressMode
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1_IntClock.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1_IntClock.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1_IntClock.o)
+ .text.UART_1_IntClock_Stop
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1_IntClock.o)
+ .text.UART_1_IntClock_StopBlock
+                0x00000000       0x6c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1_IntClock.o)
+ .text.UART_1_IntClock_StandbyPower
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1_IntClock.o)
+ .text.UART_1_IntClock_GetDividerRegister
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1_IntClock.o)
+ .text.UART_1_IntClock_SetModeRegister
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1_IntClock.o)
+ .text.UART_1_IntClock_ClearModeRegister
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1_IntClock.o)
+ .text.UART_1_IntClock_GetModeRegister
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1_IntClock.o)
+ .text.UART_1_IntClock_GetSourceRegister
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1_IntClock.o)
+ .text.UART_1_IntClock_SetDividerRegister
+                0x00000000       0xdc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1_IntClock.o)
+ .text.UART_1_IntClock_SetSourceRegister
+                0x00000000       0x5c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1_IntClock.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(LEDDrive.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(LEDDrive.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(LEDDrive.o)
+ .text.LEDDrive_Read
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(LEDDrive.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(Marker1Drive.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(Marker1Drive.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(Marker1Drive.o)
+ .text.Marker1Drive_Read
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(Marker1Drive.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyBootAsmGnu.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyBootAsmGnu.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+ .text.CySetTempInt
+                0x00000000       0x60 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+ .text.CyFlash_Start
+                0x00000000       0x54 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+ .text.CyFlash_Stop
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+ .text.CyFlash_EraseRow
+                0x00000000       0x78 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+ .text.CyFlashGetSpcAlgorithm
+                0x00000000       0x4c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+ .text.CySetTemp
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+ .text.CySetFlashEEBuffer
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+ .text.CyWriteRowFull
+                0x00000000       0xf8 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+ .text.CyWriteRowData
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+ .text.CyFlash_SetWaitCycles
+                0x00000000       0x7c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+ .text.CyEEPROM_Start
+                0x00000000       0x54 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+ .text.CyEEPROM_Stop
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+ .text.CyEEPROM_ReadReserve
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+ .text.CyEEPROM_ReadRelease
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+ COMMON         0x00000000        0x2 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CySpc.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CySpc.o)
+ .bss           0x00000000        0x8 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CySpc.o)
+ .text.CySpcStart
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CySpc.o)
+ .text.CySpcStop
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CySpc.o)
+ .text.CySpcReadData
+                0x00000000       0x34 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CySpc.o)
+ .text.CySpcLoadMultiByte
+                0x00000000       0x78 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CySpc.o)
+ .text.CySpcLoadRow
+                0x00000000       0x50 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CySpc.o)
+ .text.CySpcLoadRowFull
+                0x00000000       0x80 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CySpc.o)
+ .text.CySpcWriteRow
+                0x00000000       0x4c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CySpc.o)
+ .text.CySpcEraseSector
+                0x00000000       0x3c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CySpc.o)
+ .text.CySpcEraseRow
+                0x00000000       0x4c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CySpc.o)
+ .text.CySpcGetTemp
+                0x00000000       0x3c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CySpc.o)
+ .text.CySpcLock
+                0x00000000       0x4c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CySpc.o)
+ .text.CySpcUnlock
+                0x00000000       0x38 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CySpc.o)
+ .text.CySpcGetAlgorithm
+                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CySpc.o)
+ .text          0x00000000      0x370 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubdf3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubdf3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubdf3.o)
+ .text          0x00000000      0x110 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_cmpdf2.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_cmpdf2.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_cmpdf2.o)
+ .text          0x00000000      0x21c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubsf3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubsf3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubsf3.o)
+ .text          0x00000000      0x2a0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivsf3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivsf3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivsf3.o)
+ .text          0x00000000       0x40 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixunssfsi.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixunssfsi.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixunssfsi.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .text.exit     0x00000000       0x28 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .rodata._global_impure_ptr
+                0x00000000        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+rom              0x00000000         0x00040000         xr
+ram              0x1fff8000         0x00010000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
+START GROUP
+LOAD .\CortexM3\ARM_GCC_541\Debug\main.o
+LOAD .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+LOAD .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+LOAD .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+LOAD .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a
+LOAD C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Debug\CyComponentLibrary.a
+END GROUP
+START GROUP
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libc_nano.a
+END GROUP
+START GROUP
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libc_nano.a
+END GROUP
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+START GROUP
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libc.a
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libnosys.a
+END GROUP
+                0x00000000                CY_APPL_ORIGIN = 0x0
+                0x00000100                CY_FLASH_ROW_SIZE = 0x100
+                0x00000020                CY_ECC_ROW_SIZE = 0x20
+                0x00000000                CY_EE_IN_BTLDR = 0x0
+                0x00000000                CY_APPL_LOADABLE = 0x0
+                0x00000800                CY_EE_SIZE = 0x800
+                0x00000001                CY_APPL_NUM = 0x1
+                0x00000001                CY_APPL_MAX = 0x1
+                0x00000040                CY_METADATA_SIZE = 0x40
+                0x00000000                CY_APPL_LOADABLE = 0x0
+                0x00000000                CY_CHECKSUM_EXCLUDE_SIZE = ALIGN (0x0, CY_FLASH_ROW_SIZE)
+                [!provide]                PROVIDE (__cy_heap_start, _end)
+                0x00000001                PROVIDE (__cy_region_num, ((__cy_regions_end - __cy_regions) / 0x10))
+                0x20008000                PROVIDE (__cy_stack, (ORIGIN (ram) + LENGTH (ram)))
+                [!provide]                PROVIDE (__cy_heap_end, (__cy_stack - 0x800))
+
+.cybootloader   0x00000000        0x0
+ *(.cybootloader)
+                0x00000000                appl1_start = CY_APPL_ORIGIN?CY_APPL_ORIGIN:ALIGN (CY_FLASH_ROW_SIZE)
+                0x0001ff00                appl2_start = (appl1_start + ALIGN ((((LENGTH (rom) - appl1_start) - (0x2 * CY_FLASH_ROW_SIZE)) / 0x2), CY_FLASH_ROW_SIZE))
+                0x00000000                appl_start = (CY_APPL_NUM == 0x1)?appl1_start:appl2_start
+                0x00000000                ecc_offset = ((appl_start / CY_FLASH_ROW_SIZE) * CY_ECC_ROW_SIZE)
+                0x00000000                ee_offset = (CY_APPL_LOADABLE && ! (CY_EE_IN_BTLDR))?((CY_EE_SIZE / CY_APPL_MAX) * (CY_APPL_NUM - 0x1)):0x0
+                0x00000800                ee_size = (CY_APPL_LOADABLE && ! (CY_EE_IN_BTLDR))?(CY_EE_SIZE / CY_APPL_MAX):CY_EE_SIZE
+                [!provide]                PROVIDE (CY_ECC_OFFSET, ecc_offset)
+
+.text           0x00000000     0x152e
+ CREATE_OBJECT_SYMBOLS
+                0x00000000                PROVIDE (__cy_interrupt_vector, RomVectors)
+ *(.romvectors)
+ .romvectors    0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x00000000                RomVectors
+                0x00000001                ASSERT ((. != __cy_interrupt_vector), No interrupt vector)
+                0x00000001                ASSERT (CY_APPL_ORIGIN?(SIZEOF (.cybootloader) <= CY_APPL_ORIGIN):0x1, Wrong image location)
+                0x00000010                PROVIDE (__cy_reset, Reset)
+ *(.text.Reset)
+ .text.Reset    0x00000010       0x18 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x00000010                Reset
+                0x00000001                ASSERT ((. != __cy_reset), No reset code)
+ *(.dma_init)
+                0x00000001                ASSERT ((((appl_start + .) <= 0x10000) || 0x1), DMA Init must be within the first 64k of flash)
+ *(.text .text.* .gnu.linkonce.t.*)
+ .text          0x00000028       0x5c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .text.WaveDone
+                0x00000084       0x24 .\CortexM3\ARM_GCC_541\Debug\main.o
+                0x00000084                WaveDone
+ .text.ADCInterrupt
+                0x000000a8       0x2c .\CortexM3\ARM_GCC_541\Debug\main.o
+                0x000000a8                ADCInterrupt
+ .text.main     0x000000d4       0x8c .\CortexM3\ARM_GCC_541\Debug\main.o
+                0x000000d4                main
+ .text.CyClockStartupError
+                0x00000160        0x4 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.cfg_write_bytes32
+                0x00000164       0x34 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.AnalogSetDefault
+                0x00000198       0x44 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.CYMEMZERO
+                0x000001dc        0xc .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.CYCONFIGCPY
+                0x000001e8        0x8 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.ClockSetup
+                0x000001f0       0xfc .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.ADC_DelSig_1_AMux_Set
+                0x000002ec       0x1c .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x000002ec                ADC_DelSig_1_AMux_Set
+ .text.ADC_DelSig_1_AMux_Unset
+                0x00000308       0x1c .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000308                ADC_DelSig_1_AMux_Unset
+ .text.cyfitter_cfg
+                0x00000324      0x134 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000324                cyfitter_cfg
+ .text.IntDefaultHandler
+                0x00000458       0x10 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x00000458                IntDefaultHandler
+ .text.Start_c  0x00000468       0x4c .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x00000468                Start_c
+ .text.initialize_psoc
+                0x000004b4       0x6c .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x000004b4                initialize_psoc
+ .text.WaveDAC8_1_Enable
+                0x00000520       0x28 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1.o)
+                0x00000520                WaveDAC8_1_Enable
+ .text.WaveDAC8_1_Wave1Setup
+                0x00000548       0x40 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1.o)
+                0x00000548                WaveDAC8_1_Wave1Setup
+ .text.WaveDAC8_1_Wave2Setup
+                0x00000588       0x40 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1.o)
+                0x00000588                WaveDAC8_1_Wave2Setup
+ .text.WaveDAC8_1_Init
+                0x000005c8       0x3c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1.o)
+                0x000005c8                WaveDAC8_1_Init
+ .text.WaveDAC8_1_Start
+                0x00000604       0x1c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1.o)
+                0x00000604                WaveDAC8_1_Start
+ .text.ADC_DelSig_1_GainCompensation
+                0x00000620       0xe0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .text.ADC_DelSig_1_SetDSMRef0Reg
+                0x00000700       0x4c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .text.ADC_DelSig_1_InitConfig
+                0x0000074c      0x334 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .text.ADC_DelSig_1_Init
+                0x00000a80      0x108 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+                0x00000a80                ADC_DelSig_1_Init
+ .text.ADC_DelSig_1_Enable
+                0x00000b88       0xd4 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+                0x00000b88                ADC_DelSig_1_Enable
+ .text.ADC_DelSig_1_Start
+                0x00000c5c       0x28 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+                0x00000c5c                ADC_DelSig_1_Start
+ .text.ADC_DelSig_1_StartConvert
+                0x00000c84       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+                0x00000c84                ADC_DelSig_1_StartConvert
+ .text.ADC_DelSig_1_GetResult8
+                0x00000c94       0x48 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+                0x00000c94                ADC_DelSig_1_GetResult8
+ .text.ADC_DelSig_1_ISR1
+                0x00000cdc        0x4 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_INT.o)
+                0x00000cdc                ADC_DelSig_1_ISR1
+ .text.ADC_DelSig_1_ISR2
+                0x00000ce0        0x4 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_INT.o)
+                0x00000ce0                ADC_DelSig_1_ISR2
+ .text.ADC_DelSig_1_ISR3
+                0x00000ce4        0x4 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_INT.o)
+                0x00000ce4                ADC_DelSig_1_ISR3
+ .text.ADC_DelSig_1_ISR4
+                0x00000ce8        0x4 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_INT.o)
+                0x00000ce8                ADC_DelSig_1_ISR4
+ .text.WaveDAC8_1_DacClk_Start
+                0x00000cec       0x1c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_DacClk.o)
+                0x00000cec                WaveDAC8_1_DacClk_Start
+ .text.WaveDAC8_1_Wave1_DMA_DmaInitialize
+                0x00000d08       0x3c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave1_DMA_dma.o)
+                0x00000d08                WaveDAC8_1_Wave1_DMA_DmaInitialize
+ .text.WaveDAC8_1_Wave2_DMA_DmaInitialize
+                0x00000d44       0x3c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave2_DMA_dma.o)
+                0x00000d44                WaveDAC8_1_Wave2_DMA_DmaInitialize
+ .text.WaveDAC8_1_VDAC8_Enable
+                0x00000d80       0x1c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_VDAC8.o)
+                0x00000d80                WaveDAC8_1_VDAC8_Enable
+ .text.WaveDAC8_1_VDAC8_SetSpeed
+                0x00000d9c       0x1c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_VDAC8.o)
+                0x00000d9c                WaveDAC8_1_VDAC8_SetSpeed
+ .text.WaveDAC8_1_VDAC8_SetValue
+                0x00000db8        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_VDAC8.o)
+                0x00000db8                WaveDAC8_1_VDAC8_SetValue
+ .text.WaveDAC8_1_VDAC8_DacTrim
+                0x00000dc4       0x24 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_VDAC8.o)
+                0x00000dc4                WaveDAC8_1_VDAC8_DacTrim
+ .text.WaveDAC8_1_VDAC8_SetRange
+                0x00000de8       0x20 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_VDAC8.o)
+                0x00000de8                WaveDAC8_1_VDAC8_SetRange
+ .text.WaveDAC8_1_VDAC8_Init
+                0x00000e08       0x2c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_VDAC8.o)
+                0x00000e08                WaveDAC8_1_VDAC8_Init
+ .text.ADC_DelSig_1_AMux_Start
+                0x00000e34       0x20 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_AMux.o)
+                0x00000e34                ADC_DelSig_1_AMux_Start
+ .text.ADC_DelSig_1_AMux_Select
+                0x00000e54       0x18 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_AMux.o)
+                0x00000e54                ADC_DelSig_1_AMux_Select
+ .text.ADC_DelSig_1_Ext_CP_Clk_GetDividerRegister
+                0x00000e6c        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_Ext_CP_Clk.o)
+                0x00000e6c                ADC_DelSig_1_Ext_CP_Clk_GetDividerRegister
+ .text.ADC_DelSig_1_Ext_CP_Clk_SetModeRegister
+                0x00000e78       0x14 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_Ext_CP_Clk.o)
+                0x00000e78                ADC_DelSig_1_Ext_CP_Clk_SetModeRegister
+ .text.ADC_DelSig_1_Ext_CP_Clk_GetSourceRegister
+                0x00000e8c       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_Ext_CP_Clk.o)
+                0x00000e8c                ADC_DelSig_1_Ext_CP_Clk_GetSourceRegister
+ .text.ADC_DelSig_1_Ext_CP_Clk_SetDividerRegister
+                0x00000e9c       0xd8 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_Ext_CP_Clk.o)
+                0x00000e9c                ADC_DelSig_1_Ext_CP_Clk_SetDividerRegister
+ .text.ADC_DelSig_1_theACLK_GetDividerRegister
+                0x00000f74        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_theACLK.o)
+                0x00000f74                ADC_DelSig_1_theACLK_GetDividerRegister
+ .text.ADC_DelSig_1_theACLK_SetModeRegister
+                0x00000f80       0x14 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_theACLK.o)
+                0x00000f80                ADC_DelSig_1_theACLK_SetModeRegister
+ .text.ADC_DelSig_1_theACLK_GetSourceRegister
+                0x00000f94       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_theACLK.o)
+                0x00000f94                ADC_DelSig_1_theACLK_GetSourceRegister
+ .text.ADC_DelSig_1_theACLK_SetDividerRegister
+                0x00000fa4       0xd8 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_theACLK.o)
+                0x00000fa4                ADC_DelSig_1_theACLK_SetDividerRegister
+ .text.CyDmacConfigure
+                0x0000107c       0x34 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+                0x0000107c                CyDmacConfigure
+ .text.CyDmaChEnable
+                0x000010b0       0x38 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+                0x000010b0                CyDmaChEnable
+ .text.CyDmaChPriority
+                0x000010e8       0x24 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+                0x000010e8                CyDmaChPriority
+ .text.CyDmaChSetExtendedAddress
+                0x0000110c       0x34 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+                0x0000110c                CyDmaChSetExtendedAddress
+ .text.CyDmaChSetInitialTd
+                0x00001140       0x18 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+                0x00001140                CyDmaChSetInitialTd
+ .text.CyDmaChSetConfiguration
+                0x00001158       0x44 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+                0x00001158                CyDmaChSetConfiguration
+ .text.CyDmaTdAllocate
+                0x0000119c       0x34 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+                0x0000119c                CyDmaTdAllocate
+ .text.CyDmaTdSetConfiguration
+                0x000011d0       0x28 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+                0x000011d0                CyDmaTdSetConfiguration
+ .text.CyDmaTdSetAddress
+                0x000011f8       0x1c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+                0x000011f8                CyDmaTdSetAddress
+ .text.CyHalt   0x00001214        0x4 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+                0x00001214                CyHalt
+ .text.CyDelayUs
+                0x00001218       0x14 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+                0x00001218                CyDelayUs
+ .text.CyIntSetVector
+                0x0000122c       0x28 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+                0x0000122c                CyIntSetVector
+ .text.CyIntSetPriority
+                0x00001254       0x30 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+                0x00001254                CyIntSetPriority
+ .text.WaveDone_Interrupt
+                0x00001284        0x4 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDone.o)
+                0x00001284                WaveDone_Interrupt
+ .text.WaveDone_SetVector
+                0x00001288        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDone.o)
+                0x00001288                WaveDone_SetVector
+ .text.WaveDone_SetPriority
+                0x00001294       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDone.o)
+                0x00001294                WaveDone_SetPriority
+ .text.WaveDone_Enable
+                0x000012a4        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDone.o)
+                0x000012a4                WaveDone_Enable
+ .text.WaveDone_Disable
+                0x000012b0        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDone.o)
+                0x000012b0                WaveDone_Disable
+ .text.WaveDone_Start
+                0x000012bc       0x1c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDone.o)
+                0x000012bc                WaveDone_Start
+ .text.WaveDone_StartEx
+                0x000012d8       0x1c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDone.o)
+                0x000012d8                WaveDone_StartEx
+ .text.ADCInterrupt_Interrupt
+                0x000012f4        0x4 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADCInterrupt.o)
+                0x000012f4                ADCInterrupt_Interrupt
+ .text.ADCInterrupt_SetVector
+                0x000012f8       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADCInterrupt.o)
+                0x000012f8                ADCInterrupt_SetVector
+ .text.ADCInterrupt_SetPriority
+                0x00001308       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADCInterrupt.o)
+                0x00001308                ADCInterrupt_SetPriority
+ .text.ADCInterrupt_Enable
+                0x00001318       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADCInterrupt.o)
+                0x00001318                ADCInterrupt_Enable
+ .text.ADCInterrupt_Disable
+                0x00001328       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADCInterrupt.o)
+                0x00001328                ADCInterrupt_Disable
+ .text.ADCInterrupt_Start
+                0x00001338       0x1c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADCInterrupt.o)
+                0x00001338                ADCInterrupt_Start
+ .text.ADCInterrupt_StartEx
+                0x00001354       0x1c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADCInterrupt.o)
+                0x00001354                ADCInterrupt_StartEx
+ .text.UART_1_Init
+                0x00001370       0x28 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+                0x00001370                UART_1_Init
+ .text.UART_1_Enable
+                0x00001398       0x38 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+                0x00001398                UART_1_Enable
+ .text.UART_1_Start
+                0x000013d0       0x1c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+                0x000013d0                UART_1_Start
+ .text.UART_1_GetChar
+                0x000013ec       0x2c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+                0x000013ec                UART_1_GetChar
+ .text.UART_1_PutChar
+                0x00001418       0x18 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+                0x00001418                UART_1_PutChar
+ .text.UART_1_PutArray
+                0x00001430       0x28 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+                0x00001430                UART_1_PutArray
+ .text.UART_1_IntClock_Start
+                0x00001458       0x1c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1_IntClock.o)
+                0x00001458                UART_1_IntClock_Start
+ .text.LEDDrive_Write
+                0x00001474        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(LEDDrive.o)
+                0x00001474                LEDDrive_Write
+ .text.Marker1Drive_Write
+                0x00001480        0xc .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(Marker1Drive.o)
+                0x00001480                Marker1Drive_Write
+ *fill*         0x0000148c        0x4 
+ .text          0x00001490       0x20 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyBootAsmGnu.o)
+                0x00001490                CyDelayCycles
+                0x000014a0                CyEnterCriticalSection
+                0x000014a8                CyExitCriticalSection
+ .text.__errno  0x000014b0        0xc c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+                0x000014b0                __errno
+ .text.__libc_init_array
+                0x000014bc       0x4c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+                0x000014bc                __libc_init_array
+ .text.memcpy   0x00001508       0x16 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+                0x00001508                memcpy
+ .text.memset   0x0000151e       0x10 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+                0x0000151e                memset
+ *(.plt)
+ *(.gnu.warning)
+ *(.glue_7t)
+ .glue_7t       0x0000152e        0x0 linker stubs
+ *(.glue_7)
+ .glue_7        0x0000152e        0x0 linker stubs
+ *(.vfp11_veneer)
+ .vfp11_veneer  0x0000152e        0x0 linker stubs
+ *(.bootloader)
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+ *(.gcc_except_table)
+
+.v4_bx          0x00001530        0x0
+ .v4_bx         0x00001530        0x0 linker stubs
+
+.iplt           0x00001530        0x0
+ .iplt          0x00001530        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+
+.eh_frame       0x00001530        0x4
+ *(.eh_frame)
+ .eh_frame      0x00001530        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .eh_frame      0x00001530        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+                [!provide]                PROVIDE (__exidx_start, .)
+
+.ARM.exidx
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                0x00001534                __exidx_end = .
+
+.rodata         0x00001534      0x13c
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata        0x00001534       0x36 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00001534                ADC_DelSig_1_AMux__addrTable
+                0x0000153c                ADC_DelSig_1_AMux__maskTable
+ *fill*         0x0000156a        0x2 
+ .rodata        0x0000156c       0xc8 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1.o)
+                0x0000156c                WaveDAC8_1_wave1
+                0x000015d0                WaveDAC8_1_wave2
+ .rodata.str1.1
+                0x00001634        0x2 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                0x00001638                . = ALIGN (0x4)
+ *fill*         0x00001636        0x2 
+ *(.init)
+ .init          0x00001638        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+                0x00001638                _init
+ .init          0x0000163c        0x8 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+                0x00001644                . = ALIGN (0x4)
+                0x00001644                __preinit_array_start = .
+ *(.preinit_array)
+                0x00001644                __preinit_array_end = .
+                0x00001644                . = ALIGN (0x4)
+                0x00001644                __init_array_start = .
+ *(SORT(.init_array.*))
+ *(.init_array)
+ .init_array    0x00001644        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .init_array    0x00001648        0x4 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x0000164c                __init_array_end = .
+                0x0000164c                . = ALIGN (0x4)
+ *(.fini)
+ .fini          0x0000164c        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+                0x0000164c                _fini
+ .fini          0x00001650        0x8 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+                0x00001658                . = ALIGN (0x4)
+                0x00001658                __fini_array_start = .
+ *(.fini_array)
+ .fini_array    0x00001658        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ *(SORT(.fini_array.*))
+                0x0000165c                __fini_array_end = .
+                0x0000165c                . = ALIGN (0x4)
+ *crtbegin.o(.ctors)
+ *(EXCLUDE_FILE(*crtend.o) .ctors)
+ *(SORT(.ctors.*))
+ *crtend.o(.ctors)
+                0x0000165c                . = ALIGN (0x4)
+ *crtbegin.o(.dtors)
+ *(EXCLUDE_FILE(*crtend.o) .dtors)
+ *(SORT(.dtors.*))
+ *crtend.o(.dtors)
+                0x0000165c                . = ALIGN (0x4)
+                0x0000165c                __cy_regions = .
+                0x0000165c        0x4 LONG 0x1670 __cy_region_init_ram
+                0x00001660        0x4 LONG 0x1fff80c8 __cy_region_start_data
+                0x00001664        0x4 LONG 0x88 __cy_region_init_size_ram
+                0x00001668        0x4 LONG 0x448 __cy_region_zero_size_ram
+                0x0000166c                __cy_regions_end = .
+                0x00001670                . = ALIGN (0x8)
+ *fill*         0x0000166c        0x4 
+                0x00001670                _etext = .
+
+.cy_checksum_exclude
+                0x00001670        0x0
+ *(.cy_checksum_exclude)
+
+.ramvectors     0x1fff8000       0xc0
+                0x1fff8000                __cy_region_start_ram = .
+ *(.ramvectors)
+ .ramvectors    0x1fff8000       0xc0 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x1fff8000                CyRamVectors
+
+.noinit         0x1fff80c0        0x1
+ *(.noinit)
+ .noinit        0x1fff80c0        0x1 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+                0x1fff80c0                CyResetStatus
+
+.data           0x1fff80c8       0x88 load address 0x00001670
+                0x1fff80c8                __cy_region_start_data = .
+ *(.jcr)
+ .jcr           0x1fff80c8        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .jcr           0x1fff80c8        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+ *(.got.plt)
+ *(.got)
+ *(.shdata)
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x1fff80cc        0x1 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+                0x1fff80cc                ADC_DelSig_1_Config
+ .data          0x1fff80cd        0x1 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave1_DMA_dma.o)
+                0x1fff80cd                WaveDAC8_1_Wave1_DMA_DmaHandle
+ .data          0x1fff80ce        0x1 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave2_DMA_dma.o)
+                0x1fff80ce                WaveDAC8_1_Wave2_DMA_DmaHandle
+ .data          0x1fff80cf        0x1 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_AMux.o)
+ .data          0x1fff80d0        0x8 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+ .data          0x1fff80d8       0x10 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+                0x1fff80d8                cydelay_32k_ms
+                0x1fff80dc                cydelay_freq_khz
+                0x1fff80e0                cydelay_freq_mhz
+                0x1fff80e4                cydelay_freq_hz
+ .data.impure_data
+                0x1fff80e8       0x60 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .data._impure_ptr
+                0x1fff8148        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                0x1fff8148                _impure_ptr
+                0x1fff8150                . = ALIGN (0x8)
+ *fill*         0x1fff814c        0x4 
+ *(.ram)
+                0x1fff8150                _edata = .
+
+.igot.plt       0x1fff8150        0x0 load address 0x000016f8
+ .igot.plt      0x1fff8150        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+
+.bss            0x1fff8150      0x448 load address 0x000016f8
+                0x1fff8150                PROVIDE (__bss_start__, .)
+ *(.shbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x1fff8150       0x1c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .bss           0x1fff816c        0x2 .\CortexM3\ARM_GCC_541\Debug\main.o
+                0x1fff816c                DataReady
+ .bss           0x1fff816e        0x5 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1.o)
+                0x1fff8172                WaveDAC8_1_initVar
+ *fill*         0x1fff8173        0x1 
+ .bss           0x1fff8174       0x18 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+                0x1fff8184                ADC_DelSig_1_stopConversion
+                0x1fff8185                ADC_DelSig_1_convDone
+                0x1fff8186                ADC_DelSig_1_initVar
+                0x1fff8187                ADC_DelSig_1_started
+                0x1fff8188                ADC_DelSig_1_Offset
+ .bss           0x1fff818c        0x2 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+                0x1fff818c                UART_1_initVar
+ *(COMMON)
+ *fill*         0x1fff818e        0x2 
+ COMMON         0x1fff8190      0x404 .\CortexM3\ARM_GCC_541\Debug\main.o
+                0x1fff8190                Ch
+                0x1fff8192                i
+                0x1fff8194                Output
+ COMMON         0x1fff8594        0x4 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+                0x1fff8594                ADC_DelSig_1_CountsPerVolt
+                0x1fff8598                . = ALIGN (0x8)
+ *(.ram.b)
+                0x1fff8598                _end = .
+                0x1fff8598                __end = .
+                0x1fff8598                PROVIDE (end, .)
+                0x1fff8598                PROVIDE (__bss_end__, .)
+                0x00001670                __cy_region_init_ram = LOADADDR (.data)
+                0x00000088                __cy_region_init_size_ram = (_edata - ADDR (.data))
+                0x00000448                __cy_region_zero_size_ram = (_end - _edata)
+
+.heap           0x1fff8598       0x80 load address 0x000016f8
+                0x1fff8598                . = _end
+                0x1fff8618                . = (. + 0x80)
+ *fill*         0x1fff8598       0x80 
+                0x1fff8618                __cy_heap_limit = .
+
+.stack          0x20007800      0x800
+                0x20007800                __cy_stack_limit = .
+                0x20008000                . = (. + 0x800)
+ *fill*         0x20007800      0x800 
+                0x00000001                ASSERT ((__cy_stack_limit >= __cy_heap_limit), region RAM overflowed with stack)
+                0x00000000                cy_checksum_exclude_size = (CY_APPL_LOADABLE == 0x1)?SIZEOF (.cy_checksum_exclude):0x0
+                0x00000001                ASSERT ((cy_checksum_exclude_size <= CY_CHECKSUM_EXCLUDE_SIZE), CY_BOOT: Section .cy_checksum_exclude size exceedes specified limit.)
+
+.cyloadermeta
+ *(.cyloadermeta)
+
+.cyloadablemeta
+ *(.cyloadablemeta)
+
+.cyconfigecc    0x80000000      0x47c
+ *(.cyconfigecc)
+ .cyconfigecc   0x80000000      0x47c .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                0x80000000                cy_meta_configecc
+
+.cycustnvl      0x90000000        0x4
+ *(.cycustnvl)
+ .cycustnvl     0x90000000        0x4 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                0x90000000                cy_meta_custnvl
+
+.cywolatch      0x90100000        0x4
+ *(.cywolatch)
+ .cywolatch     0x90100000        0x4 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                0x90100000                cy_meta_wonvl
+
+.cyeeprom       0x90200000        0x0
+ *(.cyeeprom)
+                0x00000001                ASSERT ((. <= ((0x90200000 + ee_offset) + ee_size)), .cyeeprom data will not fit in EEPROM)
+
+.cyflashprotect
+                0x90400000      0x100
+ *(.cyflashprotect)
+ .cyflashprotect
+                0x90400000      0x100 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                0x90400000                cy_meta_flashprotect
+
+.cymeta         0x90500000        0xc
+ *(.cymeta)
+ .cymeta        0x90500000        0xc .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                0x90500000                cy_metadata
+
+.rel.dyn        0x000016f8        0x0 load address 0x9050000c
+ .rel.iplt      0x000016f8        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0xc88
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_aranges
+                0x00000030       0x68 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_aranges
+                0x00000098       0x18 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .debug_aranges
+                0x000000b0       0x48 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_aranges
+                0x000000f8       0x50 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1.o)
+ .debug_aranges
+                0x00000148       0xe8 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .debug_aranges
+                0x00000230       0x38 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_INT.o)
+ .debug_aranges
+                0x00000268       0x70 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_DacClk.o)
+ .debug_aranges
+                0x000002d8       0x28 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave1_DMA_dma.o)
+ .debug_aranges
+                0x00000300       0x28 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave2_DMA_dma.o)
+ .debug_aranges
+                0x00000328       0x58 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_VDAC8.o)
+ .debug_aranges
+                0x00000380       0x30 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_AMux.o)
+ .debug_aranges
+                0x000003b0       0x70 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_Ext_CP_Clk.o)
+ .debug_aranges
+                0x00000420       0x80 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_theACLK.o)
+ .debug_aranges
+                0x000004a0       0xd8 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+ .debug_aranges
+                0x00000578      0x2a0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .debug_aranges
+                0x00000818       0x98 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .debug_aranges
+                0x000008b0       0x80 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDone.o)
+ .debug_aranges
+                0x00000930       0x80 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADCInterrupt.o)
+ .debug_aranges
+                0x000009b0       0xf0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .debug_aranges
+                0x00000aa0       0x70 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1_IntClock.o)
+ .debug_aranges
+                0x00000b10       0x28 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(LEDDrive.o)
+ .debug_aranges
+                0x00000b38       0x28 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(Marker1Drive.o)
+ .debug_aranges
+                0x00000b60       0x20 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyBootAsmGnu.o)
+ .debug_aranges
+                0x00000b80       0x88 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+ .debug_aranges
+                0x00000c08       0x80 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CySpc.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x00000000     0x7189
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000      0x315 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_info    0x00000315      0x61e .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_info    0x00000933      0x136 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .debug_info    0x00000a69      0x3cf .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_info    0x00000e38      0x507 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1.o)
+ .debug_info    0x0000133f      0xbf6 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .debug_info    0x00001f35       0xd3 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_INT.o)
+ .debug_info    0x00002008      0x283 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_DacClk.o)
+ .debug_info    0x0000228b      0x1aa .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave1_DMA_dma.o)
+ .debug_info    0x00002435      0x1a7 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave2_DMA_dma.o)
+ .debug_info    0x000025dc      0x1de .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_VDAC8.o)
+ .debug_info    0x000027ba      0x165 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_AMux.o)
+ .debug_info    0x0000291f      0x283 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_Ext_CP_Clk.o)
+ .debug_info    0x00002ba2      0x2c4 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_theACLK.o)
+ .debug_info    0x00002e66      0x94e .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+ .debug_info    0x000037b4     0x1374 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .debug_info    0x00004b28      0xa2a .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .debug_info    0x00005552      0x2d2 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDone.o)
+ .debug_info    0x00005824      0x2d2 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADCInterrupt.o)
+ .debug_info    0x00005af6      0x60c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .debug_info    0x00006102      0x283 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1_IntClock.o)
+ .debug_info    0x00006385       0xd6 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(LEDDrive.o)
+ .debug_info    0x0000645b       0xd6 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(Marker1Drive.o)
+ .debug_info    0x00006531       0xbb .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyBootAsmGnu.o)
+ .debug_info    0x000065ec      0x64d .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+ .debug_info    0x00006c39      0x550 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CySpc.o)
+
+.debug_abbrev   0x00000000     0x1f0b
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x109 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_abbrev  0x00000109      0x21e .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_abbrev  0x00000327       0x77 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .debug_abbrev  0x0000039e      0x1e8 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_abbrev  0x00000586      0x10b .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1.o)
+ .debug_abbrev  0x00000691      0x1cd .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .debug_abbrev  0x0000085e       0x42 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_INT.o)
+ .debug_abbrev  0x000008a0      0x139 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_DacClk.o)
+ .debug_abbrev  0x000009d9       0xcd .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave1_DMA_dma.o)
+ .debug_abbrev  0x00000aa6       0xcd .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave2_DMA_dma.o)
+ .debug_abbrev  0x00000b73       0xf7 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_VDAC8.o)
+ .debug_abbrev  0x00000c6a       0xb1 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_AMux.o)
+ .debug_abbrev  0x00000d1b      0x139 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_Ext_CP_Clk.o)
+ .debug_abbrev  0x00000e54      0x121 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_theACLK.o)
+ .debug_abbrev  0x00000f75      0x1b2 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+ .debug_abbrev  0x00001127      0x254 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .debug_abbrev  0x0000137b      0x1ab .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .debug_abbrev  0x00001526      0x173 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDone.o)
+ .debug_abbrev  0x00001699      0x173 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADCInterrupt.o)
+ .debug_abbrev  0x0000180c      0x175 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .debug_abbrev  0x00001981      0x139 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1_IntClock.o)
+ .debug_abbrev  0x00001aba       0x81 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(LEDDrive.o)
+ .debug_abbrev  0x00001b3b       0x81 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(Marker1Drive.o)
+ .debug_abbrev  0x00001bbc       0x14 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyBootAsmGnu.o)
+ .debug_abbrev  0x00001bd0      0x1a7 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+ .debug_abbrev  0x00001d77      0x194 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CySpc.o)
+
+.debug_line     0x00000000     0x2fc7
+ *(.debug_line)
+ .debug_line    0x00000000      0x214 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_line    0x00000214      0x20d .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_line    0x00000421      0x141 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .debug_line    0x00000562      0x241 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_line    0x000007a3      0x160 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1.o)
+ .debug_line    0x00000903      0x3fb .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .debug_line    0x00000cfe       0x89 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_INT.o)
+ .debug_line    0x00000d87      0x180 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_DacClk.o)
+ .debug_line    0x00000f07       0x91 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave1_DMA_dma.o)
+ .debug_line    0x00000f98       0x91 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave2_DMA_dma.o)
+ .debug_line    0x00001029       0xec .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_VDAC8.o)
+ .debug_line    0x00001115       0xb5 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_AMux.o)
+ .debug_line    0x000011ca      0x186 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_Ext_CP_Clk.o)
+ .debug_line    0x00001350      0x1a6 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_theACLK.o)
+ .debug_line    0x000014f6      0x2e4 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+ .debug_line    0x000017da      0x816 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .debug_line    0x00001ff0      0x367 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .debug_line    0x00002357      0x135 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDone.o)
+ .debug_line    0x0000248c      0x139 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADCInterrupt.o)
+ .debug_line    0x000025c5      0x2c0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .debug_line    0x00002885      0x17e .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1_IntClock.o)
+ .debug_line    0x00002a03       0x70 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(LEDDrive.o)
+ .debug_line    0x00002a73       0x74 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(Marker1Drive.o)
+ .debug_line    0x00002ae7       0x66 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyBootAsmGnu.o)
+ .debug_line    0x00002b4d      0x21a .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+ .debug_line    0x00002d67      0x260 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CySpc.o)
+
+.debug_frame    0x00000000     0x1ee8
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x68 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_frame   0x00000068      0x104 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_frame   0x0000016c       0xb8 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_frame   0x00000224       0xe0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1.o)
+ .debug_frame   0x00000304      0x284 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .debug_frame   0x00000588       0x50 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_INT.o)
+ .debug_frame   0x000005d8       0xe0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_DacClk.o)
+ .debug_frame   0x000006b8       0x54 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave1_DMA_dma.o)
+ .debug_frame   0x0000070c       0x54 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave2_DMA_dma.o)
+ .debug_frame   0x00000760       0xb4 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_VDAC8.o)
+ .debug_frame   0x00000814       0x64 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_AMux.o)
+ .debug_frame   0x00000878       0xe0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_Ext_CP_Clk.o)
+ .debug_frame   0x00000958      0x100 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_theACLK.o)
+ .debug_frame   0x00000a58      0x1f8 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+ .debug_frame   0x00000c50      0x738 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .debug_frame   0x00001388      0x1f8 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .debug_frame   0x00001580      0x104 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDone.o)
+ .debug_frame   0x00001684      0x104 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADCInterrupt.o)
+ .debug_frame   0x00001788      0x250 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .debug_frame   0x000019d8       0xe0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1_IntClock.o)
+ .debug_frame   0x00001ab8       0x30 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(LEDDrive.o)
+ .debug_frame   0x00001ae8       0x30 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(Marker1Drive.o)
+ .debug_frame   0x00001b18      0x194 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+ .debug_frame   0x00001cac      0x180 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CySpc.o)
+ .debug_frame   0x00001e2c       0x20 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .debug_frame   0x00001e4c       0x28 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .debug_frame   0x00001e74       0x2c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+ .debug_frame   0x00001ea0       0x28 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x00001ec8       0x20 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+
+.debug_str      0x00000000     0x2c9c
+ *(.debug_str)
+ .debug_str     0x00000000      0x2de .\CortexM3\ARM_GCC_541\Debug\main.o
+                                0x326 (size before relaxing)
+ .debug_str     0x000002de      0x1ea .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                                0x3aa (size before relaxing)
+ .debug_str     0x000004c8       0x7f .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                                0x20f (size before relaxing)
+ .debug_str     0x00000547      0x154 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                                0x345 (size before relaxing)
+ .debug_str     0x0000069b      0x2c9 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1.o)
+                                0x494 (size before relaxing)
+ .debug_str     0x00000964      0x509 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+                                0x765 (size before relaxing)
+ .debug_str     0x00000e6d       0x72 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_INT.o)
+                                0x218 (size before relaxing)
+ .debug_str     0x00000edf      0x1a9 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_DacClk.o)
+                                0x391 (size before relaxing)
+ .debug_str     0x00001088       0xee .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave1_DMA_dma.o)
+                                0x2d3 (size before relaxing)
+ .debug_str     0x00001176       0x71 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave2_DMA_dma.o)
+                                0x2d3 (size before relaxing)
+ .debug_str     0x000011e7       0x84 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_VDAC8.o)
+                                0x2b8 (size before relaxing)
+ .debug_str     0x0000126b       0x83 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_AMux.o)
+                                0x269 (size before relaxing)
+ .debug_str     0x000012ee      0x184 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_Ext_CP_Clk.o)
+                                0x3d9 (size before relaxing)
+ .debug_str     0x00001472      0x1bb .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_theACLK.o)
+                                0x40a (size before relaxing)
+ .debug_str     0x0000162d      0x2aa .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+                                0x575 (size before relaxing)
+ .debug_str     0x000018d7      0x7ca .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+                                0xa72 (size before relaxing)
+ .debug_str     0x000020a1      0x365 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+                                0x75e (size before relaxing)
+ .debug_str     0x00002406       0xcf .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDone.o)
+                                0x2fb (size before relaxing)
+ .debug_str     0x000024d5      0x10c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADCInterrupt.o)
+                                0x333 (size before relaxing)
+ .debug_str     0x000025e1      0x2a0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+                                0x4de (size before relaxing)
+ .debug_str     0x00002881      0x14c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1_IntClock.o)
+                                0x379 (size before relaxing)
+ .debug_str     0x000029cd       0x30 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(LEDDrive.o)
+                                0x1e3 (size before relaxing)
+ .debug_str     0x000029fd       0x38 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(Marker1Drive.o)
+                                0x1ef (size before relaxing)
+ .debug_str     0x00002a35      0x1bb .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+                                0x3eb (size before relaxing)
+ .debug_str     0x00002bf0       0xac .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CySpc.o)
+                                0x363 (size before relaxing)
+
+.debug_loc      0x00000000     0x36fe
+ *(.debug_loc)
+ .debug_loc     0x00000000      0x219 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_loc     0x00000219      0x144 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_loc     0x0000035d      0x11b .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1.o)
+ .debug_loc     0x00000478      0x692 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .debug_loc     0x00000b0a      0x128 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_DacClk.o)
+ .debug_loc     0x00000c32       0x84 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave1_DMA_dma.o)
+ .debug_loc     0x00000cb6       0x84 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave2_DMA_dma.o)
+ .debug_loc     0x00000d3a       0x79 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_VDAC8.o)
+ .debug_loc     0x00000db3       0x6c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_AMux.o)
+ .debug_loc     0x00000e1f      0x12c .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_Ext_CP_Clk.o)
+ .debug_loc     0x00000f4b      0x14d .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_theACLK.o)
+ .debug_loc     0x00001098      0xb8e .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+ .debug_loc     0x00001c26      0xa11 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .debug_loc     0x00002637      0x1e4 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .debug_loc     0x0000281b       0x56 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDone.o)
+ .debug_loc     0x00002871       0x56 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADCInterrupt.o)
+ .debug_loc     0x000028c7      0x258 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .debug_loc     0x00002b1f      0x128 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1_IntClock.o)
+ .debug_loc     0x00002c47      0x3b2 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+ .debug_loc     0x00002ff9      0x705 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CySpc.o)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_ranges   0x00000000      0xad0
+ *(.debug_ranges)
+ .debug_ranges  0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_ranges  0x00000020       0x58 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_ranges  0x00000078       0x38 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_ranges  0x000000b0       0x40 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1.o)
+ .debug_ranges  0x000000f0       0xd8 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .debug_ranges  0x000001c8       0x28 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_INT.o)
+ .debug_ranges  0x000001f0       0x60 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_DacClk.o)
+ .debug_ranges  0x00000250       0x18 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave1_DMA_dma.o)
+ .debug_ranges  0x00000268       0x18 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave2_DMA_dma.o)
+ .debug_ranges  0x00000280       0x48 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_VDAC8.o)
+ .debug_ranges  0x000002c8       0x20 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_AMux.o)
+ .debug_ranges  0x000002e8       0x60 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_Ext_CP_Clk.o)
+ .debug_ranges  0x00000348       0x70 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_theACLK.o)
+ .debug_ranges  0x000003b8       0xc8 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+ .debug_ranges  0x00000480      0x290 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .debug_ranges  0x00000710       0x88 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .debug_ranges  0x00000798       0x70 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDone.o)
+ .debug_ranges  0x00000808       0x70 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADCInterrupt.o)
+ .debug_ranges  0x00000878       0xe0 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .debug_ranges  0x00000958       0x60 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1_IntClock.o)
+ .debug_ranges  0x000009b8       0x18 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(LEDDrive.o)
+ .debug_ranges  0x000009d0       0x18 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(Marker1Drive.o)
+ .debug_ranges  0x000009e8       0x78 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+ .debug_ranges  0x00000a60       0x70 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CySpc.o)
+
+.comment        0x00000000       0x6e
+ .comment       0x00000000       0x6e .\CortexM3\ARM_GCC_541\Debug\main.o
+                                 0x6f (size before relaxing)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_INT.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_DacClk.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave1_DMA_dma.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave2_DMA_dma.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_VDAC8.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_AMux.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_Ext_CP_Clk.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_theACLK.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDone.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADCInterrupt.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1_IntClock.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(LEDDrive.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(Marker1Drive.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CySpc.o)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.note.gnu.arm.ident
+ *(.note.gnu.arm.ident)
+
+.ARM.attributes
+                0x00000000       0x29
+ *(.ARM.attributes)
+ .ARM.attributes
+                0x00000000       0x1d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+ .ARM.attributes
+                0x0000001d       0x2d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .ARM.attributes
+                0x0000004a       0x1b c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
+ .ARM.attributes
+                0x00000065       0x33 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .ARM.attributes
+                0x00000098       0x33 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .ARM.attributes
+                0x000000cb       0x33 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .ARM.attributes
+                0x000000fe       0x33 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .ARM.attributes
+                0x00000131       0x33 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1.o)
+ .ARM.attributes
+                0x00000164       0x33 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1.o)
+ .ARM.attributes
+                0x00000197       0x33 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_INT.o)
+ .ARM.attributes
+                0x000001ca       0x33 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_DacClk.o)
+ .ARM.attributes
+                0x000001fd       0x33 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave1_DMA_dma.o)
+ .ARM.attributes
+                0x00000230       0x33 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_Wave2_DMA_dma.o)
+ .ARM.attributes
+                0x00000263       0x33 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDAC8_1_VDAC8.o)
+ .ARM.attributes
+                0x00000296       0x33 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_AMux.o)
+ .ARM.attributes
+                0x000002c9       0x33 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_Ext_CP_Clk.o)
+ .ARM.attributes
+                0x000002fc       0x33 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADC_DelSig_1_theACLK.o)
+ .ARM.attributes
+                0x0000032f       0x33 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyDmac.o)
+ .ARM.attributes
+                0x00000362       0x33 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyLib.o)
+ .ARM.attributes
+                0x00000395       0x33 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(cyPm.o)
+ .ARM.attributes
+                0x000003c8       0x33 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(WaveDone.o)
+ .ARM.attributes
+                0x000003fb       0x33 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(ADCInterrupt.o)
+ .ARM.attributes
+                0x0000042e       0x33 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1.o)
+ .ARM.attributes
+                0x00000461       0x33 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(UART_1_IntClock.o)
+ .ARM.attributes
+                0x00000494       0x33 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(LEDDrive.o)
+ .ARM.attributes
+                0x000004c7       0x33 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(Marker1Drive.o)
+ .ARM.attributes
+                0x000004fa       0x21 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyBootAsmGnu.o)
+ .ARM.attributes
+                0x0000051b       0x33 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CyFlash.o)
+ .ARM.attributes
+                0x0000054e       0x33 .\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.a(CySpc.o)
+ .ARM.attributes
+                0x00000581       0x1d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubdf3.o)
+ .ARM.attributes
+                0x0000059e       0x1d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_cmpdf2.o)
+ .ARM.attributes
+                0x000005bb       0x1d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubsf3.o)
+ .ARM.attributes
+                0x000005d8       0x1d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivsf3.o)
+ .ARM.attributes
+                0x000005f5       0x1d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixunssfsi.o)
+ .ARM.attributes
+                0x00000612       0x2d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .ARM.attributes
+                0x0000063f       0x2d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .ARM.attributes
+                0x0000066c       0x2d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .ARM.attributes
+                0x00000699       0x2d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+ .ARM.attributes
+                0x000006c6       0x2d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .ARM.attributes
+                0x000006f3       0x2d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+ .ARM.attributes
+                0x00000720       0x2d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+ .ARM.attributes
+                0x0000074d       0x1d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+
+/DISCARD/
+ *(.note.GNU-stack)
+OUTPUT(C:\Users\George Anwar\Documents\UC Berkeley\ME135 Spring 2020\PSOC Creator\ME135_235\DAQArrayInterrupt.cydsn\CortexM3\ARM_GCC_541\Debug\DAQArrayInterrupt.elf elf32-littlearm)

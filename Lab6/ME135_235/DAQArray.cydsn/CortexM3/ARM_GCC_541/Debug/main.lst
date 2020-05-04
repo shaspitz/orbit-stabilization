@@ -1,0 +1,746 @@
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccMi7iCN.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	main, %function
+  25              	main:
+  26              	.LFB63:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** 
+  14:main.c        **** uint16 Output[1024];
+  15:main.c        **** 
+  16:main.c        **** uint16 i;
+  17:main.c        **** 
+  18:main.c        **** int main(void)
+  19:main.c        **** {
+  28              		.loc 1 19 0
+  29              		.cfi_startproc
+  30              		@ Volatile: function does not return.
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 08B5     		push	{r3, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 3, -8
+  36              		.cfi_offset 14, -4
+  20:main.c        ****     
+  21:main.c        ****     WaveDAC8_1_Start();
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccMi7iCN.s 			page 2
+
+
+  37              		.loc 1 21 0
+  38 0002 FFF7FEFF 		bl	WaveDAC8_1_Start
+  39              	.LVL0:
+  22:main.c        ****     ADC_DelSig_1_Start();
+  40              		.loc 1 22 0
+  41 0006 FFF7FEFF 		bl	ADC_DelSig_1_Start
+  42              	.LVL1:
+  23:main.c        ****     
+  24:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  43              		.loc 1 24 0
+  44              		.syntax unified
+  45              	@ 24 "main.c" 1
+  46 000a 62B6     		CPSIE   i
+  47              	@ 0 "" 2
+  25:main.c        **** 
+  26:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  27:main.c        ****     ADC_DelSig_1_StartConvert();
+  48              		.loc 1 27 0
+  49              		.thumb
+  50              		.syntax unified
+  51 000c FFF7FEFF 		bl	ADC_DelSig_1_StartConvert
+  52              	.LVL2:
+  28:main.c        ****     
+  29:main.c        ****     i = 0;
+  53              		.loc 1 29 0
+  54 0010 0022     		movs	r2, #0
+  55 0012 0A4B     		ldr	r3, .L5
+  56 0014 1A80     		strh	r2, [r3]	@ movhi
+  57              	.L2:
+  30:main.c        ****     
+  31:main.c        ****     for(;;)
+  32:main.c        ****     {
+  33:main.c        ****         /* Place your application code here. */
+  34:main.c        ****         
+  35:main.c        ****         if(ADC_DelSig_1_IsEndConversion(ADC_DelSig_1_RETURN_STATUS))
+  58              		.loc 1 35 0
+  59 0016 0120     		movs	r0, #1
+  60 0018 FFF7FEFF 		bl	ADC_DelSig_1_IsEndConversion
+  61              	.LVL3:
+  62 001c 0028     		cmp	r0, #0
+  63 001e FAD0     		beq	.L2
+  36:main.c        ****         {
+  37:main.c        ****             /* Use the GetResult16 API to get an 8 bit unsigned result in
+  38:main.c        ****              * single ended mode.  The API CountsTo_mVolts is then used
+  39:main.c        ****              * to convert the ADC counts into mV before transmitting via
+  40:main.c        ****              * the UART.  See the datasheet API description for more
+  41:main.c        ****              * details */
+  42:main.c        ****             Output[i] = ADC_DelSig_1_GetResult16();
+  64              		.loc 1 42 0
+  65 0020 064C     		ldr	r4, .L5
+  66 0022 2588     		ldrh	r5, [r4]
+  67 0024 FFF7FEFF 		bl	ADC_DelSig_1_GetResult16
+  68              	.LVL4:
+  69 0028 054B     		ldr	r3, .L5+4
+  70 002a 23F81500 		strh	r0, [r3, r5, lsl #1]	@ movhi
+  43:main.c        ****             i=(i+1)&0x03FF;
+  71              		.loc 1 43 0
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccMi7iCN.s 			page 3
+
+
+  72 002e 2388     		ldrh	r3, [r4]
+  73 0030 0133     		adds	r3, r3, #1
+  74 0032 C3F30903 		ubfx	r3, r3, #0, #10
+  75 0036 2380     		strh	r3, [r4]	@ movhi
+  76 0038 EDE7     		b	.L2
+  77              	.L6:
+  78 003a 00BF     		.align	2
+  79              	.L5:
+  80 003c 00000000 		.word	i
+  81 0040 00000000 		.word	Output
+  82              		.cfi_endproc
+  83              	.LFE63:
+  84              		.size	main, .-main
+  85              		.comm	i,2,2
+  86              		.comm	Output,2048,4
+  87              		.text
+  88              	.Letext0:
+  89              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+  90              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+  91              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+  92              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+  93              		.file 6 "Generated_Source\\PSoC5/WaveDAC8_1.h"
+  94              		.file 7 "Generated_Source\\PSoC5/ADC_DelSig_1.h"
+  95              		.section	.debug_info,"",%progbits
+  96              	.Ldebug_info0:
+  97 0000 77010000 		.4byte	0x177
+  98 0004 0400     		.2byte	0x4
+  99 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 100 000a 04       		.byte	0x4
+ 101 000b 01       		.uleb128 0x1
+ 102 000c B2000000 		.4byte	.LASF24
+ 103 0010 0C       		.byte	0xc
+ 104 0011 A6000000 		.4byte	.LASF25
+ 105 0015 27000000 		.4byte	.LASF26
+ 106 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 107 001d 00000000 		.4byte	0
+ 108 0021 00000000 		.4byte	.Ldebug_line0
+ 109 0025 02       		.uleb128 0x2
+ 110 0026 01       		.byte	0x1
+ 111 0027 06       		.byte	0x6
+ 112 0028 D5010000 		.4byte	.LASF0
+ 113 002c 02       		.uleb128 0x2
+ 114 002d 01       		.byte	0x1
+ 115 002e 08       		.byte	0x8
+ 116 002f 98000000 		.4byte	.LASF1
+ 117 0033 02       		.uleb128 0x2
+ 118 0034 02       		.byte	0x2
+ 119 0035 05       		.byte	0x5
+ 120 0036 17020000 		.4byte	.LASF2
+ 121 003a 02       		.uleb128 0x2
+ 122 003b 02       		.byte	0x2
+ 123 003c 07       		.byte	0x7
+ 124 003d 7C010000 		.4byte	.LASF3
+ 125 0041 03       		.uleb128 0x3
+ 126 0042 ED010000 		.4byte	.LASF9
+ 127 0046 02       		.byte	0x2
+ 128 0047 3F       		.byte	0x3f
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccMi7iCN.s 			page 4
+
+
+ 129 0048 4C000000 		.4byte	0x4c
+ 130 004c 02       		.uleb128 0x2
+ 131 004d 04       		.byte	0x4
+ 132 004e 05       		.byte	0x5
+ 133 004f B1010000 		.4byte	.LASF4
+ 134 0053 02       		.uleb128 0x2
+ 135 0054 04       		.byte	0x4
+ 136 0055 07       		.byte	0x7
+ 137 0056 53010000 		.4byte	.LASF5
+ 138 005a 02       		.uleb128 0x2
+ 139 005b 08       		.byte	0x8
+ 140 005c 05       		.byte	0x5
+ 141 005d 00000000 		.4byte	.LASF6
+ 142 0061 02       		.uleb128 0x2
+ 143 0062 08       		.byte	0x8
+ 144 0063 07       		.byte	0x7
+ 145 0064 65010000 		.4byte	.LASF7
+ 146 0068 04       		.uleb128 0x4
+ 147 0069 04       		.byte	0x4
+ 148 006a 05       		.byte	0x5
+ 149 006b 696E7400 		.ascii	"int\000"
+ 150 006f 02       		.uleb128 0x2
+ 151 0070 04       		.byte	0x4
+ 152 0071 07       		.byte	0x7
+ 153 0072 8B000000 		.4byte	.LASF8
+ 154 0076 03       		.uleb128 0x3
+ 155 0077 28020000 		.4byte	.LASF10
+ 156 007b 03       		.byte	0x3
+ 157 007c 2C       		.byte	0x2c
+ 158 007d 41000000 		.4byte	0x41
+ 159 0081 05       		.uleb128 0x5
+ 160 0082 21020000 		.4byte	.LASF11
+ 161 0086 04       		.byte	0x4
+ 162 0087 E501     		.2byte	0x1e5
+ 163 0089 3A000000 		.4byte	0x3a
+ 164 008d 02       		.uleb128 0x2
+ 165 008e 04       		.byte	0x4
+ 166 008f 04       		.byte	0x4
+ 167 0090 F7010000 		.4byte	.LASF12
+ 168 0094 02       		.uleb128 0x2
+ 169 0095 08       		.byte	0x8
+ 170 0096 04       		.byte	0x4
+ 171 0097 C1010000 		.4byte	.LASF13
+ 172 009b 02       		.uleb128 0x2
+ 173 009c 01       		.byte	0x1
+ 174 009d 08       		.byte	0x8
+ 175 009e AC010000 		.4byte	.LASF14
+ 176 00a2 02       		.uleb128 0x2
+ 177 00a3 08       		.byte	0x8
+ 178 00a4 04       		.byte	0x4
+ 179 00a5 E1010000 		.4byte	.LASF15
+ 180 00a9 02       		.uleb128 0x2
+ 181 00aa 04       		.byte	0x4
+ 182 00ab 07       		.byte	0x7
+ 183 00ac 41020000 		.4byte	.LASF16
+ 184 00b0 06       		.uleb128 0x6
+ 185 00b1 AD000000 		.4byte	.LASF27
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccMi7iCN.s 			page 5
+
+
+ 186 00b5 01       		.byte	0x1
+ 187 00b6 12       		.byte	0x12
+ 188 00b7 68000000 		.4byte	0x68
+ 189 00bb 00000000 		.4byte	.LFB63
+ 190 00bf 44000000 		.4byte	.LFE63-.LFB63
+ 191 00c3 01       		.uleb128 0x1
+ 192 00c4 9C       		.byte	0x9c
+ 193 00c5 01010000 		.4byte	0x101
+ 194 00c9 07       		.uleb128 0x7
+ 195 00ca 06000000 		.4byte	.LVL0
+ 196 00ce 43010000 		.4byte	0x143
+ 197 00d2 07       		.uleb128 0x7
+ 198 00d3 0A000000 		.4byte	.LVL1
+ 199 00d7 4E010000 		.4byte	0x14e
+ 200 00db 07       		.uleb128 0x7
+ 201 00dc 10000000 		.4byte	.LVL2
+ 202 00e0 59010000 		.4byte	0x159
+ 203 00e4 08       		.uleb128 0x8
+ 204 00e5 1C000000 		.4byte	.LVL3
+ 205 00e9 64010000 		.4byte	0x164
+ 206 00ed F7000000 		.4byte	0xf7
+ 207 00f1 09       		.uleb128 0x9
+ 208 00f2 01       		.uleb128 0x1
+ 209 00f3 50       		.byte	0x50
+ 210 00f4 01       		.uleb128 0x1
+ 211 00f5 31       		.byte	0x31
+ 212 00f6 00       		.byte	0
+ 213 00f7 07       		.uleb128 0x7
+ 214 00f8 28000000 		.4byte	.LVL4
+ 215 00fc 6F010000 		.4byte	0x16f
+ 216 0100 00       		.byte	0
+ 217 0101 0A       		.uleb128 0xa
+ 218 0102 C8010000 		.4byte	.LASF17
+ 219 0106 05       		.byte	0x5
+ 220 0107 1207     		.2byte	0x712
+ 221 0109 0D010000 		.4byte	0x10d
+ 222 010d 0B       		.uleb128 0xb
+ 223 010e 76000000 		.4byte	0x76
+ 224 0112 0C       		.uleb128 0xc
+ 225 0113 81000000 		.4byte	0x81
+ 226 0117 23010000 		.4byte	0x123
+ 227 011b 0D       		.uleb128 0xd
+ 228 011c A9000000 		.4byte	0xa9
+ 229 0120 FF03     		.2byte	0x3ff
+ 230 0122 00       		.byte	0
+ 231 0123 0E       		.uleb128 0xe
+ 232 0124 BA010000 		.4byte	.LASF18
+ 233 0128 01       		.byte	0x1
+ 234 0129 0E       		.byte	0xe
+ 235 012a 12010000 		.4byte	0x112
+ 236 012e 05       		.uleb128 0x5
+ 237 012f 03       		.byte	0x3
+ 238 0130 00000000 		.4byte	Output
+ 239 0134 0F       		.uleb128 0xf
+ 240 0135 6900     		.ascii	"i\000"
+ 241 0137 01       		.byte	0x1
+ 242 0138 10       		.byte	0x10
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccMi7iCN.s 			page 6
+
+
+ 243 0139 81000000 		.4byte	0x81
+ 244 013d 05       		.uleb128 0x5
+ 245 013e 03       		.byte	0x3
+ 246 013f 00000000 		.4byte	i
+ 247 0143 10       		.uleb128 0x10
+ 248 0144 30020000 		.4byte	.LASF19
+ 249 0148 30020000 		.4byte	.LASF19
+ 250 014c 06       		.byte	0x6
+ 251 014d 67       		.byte	0x67
+ 252 014e 10       		.uleb128 0x10
+ 253 014f 40010000 		.4byte	.LASF20
+ 254 0153 40010000 		.4byte	.LASF20
+ 255 0157 07       		.byte	0x7
+ 256 0158 3A       		.byte	0x3a
+ 257 0159 10       		.uleb128 0x10
+ 258 015a FD010000 		.4byte	.LASF21
+ 259 015e FD010000 		.4byte	.LASF21
+ 260 0162 07       		.byte	0x7
+ 261 0163 3D       		.byte	0x3d
+ 262 0164 10       		.uleb128 0x10
+ 263 0165 8F010000 		.4byte	.LASF22
+ 264 0169 8F010000 		.4byte	.LASF22
+ 265 016d 07       		.byte	0x7
+ 266 016e 3F       		.byte	0x3f
+ 267 016f 10       		.uleb128 0x10
+ 268 0170 0E000000 		.4byte	.LASF23
+ 269 0174 0E000000 		.4byte	.LASF23
+ 270 0178 07       		.byte	0x7
+ 271 0179 41       		.byte	0x41
+ 272 017a 00       		.byte	0
+ 273              		.section	.debug_abbrev,"",%progbits
+ 274              	.Ldebug_abbrev0:
+ 275 0000 01       		.uleb128 0x1
+ 276 0001 11       		.uleb128 0x11
+ 277 0002 01       		.byte	0x1
+ 278 0003 25       		.uleb128 0x25
+ 279 0004 0E       		.uleb128 0xe
+ 280 0005 13       		.uleb128 0x13
+ 281 0006 0B       		.uleb128 0xb
+ 282 0007 03       		.uleb128 0x3
+ 283 0008 0E       		.uleb128 0xe
+ 284 0009 1B       		.uleb128 0x1b
+ 285 000a 0E       		.uleb128 0xe
+ 286 000b 55       		.uleb128 0x55
+ 287 000c 17       		.uleb128 0x17
+ 288 000d 11       		.uleb128 0x11
+ 289 000e 01       		.uleb128 0x1
+ 290 000f 10       		.uleb128 0x10
+ 291 0010 17       		.uleb128 0x17
+ 292 0011 00       		.byte	0
+ 293 0012 00       		.byte	0
+ 294 0013 02       		.uleb128 0x2
+ 295 0014 24       		.uleb128 0x24
+ 296 0015 00       		.byte	0
+ 297 0016 0B       		.uleb128 0xb
+ 298 0017 0B       		.uleb128 0xb
+ 299 0018 3E       		.uleb128 0x3e
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccMi7iCN.s 			page 7
+
+
+ 300 0019 0B       		.uleb128 0xb
+ 301 001a 03       		.uleb128 0x3
+ 302 001b 0E       		.uleb128 0xe
+ 303 001c 00       		.byte	0
+ 304 001d 00       		.byte	0
+ 305 001e 03       		.uleb128 0x3
+ 306 001f 16       		.uleb128 0x16
+ 307 0020 00       		.byte	0
+ 308 0021 03       		.uleb128 0x3
+ 309 0022 0E       		.uleb128 0xe
+ 310 0023 3A       		.uleb128 0x3a
+ 311 0024 0B       		.uleb128 0xb
+ 312 0025 3B       		.uleb128 0x3b
+ 313 0026 0B       		.uleb128 0xb
+ 314 0027 49       		.uleb128 0x49
+ 315 0028 13       		.uleb128 0x13
+ 316 0029 00       		.byte	0
+ 317 002a 00       		.byte	0
+ 318 002b 04       		.uleb128 0x4
+ 319 002c 24       		.uleb128 0x24
+ 320 002d 00       		.byte	0
+ 321 002e 0B       		.uleb128 0xb
+ 322 002f 0B       		.uleb128 0xb
+ 323 0030 3E       		.uleb128 0x3e
+ 324 0031 0B       		.uleb128 0xb
+ 325 0032 03       		.uleb128 0x3
+ 326 0033 08       		.uleb128 0x8
+ 327 0034 00       		.byte	0
+ 328 0035 00       		.byte	0
+ 329 0036 05       		.uleb128 0x5
+ 330 0037 16       		.uleb128 0x16
+ 331 0038 00       		.byte	0
+ 332 0039 03       		.uleb128 0x3
+ 333 003a 0E       		.uleb128 0xe
+ 334 003b 3A       		.uleb128 0x3a
+ 335 003c 0B       		.uleb128 0xb
+ 336 003d 3B       		.uleb128 0x3b
+ 337 003e 05       		.uleb128 0x5
+ 338 003f 49       		.uleb128 0x49
+ 339 0040 13       		.uleb128 0x13
+ 340 0041 00       		.byte	0
+ 341 0042 00       		.byte	0
+ 342 0043 06       		.uleb128 0x6
+ 343 0044 2E       		.uleb128 0x2e
+ 344 0045 01       		.byte	0x1
+ 345 0046 3F       		.uleb128 0x3f
+ 346 0047 19       		.uleb128 0x19
+ 347 0048 03       		.uleb128 0x3
+ 348 0049 0E       		.uleb128 0xe
+ 349 004a 3A       		.uleb128 0x3a
+ 350 004b 0B       		.uleb128 0xb
+ 351 004c 3B       		.uleb128 0x3b
+ 352 004d 0B       		.uleb128 0xb
+ 353 004e 27       		.uleb128 0x27
+ 354 004f 19       		.uleb128 0x19
+ 355 0050 49       		.uleb128 0x49
+ 356 0051 13       		.uleb128 0x13
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccMi7iCN.s 			page 8
+
+
+ 357 0052 8701     		.uleb128 0x87
+ 358 0054 19       		.uleb128 0x19
+ 359 0055 11       		.uleb128 0x11
+ 360 0056 01       		.uleb128 0x1
+ 361 0057 12       		.uleb128 0x12
+ 362 0058 06       		.uleb128 0x6
+ 363 0059 40       		.uleb128 0x40
+ 364 005a 18       		.uleb128 0x18
+ 365 005b 9742     		.uleb128 0x2117
+ 366 005d 19       		.uleb128 0x19
+ 367 005e 01       		.uleb128 0x1
+ 368 005f 13       		.uleb128 0x13
+ 369 0060 00       		.byte	0
+ 370 0061 00       		.byte	0
+ 371 0062 07       		.uleb128 0x7
+ 372 0063 898201   		.uleb128 0x4109
+ 373 0066 00       		.byte	0
+ 374 0067 11       		.uleb128 0x11
+ 375 0068 01       		.uleb128 0x1
+ 376 0069 31       		.uleb128 0x31
+ 377 006a 13       		.uleb128 0x13
+ 378 006b 00       		.byte	0
+ 379 006c 00       		.byte	0
+ 380 006d 08       		.uleb128 0x8
+ 381 006e 898201   		.uleb128 0x4109
+ 382 0071 01       		.byte	0x1
+ 383 0072 11       		.uleb128 0x11
+ 384 0073 01       		.uleb128 0x1
+ 385 0074 31       		.uleb128 0x31
+ 386 0075 13       		.uleb128 0x13
+ 387 0076 01       		.uleb128 0x1
+ 388 0077 13       		.uleb128 0x13
+ 389 0078 00       		.byte	0
+ 390 0079 00       		.byte	0
+ 391 007a 09       		.uleb128 0x9
+ 392 007b 8A8201   		.uleb128 0x410a
+ 393 007e 00       		.byte	0
+ 394 007f 02       		.uleb128 0x2
+ 395 0080 18       		.uleb128 0x18
+ 396 0081 9142     		.uleb128 0x2111
+ 397 0083 18       		.uleb128 0x18
+ 398 0084 00       		.byte	0
+ 399 0085 00       		.byte	0
+ 400 0086 0A       		.uleb128 0xa
+ 401 0087 34       		.uleb128 0x34
+ 402 0088 00       		.byte	0
+ 403 0089 03       		.uleb128 0x3
+ 404 008a 0E       		.uleb128 0xe
+ 405 008b 3A       		.uleb128 0x3a
+ 406 008c 0B       		.uleb128 0xb
+ 407 008d 3B       		.uleb128 0x3b
+ 408 008e 05       		.uleb128 0x5
+ 409 008f 49       		.uleb128 0x49
+ 410 0090 13       		.uleb128 0x13
+ 411 0091 3F       		.uleb128 0x3f
+ 412 0092 19       		.uleb128 0x19
+ 413 0093 3C       		.uleb128 0x3c
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccMi7iCN.s 			page 9
+
+
+ 414 0094 19       		.uleb128 0x19
+ 415 0095 00       		.byte	0
+ 416 0096 00       		.byte	0
+ 417 0097 0B       		.uleb128 0xb
+ 418 0098 35       		.uleb128 0x35
+ 419 0099 00       		.byte	0
+ 420 009a 49       		.uleb128 0x49
+ 421 009b 13       		.uleb128 0x13
+ 422 009c 00       		.byte	0
+ 423 009d 00       		.byte	0
+ 424 009e 0C       		.uleb128 0xc
+ 425 009f 01       		.uleb128 0x1
+ 426 00a0 01       		.byte	0x1
+ 427 00a1 49       		.uleb128 0x49
+ 428 00a2 13       		.uleb128 0x13
+ 429 00a3 01       		.uleb128 0x1
+ 430 00a4 13       		.uleb128 0x13
+ 431 00a5 00       		.byte	0
+ 432 00a6 00       		.byte	0
+ 433 00a7 0D       		.uleb128 0xd
+ 434 00a8 21       		.uleb128 0x21
+ 435 00a9 00       		.byte	0
+ 436 00aa 49       		.uleb128 0x49
+ 437 00ab 13       		.uleb128 0x13
+ 438 00ac 2F       		.uleb128 0x2f
+ 439 00ad 05       		.uleb128 0x5
+ 440 00ae 00       		.byte	0
+ 441 00af 00       		.byte	0
+ 442 00b0 0E       		.uleb128 0xe
+ 443 00b1 34       		.uleb128 0x34
+ 444 00b2 00       		.byte	0
+ 445 00b3 03       		.uleb128 0x3
+ 446 00b4 0E       		.uleb128 0xe
+ 447 00b5 3A       		.uleb128 0x3a
+ 448 00b6 0B       		.uleb128 0xb
+ 449 00b7 3B       		.uleb128 0x3b
+ 450 00b8 0B       		.uleb128 0xb
+ 451 00b9 49       		.uleb128 0x49
+ 452 00ba 13       		.uleb128 0x13
+ 453 00bb 3F       		.uleb128 0x3f
+ 454 00bc 19       		.uleb128 0x19
+ 455 00bd 02       		.uleb128 0x2
+ 456 00be 18       		.uleb128 0x18
+ 457 00bf 00       		.byte	0
+ 458 00c0 00       		.byte	0
+ 459 00c1 0F       		.uleb128 0xf
+ 460 00c2 34       		.uleb128 0x34
+ 461 00c3 00       		.byte	0
+ 462 00c4 03       		.uleb128 0x3
+ 463 00c5 08       		.uleb128 0x8
+ 464 00c6 3A       		.uleb128 0x3a
+ 465 00c7 0B       		.uleb128 0xb
+ 466 00c8 3B       		.uleb128 0x3b
+ 467 00c9 0B       		.uleb128 0xb
+ 468 00ca 49       		.uleb128 0x49
+ 469 00cb 13       		.uleb128 0x13
+ 470 00cc 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccMi7iCN.s 			page 10
+
+
+ 471 00cd 19       		.uleb128 0x19
+ 472 00ce 02       		.uleb128 0x2
+ 473 00cf 18       		.uleb128 0x18
+ 474 00d0 00       		.byte	0
+ 475 00d1 00       		.byte	0
+ 476 00d2 10       		.uleb128 0x10
+ 477 00d3 2E       		.uleb128 0x2e
+ 478 00d4 00       		.byte	0
+ 479 00d5 3F       		.uleb128 0x3f
+ 480 00d6 19       		.uleb128 0x19
+ 481 00d7 3C       		.uleb128 0x3c
+ 482 00d8 19       		.uleb128 0x19
+ 483 00d9 6E       		.uleb128 0x6e
+ 484 00da 0E       		.uleb128 0xe
+ 485 00db 03       		.uleb128 0x3
+ 486 00dc 0E       		.uleb128 0xe
+ 487 00dd 3A       		.uleb128 0x3a
+ 488 00de 0B       		.uleb128 0xb
+ 489 00df 3B       		.uleb128 0x3b
+ 490 00e0 0B       		.uleb128 0xb
+ 491 00e1 00       		.byte	0
+ 492 00e2 00       		.byte	0
+ 493 00e3 00       		.byte	0
+ 494              		.section	.debug_aranges,"",%progbits
+ 495 0000 1C000000 		.4byte	0x1c
+ 496 0004 0200     		.2byte	0x2
+ 497 0006 00000000 		.4byte	.Ldebug_info0
+ 498 000a 04       		.byte	0x4
+ 499 000b 00       		.byte	0
+ 500 000c 0000     		.2byte	0
+ 501 000e 0000     		.2byte	0
+ 502 0010 00000000 		.4byte	.LFB63
+ 503 0014 44000000 		.4byte	.LFE63-.LFB63
+ 504 0018 00000000 		.4byte	0
+ 505 001c 00000000 		.4byte	0
+ 506              		.section	.debug_ranges,"",%progbits
+ 507              	.Ldebug_ranges0:
+ 508 0000 00000000 		.4byte	.LFB63
+ 509 0004 44000000 		.4byte	.LFE63
+ 510 0008 00000000 		.4byte	0
+ 511 000c 00000000 		.4byte	0
+ 512              		.section	.debug_line,"",%progbits
+ 513              	.Ldebug_line0:
+ 514 0000 8B010000 		.section	.debug_str,"MS",%progbits,1
+ 514      02006E01 
+ 514      00000201 
+ 514      FB0E0D00 
+ 514      01010101 
+ 515              	.LASF6:
+ 516 0000 6C6F6E67 		.ascii	"long long int\000"
+ 516      206C6F6E 
+ 516      6720696E 
+ 516      7400
+ 517              	.LASF23:
+ 518 000e 4144435F 		.ascii	"ADC_DelSig_1_GetResult16\000"
+ 518      44656C53 
+ 518      69675F31 
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccMi7iCN.s 			page 11
+
+
+ 518      5F476574 
+ 518      52657375 
+ 519              	.LASF26:
+ 520 0027 433A5C55 		.ascii	"C:\\Users\\George Anwar\\Documents\\UC Berkeley\\ME"
+ 520      73657273 
+ 520      5C47656F 
+ 520      72676520 
+ 520      416E7761 
+ 521 0055 31333520 		.ascii	"135 Spring 2020\\PSOC Creator\\ME135_235\\DAQArray."
+ 521      53707269 
+ 521      6E672032 
+ 521      3032305C 
+ 521      50534F43 
+ 522 0085 63796473 		.ascii	"cydsn\000"
+ 522      6E00
+ 523              	.LASF8:
+ 524 008b 756E7369 		.ascii	"unsigned int\000"
+ 524      676E6564 
+ 524      20696E74 
+ 524      00
+ 525              	.LASF1:
+ 526 0098 756E7369 		.ascii	"unsigned char\000"
+ 526      676E6564 
+ 526      20636861 
+ 526      7200
+ 527              	.LASF25:
+ 528 00a6 6D61696E 		.ascii	"main.c\000"
+ 528      2E6300
+ 529              	.LASF27:
+ 530 00ad 6D61696E 		.ascii	"main\000"
+ 530      00
+ 531              	.LASF24:
+ 532 00b2 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 532      43313120 
+ 532      352E342E 
+ 532      31203230 
+ 532      31363036 
+ 533 00e5 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 533      20726576 
+ 533      6973696F 
+ 533      6E203233 
+ 533      37373135 
+ 534 0118 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 534      66756E63 
+ 534      74696F6E 
+ 534      2D736563 
+ 534      74696F6E 
+ 535              	.LASF20:
+ 536 0140 4144435F 		.ascii	"ADC_DelSig_1_Start\000"
+ 536      44656C53 
+ 536      69675F31 
+ 536      5F537461 
+ 536      727400
+ 537              	.LASF5:
+ 538 0153 6C6F6E67 		.ascii	"long unsigned int\000"
+ 538      20756E73 
+ 538      69676E65 
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccMi7iCN.s 			page 12
+
+
+ 538      6420696E 
+ 538      7400
+ 539              	.LASF7:
+ 540 0165 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 540      206C6F6E 
+ 540      6720756E 
+ 540      7369676E 
+ 540      65642069 
+ 541              	.LASF3:
+ 542 017c 73686F72 		.ascii	"short unsigned int\000"
+ 542      7420756E 
+ 542      7369676E 
+ 542      65642069 
+ 542      6E7400
+ 543              	.LASF22:
+ 544 018f 4144435F 		.ascii	"ADC_DelSig_1_IsEndConversion\000"
+ 544      44656C53 
+ 544      69675F31 
+ 544      5F497345 
+ 544      6E64436F 
+ 545              	.LASF14:
+ 546 01ac 63686172 		.ascii	"char\000"
+ 546      00
+ 547              	.LASF4:
+ 548 01b1 6C6F6E67 		.ascii	"long int\000"
+ 548      20696E74 
+ 548      00
+ 549              	.LASF18:
+ 550 01ba 4F757470 		.ascii	"Output\000"
+ 550      757400
+ 551              	.LASF13:
+ 552 01c1 646F7562 		.ascii	"double\000"
+ 552      6C6500
+ 553              	.LASF17:
+ 554 01c8 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 554      52784275 
+ 554      66666572 
+ 554      00
+ 555              	.LASF0:
+ 556 01d5 7369676E 		.ascii	"signed char\000"
+ 556      65642063 
+ 556      68617200 
+ 557              	.LASF15:
+ 558 01e1 6C6F6E67 		.ascii	"long double\000"
+ 558      20646F75 
+ 558      626C6500 
+ 559              	.LASF9:
+ 560 01ed 5F5F696E 		.ascii	"__int32_t\000"
+ 560      7433325F 
+ 560      7400
+ 561              	.LASF12:
+ 562 01f7 666C6F61 		.ascii	"float\000"
+ 562      7400
+ 563              	.LASF21:
+ 564 01fd 4144435F 		.ascii	"ADC_DelSig_1_StartConvert\000"
+ 564      44656C53 
+ 564      69675F31 
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccMi7iCN.s 			page 13
+
+
+ 564      5F537461 
+ 564      7274436F 
+ 565              	.LASF2:
+ 566 0217 73686F72 		.ascii	"short int\000"
+ 566      7420696E 
+ 566      7400
+ 567              	.LASF11:
+ 568 0221 75696E74 		.ascii	"uint16\000"
+ 568      313600
+ 569              	.LASF10:
+ 570 0228 696E7433 		.ascii	"int32_t\000"
+ 570      325F7400 
+ 571              	.LASF19:
+ 572 0230 57617665 		.ascii	"WaveDAC8_1_Start\000"
+ 572      44414338 
+ 572      5F315F53 
+ 572      74617274 
+ 572      00
+ 573              	.LASF16:
+ 574 0241 73697A65 		.ascii	"sizetype\000"
+ 574      74797065 
+ 574      00
+ 575              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

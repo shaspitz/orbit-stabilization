@@ -1,0 +1,11 @@
+C:\Users\George Anwar\Documents\UC Berkeley\ME135 Spring 2020\PSOC Creator\ME135_235\Variable_Declarations.cydsn\Variable_Declarations.cyprj|b03d9105-ccfa-4ae6-8b38-485c7a44508a
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|73fe0a5a-b0bc-457a-8fc6-fdc64086bbb6
+C:\Users\George Anwar\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|60bc7ec2-cab6-4af0-a7a0-e99399971531
+C:\Users\George Anwar\Documents\PSoC Creator\4.1\Downloads ( 4.1).cylib\Downloads ( 4.1).cyprj|444ade4a-4675-42db-b38b-4e29c634412e
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|cb8e095f-02b2-44e8-9a7a-49c6857e3111
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|779fa852-f409-4a0e-993e-9b9c2c3d6e5c
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|b362eb12-a74b-4104-aeb8-b322a1a35def
+C:\Users\George Anwar\Documents\SFSU\ENGR478 Fall 2019\PSOC Reference Material\PSOC Creator\Workspace01\Interrupt_Priority.cydsn\Interrupt_Priority.cyprj|cd0978e7-47c8-4a6c-a840-5071e4e65b39
+C:\Users\George Anwar\Documents\UC Berkeley\ME135 Spring 2018\My PSOC Projects\Workspace01\RTDCalibration.cydsn\RTDCalibration.cyprj|c4982d9f-07ac-4477-830c-15c9daf48b78
+C:\Users\George Anwar\Documents\UC Berkeley\ME135 Spring 2020\PSOC Creator\ME135_235\CE195277_ADC_and_UART\CE195277_ADC_and_UART.cydsn\CE195277_ADC_and_UART.cyprj|3f4893a4-1535-4e50-8590-4dda6739b71d
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|63bbe89e-d286-40b1-a61e-18f19ab129fe

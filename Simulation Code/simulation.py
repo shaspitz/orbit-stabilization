@@ -11,6 +11,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import csv
 import time
+import schedule
+import threading
 import serial
 import scipy
 from scipy.integrate import solve_ivp
@@ -156,17 +158,92 @@ def KalmanFilter(x0,z,N):
 
 
 
+def lin_dyn_discrete(x, r0, Ts, u=np.zeros((2, 1))):
+    '''
+    Discrete dynamics using forward Euler method
+    '''
+    dx = lin_dyn_cont(t=None, x=x, r0=r0, u=u)
+    xnext = x + Ts*dx
+    return xnext
+
+
+def equil(t):
+    '''
+    For adding equil trajectory back to solution
+    '''
+    return np.array([r0, 0, w0*t, w0])
+
+
+def input_command():
+    '''
+    Writes input command to PSOC and obtains corresponding control input
+    '''
+    # We manipulate u
+    global u
+
+    # Write input command to PSOC
+    ser.write(str.encode('u'))
+
+    # Get input integers from PSOC
+    s = ser.readline().decode()
+    s_processed = np.array([[int(x.strip())] for x in s.split(',')])
+    t, u = s_processed[0][0], s_processed[1:3]
+    print('time: ', t, '\n', 'input: ', u)
+
+
+def simulate_system():
+    '''
+    Simulate system using continuous dynamics and discrete inputs
+    given from PSOC
+    '''
+    # We manipulate x0_step, and t_global
+    global x0_step, t_global
+
+    # Simulate forward 2 seconds (eventually make bigger, like 20000 sec)
+    t_sim = np.linspace(0, 2, 2)
+
+    # Evaluate solution for each timestep
+    step_sol = solve_ivp(lin_dyn_cont,
+                         [t_sim[0], t_sim[-1:]],
+                         x0_step, method='RK45',
+                         t_eval=t_sim, args=(r0, u))
+
+    # reset IC for next step (no equilibrium added)
+    x0_step = [sol[-1] for sol in step_sol.y]
+
+    # propogate t_global forward from simulated time
+    t_global += t_sim[-1]
+
+    # add equilibrium back to solution (only second timestep)
+    for i in range(len(step_sol.y)):
+        step_sol.y[i][-1] = step_sol.y[i][-1] + equil(t_global)[i]
+
+    # Real time visualization (eventually tkinter GUI)
+    print('Simulation and input: ', [sol[-1] for sol in step_sol.y], u, t_global)
+
+
+def run_threaded(job_func):
+    '''
+    Automatically makes thread for any commanded task
+    '''
+    job_thread = threading.Thread(target=job_func)
+    job_thread.daemon = True
+    job_thread.start()
+
+
 def main():
 
     if hardware_in_loop:
         # Serial interfacing
 
         # Intialize ode solver
-        t_sim = np.linspace(0, 10, 1)  # simulate forward 10 seconds
+        global x0_step, u, t_global
+        t_global = 0
         x0_step = [0, 0, 0, 0]
         u = np.zeros((2, 1))
 
         # Serial config
+        global ser
         ser = serial.Serial(port='COM5', baudrate=115200, parity='N')
         if ser.is_open:
             ser.close()
@@ -174,42 +251,27 @@ def main():
         else:
             ser.open()
 
-        # Throw out first serial read from previous run
-        s_trash = ser.readline()
-        del s_trash
+        # Send start message
+        ser.write(str.encode('s'))
 
-        # IMPLEMENT HANDLER HERE TO ENSURE SIMULATION HAPPENS AT EQUAL TIMING INTERVALS
-        print('Entered loop')
+        '''
+        Schedule periodic execution of input command tasks.
+        Note that Python does not run in real time, so additional .002518
+        seconds of schedule time was hueristically implemented to
+        counteract Windows' latency in sending input commands to PSOC.
+        Allow for +-10 ms in communication timing error.
+        '''
+        schedule.every(1.002518).seconds.do(run_threaded, input_command)
+
+        # schedule periodic sim of system (lower freq than input commands)
+        schedule.every(2).seconds.do(run_threaded, simulate_system)
+
+        print('About to enter loop')
+
         while True:
+            schedule.run_pending()
 
-            # Write input command to PSOC
-            ser.write(str.encode('u'))
-
-            # Get input integers from PSOC
-            time.sleep(1)
-            s = ser.readline().decode()
-            u = np.array([[int(x.strip())] for x in s.split(',')])
-            print(u)
-            '''
-            x = ser.read()          # read one byte
-            s = ser.read(10)        # read up to ten bytes (timeout)
-            line = ser.readline()   # read a '\n' terminated line
-            '''
-
-            # Need to figure out how to simulate 1 step only here
-            '''
-            # Evaluate solution for each timestep
-            step_sol = solve_ivp(lin_dyn_cont,
-                                 [t_sim[0], t_sim[-1:]],
-                                 x0_step, method='RK45',
-                                 t_eval=t_sim, args=(r0, u))
-
-            # reset IC for next step
-            x0_step = [sol for sol in step_sol.y]
-
-            # Real time visualization (eventually tkinter GUI)
-            print(step_sol.y, u)
-            '''
+            # Implement ping-pong Queue object here to handle inputs?
 
         '''
         Psuedocode:
@@ -251,34 +313,46 @@ def main():
         #kalman filter
         XM,Pm=KalmanFilter(x0,[5,5,5.5,6,5.6,7,6.5,5.4,6,5.6],10)
         # solution will be sys_sol.y with [0:3] being arrays of state
-        # print('last 10 values of radius:', sys_sol.y[0][:-10])
 
-        # Add equil trajectory back to solution
-        def equil(t):
-            return np.array([r0, 0, w0*t, w0])
+        # Simulate discrete nonlinear system
+        x_discrete = np.zeros((len(t_sim)+1, 4))
+        x_discrete[0] = x0
+        Ts = t_sim[-1] / len(t_sim)
+        for k in range(len(t_sim)):
+            x_discrete[k+1] = lin_dyn_discrete(x_discrete[k], r0, Ts)
 
+        # Add equilibrium values for continous system
         for i in range(len(sys_sol_lin.y)):
             sys_sol_lin.y[i] = np.array(
                 [sys_sol_lin.y[i][j]
                  + equil(t_sim[j])[i] for j in range(len(t_sim))])
+
+        # Add equilibrium values for discrete system
+        for k in range(len(x_discrete)):
+            x_discrete[k] = x_discrete[k] + equil(k*Ts)
 
         # Convert to 2D cartesian coordinates centered at earth's core
         x_sat_lin = [sys_sol_lin.y[0][i]*np.cos(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
         y_sat_lin = [sys_sol_lin.y[0][i]*np.sin(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
         # x_sat_nl = [sys_sol_nl.y[0][i]*np.cos(sys_sol_nl.y[2][i]) for i in range(len(t_sim))]
         # y_sat_nl = [sys_sol_nl.y[0][i]*np.sin(sys_sol_nl.y[2][i]) for i in range(len(t_sim))]
+        x_sat_lin_discrete = [x_discrete[k][0]*np.cos(x_discrete[k][2]) for k in range(len(x_discrete))]
+        y_sat_lin_discrete = [x_discrete[k][0]*np.sin(x_discrete[k][2]) for k in range(len(x_discrete))]
 
         #  Plotting
         fig, ax = plt.subplots()
         circle1 = plt.Circle((0, 0), R, color='b')
         ax.add_artist(circle1)
-        ax.plot(x_sat_lin, y_sat_lin, linewidth=2, color='r')
+        ax.plot(x_sat_lin, y_sat_lin, linewidth=4, color='r', linestyle='-')
+        ax.plot(x_sat_lin_discrete, y_sat_lin_discrete, linewidth=4, color='g',
+                linestyle='--')
         # plt.plot(x_sat_nl, y_sat_nl, linewidth=2)
         plt.xlabel('x')
         plt.ylabel('y')
         plt.title(r'Satellite Path')
         plt.gca().set_aspect('equal', adjustable='box')
-        # plt.legend(['Linear model', 'Nonlinear Model'], loc='best')
+        plt.legend(['Continuos Linear Model', 'Discrete Linear Model'],
+                   loc='lower right')
         plt.show()
 
         '''

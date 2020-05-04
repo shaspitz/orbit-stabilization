@@ -1,0 +1,2187 @@
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"StepperStep.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.StepperStep_Enable,"ax",%progbits
+  20              		.align	2
+  21              		.global	StepperStep_Enable
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	StepperStep_Enable, %function
+  25              	StepperStep_Enable:
+  26              	.LFB1:
+  27              		.file 1 "Generated_Source\\PSoC5\\StepperStep.c"
+   1:Generated_Source\PSoC5/StepperStep.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/StepperStep.c **** * File Name: StepperStep.c
+   3:Generated_Source\PSoC5/StepperStep.c **** * Version 2.80
+   4:Generated_Source\PSoC5/StepperStep.c **** *
+   5:Generated_Source\PSoC5/StepperStep.c **** * Description:
+   6:Generated_Source\PSoC5/StepperStep.c **** *  The Timer component consists of a 8, 16, 24 or 32-bit timer with
+   7:Generated_Source\PSoC5/StepperStep.c **** *  a selectable period between 2 and 2^Width - 1.  The timer may free run
+   8:Generated_Source\PSoC5/StepperStep.c **** *  or be used as a capture timer as well.  The capture can be initiated
+   9:Generated_Source\PSoC5/StepperStep.c **** *  by a positive or negative edge signal as well as via software.
+  10:Generated_Source\PSoC5/StepperStep.c **** *  A trigger input can be programmed to enable the timer on rising edge
+  11:Generated_Source\PSoC5/StepperStep.c **** *  falling edge, either edge or continous run.
+  12:Generated_Source\PSoC5/StepperStep.c **** *  Interrupts may be generated due to a terminal count condition
+  13:Generated_Source\PSoC5/StepperStep.c **** *  or a capture event.
+  14:Generated_Source\PSoC5/StepperStep.c **** *
+  15:Generated_Source\PSoC5/StepperStep.c **** * Note:
+  16:Generated_Source\PSoC5/StepperStep.c **** *
+  17:Generated_Source\PSoC5/StepperStep.c **** ********************************************************************************
+  18:Generated_Source\PSoC5/StepperStep.c **** * Copyright 2008-2017, Cypress Semiconductor Corporation.  All rights reserved.
+  19:Generated_Source\PSoC5/StepperStep.c **** * You may use this file only in accordance with the license, terms, conditions,
+  20:Generated_Source\PSoC5/StepperStep.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  21:Generated_Source\PSoC5/StepperStep.c **** * the software package with which this file was provided.
+  22:Generated_Source\PSoC5/StepperStep.c **** ********************************************************************************/
+  23:Generated_Source\PSoC5/StepperStep.c **** 
+  24:Generated_Source\PSoC5/StepperStep.c **** #include "StepperStep.h"
+  25:Generated_Source\PSoC5/StepperStep.c **** 
+  26:Generated_Source\PSoC5/StepperStep.c **** uint8 StepperStep_initVar = 0u;
+  27:Generated_Source\PSoC5/StepperStep.c **** 
+  28:Generated_Source\PSoC5/StepperStep.c **** 
+  29:Generated_Source\PSoC5/StepperStep.c **** /*******************************************************************************
+  30:Generated_Source\PSoC5/StepperStep.c **** * Function Name: StepperStep_Init
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 2
+
+
+  31:Generated_Source\PSoC5/StepperStep.c **** ********************************************************************************
+  32:Generated_Source\PSoC5/StepperStep.c **** *
+  33:Generated_Source\PSoC5/StepperStep.c **** * Summary:
+  34:Generated_Source\PSoC5/StepperStep.c **** *  Initialize to the schematic state
+  35:Generated_Source\PSoC5/StepperStep.c **** *
+  36:Generated_Source\PSoC5/StepperStep.c **** * Parameters:
+  37:Generated_Source\PSoC5/StepperStep.c **** *  void
+  38:Generated_Source\PSoC5/StepperStep.c **** *
+  39:Generated_Source\PSoC5/StepperStep.c **** * Return:
+  40:Generated_Source\PSoC5/StepperStep.c **** *  void
+  41:Generated_Source\PSoC5/StepperStep.c **** *
+  42:Generated_Source\PSoC5/StepperStep.c **** *******************************************************************************/
+  43:Generated_Source\PSoC5/StepperStep.c **** void StepperStep_Init(void) 
+  44:Generated_Source\PSoC5/StepperStep.c **** {
+  45:Generated_Source\PSoC5/StepperStep.c ****     #if(!StepperStep_UsingFixedFunction)
+  46:Generated_Source\PSoC5/StepperStep.c ****             /* Interrupt State Backup for Critical Region*/
+  47:Generated_Source\PSoC5/StepperStep.c ****             uint8 StepperStep_interruptState;
+  48:Generated_Source\PSoC5/StepperStep.c ****     #endif /* Interrupt state back up for Fixed Function only */
+  49:Generated_Source\PSoC5/StepperStep.c **** 
+  50:Generated_Source\PSoC5/StepperStep.c ****     #if (StepperStep_UsingFixedFunction)
+  51:Generated_Source\PSoC5/StepperStep.c ****         /* Clear all bits but the enable bit (if it's already set) for Timer operation */
+  52:Generated_Source\PSoC5/StepperStep.c ****         StepperStep_CONTROL &= StepperStep_CTRL_ENABLE;
+  53:Generated_Source\PSoC5/StepperStep.c **** 
+  54:Generated_Source\PSoC5/StepperStep.c ****         /* Clear the mode bits for continuous run mode */
+  55:Generated_Source\PSoC5/StepperStep.c ****         #if (CY_PSOC5A)
+  56:Generated_Source\PSoC5/StepperStep.c ****             StepperStep_CONTROL2 &= ((uint8)(~StepperStep_CTRL_MODE_MASK));
+  57:Generated_Source\PSoC5/StepperStep.c ****         #endif /* Clear bits in CONTROL2 only in PSOC5A */
+  58:Generated_Source\PSoC5/StepperStep.c **** 
+  59:Generated_Source\PSoC5/StepperStep.c ****         #if (CY_PSOC3 || CY_PSOC5LP)
+  60:Generated_Source\PSoC5/StepperStep.c ****             StepperStep_CONTROL3 &= ((uint8)(~StepperStep_CTRL_MODE_MASK));
+  61:Generated_Source\PSoC5/StepperStep.c ****         #endif /* CONTROL3 register exists only in PSoC3 OR PSoC5LP */
+  62:Generated_Source\PSoC5/StepperStep.c **** 
+  63:Generated_Source\PSoC5/StepperStep.c ****         /* Check if One Shot mode is enabled i.e. RunMode !=0*/
+  64:Generated_Source\PSoC5/StepperStep.c ****         #if (StepperStep_RunModeUsed != 0x0u)
+  65:Generated_Source\PSoC5/StepperStep.c ****             /* Set 3rd bit of Control register to enable one shot mode */
+  66:Generated_Source\PSoC5/StepperStep.c ****             StepperStep_CONTROL |= 0x04u;
+  67:Generated_Source\PSoC5/StepperStep.c ****         #endif /* One Shot enabled only when RunModeUsed is not Continuous*/
+  68:Generated_Source\PSoC5/StepperStep.c **** 
+  69:Generated_Source\PSoC5/StepperStep.c ****         #if (StepperStep_RunModeUsed == 2)
+  70:Generated_Source\PSoC5/StepperStep.c ****             #if (CY_PSOC5A)
+  71:Generated_Source\PSoC5/StepperStep.c ****                 /* Set last 2 bits of control2 register if one shot(halt on
+  72:Generated_Source\PSoC5/StepperStep.c ****                 interrupt) is enabled*/
+  73:Generated_Source\PSoC5/StepperStep.c ****                 StepperStep_CONTROL2 |= 0x03u;
+  74:Generated_Source\PSoC5/StepperStep.c ****             #endif /* Set One-Shot Halt on Interrupt bit in CONTROL2 for PSoC5A */
+  75:Generated_Source\PSoC5/StepperStep.c **** 
+  76:Generated_Source\PSoC5/StepperStep.c ****             #if (CY_PSOC3 || CY_PSOC5LP)
+  77:Generated_Source\PSoC5/StepperStep.c ****                 /* Set last 2 bits of control3 register if one shot(halt on
+  78:Generated_Source\PSoC5/StepperStep.c ****                 interrupt) is enabled*/
+  79:Generated_Source\PSoC5/StepperStep.c ****                 StepperStep_CONTROL3 |= 0x03u;
+  80:Generated_Source\PSoC5/StepperStep.c ****             #endif /* Set One-Shot Halt on Interrupt bit in CONTROL3 for PSoC3 or PSoC5LP */
+  81:Generated_Source\PSoC5/StepperStep.c **** 
+  82:Generated_Source\PSoC5/StepperStep.c ****         #endif /* Remove section if One Shot Halt on Interrupt is not enabled */
+  83:Generated_Source\PSoC5/StepperStep.c **** 
+  84:Generated_Source\PSoC5/StepperStep.c ****         #if (StepperStep_UsingHWEnable != 0)
+  85:Generated_Source\PSoC5/StepperStep.c ****             #if (CY_PSOC5A)
+  86:Generated_Source\PSoC5/StepperStep.c ****                 /* Set the default Run Mode of the Timer to Continuous */
+  87:Generated_Source\PSoC5/StepperStep.c ****                 StepperStep_CONTROL2 |= StepperStep_CTRL_MODE_PULSEWIDTH;
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 3
+
+
+  88:Generated_Source\PSoC5/StepperStep.c ****             #endif /* Set Continuous Run Mode in CONTROL2 for PSoC5A */
+  89:Generated_Source\PSoC5/StepperStep.c **** 
+  90:Generated_Source\PSoC5/StepperStep.c ****             #if (CY_PSOC3 || CY_PSOC5LP)
+  91:Generated_Source\PSoC5/StepperStep.c ****                 /* Clear and Set ROD and COD bits of CFG2 register */
+  92:Generated_Source\PSoC5/StepperStep.c ****                 StepperStep_CONTROL3 &= ((uint8)(~StepperStep_CTRL_RCOD_MASK));
+  93:Generated_Source\PSoC5/StepperStep.c ****                 StepperStep_CONTROL3 |= StepperStep_CTRL_RCOD;
+  94:Generated_Source\PSoC5/StepperStep.c **** 
+  95:Generated_Source\PSoC5/StepperStep.c ****                 /* Clear and Enable the HW enable bit in CFG2 register */
+  96:Generated_Source\PSoC5/StepperStep.c ****                 StepperStep_CONTROL3 &= ((uint8)(~StepperStep_CTRL_ENBL_MASK));
+  97:Generated_Source\PSoC5/StepperStep.c ****                 StepperStep_CONTROL3 |= StepperStep_CTRL_ENBL;
+  98:Generated_Source\PSoC5/StepperStep.c **** 
+  99:Generated_Source\PSoC5/StepperStep.c ****                 /* Set the default Run Mode of the Timer to Continuous */
+ 100:Generated_Source\PSoC5/StepperStep.c ****                 StepperStep_CONTROL3 |= StepperStep_CTRL_MODE_CONTINUOUS;
+ 101:Generated_Source\PSoC5/StepperStep.c ****             #endif /* Set Continuous Run Mode in CONTROL3 for PSoC3ES3 or PSoC5A */
+ 102:Generated_Source\PSoC5/StepperStep.c **** 
+ 103:Generated_Source\PSoC5/StepperStep.c ****         #endif /* Configure Run Mode with hardware enable */
+ 104:Generated_Source\PSoC5/StepperStep.c **** 
+ 105:Generated_Source\PSoC5/StepperStep.c ****         /* Clear and Set SYNCTC and SYNCCMP bits of RT1 register */
+ 106:Generated_Source\PSoC5/StepperStep.c ****         StepperStep_RT1 &= ((uint8)(~StepperStep_RT1_MASK));
+ 107:Generated_Source\PSoC5/StepperStep.c ****         StepperStep_RT1 |= StepperStep_SYNC;
+ 108:Generated_Source\PSoC5/StepperStep.c **** 
+ 109:Generated_Source\PSoC5/StepperStep.c ****         /*Enable DSI Sync all all inputs of the Timer*/
+ 110:Generated_Source\PSoC5/StepperStep.c ****         StepperStep_RT1 &= ((uint8)(~StepperStep_SYNCDSI_MASK));
+ 111:Generated_Source\PSoC5/StepperStep.c ****         StepperStep_RT1 |= StepperStep_SYNCDSI_EN;
+ 112:Generated_Source\PSoC5/StepperStep.c **** 
+ 113:Generated_Source\PSoC5/StepperStep.c ****         /* Set the IRQ to use the status register interrupts */
+ 114:Generated_Source\PSoC5/StepperStep.c ****         StepperStep_CONTROL2 |= StepperStep_CTRL2_IRQ_SEL;
+ 115:Generated_Source\PSoC5/StepperStep.c ****     #endif /* Configuring registers of fixed function implementation */
+ 116:Generated_Source\PSoC5/StepperStep.c **** 
+ 117:Generated_Source\PSoC5/StepperStep.c ****     /* Set Initial values from Configuration */
+ 118:Generated_Source\PSoC5/StepperStep.c ****     StepperStep_WritePeriod(StepperStep_INIT_PERIOD);
+ 119:Generated_Source\PSoC5/StepperStep.c ****     StepperStep_WriteCounter(StepperStep_INIT_PERIOD);
+ 120:Generated_Source\PSoC5/StepperStep.c **** 
+ 121:Generated_Source\PSoC5/StepperStep.c ****     #if (StepperStep_UsingHWCaptureCounter)/* Capture counter is enabled */
+ 122:Generated_Source\PSoC5/StepperStep.c ****         StepperStep_CAPTURE_COUNT_CTRL |= StepperStep_CNTR_ENABLE;
+ 123:Generated_Source\PSoC5/StepperStep.c ****         StepperStep_SetCaptureCount(StepperStep_INIT_CAPTURE_COUNT);
+ 124:Generated_Source\PSoC5/StepperStep.c ****     #endif /* Configure capture counter value */
+ 125:Generated_Source\PSoC5/StepperStep.c **** 
+ 126:Generated_Source\PSoC5/StepperStep.c ****     #if (!StepperStep_UsingFixedFunction)
+ 127:Generated_Source\PSoC5/StepperStep.c ****         #if (StepperStep_SoftwareCaptureMode)
+ 128:Generated_Source\PSoC5/StepperStep.c ****             StepperStep_SetCaptureMode(StepperStep_INIT_CAPTURE_MODE);
+ 129:Generated_Source\PSoC5/StepperStep.c ****         #endif /* Set Capture Mode for UDB implementation if capture mode is software controlled */
+ 130:Generated_Source\PSoC5/StepperStep.c **** 
+ 131:Generated_Source\PSoC5/StepperStep.c ****         #if (StepperStep_SoftwareTriggerMode)
+ 132:Generated_Source\PSoC5/StepperStep.c ****             #if (!StepperStep_UDB_CONTROL_REG_REMOVED)
+ 133:Generated_Source\PSoC5/StepperStep.c ****                 if (0u == (StepperStep_CONTROL & StepperStep__B_TIMER__TM_SOFTWARE))
+ 134:Generated_Source\PSoC5/StepperStep.c ****                 {
+ 135:Generated_Source\PSoC5/StepperStep.c ****                     StepperStep_SetTriggerMode(StepperStep_INIT_TRIGGER_MODE);
+ 136:Generated_Source\PSoC5/StepperStep.c ****                 }
+ 137:Generated_Source\PSoC5/StepperStep.c ****             #endif /* (!StepperStep_UDB_CONTROL_REG_REMOVED) */
+ 138:Generated_Source\PSoC5/StepperStep.c ****         #endif /* Set trigger mode for UDB Implementation if trigger mode is software controlled */
+ 139:Generated_Source\PSoC5/StepperStep.c **** 
+ 140:Generated_Source\PSoC5/StepperStep.c ****         /* CyEnterCriticalRegion and CyExitCriticalRegion are used to mark following region critica
+ 141:Generated_Source\PSoC5/StepperStep.c ****         /* Enter Critical Region*/
+ 142:Generated_Source\PSoC5/StepperStep.c ****         StepperStep_interruptState = CyEnterCriticalSection();
+ 143:Generated_Source\PSoC5/StepperStep.c **** 
+ 144:Generated_Source\PSoC5/StepperStep.c ****         /* Use the interrupt output of the status register for IRQ output */
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 4
+
+
+ 145:Generated_Source\PSoC5/StepperStep.c ****         StepperStep_STATUS_AUX_CTRL |= StepperStep_STATUS_ACTL_INT_EN_MASK;
+ 146:Generated_Source\PSoC5/StepperStep.c **** 
+ 147:Generated_Source\PSoC5/StepperStep.c ****         /* Exit Critical Region*/
+ 148:Generated_Source\PSoC5/StepperStep.c ****         CyExitCriticalSection(StepperStep_interruptState);
+ 149:Generated_Source\PSoC5/StepperStep.c **** 
+ 150:Generated_Source\PSoC5/StepperStep.c ****         #if (StepperStep_EnableTriggerMode)
+ 151:Generated_Source\PSoC5/StepperStep.c ****             StepperStep_EnableTrigger();
+ 152:Generated_Source\PSoC5/StepperStep.c ****         #endif /* Set Trigger enable bit for UDB implementation in the control register*/
+ 153:Generated_Source\PSoC5/StepperStep.c **** 		
+ 154:Generated_Source\PSoC5/StepperStep.c **** 		
+ 155:Generated_Source\PSoC5/StepperStep.c ****         #if (StepperStep_InterruptOnCaptureCount && !StepperStep_UDB_CONTROL_REG_REMOVED)
+ 156:Generated_Source\PSoC5/StepperStep.c ****             StepperStep_SetInterruptCount(StepperStep_INIT_INT_CAPTURE_COUNT);
+ 157:Generated_Source\PSoC5/StepperStep.c ****         #endif /* Set interrupt count in UDB implementation if interrupt count feature is checked.*
+ 158:Generated_Source\PSoC5/StepperStep.c **** 
+ 159:Generated_Source\PSoC5/StepperStep.c ****         StepperStep_ClearFIFO();
+ 160:Generated_Source\PSoC5/StepperStep.c ****     #endif /* Configure additional features of UDB implementation */
+ 161:Generated_Source\PSoC5/StepperStep.c **** 
+ 162:Generated_Source\PSoC5/StepperStep.c ****     StepperStep_SetInterruptMode(StepperStep_INIT_INTERRUPT_MODE);
+ 163:Generated_Source\PSoC5/StepperStep.c **** }
+ 164:Generated_Source\PSoC5/StepperStep.c **** 
+ 165:Generated_Source\PSoC5/StepperStep.c **** 
+ 166:Generated_Source\PSoC5/StepperStep.c **** /*******************************************************************************
+ 167:Generated_Source\PSoC5/StepperStep.c **** * Function Name: StepperStep_Enable
+ 168:Generated_Source\PSoC5/StepperStep.c **** ********************************************************************************
+ 169:Generated_Source\PSoC5/StepperStep.c **** *
+ 170:Generated_Source\PSoC5/StepperStep.c **** * Summary:
+ 171:Generated_Source\PSoC5/StepperStep.c **** *  Enable the Timer
+ 172:Generated_Source\PSoC5/StepperStep.c **** *
+ 173:Generated_Source\PSoC5/StepperStep.c **** * Parameters:
+ 174:Generated_Source\PSoC5/StepperStep.c **** *  void
+ 175:Generated_Source\PSoC5/StepperStep.c **** *
+ 176:Generated_Source\PSoC5/StepperStep.c **** * Return:
+ 177:Generated_Source\PSoC5/StepperStep.c **** *  void
+ 178:Generated_Source\PSoC5/StepperStep.c **** *
+ 179:Generated_Source\PSoC5/StepperStep.c **** *******************************************************************************/
+ 180:Generated_Source\PSoC5/StepperStep.c **** void StepperStep_Enable(void) 
+ 181:Generated_Source\PSoC5/StepperStep.c **** {
+  28              		.loc 1 181 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33 0000 7047     		bx	lr
+  34              		.cfi_endproc
+  35              	.LFE1:
+  36              		.size	StepperStep_Enable, .-StepperStep_Enable
+  37 0002 00BF     		.section	.text.StepperStep_Stop,"ax",%progbits
+  38              		.align	2
+  39              		.global	StepperStep_Stop
+  40              		.thumb
+  41              		.thumb_func
+  42              		.type	StepperStep_Stop, %function
+  43              	StepperStep_Stop:
+  44              	.LFB3:
+ 182:Generated_Source\PSoC5/StepperStep.c ****     /* Globally Enable the Fixed Function Block chosen */
+ 183:Generated_Source\PSoC5/StepperStep.c ****     #if (StepperStep_UsingFixedFunction)
+ 184:Generated_Source\PSoC5/StepperStep.c ****         StepperStep_GLOBAL_ENABLE |= StepperStep_BLOCK_EN_MASK;
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 5
+
+
+ 185:Generated_Source\PSoC5/StepperStep.c ****         StepperStep_GLOBAL_STBY_ENABLE |= StepperStep_BLOCK_STBY_EN_MASK;
+ 186:Generated_Source\PSoC5/StepperStep.c ****     #endif /* Set Enable bit for enabling Fixed function timer*/
+ 187:Generated_Source\PSoC5/StepperStep.c **** 
+ 188:Generated_Source\PSoC5/StepperStep.c ****     /* Remove assignment if control register is removed */
+ 189:Generated_Source\PSoC5/StepperStep.c ****     #if (!StepperStep_UDB_CONTROL_REG_REMOVED || StepperStep_UsingFixedFunction)
+ 190:Generated_Source\PSoC5/StepperStep.c ****         StepperStep_CONTROL |= StepperStep_CTRL_ENABLE;
+ 191:Generated_Source\PSoC5/StepperStep.c ****     #endif /* Remove assignment if control register is removed */
+ 192:Generated_Source\PSoC5/StepperStep.c **** }
+ 193:Generated_Source\PSoC5/StepperStep.c **** 
+ 194:Generated_Source\PSoC5/StepperStep.c **** 
+ 195:Generated_Source\PSoC5/StepperStep.c **** /*******************************************************************************
+ 196:Generated_Source\PSoC5/StepperStep.c **** * Function Name: StepperStep_Start
+ 197:Generated_Source\PSoC5/StepperStep.c **** ********************************************************************************
+ 198:Generated_Source\PSoC5/StepperStep.c **** *
+ 199:Generated_Source\PSoC5/StepperStep.c **** * Summary:
+ 200:Generated_Source\PSoC5/StepperStep.c **** *  The start function initializes the timer with the default values, the
+ 201:Generated_Source\PSoC5/StepperStep.c **** *  enables the timerto begin counting.  It does not enable interrupts,
+ 202:Generated_Source\PSoC5/StepperStep.c **** *  the EnableInt command should be called if interrupt generation is required.
+ 203:Generated_Source\PSoC5/StepperStep.c **** *
+ 204:Generated_Source\PSoC5/StepperStep.c **** * Parameters:
+ 205:Generated_Source\PSoC5/StepperStep.c **** *  void
+ 206:Generated_Source\PSoC5/StepperStep.c **** *
+ 207:Generated_Source\PSoC5/StepperStep.c **** * Return:
+ 208:Generated_Source\PSoC5/StepperStep.c **** *  void
+ 209:Generated_Source\PSoC5/StepperStep.c **** *
+ 210:Generated_Source\PSoC5/StepperStep.c **** * Global variables:
+ 211:Generated_Source\PSoC5/StepperStep.c **** *  StepperStep_initVar: Is modified when this function is called for the
+ 212:Generated_Source\PSoC5/StepperStep.c **** *   first time. Is used to ensure that initialization happens only once.
+ 213:Generated_Source\PSoC5/StepperStep.c **** *
+ 214:Generated_Source\PSoC5/StepperStep.c **** *******************************************************************************/
+ 215:Generated_Source\PSoC5/StepperStep.c **** void StepperStep_Start(void) 
+ 216:Generated_Source\PSoC5/StepperStep.c **** {
+ 217:Generated_Source\PSoC5/StepperStep.c ****     if(StepperStep_initVar == 0u)
+ 218:Generated_Source\PSoC5/StepperStep.c ****     {
+ 219:Generated_Source\PSoC5/StepperStep.c ****         StepperStep_Init();
+ 220:Generated_Source\PSoC5/StepperStep.c **** 
+ 221:Generated_Source\PSoC5/StepperStep.c ****         StepperStep_initVar = 1u;   /* Clear this bit for Initialization */
+ 222:Generated_Source\PSoC5/StepperStep.c ****     }
+ 223:Generated_Source\PSoC5/StepperStep.c **** 
+ 224:Generated_Source\PSoC5/StepperStep.c ****     /* Enable the Timer */
+ 225:Generated_Source\PSoC5/StepperStep.c ****     StepperStep_Enable();
+ 226:Generated_Source\PSoC5/StepperStep.c **** }
+ 227:Generated_Source\PSoC5/StepperStep.c **** 
+ 228:Generated_Source\PSoC5/StepperStep.c **** 
+ 229:Generated_Source\PSoC5/StepperStep.c **** /*******************************************************************************
+ 230:Generated_Source\PSoC5/StepperStep.c **** * Function Name: StepperStep_Stop
+ 231:Generated_Source\PSoC5/StepperStep.c **** ********************************************************************************
+ 232:Generated_Source\PSoC5/StepperStep.c **** *
+ 233:Generated_Source\PSoC5/StepperStep.c **** * Summary:
+ 234:Generated_Source\PSoC5/StepperStep.c **** *  The stop function halts the timer, but does not change any modes or disable
+ 235:Generated_Source\PSoC5/StepperStep.c **** *  interrupts.
+ 236:Generated_Source\PSoC5/StepperStep.c **** *
+ 237:Generated_Source\PSoC5/StepperStep.c **** * Parameters:
+ 238:Generated_Source\PSoC5/StepperStep.c **** *  void
+ 239:Generated_Source\PSoC5/StepperStep.c **** *
+ 240:Generated_Source\PSoC5/StepperStep.c **** * Return:
+ 241:Generated_Source\PSoC5/StepperStep.c **** *  void
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 6
+
+
+ 242:Generated_Source\PSoC5/StepperStep.c **** *
+ 243:Generated_Source\PSoC5/StepperStep.c **** * Side Effects: If the Enable mode is set to Hardware only then this function
+ 244:Generated_Source\PSoC5/StepperStep.c **** *               has no effect on the operation of the timer.
+ 245:Generated_Source\PSoC5/StepperStep.c **** *
+ 246:Generated_Source\PSoC5/StepperStep.c **** *******************************************************************************/
+ 247:Generated_Source\PSoC5/StepperStep.c **** void StepperStep_Stop(void) 
+ 248:Generated_Source\PSoC5/StepperStep.c **** {
+  45              		.loc 1 248 0
+  46              		.cfi_startproc
+  47              		@ args = 0, pretend = 0, frame = 0
+  48              		@ frame_needed = 0, uses_anonymous_args = 0
+  49              		@ link register save eliminated.
+  50 0000 7047     		bx	lr
+  51              		.cfi_endproc
+  52              	.LFE3:
+  53              		.size	StepperStep_Stop, .-StepperStep_Stop
+  54 0002 00BF     		.section	.text.StepperStep_SetInterruptMode,"ax",%progbits
+  55              		.align	2
+  56              		.global	StepperStep_SetInterruptMode
+  57              		.thumb
+  58              		.thumb_func
+  59              		.type	StepperStep_SetInterruptMode, %function
+  60              	StepperStep_SetInterruptMode:
+  61              	.LFB4:
+ 249:Generated_Source\PSoC5/StepperStep.c ****     /* Disable Timer */
+ 250:Generated_Source\PSoC5/StepperStep.c ****     #if(!StepperStep_UDB_CONTROL_REG_REMOVED || StepperStep_UsingFixedFunction)
+ 251:Generated_Source\PSoC5/StepperStep.c ****         StepperStep_CONTROL &= ((uint8)(~StepperStep_CTRL_ENABLE));
+ 252:Generated_Source\PSoC5/StepperStep.c ****     #endif /* Remove assignment if control register is removed */
+ 253:Generated_Source\PSoC5/StepperStep.c **** 
+ 254:Generated_Source\PSoC5/StepperStep.c ****     /* Globally disable the Fixed Function Block chosen */
+ 255:Generated_Source\PSoC5/StepperStep.c ****     #if (StepperStep_UsingFixedFunction)
+ 256:Generated_Source\PSoC5/StepperStep.c ****         StepperStep_GLOBAL_ENABLE &= ((uint8)(~StepperStep_BLOCK_EN_MASK));
+ 257:Generated_Source\PSoC5/StepperStep.c ****         StepperStep_GLOBAL_STBY_ENABLE &= ((uint8)(~StepperStep_BLOCK_STBY_EN_MASK));
+ 258:Generated_Source\PSoC5/StepperStep.c ****     #endif /* Disable global enable for the Timer Fixed function block to stop the Timer*/
+ 259:Generated_Source\PSoC5/StepperStep.c **** }
+ 260:Generated_Source\PSoC5/StepperStep.c **** 
+ 261:Generated_Source\PSoC5/StepperStep.c **** 
+ 262:Generated_Source\PSoC5/StepperStep.c **** /*******************************************************************************
+ 263:Generated_Source\PSoC5/StepperStep.c **** * Function Name: StepperStep_SetInterruptMode
+ 264:Generated_Source\PSoC5/StepperStep.c **** ********************************************************************************
+ 265:Generated_Source\PSoC5/StepperStep.c **** *
+ 266:Generated_Source\PSoC5/StepperStep.c **** * Summary:
+ 267:Generated_Source\PSoC5/StepperStep.c **** *  This function selects which of the interrupt inputs may cause an interrupt.
+ 268:Generated_Source\PSoC5/StepperStep.c **** *  The twosources are caputure and terminal.  One, both or neither may
+ 269:Generated_Source\PSoC5/StepperStep.c **** *  be selected.
+ 270:Generated_Source\PSoC5/StepperStep.c **** *
+ 271:Generated_Source\PSoC5/StepperStep.c **** * Parameters:
+ 272:Generated_Source\PSoC5/StepperStep.c **** *  interruptMode:   This parameter is used to enable interrups on either/or
+ 273:Generated_Source\PSoC5/StepperStep.c **** *                   terminal count or capture.
+ 274:Generated_Source\PSoC5/StepperStep.c **** *
+ 275:Generated_Source\PSoC5/StepperStep.c **** * Return:
+ 276:Generated_Source\PSoC5/StepperStep.c **** *  void
+ 277:Generated_Source\PSoC5/StepperStep.c **** *
+ 278:Generated_Source\PSoC5/StepperStep.c **** *******************************************************************************/
+ 279:Generated_Source\PSoC5/StepperStep.c **** void StepperStep_SetInterruptMode(uint8 interruptMode) 
+ 280:Generated_Source\PSoC5/StepperStep.c **** {
+  62              		.loc 1 280 0
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 7
+
+
+  63              		.cfi_startproc
+  64              		@ args = 0, pretend = 0, frame = 0
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66              		@ link register save eliminated.
+  67              	.LVL0:
+ 281:Generated_Source\PSoC5/StepperStep.c ****     StepperStep_STATUS_MASK = interruptMode;
+  68              		.loc 1 281 0
+  69 0000 014B     		ldr	r3, .L4
+  70 0002 1870     		strb	r0, [r3]
+  71 0004 7047     		bx	lr
+  72              	.L5:
+  73 0006 00BF     		.align	2
+  74              	.L4:
+  75 0008 8B640040 		.word	1073767563
+  76              		.cfi_endproc
+  77              	.LFE4:
+  78              		.size	StepperStep_SetInterruptMode, .-StepperStep_SetInterruptMode
+  79              		.section	.text.StepperStep_SoftwareCapture,"ax",%progbits
+  80              		.align	2
+  81              		.global	StepperStep_SoftwareCapture
+  82              		.thumb
+  83              		.thumb_func
+  84              		.type	StepperStep_SoftwareCapture, %function
+  85              	StepperStep_SoftwareCapture:
+  86              	.LFB5:
+ 282:Generated_Source\PSoC5/StepperStep.c **** }
+ 283:Generated_Source\PSoC5/StepperStep.c **** 
+ 284:Generated_Source\PSoC5/StepperStep.c **** 
+ 285:Generated_Source\PSoC5/StepperStep.c **** /*******************************************************************************
+ 286:Generated_Source\PSoC5/StepperStep.c **** * Function Name: StepperStep_SoftwareCapture
+ 287:Generated_Source\PSoC5/StepperStep.c **** ********************************************************************************
+ 288:Generated_Source\PSoC5/StepperStep.c **** *
+ 289:Generated_Source\PSoC5/StepperStep.c **** * Summary:
+ 290:Generated_Source\PSoC5/StepperStep.c **** *  This function forces a capture independent of the capture signal.
+ 291:Generated_Source\PSoC5/StepperStep.c **** *
+ 292:Generated_Source\PSoC5/StepperStep.c **** * Parameters:
+ 293:Generated_Source\PSoC5/StepperStep.c **** *  void
+ 294:Generated_Source\PSoC5/StepperStep.c **** *
+ 295:Generated_Source\PSoC5/StepperStep.c **** * Return:
+ 296:Generated_Source\PSoC5/StepperStep.c **** *  void
+ 297:Generated_Source\PSoC5/StepperStep.c **** *
+ 298:Generated_Source\PSoC5/StepperStep.c **** * Side Effects:
+ 299:Generated_Source\PSoC5/StepperStep.c **** *  An existing hardware capture could be overwritten.
+ 300:Generated_Source\PSoC5/StepperStep.c **** *
+ 301:Generated_Source\PSoC5/StepperStep.c **** *******************************************************************************/
+ 302:Generated_Source\PSoC5/StepperStep.c **** void StepperStep_SoftwareCapture(void) 
+ 303:Generated_Source\PSoC5/StepperStep.c **** {
+  87              		.loc 1 303 0
+  88              		.cfi_startproc
+  89              		@ args = 0, pretend = 0, frame = 0
+  90              		@ frame_needed = 0, uses_anonymous_args = 0
+  91              		@ link register save eliminated.
+ 304:Generated_Source\PSoC5/StepperStep.c ****     /* Generate a software capture by reading the counter register */
+ 305:Generated_Source\PSoC5/StepperStep.c ****     #if(StepperStep_UsingFixedFunction)
+ 306:Generated_Source\PSoC5/StepperStep.c ****         (void)CY_GET_REG16(StepperStep_COUNTER_LSB_PTR);
+ 307:Generated_Source\PSoC5/StepperStep.c ****     #else
+ 308:Generated_Source\PSoC5/StepperStep.c ****         (void)CY_GET_REG8(StepperStep_COUNTER_LSB_PTR_8BIT);
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 8
+
+
+  92              		.loc 1 308 0
+  93 0000 014B     		ldr	r3, .L7
+  94 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  95 0004 7047     		bx	lr
+  96              	.L8:
+  97 0006 00BF     		.align	2
+  98              	.L7:
+  99 0008 08640040 		.word	1073767432
+ 100              		.cfi_endproc
+ 101              	.LFE5:
+ 102              		.size	StepperStep_SoftwareCapture, .-StepperStep_SoftwareCapture
+ 103              		.section	.text.StepperStep_ReadStatusRegister,"ax",%progbits
+ 104              		.align	2
+ 105              		.global	StepperStep_ReadStatusRegister
+ 106              		.thumb
+ 107              		.thumb_func
+ 108              		.type	StepperStep_ReadStatusRegister, %function
+ 109              	StepperStep_ReadStatusRegister:
+ 110              	.LFB6:
+ 309:Generated_Source\PSoC5/StepperStep.c ****     #endif/* (StepperStep_UsingFixedFunction) */
+ 310:Generated_Source\PSoC5/StepperStep.c ****     /* Capture Data is now in the FIFO */
+ 311:Generated_Source\PSoC5/StepperStep.c **** }
+ 312:Generated_Source\PSoC5/StepperStep.c **** 
+ 313:Generated_Source\PSoC5/StepperStep.c **** 
+ 314:Generated_Source\PSoC5/StepperStep.c **** /*******************************************************************************
+ 315:Generated_Source\PSoC5/StepperStep.c **** * Function Name: StepperStep_ReadStatusRegister
+ 316:Generated_Source\PSoC5/StepperStep.c **** ********************************************************************************
+ 317:Generated_Source\PSoC5/StepperStep.c **** *
+ 318:Generated_Source\PSoC5/StepperStep.c **** * Summary:
+ 319:Generated_Source\PSoC5/StepperStep.c **** *  Reads the status register and returns it's state. This function should use
+ 320:Generated_Source\PSoC5/StepperStep.c **** *  defined types for the bit-field information as the bits in this register may
+ 321:Generated_Source\PSoC5/StepperStep.c **** *  be permuteable.
+ 322:Generated_Source\PSoC5/StepperStep.c **** *
+ 323:Generated_Source\PSoC5/StepperStep.c **** * Parameters:
+ 324:Generated_Source\PSoC5/StepperStep.c **** *  void
+ 325:Generated_Source\PSoC5/StepperStep.c **** *
+ 326:Generated_Source\PSoC5/StepperStep.c **** * Return:
+ 327:Generated_Source\PSoC5/StepperStep.c **** *  The contents of the status register
+ 328:Generated_Source\PSoC5/StepperStep.c **** *
+ 329:Generated_Source\PSoC5/StepperStep.c **** * Side Effects:
+ 330:Generated_Source\PSoC5/StepperStep.c **** *  Status register bits may be clear on read.
+ 331:Generated_Source\PSoC5/StepperStep.c **** *
+ 332:Generated_Source\PSoC5/StepperStep.c **** *******************************************************************************/
+ 333:Generated_Source\PSoC5/StepperStep.c **** uint8   StepperStep_ReadStatusRegister(void) 
+ 334:Generated_Source\PSoC5/StepperStep.c **** {
+ 111              		.loc 1 334 0
+ 112              		.cfi_startproc
+ 113              		@ args = 0, pretend = 0, frame = 0
+ 114              		@ frame_needed = 0, uses_anonymous_args = 0
+ 115              		@ link register save eliminated.
+ 335:Generated_Source\PSoC5/StepperStep.c ****     return (StepperStep_STATUS);
+ 116              		.loc 1 335 0
+ 117 0000 014B     		ldr	r3, .L10
+ 118 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 336:Generated_Source\PSoC5/StepperStep.c **** }
+ 119              		.loc 1 336 0
+ 120 0004 7047     		bx	lr
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 9
+
+
+ 121              	.L11:
+ 122 0006 00BF     		.align	2
+ 123              	.L10:
+ 124 0008 6B640040 		.word	1073767531
+ 125              		.cfi_endproc
+ 126              	.LFE6:
+ 127              		.size	StepperStep_ReadStatusRegister, .-StepperStep_ReadStatusRegister
+ 128              		.section	.text.StepperStep_ReadPeriod,"ax",%progbits
+ 129              		.align	2
+ 130              		.global	StepperStep_ReadPeriod
+ 131              		.thumb
+ 132              		.thumb_func
+ 133              		.type	StepperStep_ReadPeriod, %function
+ 134              	StepperStep_ReadPeriod:
+ 135              	.LFB7:
+ 337:Generated_Source\PSoC5/StepperStep.c **** 
+ 338:Generated_Source\PSoC5/StepperStep.c **** 
+ 339:Generated_Source\PSoC5/StepperStep.c **** #if (!StepperStep_UDB_CONTROL_REG_REMOVED) /* Remove API if control register is unused */
+ 340:Generated_Source\PSoC5/StepperStep.c **** 
+ 341:Generated_Source\PSoC5/StepperStep.c **** 
+ 342:Generated_Source\PSoC5/StepperStep.c **** /*******************************************************************************
+ 343:Generated_Source\PSoC5/StepperStep.c **** * Function Name: StepperStep_ReadControlRegister
+ 344:Generated_Source\PSoC5/StepperStep.c **** ********************************************************************************
+ 345:Generated_Source\PSoC5/StepperStep.c **** *
+ 346:Generated_Source\PSoC5/StepperStep.c **** * Summary:
+ 347:Generated_Source\PSoC5/StepperStep.c **** *  Reads the control register and returns it's value.
+ 348:Generated_Source\PSoC5/StepperStep.c **** *
+ 349:Generated_Source\PSoC5/StepperStep.c **** * Parameters:
+ 350:Generated_Source\PSoC5/StepperStep.c **** *  void
+ 351:Generated_Source\PSoC5/StepperStep.c **** *
+ 352:Generated_Source\PSoC5/StepperStep.c **** * Return:
+ 353:Generated_Source\PSoC5/StepperStep.c **** *  The contents of the control register
+ 354:Generated_Source\PSoC5/StepperStep.c **** *
+ 355:Generated_Source\PSoC5/StepperStep.c **** *******************************************************************************/
+ 356:Generated_Source\PSoC5/StepperStep.c **** uint8 StepperStep_ReadControlRegister(void) 
+ 357:Generated_Source\PSoC5/StepperStep.c **** {
+ 358:Generated_Source\PSoC5/StepperStep.c ****     #if (!StepperStep_UDB_CONTROL_REG_REMOVED) 
+ 359:Generated_Source\PSoC5/StepperStep.c ****         return ((uint8)StepperStep_CONTROL);
+ 360:Generated_Source\PSoC5/StepperStep.c ****     #else
+ 361:Generated_Source\PSoC5/StepperStep.c ****         return (0);
+ 362:Generated_Source\PSoC5/StepperStep.c ****     #endif /* (!StepperStep_UDB_CONTROL_REG_REMOVED) */
+ 363:Generated_Source\PSoC5/StepperStep.c **** }
+ 364:Generated_Source\PSoC5/StepperStep.c **** 
+ 365:Generated_Source\PSoC5/StepperStep.c **** 
+ 366:Generated_Source\PSoC5/StepperStep.c **** /*******************************************************************************
+ 367:Generated_Source\PSoC5/StepperStep.c **** * Function Name: StepperStep_WriteControlRegister
+ 368:Generated_Source\PSoC5/StepperStep.c **** ********************************************************************************
+ 369:Generated_Source\PSoC5/StepperStep.c **** *
+ 370:Generated_Source\PSoC5/StepperStep.c **** * Summary:
+ 371:Generated_Source\PSoC5/StepperStep.c **** *  Sets the bit-field of the control register.
+ 372:Generated_Source\PSoC5/StepperStep.c **** *
+ 373:Generated_Source\PSoC5/StepperStep.c **** * Parameters:
+ 374:Generated_Source\PSoC5/StepperStep.c **** *  control: The contents of the control register
+ 375:Generated_Source\PSoC5/StepperStep.c **** *
+ 376:Generated_Source\PSoC5/StepperStep.c **** * Return:
+ 377:Generated_Source\PSoC5/StepperStep.c **** *
+ 378:Generated_Source\PSoC5/StepperStep.c **** *******************************************************************************/
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 10
+
+
+ 379:Generated_Source\PSoC5/StepperStep.c **** void StepperStep_WriteControlRegister(uint8 control) 
+ 380:Generated_Source\PSoC5/StepperStep.c **** {
+ 381:Generated_Source\PSoC5/StepperStep.c ****     #if (!StepperStep_UDB_CONTROL_REG_REMOVED) 
+ 382:Generated_Source\PSoC5/StepperStep.c ****         StepperStep_CONTROL = control;
+ 383:Generated_Source\PSoC5/StepperStep.c ****     #else
+ 384:Generated_Source\PSoC5/StepperStep.c ****         control = 0u;
+ 385:Generated_Source\PSoC5/StepperStep.c ****     #endif /* (!StepperStep_UDB_CONTROL_REG_REMOVED) */
+ 386:Generated_Source\PSoC5/StepperStep.c **** }
+ 387:Generated_Source\PSoC5/StepperStep.c **** 
+ 388:Generated_Source\PSoC5/StepperStep.c **** #endif /* Remove API if control register is unused */
+ 389:Generated_Source\PSoC5/StepperStep.c **** 
+ 390:Generated_Source\PSoC5/StepperStep.c **** 
+ 391:Generated_Source\PSoC5/StepperStep.c **** /*******************************************************************************
+ 392:Generated_Source\PSoC5/StepperStep.c **** * Function Name: StepperStep_ReadPeriod
+ 393:Generated_Source\PSoC5/StepperStep.c **** ********************************************************************************
+ 394:Generated_Source\PSoC5/StepperStep.c **** *
+ 395:Generated_Source\PSoC5/StepperStep.c **** * Summary:
+ 396:Generated_Source\PSoC5/StepperStep.c **** *  This function returns the current value of the Period.
+ 397:Generated_Source\PSoC5/StepperStep.c **** *
+ 398:Generated_Source\PSoC5/StepperStep.c **** * Parameters:
+ 399:Generated_Source\PSoC5/StepperStep.c **** *  void
+ 400:Generated_Source\PSoC5/StepperStep.c **** *
+ 401:Generated_Source\PSoC5/StepperStep.c **** * Return:
+ 402:Generated_Source\PSoC5/StepperStep.c **** *  The present value of the counter.
+ 403:Generated_Source\PSoC5/StepperStep.c **** *
+ 404:Generated_Source\PSoC5/StepperStep.c **** *******************************************************************************/
+ 405:Generated_Source\PSoC5/StepperStep.c **** uint32 StepperStep_ReadPeriod(void) 
+ 406:Generated_Source\PSoC5/StepperStep.c **** {
+ 136              		.loc 1 406 0
+ 137              		.cfi_startproc
+ 138              		@ args = 0, pretend = 0, frame = 0
+ 139              		@ frame_needed = 0, uses_anonymous_args = 0
+ 140              		@ link register save eliminated.
+ 407:Generated_Source\PSoC5/StepperStep.c ****    #if(StepperStep_UsingFixedFunction)
+ 408:Generated_Source\PSoC5/StepperStep.c ****        return ((uint32)CY_GET_REG16(StepperStep_PERIOD_LSB_PTR));
+ 409:Generated_Source\PSoC5/StepperStep.c ****    #else
+ 410:Generated_Source\PSoC5/StepperStep.c ****        return (CY_GET_REG32(StepperStep_PERIOD_LSB_PTR));
+ 141              		.loc 1 410 0
+ 142 0000 014B     		ldr	r3, .L13
+ 143 0002 1868     		ldr	r0, [r3]
+ 411:Generated_Source\PSoC5/StepperStep.c ****    #endif /* (StepperStep_UsingFixedFunction) */
+ 412:Generated_Source\PSoC5/StepperStep.c **** }
+ 144              		.loc 1 412 0
+ 145 0004 7047     		bx	lr
+ 146              	.L14:
+ 147 0006 00BF     		.align	2
+ 148              	.L13:
+ 149 0008 28640040 		.word	1073767464
+ 150              		.cfi_endproc
+ 151              	.LFE7:
+ 152              		.size	StepperStep_ReadPeriod, .-StepperStep_ReadPeriod
+ 153              		.section	.text.StepperStep_WritePeriod,"ax",%progbits
+ 154              		.align	2
+ 155              		.global	StepperStep_WritePeriod
+ 156              		.thumb
+ 157              		.thumb_func
+ 158              		.type	StepperStep_WritePeriod, %function
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 11
+
+
+ 159              	StepperStep_WritePeriod:
+ 160              	.LFB8:
+ 413:Generated_Source\PSoC5/StepperStep.c **** 
+ 414:Generated_Source\PSoC5/StepperStep.c **** 
+ 415:Generated_Source\PSoC5/StepperStep.c **** /*******************************************************************************
+ 416:Generated_Source\PSoC5/StepperStep.c **** * Function Name: StepperStep_WritePeriod
+ 417:Generated_Source\PSoC5/StepperStep.c **** ********************************************************************************
+ 418:Generated_Source\PSoC5/StepperStep.c **** *
+ 419:Generated_Source\PSoC5/StepperStep.c **** * Summary:
+ 420:Generated_Source\PSoC5/StepperStep.c **** *  This function is used to change the period of the counter.  The new period
+ 421:Generated_Source\PSoC5/StepperStep.c **** *  will be loaded the next time terminal count is detected.
+ 422:Generated_Source\PSoC5/StepperStep.c **** *
+ 423:Generated_Source\PSoC5/StepperStep.c **** * Parameters:
+ 424:Generated_Source\PSoC5/StepperStep.c **** *  period: This value may be between 1 and (2^Resolution)-1.  A value of 0 will
+ 425:Generated_Source\PSoC5/StepperStep.c **** *          result in the counter remaining at zero.
+ 426:Generated_Source\PSoC5/StepperStep.c **** *
+ 427:Generated_Source\PSoC5/StepperStep.c **** * Return:
+ 428:Generated_Source\PSoC5/StepperStep.c **** *  void
+ 429:Generated_Source\PSoC5/StepperStep.c **** *
+ 430:Generated_Source\PSoC5/StepperStep.c **** *******************************************************************************/
+ 431:Generated_Source\PSoC5/StepperStep.c **** void StepperStep_WritePeriod(uint32 period) 
+ 432:Generated_Source\PSoC5/StepperStep.c **** {
+ 161              		.loc 1 432 0
+ 162              		.cfi_startproc
+ 163              		@ args = 0, pretend = 0, frame = 0
+ 164              		@ frame_needed = 0, uses_anonymous_args = 0
+ 165              		@ link register save eliminated.
+ 166              	.LVL1:
+ 433:Generated_Source\PSoC5/StepperStep.c ****     #if(StepperStep_UsingFixedFunction)
+ 434:Generated_Source\PSoC5/StepperStep.c ****         uint16 period_temp = (uint16)period;
+ 435:Generated_Source\PSoC5/StepperStep.c ****         CY_SET_REG16(StepperStep_PERIOD_LSB_PTR, period_temp);
+ 436:Generated_Source\PSoC5/StepperStep.c ****     #else
+ 437:Generated_Source\PSoC5/StepperStep.c ****         CY_SET_REG32(StepperStep_PERIOD_LSB_PTR, period);
+ 167              		.loc 1 437 0
+ 168 0000 014B     		ldr	r3, .L16
+ 169 0002 1860     		str	r0, [r3]
+ 170 0004 7047     		bx	lr
+ 171              	.L17:
+ 172 0006 00BF     		.align	2
+ 173              	.L16:
+ 174 0008 28640040 		.word	1073767464
+ 175              		.cfi_endproc
+ 176              	.LFE8:
+ 177              		.size	StepperStep_WritePeriod, .-StepperStep_WritePeriod
+ 178              		.section	.text.StepperStep_ReadCapture,"ax",%progbits
+ 179              		.align	2
+ 180              		.global	StepperStep_ReadCapture
+ 181              		.thumb
+ 182              		.thumb_func
+ 183              		.type	StepperStep_ReadCapture, %function
+ 184              	StepperStep_ReadCapture:
+ 185              	.LFB9:
+ 438:Generated_Source\PSoC5/StepperStep.c ****     #endif /*Write Period value with appropriate resolution suffix depending on UDB or fixed functi
+ 439:Generated_Source\PSoC5/StepperStep.c **** }
+ 440:Generated_Source\PSoC5/StepperStep.c **** 
+ 441:Generated_Source\PSoC5/StepperStep.c **** 
+ 442:Generated_Source\PSoC5/StepperStep.c **** /*******************************************************************************
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 12
+
+
+ 443:Generated_Source\PSoC5/StepperStep.c **** * Function Name: StepperStep_ReadCapture
+ 444:Generated_Source\PSoC5/StepperStep.c **** ********************************************************************************
+ 445:Generated_Source\PSoC5/StepperStep.c **** *
+ 446:Generated_Source\PSoC5/StepperStep.c **** * Summary:
+ 447:Generated_Source\PSoC5/StepperStep.c **** *  This function returns the last value captured.
+ 448:Generated_Source\PSoC5/StepperStep.c **** *
+ 449:Generated_Source\PSoC5/StepperStep.c **** * Parameters:
+ 450:Generated_Source\PSoC5/StepperStep.c **** *  void
+ 451:Generated_Source\PSoC5/StepperStep.c **** *
+ 452:Generated_Source\PSoC5/StepperStep.c **** * Return:
+ 453:Generated_Source\PSoC5/StepperStep.c **** *  Present Capture value.
+ 454:Generated_Source\PSoC5/StepperStep.c **** *
+ 455:Generated_Source\PSoC5/StepperStep.c **** *******************************************************************************/
+ 456:Generated_Source\PSoC5/StepperStep.c **** uint32 StepperStep_ReadCapture(void) 
+ 457:Generated_Source\PSoC5/StepperStep.c **** {
+ 186              		.loc 1 457 0
+ 187              		.cfi_startproc
+ 188              		@ args = 0, pretend = 0, frame = 0
+ 189              		@ frame_needed = 0, uses_anonymous_args = 0
+ 190              		@ link register save eliminated.
+ 458:Generated_Source\PSoC5/StepperStep.c ****    #if(StepperStep_UsingFixedFunction)
+ 459:Generated_Source\PSoC5/StepperStep.c ****        return ((uint32)CY_GET_REG16(StepperStep_CAPTURE_LSB_PTR));
+ 460:Generated_Source\PSoC5/StepperStep.c ****    #else
+ 461:Generated_Source\PSoC5/StepperStep.c ****        return (CY_GET_REG32(StepperStep_CAPTURE_LSB_PTR));
+ 191              		.loc 1 461 0
+ 192 0000 014B     		ldr	r3, .L19
+ 193 0002 1868     		ldr	r0, [r3]
+ 462:Generated_Source\PSoC5/StepperStep.c ****    #endif /* (StepperStep_UsingFixedFunction) */
+ 463:Generated_Source\PSoC5/StepperStep.c **** }
+ 194              		.loc 1 463 0
+ 195 0004 7047     		bx	lr
+ 196              	.L20:
+ 197 0006 00BF     		.align	2
+ 198              	.L19:
+ 199 0008 48640040 		.word	1073767496
+ 200              		.cfi_endproc
+ 201              	.LFE9:
+ 202              		.size	StepperStep_ReadCapture, .-StepperStep_ReadCapture
+ 203              		.section	.text.StepperStep_WriteCounter,"ax",%progbits
+ 204              		.align	2
+ 205              		.global	StepperStep_WriteCounter
+ 206              		.thumb
+ 207              		.thumb_func
+ 208              		.type	StepperStep_WriteCounter, %function
+ 209              	StepperStep_WriteCounter:
+ 210              	.LFB10:
+ 464:Generated_Source\PSoC5/StepperStep.c **** 
+ 465:Generated_Source\PSoC5/StepperStep.c **** 
+ 466:Generated_Source\PSoC5/StepperStep.c **** /*******************************************************************************
+ 467:Generated_Source\PSoC5/StepperStep.c **** * Function Name: StepperStep_WriteCounter
+ 468:Generated_Source\PSoC5/StepperStep.c **** ********************************************************************************
+ 469:Generated_Source\PSoC5/StepperStep.c **** *
+ 470:Generated_Source\PSoC5/StepperStep.c **** * Summary:
+ 471:Generated_Source\PSoC5/StepperStep.c **** *  This funtion is used to set the counter to a specific value
+ 472:Generated_Source\PSoC5/StepperStep.c **** *
+ 473:Generated_Source\PSoC5/StepperStep.c **** * Parameters:
+ 474:Generated_Source\PSoC5/StepperStep.c **** *  counter:  New counter value.
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 13
+
+
+ 475:Generated_Source\PSoC5/StepperStep.c **** *
+ 476:Generated_Source\PSoC5/StepperStep.c **** * Return:
+ 477:Generated_Source\PSoC5/StepperStep.c **** *  void
+ 478:Generated_Source\PSoC5/StepperStep.c **** *
+ 479:Generated_Source\PSoC5/StepperStep.c **** *******************************************************************************/
+ 480:Generated_Source\PSoC5/StepperStep.c **** void StepperStep_WriteCounter(uint32 counter) 
+ 481:Generated_Source\PSoC5/StepperStep.c **** {
+ 211              		.loc 1 481 0
+ 212              		.cfi_startproc
+ 213              		@ args = 0, pretend = 0, frame = 0
+ 214              		@ frame_needed = 0, uses_anonymous_args = 0
+ 215              		@ link register save eliminated.
+ 216              	.LVL2:
+ 482:Generated_Source\PSoC5/StepperStep.c ****    #if(StepperStep_UsingFixedFunction)
+ 483:Generated_Source\PSoC5/StepperStep.c ****         /* This functionality is removed until a FixedFunction HW update to
+ 484:Generated_Source\PSoC5/StepperStep.c ****          * allow this register to be written
+ 485:Generated_Source\PSoC5/StepperStep.c ****          */
+ 486:Generated_Source\PSoC5/StepperStep.c ****         CY_SET_REG16(StepperStep_COUNTER_LSB_PTR, (uint16)counter);
+ 487:Generated_Source\PSoC5/StepperStep.c ****         
+ 488:Generated_Source\PSoC5/StepperStep.c ****     #else
+ 489:Generated_Source\PSoC5/StepperStep.c ****         CY_SET_REG32(StepperStep_COUNTER_LSB_PTR, counter);
+ 217              		.loc 1 489 0
+ 218 0000 014B     		ldr	r3, .L22
+ 219 0002 1860     		str	r0, [r3]
+ 220 0004 7047     		bx	lr
+ 221              	.L23:
+ 222 0006 00BF     		.align	2
+ 223              	.L22:
+ 224 0008 08640040 		.word	1073767432
+ 225              		.cfi_endproc
+ 226              	.LFE10:
+ 227              		.size	StepperStep_WriteCounter, .-StepperStep_WriteCounter
+ 228              		.section	.text.StepperStep_ReadCounter,"ax",%progbits
+ 229              		.align	2
+ 230              		.global	StepperStep_ReadCounter
+ 231              		.thumb
+ 232              		.thumb_func
+ 233              		.type	StepperStep_ReadCounter, %function
+ 234              	StepperStep_ReadCounter:
+ 235              	.LFB11:
+ 490:Generated_Source\PSoC5/StepperStep.c ****     #endif /* Set Write Counter only for the UDB implementation (Write Counter not available in fix
+ 491:Generated_Source\PSoC5/StepperStep.c **** }
+ 492:Generated_Source\PSoC5/StepperStep.c **** 
+ 493:Generated_Source\PSoC5/StepperStep.c **** 
+ 494:Generated_Source\PSoC5/StepperStep.c **** /*******************************************************************************
+ 495:Generated_Source\PSoC5/StepperStep.c **** * Function Name: StepperStep_ReadCounter
+ 496:Generated_Source\PSoC5/StepperStep.c **** ********************************************************************************
+ 497:Generated_Source\PSoC5/StepperStep.c **** *
+ 498:Generated_Source\PSoC5/StepperStep.c **** * Summary:
+ 499:Generated_Source\PSoC5/StepperStep.c **** *  This function returns the current counter value.
+ 500:Generated_Source\PSoC5/StepperStep.c **** *
+ 501:Generated_Source\PSoC5/StepperStep.c **** * Parameters:
+ 502:Generated_Source\PSoC5/StepperStep.c **** *  void
+ 503:Generated_Source\PSoC5/StepperStep.c **** *
+ 504:Generated_Source\PSoC5/StepperStep.c **** * Return:
+ 505:Generated_Source\PSoC5/StepperStep.c **** *  Present compare value.
+ 506:Generated_Source\PSoC5/StepperStep.c **** *
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 14
+
+
+ 507:Generated_Source\PSoC5/StepperStep.c **** *******************************************************************************/
+ 508:Generated_Source\PSoC5/StepperStep.c **** uint32 StepperStep_ReadCounter(void) 
+ 509:Generated_Source\PSoC5/StepperStep.c **** {
+ 236              		.loc 1 509 0
+ 237              		.cfi_startproc
+ 238              		@ args = 0, pretend = 0, frame = 0
+ 239              		@ frame_needed = 0, uses_anonymous_args = 0
+ 240              		@ link register save eliminated.
+ 510:Generated_Source\PSoC5/StepperStep.c ****     /* Force capture by reading Accumulator */
+ 511:Generated_Source\PSoC5/StepperStep.c ****     /* Must first do a software capture to be able to read the counter */
+ 512:Generated_Source\PSoC5/StepperStep.c ****     /* It is up to the user code to make sure there isn't already captured data in the FIFO */
+ 513:Generated_Source\PSoC5/StepperStep.c ****     #if(StepperStep_UsingFixedFunction)
+ 514:Generated_Source\PSoC5/StepperStep.c ****         (void)CY_GET_REG16(StepperStep_COUNTER_LSB_PTR);
+ 515:Generated_Source\PSoC5/StepperStep.c ****     #else
+ 516:Generated_Source\PSoC5/StepperStep.c ****         (void)CY_GET_REG8(StepperStep_COUNTER_LSB_PTR_8BIT);
+ 241              		.loc 1 516 0
+ 242 0000 024B     		ldr	r3, .L25
+ 243 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 517:Generated_Source\PSoC5/StepperStep.c ****     #endif/* (StepperStep_UsingFixedFunction) */
+ 518:Generated_Source\PSoC5/StepperStep.c **** 
+ 519:Generated_Source\PSoC5/StepperStep.c ****     /* Read the data from the FIFO (or capture register for Fixed Function)*/
+ 520:Generated_Source\PSoC5/StepperStep.c ****     #if(StepperStep_UsingFixedFunction)
+ 521:Generated_Source\PSoC5/StepperStep.c ****         return ((uint32)CY_GET_REG16(StepperStep_CAPTURE_LSB_PTR));
+ 522:Generated_Source\PSoC5/StepperStep.c ****     #else
+ 523:Generated_Source\PSoC5/StepperStep.c ****         return (CY_GET_REG32(StepperStep_CAPTURE_LSB_PTR));
+ 244              		.loc 1 523 0
+ 245 0004 024B     		ldr	r3, .L25+4
+ 246 0006 1868     		ldr	r0, [r3]
+ 524:Generated_Source\PSoC5/StepperStep.c ****     #endif /* (StepperStep_UsingFixedFunction) */
+ 525:Generated_Source\PSoC5/StepperStep.c **** }
+ 247              		.loc 1 525 0
+ 248 0008 7047     		bx	lr
+ 249              	.L26:
+ 250 000a 00BF     		.align	2
+ 251              	.L25:
+ 252 000c 08640040 		.word	1073767432
+ 253 0010 48640040 		.word	1073767496
+ 254              		.cfi_endproc
+ 255              	.LFE11:
+ 256              		.size	StepperStep_ReadCounter, .-StepperStep_ReadCounter
+ 257              		.section	.text.StepperStep_ClearFIFO,"ax",%progbits
+ 258              		.align	2
+ 259              		.global	StepperStep_ClearFIFO
+ 260              		.thumb
+ 261              		.thumb_func
+ 262              		.type	StepperStep_ClearFIFO, %function
+ 263              	StepperStep_ClearFIFO:
+ 264              	.LFB12:
+ 526:Generated_Source\PSoC5/StepperStep.c **** 
+ 527:Generated_Source\PSoC5/StepperStep.c **** 
+ 528:Generated_Source\PSoC5/StepperStep.c **** #if(!StepperStep_UsingFixedFunction) /* UDB Specific Functions */
+ 529:Generated_Source\PSoC5/StepperStep.c **** 
+ 530:Generated_Source\PSoC5/StepperStep.c ****     
+ 531:Generated_Source\PSoC5/StepperStep.c **** /*******************************************************************************
+ 532:Generated_Source\PSoC5/StepperStep.c ****  * The functions below this point are only available using the UDB
+ 533:Generated_Source\PSoC5/StepperStep.c ****  * implementation.  If a feature is selected, then the API is enabled.
+ 534:Generated_Source\PSoC5/StepperStep.c ****  ******************************************************************************/
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 15
+
+
+ 535:Generated_Source\PSoC5/StepperStep.c **** 
+ 536:Generated_Source\PSoC5/StepperStep.c **** 
+ 537:Generated_Source\PSoC5/StepperStep.c **** #if (StepperStep_SoftwareCaptureMode)
+ 538:Generated_Source\PSoC5/StepperStep.c **** 
+ 539:Generated_Source\PSoC5/StepperStep.c **** 
+ 540:Generated_Source\PSoC5/StepperStep.c **** /*******************************************************************************
+ 541:Generated_Source\PSoC5/StepperStep.c **** * Function Name: StepperStep_SetCaptureMode
+ 542:Generated_Source\PSoC5/StepperStep.c **** ********************************************************************************
+ 543:Generated_Source\PSoC5/StepperStep.c **** *
+ 544:Generated_Source\PSoC5/StepperStep.c **** * Summary:
+ 545:Generated_Source\PSoC5/StepperStep.c **** *  This function sets the capture mode to either rising or falling edge.
+ 546:Generated_Source\PSoC5/StepperStep.c **** *
+ 547:Generated_Source\PSoC5/StepperStep.c **** * Parameters:
+ 548:Generated_Source\PSoC5/StepperStep.c **** *  captureMode: This parameter sets the capture mode of the UDB capture feature
+ 549:Generated_Source\PSoC5/StepperStep.c **** *  The parameter values are defined using the
+ 550:Generated_Source\PSoC5/StepperStep.c **** *  #define StepperStep__B_TIMER__CM_NONE 0
+ 551:Generated_Source\PSoC5/StepperStep.c **** #define StepperStep__B_TIMER__CM_RISINGEDGE 1
+ 552:Generated_Source\PSoC5/StepperStep.c **** #define StepperStep__B_TIMER__CM_FALLINGEDGE 2
+ 553:Generated_Source\PSoC5/StepperStep.c **** #define StepperStep__B_TIMER__CM_EITHEREDGE 3
+ 554:Generated_Source\PSoC5/StepperStep.c **** #define StepperStep__B_TIMER__CM_SOFTWARE 4
+ 555:Generated_Source\PSoC5/StepperStep.c ****  identifiers
+ 556:Generated_Source\PSoC5/StepperStep.c **** *  The following are the possible values of the parameter
+ 557:Generated_Source\PSoC5/StepperStep.c **** *  StepperStep__B_TIMER__CM_NONE        - Set Capture mode to None
+ 558:Generated_Source\PSoC5/StepperStep.c **** *  StepperStep__B_TIMER__CM_RISINGEDGE  - Rising edge of Capture input
+ 559:Generated_Source\PSoC5/StepperStep.c **** *  StepperStep__B_TIMER__CM_FALLINGEDGE - Falling edge of Capture input
+ 560:Generated_Source\PSoC5/StepperStep.c **** *  StepperStep__B_TIMER__CM_EITHEREDGE  - Either edge of Capture input
+ 561:Generated_Source\PSoC5/StepperStep.c **** *
+ 562:Generated_Source\PSoC5/StepperStep.c **** * Return:
+ 563:Generated_Source\PSoC5/StepperStep.c **** *  void
+ 564:Generated_Source\PSoC5/StepperStep.c **** *
+ 565:Generated_Source\PSoC5/StepperStep.c **** *******************************************************************************/
+ 566:Generated_Source\PSoC5/StepperStep.c **** void StepperStep_SetCaptureMode(uint8 captureMode) 
+ 567:Generated_Source\PSoC5/StepperStep.c **** {
+ 568:Generated_Source\PSoC5/StepperStep.c ****     /* This must only set to two bits of the control register associated */
+ 569:Generated_Source\PSoC5/StepperStep.c ****     captureMode = ((uint8)((uint8)captureMode << StepperStep_CTRL_CAP_MODE_SHIFT));
+ 570:Generated_Source\PSoC5/StepperStep.c ****     captureMode &= (StepperStep_CTRL_CAP_MODE_MASK);
+ 571:Generated_Source\PSoC5/StepperStep.c **** 
+ 572:Generated_Source\PSoC5/StepperStep.c ****     #if (!StepperStep_UDB_CONTROL_REG_REMOVED)
+ 573:Generated_Source\PSoC5/StepperStep.c ****         /* Clear the Current Setting */
+ 574:Generated_Source\PSoC5/StepperStep.c ****         StepperStep_CONTROL &= ((uint8)(~StepperStep_CTRL_CAP_MODE_MASK));
+ 575:Generated_Source\PSoC5/StepperStep.c **** 
+ 576:Generated_Source\PSoC5/StepperStep.c ****         /* Write The New Setting */
+ 577:Generated_Source\PSoC5/StepperStep.c ****         StepperStep_CONTROL |= captureMode;
+ 578:Generated_Source\PSoC5/StepperStep.c ****     #endif /* (!StepperStep_UDB_CONTROL_REG_REMOVED) */
+ 579:Generated_Source\PSoC5/StepperStep.c **** }
+ 580:Generated_Source\PSoC5/StepperStep.c **** #endif /* Remove API if Capture Mode is not Software Controlled */
+ 581:Generated_Source\PSoC5/StepperStep.c **** 
+ 582:Generated_Source\PSoC5/StepperStep.c **** 
+ 583:Generated_Source\PSoC5/StepperStep.c **** #if (StepperStep_SoftwareTriggerMode)
+ 584:Generated_Source\PSoC5/StepperStep.c **** 
+ 585:Generated_Source\PSoC5/StepperStep.c **** 
+ 586:Generated_Source\PSoC5/StepperStep.c **** /*******************************************************************************
+ 587:Generated_Source\PSoC5/StepperStep.c **** * Function Name: StepperStep_SetTriggerMode
+ 588:Generated_Source\PSoC5/StepperStep.c **** ********************************************************************************
+ 589:Generated_Source\PSoC5/StepperStep.c **** *
+ 590:Generated_Source\PSoC5/StepperStep.c **** * Summary:
+ 591:Generated_Source\PSoC5/StepperStep.c **** *  This function sets the trigger input mode
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 16
+
+
+ 592:Generated_Source\PSoC5/StepperStep.c **** *
+ 593:Generated_Source\PSoC5/StepperStep.c **** * Parameters:
+ 594:Generated_Source\PSoC5/StepperStep.c **** *  triggerMode: Pass one of the pre-defined Trigger Modes (except Software)
+ 595:Generated_Source\PSoC5/StepperStep.c ****     #define StepperStep__B_TIMER__TM_NONE 0x00u
+ 596:Generated_Source\PSoC5/StepperStep.c ****     #define StepperStep__B_TIMER__TM_RISINGEDGE 0x04u
+ 597:Generated_Source\PSoC5/StepperStep.c ****     #define StepperStep__B_TIMER__TM_FALLINGEDGE 0x08u
+ 598:Generated_Source\PSoC5/StepperStep.c ****     #define StepperStep__B_TIMER__TM_EITHEREDGE 0x0Cu
+ 599:Generated_Source\PSoC5/StepperStep.c ****     #define StepperStep__B_TIMER__TM_SOFTWARE 0x10u
+ 600:Generated_Source\PSoC5/StepperStep.c **** *
+ 601:Generated_Source\PSoC5/StepperStep.c **** * Return:
+ 602:Generated_Source\PSoC5/StepperStep.c **** *  void
+ 603:Generated_Source\PSoC5/StepperStep.c **** *
+ 604:Generated_Source\PSoC5/StepperStep.c **** *******************************************************************************/
+ 605:Generated_Source\PSoC5/StepperStep.c **** void StepperStep_SetTriggerMode(uint8 triggerMode) 
+ 606:Generated_Source\PSoC5/StepperStep.c **** {
+ 607:Generated_Source\PSoC5/StepperStep.c ****     /* This must only set to two bits of the control register associated */
+ 608:Generated_Source\PSoC5/StepperStep.c ****     triggerMode &= StepperStep_CTRL_TRIG_MODE_MASK;
+ 609:Generated_Source\PSoC5/StepperStep.c **** 
+ 610:Generated_Source\PSoC5/StepperStep.c ****     #if (!StepperStep_UDB_CONTROL_REG_REMOVED)   /* Remove assignment if control register is remove
+ 611:Generated_Source\PSoC5/StepperStep.c ****     
+ 612:Generated_Source\PSoC5/StepperStep.c ****         /* Clear the Current Setting */
+ 613:Generated_Source\PSoC5/StepperStep.c ****         StepperStep_CONTROL &= ((uint8)(~StepperStep_CTRL_TRIG_MODE_MASK));
+ 614:Generated_Source\PSoC5/StepperStep.c **** 
+ 615:Generated_Source\PSoC5/StepperStep.c ****         /* Write The New Setting */
+ 616:Generated_Source\PSoC5/StepperStep.c ****         StepperStep_CONTROL |= (triggerMode | StepperStep__B_TIMER__TM_SOFTWARE);
+ 617:Generated_Source\PSoC5/StepperStep.c ****     #endif /* Remove code section if control register is not used */
+ 618:Generated_Source\PSoC5/StepperStep.c **** }
+ 619:Generated_Source\PSoC5/StepperStep.c **** #endif /* Remove API if Trigger Mode is not Software Controlled */
+ 620:Generated_Source\PSoC5/StepperStep.c **** 
+ 621:Generated_Source\PSoC5/StepperStep.c **** #if (StepperStep_EnableTriggerMode)
+ 622:Generated_Source\PSoC5/StepperStep.c **** 
+ 623:Generated_Source\PSoC5/StepperStep.c **** 
+ 624:Generated_Source\PSoC5/StepperStep.c **** /*******************************************************************************
+ 625:Generated_Source\PSoC5/StepperStep.c **** * Function Name: StepperStep_EnableTrigger
+ 626:Generated_Source\PSoC5/StepperStep.c **** ********************************************************************************
+ 627:Generated_Source\PSoC5/StepperStep.c **** *
+ 628:Generated_Source\PSoC5/StepperStep.c **** * Summary:
+ 629:Generated_Source\PSoC5/StepperStep.c **** *  Sets the control bit enabling Hardware Trigger mode
+ 630:Generated_Source\PSoC5/StepperStep.c **** *
+ 631:Generated_Source\PSoC5/StepperStep.c **** * Parameters:
+ 632:Generated_Source\PSoC5/StepperStep.c **** *  void
+ 633:Generated_Source\PSoC5/StepperStep.c **** *
+ 634:Generated_Source\PSoC5/StepperStep.c **** * Return:
+ 635:Generated_Source\PSoC5/StepperStep.c **** *  void
+ 636:Generated_Source\PSoC5/StepperStep.c **** *
+ 637:Generated_Source\PSoC5/StepperStep.c **** *******************************************************************************/
+ 638:Generated_Source\PSoC5/StepperStep.c **** void StepperStep_EnableTrigger(void) 
+ 639:Generated_Source\PSoC5/StepperStep.c **** {
+ 640:Generated_Source\PSoC5/StepperStep.c ****     #if (!StepperStep_UDB_CONTROL_REG_REMOVED)   /* Remove assignment if control register is remove
+ 641:Generated_Source\PSoC5/StepperStep.c ****         StepperStep_CONTROL |= StepperStep_CTRL_TRIG_EN;
+ 642:Generated_Source\PSoC5/StepperStep.c ****     #endif /* Remove code section if control register is not used */
+ 643:Generated_Source\PSoC5/StepperStep.c **** }
+ 644:Generated_Source\PSoC5/StepperStep.c **** 
+ 645:Generated_Source\PSoC5/StepperStep.c **** 
+ 646:Generated_Source\PSoC5/StepperStep.c **** /*******************************************************************************
+ 647:Generated_Source\PSoC5/StepperStep.c **** * Function Name: StepperStep_DisableTrigger
+ 648:Generated_Source\PSoC5/StepperStep.c **** ********************************************************************************
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 17
+
+
+ 649:Generated_Source\PSoC5/StepperStep.c **** *
+ 650:Generated_Source\PSoC5/StepperStep.c **** * Summary:
+ 651:Generated_Source\PSoC5/StepperStep.c **** *  Clears the control bit enabling Hardware Trigger mode
+ 652:Generated_Source\PSoC5/StepperStep.c **** *
+ 653:Generated_Source\PSoC5/StepperStep.c **** * Parameters:
+ 654:Generated_Source\PSoC5/StepperStep.c **** *  void
+ 655:Generated_Source\PSoC5/StepperStep.c **** *
+ 656:Generated_Source\PSoC5/StepperStep.c **** * Return:
+ 657:Generated_Source\PSoC5/StepperStep.c **** *  void
+ 658:Generated_Source\PSoC5/StepperStep.c **** *
+ 659:Generated_Source\PSoC5/StepperStep.c **** *******************************************************************************/
+ 660:Generated_Source\PSoC5/StepperStep.c **** void StepperStep_DisableTrigger(void) 
+ 661:Generated_Source\PSoC5/StepperStep.c **** {
+ 662:Generated_Source\PSoC5/StepperStep.c ****     #if (!StepperStep_UDB_CONTROL_REG_REMOVED )   /* Remove assignment if control register is remov
+ 663:Generated_Source\PSoC5/StepperStep.c ****         StepperStep_CONTROL &= ((uint8)(~StepperStep_CTRL_TRIG_EN));
+ 664:Generated_Source\PSoC5/StepperStep.c ****     #endif /* Remove code section if control register is not used */
+ 665:Generated_Source\PSoC5/StepperStep.c **** }
+ 666:Generated_Source\PSoC5/StepperStep.c **** #endif /* Remove API is Trigger Mode is set to None */
+ 667:Generated_Source\PSoC5/StepperStep.c **** 
+ 668:Generated_Source\PSoC5/StepperStep.c **** #if(StepperStep_InterruptOnCaptureCount)
+ 669:Generated_Source\PSoC5/StepperStep.c **** 
+ 670:Generated_Source\PSoC5/StepperStep.c **** 
+ 671:Generated_Source\PSoC5/StepperStep.c **** /*******************************************************************************
+ 672:Generated_Source\PSoC5/StepperStep.c **** * Function Name: StepperStep_SetInterruptCount
+ 673:Generated_Source\PSoC5/StepperStep.c **** ********************************************************************************
+ 674:Generated_Source\PSoC5/StepperStep.c **** *
+ 675:Generated_Source\PSoC5/StepperStep.c **** * Summary:
+ 676:Generated_Source\PSoC5/StepperStep.c **** *  This function sets the capture count before an interrupt is triggered.
+ 677:Generated_Source\PSoC5/StepperStep.c **** *
+ 678:Generated_Source\PSoC5/StepperStep.c **** * Parameters:
+ 679:Generated_Source\PSoC5/StepperStep.c **** *  interruptCount:  A value between 0 and 3 is valid.  If the value is 0, then
+ 680:Generated_Source\PSoC5/StepperStep.c **** *                   an interrupt will occur each time a capture occurs.
+ 681:Generated_Source\PSoC5/StepperStep.c **** *                   A value of 1 to 3 will cause the interrupt
+ 682:Generated_Source\PSoC5/StepperStep.c **** *                   to delay by the same number of captures.
+ 683:Generated_Source\PSoC5/StepperStep.c **** *
+ 684:Generated_Source\PSoC5/StepperStep.c **** * Return:
+ 685:Generated_Source\PSoC5/StepperStep.c **** *  void
+ 686:Generated_Source\PSoC5/StepperStep.c **** *
+ 687:Generated_Source\PSoC5/StepperStep.c **** *******************************************************************************/
+ 688:Generated_Source\PSoC5/StepperStep.c **** void StepperStep_SetInterruptCount(uint8 interruptCount) 
+ 689:Generated_Source\PSoC5/StepperStep.c **** {
+ 690:Generated_Source\PSoC5/StepperStep.c ****     /* This must only set to two bits of the control register associated */
+ 691:Generated_Source\PSoC5/StepperStep.c ****     interruptCount &= StepperStep_CTRL_INTCNT_MASK;
+ 692:Generated_Source\PSoC5/StepperStep.c **** 
+ 693:Generated_Source\PSoC5/StepperStep.c ****     #if (!StepperStep_UDB_CONTROL_REG_REMOVED)
+ 694:Generated_Source\PSoC5/StepperStep.c ****         /* Clear the Current Setting */
+ 695:Generated_Source\PSoC5/StepperStep.c ****         StepperStep_CONTROL &= ((uint8)(~StepperStep_CTRL_INTCNT_MASK));
+ 696:Generated_Source\PSoC5/StepperStep.c ****         /* Write The New Setting */
+ 697:Generated_Source\PSoC5/StepperStep.c ****         StepperStep_CONTROL |= interruptCount;
+ 698:Generated_Source\PSoC5/StepperStep.c ****     #endif /* (!StepperStep_UDB_CONTROL_REG_REMOVED) */
+ 699:Generated_Source\PSoC5/StepperStep.c **** }
+ 700:Generated_Source\PSoC5/StepperStep.c **** #endif /* StepperStep_InterruptOnCaptureCount */
+ 701:Generated_Source\PSoC5/StepperStep.c **** 
+ 702:Generated_Source\PSoC5/StepperStep.c **** 
+ 703:Generated_Source\PSoC5/StepperStep.c **** #if (StepperStep_UsingHWCaptureCounter)
+ 704:Generated_Source\PSoC5/StepperStep.c **** 
+ 705:Generated_Source\PSoC5/StepperStep.c **** 
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 18
+
+
+ 706:Generated_Source\PSoC5/StepperStep.c **** /*******************************************************************************
+ 707:Generated_Source\PSoC5/StepperStep.c **** * Function Name: StepperStep_SetCaptureCount
+ 708:Generated_Source\PSoC5/StepperStep.c **** ********************************************************************************
+ 709:Generated_Source\PSoC5/StepperStep.c **** *
+ 710:Generated_Source\PSoC5/StepperStep.c **** * Summary:
+ 711:Generated_Source\PSoC5/StepperStep.c **** *  This function sets the capture count
+ 712:Generated_Source\PSoC5/StepperStep.c **** *
+ 713:Generated_Source\PSoC5/StepperStep.c **** * Parameters:
+ 714:Generated_Source\PSoC5/StepperStep.c **** *  captureCount: A value between 2 and 127 inclusive is valid.  A value of 1
+ 715:Generated_Source\PSoC5/StepperStep.c **** *                to 127 will cause the interrupt to delay by the same number of
+ 716:Generated_Source\PSoC5/StepperStep.c **** *                captures.
+ 717:Generated_Source\PSoC5/StepperStep.c **** *
+ 718:Generated_Source\PSoC5/StepperStep.c **** * Return:
+ 719:Generated_Source\PSoC5/StepperStep.c **** *  void
+ 720:Generated_Source\PSoC5/StepperStep.c **** *
+ 721:Generated_Source\PSoC5/StepperStep.c **** *******************************************************************************/
+ 722:Generated_Source\PSoC5/StepperStep.c **** void StepperStep_SetCaptureCount(uint8 captureCount) 
+ 723:Generated_Source\PSoC5/StepperStep.c **** {
+ 724:Generated_Source\PSoC5/StepperStep.c ****     StepperStep_CAP_COUNT = captureCount;
+ 725:Generated_Source\PSoC5/StepperStep.c **** }
+ 726:Generated_Source\PSoC5/StepperStep.c **** 
+ 727:Generated_Source\PSoC5/StepperStep.c **** 
+ 728:Generated_Source\PSoC5/StepperStep.c **** /*******************************************************************************
+ 729:Generated_Source\PSoC5/StepperStep.c **** * Function Name: StepperStep_ReadCaptureCount
+ 730:Generated_Source\PSoC5/StepperStep.c **** ********************************************************************************
+ 731:Generated_Source\PSoC5/StepperStep.c **** *
+ 732:Generated_Source\PSoC5/StepperStep.c **** * Summary:
+ 733:Generated_Source\PSoC5/StepperStep.c **** *  This function reads the capture count setting
+ 734:Generated_Source\PSoC5/StepperStep.c **** *
+ 735:Generated_Source\PSoC5/StepperStep.c **** * Parameters:
+ 736:Generated_Source\PSoC5/StepperStep.c **** *  void
+ 737:Generated_Source\PSoC5/StepperStep.c **** *
+ 738:Generated_Source\PSoC5/StepperStep.c **** * Return:
+ 739:Generated_Source\PSoC5/StepperStep.c **** *  Returns the Capture Count Setting
+ 740:Generated_Source\PSoC5/StepperStep.c **** *
+ 741:Generated_Source\PSoC5/StepperStep.c **** *******************************************************************************/
+ 742:Generated_Source\PSoC5/StepperStep.c **** uint8 StepperStep_ReadCaptureCount(void) 
+ 743:Generated_Source\PSoC5/StepperStep.c **** {
+ 744:Generated_Source\PSoC5/StepperStep.c ****     return ((uint8)StepperStep_CAP_COUNT);
+ 745:Generated_Source\PSoC5/StepperStep.c **** }
+ 746:Generated_Source\PSoC5/StepperStep.c **** #endif /* StepperStep_UsingHWCaptureCounter */
+ 747:Generated_Source\PSoC5/StepperStep.c **** 
+ 748:Generated_Source\PSoC5/StepperStep.c **** 
+ 749:Generated_Source\PSoC5/StepperStep.c **** /*******************************************************************************
+ 750:Generated_Source\PSoC5/StepperStep.c **** * Function Name: StepperStep_ClearFIFO
+ 751:Generated_Source\PSoC5/StepperStep.c **** ********************************************************************************
+ 752:Generated_Source\PSoC5/StepperStep.c **** *
+ 753:Generated_Source\PSoC5/StepperStep.c **** * Summary:
+ 754:Generated_Source\PSoC5/StepperStep.c **** *  This function clears all capture data from the capture FIFO
+ 755:Generated_Source\PSoC5/StepperStep.c **** *
+ 756:Generated_Source\PSoC5/StepperStep.c **** * Parameters:
+ 757:Generated_Source\PSoC5/StepperStep.c **** *  void
+ 758:Generated_Source\PSoC5/StepperStep.c **** *
+ 759:Generated_Source\PSoC5/StepperStep.c **** * Return:
+ 760:Generated_Source\PSoC5/StepperStep.c **** *  void
+ 761:Generated_Source\PSoC5/StepperStep.c **** *
+ 762:Generated_Source\PSoC5/StepperStep.c **** *******************************************************************************/
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 19
+
+
+ 763:Generated_Source\PSoC5/StepperStep.c **** void StepperStep_ClearFIFO(void) 
+ 764:Generated_Source\PSoC5/StepperStep.c **** {
+ 265              		.loc 1 764 0
+ 266              		.cfi_startproc
+ 267              		@ args = 0, pretend = 0, frame = 0
+ 268              		@ frame_needed = 0, uses_anonymous_args = 0
+ 269 0000 08B5     		push	{r3, lr}
+ 270              		.cfi_def_cfa_offset 8
+ 271              		.cfi_offset 3, -8
+ 272              		.cfi_offset 14, -4
+ 765:Generated_Source\PSoC5/StepperStep.c ****     while(0u != (StepperStep_ReadStatusRegister() & StepperStep_STATUS_FIFONEMP))
+ 273              		.loc 1 765 0
+ 274 0002 01E0     		b	.L28
+ 275              	.L29:
+ 766:Generated_Source\PSoC5/StepperStep.c ****     {
+ 767:Generated_Source\PSoC5/StepperStep.c ****         (void)StepperStep_ReadCapture();
+ 276              		.loc 1 767 0
+ 277 0004 FFF7FEFF 		bl	StepperStep_ReadCapture
+ 278              	.LVL3:
+ 279              	.L28:
+ 765:Generated_Source\PSoC5/StepperStep.c ****     while(0u != (StepperStep_ReadStatusRegister() & StepperStep_STATUS_FIFONEMP))
+ 280              		.loc 1 765 0
+ 281 0008 FFF7FEFF 		bl	StepperStep_ReadStatusRegister
+ 282              	.LVL4:
+ 283 000c 10F0080F 		tst	r0, #8
+ 284 0010 F8D1     		bne	.L29
+ 768:Generated_Source\PSoC5/StepperStep.c ****     }
+ 769:Generated_Source\PSoC5/StepperStep.c **** }
+ 285              		.loc 1 769 0
+ 286 0012 08BD     		pop	{r3, pc}
+ 287              		.cfi_endproc
+ 288              	.LFE12:
+ 289              		.size	StepperStep_ClearFIFO, .-StepperStep_ClearFIFO
+ 290              		.section	.text.StepperStep_Init,"ax",%progbits
+ 291              		.align	2
+ 292              		.global	StepperStep_Init
+ 293              		.thumb
+ 294              		.thumb_func
+ 295              		.type	StepperStep_Init, %function
+ 296              	StepperStep_Init:
+ 297              	.LFB0:
+  44:Generated_Source\PSoC5/StepperStep.c ****     #if(!StepperStep_UsingFixedFunction)
+ 298              		.loc 1 44 0
+ 299              		.cfi_startproc
+ 300              		@ args = 0, pretend = 0, frame = 0
+ 301              		@ frame_needed = 0, uses_anonymous_args = 0
+ 302 0000 08B5     		push	{r3, lr}
+ 303              		.cfi_def_cfa_offset 8
+ 304              		.cfi_offset 3, -8
+ 305              		.cfi_offset 14, -4
+ 118:Generated_Source\PSoC5/StepperStep.c ****     StepperStep_WriteCounter(StepperStep_INIT_PERIOD);
+ 306              		.loc 1 118 0
+ 307 0002 4FF0FF30 		mov	r0, #-1
+ 308 0006 FFF7FEFF 		bl	StepperStep_WritePeriod
+ 309              	.LVL5:
+ 119:Generated_Source\PSoC5/StepperStep.c **** 
+ 310              		.loc 1 119 0
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 20
+
+
+ 311 000a 4FF0FF30 		mov	r0, #-1
+ 312 000e FFF7FEFF 		bl	StepperStep_WriteCounter
+ 313              	.LVL6:
+ 142:Generated_Source\PSoC5/StepperStep.c **** 
+ 314              		.loc 1 142 0
+ 315 0012 FFF7FEFF 		bl	CyEnterCriticalSection
+ 316              	.LVL7:
+ 145:Generated_Source\PSoC5/StepperStep.c **** 
+ 317              		.loc 1 145 0
+ 318 0016 064A     		ldr	r2, .L33
+ 319 0018 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 320 001a 43F01003 		orr	r3, r3, #16
+ 321 001e 1370     		strb	r3, [r2]
+ 148:Generated_Source\PSoC5/StepperStep.c **** 
+ 322              		.loc 1 148 0
+ 323 0020 FFF7FEFF 		bl	CyExitCriticalSection
+ 324              	.LVL8:
+ 159:Generated_Source\PSoC5/StepperStep.c ****     #endif /* Configure additional features of UDB implementation */
+ 325              		.loc 1 159 0
+ 326 0024 FFF7FEFF 		bl	StepperStep_ClearFIFO
+ 327              	.LVL9:
+ 162:Generated_Source\PSoC5/StepperStep.c **** }
+ 328              		.loc 1 162 0
+ 329 0028 0020     		movs	r0, #0
+ 330 002a FFF7FEFF 		bl	StepperStep_SetInterruptMode
+ 331              	.LVL10:
+ 332 002e 08BD     		pop	{r3, pc}
+ 333              	.L34:
+ 334              		.align	2
+ 335              	.L33:
+ 336 0030 9B640040 		.word	1073767579
+ 337              		.cfi_endproc
+ 338              	.LFE0:
+ 339              		.size	StepperStep_Init, .-StepperStep_Init
+ 340              		.section	.text.StepperStep_Start,"ax",%progbits
+ 341              		.align	2
+ 342              		.global	StepperStep_Start
+ 343              		.thumb
+ 344              		.thumb_func
+ 345              		.type	StepperStep_Start, %function
+ 346              	StepperStep_Start:
+ 347              	.LFB2:
+ 216:Generated_Source\PSoC5/StepperStep.c ****     if(StepperStep_initVar == 0u)
+ 348              		.loc 1 216 0
+ 349              		.cfi_startproc
+ 350              		@ args = 0, pretend = 0, frame = 0
+ 351              		@ frame_needed = 0, uses_anonymous_args = 0
+ 352 0000 08B5     		push	{r3, lr}
+ 353              		.cfi_def_cfa_offset 8
+ 354              		.cfi_offset 3, -8
+ 355              		.cfi_offset 14, -4
+ 217:Generated_Source\PSoC5/StepperStep.c ****     {
+ 356              		.loc 1 217 0
+ 357 0002 044B     		ldr	r3, .L38
+ 358 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 359 0006 23B9     		cbnz	r3, .L35
+ 219:Generated_Source\PSoC5/StepperStep.c **** 
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 21
+
+
+ 360              		.loc 1 219 0
+ 361 0008 FFF7FEFF 		bl	StepperStep_Init
+ 362              	.LVL11:
+ 221:Generated_Source\PSoC5/StepperStep.c ****     }
+ 363              		.loc 1 221 0
+ 364 000c 0122     		movs	r2, #1
+ 365 000e 014B     		ldr	r3, .L38
+ 366 0010 1A70     		strb	r2, [r3]
+ 367              	.L35:
+ 368 0012 08BD     		pop	{r3, pc}
+ 369              	.L39:
+ 370              		.align	2
+ 371              	.L38:
+ 372 0014 00000000 		.word	.LANCHOR0
+ 373              		.cfi_endproc
+ 374              	.LFE2:
+ 375              		.size	StepperStep_Start, .-StepperStep_Start
+ 376              		.global	StepperStep_initVar
+ 377              		.bss
+ 378              		.set	.LANCHOR0,. + 0
+ 379              		.type	StepperStep_initVar, %object
+ 380              		.size	StepperStep_initVar, 1
+ 381              	StepperStep_initVar:
+ 382 0000 00       		.space	1
+ 383              		.text
+ 384              	.Letext0:
+ 385              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 386              		.file 3 "Generated_Source\\PSoC5\\CyLib.h"
+ 387              		.section	.debug_info,"",%progbits
+ 388              	.Ldebug_info0:
+ 389 0000 A6020000 		.4byte	0x2a6
+ 390 0004 0400     		.2byte	0x4
+ 391 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 392 000a 04       		.byte	0x4
+ 393 000b 01       		.uleb128 0x1
+ 394 000c D4000000 		.4byte	.LASF36
+ 395 0010 0C       		.byte	0xc
+ 396 0011 0C030000 		.4byte	.LASF37
+ 397 0015 FB010000 		.4byte	.LASF38
+ 398 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 399 001d 00000000 		.4byte	0
+ 400 0021 00000000 		.4byte	.Ldebug_line0
+ 401 0025 02       		.uleb128 0x2
+ 402 0026 01       		.byte	0x1
+ 403 0027 06       		.byte	0x6
+ 404 0028 68030000 		.4byte	.LASF0
+ 405 002c 02       		.uleb128 0x2
+ 406 002d 01       		.byte	0x1
+ 407 002e 08       		.byte	0x8
+ 408 002f C6000000 		.4byte	.LASF1
+ 409 0033 02       		.uleb128 0x2
+ 410 0034 02       		.byte	0x2
+ 411 0035 05       		.byte	0x5
+ 412 0036 E7020000 		.4byte	.LASF2
+ 413 003a 02       		.uleb128 0x2
+ 414 003b 02       		.byte	0x2
+ 415 003c 07       		.byte	0x7
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 22
+
+
+ 416 003d 31000000 		.4byte	.LASF3
+ 417 0041 02       		.uleb128 0x2
+ 418 0042 04       		.byte	0x4
+ 419 0043 05       		.byte	0x5
+ 420 0044 4E030000 		.4byte	.LASF4
+ 421 0048 02       		.uleb128 0x2
+ 422 0049 04       		.byte	0x4
+ 423 004a 07       		.byte	0x7
+ 424 004b 67010000 		.4byte	.LASF5
+ 425 004f 02       		.uleb128 0x2
+ 426 0050 08       		.byte	0x8
+ 427 0051 05       		.byte	0x5
+ 428 0052 B3020000 		.4byte	.LASF6
+ 429 0056 02       		.uleb128 0x2
+ 430 0057 08       		.byte	0x8
+ 431 0058 07       		.byte	0x7
+ 432 0059 9B000000 		.4byte	.LASF7
+ 433 005d 03       		.uleb128 0x3
+ 434 005e 04       		.byte	0x4
+ 435 005f 05       		.byte	0x5
+ 436 0060 696E7400 		.ascii	"int\000"
+ 437 0064 02       		.uleb128 0x2
+ 438 0065 04       		.byte	0x4
+ 439 0066 07       		.byte	0x7
+ 440 0067 6B020000 		.4byte	.LASF8
+ 441 006b 04       		.uleb128 0x4
+ 442 006c 79010000 		.4byte	.LASF9
+ 443 0070 02       		.byte	0x2
+ 444 0071 E401     		.2byte	0x1e4
+ 445 0073 2C000000 		.4byte	0x2c
+ 446 0077 04       		.uleb128 0x4
+ 447 0078 DD010000 		.4byte	.LASF10
+ 448 007c 02       		.byte	0x2
+ 449 007d E601     		.2byte	0x1e6
+ 450 007f 48000000 		.4byte	0x48
+ 451 0083 02       		.uleb128 0x2
+ 452 0084 04       		.byte	0x4
+ 453 0085 04       		.byte	0x4
+ 454 0086 8D000000 		.4byte	.LASF11
+ 455 008a 02       		.uleb128 0x2
+ 456 008b 08       		.byte	0x8
+ 457 008c 04       		.byte	0x4
+ 458 008d A6010000 		.4byte	.LASF12
+ 459 0091 02       		.uleb128 0x2
+ 460 0092 01       		.byte	0x1
+ 461 0093 08       		.byte	0x8
+ 462 0094 57030000 		.4byte	.LASF13
+ 463 0098 04       		.uleb128 0x4
+ 464 0099 62010000 		.4byte	.LASF14
+ 465 009d 02       		.byte	0x2
+ 466 009e 8E02     		.2byte	0x28e
+ 467 00a0 A4000000 		.4byte	0xa4
+ 468 00a4 05       		.uleb128 0x5
+ 469 00a5 6B000000 		.4byte	0x6b
+ 470 00a9 04       		.uleb128 0x4
+ 471 00aa 00000000 		.4byte	.LASF15
+ 472 00ae 02       		.byte	0x2
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 23
+
+
+ 473 00af 9002     		.2byte	0x290
+ 474 00b1 B5000000 		.4byte	0xb5
+ 475 00b5 05       		.uleb128 0x5
+ 476 00b6 77000000 		.4byte	0x77
+ 477 00ba 02       		.uleb128 0x2
+ 478 00bb 08       		.byte	0x8
+ 479 00bc 04       		.byte	0x4
+ 480 00bd 5C030000 		.4byte	.LASF16
+ 481 00c1 02       		.uleb128 0x2
+ 482 00c2 04       		.byte	0x4
+ 483 00c3 07       		.byte	0x7
+ 484 00c4 8E020000 		.4byte	.LASF17
+ 485 00c8 06       		.uleb128 0x6
+ 486 00c9 06000000 		.4byte	.LASF18
+ 487 00cd 01       		.byte	0x1
+ 488 00ce B4       		.byte	0xb4
+ 489 00cf 00000000 		.4byte	.LFB1
+ 490 00d3 02000000 		.4byte	.LFE1-.LFB1
+ 491 00d7 01       		.uleb128 0x1
+ 492 00d8 9C       		.byte	0x9c
+ 493 00d9 06       		.uleb128 0x6
+ 494 00da 19000000 		.4byte	.LASF19
+ 495 00de 01       		.byte	0x1
+ 496 00df F7       		.byte	0xf7
+ 497 00e0 00000000 		.4byte	.LFB3
+ 498 00e4 02000000 		.4byte	.LFE3-.LFB3
+ 499 00e8 01       		.uleb128 0x1
+ 500 00e9 9C       		.byte	0x9c
+ 501 00ea 07       		.uleb128 0x7
+ 502 00eb 31030000 		.4byte	.LASF23
+ 503 00ef 01       		.byte	0x1
+ 504 00f0 1701     		.2byte	0x117
+ 505 00f2 00000000 		.4byte	.LFB4
+ 506 00f6 0C000000 		.4byte	.LFE4-.LFB4
+ 507 00fa 01       		.uleb128 0x1
+ 508 00fb 9C       		.byte	0x9c
+ 509 00fc 0F010000 		.4byte	0x10f
+ 510 0100 08       		.uleb128 0x8
+ 511 0101 C1020000 		.4byte	.LASF25
+ 512 0105 01       		.byte	0x1
+ 513 0106 1701     		.2byte	0x117
+ 514 0108 6B000000 		.4byte	0x6b
+ 515 010c 01       		.uleb128 0x1
+ 516 010d 50       		.byte	0x50
+ 517 010e 00       		.byte	0
+ 518 010f 09       		.uleb128 0x9
+ 519 0110 97020000 		.4byte	.LASF20
+ 520 0114 01       		.byte	0x1
+ 521 0115 2E01     		.2byte	0x12e
+ 522 0117 00000000 		.4byte	.LFB5
+ 523 011b 0C000000 		.4byte	.LFE5-.LFB5
+ 524 011f 01       		.uleb128 0x1
+ 525 0120 9C       		.byte	0x9c
+ 526 0121 0A       		.uleb128 0xa
+ 527 0122 56000000 		.4byte	.LASF21
+ 528 0126 01       		.byte	0x1
+ 529 0127 4D01     		.2byte	0x14d
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 24
+
+
+ 530 0129 6B000000 		.4byte	0x6b
+ 531 012d 00000000 		.4byte	.LFB6
+ 532 0131 0C000000 		.4byte	.LFE6-.LFB6
+ 533 0135 01       		.uleb128 0x1
+ 534 0136 9C       		.byte	0x9c
+ 535 0137 0A       		.uleb128 0xa
+ 536 0138 C6010000 		.4byte	.LASF22
+ 537 013c 01       		.byte	0x1
+ 538 013d 9501     		.2byte	0x195
+ 539 013f 77000000 		.4byte	0x77
+ 540 0143 00000000 		.4byte	.LFB7
+ 541 0147 0C000000 		.4byte	.LFE7-.LFB7
+ 542 014b 01       		.uleb128 0x1
+ 543 014c 9C       		.byte	0x9c
+ 544 014d 07       		.uleb128 0x7
+ 545 014e 75000000 		.4byte	.LASF24
+ 546 0152 01       		.byte	0x1
+ 547 0153 AF01     		.2byte	0x1af
+ 548 0155 00000000 		.4byte	.LFB8
+ 549 0159 0C000000 		.4byte	.LFE8-.LFB8
+ 550 015d 01       		.uleb128 0x1
+ 551 015e 9C       		.byte	0x9c
+ 552 015f 72010000 		.4byte	0x172
+ 553 0163 08       		.uleb128 0x8
+ 554 0164 2A000000 		.4byte	.LASF26
+ 555 0168 01       		.byte	0x1
+ 556 0169 AF01     		.2byte	0x1af
+ 557 016b 77000000 		.4byte	0x77
+ 558 016f 01       		.uleb128 0x1
+ 559 0170 50       		.byte	0x50
+ 560 0171 00       		.byte	0
+ 561 0172 0A       		.uleb128 0xa
+ 562 0173 CF020000 		.4byte	.LASF27
+ 563 0177 01       		.byte	0x1
+ 564 0178 C801     		.2byte	0x1c8
+ 565 017a 77000000 		.4byte	0x77
+ 566 017e 00000000 		.4byte	.LFB9
+ 567 0182 0C000000 		.4byte	.LFE9-.LFB9
+ 568 0186 01       		.uleb128 0x1
+ 569 0187 9C       		.byte	0x9c
+ 570 0188 07       		.uleb128 0x7
+ 571 0189 AD010000 		.4byte	.LASF28
+ 572 018d 01       		.byte	0x1
+ 573 018e E001     		.2byte	0x1e0
+ 574 0190 00000000 		.4byte	.LFB10
+ 575 0194 0C000000 		.4byte	.LFE10-.LFB10
+ 576 0198 01       		.uleb128 0x1
+ 577 0199 9C       		.byte	0x9c
+ 578 019a AD010000 		.4byte	0x1ad
+ 579 019e 08       		.uleb128 0x8
+ 580 019f 93000000 		.4byte	.LASF29
+ 581 01a3 01       		.byte	0x1
+ 582 01a4 E001     		.2byte	0x1e0
+ 583 01a6 77000000 		.4byte	0x77
+ 584 01aa 01       		.uleb128 0x1
+ 585 01ab 50       		.byte	0x50
+ 586 01ac 00       		.byte	0
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 25
+
+
+ 587 01ad 0A       		.uleb128 0xa
+ 588 01ae 74030000 		.4byte	.LASF30
+ 589 01b2 01       		.byte	0x1
+ 590 01b3 FC01     		.2byte	0x1fc
+ 591 01b5 77000000 		.4byte	0x77
+ 592 01b9 00000000 		.4byte	.LFB11
+ 593 01bd 14000000 		.4byte	.LFE11-.LFB11
+ 594 01c1 01       		.uleb128 0x1
+ 595 01c2 9C       		.byte	0x9c
+ 596 01c3 07       		.uleb128 0x7
+ 597 01c4 90010000 		.4byte	.LASF31
+ 598 01c8 01       		.byte	0x1
+ 599 01c9 FB02     		.2byte	0x2fb
+ 600 01cb 00000000 		.4byte	.LFB12
+ 601 01cf 14000000 		.4byte	.LFE12-.LFB12
+ 602 01d3 01       		.uleb128 0x1
+ 603 01d4 9C       		.byte	0x9c
+ 604 01d5 EC010000 		.4byte	0x1ec
+ 605 01d9 0B       		.uleb128 0xb
+ 606 01da 08000000 		.4byte	.LVL3
+ 607 01de 72010000 		.4byte	0x172
+ 608 01e2 0B       		.uleb128 0xb
+ 609 01e3 0C000000 		.4byte	.LVL4
+ 610 01e7 21010000 		.4byte	0x121
+ 611 01eb 00       		.byte	0
+ 612 01ec 0C       		.uleb128 0xc
+ 613 01ed 7F010000 		.4byte	.LASF32
+ 614 01f1 01       		.byte	0x1
+ 615 01f2 2B       		.byte	0x2b
+ 616 01f3 00000000 		.4byte	.LFB0
+ 617 01f7 34000000 		.4byte	.LFE0-.LFB0
+ 618 01fb 01       		.uleb128 0x1
+ 619 01fc 9C       		.byte	0x9c
+ 620 01fd 63020000 		.4byte	0x263
+ 621 0201 0D       		.uleb128 0xd
+ 622 0202 F1020000 		.4byte	.LASF39
+ 623 0206 01       		.byte	0x1
+ 624 0207 2F       		.byte	0x2f
+ 625 0208 6B000000 		.4byte	0x6b
+ 626 020c 00000000 		.4byte	.LLST0
+ 627 0210 0E       		.uleb128 0xe
+ 628 0211 0A000000 		.4byte	.LVL5
+ 629 0215 4D010000 		.4byte	0x14d
+ 630 0219 24020000 		.4byte	0x224
+ 631 021d 0F       		.uleb128 0xf
+ 632 021e 01       		.uleb128 0x1
+ 633 021f 50       		.byte	0x50
+ 634 0220 02       		.uleb128 0x2
+ 635 0221 09       		.byte	0x9
+ 636 0222 FF       		.byte	0xff
+ 637 0223 00       		.byte	0
+ 638 0224 0E       		.uleb128 0xe
+ 639 0225 12000000 		.4byte	.LVL6
+ 640 0229 88010000 		.4byte	0x188
+ 641 022d 38020000 		.4byte	0x238
+ 642 0231 0F       		.uleb128 0xf
+ 643 0232 01       		.uleb128 0x1
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 26
+
+
+ 644 0233 50       		.byte	0x50
+ 645 0234 02       		.uleb128 0x2
+ 646 0235 09       		.byte	0x9
+ 647 0236 FF       		.byte	0xff
+ 648 0237 00       		.byte	0
+ 649 0238 0B       		.uleb128 0xb
+ 650 0239 16000000 		.4byte	.LVL7
+ 651 023d 93020000 		.4byte	0x293
+ 652 0241 0B       		.uleb128 0xb
+ 653 0242 24000000 		.4byte	.LVL8
+ 654 0246 9E020000 		.4byte	0x29e
+ 655 024a 0B       		.uleb128 0xb
+ 656 024b 28000000 		.4byte	.LVL9
+ 657 024f C3010000 		.4byte	0x1c3
+ 658 0253 10       		.uleb128 0x10
+ 659 0254 2E000000 		.4byte	.LVL10
+ 660 0258 EA000000 		.4byte	0xea
+ 661 025c 0F       		.uleb128 0xf
+ 662 025d 01       		.uleb128 0x1
+ 663 025e 50       		.byte	0x50
+ 664 025f 01       		.uleb128 0x1
+ 665 0260 30       		.byte	0x30
+ 666 0261 00       		.byte	0
+ 667 0262 00       		.byte	0
+ 668 0263 0C       		.uleb128 0xc
+ 669 0264 44000000 		.4byte	.LASF33
+ 670 0268 01       		.byte	0x1
+ 671 0269 D7       		.byte	0xd7
+ 672 026a 00000000 		.4byte	.LFB2
+ 673 026e 18000000 		.4byte	.LFE2-.LFB2
+ 674 0272 01       		.uleb128 0x1
+ 675 0273 9C       		.byte	0x9c
+ 676 0274 82020000 		.4byte	0x282
+ 677 0278 0B       		.uleb128 0xb
+ 678 0279 0C000000 		.4byte	.LVL11
+ 679 027d EC010000 		.4byte	0x1ec
+ 680 0281 00       		.byte	0
+ 681 0282 11       		.uleb128 0x11
+ 682 0283 B2000000 		.4byte	.LASF40
+ 683 0287 01       		.byte	0x1
+ 684 0288 1A       		.byte	0x1a
+ 685 0289 6B000000 		.4byte	0x6b
+ 686 028d 05       		.uleb128 0x5
+ 687 028e 03       		.byte	0x3
+ 688 028f 00000000 		.4byte	StepperStep_initVar
+ 689 0293 12       		.uleb128 0x12
+ 690 0294 E4010000 		.4byte	.LASF34
+ 691 0298 E4010000 		.4byte	.LASF34
+ 692 029c 03       		.byte	0x3
+ 693 029d 7D       		.byte	0x7d
+ 694 029e 12       		.uleb128 0x12
+ 695 029f 78020000 		.4byte	.LASF35
+ 696 02a3 78020000 		.4byte	.LASF35
+ 697 02a7 03       		.byte	0x3
+ 698 02a8 7E       		.byte	0x7e
+ 699 02a9 00       		.byte	0
+ 700              		.section	.debug_abbrev,"",%progbits
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 27
+
+
+ 701              	.Ldebug_abbrev0:
+ 702 0000 01       		.uleb128 0x1
+ 703 0001 11       		.uleb128 0x11
+ 704 0002 01       		.byte	0x1
+ 705 0003 25       		.uleb128 0x25
+ 706 0004 0E       		.uleb128 0xe
+ 707 0005 13       		.uleb128 0x13
+ 708 0006 0B       		.uleb128 0xb
+ 709 0007 03       		.uleb128 0x3
+ 710 0008 0E       		.uleb128 0xe
+ 711 0009 1B       		.uleb128 0x1b
+ 712 000a 0E       		.uleb128 0xe
+ 713 000b 55       		.uleb128 0x55
+ 714 000c 17       		.uleb128 0x17
+ 715 000d 11       		.uleb128 0x11
+ 716 000e 01       		.uleb128 0x1
+ 717 000f 10       		.uleb128 0x10
+ 718 0010 17       		.uleb128 0x17
+ 719 0011 00       		.byte	0
+ 720 0012 00       		.byte	0
+ 721 0013 02       		.uleb128 0x2
+ 722 0014 24       		.uleb128 0x24
+ 723 0015 00       		.byte	0
+ 724 0016 0B       		.uleb128 0xb
+ 725 0017 0B       		.uleb128 0xb
+ 726 0018 3E       		.uleb128 0x3e
+ 727 0019 0B       		.uleb128 0xb
+ 728 001a 03       		.uleb128 0x3
+ 729 001b 0E       		.uleb128 0xe
+ 730 001c 00       		.byte	0
+ 731 001d 00       		.byte	0
+ 732 001e 03       		.uleb128 0x3
+ 733 001f 24       		.uleb128 0x24
+ 734 0020 00       		.byte	0
+ 735 0021 0B       		.uleb128 0xb
+ 736 0022 0B       		.uleb128 0xb
+ 737 0023 3E       		.uleb128 0x3e
+ 738 0024 0B       		.uleb128 0xb
+ 739 0025 03       		.uleb128 0x3
+ 740 0026 08       		.uleb128 0x8
+ 741 0027 00       		.byte	0
+ 742 0028 00       		.byte	0
+ 743 0029 04       		.uleb128 0x4
+ 744 002a 16       		.uleb128 0x16
+ 745 002b 00       		.byte	0
+ 746 002c 03       		.uleb128 0x3
+ 747 002d 0E       		.uleb128 0xe
+ 748 002e 3A       		.uleb128 0x3a
+ 749 002f 0B       		.uleb128 0xb
+ 750 0030 3B       		.uleb128 0x3b
+ 751 0031 05       		.uleb128 0x5
+ 752 0032 49       		.uleb128 0x49
+ 753 0033 13       		.uleb128 0x13
+ 754 0034 00       		.byte	0
+ 755 0035 00       		.byte	0
+ 756 0036 05       		.uleb128 0x5
+ 757 0037 35       		.uleb128 0x35
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 28
+
+
+ 758 0038 00       		.byte	0
+ 759 0039 49       		.uleb128 0x49
+ 760 003a 13       		.uleb128 0x13
+ 761 003b 00       		.byte	0
+ 762 003c 00       		.byte	0
+ 763 003d 06       		.uleb128 0x6
+ 764 003e 2E       		.uleb128 0x2e
+ 765 003f 00       		.byte	0
+ 766 0040 3F       		.uleb128 0x3f
+ 767 0041 19       		.uleb128 0x19
+ 768 0042 03       		.uleb128 0x3
+ 769 0043 0E       		.uleb128 0xe
+ 770 0044 3A       		.uleb128 0x3a
+ 771 0045 0B       		.uleb128 0xb
+ 772 0046 3B       		.uleb128 0x3b
+ 773 0047 0B       		.uleb128 0xb
+ 774 0048 27       		.uleb128 0x27
+ 775 0049 19       		.uleb128 0x19
+ 776 004a 11       		.uleb128 0x11
+ 777 004b 01       		.uleb128 0x1
+ 778 004c 12       		.uleb128 0x12
+ 779 004d 06       		.uleb128 0x6
+ 780 004e 40       		.uleb128 0x40
+ 781 004f 18       		.uleb128 0x18
+ 782 0050 9742     		.uleb128 0x2117
+ 783 0052 19       		.uleb128 0x19
+ 784 0053 00       		.byte	0
+ 785 0054 00       		.byte	0
+ 786 0055 07       		.uleb128 0x7
+ 787 0056 2E       		.uleb128 0x2e
+ 788 0057 01       		.byte	0x1
+ 789 0058 3F       		.uleb128 0x3f
+ 790 0059 19       		.uleb128 0x19
+ 791 005a 03       		.uleb128 0x3
+ 792 005b 0E       		.uleb128 0xe
+ 793 005c 3A       		.uleb128 0x3a
+ 794 005d 0B       		.uleb128 0xb
+ 795 005e 3B       		.uleb128 0x3b
+ 796 005f 05       		.uleb128 0x5
+ 797 0060 27       		.uleb128 0x27
+ 798 0061 19       		.uleb128 0x19
+ 799 0062 11       		.uleb128 0x11
+ 800 0063 01       		.uleb128 0x1
+ 801 0064 12       		.uleb128 0x12
+ 802 0065 06       		.uleb128 0x6
+ 803 0066 40       		.uleb128 0x40
+ 804 0067 18       		.uleb128 0x18
+ 805 0068 9742     		.uleb128 0x2117
+ 806 006a 19       		.uleb128 0x19
+ 807 006b 01       		.uleb128 0x1
+ 808 006c 13       		.uleb128 0x13
+ 809 006d 00       		.byte	0
+ 810 006e 00       		.byte	0
+ 811 006f 08       		.uleb128 0x8
+ 812 0070 05       		.uleb128 0x5
+ 813 0071 00       		.byte	0
+ 814 0072 03       		.uleb128 0x3
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 29
+
+
+ 815 0073 0E       		.uleb128 0xe
+ 816 0074 3A       		.uleb128 0x3a
+ 817 0075 0B       		.uleb128 0xb
+ 818 0076 3B       		.uleb128 0x3b
+ 819 0077 05       		.uleb128 0x5
+ 820 0078 49       		.uleb128 0x49
+ 821 0079 13       		.uleb128 0x13
+ 822 007a 02       		.uleb128 0x2
+ 823 007b 18       		.uleb128 0x18
+ 824 007c 00       		.byte	0
+ 825 007d 00       		.byte	0
+ 826 007e 09       		.uleb128 0x9
+ 827 007f 2E       		.uleb128 0x2e
+ 828 0080 00       		.byte	0
+ 829 0081 3F       		.uleb128 0x3f
+ 830 0082 19       		.uleb128 0x19
+ 831 0083 03       		.uleb128 0x3
+ 832 0084 0E       		.uleb128 0xe
+ 833 0085 3A       		.uleb128 0x3a
+ 834 0086 0B       		.uleb128 0xb
+ 835 0087 3B       		.uleb128 0x3b
+ 836 0088 05       		.uleb128 0x5
+ 837 0089 27       		.uleb128 0x27
+ 838 008a 19       		.uleb128 0x19
+ 839 008b 11       		.uleb128 0x11
+ 840 008c 01       		.uleb128 0x1
+ 841 008d 12       		.uleb128 0x12
+ 842 008e 06       		.uleb128 0x6
+ 843 008f 40       		.uleb128 0x40
+ 844 0090 18       		.uleb128 0x18
+ 845 0091 9742     		.uleb128 0x2117
+ 846 0093 19       		.uleb128 0x19
+ 847 0094 00       		.byte	0
+ 848 0095 00       		.byte	0
+ 849 0096 0A       		.uleb128 0xa
+ 850 0097 2E       		.uleb128 0x2e
+ 851 0098 00       		.byte	0
+ 852 0099 3F       		.uleb128 0x3f
+ 853 009a 19       		.uleb128 0x19
+ 854 009b 03       		.uleb128 0x3
+ 855 009c 0E       		.uleb128 0xe
+ 856 009d 3A       		.uleb128 0x3a
+ 857 009e 0B       		.uleb128 0xb
+ 858 009f 3B       		.uleb128 0x3b
+ 859 00a0 05       		.uleb128 0x5
+ 860 00a1 27       		.uleb128 0x27
+ 861 00a2 19       		.uleb128 0x19
+ 862 00a3 49       		.uleb128 0x49
+ 863 00a4 13       		.uleb128 0x13
+ 864 00a5 11       		.uleb128 0x11
+ 865 00a6 01       		.uleb128 0x1
+ 866 00a7 12       		.uleb128 0x12
+ 867 00a8 06       		.uleb128 0x6
+ 868 00a9 40       		.uleb128 0x40
+ 869 00aa 18       		.uleb128 0x18
+ 870 00ab 9742     		.uleb128 0x2117
+ 871 00ad 19       		.uleb128 0x19
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 30
+
+
+ 872 00ae 00       		.byte	0
+ 873 00af 00       		.byte	0
+ 874 00b0 0B       		.uleb128 0xb
+ 875 00b1 898201   		.uleb128 0x4109
+ 876 00b4 00       		.byte	0
+ 877 00b5 11       		.uleb128 0x11
+ 878 00b6 01       		.uleb128 0x1
+ 879 00b7 31       		.uleb128 0x31
+ 880 00b8 13       		.uleb128 0x13
+ 881 00b9 00       		.byte	0
+ 882 00ba 00       		.byte	0
+ 883 00bb 0C       		.uleb128 0xc
+ 884 00bc 2E       		.uleb128 0x2e
+ 885 00bd 01       		.byte	0x1
+ 886 00be 3F       		.uleb128 0x3f
+ 887 00bf 19       		.uleb128 0x19
+ 888 00c0 03       		.uleb128 0x3
+ 889 00c1 0E       		.uleb128 0xe
+ 890 00c2 3A       		.uleb128 0x3a
+ 891 00c3 0B       		.uleb128 0xb
+ 892 00c4 3B       		.uleb128 0x3b
+ 893 00c5 0B       		.uleb128 0xb
+ 894 00c6 27       		.uleb128 0x27
+ 895 00c7 19       		.uleb128 0x19
+ 896 00c8 11       		.uleb128 0x11
+ 897 00c9 01       		.uleb128 0x1
+ 898 00ca 12       		.uleb128 0x12
+ 899 00cb 06       		.uleb128 0x6
+ 900 00cc 40       		.uleb128 0x40
+ 901 00cd 18       		.uleb128 0x18
+ 902 00ce 9742     		.uleb128 0x2117
+ 903 00d0 19       		.uleb128 0x19
+ 904 00d1 01       		.uleb128 0x1
+ 905 00d2 13       		.uleb128 0x13
+ 906 00d3 00       		.byte	0
+ 907 00d4 00       		.byte	0
+ 908 00d5 0D       		.uleb128 0xd
+ 909 00d6 34       		.uleb128 0x34
+ 910 00d7 00       		.byte	0
+ 911 00d8 03       		.uleb128 0x3
+ 912 00d9 0E       		.uleb128 0xe
+ 913 00da 3A       		.uleb128 0x3a
+ 914 00db 0B       		.uleb128 0xb
+ 915 00dc 3B       		.uleb128 0x3b
+ 916 00dd 0B       		.uleb128 0xb
+ 917 00de 49       		.uleb128 0x49
+ 918 00df 13       		.uleb128 0x13
+ 919 00e0 02       		.uleb128 0x2
+ 920 00e1 17       		.uleb128 0x17
+ 921 00e2 00       		.byte	0
+ 922 00e3 00       		.byte	0
+ 923 00e4 0E       		.uleb128 0xe
+ 924 00e5 898201   		.uleb128 0x4109
+ 925 00e8 01       		.byte	0x1
+ 926 00e9 11       		.uleb128 0x11
+ 927 00ea 01       		.uleb128 0x1
+ 928 00eb 31       		.uleb128 0x31
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 31
+
+
+ 929 00ec 13       		.uleb128 0x13
+ 930 00ed 01       		.uleb128 0x1
+ 931 00ee 13       		.uleb128 0x13
+ 932 00ef 00       		.byte	0
+ 933 00f0 00       		.byte	0
+ 934 00f1 0F       		.uleb128 0xf
+ 935 00f2 8A8201   		.uleb128 0x410a
+ 936 00f5 00       		.byte	0
+ 937 00f6 02       		.uleb128 0x2
+ 938 00f7 18       		.uleb128 0x18
+ 939 00f8 9142     		.uleb128 0x2111
+ 940 00fa 18       		.uleb128 0x18
+ 941 00fb 00       		.byte	0
+ 942 00fc 00       		.byte	0
+ 943 00fd 10       		.uleb128 0x10
+ 944 00fe 898201   		.uleb128 0x4109
+ 945 0101 01       		.byte	0x1
+ 946 0102 11       		.uleb128 0x11
+ 947 0103 01       		.uleb128 0x1
+ 948 0104 31       		.uleb128 0x31
+ 949 0105 13       		.uleb128 0x13
+ 950 0106 00       		.byte	0
+ 951 0107 00       		.byte	0
+ 952 0108 11       		.uleb128 0x11
+ 953 0109 34       		.uleb128 0x34
+ 954 010a 00       		.byte	0
+ 955 010b 03       		.uleb128 0x3
+ 956 010c 0E       		.uleb128 0xe
+ 957 010d 3A       		.uleb128 0x3a
+ 958 010e 0B       		.uleb128 0xb
+ 959 010f 3B       		.uleb128 0x3b
+ 960 0110 0B       		.uleb128 0xb
+ 961 0111 49       		.uleb128 0x49
+ 962 0112 13       		.uleb128 0x13
+ 963 0113 3F       		.uleb128 0x3f
+ 964 0114 19       		.uleb128 0x19
+ 965 0115 02       		.uleb128 0x2
+ 966 0116 18       		.uleb128 0x18
+ 967 0117 00       		.byte	0
+ 968 0118 00       		.byte	0
+ 969 0119 12       		.uleb128 0x12
+ 970 011a 2E       		.uleb128 0x2e
+ 971 011b 00       		.byte	0
+ 972 011c 3F       		.uleb128 0x3f
+ 973 011d 19       		.uleb128 0x19
+ 974 011e 3C       		.uleb128 0x3c
+ 975 011f 19       		.uleb128 0x19
+ 976 0120 6E       		.uleb128 0x6e
+ 977 0121 0E       		.uleb128 0xe
+ 978 0122 03       		.uleb128 0x3
+ 979 0123 0E       		.uleb128 0xe
+ 980 0124 3A       		.uleb128 0x3a
+ 981 0125 0B       		.uleb128 0xb
+ 982 0126 3B       		.uleb128 0x3b
+ 983 0127 0B       		.uleb128 0xb
+ 984 0128 00       		.byte	0
+ 985 0129 00       		.byte	0
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 32
+
+
+ 986 012a 00       		.byte	0
+ 987              		.section	.debug_loc,"",%progbits
+ 988              	.Ldebug_loc0:
+ 989              	.LLST0:
+ 990 0000 16000000 		.4byte	.LVL7
+ 991 0004 23000000 		.4byte	.LVL8-1
+ 992 0008 0100     		.2byte	0x1
+ 993 000a 50       		.byte	0x50
+ 994 000b 00000000 		.4byte	0
+ 995 000f 00000000 		.4byte	0
+ 996              		.section	.debug_aranges,"",%progbits
+ 997 0000 7C000000 		.4byte	0x7c
+ 998 0004 0200     		.2byte	0x2
+ 999 0006 00000000 		.4byte	.Ldebug_info0
+ 1000 000a 04       		.byte	0x4
+ 1001 000b 00       		.byte	0
+ 1002 000c 0000     		.2byte	0
+ 1003 000e 0000     		.2byte	0
+ 1004 0010 00000000 		.4byte	.LFB1
+ 1005 0014 02000000 		.4byte	.LFE1-.LFB1
+ 1006 0018 00000000 		.4byte	.LFB3
+ 1007 001c 02000000 		.4byte	.LFE3-.LFB3
+ 1008 0020 00000000 		.4byte	.LFB4
+ 1009 0024 0C000000 		.4byte	.LFE4-.LFB4
+ 1010 0028 00000000 		.4byte	.LFB5
+ 1011 002c 0C000000 		.4byte	.LFE5-.LFB5
+ 1012 0030 00000000 		.4byte	.LFB6
+ 1013 0034 0C000000 		.4byte	.LFE6-.LFB6
+ 1014 0038 00000000 		.4byte	.LFB7
+ 1015 003c 0C000000 		.4byte	.LFE7-.LFB7
+ 1016 0040 00000000 		.4byte	.LFB8
+ 1017 0044 0C000000 		.4byte	.LFE8-.LFB8
+ 1018 0048 00000000 		.4byte	.LFB9
+ 1019 004c 0C000000 		.4byte	.LFE9-.LFB9
+ 1020 0050 00000000 		.4byte	.LFB10
+ 1021 0054 0C000000 		.4byte	.LFE10-.LFB10
+ 1022 0058 00000000 		.4byte	.LFB11
+ 1023 005c 14000000 		.4byte	.LFE11-.LFB11
+ 1024 0060 00000000 		.4byte	.LFB12
+ 1025 0064 14000000 		.4byte	.LFE12-.LFB12
+ 1026 0068 00000000 		.4byte	.LFB0
+ 1027 006c 34000000 		.4byte	.LFE0-.LFB0
+ 1028 0070 00000000 		.4byte	.LFB2
+ 1029 0074 18000000 		.4byte	.LFE2-.LFB2
+ 1030 0078 00000000 		.4byte	0
+ 1031 007c 00000000 		.4byte	0
+ 1032              		.section	.debug_ranges,"",%progbits
+ 1033              	.Ldebug_ranges0:
+ 1034 0000 00000000 		.4byte	.LFB1
+ 1035 0004 02000000 		.4byte	.LFE1
+ 1036 0008 00000000 		.4byte	.LFB3
+ 1037 000c 02000000 		.4byte	.LFE3
+ 1038 0010 00000000 		.4byte	.LFB4
+ 1039 0014 0C000000 		.4byte	.LFE4
+ 1040 0018 00000000 		.4byte	.LFB5
+ 1041 001c 0C000000 		.4byte	.LFE5
+ 1042 0020 00000000 		.4byte	.LFB6
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 33
+
+
+ 1043 0024 0C000000 		.4byte	.LFE6
+ 1044 0028 00000000 		.4byte	.LFB7
+ 1045 002c 0C000000 		.4byte	.LFE7
+ 1046 0030 00000000 		.4byte	.LFB8
+ 1047 0034 0C000000 		.4byte	.LFE8
+ 1048 0038 00000000 		.4byte	.LFB9
+ 1049 003c 0C000000 		.4byte	.LFE9
+ 1050 0040 00000000 		.4byte	.LFB10
+ 1051 0044 0C000000 		.4byte	.LFE10
+ 1052 0048 00000000 		.4byte	.LFB11
+ 1053 004c 14000000 		.4byte	.LFE11
+ 1054 0050 00000000 		.4byte	.LFB12
+ 1055 0054 14000000 		.4byte	.LFE12
+ 1056 0058 00000000 		.4byte	.LFB0
+ 1057 005c 34000000 		.4byte	.LFE0
+ 1058 0060 00000000 		.4byte	.LFB2
+ 1059 0064 18000000 		.4byte	.LFE2
+ 1060 0068 00000000 		.4byte	0
+ 1061 006c 00000000 		.4byte	0
+ 1062              		.section	.debug_line,"",%progbits
+ 1063              	.Ldebug_line0:
+ 1064 0000 4A010000 		.section	.debug_str,"MS",%progbits,1
+ 1064      02005300 
+ 1064      00000201 
+ 1064      FB0E0D00 
+ 1064      01010101 
+ 1065              	.LASF15:
+ 1066 0000 72656733 		.ascii	"reg32\000"
+ 1066      3200
+ 1067              	.LASF18:
+ 1068 0006 53746570 		.ascii	"StepperStep_Enable\000"
+ 1068      70657253 
+ 1068      7465705F 
+ 1068      456E6162 
+ 1068      6C6500
+ 1069              	.LASF19:
+ 1070 0019 53746570 		.ascii	"StepperStep_Stop\000"
+ 1070      70657253 
+ 1070      7465705F 
+ 1070      53746F70 
+ 1070      00
+ 1071              	.LASF26:
+ 1072 002a 70657269 		.ascii	"period\000"
+ 1072      6F6400
+ 1073              	.LASF3:
+ 1074 0031 73686F72 		.ascii	"short unsigned int\000"
+ 1074      7420756E 
+ 1074      7369676E 
+ 1074      65642069 
+ 1074      6E7400
+ 1075              	.LASF33:
+ 1076 0044 53746570 		.ascii	"StepperStep_Start\000"
+ 1076      70657253 
+ 1076      7465705F 
+ 1076      53746172 
+ 1076      7400
+ 1077              	.LASF21:
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 34
+
+
+ 1078 0056 53746570 		.ascii	"StepperStep_ReadStatusRegister\000"
+ 1078      70657253 
+ 1078      7465705F 
+ 1078      52656164 
+ 1078      53746174 
+ 1079              	.LASF24:
+ 1080 0075 53746570 		.ascii	"StepperStep_WritePeriod\000"
+ 1080      70657253 
+ 1080      7465705F 
+ 1080      57726974 
+ 1080      65506572 
+ 1081              	.LASF11:
+ 1082 008d 666C6F61 		.ascii	"float\000"
+ 1082      7400
+ 1083              	.LASF29:
+ 1084 0093 636F756E 		.ascii	"counter\000"
+ 1084      74657200 
+ 1085              	.LASF7:
+ 1086 009b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1086      206C6F6E 
+ 1086      6720756E 
+ 1086      7369676E 
+ 1086      65642069 
+ 1087              	.LASF40:
+ 1088 00b2 53746570 		.ascii	"StepperStep_initVar\000"
+ 1088      70657253 
+ 1088      7465705F 
+ 1088      696E6974 
+ 1088      56617200 
+ 1089              	.LASF1:
+ 1090 00c6 756E7369 		.ascii	"unsigned char\000"
+ 1090      676E6564 
+ 1090      20636861 
+ 1090      7200
+ 1091              	.LASF36:
+ 1092 00d4 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1092      43313120 
+ 1092      352E342E 
+ 1092      31203230 
+ 1092      31363036 
+ 1093 0107 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1093      20726576 
+ 1093      6973696F 
+ 1093      6E203233 
+ 1093      37373135 
+ 1094 013a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1094      66756E63 
+ 1094      74696F6E 
+ 1094      2D736563 
+ 1094      74696F6E 
+ 1095              	.LASF14:
+ 1096 0162 72656738 		.ascii	"reg8\000"
+ 1096      00
+ 1097              	.LASF5:
+ 1098 0167 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1098      20756E73 
+ 1098      69676E65 
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 35
+
+
+ 1098      6420696E 
+ 1098      7400
+ 1099              	.LASF9:
+ 1100 0179 75696E74 		.ascii	"uint8\000"
+ 1100      3800
+ 1101              	.LASF32:
+ 1102 017f 53746570 		.ascii	"StepperStep_Init\000"
+ 1102      70657253 
+ 1102      7465705F 
+ 1102      496E6974 
+ 1102      00
+ 1103              	.LASF31:
+ 1104 0190 53746570 		.ascii	"StepperStep_ClearFIFO\000"
+ 1104      70657253 
+ 1104      7465705F 
+ 1104      436C6561 
+ 1104      72464946 
+ 1105              	.LASF12:
+ 1106 01a6 646F7562 		.ascii	"double\000"
+ 1106      6C6500
+ 1107              	.LASF28:
+ 1108 01ad 53746570 		.ascii	"StepperStep_WriteCounter\000"
+ 1108      70657253 
+ 1108      7465705F 
+ 1108      57726974 
+ 1108      65436F75 
+ 1109              	.LASF22:
+ 1110 01c6 53746570 		.ascii	"StepperStep_ReadPeriod\000"
+ 1110      70657253 
+ 1110      7465705F 
+ 1110      52656164 
+ 1110      50657269 
+ 1111              	.LASF10:
+ 1112 01dd 75696E74 		.ascii	"uint32\000"
+ 1112      333200
+ 1113              	.LASF34:
+ 1114 01e4 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1114      74657243 
+ 1114      72697469 
+ 1114      63616C53 
+ 1114      65637469 
+ 1115              	.LASF38:
+ 1116 01fb 433A5C55 		.ascii	"C:\\Users\\George Anwar\\Documents\\UC Berkeley\\ME"
+ 1116      73657273 
+ 1116      5C47656F 
+ 1116      72676520 
+ 1116      416E7761 
+ 1117 0229 31333520 		.ascii	"135 Spring 2020\\PSOC Creator\\ME135_235\\EmulatedS"
+ 1117      53707269 
+ 1117      6E672032 
+ 1117      3032305C 
+ 1117      50534F43 
+ 1118 0259 74657070 		.ascii	"tepperMotor.cydsn\000"
+ 1118      65724D6F 
+ 1118      746F722E 
+ 1118      63796473 
+ 1118      6E00
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 36
+
+
+ 1119              	.LASF8:
+ 1120 026b 756E7369 		.ascii	"unsigned int\000"
+ 1120      676E6564 
+ 1120      20696E74 
+ 1120      00
+ 1121              	.LASF35:
+ 1122 0278 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1122      69744372 
+ 1122      69746963 
+ 1122      616C5365 
+ 1122      6374696F 
+ 1123              	.LASF17:
+ 1124 028e 73697A65 		.ascii	"sizetype\000"
+ 1124      74797065 
+ 1124      00
+ 1125              	.LASF20:
+ 1126 0297 53746570 		.ascii	"StepperStep_SoftwareCapture\000"
+ 1126      70657253 
+ 1126      7465705F 
+ 1126      536F6674 
+ 1126      77617265 
+ 1127              	.LASF6:
+ 1128 02b3 6C6F6E67 		.ascii	"long long int\000"
+ 1128      206C6F6E 
+ 1128      6720696E 
+ 1128      7400
+ 1129              	.LASF25:
+ 1130 02c1 696E7465 		.ascii	"interruptMode\000"
+ 1130      72727570 
+ 1130      744D6F64 
+ 1130      6500
+ 1131              	.LASF27:
+ 1132 02cf 53746570 		.ascii	"StepperStep_ReadCapture\000"
+ 1132      70657253 
+ 1132      7465705F 
+ 1132      52656164 
+ 1132      43617074 
+ 1133              	.LASF2:
+ 1134 02e7 73686F72 		.ascii	"short int\000"
+ 1134      7420696E 
+ 1134      7400
+ 1135              	.LASF39:
+ 1136 02f1 53746570 		.ascii	"StepperStep_interruptState\000"
+ 1136      70657253 
+ 1136      7465705F 
+ 1136      696E7465 
+ 1136      72727570 
+ 1137              	.LASF37:
+ 1138 030c 47656E65 		.ascii	"Generated_Source\\PSoC5\\StepperStep.c\000"
+ 1138      72617465 
+ 1138      645F536F 
+ 1138      75726365 
+ 1138      5C50536F 
+ 1139              	.LASF23:
+ 1140 0331 53746570 		.ascii	"StepperStep_SetInterruptMode\000"
+ 1140      70657253 
+ 1140      7465705F 
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccI5XHkh.s 			page 37
+
+
+ 1140      53657449 
+ 1140      6E746572 
+ 1141              	.LASF4:
+ 1142 034e 6C6F6E67 		.ascii	"long int\000"
+ 1142      20696E74 
+ 1142      00
+ 1143              	.LASF13:
+ 1144 0357 63686172 		.ascii	"char\000"
+ 1144      00
+ 1145              	.LASF16:
+ 1146 035c 6C6F6E67 		.ascii	"long double\000"
+ 1146      20646F75 
+ 1146      626C6500 
+ 1147              	.LASF0:
+ 1148 0368 7369676E 		.ascii	"signed char\000"
+ 1148      65642063 
+ 1148      68617200 
+ 1149              	.LASF30:
+ 1150 0374 53746570 		.ascii	"StepperStep_ReadCounter\000"
+ 1150      70657253 
+ 1150      7465705F 
+ 1150      52656164 
+ 1150      436F756E 
+ 1151              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
