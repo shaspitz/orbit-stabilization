@@ -118,16 +118,7 @@ def lin_dyn_cont(t, x, r0, u=np.zeros((2, 1))):
 
     return (A @ x + B @ u).ravel()  # output 1-d array again
 
-#kalman Filter
-#A:State scale
-#H:Measurement scale 
-#ss:length of state spac input
-#V:process noise
-#W:sensor noise
-#z:measurements
-#N:number of time steps
-#
-#
+
 def KalmanFilter(x0,z,N):
     #using linearized dynamics
     A = np.array([[0, 1, 0, 0],
@@ -138,24 +129,23 @@ def KalmanFilter(x0,z,N):
 
 
     # Initialize estimate and covariance of state (at k = 0)
-    XM=x0
-    Pm=np.eye(4)
-    V=np.eye(4)
-    W=np.eye(4)
+    XM = x0
+    Pm = np.eye(4)
+    V = np.eye(4)
+    W = np.eye(4)
 
     for k in range(N):
-        #prior update
-        XP=A*XM
-        Pp=A*Pm*np.transpose(A) + V
-        #measurement update
-        K=Pp*np.transpose(H)*np.linalg.inv(H*Pp*np.transpose(H) + W)
-        XM=XP+K*(z[k]-H*XP)
-        Pm=(np.eye(4)-K*H)*Pp*np.transpose(np.eye(4)-K*H)+K*W*np.transpose(K)
+        # prior update
+        XP = A@XM
+        Pp = A@Pm@A.T + V
+        # measurement update
+        K = Pp@H.T @ np.linalg.inv(H@Pp@H.T + W)
+        XM = XP + K@(z[k] - H@XP)
+        Pm = (np.eye(4)-K@H)@Pp@(np.eye(4)-K@H).T + K@W@K.T
 
 
     # Return posterior mean and variance
     return XM, Pm
-
 
 
 def lin_dyn_discrete(x, r0, Ts, u=np.zeros((2, 1))):
