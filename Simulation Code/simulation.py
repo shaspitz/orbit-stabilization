@@ -144,7 +144,7 @@ def simulate_system():
     # We manipulate x0_step, and t_global
     global x0_step, t_global
 
-    # Simulate forward 2 seconds (eventually make bigger, like 20000 sec).
+    # Simulate forward 2 seconds (eventually make bigger, like 20000 sec)
     t_sim = np.linspace(0, 2, 2)
 
     # Evaluate solution for each timestep
@@ -203,7 +203,7 @@ def main():
         Schedule periodic execution of input command tasks.
         Note that Python does not run in real time, so additional .002518
         seconds of schedule time was hueristically implemented to
-        counteract windows' latency in sending input commands to PSOC.
+        counteract Windows' latency in sending input commands to PSOC.
         Allow for +-10 ms in communication timing error.
         '''
         schedule.every(1.002518).seconds.do(run_threaded, input_command)
@@ -216,7 +216,7 @@ def main():
         while True:
             schedule.run_pending()
 
-            # Implement ping-pong Queue object here to handle inputs
+            # Implement ping-pong Queue object here to handle inputs?
 
         '''
         Psuedocode:
