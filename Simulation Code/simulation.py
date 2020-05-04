@@ -20,7 +20,7 @@ from scipy.integrate import solve_ivp
 # Setup global variables
 
 # Run-type
-hardware_in_loop = True
+hardware_in_loop = False
 
 # Radius of the Earth [m]
 R = 6378000
@@ -119,6 +119,15 @@ def lin_dyn_cont(t, x, r0, u=np.zeros((2, 1))):
     return (A @ x + B @ u).ravel()  # output 1-d array again
 
 
+def lin_dyn_discrete(x, r0, Ts, u=np.zeros((2, 1))):
+    '''
+    Discrete dynamics using forward Euler method
+    '''
+    dx = lin_dyn_cont(t=None, x=x, r0=r0, u=u)
+    xnext = x + Ts*dx
+    return xnext
+
+
 def equil(t):
     '''
     For adding equil trajectory back to solution
@@ -141,6 +150,10 @@ def input_command():
 
 
 def simulate_system():
+    '''
+    Simulate system using continuous dynamics and discrete inputs
+    given from PSOC
+    '''
     # We manipulate x0_step, and t_global
     global x0_step, t_global
 
@@ -257,30 +270,47 @@ def main():
         '''
 
         # solution will be sys_sol.y with [0:3] being arrays of state
-        # print('last 10 values of radius:', sys_sol.y[0][:-10])
 
+        # Simulate discrete nonlinear system
+        x_discrete = np.zeros((len(t_sim)+1, 4))
+        x_discrete[0] = x0
+        Ts = t_sim[-1] / len(t_sim)
+        for k in range(len(t_sim)):
+            x_discrete[k+1] = lin_dyn_discrete(x_discrete[k], r0, Ts)
+
+        # Add equilibrium values for continous system
         for i in range(len(sys_sol_lin.y)):
             sys_sol_lin.y[i] = np.array(
                 [sys_sol_lin.y[i][j]
                  + equil(t_sim[j])[i] for j in range(len(t_sim))])
+
+        # Add equilibrium values for discrete system
+        for k in range(len(x_discrete)):
+            print(equil(k*Ts))
+            x_discrete[k] = x_discrete[k] + equil(k*Ts)
 
         # Convert to 2D cartesian coordinates centered at earth's core
         x_sat_lin = [sys_sol_lin.y[0][i]*np.cos(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
         y_sat_lin = [sys_sol_lin.y[0][i]*np.sin(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
         # x_sat_nl = [sys_sol_nl.y[0][i]*np.cos(sys_sol_nl.y[2][i]) for i in range(len(t_sim))]
         # y_sat_nl = [sys_sol_nl.y[0][i]*np.sin(sys_sol_nl.y[2][i]) for i in range(len(t_sim))]
+        x_sat_lin_discrete = [x_discrete[k][0]*np.cos(x_discrete[k][2]) for k in range(len(x_discrete))]
+        y_sat_lin_discrete = [x_discrete[k][0]*np.sin(x_discrete[k][2]) for k in range(len(x_discrete))]
 
         #  Plotting
         fig, ax = plt.subplots()
         circle1 = plt.Circle((0, 0), R, color='b')
         ax.add_artist(circle1)
-        ax.plot(x_sat_lin, y_sat_lin, linewidth=2, color='r')
+        ax.plot(x_sat_lin, y_sat_lin, linewidth=4, color='r', linestyle='-')
+        ax.plot(x_sat_lin_discrete, y_sat_lin_discrete, linewidth=4, color='g',
+                linestyle='--')
         # plt.plot(x_sat_nl, y_sat_nl, linewidth=2)
         plt.xlabel('x')
         plt.ylabel('y')
         plt.title(r'Sattellite Path')
         plt.gca().set_aspect('equal', adjustable='box')
-        # plt.legend(['Linear model', 'Nonlinear Model'], loc='best')
+        plt.legend(['Continuos Linear Model', 'Discrete Linear Model'],
+                   loc='lower right')
         plt.show()
 
         '''
