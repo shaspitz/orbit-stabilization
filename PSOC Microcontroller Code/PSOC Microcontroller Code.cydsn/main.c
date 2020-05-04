@@ -118,8 +118,8 @@ int main()
 
         if(input_flag && active)
         {
-            uint32 input1 = 101;
-            uint32 input2 = 50;
+            uint32 input1 = 0;
+            uint32 input2 = 0;
             sprintf(TransmitBuffer, "%lu,%lu,%lu\n", time-time_start, input1, input2);
             // can send to sending array directly by using array command (and activating at top of script!!!)
             UART_1_PutString(TransmitBuffer);

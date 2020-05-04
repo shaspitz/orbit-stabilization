@@ -2,7 +2,7 @@
 --	Conversion of PSOC Microcontroller Code.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Fri Apr 24 16:20:53 2020
+--	Sun May 03 17:18:19 2020
 --
 
 USE cypress.cypress.all;

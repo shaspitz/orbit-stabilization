@@ -153,6 +153,14 @@
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\PSoC 5LP Architecture TRM</v>
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\CY8C58LP Family Datasheet</v>
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\System Reference Guides</v>
+<v>PSOC Microcontroller Code\PSOC Microcontroller Code\System Reference Guides\cy_boot_v5_70</v>
+<v>PSOC Microcontroller Code\PSOC Microcontroller Code\cy_clock_v2_20.pdf</v>
+<v>PSOC Microcontroller Code\PSOC Microcontroller Code\cy_isr_v1_70.pdf</v>
+<v>PSOC Microcontroller Code\PSOC Microcontroller Code\cy_pins_v2_20</v>
+<v>PSOC Microcontroller Code\PSOC Microcontroller Code\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>PSOC Microcontroller Code\PSOC Microcontroller Code\Timer_v2_80.pdf</v>
+<v>PSOC Microcontroller Code\PSOC Microcontroller Code\UART_v2_50.pdf</v>
+<v>PSOC Microcontroller Code\PSOC Microcontroller Code\ZeroTerminal.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>PSOC Microcontroller Code</v>
@@ -160,6 +168,14 @@
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\PSoC 5LP Architecture TRM</v>
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\CY8C58LP Family Datasheet</v>
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\System Reference Guides</v>
+<v>PSOC Microcontroller Code\PSOC Microcontroller Code\System Reference Guides\cy_boot_v5_70</v>
+<v>PSOC Microcontroller Code\PSOC Microcontroller Code\cy_clock_v2_20.pdf</v>
+<v>PSOC Microcontroller Code\PSOC Microcontroller Code\cy_isr_v1_70.pdf</v>
+<v>PSOC Microcontroller Code\PSOC Microcontroller Code\cy_pins_v2_20</v>
+<v>PSOC Microcontroller Code\PSOC Microcontroller Code\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>PSOC Microcontroller Code\PSOC Microcontroller Code\Timer_v2_80.pdf</v>
+<v>PSOC Microcontroller Code\PSOC Microcontroller Code\UART_v2_50.pdf</v>
+<v>PSOC Microcontroller Code\PSOC Microcontroller Code\ZeroTerminal.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>

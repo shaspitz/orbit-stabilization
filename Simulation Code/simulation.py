@@ -11,6 +11,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import csv
 import time
+import schedule
+import threading
 import serial
 import scipy
 from scipy.integrate import solve_ivp
@@ -18,7 +20,7 @@ from scipy.integrate import solve_ivp
 # Setup global variables
 
 # Run-type
-hardware_in_loop = False
+hardware_in_loop = True
 
 # Radius of the Earth [m]
 R = 6378000
@@ -117,17 +119,76 @@ def lin_dyn_cont(t, x, r0, u=np.zeros((2, 1))):
     return (A @ x + B @ u).ravel()  # output 1-d array again
 
 
+def equil(t):
+    '''
+    For adding equil trajectory back to solution
+    '''
+    return np.array([r0, 0, w0*t, w0])
+
+
+def input_command():
+    # We manipulate u
+    global u
+
+    # Write input command to PSOC
+    ser.write(str.encode('u'))
+
+    # Get input integers from PSOC
+    s = ser.readline().decode()
+    s_processed = np.array([[int(x.strip())] for x in s.split(',')])
+    t, u = s_processed[0][0], s_processed[1:3]
+    print('time: ', t, '\n', 'input: ', u)
+
+
+def simulate_system():
+    # We manipulate x0_step, and t_global
+    global x0_step, t_global
+
+    # Simulate forward 2 seconds (eventually make bigger, like 20000 sec).
+    t_sim = np.linspace(0, 2, 2)
+
+    # Evaluate solution for each timestep
+    step_sol = solve_ivp(lin_dyn_cont,
+                         [t_sim[0], t_sim[-1:]],
+                         x0_step, method='RK45',
+                         t_eval=t_sim, args=(r0, u))
+
+    # reset IC for next step (no equilibrium added)
+    x0_step = [sol[-1] for sol in step_sol.y]
+
+    # propogate t_global forward from simulated time
+    t_global += t_sim[-1]
+
+    # add equilibrium back to solution (only second timestep)
+    for i in range(len(step_sol.y)):
+        step_sol.y[i][-1] = step_sol.y[i][-1] + equil(t_global)[i]
+
+    # Real time visualization (eventually tkinter GUI)
+    print('Simulation and input: ', [sol[-1] for sol in step_sol.y], u, t_global)
+
+
+def run_threaded(job_func):
+    '''
+    Automatically makes thread for any commanded task
+    '''
+    job_thread = threading.Thread(target=job_func)
+    job_thread.daemon = True
+    job_thread.start()
+
+
 def main():
 
     if hardware_in_loop:
         # Serial interfacing
 
         # Intialize ode solver
-        t_sim = np.linspace(0, 10, 1)  # simulate forward 10 seconds
+        global x0_step, u, t_global
+        t_global = 0
         x0_step = [0, 0, 0, 0]
         u = np.zeros((2, 1))
 
         # Serial config
+        global ser
         ser = serial.Serial(port='COM5', baudrate=115200, parity='N')
         if ser.is_open:
             ser.close()
@@ -138,43 +199,24 @@ def main():
         # Send start message
         ser.write(str.encode('s'))
 
-        # IMPLEMENT HANDLER HERE TO ENSURE SIMULATION HAPPENS AT EQUAL TIMING INTERVALS
+        '''
+        Schedule periodic execution of input command tasks.
+        Note that Python does not run in real time, so additional .002518
+        seconds of schedule time was hueristically implemented to
+        counteract windows' latency in sending input commands to PSOC.
+        Allow for +-10 ms in communication timing error.
+        '''
+        schedule.every(1.002518).seconds.do(run_threaded, input_command)
+
+        # schedule periodic sim of system (lower freq than input commands)
+        schedule.every(2).seconds.do(run_threaded, simulate_system)
+
         print('About to enter loop')
-        t_start = time.time()
 
         while True:
-            # See (https://docs.python.org/3/library/sched.html) to replace this with an event scheduler
-            if (time.time() - t_start >= 1.0):
-                t_start = time.time()
+            schedule.run_pending()
 
-                # Write input command to PSOC
-                ser.write(str.encode('u'))
-
-                # Get input integers from PSOC
-                s = ser.readline().decode()
-                s_processed = np.array([[int(x.strip())] for x in s.split(',')])
-                t, u = s_processed[0][0], s_processed[1:3]
-                print('time: ', t, '\n', 'input: ', u)
-                '''
-                x = ser.read()          # read one byte
-                s = ser.read(10)        # read up to ten bytes (timeout)
-                line = ser.readline()   # read a '\n' terminated line
-                '''
-
-                # Need to figure out how to simulate 1 step only here
-                '''
-                # Evaluate solution for each timestep
-                step_sol = solve_ivp(lin_dyn_cont,
-                                     [t_sim[0], t_sim[-1:]],
-                                     x0_step, method='RK45',
-                                     t_eval=t_sim, args=(r0, u))
-
-                # reset IC for next step
-                x0_step = [sol for sol in step_sol.y]
-
-                # Real time visualization (eventually tkinter GUI)
-                print(step_sol.y, u)
-                '''
+            # Implement ping-pong Queue object here to handle inputs
 
         '''
         Psuedocode:
@@ -216,10 +258,6 @@ def main():
 
         # solution will be sys_sol.y with [0:3] being arrays of state
         # print('last 10 values of radius:', sys_sol.y[0][:-10])
-
-        # Add equil trajectory back to solution
-        def equil(t):
-            return np.array([r0, 0, w0*t, w0])
 
         for i in range(len(sys_sol_lin.y)):
             sys_sol_lin.y[i] = np.array(
