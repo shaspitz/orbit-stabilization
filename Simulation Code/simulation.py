@@ -1,5 +1,5 @@
 '''
-@author: Shawn Marshall-Spitzbart, Muireann Spain, Anthoy Yan
+@author: Shawn Marshall-Spitzbart, Muireann Spain, Anthony Yan
 
 UC Berkeley ME235 Final Project
 
