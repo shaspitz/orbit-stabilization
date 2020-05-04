@@ -286,7 +286,6 @@ def main():
 
         # Add equilibrium values for discrete system
         for k in range(len(x_discrete)):
-            print(equil(k*Ts))
             x_discrete[k] = x_discrete[k] + equil(k*Ts)
 
         # Convert to 2D cartesian coordinates centered at earth's core
