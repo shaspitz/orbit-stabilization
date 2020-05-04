@@ -136,6 +136,9 @@ def equil(t):
 
 
 def input_command():
+    '''
+    Writes input command to PSOC and obtains corresponding control input
+    '''
     # We manipulate u
     global u
 
