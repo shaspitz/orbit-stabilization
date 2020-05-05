@@ -1,12 +1,3 @@
-'''
-@author: Shawn Marshall-Spitzbart, Muireann Spain, Anthoy Yan
-
-UC Berkeley ME235 Final Project
-
-Dynamics system model from ETH Zurich:
-https://ethz.ch/content/dam/ethz/special-interest/mavt/dynamic-systems-n-control/idsc-dam/Lectures/System-Modeling/Slides_HS17/Lecture12.pdf
-'''
-
 import matplotlib.pyplot as plt
 import numpy as np
 import math
@@ -67,7 +58,7 @@ radial velocity along the target orbit until proximity is reached.
 '''
 
 def discrete_linear_dyn(r0,w0):
-    dt = 1000
+    dt = 10
     #discretisation obtained from http://users.wpi.edu/~zli11/teaching/rbe595_2017/LectureSlide_PDF/discretization.pdf
     A = np.array([[0, 1, 0, 0],
                   [3*w0**2, 0, 0, 2*r0*w0],
@@ -349,4 +340,6 @@ def other():
 
 if __name__ == '__main__':
     main()
+
+
 
