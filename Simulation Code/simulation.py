@@ -165,6 +165,13 @@ def lin_dyn_discrete(x, r0, Ts, u=np.zeros((2, 1))):
     return xnext.ravel()
 
 
+def add_noise(state_sol):
+    '''
+    Adds Gaussian noise to all input states. Ensures variances are the
+    same across any simulation.
+    '''
+
+
 def equil(t):
     '''
     For adding equil trajectory back to solution
@@ -291,33 +298,14 @@ def main():
     else:
         # Simulations
 
+        # Intial conditions, deviation from equil in polar coordinates
+        x0 = [1000000, 0, 0, 0]
+
         # Simulate continuous linearized system
         t_sim = np.linspace(0, 100000, 100)
-
-        # Intial conditions, remember this is deviation from equil in polar
-        x0 = [1000000, 0, 0, 0]
         u = np.zeros((2, 1))
         sys_sol_lin = solve_ivp(lin_dyn_cont, [t_sim[0], t_sim[-1:]], x0,
                                 method='RK45', t_eval=t_sim, args=(r0, u))
-
-#         print(sys_sol_lin.y[2], w0)
-        # Simulate continuous nonlinear system (yes it does run, not quickly)
-        '''
-        t_sim = np.linspace(0, 10, 100)
-        x0 = [r0, 1, w0, 1]
-        sys_sol_nl = solve_ivp(nl_dyn_cont, [t_sim[0], t_sim[-1:]], x0,
-                            method='RK45', t_eval=t_sim)
-        '''
-        #kalman filter
-        XM,Pm=KalmanFilter(x0,[5,5,5.5,6,5.6,7,6.5,5.4,6,5.6],10)
-        # solution will be sys_sol.y with [0:3] being arrays of state
-
-        # Simulate discrete nonlinear system
-        x_discrete = np.zeros((len(t_sim)+1, 4))
-        x_discrete[0] = x0
-        Ts = t_sim[-1] / len(t_sim)
-        for k in range(len(t_sim)):
-            x_discrete[k+1] = lin_dyn_discrete(x_discrete[k], r0, Ts)
 
         # Add equilibrium values for continous system
         for i in range(len(sys_sol_lin.y)):
@@ -325,24 +313,42 @@ def main():
                 [sys_sol_lin.y[i][j]
                  + equil(t_sim[j])[i] for j in range(len(t_sim))])
 
+        # Simulate continuous nonlinear system (yes it does run, not quickly)
+        '''
+        t_sim = np.linspace(0, 10, 100)
+        x0 = [r0, 1, w0, 1]
+        sys_sol_nl = solve_ivp(nl_dyn_cont, [t_sim[0], t_sim[-1:]], x0,
+                            method='RK45', t_eval=t_sim)
+        '''
+        # kalman filter
+#         XM,Pm=KalmanFilter(x0,[5,5,5.5,6,5.6,7,6.5,5.4,6,5.6],10)
+        # solution will be sys_sol.y with [0:3] being arrays of state
+
+        # Simulate discrete nonlinear system
+        x_discrete = np.zeros((4, len(t_sim)+1))
+        x_discrete[:, 0] = x0
+        Ts = t_sim[-1] / len(t_sim)
+        for k in range(len(t_sim)):
+            x_discrete[:, k+1] = lin_dyn_discrete(x_discrete[:, k], r0, Ts)
+
         # Add equilibrium values for discrete system
-        for k in range(len(x_discrete)):
-            x_discrete[k] = x_discrete[k] + equil(k*Ts)
+        for k in range(len(x_discrete[0])):
+            x_discrete[:, k] = x_discrete[:, k] + equil(k*Ts)
 
         # Convert to 2D cartesian coordinates centered at earth's core
         x_sat_lin = [sys_sol_lin.y[0][i]*np.cos(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
         y_sat_lin = [sys_sol_lin.y[0][i]*np.sin(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
         # x_sat_nl = [sys_sol_nl.y[0][i]*np.cos(sys_sol_nl.y[2][i]) for i in range(len(t_sim))]
         # y_sat_nl = [sys_sol_nl.y[0][i]*np.sin(sys_sol_nl.y[2][i]) for i in range(len(t_sim))]
-        x_sat_lin_discrete = [x_discrete[k][0]*np.cos(x_discrete[k][2]) for k in range(len(x_discrete))]
-        y_sat_lin_discrete = [x_discrete[k][0]*np.sin(x_discrete[k][2]) for k in range(len(x_discrete))]
+        x_sat_lin_discrete = [x_discrete[0][k]*np.cos(x_discrete[2][k]) for k in range(len(x_discrete[0]))]
+        y_sat_lin_discrete = [x_discrete[0][k]*np.sin(x_discrete[2][k]) for k in range(len(x_discrete[0]))]
 
         # Generate equilibrium orbit for visualization
-        equil_orbit = np.zeros((100, 4))
-        for i, t in enumerate(np.linspace(0, t_orbital, 100)):
-            equil_orbit[i] = equil(t)
-        x_equil = [equil_orbit[k][0]*np.cos(equil_orbit[k][2]) for k in range(len(equil_orbit))]
-        y_equil = [equil_orbit[k][0]*np.sin(equil_orbit[k][2]) for k in range(len(equil_orbit))]
+        equil_orbit = np.zeros((4, 100))
+        for k, t in enumerate(np.linspace(0, t_orbital, 100)):
+            equil_orbit[:, k] = equil(t)
+        x_equil = [equil_orbit[0][k]*np.cos(equil_orbit[2][k]) for k in range(len(equil_orbit[0]))]
+        y_equil = [equil_orbit[0][k]*np.sin(equil_orbit[2][k]) for k in range(len(equil_orbit[0]))]
 
         #  Plotting
         fig, ax = plt.subplots()
@@ -360,32 +366,6 @@ def main():
         plt.legend(['Continuos Linear Model', 'Discrete Linear Model', 'Equilibrium Orbit'],
                    loc='lower right')
         plt.show()
-
-        '''
-        # Main code and simulation here
-        X_satellite, Y_satellite, path = NonLinearDynamics(x, u)
-
-        # Visualize satellite as a cross
-        satellite = plt.plot(x_sat, y_sat, color='forestgreen', marker='X', markersize=3)[0]
-
-        # Visualize earth as a blue sphere
-        earth = plt.plot(0, 0, 'bo', markersize=10)
-
-        # model the path taken
-        path_history=ax.plot(path[:,0],path[:,1],'-',color='gray',linewidth=3)[0]
-
-        # Animate the figure
-        fig = plt.figure()
-        ax = plt.gca()
-        plt.ion()
-
-        plt.show()
-'''
-
-
-# any other functions defined here
-def other():
-    pass
 
 
 if __name__ == '__main__':
