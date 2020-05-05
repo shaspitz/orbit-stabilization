@@ -3,6 +3,8 @@ import numpy as np
 import math
 import csv
 import time
+#import schedule
+import threading
 import serial
 import scipy
 from scipy.integrate import solve_ivp
@@ -56,9 +58,7 @@ Could formulate problem as regulating the chaser sattellites orbit to be the
 same as the target sattellite. Then would use "V-bar approach" to increase
 radial velocity along the target orbit until proximity is reached.
 '''
-
-def discrete_linear_dyn(r0,w0):
-    dt = 10
+def discrete_linear_dyn(r0,w0,Ts):
     #discretisation obtained from http://users.wpi.edu/~zli11/teaching/rbe595_2017/LectureSlide_PDF/discretization.pdf
     A = np.array([[0, 1, 0, 0],
                   [3*w0**2, 0, 0, 2*r0*w0],
@@ -78,9 +78,8 @@ def discrete_linear_dyn(r0,w0):
         ])
 
     # https://docs.scipy.org/doc/scipy-0.15.1/reference/generated/scipy.signal.cont2discrete.html
-    Ad, Bd, Cd, Dd, dtime = c2d((A, B, C, 0), dt, method='zoh')
-
-    return Ad, Bd
+    Ad, Bd, Cd, Dd, dtime = c2d((A, B, C, 0), Ts, method='zoh')
+    return Ad,Bd
 
 def nl_dyn_cont(t, x, u=np.zeros(2)):
     # Continuous nonlinear dynamics of sattellite system (uses 1-d nparrays)
@@ -135,6 +134,78 @@ def lin_dyn_cont(t, x, r0, u=np.zeros((2, 1))):
 
     return (A @ x + B @ u).ravel()  # output 1-d array again
 
+
+def lin_dyn_discrete(x, r0, Ts, u=np.zeros((2, 1))):
+    '''
+    Discrete dynamics using forward Euler method
+    '''
+    dx = lin_dyn_cont(t=None, x=x, r0=r0, u=u)
+    xnext = x + Ts*dx
+    return xnext
+
+
+def equil(t):
+    '''
+    For adding equil trajectory back to solution
+    '''
+    return np.array([r0, 0, w0*t, w0])
+
+
+def input_command():
+    '''
+    Writes input command to PSOC and obtains corresponding control input
+    '''
+    # We manipulate u
+    global u
+
+    # Write input command to PSOC
+    ser.write(str.encode('u'))
+
+    # Get input integers from PSOC
+    s = ser.readline().decode()
+    s_processed = np.array([[int(x.strip())] for x in s.split(',')])
+    t, u = s_processed[0][0], s_processed[1:3]
+    print('time: ', t, '\n', 'input: ', u)
+
+
+def simulate_system():
+    '''
+    Simulate system using continuous dynamics and discrete inputs
+    given from PSOC
+    '''
+    # We manipulate x0_step, and t_global
+    global x0_step, t_global
+
+    # Simulate forward 2 seconds (eventually make bigger, like 20000 sec)
+    t_sim = np.linspace(0, 2, 2)
+
+    # Evaluate solution for each timestep
+    step_sol = solve_ivp(lin_dyn_cont,
+                         [t_sim[0], t_sim[-1:]],
+                         x0_step, method='RK45',
+                         t_eval=t_sim, args=(r0, u))
+
+    # reset IC for next step (no equilibrium added)
+    x0_step = [sol[-1] for sol in step_sol.y]
+
+    # propogate t_global forward from simulated time
+    t_global += t_sim[-1]
+
+    # add equilibrium back to solution (only second timestep)
+    for i in range(len(step_sol.y)):
+        step_sol.y[i][-1] = step_sol.y[i][-1] + equil(t_global)[i]
+
+    # Real time visualization (eventually tkinter GUI)
+    print('Simulation and input: ', [sol[-1] for sol in step_sol.y], u, t_global)
+
+
+def run_threaded(job_func):
+    '''
+    Automatically makes thread for any commanded task
+    '''
+    job_thread = threading.Thread(target=job_func)
+    job_thread.daemon = True
+    job_thread.start()
 
 def main():
 
@@ -216,8 +287,8 @@ def main():
         # Simulations
 
         # Simulate continuous linearized system
-        t_sim = np.linspace(0, 100000, 10000)
-
+        t_sim = np.linspace(0, 100000, 100)
+        Ts=t_sim[-1]/len(t_sim)
         # Intial conditions, remember this is deviation from equil in polar
         x0 = [0, 0, 0, 0]
         u = np.zeros((2, 1))
@@ -244,35 +315,29 @@ def main():
                 [sys_sol_lin.y[i][j]
                  + equil(t_sim[j])[i] for j in range(len(t_sim))])
             
-        #implement steady state LQG
-        A,B = discrete_linear_dyn(r0,w0)
+        #implement steady state LQG          
         R_m = np.eye(2)
-        Q = np.array([[2,400,200,200],[400,200,200,200],[200,200,400,200],[200,200,200,400]])
-        H = np.array([[10,0,0,0],[0,35,0,0],[0,0,97,0],[0,0,0,96]])
-        V = 0.001*np.eye(4)
-        W = 300*np.eye(4)
+        Q = np.eye(4)
+        H = np.eye(4)
+        V = np.eye(4)
+        W = np.eye(4)
         N = len(t_sim)
         x = np.zeros((4,N))
+        x[:,0]=np.array([r0, 0, w0, w0])
         xhat = np.zeros((4,N))
-        x[:,0] = [42200000,0,0,4.85360589*(10**(-5))]
-        
-        Uinf = DARE(A.T,B,Q, R_m)
-        Pinf = DARE(A.T,H.T,V, W)
-        Kinf = Pinf@(H.T) @ (np.linalg.inv( H@Pinf@H.T + W))
-        Finf = np.linalg.inv(R_m + B.T@Uinf@B) @ B.T@Uinf@A
-        
-        
-        for k in range(N-1):
+        for k in range(1,N-1):
+            A,B=discrete_linear_dyn(x[0,k-1],x[2,k-1],Ts)
+            Uinf = DARE(A, B, Q, R_m)
+            Pinf = DARE(A.T, H.T, V, W)
+            Kinf = Pinf @ (H.T) @ (np.linalg.inv(H @ Pinf @ H.T + W))
+            Finf = np.linalg.inv(R_m + B.T @ Uinf @ B) @ B.T @ Uinf @ A
+
             #x[:,k+1]=A@x[:,k]
-            x[:,k+1]=A@(x[:,k]) - B@( Finf@(xhat[:,k]) )
+            x[:,k]=A@(x[:,k-1]) - B@( Finf@(xhat[:,k-1]) )
          
             #xhat[:,k+1]=(A - B@Finf - Kinf@H@A)@(xhat[:,k]) + Kinf@H@A@(x[:,k])
-            xhat[:,k+1]=sys_sol_lin.y[0][k]
+            xhat[:,k]=sys_sol_lin.y[0][k-1]
 
-        print(x[1,:])
-        print(sys_sol_lin.y[1,:])
-        plt.plot(x[2,:])
-        plt.plot(sys_sol_lin.y[2,:])
 #         print(sys_sol_lin.y[1])
 #         plt.plot(x[2,:])
 #         plt.plot(sys_sol_lin.y[2])
@@ -286,19 +351,14 @@ def main():
 #         plt.plot(sys_sol_lin.y[0])
 #         plt.show()
         # Convert to 2D cartesian coordinates centered at earth's core
-        x_sat_lin = [sys_sol_lin.y[0][i]*math.cos(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
-        y_sat_lin = [sys_sol_lin.y[0][i]*math.sin(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
-        x_sat_KF = [x[0][i]*math.cos(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
-        y_sat_KF = [x[0][i]*math.sin(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
-        
-        # x_sat_nl = [sys_sol_nl.y[0][i]*np.cos(sys_sol_nl.y[2][i]) for i in range(len(t_sim))]
-        # y_sat_nl = [sys_sol_nl.y[0][i]*np.sin(sys_sol_nl.y[2][i]) for i in range(len(t_sim))]
-
+        x_sat_KF = [x[0][i]*np.cos(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
+        y_sat_KF = [x[0][i]*np.sin(sys_sol_lin.y[2][i]) for i in range(len(t_sim))]
         #  Plotting
         fig, ax = plt.subplots()
         circle1 = plt.Circle((0, 0), R, color='b')
         ax.add_artist(circle1)
-        ax.plot(x_sat_KF, y_sat_KF, linewidth=2, color='r')
+
+        ax.plot(x_sat_KF, y_sat_KF, linewidth=4, color='r', linestyle='-')
         # plt.plot(x_sat_nl, y_sat_nl, linewidth=2)
         plt.xlabel('x')
         plt.ylabel('y')
@@ -309,7 +369,6 @@ def main():
         fig, ax = plt.subplots()
         circle1 = plt.Circle((0, 0), R, color='b')
         ax.add_artist(circle1)
-        ax.plot(x_sat_lin, y_sat_lin, linewidth=2, color='r')
         plt.show()
         '''
         # Main code and simulation here
