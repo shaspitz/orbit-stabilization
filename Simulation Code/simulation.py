@@ -37,6 +37,9 @@ G = 6.673*(10**(-11))
 # Orbit turn rate for linearization [rad/s]
 w0 = 7.2910**-5
 
+# Orbital period [s]
+t_orbital = 2*np.pi/w0
+
 # Geostationary orbit radius for linearization [m]
 r0 = 4.22*10**7
 
@@ -292,12 +295,12 @@ def main():
         t_sim = np.linspace(0, 100000, 100)
 
         # Intial conditions, remember this is deviation from equil in polar
-        x0 = [0, 0, 0, 0]
+        x0 = [1000000, 0, 0, 0]
         u = np.zeros((2, 1))
         sys_sol_lin = solve_ivp(lin_dyn_cont, [t_sim[0], t_sim[-1:]], x0,
                                 method='RK45', t_eval=t_sim, args=(r0, u))
 
-        print(sys_sol_lin.y[2], w0)
+#         print(sys_sol_lin.y[2], w0)
         # Simulate continuous nonlinear system (yes it does run, not quickly)
         '''
         t_sim = np.linspace(0, 10, 100)
@@ -334,6 +337,13 @@ def main():
         x_sat_lin_discrete = [x_discrete[k][0]*np.cos(x_discrete[k][2]) for k in range(len(x_discrete))]
         y_sat_lin_discrete = [x_discrete[k][0]*np.sin(x_discrete[k][2]) for k in range(len(x_discrete))]
 
+        # Generate equilibrium orbit for visualization
+        equil_orbit = np.zeros((100, 4))
+        for i, t in enumerate(np.linspace(0, t_orbital, 100)):
+            equil_orbit[i] = equil(t)
+        x_equil = [equil_orbit[k][0]*np.cos(equil_orbit[k][2]) for k in range(len(equil_orbit))]
+        y_equil = [equil_orbit[k][0]*np.sin(equil_orbit[k][2]) for k in range(len(equil_orbit))]
+
         #  Plotting
         fig, ax = plt.subplots()
         circle1 = plt.Circle((0, 0), R, color='b')
@@ -341,12 +351,13 @@ def main():
         ax.plot(x_sat_lin, y_sat_lin, linewidth=4, color='r', linestyle='-')
         ax.plot(x_sat_lin_discrete, y_sat_lin_discrete, linewidth=4, color='g',
                 linestyle='--')
+        ax.plot(x_equil, y_equil, linewidth=2, color='m', linestyle='--')
         # plt.plot(x_sat_nl, y_sat_nl, linewidth=2)
         plt.xlabel('x')
         plt.ylabel('y')
         plt.title(r'Satellite Path')
         plt.gca().set_aspect('equal', adjustable='box')
-        plt.legend(['Continuos Linear Model', 'Discrete Linear Model'],
+        plt.legend(['Continuos Linear Model', 'Discrete Linear Model', 'Equilibrium Orbit'],
                    loc='lower right')
         plt.show()
 
