@@ -152,9 +152,14 @@ def lin_dyn_discrete(x, r0, Ts, u=np.zeros((2, 1))):
     '''
     Discrete dynamics using forward Euler method
     '''
-    dx = lin_dyn_cont(t=None, x=x, r0=r0, u=u)
-    xnext = x + Ts*dx
-    return xnext
+#     dx = lin_dyn_cont(t=None, x=x, r0=r0, u=u)
+#     xnext = x + Ts*dx
+    A = np.array([[1, Ts, 0, 0],
+                  [3*Ts*w0**2, 1, 0, 2*Ts*r0*w0],
+                  [0, 0, 1, Ts],
+                  [0, -2*Ts*w0/r0, 0, 1]])
+    xnext = A @ x
+    return xnext.ravel()
 
 
 def equil(t):
