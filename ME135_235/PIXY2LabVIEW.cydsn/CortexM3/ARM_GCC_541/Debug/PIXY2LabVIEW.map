@@ -1,0 +1,1675 @@
+Archive member included to satisfy reference by file (symbol)
+
+.\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (LabVIEW_UART_Start)
+.\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(UARTReset.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (UARTReset_Write)
+.\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteReceived.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (ByteReceived_Enable)
+.\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LEDDrive.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (LEDDrive_Write)
+.\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (ByteCounter_Enable)
+.\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCountReset.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (ByteCountReset_Write)
+.\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CommandReceived.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (CommandReceived_Enable)
+.\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART_IntClock.o)
+                              .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o) (LabVIEW_UART_IntClock_Start)
+.\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o (CyHalt)
+.\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+                              .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o) (CyPmReadStatus)
+.\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(Comp_1.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (Comp_1_Start)
+.\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(VDAC8_1.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (VDAC8_1_Start)
+.\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (PIXY2UART_Start)
+.\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Received.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (PIXY2Received_Enable)
+.\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (PIXY2PacketCount_Enable)
+.\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Packet.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (PIXY2Packet_Enable)
+.\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXYCountReset.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (PIXYCountReset_Write)
+.\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UARTReset.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (PIXY2UARTReset_Write)
+.\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART_IntClock.o)
+                              .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o) (PIXY2UART_IntClock_Start)
+.\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyBootAsmGnu.o)
+                              .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o (CyDelayCycles)
+.\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+                              .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o) (CyFlash_SetWaitCycles)
+.\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CySpc.o)
+                              .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o) (CySpcStart)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o (__errno)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+                              c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o (exit)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                              c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o) (_global_impure_ptr)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+                              c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o (__libc_init_array)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+                              .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o (memcpy)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+                              c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o (memset)
+
+Allocating common symbols
+Common symbol       size              file
+
+PIXY2RxBuffer       0x20              .\CortexM3\ARM_GCC_541\Debug\main.o
+TransmitBuffer      0x42              .\CortexM3\ARM_GCC_541\Debug\main.o
+ReceivedBuffer      0x42              .\CortexM3\ARM_GCC_541\Debug\main.o
+Transmit_Packet     0x42              .\CortexM3\ARM_GCC_541\Debug\main.o
+PIXY2TxBuffer       0x20              .\CortexM3\ARM_GCC_541\Debug\main.o
+PIXY2_Receive       0x16              .\CortexM3\ARM_GCC_541\Debug\main.o
+Status              0x1               .\CortexM3\ARM_GCC_541\Debug\main.o
+PIXY2_Transmit      0x16              .\CortexM3\ARM_GCC_541\Debug\main.o
+Command_Packet      0x42              .\CortexM3\ARM_GCC_541\Debug\main.o
+PIXY2_Packet        0x16              .\CortexM3\ARM_GCC_541\Debug\main.o
+dieTemperature      0x2               .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+PIXY2_Status        0x1               .\CortexM3\ARM_GCC_541\Debug\main.o
+
+Discarded input sections
+
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+ .data          0x00000000        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .text          0x00000000       0x74 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
+ .ARM.extab     0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
+ .ARM.exidx     0x00000000        0x8 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.SetAnalogRoutingPumps
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .data          0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .text._exit    0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .text._sbrk    0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .text.LabVIEW_UART_Stop
+                0x00000000       0x3c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .text.LabVIEW_UART_ReadControlRegister
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .text.LabVIEW_UART_WriteControlRegister
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .text.LabVIEW_UART_SetRxInterruptMode
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .text.LabVIEW_UART_GetChar
+                0x00000000       0x2c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .text.LabVIEW_UART_GetRxBufferSize
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .text.LabVIEW_UART_ClearRxBuffer
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .text.LabVIEW_UART_SetRxAddressMode
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .text.LabVIEW_UART_SetRxAddress1
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .text.LabVIEW_UART_SetRxAddress2
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .text.LabVIEW_UART_SetTxInterruptMode
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .text.LabVIEW_UART_WriteTxData
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .text.LabVIEW_UART_ReadTxStatus
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .text.LabVIEW_UART_PutString
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .text.LabVIEW_UART_PutCRLF
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .text.LabVIEW_UART_GetTxBufferSize
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .text.LabVIEW_UART_ClearTxBuffer
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .text.LabVIEW_UART_SendBreak
+                0x00000000       0x58 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .text.LabVIEW_UART_SetTxAddressMode
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(UARTReset.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(UARTReset.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(UARTReset.o)
+ .text.UARTReset_Read
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(UARTReset.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteReceived.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteReceived.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteReceived.o)
+ .text.ByteReceived_GetVector
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteReceived.o)
+ .text.ByteReceived_GetPriority
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteReceived.o)
+ .text.ByteReceived_GetState
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteReceived.o)
+ .text.ByteReceived_Stop
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteReceived.o)
+ .text.ByteReceived_SetPending
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteReceived.o)
+ .text.ByteReceived_ClearPending
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteReceived.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LEDDrive.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LEDDrive.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LEDDrive.o)
+ .text.LEDDrive_Read
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LEDDrive.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+ .text.ByteCounter_Stop
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+ .text.ByteCounter_ReadControlRegister
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+ .text.ByteCounter_WriteControlRegister
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+ .text.ByteCounter_ReadPeriod
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+ .text.ByteCounter_ReadCompare
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCountReset.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCountReset.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCountReset.o)
+ .text.ByteCountReset_Read
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCountReset.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CommandReceived.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CommandReceived.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CommandReceived.o)
+ .text.CommandReceived_GetVector
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CommandReceived.o)
+ .text.CommandReceived_GetPriority
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CommandReceived.o)
+ .text.CommandReceived_GetState
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CommandReceived.o)
+ .text.CommandReceived_Stop
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CommandReceived.o)
+ .text.CommandReceived_SetPending
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CommandReceived.o)
+ .text.CommandReceived_ClearPending
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CommandReceived.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART_IntClock.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART_IntClock.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART_IntClock.o)
+ .text.LabVIEW_UART_IntClock_Stop
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART_IntClock.o)
+ .text.LabVIEW_UART_IntClock_StopBlock
+                0x00000000       0x6c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART_IntClock.o)
+ .text.LabVIEW_UART_IntClock_StandbyPower
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART_IntClock.o)
+ .text.LabVIEW_UART_IntClock_GetDividerRegister
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART_IntClock.o)
+ .text.LabVIEW_UART_IntClock_SetModeRegister
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART_IntClock.o)
+ .text.LabVIEW_UART_IntClock_ClearModeRegister
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART_IntClock.o)
+ .text.LabVIEW_UART_IntClock_GetModeRegister
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART_IntClock.o)
+ .text.LabVIEW_UART_IntClock_GetSourceRegister
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART_IntClock.o)
+ .text.LabVIEW_UART_IntClock_SetDividerRegister
+                0x00000000       0xdc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART_IntClock.o)
+ .text.LabVIEW_UART_IntClock_SetSourceRegister
+                0x00000000       0x5c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART_IntClock.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .data          0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .bss           0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyUSB_PowerOnCheck
+                0x00000000       0x48 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyBusClk_Internal_SetDivider
+                0x00000000       0x48 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyPLL_OUT_Stop
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyIMO_Stop
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyIMO_EnableDoubler
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyIMO_DisableDoubler
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyMasterClk_SetSource
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyMasterClk_SetDivider
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyBusClk_SetDivider
+                0x00000000       0x70 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyUsbClk_SetSource
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyILO_Start1K
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyILO_Stop1K
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyILO_Start100K
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyILO_Stop100K
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyPLL_OUT_Start
+                0x00000000       0x78 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyIMO_Start
+                0x00000000       0x60 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyILO_Enable33K
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyILO_Disable33K
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyILO_SetSource
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyILO_SetPowerMode
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyXTAL_32KHZ_Stop
+                0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyXTAL_32KHZ_ReadStatus
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyXTAL_Start
+                0x00000000       0xac .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyXTAL_Stop
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyXTAL_EnableErrStatus
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyXTAL_DisableErrStatus
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyXTAL_ReadStatus
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyXTAL_EnableFaultRecovery
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyXTAL_DisableFaultRecovery
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyXTAL_SetStartup
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyXTAL_SetFbVoltage
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyXTAL_SetWdVoltage
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyHalt   0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyPLL_OUT_SetPQ
+                0x00000000       0x60 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyPLL_OUT_SetSource
+                0x00000000       0x34 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyIMO_SetTrimValue
+                0x00000000       0xcc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyIMO_SetFreq
+                0x00000000       0xf4 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyIMO_SetSource
+                0x00000000       0x58 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CySoftwareReset
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyDelay  0x00000000       0x2c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyDelayUs
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyXTAL_32KHZ_SetPowerMode
+                0x00000000       0x84 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyXTAL_32KHZ_Start
+                0x00000000       0x74 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyDelayFreq
+                0x00000000       0x4c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyWdtStart
+                0x00000000       0x40 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyWdtClear
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyVdStickyStatus
+                0x00000000       0x2c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyVdLvDigitEnable
+                0x00000000       0x84 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyVdLvAnalogEnable
+                0x00000000       0x80 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyVdLvDigitDisable
+                0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyVdLvAnalogDisable
+                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyVdHvAnalogEnable
+                0x00000000       0x54 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyVdHvAnalogDisable
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyVdRealTimeStatus
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyDisableInts
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyEnableInts
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyFlushCache
+                0x00000000       0x44 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyIntSetSysVector
+                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyIntGetSysVector
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyIntSetVector
+                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyIntGetVector
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyIntSetPriority
+                0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyIntGetPriority
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyIntGetState
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CySysTickStop
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CySysTickEnableInterrupt
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CySysTickEnable
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CySysTickDisableInterrupt
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CySysTickSetReload
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CySysTickGetReload
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CySysTickGetValue
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CySysTickSetClockSource
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CySysTickGetClockSource
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CySysTickGetCountFlag
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CySysTickServiceCallbacks
+                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CySysTickClear
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CySysTickInit
+                0x00000000       0x58 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CySysTickStart
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CySysTickSetCallback
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CySysTickGetCallback
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text.CyGetUniqueId
+                0x00000000       0x70 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .bss           0x00000000       0x43 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .text.CyPmHibSlpSaveSet
+                0x00000000      0x1dc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .text.CyPmHibSlpRestore
+                0x00000000       0xd8 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .text.CyPmHviLviSaveDisable
+                0x00000000       0xa0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .text.CyPmHibSaveSet
+                0x00000000       0x98 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .text.CyPmHviLviRestore
+                0x00000000       0x48 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .text.CyPmHibRestore
+                0x00000000       0x60 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .text.CyPmSaveClocks
+                0x00000000      0x218 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .text.CyPmRestoreClocks
+                0x00000000      0x24c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .text.CyPmAltAct
+                0x00000000       0x6c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .text.CyPmSleep
+                0x00000000       0xf4 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .text.CyPmHibernateEx
+                0x00000000       0xf4 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .text.CyPmHibernate
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .text.CyPmReadStatus
+                0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .text.CyPmCtwSetInterval
+                0x00000000       0x5c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .text.CyPmOppsSet
+                0x00000000       0x2c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .text.CyPmFtwSetInterval
+                0x00000000       0x5c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .rodata        0x00000000        0xf .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(Comp_1.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(Comp_1.o)
+ .text.Comp_1_trimAdjust
+                0x00000000       0x78 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(Comp_1.o)
+ .text.Comp_1_Stop
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(Comp_1.o)
+ .text.Comp_1_GetCompare
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(Comp_1.o)
+ .text.Comp_1_ZeroCal
+                0x00000000       0x90 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(Comp_1.o)
+ .text.Comp_1_LoadTrim
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(Comp_1.o)
+ .text.Comp_1_PwrDwnOverrideEnable
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(Comp_1.o)
+ .text.Comp_1_PwrDwnOverrideDisable
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(Comp_1.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(VDAC8_1.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(VDAC8_1.o)
+ .text.VDAC8_1_Stop
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(VDAC8_1.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .text.PIXY2UART_Stop
+                0x00000000       0x3c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .text.PIXY2UART_ReadControlRegister
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .text.PIXY2UART_WriteControlRegister
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .text.PIXY2UART_SetRxInterruptMode
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .text.PIXY2UART_GetChar
+                0x00000000       0x2c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .text.PIXY2UART_GetRxBufferSize
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .text.PIXY2UART_ClearRxBuffer
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .text.PIXY2UART_SetRxAddressMode
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .text.PIXY2UART_SetRxAddress1
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .text.PIXY2UART_SetRxAddress2
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .text.PIXY2UART_SetTxInterruptMode
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .text.PIXY2UART_WriteTxData
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .text.PIXY2UART_ReadTxStatus
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .text.PIXY2UART_PutString
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .text.PIXY2UART_PutCRLF
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .text.PIXY2UART_GetTxBufferSize
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .text.PIXY2UART_ClearTxBuffer
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .text.PIXY2UART_SendBreak
+                0x00000000       0x58 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .text.PIXY2UART_SetTxAddressMode
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Received.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Received.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Received.o)
+ .text.PIXY2Received_GetVector
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Received.o)
+ .text.PIXY2Received_GetPriority
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Received.o)
+ .text.PIXY2Received_GetState
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Received.o)
+ .text.PIXY2Received_Stop
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Received.o)
+ .text.PIXY2Received_SetPending
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Received.o)
+ .text.PIXY2Received_ClearPending
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Received.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+ .text.PIXY2PacketCount_Stop
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+ .text.PIXY2PacketCount_ReadControlRegister
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+ .text.PIXY2PacketCount_WriteControlRegister
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+ .text.PIXY2PacketCount_ReadPeriod
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+ .text.PIXY2PacketCount_ReadCompare
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Packet.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Packet.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Packet.o)
+ .text.PIXY2Packet_GetVector
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Packet.o)
+ .text.PIXY2Packet_GetPriority
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Packet.o)
+ .text.PIXY2Packet_GetState
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Packet.o)
+ .text.PIXY2Packet_Stop
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Packet.o)
+ .text.PIXY2Packet_SetPending
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Packet.o)
+ .text.PIXY2Packet_ClearPending
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Packet.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXYCountReset.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXYCountReset.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXYCountReset.o)
+ .text.PIXYCountReset_Read
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXYCountReset.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UARTReset.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UARTReset.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UARTReset.o)
+ .text.PIXY2UARTReset_Read
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UARTReset.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART_IntClock.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART_IntClock.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART_IntClock.o)
+ .text.PIXY2UART_IntClock_Stop
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART_IntClock.o)
+ .text.PIXY2UART_IntClock_StopBlock
+                0x00000000       0x6c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART_IntClock.o)
+ .text.PIXY2UART_IntClock_StandbyPower
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART_IntClock.o)
+ .text.PIXY2UART_IntClock_GetDividerRegister
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART_IntClock.o)
+ .text.PIXY2UART_IntClock_SetModeRegister
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART_IntClock.o)
+ .text.PIXY2UART_IntClock_ClearModeRegister
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART_IntClock.o)
+ .text.PIXY2UART_IntClock_GetModeRegister
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART_IntClock.o)
+ .text.PIXY2UART_IntClock_GetSourceRegister
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART_IntClock.o)
+ .text.PIXY2UART_IntClock_SetDividerRegister
+                0x00000000       0xdc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART_IntClock.o)
+ .text.PIXY2UART_IntClock_SetSourceRegister
+                0x00000000       0x5c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART_IntClock.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyBootAsmGnu.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyBootAsmGnu.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+ .text.CySetTempInt
+                0x00000000       0x60 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+ .text.CyFlash_Start
+                0x00000000       0x54 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+ .text.CyFlash_Stop
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+ .text.CyFlash_EraseRow
+                0x00000000       0x78 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+ .text.CyFlashGetSpcAlgorithm
+                0x00000000       0x4c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+ .text.CySetTemp
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+ .text.CySetFlashEEBuffer
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+ .text.CyWriteRowFull
+                0x00000000       0xf8 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+ .text.CyWriteRowData
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+ .text.CyFlash_SetWaitCycles
+                0x00000000       0x7c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+ .text.CyEEPROM_Start
+                0x00000000       0x54 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+ .text.CyEEPROM_Stop
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+ .text.CyEEPROM_ReadReserve
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+ .text.CyEEPROM_ReadRelease
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+ COMMON         0x00000000        0x2 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CySpc.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CySpc.o)
+ .bss           0x00000000        0x8 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CySpc.o)
+ .text.CySpcStart
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CySpc.o)
+ .text.CySpcStop
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CySpc.o)
+ .text.CySpcReadData
+                0x00000000       0x34 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CySpc.o)
+ .text.CySpcLoadMultiByte
+                0x00000000       0x78 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CySpc.o)
+ .text.CySpcLoadRow
+                0x00000000       0x50 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CySpc.o)
+ .text.CySpcLoadRowFull
+                0x00000000       0x80 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CySpc.o)
+ .text.CySpcWriteRow
+                0x00000000       0x4c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CySpc.o)
+ .text.CySpcEraseSector
+                0x00000000       0x3c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CySpc.o)
+ .text.CySpcEraseRow
+                0x00000000       0x4c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CySpc.o)
+ .text.CySpcGetTemp
+                0x00000000       0x3c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CySpc.o)
+ .text.CySpcLock
+                0x00000000       0x4c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CySpc.o)
+ .text.CySpcUnlock
+                0x00000000       0x38 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CySpc.o)
+ .text.CySpcGetAlgorithm
+                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CySpc.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .text.exit     0x00000000       0x28 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .rodata._global_impure_ptr
+                0x00000000        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+rom              0x00000000         0x00040000         xr
+ram              0x1fff8000         0x00010000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
+START GROUP
+LOAD .\CortexM3\ARM_GCC_541\Debug\main.o
+LOAD .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+LOAD .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+LOAD .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+LOAD .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a
+LOAD C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Debug\CyComponentLibrary.a
+END GROUP
+START GROUP
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libc_nano.a
+END GROUP
+START GROUP
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libc_nano.a
+END GROUP
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+START GROUP
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libc.a
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libnosys.a
+END GROUP
+                0x00000000                CY_APPL_ORIGIN = 0x0
+                0x00000100                CY_FLASH_ROW_SIZE = 0x100
+                0x00000020                CY_ECC_ROW_SIZE = 0x20
+                0x00000000                CY_EE_IN_BTLDR = 0x0
+                0x00000000                CY_APPL_LOADABLE = 0x0
+                0x00000800                CY_EE_SIZE = 0x800
+                0x00000001                CY_APPL_NUM = 0x1
+                0x00000001                CY_APPL_MAX = 0x1
+                0x00000040                CY_METADATA_SIZE = 0x40
+                0x00000000                CY_APPL_LOADABLE = 0x0
+                0x00000000                CY_CHECKSUM_EXCLUDE_SIZE = ALIGN (0x0, CY_FLASH_ROW_SIZE)
+                [!provide]                PROVIDE (__cy_heap_start, _end)
+                0x00000001                PROVIDE (__cy_region_num, ((__cy_regions_end - __cy_regions) / 0x10))
+                0x20008000                PROVIDE (__cy_stack, (ORIGIN (ram) + LENGTH (ram)))
+                [!provide]                PROVIDE (__cy_heap_end, (__cy_stack - 0x800))
+
+.cybootloader   0x00000000        0x0
+ *(.cybootloader)
+                0x00000000                appl1_start = CY_APPL_ORIGIN?CY_APPL_ORIGIN:ALIGN (CY_FLASH_ROW_SIZE)
+                0x0001ff00                appl2_start = (appl1_start + ALIGN ((((LENGTH (rom) - appl1_start) - (0x2 * CY_FLASH_ROW_SIZE)) / 0x2), CY_FLASH_ROW_SIZE))
+                0x00000000                appl_start = (CY_APPL_NUM == 0x1)?appl1_start:appl2_start
+                0x00000000                ecc_offset = ((appl_start / CY_FLASH_ROW_SIZE) * CY_ECC_ROW_SIZE)
+                0x00000000                ee_offset = (CY_APPL_LOADABLE && ! (CY_EE_IN_BTLDR))?((CY_EE_SIZE / CY_APPL_MAX) * (CY_APPL_NUM - 0x1)):0x0
+                0x00000800                ee_size = (CY_APPL_LOADABLE && ! (CY_EE_IN_BTLDR))?(CY_EE_SIZE / CY_APPL_MAX):CY_EE_SIZE
+                [!provide]                PROVIDE (CY_ECC_OFFSET, ecc_offset)
+
+.text           0x00000000      0xfe6
+ CREATE_OBJECT_SYMBOLS
+                0x00000000                PROVIDE (__cy_interrupt_vector, RomVectors)
+ *(.romvectors)
+ .romvectors    0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x00000000                RomVectors
+                0x00000001                ASSERT ((. != __cy_interrupt_vector), No interrupt vector)
+                0x00000001                ASSERT (CY_APPL_ORIGIN?(SIZEOF (.cybootloader) <= CY_APPL_ORIGIN):0x1, Wrong image location)
+                0x00000010                PROVIDE (__cy_reset, Reset)
+ *(.text.Reset)
+ .text.Reset    0x00000010       0x18 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x00000010                Reset
+                0x00000001                ASSERT ((. != __cy_reset), No reset code)
+ *(.dma_init)
+                0x00000001                ASSERT ((((appl_start + .) <= 0x10000) || 0x1), DMA Init must be within the first 64k of flash)
+ *(.text .text.* .gnu.linkonce.t.*)
+ .text          0x00000028       0x5c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .text.PIXY2Received
+                0x00000084       0x44 .\CortexM3\ARM_GCC_541\Debug\main.o
+                0x00000084                PIXY2Received
+ .text.PIXY2Packet
+                0x000000c8       0x5c .\CortexM3\ARM_GCC_541\Debug\main.o
+                0x000000c8                PIXY2Packet
+ .text.ByteReceived
+                0x00000124       0x4c .\CortexM3\ARM_GCC_541\Debug\main.o
+                0x00000124                ByteReceived
+ .text.CommandReceived
+                0x00000170       0x54 .\CortexM3\ARM_GCC_541\Debug\main.o
+                0x00000170                CommandReceived
+ .text.main     0x000001c4      0x268 .\CortexM3\ARM_GCC_541\Debug\main.o
+                0x000001c4                main
+ .text.CyClockStartupError
+                0x0000042c        0x4 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.cfg_write_bytes32
+                0x00000430       0x34 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.AnalogSetDefault
+                0x00000464       0x48 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.CYMEMZERO
+                0x000004ac        0xc .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.ClockSetup
+                0x000004b8       0xd0 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.CYCONFIGCPY
+                0x00000588        0x8 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.cyfitter_cfg
+                0x00000590      0x17c .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000590                cyfitter_cfg
+ .text.IntDefaultHandler
+                0x0000070c       0x10 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x0000070c                IntDefaultHandler
+ .text.Start_c  0x0000071c       0x4c .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x0000071c                Start_c
+ .text.initialize_psoc
+                0x00000768       0x68 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x00000768                initialize_psoc
+ .text.LabVIEW_UART_Init
+                0x000007d0       0x28 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+                0x000007d0                LabVIEW_UART_Init
+ .text.LabVIEW_UART_Enable
+                0x000007f8       0x38 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+                0x000007f8                LabVIEW_UART_Enable
+ .text.LabVIEW_UART_Start
+                0x00000830       0x1c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+                0x00000830                LabVIEW_UART_Start
+ .text.LabVIEW_UART_ReadRxData
+                0x0000084c        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+                0x0000084c                LabVIEW_UART_ReadRxData
+ .text.LabVIEW_UART_ReadRxStatus
+                0x00000858       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+                0x00000858                LabVIEW_UART_ReadRxStatus
+ .text.LabVIEW_UART_GetByte
+                0x00000868       0x14 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+                0x00000868                LabVIEW_UART_GetByte
+ .text.LabVIEW_UART_PutChar
+                0x0000087c       0x18 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+                0x0000087c                LabVIEW_UART_PutChar
+ .text.LabVIEW_UART_PutArray
+                0x00000894       0x28 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+                0x00000894                LabVIEW_UART_PutArray
+ .text.UARTReset_Write
+                0x000008bc        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(UARTReset.o)
+                0x000008bc                UARTReset_Write
+ .text.ByteReceived_Interrupt
+                0x000008c8        0x4 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteReceived.o)
+                0x000008c8                ByteReceived_Interrupt
+ .text.ByteReceived_SetVector
+                0x000008cc        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteReceived.o)
+                0x000008cc                ByteReceived_SetVector
+ .text.ByteReceived_SetPriority
+                0x000008d8       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteReceived.o)
+                0x000008d8                ByteReceived_SetPriority
+ .text.ByteReceived_Enable
+                0x000008e8        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteReceived.o)
+                0x000008e8                ByteReceived_Enable
+ .text.ByteReceived_Disable
+                0x000008f4        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteReceived.o)
+                0x000008f4                ByteReceived_Disable
+ .text.ByteReceived_Start
+                0x00000900       0x1c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteReceived.o)
+                0x00000900                ByteReceived_Start
+ .text.ByteReceived_StartEx
+                0x0000091c       0x1c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteReceived.o)
+                0x0000091c                ByteReceived_StartEx
+ .text.LEDDrive_Write
+                0x00000938        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LEDDrive.o)
+                0x00000938                LEDDrive_Write
+ .text.ByteCounter_Enable
+                0x00000944       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+                0x00000944                ByteCounter_Enable
+ .text.ByteCounter_SetInterruptMode
+                0x00000954        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+                0x00000954                ByteCounter_SetInterruptMode
+ .text.ByteCounter_ReadStatusRegister
+                0x00000960        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+                0x00000960                ByteCounter_ReadStatusRegister
+ .text.ByteCounter_WriteCounter
+                0x0000096c        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+                0x0000096c                ByteCounter_WriteCounter
+ .text.ByteCounter_ReadCounter
+                0x00000978       0x14 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+                0x00000978                ByteCounter_ReadCounter
+ .text.ByteCounter_ReadCapture
+                0x0000098c        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+                0x0000098c                ByteCounter_ReadCapture
+ .text.ByteCounter_WritePeriod
+                0x00000998        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+                0x00000998                ByteCounter_WritePeriod
+ .text.ByteCounter_WriteCompare
+                0x000009a4        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+                0x000009a4                ByteCounter_WriteCompare
+ .text.ByteCounter_ClearFIFO
+                0x000009b0       0x14 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+                0x000009b0                ByteCounter_ClearFIFO
+ .text.ByteCounter_Init
+                0x000009c4       0x50 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+                0x000009c4                ByteCounter_Init
+ .text.ByteCounter_Start
+                0x00000a14       0x1c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+                0x00000a14                ByteCounter_Start
+ .text.ByteCountReset_Write
+                0x00000a30        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCountReset.o)
+                0x00000a30                ByteCountReset_Write
+ .text.CommandReceived_Interrupt
+                0x00000a3c        0x4 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CommandReceived.o)
+                0x00000a3c                CommandReceived_Interrupt
+ .text.CommandReceived_SetVector
+                0x00000a40        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CommandReceived.o)
+                0x00000a40                CommandReceived_SetVector
+ .text.CommandReceived_SetPriority
+                0x00000a4c       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CommandReceived.o)
+                0x00000a4c                CommandReceived_SetPriority
+ .text.CommandReceived_Enable
+                0x00000a5c        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CommandReceived.o)
+                0x00000a5c                CommandReceived_Enable
+ .text.CommandReceived_Disable
+                0x00000a68        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CommandReceived.o)
+                0x00000a68                CommandReceived_Disable
+ .text.CommandReceived_Start
+                0x00000a74       0x1c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CommandReceived.o)
+                0x00000a74                CommandReceived_Start
+ .text.CommandReceived_StartEx
+                0x00000a90       0x1c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CommandReceived.o)
+                0x00000a90                CommandReceived_StartEx
+ .text.LabVIEW_UART_IntClock_Start
+                0x00000aac       0x1c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART_IntClock.o)
+                0x00000aac                LabVIEW_UART_IntClock_Start
+ .text.Comp_1_Enable
+                0x00000ac8       0x1c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(Comp_1.o)
+                0x00000ac8                Comp_1_Enable
+ .text.Comp_1_SetSpeed
+                0x00000ae4       0x58 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(Comp_1.o)
+                0x00000ae4                Comp_1_SetSpeed
+ .text.Comp_1_Init
+                0x00000b3c       0x3c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(Comp_1.o)
+                0x00000b3c                Comp_1_Init
+ .text.Comp_1_Start
+                0x00000b78       0x1c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(Comp_1.o)
+                0x00000b78                Comp_1_Start
+ .text.VDAC8_1_Enable
+                0x00000b94       0x1c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(VDAC8_1.o)
+                0x00000b94                VDAC8_1_Enable
+ .text.VDAC8_1_SetSpeed
+                0x00000bb0       0x1c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(VDAC8_1.o)
+                0x00000bb0                VDAC8_1_SetSpeed
+ .text.VDAC8_1_SetValue
+                0x00000bcc        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(VDAC8_1.o)
+                0x00000bcc                VDAC8_1_SetValue
+ .text.VDAC8_1_DacTrim
+                0x00000bd8       0x24 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(VDAC8_1.o)
+                0x00000bd8                VDAC8_1_DacTrim
+ .text.VDAC8_1_SetRange
+                0x00000bfc       0x20 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(VDAC8_1.o)
+                0x00000bfc                VDAC8_1_SetRange
+ .text.VDAC8_1_Init
+                0x00000c1c       0x20 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(VDAC8_1.o)
+                0x00000c1c                VDAC8_1_Init
+ .text.VDAC8_1_Start
+                0x00000c3c       0x24 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(VDAC8_1.o)
+                0x00000c3c                VDAC8_1_Start
+ .text.PIXY2UART_Init
+                0x00000c60       0x24 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+                0x00000c60                PIXY2UART_Init
+ .text.PIXY2UART_Enable
+                0x00000c84       0x38 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+                0x00000c84                PIXY2UART_Enable
+ .text.PIXY2UART_Start
+                0x00000cbc       0x1c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+                0x00000cbc                PIXY2UART_Start
+ .text.PIXY2UART_ReadRxData
+                0x00000cd8        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+                0x00000cd8                PIXY2UART_ReadRxData
+ .text.PIXY2UART_ReadRxStatus
+                0x00000ce4       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+                0x00000ce4                PIXY2UART_ReadRxStatus
+ .text.PIXY2UART_GetByte
+                0x00000cf4       0x14 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+                0x00000cf4                PIXY2UART_GetByte
+ .text.PIXY2UART_PutChar
+                0x00000d08       0x18 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+                0x00000d08                PIXY2UART_PutChar
+ .text.PIXY2UART_PutArray
+                0x00000d20       0x28 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+                0x00000d20                PIXY2UART_PutArray
+ .text.PIXY2Received_Interrupt
+                0x00000d48        0x4 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Received.o)
+                0x00000d48                PIXY2Received_Interrupt
+ .text.PIXY2Received_SetVector
+                0x00000d4c        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Received.o)
+                0x00000d4c                PIXY2Received_SetVector
+ .text.PIXY2Received_SetPriority
+                0x00000d58       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Received.o)
+                0x00000d58                PIXY2Received_SetPriority
+ .text.PIXY2Received_Enable
+                0x00000d68        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Received.o)
+                0x00000d68                PIXY2Received_Enable
+ .text.PIXY2Received_Disable
+                0x00000d74        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Received.o)
+                0x00000d74                PIXY2Received_Disable
+ .text.PIXY2Received_Start
+                0x00000d80       0x1c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Received.o)
+                0x00000d80                PIXY2Received_Start
+ .text.PIXY2Received_StartEx
+                0x00000d9c       0x1c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Received.o)
+                0x00000d9c                PIXY2Received_StartEx
+ .text.PIXY2PacketCount_Enable
+                0x00000db8       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+                0x00000db8                PIXY2PacketCount_Enable
+ .text.PIXY2PacketCount_SetInterruptMode
+                0x00000dc8        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+                0x00000dc8                PIXY2PacketCount_SetInterruptMode
+ .text.PIXY2PacketCount_ReadStatusRegister
+                0x00000dd4        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+                0x00000dd4                PIXY2PacketCount_ReadStatusRegister
+ .text.PIXY2PacketCount_WriteCounter
+                0x00000de0        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+                0x00000de0                PIXY2PacketCount_WriteCounter
+ .text.PIXY2PacketCount_ReadCounter
+                0x00000dec       0x14 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+                0x00000dec                PIXY2PacketCount_ReadCounter
+ .text.PIXY2PacketCount_ReadCapture
+                0x00000e00        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+                0x00000e00                PIXY2PacketCount_ReadCapture
+ .text.PIXY2PacketCount_WritePeriod
+                0x00000e0c        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+                0x00000e0c                PIXY2PacketCount_WritePeriod
+ .text.PIXY2PacketCount_WriteCompare
+                0x00000e18        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+                0x00000e18                PIXY2PacketCount_WriteCompare
+ .text.PIXY2PacketCount_ClearFIFO
+                0x00000e24       0x14 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+                0x00000e24                PIXY2PacketCount_ClearFIFO
+ .text.PIXY2PacketCount_Init
+                0x00000e38       0x50 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+                0x00000e38                PIXY2PacketCount_Init
+ .text.PIXY2PacketCount_Start
+                0x00000e88       0x1c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+                0x00000e88                PIXY2PacketCount_Start
+ .text.PIXY2Packet_Interrupt
+                0x00000ea4        0x4 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Packet.o)
+                0x00000ea4                PIXY2Packet_Interrupt
+ .text.PIXY2Packet_SetVector
+                0x00000ea8        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Packet.o)
+                0x00000ea8                PIXY2Packet_SetVector
+ .text.PIXY2Packet_SetPriority
+                0x00000eb4       0x10 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Packet.o)
+                0x00000eb4                PIXY2Packet_SetPriority
+ .text.PIXY2Packet_Enable
+                0x00000ec4        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Packet.o)
+                0x00000ec4                PIXY2Packet_Enable
+ .text.PIXY2Packet_Disable
+                0x00000ed0        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Packet.o)
+                0x00000ed0                PIXY2Packet_Disable
+ .text.PIXY2Packet_Start
+                0x00000edc       0x1c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Packet.o)
+                0x00000edc                PIXY2Packet_Start
+ .text.PIXY2Packet_StartEx
+                0x00000ef8       0x1c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Packet.o)
+                0x00000ef8                PIXY2Packet_StartEx
+ .text.PIXYCountReset_Write
+                0x00000f14        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXYCountReset.o)
+                0x00000f14                PIXYCountReset_Write
+ .text.PIXY2UARTReset_Write
+                0x00000f20        0xc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UARTReset.o)
+                0x00000f20                PIXY2UARTReset_Write
+ .text.PIXY2UART_IntClock_Start
+                0x00000f2c       0x1c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART_IntClock.o)
+                0x00000f2c                PIXY2UART_IntClock_Start
+ .text          0x00000f48       0x20 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyBootAsmGnu.o)
+                0x00000f48                CyDelayCycles
+                0x00000f58                CyEnterCriticalSection
+                0x00000f60                CyExitCriticalSection
+ .text.__errno  0x00000f68        0xc c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+                0x00000f68                __errno
+ .text.__libc_init_array
+                0x00000f74       0x4c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+                0x00000f74                __libc_init_array
+ .text.memcpy   0x00000fc0       0x16 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+                0x00000fc0                memcpy
+ .text.memset   0x00000fd6       0x10 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+                0x00000fd6                memset
+ *(.plt)
+ *(.gnu.warning)
+ *(.glue_7t)
+ .glue_7t       0x00000fe6        0x0 linker stubs
+ *(.glue_7)
+ .glue_7        0x00000fe6        0x0 linker stubs
+ *(.vfp11_veneer)
+ .vfp11_veneer  0x00000fe6        0x0 linker stubs
+ *(.bootloader)
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+ *(.gcc_except_table)
+
+.v4_bx          0x00000fe8        0x0
+ .v4_bx         0x00000fe8        0x0 linker stubs
+
+.iplt           0x00000fe8        0x0
+ .iplt          0x00000fe8        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+
+.eh_frame       0x00000fe8        0x4
+ *(.eh_frame)
+ .eh_frame      0x00000fe8        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .eh_frame      0x00000fe8        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+                [!provide]                PROVIDE (__exidx_start, .)
+
+.ARM.exidx
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                0x00000fec                __exidx_end = .
+
+.rodata         0x00000fec       0x9c
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata        0x00000fec       0x62 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .rodata.str1.1
+                0x0000104e        0x2 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                0x00001050                . = ALIGN (0x4)
+ *(.init)
+ .init          0x00001050        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+                0x00001050                _init
+ .init          0x00001054        0x8 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+                0x0000105c                . = ALIGN (0x4)
+                0x0000105c                __preinit_array_start = .
+ *(.preinit_array)
+                0x0000105c                __preinit_array_end = .
+                0x0000105c                . = ALIGN (0x4)
+                0x0000105c                __init_array_start = .
+ *(SORT(.init_array.*))
+ *(.init_array)
+ .init_array    0x0000105c        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .init_array    0x00001060        0x4 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x00001064                __init_array_end = .
+                0x00001064                . = ALIGN (0x4)
+ *(.fini)
+ .fini          0x00001064        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+                0x00001064                _fini
+ .fini          0x00001068        0x8 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+                0x00001070                . = ALIGN (0x4)
+                0x00001070                __fini_array_start = .
+ *(.fini_array)
+ .fini_array    0x00001070        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ *(SORT(.fini_array.*))
+                0x00001074                __fini_array_end = .
+                0x00001074                . = ALIGN (0x4)
+ *crtbegin.o(.ctors)
+ *(EXCLUDE_FILE(*crtend.o) .ctors)
+ *(SORT(.ctors.*))
+ *crtend.o(.ctors)
+                0x00001074                . = ALIGN (0x4)
+ *crtbegin.o(.dtors)
+ *(EXCLUDE_FILE(*crtend.o) .dtors)
+ *(SORT(.dtors.*))
+ *crtend.o(.dtors)
+                0x00001074                . = ALIGN (0x4)
+                0x00001074                __cy_regions = .
+                0x00001074        0x4 LONG 0x1088 __cy_region_init_ram
+                0x00001078        0x4 LONG 0x1fff80c8 __cy_region_start_data
+                0x0000107c        0x4 LONG 0x68 __cy_region_init_size_ram
+                0x00001080        0x4 LONG 0x1c8 __cy_region_zero_size_ram
+                0x00001084                __cy_regions_end = .
+                0x00001088                . = ALIGN (0x8)
+ *fill*         0x00001084        0x4 
+                0x00001088                _etext = .
+
+.cy_checksum_exclude
+                0x00001088        0x0
+ *(.cy_checksum_exclude)
+
+.ramvectors     0x1fff8000       0xc0
+                0x1fff8000                __cy_region_start_ram = .
+ *(.ramvectors)
+ .ramvectors    0x1fff8000       0xc0 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x1fff8000                CyRamVectors
+
+.noinit         0x1fff80c0        0x1
+ *(.noinit)
+ .noinit        0x1fff80c0        0x1 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+                0x1fff80c0                CyResetStatus
+
+.data           0x1fff80c8       0x68 load address 0x00001088
+                0x1fff80c8                __cy_region_start_data = .
+ *(.jcr)
+ .jcr           0x1fff80c8        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .jcr           0x1fff80c8        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+ *(.got.plt)
+ *(.got)
+ *(.shdata)
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data.impure_data
+                0x1fff80cc       0x60 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .data._impure_ptr
+                0x1fff812c        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                0x1fff812c                _impure_ptr
+                0x1fff8130                . = ALIGN (0x8)
+ *(.ram)
+                0x1fff8130                _edata = .
+
+.igot.plt       0x1fff8130        0x0 load address 0x000010f0
+ .igot.plt      0x1fff8130        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+
+.bss            0x1fff8130      0x1c8 load address 0x000010f0
+                0x1fff8130                PROVIDE (__bss_start__, .)
+ *(.shbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x1fff8130       0x1c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .bss           0x1fff814c        0x8 .\CortexM3\ARM_GCC_541\Debug\main.o
+                0x1fff814c                PIXY2_ByteCount
+                0x1fff814d                PIXY2_Count
+                0x1fff814e                PIXY2_CommandReady
+                0x1fff814f                ByteCount
+                0x1fff8150                firstbyte
+                0x1fff8151                Count
+                0x1fff8152                CommandReady
+                0x1fff8153                PIXY2_firstbyte
+ .bss           0x1fff8154        0x2 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+                0x1fff8154                LabVIEW_UART_initVar
+ .bss           0x1fff8156        0x1 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+                0x1fff8156                ByteCounter_initVar
+ .bss           0x1fff8157        0x1 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(Comp_1.o)
+                0x1fff8157                Comp_1_initVar
+ .bss           0x1fff8158        0x1 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(VDAC8_1.o)
+                0x1fff8158                VDAC8_1_initVar
+ .bss           0x1fff8159        0x2 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+                0x1fff8159                PIXY2UART_initVar
+ .bss           0x1fff815b        0x1 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+                0x1fff815b                PIXY2PacketCount_initVar
+ *(COMMON)
+ COMMON         0x1fff815c      0x197 .\CortexM3\ARM_GCC_541\Debug\main.o
+                0x1fff815c                PIXY2RxBuffer
+                0x1fff817c                TransmitBuffer
+                0x1fff81c0                ReceivedBuffer
+                0x1fff8204                Transmit_Packet
+                0x1fff8248                PIXY2TxBuffer
+                0x1fff8268                PIXY2_Receive
+                0x1fff827e                Status
+                0x1fff8280                PIXY2_Transmit
+                0x1fff8298                Command_Packet
+                0x1fff82dc                PIXY2_Packet
+                0x1fff82f2                PIXY2_Status
+                0x1fff82f8                . = ALIGN (0x8)
+ *fill*         0x1fff82f3        0x5 
+ *(.ram.b)
+                0x1fff82f8                _end = .
+                0x1fff82f8                __end = .
+                0x1fff82f8                PROVIDE (end, .)
+                0x1fff82f8                PROVIDE (__bss_end__, .)
+                0x00001088                __cy_region_init_ram = LOADADDR (.data)
+                0x00000068                __cy_region_init_size_ram = (_edata - ADDR (.data))
+                0x000001c8                __cy_region_zero_size_ram = (_end - _edata)
+
+.heap           0x1fff82f8       0x80 load address 0x000010f0
+                0x1fff82f8                . = _end
+                0x1fff8378                . = (. + 0x80)
+ *fill*         0x1fff82f8       0x80 
+                0x1fff8378                __cy_heap_limit = .
+
+.stack          0x20007800      0x800
+                0x20007800                __cy_stack_limit = .
+                0x20008000                . = (. + 0x800)
+ *fill*         0x20007800      0x800 
+                0x00000001                ASSERT ((__cy_stack_limit >= __cy_heap_limit), region RAM overflowed with stack)
+                0x00000000                cy_checksum_exclude_size = (CY_APPL_LOADABLE == 0x1)?SIZEOF (.cy_checksum_exclude):0x0
+                0x00000001                ASSERT ((cy_checksum_exclude_size <= CY_CHECKSUM_EXCLUDE_SIZE), CY_BOOT: Section .cy_checksum_exclude size exceedes specified limit.)
+
+.cyloadermeta
+ *(.cyloadermeta)
+
+.cyloadablemeta
+ *(.cyloadablemeta)
+
+.cyconfigecc    0x80000000      0x950
+ *(.cyconfigecc)
+ .cyconfigecc   0x80000000      0x950 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                0x80000000                cy_meta_configecc
+
+.cycustnvl      0x90000000        0x4
+ *(.cycustnvl)
+ .cycustnvl     0x90000000        0x4 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                0x90000000                cy_meta_custnvl
+
+.cywolatch      0x90100000        0x4
+ *(.cywolatch)
+ .cywolatch     0x90100000        0x4 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                0x90100000                cy_meta_wonvl
+
+.cyeeprom       0x90200000        0x0
+ *(.cyeeprom)
+                0x00000001                ASSERT ((. <= ((0x90200000 + ee_offset) + ee_size)), .cyeeprom data will not fit in EEPROM)
+
+.cyflashprotect
+                0x90400000      0x100
+ *(.cyflashprotect)
+ .cyflashprotect
+                0x90400000      0x100 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                0x90400000                cy_meta_flashprotect
+
+.cymeta         0x90500000        0xc
+ *(.cymeta)
+ .cymeta        0x90500000        0xc .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                0x90500000                cy_metadata
+
+.rel.dyn        0x000010f0        0x0 load address 0x9050000c
+ .rel.iplt      0x000010f0        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0xcd8
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x40 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_aranges
+                0x00000040       0x58 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_aranges
+                0x00000098       0x18 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .debug_aranges
+                0x000000b0       0x48 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_aranges
+                0x000000f8       0xf0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .debug_aranges
+                0x000001e8       0x28 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(UARTReset.o)
+ .debug_aranges
+                0x00000210       0x80 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteReceived.o)
+ .debug_aranges
+                0x00000290       0x28 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LEDDrive.o)
+ .debug_aranges
+                0x000002b8       0x98 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+ .debug_aranges
+                0x00000350       0x28 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCountReset.o)
+ .debug_aranges
+                0x00000378       0x80 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CommandReceived.o)
+ .debug_aranges
+                0x000003f8       0x70 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART_IntClock.o)
+ .debug_aranges
+                0x00000468      0x2a0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .debug_aranges
+                0x00000708       0x98 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .debug_aranges
+                0x000007a0       0x70 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(Comp_1.o)
+ .debug_aranges
+                0x00000810       0x58 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(VDAC8_1.o)
+ .debug_aranges
+                0x00000868       0xf0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .debug_aranges
+                0x00000958       0x80 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Received.o)
+ .debug_aranges
+                0x000009d8       0x98 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+ .debug_aranges
+                0x00000a70       0x80 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Packet.o)
+ .debug_aranges
+                0x00000af0       0x28 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXYCountReset.o)
+ .debug_aranges
+                0x00000b18       0x28 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UARTReset.o)
+ .debug_aranges
+                0x00000b40       0x70 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART_IntClock.o)
+ .debug_aranges
+                0x00000bb0       0x20 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyBootAsmGnu.o)
+ .debug_aranges
+                0x00000bd0       0x88 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+ .debug_aranges
+                0x00000c58       0x80 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CySpc.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x00000000     0x6773
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000      0x74b .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_info    0x0000074b      0x5b9 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_info    0x00000d04      0x139 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .debug_info    0x00000e3d      0x3bb .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_info    0x000011f8      0x60c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .debug_info    0x00001804       0xd6 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(UARTReset.o)
+ .debug_info    0x000018da      0x2d2 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteReceived.o)
+ .debug_info    0x00001bac       0xd6 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LEDDrive.o)
+ .debug_info    0x00001c82      0x327 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+ .debug_info    0x00001fa9       0xd6 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCountReset.o)
+ .debug_info    0x0000207f      0x2d2 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CommandReceived.o)
+ .debug_info    0x00002351      0x283 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART_IntClock.o)
+ .debug_info    0x000025d4     0x1374 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .debug_info    0x00003948      0xa2a .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .debug_info    0x00004372      0x2c8 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(Comp_1.o)
+ .debug_info    0x0000463a      0x1e0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(VDAC8_1.o)
+ .debug_info    0x0000481a      0x60c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .debug_info    0x00004e26      0x2d2 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Received.o)
+ .debug_info    0x000050f8      0x327 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+ .debug_info    0x0000541f      0x2d2 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Packet.o)
+ .debug_info    0x000056f1       0xd6 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXYCountReset.o)
+ .debug_info    0x000057c7       0xd6 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UARTReset.o)
+ .debug_info    0x0000589d      0x283 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART_IntClock.o)
+ .debug_info    0x00005b20       0xb6 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyBootAsmGnu.o)
+ .debug_info    0x00005bd6      0x64d .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+ .debug_info    0x00006223      0x550 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CySpc.o)
+
+.debug_abbrev   0x00000000     0x1f1f
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x125 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_abbrev  0x00000125      0x20d .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_abbrev  0x00000332       0x77 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .debug_abbrev  0x000003a9      0x1e8 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_abbrev  0x00000591      0x175 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .debug_abbrev  0x00000706       0x81 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(UARTReset.o)
+ .debug_abbrev  0x00000787      0x173 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteReceived.o)
+ .debug_abbrev  0x000008fa       0x81 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LEDDrive.o)
+ .debug_abbrev  0x0000097b      0x117 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+ .debug_abbrev  0x00000a92       0x81 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCountReset.o)
+ .debug_abbrev  0x00000b13      0x173 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CommandReceived.o)
+ .debug_abbrev  0x00000c86      0x139 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART_IntClock.o)
+ .debug_abbrev  0x00000dbf      0x254 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .debug_abbrev  0x00001013      0x1ab .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .debug_abbrev  0x000011be      0x16e .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(Comp_1.o)
+ .debug_abbrev  0x0000132c       0xf7 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(VDAC8_1.o)
+ .debug_abbrev  0x00001423      0x175 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .debug_abbrev  0x00001598      0x173 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Received.o)
+ .debug_abbrev  0x0000170b      0x117 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+ .debug_abbrev  0x00001822      0x173 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Packet.o)
+ .debug_abbrev  0x00001995       0x81 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXYCountReset.o)
+ .debug_abbrev  0x00001a16       0x81 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UARTReset.o)
+ .debug_abbrev  0x00001a97      0x139 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART_IntClock.o)
+ .debug_abbrev  0x00001bd0       0x14 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyBootAsmGnu.o)
+ .debug_abbrev  0x00001be4      0x1a7 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+ .debug_abbrev  0x00001d8b      0x194 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CySpc.o)
+
+.debug_line     0x00000000     0x2ec4
+ *(.debug_line)
+ .debug_line    0x00000000      0x3c7 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_line    0x000003c7      0x206 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_line    0x000005cd      0x141 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .debug_line    0x0000070e      0x234 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_line    0x00000942      0x2cc .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .debug_line    0x00000c0e       0x71 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(UARTReset.o)
+ .debug_line    0x00000c7f      0x139 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteReceived.o)
+ .debug_line    0x00000db8       0x70 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LEDDrive.o)
+ .debug_line    0x00000e28      0x18b .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+ .debug_line    0x00000fb3       0x76 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCountReset.o)
+ .debug_line    0x00001029      0x13c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CommandReceived.o)
+ .debug_line    0x00001165      0x184 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART_IntClock.o)
+ .debug_line    0x000012e9      0x816 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .debug_line    0x00001aff      0x367 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .debug_line    0x00001e66      0x165 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(Comp_1.o)
+ .debug_line    0x00001fcb       0xe4 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(VDAC8_1.o)
+ .debug_line    0x000020af      0x2c6 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .debug_line    0x00002375      0x13a .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Received.o)
+ .debug_line    0x000024af      0x190 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+ .debug_line    0x0000263f      0x138 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Packet.o)
+ .debug_line    0x00002777       0x76 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXYCountReset.o)
+ .debug_line    0x000027ed       0x76 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UARTReset.o)
+ .debug_line    0x00002863      0x181 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART_IntClock.o)
+ .debug_line    0x000029e4       0x66 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyBootAsmGnu.o)
+ .debug_line    0x00002a4a      0x21a .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+ .debug_line    0x00002c64      0x260 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CySpc.o)
+
+.debug_frame    0x00000000     0x1ec4
+ *(.debug_frame)
+ .debug_frame   0x00000000       0xa4 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_frame   0x000000a4       0xe4 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_frame   0x00000188       0xb8 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_frame   0x00000240      0x250 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .debug_frame   0x00000490       0x30 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(UARTReset.o)
+ .debug_frame   0x000004c0      0x104 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteReceived.o)
+ .debug_frame   0x000005c4       0x30 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LEDDrive.o)
+ .debug_frame   0x000005f4      0x134 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+ .debug_frame   0x00000728       0x30 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCountReset.o)
+ .debug_frame   0x00000758      0x104 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CommandReceived.o)
+ .debug_frame   0x0000085c       0xe0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART_IntClock.o)
+ .debug_frame   0x0000093c      0x738 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .debug_frame   0x00001074      0x1f8 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .debug_frame   0x0000126c      0x108 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(Comp_1.o)
+ .debug_frame   0x00001374       0xb4 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(VDAC8_1.o)
+ .debug_frame   0x00001428      0x250 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .debug_frame   0x00001678      0x104 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Received.o)
+ .debug_frame   0x0000177c      0x134 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+ .debug_frame   0x000018b0      0x104 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Packet.o)
+ .debug_frame   0x000019b4       0x30 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXYCountReset.o)
+ .debug_frame   0x000019e4       0x30 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UARTReset.o)
+ .debug_frame   0x00001a14       0xe0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART_IntClock.o)
+ .debug_frame   0x00001af4      0x194 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+ .debug_frame   0x00001c88      0x180 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CySpc.o)
+ .debug_frame   0x00001e08       0x20 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .debug_frame   0x00001e28       0x28 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .debug_frame   0x00001e50       0x2c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+ .debug_frame   0x00001e7c       0x28 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x00001ea4       0x20 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+
+.debug_str      0x00000000     0x2ac7
+ *(.debug_str)
+ .debug_str     0x00000000      0x602 .\CortexM3\ARM_GCC_541\Debug\main.o
+                                0x68d (size before relaxing)
+ .debug_str     0x00000602      0x1b5 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                                0x370 (size before relaxing)
+ .debug_str     0x000007b7       0x7f .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                                0x20a (size before relaxing)
+ .debug_str     0x00000836      0x13e .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                                0x330 (size before relaxing)
+ .debug_str     0x00000974      0x38e .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+                                0x593 (size before relaxing)
+ .debug_str     0x00000d02       0x23 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(UARTReset.o)
+                                0x1e1 (size before relaxing)
+ .debug_str     0x00000d25      0x124 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteReceived.o)
+                                0x32e (size before relaxing)
+ .debug_str     0x00000e49       0x30 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LEDDrive.o)
+                                0x1de (size before relaxing)
+ .debug_str     0x00000e79      0x170 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+                                0x3e3 (size before relaxing)
+ .debug_str     0x00000fe9       0x3c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCountReset.o)
+                                0x1f0 (size before relaxing)
+ .debug_str     0x00001025      0x12d .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CommandReceived.o)
+                                0x358 (size before relaxing)
+ .debug_str     0x00001152      0x1d9 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART_IntClock.o)
+                                0x3bc (size before relaxing)
+ .debug_str     0x0000132b      0x7fa .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+                                0xa6d (size before relaxing)
+ .debug_str     0x00001b25      0x365 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+                                0x759 (size before relaxing)
+ .debug_str     0x00001e8a      0x12d .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(Comp_1.o)
+                                0x2fe (size before relaxing)
+ .debug_str     0x00001fb7       0xa3 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(VDAC8_1.o)
+                                0x259 (size before relaxing)
+ .debug_str     0x0000205a      0x28d .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+                                0x536 (size before relaxing)
+ .debug_str     0x000022e7      0x117 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Received.o)
+                                0x33c (size before relaxing)
+ .debug_str     0x000023fe      0x186 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+                                0x442 (size before relaxing)
+ .debug_str     0x00002584      0x101 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Packet.o)
+                                0x320 (size before relaxing)
+ .debug_str     0x00002685       0x3c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXYCountReset.o)
+                                0x1f0 (size before relaxing)
+ .debug_str     0x000026c1       0x3c .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UARTReset.o)
+                                0x1f0 (size before relaxing)
+ .debug_str     0x000026fd      0x16a .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART_IntClock.o)
+                                0x398 (size before relaxing)
+ .debug_str     0x00002867      0x1b4 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+                                0x3e6 (size before relaxing)
+ .debug_str     0x00002a1b       0xac .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CySpc.o)
+                                0x35e (size before relaxing)
+
+.debug_loc      0x00000000     0x25d6
+ *(.debug_loc)
+ .debug_loc     0x00000000      0x125 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_loc     0x00000125      0x289 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_loc     0x000003ae      0x144 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_loc     0x000004f2      0x258 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .debug_loc     0x0000074a       0x56 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteReceived.o)
+ .debug_loc     0x000007a0       0x3d .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+ .debug_loc     0x000007dd       0x56 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CommandReceived.o)
+ .debug_loc     0x00000833      0x128 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART_IntClock.o)
+ .debug_loc     0x0000095b      0xa11 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .debug_loc     0x0000136c      0x1e4 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .debug_loc     0x00001550       0xed .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(Comp_1.o)
+ .debug_loc     0x0000163d       0x79 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(VDAC8_1.o)
+ .debug_loc     0x000016b6      0x258 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .debug_loc     0x0000190e       0x56 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Received.o)
+ .debug_loc     0x00001964       0x3d .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+ .debug_loc     0x000019a1       0x56 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Packet.o)
+ .debug_loc     0x000019f7      0x128 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART_IntClock.o)
+ .debug_loc     0x00001b1f      0x3b2 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+ .debug_loc     0x00001ed1      0x705 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CySpc.o)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_ranges   0x00000000      0xb20
+ *(.debug_ranges)
+ .debug_ranges  0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_ranges  0x00000030       0x48 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_ranges  0x00000078       0x38 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_ranges  0x000000b0       0xe0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .debug_ranges  0x00000190       0x18 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(UARTReset.o)
+ .debug_ranges  0x000001a8       0x70 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteReceived.o)
+ .debug_ranges  0x00000218       0x18 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LEDDrive.o)
+ .debug_ranges  0x00000230       0x88 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+ .debug_ranges  0x000002b8       0x18 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCountReset.o)
+ .debug_ranges  0x000002d0       0x70 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CommandReceived.o)
+ .debug_ranges  0x00000340       0x60 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART_IntClock.o)
+ .debug_ranges  0x000003a0      0x290 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .debug_ranges  0x00000630       0x88 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .debug_ranges  0x000006b8       0x60 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(Comp_1.o)
+ .debug_ranges  0x00000718       0x48 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(VDAC8_1.o)
+ .debug_ranges  0x00000760       0xe0 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .debug_ranges  0x00000840       0x70 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Received.o)
+ .debug_ranges  0x000008b0       0x88 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+ .debug_ranges  0x00000938       0x70 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Packet.o)
+ .debug_ranges  0x000009a8       0x18 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXYCountReset.o)
+ .debug_ranges  0x000009c0       0x18 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UARTReset.o)
+ .debug_ranges  0x000009d8       0x60 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART_IntClock.o)
+ .debug_ranges  0x00000a38       0x78 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+ .debug_ranges  0x00000ab0       0x70 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CySpc.o)
+
+.comment        0x00000000       0x6e
+ .comment       0x00000000       0x6e .\CortexM3\ARM_GCC_541\Debug\main.o
+                                 0x6f (size before relaxing)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(UARTReset.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteReceived.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LEDDrive.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCountReset.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CommandReceived.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART_IntClock.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(Comp_1.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(VDAC8_1.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Received.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Packet.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXYCountReset.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UARTReset.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART_IntClock.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CySpc.o)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.note.gnu.arm.ident
+ *(.note.gnu.arm.ident)
+
+.ARM.attributes
+                0x00000000       0x29
+ *(.ARM.attributes)
+ .ARM.attributes
+                0x00000000       0x1d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+ .ARM.attributes
+                0x0000001d       0x2d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .ARM.attributes
+                0x0000004a       0x1b c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
+ .ARM.attributes
+                0x00000065       0x33 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .ARM.attributes
+                0x00000098       0x33 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .ARM.attributes
+                0x000000cb       0x33 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .ARM.attributes
+                0x000000fe       0x33 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .ARM.attributes
+                0x00000131       0x33 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART.o)
+ .ARM.attributes
+                0x00000164       0x33 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(UARTReset.o)
+ .ARM.attributes
+                0x00000197       0x33 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteReceived.o)
+ .ARM.attributes
+                0x000001ca       0x33 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LEDDrive.o)
+ .ARM.attributes
+                0x000001fd       0x33 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCounter.o)
+ .ARM.attributes
+                0x00000230       0x33 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(ByteCountReset.o)
+ .ARM.attributes
+                0x00000263       0x33 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CommandReceived.o)
+ .ARM.attributes
+                0x00000296       0x33 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(LabVIEW_UART_IntClock.o)
+ .ARM.attributes
+                0x000002c9       0x33 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyLib.o)
+ .ARM.attributes
+                0x000002fc       0x33 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(cyPm.o)
+ .ARM.attributes
+                0x0000032f       0x33 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(Comp_1.o)
+ .ARM.attributes
+                0x00000362       0x33 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(VDAC8_1.o)
+ .ARM.attributes
+                0x00000395       0x33 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART.o)
+ .ARM.attributes
+                0x000003c8       0x33 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Received.o)
+ .ARM.attributes
+                0x000003fb       0x33 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2PacketCount.o)
+ .ARM.attributes
+                0x0000042e       0x33 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2Packet.o)
+ .ARM.attributes
+                0x00000461       0x33 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXYCountReset.o)
+ .ARM.attributes
+                0x00000494       0x33 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UARTReset.o)
+ .ARM.attributes
+                0x000004c7       0x33 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(PIXY2UART_IntClock.o)
+ .ARM.attributes
+                0x000004fa       0x21 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyBootAsmGnu.o)
+ .ARM.attributes
+                0x0000051b       0x33 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CyFlash.o)
+ .ARM.attributes
+                0x0000054e       0x33 .\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.a(CySpc.o)
+ .ARM.attributes
+                0x00000581       0x2d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .ARM.attributes
+                0x000005ae       0x2d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .ARM.attributes
+                0x000005db       0x2d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .ARM.attributes
+                0x00000608       0x2d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+ .ARM.attributes
+                0x00000635       0x2d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .ARM.attributes
+                0x00000662       0x2d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+ .ARM.attributes
+                0x0000068f       0x2d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+ .ARM.attributes
+                0x000006bc       0x1d c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+
+/DISCARD/
+ *(.note.GNU-stack)
+OUTPUT(C:\Users\George Anwar\Documents\UC Berkeley\ME135 Spring 2020\PSOC Creator\ME135_235\PIXY2LabVIEW.cydsn\CortexM3\ARM_GCC_541\Debug\PIXY2LabVIEW.elf elf32-littlearm)

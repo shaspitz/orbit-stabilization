@@ -1,0 +1,3789 @@
+Loading plugins phase: Elapsed time ==> 0s.247ms
+<CYPRESSTAG name="CyDsfit arguments...">
+cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\George Anwar\Documents\UC Berkeley\ME135 Spring 2020\PSOC Creator\ME135_235\Lab6Sample.cydsn\Lab6Sample.cyprj -d CY8C5888LTI-LP097 -s C:\Users\George Anwar\Documents\UC Berkeley\ME135 Spring 2020\PSOC Creator\ME135_235\Lab6Sample.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+</CYPRESSTAG>
+<CYPRESSTAG name="Design elaboration results...">
+</CYPRESSTAG>
+Elaboration phase: Elapsed time ==> 2s.304ms
+<CYPRESSTAG name="HDL generation results...">
+</CYPRESSTAG>
+HDL generation phase: Elapsed time ==> 0s.084ms
+<CYPRESSTAG name="Synthesis results...">
+
+     | | | | | | |
+   _________________
+  -|               |-
+  -|               |-
+  -|               |-
+  -|    CYPRESS    |-
+  -|               |-
+  -|               |-   Warp Verilog Synthesis Compiler: Version 6.3 IR 41
+  -|               |-   Copyright (C) 1991-2001 Cypress Semiconductor
+   |_______________|
+     | | | | | | |
+
+======================================================================
+Compiling:  Lab6Sample.v
+Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\bin\warp.exe
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\George Anwar\Documents\UC Berkeley\ME135 Spring 2020\PSOC Creator\ME135_235\Lab6Sample.cydsn\Lab6Sample.cyprj -dcpsoc3 Lab6Sample.v -verilog
+======================================================================
+
+======================================================================
+Compiling:  Lab6Sample.v
+Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\bin\warp.exe
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\George Anwar\Documents\UC Berkeley\ME135 Spring 2020\PSOC Creator\ME135_235\Lab6Sample.cydsn\Lab6Sample.cyprj -dcpsoc3 Lab6Sample.v -verilog
+======================================================================
+
+======================================================================
+Compiling:  Lab6Sample.v
+Program  :   vlogfe
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\George Anwar\Documents\UC Berkeley\ME135 Spring 2020\PSOC Creator\ME135_235\Lab6Sample.cydsn\Lab6Sample.cyprj -dcpsoc3 -verilog Lab6Sample.v
+======================================================================
+
+vlogfe V6.3 IR 41:  Verilog parser
+Mon May 04 19:51:25 2020
+
+
+======================================================================
+Compiling:  Lab6Sample.v
+Program  :   vpp
+Options  :    -yv2 -q10 Lab6Sample.v
+======================================================================
+
+vpp V6.3 IR 41:  Verilog Pre-Processor
+Mon May 04 19:51:25 2020
+
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\CyControlReg_v1_80.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
+Flattening file 'C:\Users\George Anwar\Documents\PSoC Creator\4.1\Downloads ( 4.1).cylib\B_Timer_v2_80\B_Timer_v2_80.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\OneTerminal\OneTerminal.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_Counter_v3_0\B_Counter_v3_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.v'
+
+vpp:  No errors.
+
+Library 'work' => directory 'lcpsoc3'
+General_symbol_table
+General_symbol_table
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Using control file 'Lab6Sample.ctl'.
+C:\Users\George Anwar\Documents\PSoC Creator\4.1\Downloads ( 4.1).cylib\B_Timer_v2_80\B_Timer_v2_80.v (line 368, col 46):  Note: Substituting module 'cmp_vv_vv' for '='.
+C:\Users\George Anwar\Documents\PSoC Creator\4.1\Downloads ( 4.1).cylib\B_Timer_v2_80\B_Timer_v2_80.v (line 374, col 62):  Note: Substituting module 'add_vv_vv' for '+'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1113, col 55):  Note: Substituting module 'add_vv_vv' for '+'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1122, col 48):  Note: Substituting module 'cmp_vv_vv' for '<'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1122, col 77):  Note: Substituting module 'cmp_vv_vv' for '<'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1389, col 59):  Note: Substituting module 'cmp_vv_vv' for '<'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1424, col 61):  Note: Substituting module 'cmp_vv_vv' for '/='.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1547, col 106):  Note: Substituting module 'cmp_vv_vv' for '<'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1603, col 68):  Note: Substituting module 'cmp_vv_vv' for '<'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1604, col 68):  Note: Substituting module 'cmp_vv_vv' for '<'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
+
+vlogfe:  No errors.
+
+
+======================================================================
+Compiling:  Lab6Sample.v
+Program  :   tovif
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\George Anwar\Documents\UC Berkeley\ME135 Spring 2020\PSOC Creator\ME135_235\Lab6Sample.cydsn\Lab6Sample.cyprj -dcpsoc3 -verilog Lab6Sample.v
+======================================================================
+
+tovif V6.3 IR 41:  High-level synthesis
+Mon May 04 19:51:26 2020
+
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'C:\Users\George Anwar\Documents\UC Berkeley\ME135 Spring 2020\PSOC Creator\ME135_235\Lab6Sample.cydsn\codegentemp\Lab6Sample.ctl'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\CyControlReg_v1_80.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'.
+Linking 'C:\Users\George Anwar\Documents\UC Berkeley\ME135 Spring 2020\PSOC Creator\ME135_235\Lab6Sample.cydsn\codegentemp\Lab6Sample.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
+Linking 'C:\Users\George Anwar\Documents\PSoC Creator\4.1\Downloads ( 4.1).cylib\B_Timer_v2_80\B_Timer_v2_80.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\OneTerminal\OneTerminal.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_Counter_v3_0\B_Counter_v3_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\lcpsoc3\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mcompare.vif'.
+
+tovif:  No errors.
+
+
+======================================================================
+Compiling:  Lab6Sample.v
+Program  :   topld
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\George Anwar\Documents\UC Berkeley\ME135 Spring 2020\PSOC Creator\ME135_235\Lab6Sample.cydsn\Lab6Sample.cyprj -dcpsoc3 -verilog Lab6Sample.v
+======================================================================
+
+topld V6.3 IR 41:  Synthesis and optimization
+Mon May 04 19:51:27 2020
+
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'C:\Users\George Anwar\Documents\UC Berkeley\ME135 Spring 2020\PSOC Creator\ME135_235\Lab6Sample.cydsn\codegentemp\Lab6Sample.ctl'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\CyControlReg_v1_80.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'.
+Linking 'C:\Users\George Anwar\Documents\UC Berkeley\ME135 Spring 2020\PSOC Creator\ME135_235\Lab6Sample.cydsn\codegentemp\Lab6Sample.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
+Linking 'C:\Users\George Anwar\Documents\PSoC Creator\4.1\Downloads ( 4.1).cylib\B_Timer_v2_80\B_Timer_v2_80.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\OneTerminal\OneTerminal.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_Counter_v3_0\B_Counter_v3_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\lcpsoc3\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mcompare.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\lcpsoc3\stdlogic\cpsoc3.vif'.
+
+----------------------------------------------------------
+Detecting unused logic.
+----------------------------------------------------------
+    User names
+	Net_93
+	Net_94
+	Net_95
+	Net_97
+	Net_98
+	Net_99
+	Net_100
+	\Timer_1:Net_260\
+	Net_27
+	\Timer_1:Net_53\
+	\Timer_1:TimerUDB:ctrl_ten\
+	\Timer_1:TimerUDB:ctrl_cmode_0\
+	\Timer_1:TimerUDB:ctrl_tmode_1\
+	\Timer_1:TimerUDB:ctrl_tmode_0\
+	\Timer_1:TimerUDB:ctrl_ic_1\
+	\Timer_1:TimerUDB:ctrl_ic_0\
+	Net_26
+	\Timer_1:TimerUDB:zeros_3\
+	\Timer_1:TimerUDB:zeros_2\
+	\Timer_1:Net_102\
+	\Timer_1:Net_266\
+	\LabVIEW_UART:BUART:reset_sr\
+	Net_47
+	\LabVIEW_UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:b_1\
+	\LabVIEW_UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:b_0\
+	\LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:gta_0\
+	\LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:gta_0\
+	Net_43
+	\LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:gta_0\
+	\LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:albi_1\
+	\LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:agbi_1\
+	\LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:lt_0\
+	\LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:gt_0\
+	\LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:lti_0\
+	\LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:gti_0\
+	\LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:albi_0\
+	\LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:agbi_0\
+	\LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:xeq\
+	\LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:xlt\
+	\LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:xlte\
+	\LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:xgt\
+	\LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:xgte\
+	\LabVIEW_UART:BUART:sRX:MODULE_5:lt\
+	\LabVIEW_UART:BUART:sRX:MODULE_5:eq\
+	\LabVIEW_UART:BUART:sRX:MODULE_5:gt\
+	\LabVIEW_UART:BUART:sRX:MODULE_5:gte\
+	\LabVIEW_UART:BUART:sRX:MODULE_5:lte\
+	Net_53
+	Net_54
+	Net_55
+	Net_56
+	Net_57
+	Net_58
+	Net_59
+	Net_62
+	Net_63
+	Net_64
+	Net_66
+	Net_67
+	Net_68
+	Net_69
+	Net_72
+	\ByteCounter:Net_49\
+	\ByteCounter:Net_82\
+	\ByteCounter:Net_95\
+	\ByteCounter:Net_91\
+	\ByteCounter:Net_102\
+	\ByteCounter:CounterUDB:ctrl_cmod_2\
+	\ByteCounter:CounterUDB:ctrl_cmod_1\
+	\ByteCounter:CounterUDB:ctrl_cmod_0\
+	\ByteCounter:CounterUDB:reload_tc\
+	Net_82
+	Net_83
+	Net_84
+	Net_85
+	Net_86
+	Net_87
+	Net_88
+
+
+Deleted 78 User equations/components.
+Deleted 0 Synthesized equations/components.
+
+------------------------------------------------------
+Alias Detection
+------------------------------------------------------
+Aliasing \TimerReset:rst\ to \TimerReset:clk\
+Aliasing zero to \TimerReset:clk\
+Aliasing \Timer_1:TimerUDB:ctrl_cmode_1\ to \TimerReset:clk\
+Aliasing \Timer_1:TimerUDB:trigger_enable\ to one
+Aliasing \Timer_1:TimerUDB:status_6\ to \TimerReset:clk\
+Aliasing \Timer_1:TimerUDB:status_5\ to \TimerReset:clk\
+Aliasing \Timer_1:TimerUDB:status_4\ to \TimerReset:clk\
+Aliasing \Timer_1:TimerUDB:status_0\ to \Timer_1:TimerUDB:tc_i\
+Aliasing \LabVIEW_UART:BUART:tx_hd_send_break\ to \TimerReset:clk\
+Aliasing \LabVIEW_UART:BUART:HalfDuplexSend\ to \TimerReset:clk\
+Aliasing \LabVIEW_UART:BUART:FinalParityType_1\ to \TimerReset:clk\
+Aliasing \LabVIEW_UART:BUART:FinalParityType_0\ to \TimerReset:clk\
+Aliasing \LabVIEW_UART:BUART:FinalAddrMode_2\ to \TimerReset:clk\
+Aliasing \LabVIEW_UART:BUART:FinalAddrMode_1\ to \TimerReset:clk\
+Aliasing \LabVIEW_UART:BUART:FinalAddrMode_0\ to \TimerReset:clk\
+Aliasing \LabVIEW_UART:BUART:tx_ctrl_mark\ to \TimerReset:clk\
+Aliasing \LabVIEW_UART:BUART:tx_status_6\ to \TimerReset:clk\
+Aliasing \LabVIEW_UART:BUART:tx_status_5\ to \TimerReset:clk\
+Aliasing \LabVIEW_UART:BUART:tx_status_4\ to \TimerReset:clk\
+Aliasing \LabVIEW_UART:BUART:rx_count7_bit8_wire\ to \TimerReset:clk\
+Aliasing \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_0\ to one
+Aliasing \LabVIEW_UART:BUART:sRX:s23Poll:MODIN2_1\ to \LabVIEW_UART:BUART:sRX:s23Poll:MODIN1_1\
+Aliasing \LabVIEW_UART:BUART:sRX:s23Poll:MODIN2_0\ to \LabVIEW_UART:BUART:sRX:s23Poll:MODIN1_0\
+Aliasing \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:newb_1\ to \TimerReset:clk\
+Aliasing \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:newb_0\ to one
+Aliasing \LabVIEW_UART:BUART:sRX:s23Poll:MODIN3_1\ to \LabVIEW_UART:BUART:sRX:s23Poll:MODIN1_1\
+Aliasing \LabVIEW_UART:BUART:sRX:s23Poll:MODIN3_0\ to \LabVIEW_UART:BUART:sRX:s23Poll:MODIN1_0\
+Aliasing \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:newb_1\ to one
+Aliasing \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:newb_0\ to \TimerReset:clk\
+Aliasing \LabVIEW_UART:BUART:rx_status_1\ to \TimerReset:clk\
+Aliasing \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newa_6\ to \TimerReset:clk\
+Aliasing \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newa_5\ to \TimerReset:clk\
+Aliasing \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newa_4\ to \TimerReset:clk\
+Aliasing \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newb_6\ to \TimerReset:clk\
+Aliasing \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newb_5\ to \TimerReset:clk\
+Aliasing \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newb_4\ to \TimerReset:clk\
+Aliasing \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newb_3\ to \TimerReset:clk\
+Aliasing \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newb_2\ to one
+Aliasing \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newb_1\ to one
+Aliasing \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newb_0\ to \TimerReset:clk\
+Aliasing \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:aeqb_0\ to one
+Aliasing tmpOE__Rx_1_net_0 to one
+Aliasing tmpOE__Tx_1_net_0 to one
+Aliasing \UARTReset:clk\ to \TimerReset:clk\
+Aliasing \UARTReset:rst\ to \TimerReset:clk\
+Aliasing \LEDDrive:clk\ to \TimerReset:clk\
+Aliasing \LEDDrive:rst\ to \TimerReset:clk\
+Aliasing tmpOE__LED_net_0 to one
+Aliasing \ByteCounter:Net_89\ to one
+Aliasing \ByteCounter:CounterUDB:ctrl_capmode_1\ to \TimerReset:clk\
+Aliasing \ByteCounter:CounterUDB:ctrl_capmode_0\ to \TimerReset:clk\
+Aliasing \ByteCounter:CounterUDB:capt_rising\ to \TimerReset:clk\
+Aliasing \ByteCountReset:clk\ to \TimerReset:clk\
+Aliasing \ByteCountReset:rst\ to \TimerReset:clk\
+Aliasing \Timer_1:TimerUDB:capture_last\\D\ to \TimerReset:clk\
+Aliasing \Timer_1:TimerUDB:hwEnable_reg\\D\ to \Timer_1:TimerUDB:run_mode\
+Aliasing \Timer_1:TimerUDB:capture_out_reg_i\\D\ to \Timer_1:TimerUDB:capt_fifo_load_int\
+Aliasing Net_44D to \TimerReset:clk\
+Aliasing \LabVIEW_UART:BUART:rx_break_status\\D\ to \TimerReset:clk\
+Aliasing \ByteCounter:CounterUDB:prevCapture\\D\ to \TimerReset:clk\
+Aliasing \ByteCounter:CounterUDB:cmp_out_reg_i\\D\ to \ByteCounter:CounterUDB:prevCompare\\D\
+Removing Lhs of wire \TimerReset:rst\[3] = \TimerReset:clk\[2]
+Removing Rhs of wire Net_21[4] = \TimerReset:control_out_0\[5]
+Removing Rhs of wire Net_21[4] = \TimerReset:control_0\[28]
+Removing Rhs of wire Net_22[30] = \Timer_1:Net_55\[31]
+Removing Rhs of wire zero[40] = \TimerReset:clk\[2]
+Removing Lhs of wire \Timer_1:TimerUDB:ctrl_enable\[49] = \Timer_1:TimerUDB:control_7\[41]
+Removing Lhs of wire \Timer_1:TimerUDB:ctrl_cmode_1\[51] = zero[40]
+Removing Rhs of wire \Timer_1:TimerUDB:timer_enable\[60] = \Timer_1:TimerUDB:runmode_enable\[72]
+Removing Rhs of wire \Timer_1:TimerUDB:run_mode\[61] = \Timer_1:TimerUDB:hwEnable\[62]
+Removing Lhs of wire \Timer_1:TimerUDB:run_mode\[61] = \Timer_1:TimerUDB:control_7\[41]
+Removing Lhs of wire \Timer_1:TimerUDB:trigger_enable\[64] = one[35]
+Removing Lhs of wire \Timer_1:TimerUDB:tc_i\[66] = \Timer_1:TimerUDB:status_tc\[63]
+Removing Lhs of wire \Timer_1:TimerUDB:capt_fifo_load_int\[71] = \Timer_1:TimerUDB:capt_fifo_load\[59]
+Removing Lhs of wire \Timer_1:TimerUDB:status_6\[74] = zero[40]
+Removing Lhs of wire \Timer_1:TimerUDB:status_5\[75] = zero[40]
+Removing Lhs of wire \Timer_1:TimerUDB:status_4\[76] = zero[40]
+Removing Lhs of wire \Timer_1:TimerUDB:status_0\[77] = \Timer_1:TimerUDB:status_tc\[63]
+Removing Lhs of wire \Timer_1:TimerUDB:status_1\[78] = \Timer_1:TimerUDB:capt_fifo_load\[59]
+Removing Rhs of wire \Timer_1:TimerUDB:status_2\[79] = \Timer_1:TimerUDB:fifo_full\[80]
+Removing Rhs of wire \Timer_1:TimerUDB:status_3\[81] = \Timer_1:TimerUDB:fifo_nempty\[82]
+Removing Lhs of wire \Timer_1:TimerUDB:cs_addr_2\[84] = Net_21[4]
+Removing Lhs of wire \Timer_1:TimerUDB:cs_addr_1\[85] = \Timer_1:TimerUDB:trig_reg\[73]
+Removing Lhs of wire \Timer_1:TimerUDB:cs_addr_0\[86] = \Timer_1:TimerUDB:per_zero\[65]
+Removing Lhs of wire \LabVIEW_UART:Net_61\[172] = \LabVIEW_UART:Net_9\[171]
+Removing Rhs of wire Net_6[176] = \UARTReset:control_out_0\[471]
+Removing Rhs of wire Net_6[176] = \UARTReset:control_0\[494]
+Removing Lhs of wire \LabVIEW_UART:BUART:tx_hd_send_break\[177] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:HalfDuplexSend\[178] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:FinalParityType_1\[179] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:FinalParityType_0\[180] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:FinalAddrMode_2\[181] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:FinalAddrMode_1\[182] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:FinalAddrMode_0\[183] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:tx_ctrl_mark\[184] = zero[40]
+Removing Rhs of wire Net_48[191] = \LabVIEW_UART:BUART:rx_interrupt_out\[192]
+Removing Rhs of wire \LabVIEW_UART:BUART:tx_bitclk_enable_pre\[196] = \LabVIEW_UART:BUART:tx_bitclk_dp\[232]
+Removing Lhs of wire \LabVIEW_UART:BUART:tx_counter_tc\[242] = \LabVIEW_UART:BUART:tx_counter_dp\[233]
+Removing Lhs of wire \LabVIEW_UART:BUART:tx_status_6\[243] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:tx_status_5\[244] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:tx_status_4\[245] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:tx_status_1\[247] = \LabVIEW_UART:BUART:tx_fifo_empty\[210]
+Removing Lhs of wire \LabVIEW_UART:BUART:tx_status_3\[249] = \LabVIEW_UART:BUART:tx_fifo_notfull\[209]
+Removing Lhs of wire \LabVIEW_UART:BUART:rx_count7_bit8_wire\[309] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:add_vv_vv_MODGEN_1_1\[317] = \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:s_1\[328]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:add_vv_vv_MODGEN_1_0\[319] = \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:s_0\[329]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:cmp_vv_vv_MODGEN_2\[320] = \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:lta_0\[345]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:cmp_vv_vv_MODGEN_3\[321] = \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:lta_0\[359]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:a_1\[322] = \LabVIEW_UART:BUART:sRX:s23Poll:MODIN1_1\[323]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:MODIN1_1\[323] = \LabVIEW_UART:BUART:pollcount_1\[315]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:a_0\[324] = \LabVIEW_UART:BUART:sRX:s23Poll:MODIN1_0\[325]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:MODIN1_0\[325] = \LabVIEW_UART:BUART:pollcount_0\[318]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_0\[331] = one[35]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_0\[332] = one[35]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:newa_1\[333] = \LabVIEW_UART:BUART:pollcount_1\[315]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:MODIN2_1\[334] = \LabVIEW_UART:BUART:pollcount_1\[315]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:newa_0\[335] = \LabVIEW_UART:BUART:pollcount_0\[318]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:MODIN2_0\[336] = \LabVIEW_UART:BUART:pollcount_0\[318]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:newb_1\[337] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:newb_0\[338] = one[35]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:dataa_1\[339] = \LabVIEW_UART:BUART:pollcount_1\[315]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:dataa_0\[340] = \LabVIEW_UART:BUART:pollcount_0\[318]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:datab_1\[341] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:datab_0\[342] = one[35]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:newa_1\[347] = \LabVIEW_UART:BUART:pollcount_1\[315]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:MODIN3_1\[348] = \LabVIEW_UART:BUART:pollcount_1\[315]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:newa_0\[349] = \LabVIEW_UART:BUART:pollcount_0\[318]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:MODIN3_0\[350] = \LabVIEW_UART:BUART:pollcount_0\[318]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:newb_1\[351] = one[35]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:newb_0\[352] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:dataa_1\[353] = \LabVIEW_UART:BUART:pollcount_1\[315]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:dataa_0\[354] = \LabVIEW_UART:BUART:pollcount_0\[318]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:datab_1\[355] = one[35]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:datab_0\[356] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:rx_status_1\[363] = zero[40]
+Removing Rhs of wire \LabVIEW_UART:BUART:rx_status_2\[364] = \LabVIEW_UART:BUART:rx_parity_error_status\[365]
+Removing Rhs of wire \LabVIEW_UART:BUART:rx_status_3\[366] = \LabVIEW_UART:BUART:rx_stop_bit_error\[367]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:cmp_vv_vv_MODGEN_4\[377] = \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:lta_0\[426]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:cmp_vv_vv_MODGEN_5\[381] = \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:xneq\[448]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newa_6\[382] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newa_5\[383] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newa_4\[384] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newa_3\[385] = \LabVIEW_UART:BUART:sRX:MODIN4_6\[386]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODIN4_6\[386] = \LabVIEW_UART:BUART:rx_count_6\[304]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newa_2\[387] = \LabVIEW_UART:BUART:sRX:MODIN4_5\[388]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODIN4_5\[388] = \LabVIEW_UART:BUART:rx_count_5\[305]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newa_1\[389] = \LabVIEW_UART:BUART:sRX:MODIN4_4\[390]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODIN4_4\[390] = \LabVIEW_UART:BUART:rx_count_4\[306]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newa_0\[391] = \LabVIEW_UART:BUART:sRX:MODIN4_3\[392]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODIN4_3\[392] = \LabVIEW_UART:BUART:rx_count_3\[307]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newb_6\[393] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newb_5\[394] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newb_4\[395] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newb_3\[396] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newb_2\[397] = one[35]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newb_1\[398] = one[35]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newb_0\[399] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:dataa_6\[400] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:dataa_5\[401] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:dataa_4\[402] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:dataa_3\[403] = \LabVIEW_UART:BUART:rx_count_6\[304]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:dataa_2\[404] = \LabVIEW_UART:BUART:rx_count_5\[305]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:dataa_1\[405] = \LabVIEW_UART:BUART:rx_count_4\[306]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:dataa_0\[406] = \LabVIEW_UART:BUART:rx_count_3\[307]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:datab_6\[407] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:datab_5\[408] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:datab_4\[409] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:datab_3\[410] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:datab_2\[411] = one[35]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:datab_1\[412] = one[35]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:datab_0\[413] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:newa_0\[428] = \LabVIEW_UART:BUART:rx_postpoll\[263]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:newb_0\[429] = \LabVIEW_UART:BUART:rx_parity_bit\[380]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:dataa_0\[430] = \LabVIEW_UART:BUART:rx_postpoll\[263]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:datab_0\[431] = \LabVIEW_UART:BUART:rx_parity_bit\[380]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:a_0\[432] = \LabVIEW_UART:BUART:rx_postpoll\[263]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:b_0\[433] = \LabVIEW_UART:BUART:rx_parity_bit\[380]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:aeqb_0\[435] = one[35]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:eq_0\[436] = \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:xnor_array_0\[434]
+Removing Lhs of wire \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:eqi_0\[437] = \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:xnor_array_0\[434]
+Removing Lhs of wire tmpOE__Rx_1_net_0[459] = one[35]
+Removing Lhs of wire tmpOE__Tx_1_net_0[464] = one[35]
+Removing Lhs of wire \UARTReset:clk\[469] = zero[40]
+Removing Lhs of wire \UARTReset:rst\[470] = zero[40]
+Removing Lhs of wire \LEDDrive:clk\[496] = zero[40]
+Removing Lhs of wire \LEDDrive:rst\[497] = zero[40]
+Removing Rhs of wire Net_65[498] = \LEDDrive:control_out_0\[499]
+Removing Rhs of wire Net_65[498] = \LEDDrive:control_0\[522]
+Removing Lhs of wire tmpOE__LED_net_0[524] = one[35]
+Removing Rhs of wire Net_75[529] = \ByteCounter:Net_43\[530]
+Removing Lhs of wire \ByteCounter:Net_89\[534] = one[35]
+Removing Lhs of wire \ByteCounter:CounterUDB:ctrl_capmode_1\[544] = zero[40]
+Removing Lhs of wire \ByteCounter:CounterUDB:ctrl_capmode_0\[545] = zero[40]
+Removing Lhs of wire \ByteCounter:CounterUDB:ctrl_enable\[557] = \ByteCounter:CounterUDB:control_7\[549]
+Removing Lhs of wire \ByteCounter:CounterUDB:capt_rising\[559] = zero[40]
+Removing Lhs of wire \ByteCounter:CounterUDB:capt_falling\[560] = \ByteCounter:CounterUDB:prevCapture\[558]
+Removing Rhs of wire Net_34[564] = \ByteCountReset:control_out_0\[631]
+Removing Rhs of wire Net_34[564] = \ByteCountReset:control_0\[654]
+Removing Rhs of wire Net_73[565] = \ByteCounter:CounterUDB:cmp_out_reg_i\[593]
+Removing Lhs of wire \ByteCounter:CounterUDB:final_enable\[566] = \ByteCounter:CounterUDB:control_7\[549]
+Removing Lhs of wire \ByteCounter:CounterUDB:counter_enable\[567] = \ByteCounter:CounterUDB:control_7\[549]
+Removing Rhs of wire \ByteCounter:CounterUDB:status_0\[568] = \ByteCounter:CounterUDB:cmp_out_status\[569]
+Removing Rhs of wire \ByteCounter:CounterUDB:status_1\[570] = \ByteCounter:CounterUDB:per_zero\[571]
+Removing Rhs of wire \ByteCounter:CounterUDB:status_2\[572] = \ByteCounter:CounterUDB:overflow_status\[573]
+Removing Rhs of wire \ByteCounter:CounterUDB:status_3\[574] = \ByteCounter:CounterUDB:underflow_status\[575]
+Removing Lhs of wire \ByteCounter:CounterUDB:status_4\[576] = \ByteCounter:CounterUDB:hwCapture\[562]
+Removing Rhs of wire \ByteCounter:CounterUDB:status_5\[577] = \ByteCounter:CounterUDB:fifo_full\[578]
+Removing Rhs of wire \ByteCounter:CounterUDB:status_6\[579] = \ByteCounter:CounterUDB:fifo_nempty\[580]
+Removing Lhs of wire \ByteCounter:CounterUDB:dp_dir\[583] = one[35]
+Removing Rhs of wire \ByteCounter:CounterUDB:cmp_out_i\[590] = \ByteCounter:CounterUDB:cmp_equal\[591]
+Removing Lhs of wire \ByteCounter:CounterUDB:cs_addr_2\[597] = one[35]
+Removing Lhs of wire \ByteCounter:CounterUDB:cs_addr_1\[598] = \ByteCounter:CounterUDB:count_enable\[595]
+Removing Lhs of wire \ByteCounter:CounterUDB:cs_addr_0\[599] = \ByteCounter:CounterUDB:reload\[563]
+Removing Lhs of wire \ByteCountReset:clk\[629] = zero[40]
+Removing Lhs of wire \ByteCountReset:rst\[630] = zero[40]
+Removing Lhs of wire \Timer_1:TimerUDB:capture_last\\D\[656] = zero[40]
+Removing Lhs of wire \Timer_1:TimerUDB:tc_reg_i\\D\[657] = \Timer_1:TimerUDB:status_tc\[63]
+Removing Lhs of wire \Timer_1:TimerUDB:hwEnable_reg\\D\[658] = \Timer_1:TimerUDB:control_7\[41]
+Removing Lhs of wire \Timer_1:TimerUDB:capture_out_reg_i\\D\[659] = \Timer_1:TimerUDB:capt_fifo_load\[59]
+Removing Lhs of wire \LabVIEW_UART:BUART:reset_reg\\D\[660] = Net_6[176]
+Removing Lhs of wire Net_44D[665] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:rx_bitclk\\D\[675] = \LabVIEW_UART:BUART:rx_bitclk_pre\[298]
+Removing Lhs of wire \LabVIEW_UART:BUART:rx_parity_error_pre\\D\[684] = \LabVIEW_UART:BUART:rx_parity_error_pre\[375]
+Removing Lhs of wire \LabVIEW_UART:BUART:rx_break_status\\D\[685] = zero[40]
+Removing Lhs of wire \ByteCounter:CounterUDB:prevCapture\\D\[689] = zero[40]
+Removing Lhs of wire \ByteCounter:CounterUDB:overflow_reg_i\\D\[690] = \ByteCounter:CounterUDB:overflow\[582]
+Removing Lhs of wire \ByteCounter:CounterUDB:underflow_reg_i\\D\[691] = \ByteCounter:CounterUDB:underflow\[585]
+Removing Lhs of wire \ByteCounter:CounterUDB:tc_reg_i\\D\[692] = \ByteCounter:CounterUDB:tc_i\[588]
+Removing Lhs of wire \ByteCounter:CounterUDB:prevCompare\\D\[693] = \ByteCounter:CounterUDB:cmp_out_i\[590]
+Removing Lhs of wire \ByteCounter:CounterUDB:cmp_out_reg_i\\D\[694] = \ByteCounter:CounterUDB:cmp_out_i\[590]
+Removing Lhs of wire \ByteCounter:CounterUDB:count_stored_i\\D\[695] = Net_48[191]
+
+------------------------------------------------------
+Aliased 0 equations, 170 wires.
+------------------------------------------------------
+
+----------------------------------------------------------
+Circuit simplification
+----------------------------------------------------------
+
+Substituting virtuals - pass 1:
+
+Note:  Expanding virtual equation for 'zero' (cost = 0):
+zero <=  ('0') ;
+
+Note:  Expanding virtual equation for 'one' (cost = 0):
+one <=  ('1') ;
+
+Note:  Expanding virtual equation for '\Timer_1:TimerUDB:fifo_load_polarized\' (cost = 0):
+\Timer_1:TimerUDB:fifo_load_polarized\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\Timer_1:TimerUDB:timer_enable\' (cost = 0):
+\Timer_1:TimerUDB:timer_enable\ <= (\Timer_1:TimerUDB:control_7\);
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:rx_addressmatch\' (cost = 0):
+\LabVIEW_UART:BUART:rx_addressmatch\ <= (\LabVIEW_UART:BUART:rx_addressmatch2\
+	OR \LabVIEW_UART:BUART:rx_addressmatch1\);
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:rx_bitclk_pre\' (cost = 1):
+\LabVIEW_UART:BUART:rx_bitclk_pre\ <= ((not \LabVIEW_UART:BUART:rx_count_2\ and not \LabVIEW_UART:BUART:rx_count_1\ and not \LabVIEW_UART:BUART:rx_count_0\));
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:rx_bitclk_pre16x\' (cost = 0):
+\LabVIEW_UART:BUART:rx_bitclk_pre16x\ <= ((not \LabVIEW_UART:BUART:rx_count_2\ and \LabVIEW_UART:BUART:rx_count_1\ and \LabVIEW_UART:BUART:rx_count_0\));
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:rx_poll_bit1\' (cost = 1):
+\LabVIEW_UART:BUART:rx_poll_bit1\ <= ((not \LabVIEW_UART:BUART:rx_count_2\ and not \LabVIEW_UART:BUART:rx_count_1\ and \LabVIEW_UART:BUART:rx_count_0\));
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:rx_poll_bit2\' (cost = 1):
+\LabVIEW_UART:BUART:rx_poll_bit2\ <= ((not \LabVIEW_UART:BUART:rx_count_2\ and not \LabVIEW_UART:BUART:rx_count_1\ and not \LabVIEW_UART:BUART:rx_count_0\));
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:pollingrange\' (cost = 4):
+\LabVIEW_UART:BUART:pollingrange\ <= ((not \LabVIEW_UART:BUART:rx_count_2\ and not \LabVIEW_UART:BUART:rx_count_1\));
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_1\' (cost = 0):
+\LabVIEW_UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_1\ <= (\LabVIEW_UART:BUART:pollcount_0\);
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:s_0\' (cost = 0):
+\LabVIEW_UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:s_0\ <= (not \LabVIEW_UART:BUART:pollcount_0\);
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:lta_1\' (cost = 0):
+\LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:lta_1\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:gta_1\' (cost = 0):
+\LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:gta_1\ <= (\LabVIEW_UART:BUART:pollcount_1\);
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:lta_1\' (cost = 0):
+\LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:lta_1\ <= (not \LabVIEW_UART:BUART:pollcount_1\);
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:gta_1\' (cost = 0):
+\LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:gta_1\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:lta_6\' (cost = 0):
+\LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:lta_6\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:gta_6\' (cost = 0):
+\LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:gta_6\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:lta_5\' (cost = 0):
+\LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:lta_5\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:gta_5\' (cost = 0):
+\LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:gta_5\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:lta_4\' (cost = 0):
+\LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:lta_4\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:gta_4\' (cost = 0):
+\LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:gta_4\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:lta_3\' (cost = 0):
+\LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:lta_3\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:gta_3\' (cost = 0):
+\LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:gta_3\ <= (\LabVIEW_UART:BUART:rx_count_6\);
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:lta_2\' (cost = 1):
+\LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:lta_2\ <= ((not \LabVIEW_UART:BUART:rx_count_6\ and not \LabVIEW_UART:BUART:rx_count_5\));
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:gta_2\' (cost = 0):
+\LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:gta_2\ <= (\LabVIEW_UART:BUART:rx_count_6\);
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:lta_1\' (cost = 2):
+\LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:lta_1\ <= ((not \LabVIEW_UART:BUART:rx_count_6\ and not \LabVIEW_UART:BUART:rx_count_4\)
+	OR (not \LabVIEW_UART:BUART:rx_count_6\ and not \LabVIEW_UART:BUART:rx_count_5\));
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:gta_1\' (cost = 0):
+\LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:gta_1\ <= (\LabVIEW_UART:BUART:rx_count_6\);
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:lta_0\' (cost = 8):
+\LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:lta_0\ <= ((not \LabVIEW_UART:BUART:rx_count_6\ and not \LabVIEW_UART:BUART:rx_count_4\)
+	OR (not \LabVIEW_UART:BUART:rx_count_6\ and not \LabVIEW_UART:BUART:rx_count_5\));
+
+Note:  Expanding virtual equation for '\ByteCounter:CounterUDB:capt_either_edge\' (cost = 0):
+\ByteCounter:CounterUDB:capt_either_edge\ <= (\ByteCounter:CounterUDB:prevCapture\);
+
+Note:  Expanding virtual equation for '\ByteCounter:CounterUDB:overflow\' (cost = 0):
+\ByteCounter:CounterUDB:overflow\ <= (\ByteCounter:CounterUDB:per_equal\);
+
+Note:  Expanding virtual equation for '\ByteCounter:CounterUDB:underflow\' (cost = 0):
+\ByteCounter:CounterUDB:underflow\ <=  ('0') ;
+
+
+Substituting virtuals - pass 2:
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:lta_0\' (cost = 4):
+\LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:lta_0\ <= ((not \LabVIEW_UART:BUART:pollcount_1\ and not \LabVIEW_UART:BUART:pollcount_0\));
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:lta_0\' (cost = 0):
+\LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:lta_0\ <= (not \LabVIEW_UART:BUART:pollcount_1\);
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:s_1\' (cost = 2):
+\LabVIEW_UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:s_1\ <= ((not \LabVIEW_UART:BUART:pollcount_0\ and \LabVIEW_UART:BUART:pollcount_1\)
+	OR (not \LabVIEW_UART:BUART:pollcount_1\ and \LabVIEW_UART:BUART:pollcount_0\));
+
+
+Substituting virtuals - pass 3:
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:rx_postpoll\' (cost = 72):
+\LabVIEW_UART:BUART:rx_postpoll\ <= (\LabVIEW_UART:BUART:pollcount_1\
+	OR (Net_46 and \LabVIEW_UART:BUART:pollcount_0\));
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:xnor_array_0\' (cost = 4):
+\LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:xnor_array_0\ <= ((not \LabVIEW_UART:BUART:pollcount_1\ and not Net_46 and not \LabVIEW_UART:BUART:rx_parity_bit\)
+	OR (not \LabVIEW_UART:BUART:pollcount_1\ and not \LabVIEW_UART:BUART:pollcount_0\ and not \LabVIEW_UART:BUART:rx_parity_bit\)
+	OR (\LabVIEW_UART:BUART:pollcount_1\ and \LabVIEW_UART:BUART:rx_parity_bit\)
+	OR (Net_46 and \LabVIEW_UART:BUART:pollcount_0\ and \LabVIEW_UART:BUART:rx_parity_bit\));
+
+Note:  Expanding virtual equation for '\LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:aeqb_1\' (cost = 4):
+\LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:aeqb_1\ <= ((not \LabVIEW_UART:BUART:pollcount_1\ and not Net_46 and not \LabVIEW_UART:BUART:rx_parity_bit\)
+	OR (not \LabVIEW_UART:BUART:pollcount_1\ and not \LabVIEW_UART:BUART:pollcount_0\ and not \LabVIEW_UART:BUART:rx_parity_bit\)
+	OR (\LabVIEW_UART:BUART:pollcount_1\ and \LabVIEW_UART:BUART:rx_parity_bit\)
+	OR (Net_46 and \LabVIEW_UART:BUART:pollcount_0\ and \LabVIEW_UART:BUART:rx_parity_bit\));
+
+
+Substituting virtuals - pass 4:
+
+
+----------------------------------------------------------
+Circuit simplification results:
+
+	Expanded 38 signals.
+	Turned 0 signals into soft nodes.
+	Maximum default expansion cost was set at 3.
+----------------------------------------------------------
+
+------------------------------------------------------
+Alias Detection
+------------------------------------------------------
+Aliasing \Timer_1:TimerUDB:capt_fifo_load\ to zero
+Aliasing \LabVIEW_UART:BUART:rx_status_0\ to zero
+Aliasing \LabVIEW_UART:BUART:rx_status_6\ to zero
+Aliasing \ByteCounter:CounterUDB:hwCapture\ to zero
+Aliasing \ByteCounter:CounterUDB:status_3\ to zero
+Aliasing \ByteCounter:CounterUDB:underflow\ to zero
+Aliasing \LabVIEW_UART:BUART:rx_markspace_status\\D\ to zero
+Aliasing \LabVIEW_UART:BUART:rx_parity_error_status\\D\ to zero
+Aliasing \LabVIEW_UART:BUART:rx_addr_match_status\\D\ to zero
+Removing Lhs of wire \Timer_1:TimerUDB:capt_fifo_load\[59] = zero[40]
+Removing Lhs of wire \Timer_1:TimerUDB:trig_reg\[73] = \Timer_1:TimerUDB:control_7\[41]
+Removing Rhs of wire \LabVIEW_UART:BUART:rx_bitclk_enable\[262] = \LabVIEW_UART:BUART:rx_bitclk\[310]
+Removing Lhs of wire \LabVIEW_UART:BUART:rx_status_0\[361] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:rx_status_6\[370] = zero[40]
+Removing Lhs of wire \ByteCounter:CounterUDB:hwCapture\[562] = zero[40]
+Removing Lhs of wire \ByteCounter:CounterUDB:status_3\[574] = zero[40]
+Removing Lhs of wire \ByteCounter:CounterUDB:underflow\[585] = zero[40]
+Removing Lhs of wire \ByteCounter:CounterUDB:tc_i\[588] = \ByteCounter:CounterUDB:per_equal\[584]
+Removing Lhs of wire \LabVIEW_UART:BUART:tx_ctrl_mark_last\\D\[667] = \LabVIEW_UART:BUART:tx_ctrl_mark_last\[253]
+Removing Lhs of wire \LabVIEW_UART:BUART:rx_markspace_status\\D\[679] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:rx_parity_error_status\\D\[680] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:rx_addr_match_status\\D\[682] = zero[40]
+Removing Lhs of wire \LabVIEW_UART:BUART:rx_markspace_pre\\D\[683] = \LabVIEW_UART:BUART:rx_markspace_pre\[374]
+Removing Lhs of wire \LabVIEW_UART:BUART:rx_parity_bit\\D\[688] = \LabVIEW_UART:BUART:rx_parity_bit\[380]
+
+------------------------------------------------------
+Aliased 0 equations, 15 wires.
+------------------------------------------------------
+
+----------------------------------------------------------
+Circuit simplification
+----------------------------------------------------------
+
+Eliminating unused logic - pass 1:
+
+Note:  Deleted unused equation:
+\LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:xneq\ <= ((not \LabVIEW_UART:BUART:rx_parity_bit\ and Net_46 and \LabVIEW_UART:BUART:pollcount_0\)
+	OR (not \LabVIEW_UART:BUART:pollcount_1\ and not \LabVIEW_UART:BUART:pollcount_0\ and \LabVIEW_UART:BUART:rx_parity_bit\)
+	OR (not \LabVIEW_UART:BUART:pollcount_1\ and not Net_46 and \LabVIEW_UART:BUART:rx_parity_bit\)
+	OR (not \LabVIEW_UART:BUART:rx_parity_bit\ and \LabVIEW_UART:BUART:pollcount_1\));
+
+
+Eliminating unused logic - pass 2:
+
+
+Substituting virtuals - pass 1:
+
+
+----------------------------------------------------------
+Circuit simplification results:
+
+	Expanded 0 signals.
+	Turned 0 signals into soft nodes.
+	Maximum default expansion cost was set at 3.
+----------------------------------------------------------
+
+topld:  No errors.
+
+CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp
+Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\bin\warp.exe
+Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya "-.fftprj=C:\Users\George Anwar\Documents\UC Berkeley\ME135 Spring 2020\PSOC Creator\ME135_235\Lab6Sample.cydsn\Lab6Sample.cyprj" -dcpsoc3 Lab6Sample.v -verilog
+</CYPRESSTAG>
+Warp synthesis phase: Elapsed time ==> 2s.343ms
+<CYPRESSTAG name="Fitter results...">
+<CYPRESSTAG name="Fitter startup details...">
+cyp3fit: V4.2.0.641, Family: PSoC3, Started at: Monday, 04 May 2020 19:51:28
+Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\George Anwar\Documents\UC Berkeley\ME135 Spring 2020\PSOC Creator\ME135_235\Lab6Sample.cydsn\Lab6Sample.cyprj -d CY8C5888LTI-LP097 Lab6Sample.v -verilog
+</CYPRESSTAG>
+<CYPRESSTAG name="Design parsing">
+Design parsing phase: Elapsed time ==> 0s.022ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Tech Mapping">
+<CYPRESSTAG name="Initial Mapping" icon="FILE_RPT_TECHM">
+    Converted constant MacroCell: \Timer_1:TimerUDB:capture_last\ from registered to combinatorial
+    Converted constant MacroCell: \Timer_1:TimerUDB:capture_out_reg_i\ from registered to combinatorial
+    Converted constant MacroCell: Net_44 from registered to combinatorial
+    Converted constant MacroCell: \LabVIEW_UART:BUART:rx_markspace_status\ from registered to combinatorial
+    Converted constant MacroCell: \LabVIEW_UART:BUART:rx_status_2\ from registered to combinatorial
+    Converted constant MacroCell: \LabVIEW_UART:BUART:rx_addr_match_status\ from registered to combinatorial
+    Converted constant MacroCell: \LabVIEW_UART:BUART:rx_break_status\ from registered to combinatorial
+    Converted constant MacroCell: \ByteCounter:CounterUDB:prevCapture\ from registered to combinatorial
+    Converted constant MacroCell: \ByteCounter:CounterUDB:underflow_reg_i\ from registered to combinatorial
+Assigning clock Clock_1 to clock BUS_CLK because it is a pass-through
+<CYPRESSTAG name="Global Clock Selection" icon="FILE_RPT_TECHM">
+    Digital Clock 0: Automatic-assigning  clock 'LabVIEW_UART_IntClock'. Fanout=1, Signal=\LabVIEW_UART:Net_9\
+    Digital Clock 1: Automatic-assigning  clock 'timer_clock'. Fanout=2, Signal=Net_19
+</CYPRESSTAG>
+
+Removing unused cells resulting from optimization
+Done removing unused cells.
+<CYPRESSTAG name="UDB Clock/Enable Remapping Results">
+    UDB Clk/Enable \Timer_1:TimerUDB:clock_enable_block\: with output requested to be synchronous
+        ClockIn: timer_clock was determined to be a global clock that is synchronous to BUS_CLK
+        EnableIn: Constant 1 was determined to be synchronous to ClockIn
+        ClockOut: timer_clock, EnableOut: Constant 1
+    UDB Clk/Enable \Timer_1:TimerUDB:sCTRLReg:SyncCtl:cy_psoc3_udb_Ctl_Clk_Sync\: with output requested to be synchronous
+        ClockIn: timer_clock was determined to be a global clock that is synchronous to BUS_CLK
+        EnableIn: Constant 1 was determined to be synchronous to ClockIn
+        ClockOut: timer_clock, EnableOut: Constant 1
+    UDB Clk/Enable \LabVIEW_UART:BUART:ClkSync\: with output requested to be synchronous
+        ClockIn: LabVIEW_UART_IntClock was determined to be a global clock that is synchronous to BUS_CLK
+        EnableIn: Constant 1 was determined to be synchronous to ClockIn
+        ClockOut: LabVIEW_UART_IntClock, EnableOut: Constant 1
+    UDB Clk/Enable \ByteCounter:CounterUDB:clock_enable_block\: with output requested to be synchronous
+        ClockIn: BUS_CLK was determined to be a global clock that is synchronous to BUS_CLK
+        EnableIn: Constant 1 was determined to be synchronous to ClockIn
+        ClockOut: BUS_CLK, EnableOut: Constant 1
+    UDB Clk/Enable \ByteCounter:CounterUDB:sCTRLReg:cy_psoc3_udb_Ctl_Clk_Sync\: with output requested to be synchronous
+        ClockIn: BUS_CLK was determined to be a global clock that is synchronous to BUS_CLK
+        EnableIn: Constant 1 was determined to be synchronous to ClockIn
+        ClockOut: BUS_CLK, EnableOut: Constant 1
+</CYPRESSTAG>
+
+Removing unused cells resulting from optimization
+Done removing unused cells.
+<CYPRESSTAG name="Duplicate Macrocell detection">
+
+Removing duplicate macrocells
+    Removing Net_73, Duplicate of \ByteCounter:CounterUDB:prevCompare\ 
+    MacroCell: Name=Net_73, Mode=(D-Register)
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \ByteCounter:CounterUDB:cmp_out_i\
+        );
+        Output = Net_73 (fanout=1)
+
+End removing duplicate macrocells: used 1 pass
+</CYPRESSTAG>
+</CYPRESSTAG>
+<CYPRESSTAG name="Duplicate Macrocell detection">
+
+Removing duplicate macrocells
+    Removing \LabVIEW_UART:BUART:rx_parity_bit\, Duplicate of \LabVIEW_UART:BUART:tx_ctrl_mark_last\ 
+    MacroCell: Name=\LabVIEW_UART:BUART:rx_parity_bit\, Mode=(T-Register)
+        Total # of inputs        : 0
+        Total # of product terms : 0
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 0 pterms
+        (
+            0
+        );
+        Output = \LabVIEW_UART:BUART:rx_parity_bit\ (fanout=0)
+
+    Removing \LabVIEW_UART:BUART:rx_parity_error_pre\, Duplicate of \LabVIEW_UART:BUART:tx_ctrl_mark_last\ 
+    MacroCell: Name=\LabVIEW_UART:BUART:rx_parity_error_pre\, Mode=(T-Register)
+        Total # of inputs        : 0
+        Total # of product terms : 0
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 0 pterms
+        (
+            0
+        );
+        Output = \LabVIEW_UART:BUART:rx_parity_error_pre\ (fanout=0)
+
+    Removing \LabVIEW_UART:BUART:rx_markspace_pre\, Duplicate of \LabVIEW_UART:BUART:tx_ctrl_mark_last\ 
+    MacroCell: Name=\LabVIEW_UART:BUART:rx_markspace_pre\, Mode=(T-Register)
+        Total # of inputs        : 0
+        Total # of product terms : 0
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 0 pterms
+        (
+            0
+        );
+        Output = \LabVIEW_UART:BUART:rx_markspace_pre\ (fanout=0)
+
+    Removing \LabVIEW_UART:BUART:tx_parity_bit\, Duplicate of \LabVIEW_UART:BUART:tx_ctrl_mark_last\ 
+    MacroCell: Name=\LabVIEW_UART:BUART:tx_parity_bit\, Mode=(T-Register)
+        Total # of inputs        : 0
+        Total # of product terms : 0
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 0 pterms
+        (
+            0
+        );
+        Output = \LabVIEW_UART:BUART:tx_parity_bit\ (fanout=0)
+
+
+Removing unused cells resulting from optimization
+Done removing unused cells.
+End removing duplicate macrocells: used 1 pass
+</CYPRESSTAG>
+<CYPRESSTAG name="Design Equations" icon="FILE_RPT_EQUATION">
+
+------------------------------------------------------------
+Design Equations
+------------------------------------------------------------
+    <CYPRESSTAG name="Pin listing">
+
+    ------------------------------------------------------------
+    Pin listing
+    ------------------------------------------------------------
+
+    Pin : Name = Rx_1(0)
+        Attributes:
+            In Group/Port: True
+            In Sync Option: SYNC
+            Out Sync Option: AUTO
+            Interrupt generated: False
+            Interrupt mode: NONE
+            Drive mode: HI_Z_DIGITAL
+            VTrip: CMOS
+            Slew: FAST
+            Input Sync needed: True
+            Output Sync needed: False
+            SC shield enabled: False
+            POR State: ANY
+            LCD Mode: COMMON
+            Register Mode: RegComb
+            CaSense Mode: NEITHER
+            Treat as pin: True
+            Is OE Registered: False
+            Uses Analog: False
+            Can contain Digital: True
+            Is SIO: False
+            SIO Output Buf: NONREGULATED
+            SIO Input Buf: SINGLE_ENDED
+            SIO HiFreq: LOW
+            SIO Hyst: DISABLED
+            SIO Vtrip: MULTIPLIER_0_5
+            SIO Multiplier Index: 0
+            SIO RefSel: VCC_IO
+            Required Capabilities: DIGITAL, ROUTABLE
+            Initial Value: 0
+            IO Voltage: 0
+        PORT MAP (
+            pa_out => Rx_1(0)__PA ,
+            fb => Net_46 ,
+            pad => Rx_1(0)_PAD );
+        Properties:
+        {
+        }
+
+    Pin : Name = Tx_1(0)
+        Attributes:
+            In Group/Port: True
+            In Sync Option: AUTO
+            Out Sync Option: NOSYNC
+            Interrupt generated: False
+            Interrupt mode: NONE
+            Drive mode: CMOS_OUT
+            VTrip: EITHER
+            Slew: FAST
+            Input Sync needed: False
+            Output Sync needed: False
+            SC shield enabled: False
+            POR State: ANY
+            LCD Mode: COMMON
+            Register Mode: RegComb
+            CaSense Mode: NEITHER
+            Treat as pin: True
+            Is OE Registered: False
+            Uses Analog: False
+            Can contain Digital: True
+            Is SIO: False
+            SIO Output Buf: NONREGULATED
+            SIO Input Buf: SINGLE_ENDED
+            SIO HiFreq: LOW
+            SIO Hyst: DISABLED
+            SIO Vtrip: MULTIPLIER_0_5
+            SIO Multiplier Index: 0
+            SIO RefSel: VCC_IO
+            Required Capabilities: DIGITAL, ROUTABLE
+            Initial Value: 1
+            IO Voltage: 0
+        PORT MAP (
+            pa_out => Tx_1(0)__PA ,
+            pin_input => Net_42 ,
+            pad => Tx_1(0)_PAD );
+        Properties:
+        {
+        }
+
+    Pin : Name = LED(0)
+        Attributes:
+            In Group/Port: True
+            In Sync Option: AUTO
+            Out Sync Option: NOSYNC
+            Interrupt generated: False
+            Interrupt mode: NONE
+            Drive mode: CMOS_OUT
+            VTrip: EITHER
+            Slew: FAST
+            Input Sync needed: False
+            Output Sync needed: False
+            SC shield enabled: False
+            POR State: ANY
+            LCD Mode: COMMON
+            Register Mode: RegComb
+            CaSense Mode: NEITHER
+            Treat as pin: True
+            Is OE Registered: False
+            Uses Analog: False
+            Can contain Digital: True
+            Is SIO: False
+            SIO Output Buf: NONREGULATED
+            SIO Input Buf: SINGLE_ENDED
+            SIO HiFreq: LOW
+            SIO Hyst: DISABLED
+            SIO Vtrip: MULTIPLIER_0_5
+            SIO Multiplier Index: 0
+            SIO RefSel: VCC_IO
+            Required Capabilities: DIGITAL, ROUTABLE
+            Initial Value: 0
+            IO Voltage: 0
+        PORT MAP (
+            pa_out => LED(0)__PA ,
+            pin_input => Net_65 ,
+            pad => LED(0)_PAD );
+        Properties:
+        {
+        }
+    </CYPRESSTAG>
+    <CYPRESSTAG name="Macrocell listing" icon="FILE_RPT_EQUATION">
+
+    ------------------------------------------------------------
+    Macrocell listing
+    ------------------------------------------------------------
+
+    MacroCell: Name=\Timer_1:TimerUDB:status_tc\, Mode=(Combinatorial)
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \Timer_1:TimerUDB:control_7\ * \Timer_1:TimerUDB:per_zero\
+        );
+        Output = \Timer_1:TimerUDB:status_tc\ (fanout=1)
+
+    MacroCell: Name=Net_42, Mode=(Combinatorial)
+        Total # of inputs        : 1
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\LabVIEW_UART:BUART:txn\
+        );
+        Output = Net_42 (fanout=1)
+
+    MacroCell: Name=\LabVIEW_UART:BUART:counter_load_not\, Mode=(Combinatorial)
+        Total # of inputs        : 4
+        Total # of product terms : 2
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        !(
+              !\LabVIEW_UART:BUART:tx_state_1\ * 
+              !\LabVIEW_UART:BUART:tx_state_0\ * 
+              \LabVIEW_UART:BUART:tx_bitclk_enable_pre\
+            + !\LabVIEW_UART:BUART:tx_state_1\ * 
+              !\LabVIEW_UART:BUART:tx_state_0\ * 
+              !\LabVIEW_UART:BUART:tx_state_2\
+        );
+        Output = \LabVIEW_UART:BUART:counter_load_not\ (fanout=1)
+
+    MacroCell: Name=\LabVIEW_UART:BUART:tx_status_0\, Mode=(Combinatorial)
+        Total # of inputs        : 5
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\LabVIEW_UART:BUART:tx_state_1\ * 
+              !\LabVIEW_UART:BUART:tx_state_0\ * 
+              \LabVIEW_UART:BUART:tx_bitclk_enable_pre\ * 
+              \LabVIEW_UART:BUART:tx_fifo_empty\ * 
+              \LabVIEW_UART:BUART:tx_state_2\
+        );
+        Output = \LabVIEW_UART:BUART:tx_status_0\ (fanout=1)
+
+    MacroCell: Name=\LabVIEW_UART:BUART:tx_status_2\, Mode=(Combinatorial)
+        Total # of inputs        : 1
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\LabVIEW_UART:BUART:tx_fifo_notfull\
+        );
+        Output = \LabVIEW_UART:BUART:tx_status_2\ (fanout=1)
+
+    MacroCell: Name=\LabVIEW_UART:BUART:rx_counter_load\, Mode=(Combinatorial)
+        Total # of inputs        : 4
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              !\LabVIEW_UART:BUART:rx_state_0\ * 
+              !\LabVIEW_UART:BUART:rx_state_3\ * 
+              !\LabVIEW_UART:BUART:rx_state_2\
+        );
+        Output = \LabVIEW_UART:BUART:rx_counter_load\ (fanout=1)
+
+    MacroCell: Name=\LabVIEW_UART:BUART:rx_postpoll\, Mode=(Combinatorial)
+        Total # of inputs        : 3
+        Total # of product terms : 2
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              \LabVIEW_UART:BUART:pollcount_1\
+            + Net_46 * \LabVIEW_UART:BUART:pollcount_0\
+        );
+        Output = \LabVIEW_UART:BUART:rx_postpoll\ (fanout=1)
+
+    MacroCell: Name=\LabVIEW_UART:BUART:rx_status_4\, Mode=(Combinatorial)
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \LabVIEW_UART:BUART:rx_load_fifo\ * 
+              \LabVIEW_UART:BUART:rx_fifofull\
+        );
+        Output = \LabVIEW_UART:BUART:rx_status_4\ (fanout=1)
+
+    MacroCell: Name=\LabVIEW_UART:BUART:rx_status_5\, Mode=(Combinatorial)
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \LabVIEW_UART:BUART:rx_fifonotempty\ * 
+              \LabVIEW_UART:BUART:rx_state_stop1_reg\
+        );
+        Output = \LabVIEW_UART:BUART:rx_status_5\ (fanout=1)
+
+    MacroCell: Name=\ByteCounter:CounterUDB:reload\, Mode=(Combinatorial)
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        !(
+              !Net_34 * !\ByteCounter:CounterUDB:prevCompare\
+        );
+        Output = \ByteCounter:CounterUDB:reload\ (fanout=1)
+
+    MacroCell: Name=\ByteCounter:CounterUDB:status_0\, Mode=(Combinatorial)
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \ByteCounter:CounterUDB:cmp_out_i\ * 
+              !\ByteCounter:CounterUDB:prevCompare\
+        );
+        Output = \ByteCounter:CounterUDB:status_0\ (fanout=1)
+
+    MacroCell: Name=\ByteCounter:CounterUDB:status_2\, Mode=(Combinatorial)
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \ByteCounter:CounterUDB:per_equal\ * 
+              !\ByteCounter:CounterUDB:overflow_reg_i\
+        );
+        Output = \ByteCounter:CounterUDB:status_2\ (fanout=1)
+
+    MacroCell: Name=\ByteCounter:CounterUDB:count_enable\, Mode=(Combinatorial)
+        Total # of inputs        : 3
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_48 * \ByteCounter:CounterUDB:control_7\ * 
+              !\ByteCounter:CounterUDB:count_stored_i\
+        );
+        Output = \ByteCounter:CounterUDB:count_enable\ (fanout=1)
+
+    MacroCell: Name=__ONE__, Mode=(Combinatorial)
+        Total # of inputs        : 0
+        Total # of product terms : 0
+            Clock Enable: True
+        Main Equation            : 0 pterms
+        !(
+            0
+        );
+        Output = __ONE__ (fanout=1)
+
+    MacroCell: Name=\LabVIEW_UART:BUART:reset_reg\, Mode=(D-Register)
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_6
+        );
+        Output = \LabVIEW_UART:BUART:reset_reg\ (fanout=21)
+
+    MacroCell: Name=\LabVIEW_UART:BUART:txn\, Mode=(D-Register)
+        Total # of inputs        : 8
+        Total # of product terms : 5
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 5 pterms
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * \LabVIEW_UART:BUART:txn\ * 
+              \LabVIEW_UART:BUART:tx_state_1\ * 
+              !\LabVIEW_UART:BUART:tx_bitclk\
+            + !\LabVIEW_UART:BUART:reset_reg\ * \LabVIEW_UART:BUART:txn\ * 
+              \LabVIEW_UART:BUART:tx_state_2\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:tx_state_1\ * 
+              \LabVIEW_UART:BUART:tx_state_0\ * 
+              !\LabVIEW_UART:BUART:tx_shift_out\ * 
+              !\LabVIEW_UART:BUART:tx_state_2\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:tx_state_1\ * 
+              \LabVIEW_UART:BUART:tx_state_0\ * 
+              !\LabVIEW_UART:BUART:tx_state_2\ * 
+              !\LabVIEW_UART:BUART:tx_bitclk\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              \LabVIEW_UART:BUART:tx_state_1\ * 
+              !\LabVIEW_UART:BUART:tx_state_0\ * 
+              !\LabVIEW_UART:BUART:tx_shift_out\ * 
+              !\LabVIEW_UART:BUART:tx_state_2\ * 
+              !\LabVIEW_UART:BUART:tx_counter_dp\ * 
+              \LabVIEW_UART:BUART:tx_bitclk\
+        );
+        Output = \LabVIEW_UART:BUART:txn\ (fanout=2)
+
+    MacroCell: Name=\LabVIEW_UART:BUART:tx_state_1\, Mode=(T-Register)
+        Total # of inputs        : 7
+        Total # of product terms : 4
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 4 pterms
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * 
+              \LabVIEW_UART:BUART:tx_state_0\ * 
+              !\LabVIEW_UART:BUART:tx_state_2\ * 
+              \LabVIEW_UART:BUART:tx_bitclk\
+            + \LabVIEW_UART:BUART:reset_reg\ * 
+              \LabVIEW_UART:BUART:tx_state_1\
+            + \LabVIEW_UART:BUART:tx_state_1\ * 
+              \LabVIEW_UART:BUART:tx_state_0\ * 
+              \LabVIEW_UART:BUART:tx_bitclk_enable_pre\ * 
+              \LabVIEW_UART:BUART:tx_state_2\
+            + \LabVIEW_UART:BUART:tx_state_1\ * 
+              !\LabVIEW_UART:BUART:tx_state_2\ * 
+              \LabVIEW_UART:BUART:tx_counter_dp\ * 
+              \LabVIEW_UART:BUART:tx_bitclk\
+        );
+        Output = \LabVIEW_UART:BUART:tx_state_1\ (fanout=8)
+
+    MacroCell: Name=\LabVIEW_UART:BUART:tx_state_0\, Mode=(T-Register)
+        Total # of inputs        : 7
+        Total # of product terms : 5
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 5 pterms
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:tx_state_1\ * 
+              !\LabVIEW_UART:BUART:tx_state_0\ * 
+              \LabVIEW_UART:BUART:tx_bitclk_enable_pre\ * 
+              !\LabVIEW_UART:BUART:tx_fifo_empty\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:tx_state_1\ * 
+              !\LabVIEW_UART:BUART:tx_state_0\ * 
+              !\LabVIEW_UART:BUART:tx_fifo_empty\ * 
+              !\LabVIEW_UART:BUART:tx_state_2\
+            + \LabVIEW_UART:BUART:reset_reg\ * 
+              \LabVIEW_UART:BUART:tx_state_0\
+            + \LabVIEW_UART:BUART:tx_state_1\ * 
+              \LabVIEW_UART:BUART:tx_state_0\ * 
+              \LabVIEW_UART:BUART:tx_bitclk_enable_pre\ * 
+              \LabVIEW_UART:BUART:tx_fifo_empty\ * 
+              \LabVIEW_UART:BUART:tx_state_2\
+            + \LabVIEW_UART:BUART:tx_state_0\ * 
+              !\LabVIEW_UART:BUART:tx_state_2\ * 
+              \LabVIEW_UART:BUART:tx_bitclk\
+        );
+        Output = \LabVIEW_UART:BUART:tx_state_0\ (fanout=8)
+
+    MacroCell: Name=\LabVIEW_UART:BUART:tx_state_2\, Mode=(D-Register)
+        Total # of inputs        : 7
+        Total # of product terms : 5
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 5 pterms
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:tx_state_1\ * 
+              \LabVIEW_UART:BUART:tx_state_0\ * 
+              \LabVIEW_UART:BUART:tx_state_2\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              \LabVIEW_UART:BUART:tx_state_1\ * 
+              !\LabVIEW_UART:BUART:tx_state_0\ * 
+              \LabVIEW_UART:BUART:tx_state_2\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              \LabVIEW_UART:BUART:tx_state_1\ * 
+              \LabVIEW_UART:BUART:tx_state_0\ * 
+              !\LabVIEW_UART:BUART:tx_state_2\ * 
+              \LabVIEW_UART:BUART:tx_bitclk\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              \LabVIEW_UART:BUART:tx_state_1\ * 
+              !\LabVIEW_UART:BUART:tx_state_2\ * 
+              \LabVIEW_UART:BUART:tx_counter_dp\ * 
+              \LabVIEW_UART:BUART:tx_bitclk\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:tx_bitclk_enable_pre\ * 
+              \LabVIEW_UART:BUART:tx_state_2\
+        );
+        Output = \LabVIEW_UART:BUART:tx_state_2\ (fanout=7)
+
+    MacroCell: Name=\LabVIEW_UART:BUART:tx_bitclk\, Mode=(D-Register)
+        Total # of inputs        : 4
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        !(
+              !\LabVIEW_UART:BUART:tx_state_1\ * 
+              !\LabVIEW_UART:BUART:tx_state_0\ * 
+              \LabVIEW_UART:BUART:tx_state_2\
+            + !\LabVIEW_UART:BUART:tx_bitclk_enable_pre\
+        );
+        Output = \LabVIEW_UART:BUART:tx_bitclk\ (fanout=4)
+
+    MacroCell: Name=\LabVIEW_UART:BUART:tx_mark\, Mode=(D-Register)
+        Total # of inputs        : 2
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * \LabVIEW_UART:BUART:tx_mark\
+        );
+        Output = \LabVIEW_UART:BUART:tx_mark\ (fanout=1)
+
+    MacroCell: Name=\LabVIEW_UART:BUART:rx_state_1\, Mode=(D-Register)
+        Total # of inputs        : 2
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * 
+              \LabVIEW_UART:BUART:rx_state_1\
+        );
+        Output = \LabVIEW_UART:BUART:rx_state_1\ (fanout=9)
+
+    MacroCell: Name=\LabVIEW_UART:BUART:rx_state_0\, Mode=(T-Register)
+        Total # of inputs        : 12
+        Total # of product terms : 5
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 5 pterms
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              !\LabVIEW_UART:BUART:rx_state_0\ * 
+              \LabVIEW_UART:BUART:rx_bitclk_enable\ * 
+              !\LabVIEW_UART:BUART:rx_state_3\ * 
+              \LabVIEW_UART:BUART:rx_state_2\ * 
+              !\LabVIEW_UART:BUART:pollcount_1\ * !Net_46
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              !\LabVIEW_UART:BUART:rx_state_0\ * 
+              \LabVIEW_UART:BUART:rx_bitclk_enable\ * 
+              !\LabVIEW_UART:BUART:rx_state_3\ * 
+              \LabVIEW_UART:BUART:rx_state_2\ * 
+              !\LabVIEW_UART:BUART:pollcount_1\ * 
+              !\LabVIEW_UART:BUART:pollcount_0\
+            + \LabVIEW_UART:BUART:reset_reg\ * 
+              \LabVIEW_UART:BUART:rx_state_0\
+            + !\LabVIEW_UART:BUART:rx_state_1\ * 
+              \LabVIEW_UART:BUART:rx_state_0\ * 
+              !\LabVIEW_UART:BUART:rx_state_3\ * 
+              !\LabVIEW_UART:BUART:rx_state_2\ * 
+              !\LabVIEW_UART:BUART:rx_count_6\ * 
+              !\LabVIEW_UART:BUART:rx_count_5\
+            + !\LabVIEW_UART:BUART:rx_state_1\ * 
+              \LabVIEW_UART:BUART:rx_state_0\ * 
+              !\LabVIEW_UART:BUART:rx_state_3\ * 
+              !\LabVIEW_UART:BUART:rx_state_2\ * 
+              !\LabVIEW_UART:BUART:rx_count_6\ * 
+              !\LabVIEW_UART:BUART:rx_count_4\
+        );
+        Output = \LabVIEW_UART:BUART:rx_state_0\ (fanout=8)
+
+    MacroCell: Name=\LabVIEW_UART:BUART:rx_load_fifo\, Mode=(D-Register)
+        Total # of inputs        : 9
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              !\LabVIEW_UART:BUART:rx_state_0\ * 
+              \LabVIEW_UART:BUART:rx_bitclk_enable\ * 
+              \LabVIEW_UART:BUART:rx_state_3\ * 
+              !\LabVIEW_UART:BUART:rx_state_2\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              \LabVIEW_UART:BUART:rx_state_0\ * 
+              !\LabVIEW_UART:BUART:rx_state_3\ * 
+              !\LabVIEW_UART:BUART:rx_state_2\ * 
+              !\LabVIEW_UART:BUART:rx_count_6\ * 
+              !\LabVIEW_UART:BUART:rx_count_5\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              \LabVIEW_UART:BUART:rx_state_0\ * 
+              !\LabVIEW_UART:BUART:rx_state_3\ * 
+              !\LabVIEW_UART:BUART:rx_state_2\ * 
+              !\LabVIEW_UART:BUART:rx_count_6\ * 
+              !\LabVIEW_UART:BUART:rx_count_4\
+        );
+        Output = \LabVIEW_UART:BUART:rx_load_fifo\ (fanout=2)
+
+    MacroCell: Name=\LabVIEW_UART:BUART:rx_state_3\, Mode=(T-Register)
+        Total # of inputs        : 9
+        Total # of product terms : 4
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 4 pterms
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              \LabVIEW_UART:BUART:rx_state_0\ * 
+              !\LabVIEW_UART:BUART:rx_state_3\ * 
+              !\LabVIEW_UART:BUART:rx_state_2\ * 
+              !\LabVIEW_UART:BUART:rx_count_6\ * 
+              !\LabVIEW_UART:BUART:rx_count_5\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              \LabVIEW_UART:BUART:rx_state_0\ * 
+              !\LabVIEW_UART:BUART:rx_state_3\ * 
+              !\LabVIEW_UART:BUART:rx_state_2\ * 
+              !\LabVIEW_UART:BUART:rx_count_6\ * 
+              !\LabVIEW_UART:BUART:rx_count_4\
+            + \LabVIEW_UART:BUART:reset_reg\ * 
+              \LabVIEW_UART:BUART:rx_state_3\
+            + !\LabVIEW_UART:BUART:rx_state_1\ * 
+              !\LabVIEW_UART:BUART:rx_state_0\ * 
+              \LabVIEW_UART:BUART:rx_bitclk_enable\ * 
+              \LabVIEW_UART:BUART:rx_state_3\ * 
+              \LabVIEW_UART:BUART:rx_state_2\
+        );
+        Output = \LabVIEW_UART:BUART:rx_state_3\ (fanout=7)
+
+    MacroCell: Name=\LabVIEW_UART:BUART:rx_state_2\, Mode=(T-Register)
+        Total # of inputs        : 11
+        Total # of product terms : 6
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 6 pterms
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              !\LabVIEW_UART:BUART:rx_state_0\ * 
+              \LabVIEW_UART:BUART:rx_bitclk_enable\ * 
+              \LabVIEW_UART:BUART:rx_state_3\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              !\LabVIEW_UART:BUART:rx_state_0\ * 
+              !\LabVIEW_UART:BUART:rx_state_3\ * 
+              !\LabVIEW_UART:BUART:rx_state_2\ * !Net_46 * 
+              \LabVIEW_UART:BUART:rx_last\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              \LabVIEW_UART:BUART:rx_state_0\ * 
+              !\LabVIEW_UART:BUART:rx_state_3\ * 
+              !\LabVIEW_UART:BUART:rx_state_2\ * 
+              !\LabVIEW_UART:BUART:rx_count_6\ * 
+              !\LabVIEW_UART:BUART:rx_count_5\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              \LabVIEW_UART:BUART:rx_state_0\ * 
+              !\LabVIEW_UART:BUART:rx_state_3\ * 
+              !\LabVIEW_UART:BUART:rx_state_2\ * 
+              !\LabVIEW_UART:BUART:rx_count_6\ * 
+              !\LabVIEW_UART:BUART:rx_count_4\
+            + \LabVIEW_UART:BUART:reset_reg\ * 
+              \LabVIEW_UART:BUART:rx_state_2\
+            + !\LabVIEW_UART:BUART:rx_state_1\ * 
+              !\LabVIEW_UART:BUART:rx_state_0\ * 
+              \LabVIEW_UART:BUART:rx_bitclk_enable\ * 
+              \LabVIEW_UART:BUART:rx_state_2\
+        );
+        Output = \LabVIEW_UART:BUART:rx_state_2\ (fanout=7)
+
+    MacroCell: Name=\LabVIEW_UART:BUART:rx_bitclk_enable\, Mode=(D-Register)
+        Total # of inputs        : 3
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\LabVIEW_UART:BUART:rx_count_2\ * 
+              !\LabVIEW_UART:BUART:rx_count_1\ * 
+              !\LabVIEW_UART:BUART:rx_count_0\
+        );
+        Output = \LabVIEW_UART:BUART:rx_bitclk_enable\ (fanout=6)
+
+    MacroCell: Name=\LabVIEW_UART:BUART:rx_state_stop1_reg\, Mode=(D-Register)
+        Total # of inputs        : 4
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        !(
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              !\LabVIEW_UART:BUART:rx_state_0\ * 
+              \LabVIEW_UART:BUART:rx_state_3\ * 
+              \LabVIEW_UART:BUART:rx_state_2\
+        );
+        Output = \LabVIEW_UART:BUART:rx_state_stop1_reg\ (fanout=1)
+
+    MacroCell: Name=\LabVIEW_UART:BUART:pollcount_1\, Mode=(D-Register)
+        Total # of inputs        : 6
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_count_2\ * 
+              !\LabVIEW_UART:BUART:rx_count_1\ * 
+              !\LabVIEW_UART:BUART:pollcount_1\ * Net_46 * 
+              \LabVIEW_UART:BUART:pollcount_0\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_count_2\ * 
+              !\LabVIEW_UART:BUART:rx_count_1\ * 
+              \LabVIEW_UART:BUART:pollcount_1\ * !Net_46
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_count_2\ * 
+              !\LabVIEW_UART:BUART:rx_count_1\ * 
+              \LabVIEW_UART:BUART:pollcount_1\ * 
+              !\LabVIEW_UART:BUART:pollcount_0\
+        );
+        Output = \LabVIEW_UART:BUART:pollcount_1\ (fanout=4)
+
+    MacroCell: Name=\LabVIEW_UART:BUART:pollcount_0\, Mode=(D-Register)
+        Total # of inputs        : 5
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_count_2\ * 
+              !\LabVIEW_UART:BUART:rx_count_1\ * !Net_46 * 
+              \LabVIEW_UART:BUART:pollcount_0\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_count_2\ * 
+              !\LabVIEW_UART:BUART:rx_count_1\ * Net_46 * 
+              !\LabVIEW_UART:BUART:pollcount_0\
+        );
+        Output = \LabVIEW_UART:BUART:pollcount_0\ (fanout=5)
+
+    MacroCell: Name=\LabVIEW_UART:BUART:rx_status_3\, Mode=(D-Register)
+        Total # of inputs        : 9
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              !\LabVIEW_UART:BUART:rx_state_0\ * 
+              \LabVIEW_UART:BUART:rx_bitclk_enable\ * 
+              \LabVIEW_UART:BUART:rx_state_3\ * 
+              \LabVIEW_UART:BUART:rx_state_2\ * 
+              !\LabVIEW_UART:BUART:pollcount_1\ * !Net_46
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              !\LabVIEW_UART:BUART:rx_state_0\ * 
+              \LabVIEW_UART:BUART:rx_bitclk_enable\ * 
+              \LabVIEW_UART:BUART:rx_state_3\ * 
+              \LabVIEW_UART:BUART:rx_state_2\ * 
+              !\LabVIEW_UART:BUART:pollcount_1\ * 
+              !\LabVIEW_UART:BUART:pollcount_0\
+        );
+        Output = \LabVIEW_UART:BUART:rx_status_3\ (fanout=1)
+
+    MacroCell: Name=\LabVIEW_UART:BUART:rx_address_detected\, Mode=(D-Register)
+        Total # of inputs        : 2
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * 
+              \LabVIEW_UART:BUART:rx_address_detected\
+        );
+        Output = \LabVIEW_UART:BUART:rx_address_detected\ (fanout=1)
+
+    MacroCell: Name=\LabVIEW_UART:BUART:rx_last\, Mode=(D-Register)
+        Total # of inputs        : 2
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * Net_46
+        );
+        Output = \LabVIEW_UART:BUART:rx_last\ (fanout=1)
+
+    MacroCell: Name=\ByteCounter:CounterUDB:overflow_reg_i\, Mode=(D-Register)
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \ByteCounter:CounterUDB:per_equal\
+        );
+        Output = \ByteCounter:CounterUDB:overflow_reg_i\ (fanout=1)
+
+    MacroCell: Name=\ByteCounter:CounterUDB:prevCompare\, Mode=(D-Register)
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \ByteCounter:CounterUDB:cmp_out_i\
+        );
+        Output = \ByteCounter:CounterUDB:prevCompare\ (fanout=2)
+
+    MacroCell: Name=\ByteCounter:CounterUDB:count_stored_i\, Mode=(D-Register)
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_48
+        );
+        Output = \ByteCounter:CounterUDB:count_stored_i\ (fanout=1)
+    </CYPRESSTAG>
+    <CYPRESSTAG name="Datapath listing">
+
+    ------------------------------------------------------------
+    Datapath listing
+    ------------------------------------------------------------
+
+    datapathcell: Name =\Timer_1:TimerUDB:sT16:timerdp:u0\
+        PORT MAP (
+            clock => Net_19 ,
+            cs_addr_2 => Net_21 ,
+            cs_addr_1 => \Timer_1:TimerUDB:control_7\ ,
+            cs_addr_0 => \Timer_1:TimerUDB:per_zero\ ,
+            chain_out => \Timer_1:TimerUDB:sT16:timerdp:carry\ );
+        Properties:
+        {
+            a0_init = "00000000"
+            a1_init = "00000000"
+            ce0_sync = 1
+            ce1_sync = 1
+            cl0_sync = 1
+            cl1_sync = 1
+            cmsb_sync = 1
+            co_msb_sync = 1
+            cy_dpconfig = "0000000001000000000000000100000001000000010000000000000010000000000000001000000000000000100000000000000010000000000000001000000011111111000000001111111111111111000000000000000000000001000000000000000000011000"
+            d0_init = "00000000"
+            d1_init = "00000000"
+            f0_blk_sync = 1
+            f0_bus_sync = 1
+            f1_blk_sync = 1
+            f1_bus_sync = 1
+            ff0_sync = 1
+            ff1_sync = 1
+            ov_msb_sync = 1
+            so_sync = 1
+            z0_sync = 1
+            z1_sync = 1
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+        Next in chain : \Timer_1:TimerUDB:sT16:timerdp:u1\
+
+    datapathcell: Name =\Timer_1:TimerUDB:sT16:timerdp:u1\
+        PORT MAP (
+            clock => Net_19 ,
+            cs_addr_2 => Net_21 ,
+            cs_addr_1 => \Timer_1:TimerUDB:control_7\ ,
+            cs_addr_0 => \Timer_1:TimerUDB:per_zero\ ,
+            z0_comb => \Timer_1:TimerUDB:per_zero\ ,
+            f0_bus_stat_comb => \Timer_1:TimerUDB:status_3\ ,
+            f0_blk_stat_comb => \Timer_1:TimerUDB:status_2\ ,
+            chain_in => \Timer_1:TimerUDB:sT16:timerdp:carry\ );
+        Properties:
+        {
+            a0_init = "00000000"
+            a1_init = "00000000"
+            ce0_sync = 1
+            ce1_sync = 1
+            cl0_sync = 1
+            cl1_sync = 1
+            cmsb_sync = 1
+            co_msb_sync = 1
+            cy_dpconfig = "0000000001000000000000000100000001000000010000000000000010000000000000001000000000000000100000000000000010000000000000001000000011111111000000001111111111111111100000110000000000000001000000110000000000011000"
+            d0_init = "00000000"
+            d1_init = "00000000"
+            f0_blk_sync = 1
+            f0_bus_sync = 1
+            f1_blk_sync = 1
+            f1_bus_sync = 1
+            ff0_sync = 1
+            ff1_sync = 1
+            ov_msb_sync = 1
+            so_sync = 1
+            z0_sync = 1
+            z1_sync = 1
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+        Previous in chain : \Timer_1:TimerUDB:sT16:timerdp:u0\
+
+    datapathcell: Name =\LabVIEW_UART:BUART:sTX:TxShifter:u0\
+        PORT MAP (
+            reset => \LabVIEW_UART:BUART:reset_reg\ ,
+            clock => \LabVIEW_UART:Net_9\ ,
+            cs_addr_2 => \LabVIEW_UART:BUART:tx_state_1\ ,
+            cs_addr_1 => \LabVIEW_UART:BUART:tx_state_0\ ,
+            cs_addr_0 => \LabVIEW_UART:BUART:tx_bitclk_enable_pre\ ,
+            so_comb => \LabVIEW_UART:BUART:tx_shift_out\ ,
+            f0_bus_stat_comb => \LabVIEW_UART:BUART:tx_fifo_notfull\ ,
+            f0_blk_stat_comb => \LabVIEW_UART:BUART:tx_fifo_empty\ );
+        Properties:
+        {
+            a0_init = "00000000"
+            a1_init = "00000000"
+            ce0_sync = 1
+            ce1_sync = 1
+            cl0_sync = 1
+            cl1_sync = 1
+            cmsb_sync = 1
+            co_msb_sync = 1
+            cy_dpconfig = "0000000000000000000000000000000000000000000000000000000011000000000000000000000000000010010000000000000000000000000000000000000011111111000000001111111111111111000000000000000001000100111100000000000000001100"
+            d0_init = "00000000"
+            d1_init = "00000000"
+            f0_blk_sync = 1
+            f0_bus_sync = 1
+            f1_blk_sync = 1
+            f1_bus_sync = 1
+            ff0_sync = 1
+            ff1_sync = 1
+            ov_msb_sync = 1
+            so_sync = 1
+            z0_sync = 1
+            z1_sync = 1
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+
+    datapathcell: Name =\LabVIEW_UART:BUART:sTX:sCLOCK:TxBitClkGen\
+        PORT MAP (
+            reset => \LabVIEW_UART:BUART:reset_reg\ ,
+            clock => \LabVIEW_UART:Net_9\ ,
+            cs_addr_0 => \LabVIEW_UART:BUART:counter_load_not\ ,
+            ce0_reg => \LabVIEW_UART:BUART:tx_bitclk_enable_pre\ ,
+            ce1_reg => \LabVIEW_UART:BUART:tx_counter_dp\ );
+        Properties:
+        {
+            a0_init = "00000000"
+            a1_init = "00000000"
+            ce0_sync = 1
+            ce1_sync = 1
+            cl0_sync = 1
+            cl1_sync = 1
+            cmsb_sync = 1
+            co_msb_sync = 1
+            cy_dpconfig = "1010100001000000001000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111000000001111111100000111001000000100000000000101111100000000000000001000"
+            d0_init = "00000000"
+            d1_init = "00000000"
+            f0_blk_sync = 1
+            f0_bus_sync = 1
+            f1_blk_sync = 1
+            f1_bus_sync = 1
+            ff0_sync = 1
+            ff1_sync = 1
+            ov_msb_sync = 1
+            so_sync = 1
+            z0_sync = 1
+            z1_sync = 1
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+
+    datapathcell: Name =\LabVIEW_UART:BUART:sRX:RxShifter:u0\
+        PORT MAP (
+            reset => \LabVIEW_UART:BUART:reset_reg\ ,
+            clock => \LabVIEW_UART:Net_9\ ,
+            cs_addr_2 => \LabVIEW_UART:BUART:rx_state_1\ ,
+            cs_addr_1 => \LabVIEW_UART:BUART:rx_state_0\ ,
+            cs_addr_0 => \LabVIEW_UART:BUART:rx_bitclk_enable\ ,
+            route_si => \LabVIEW_UART:BUART:rx_postpoll\ ,
+            f0_load => \LabVIEW_UART:BUART:rx_load_fifo\ ,
+            f0_bus_stat_comb => \LabVIEW_UART:BUART:rx_fifonotempty\ ,
+            f0_blk_stat_comb => \LabVIEW_UART:BUART:rx_fifofull\ );
+        Properties:
+        {
+            a0_init = "00000000"
+            a1_init = "00000000"
+            ce0_sync = 1
+            ce1_sync = 1
+            cl0_sync = 1
+            cl1_sync = 1
+            cmsb_sync = 1
+            co_msb_sync = 1
+            cy_dpconfig = "0000000000000000000000000000000000000000000000000000001001000000000100000000000000010000001100000001000000000000000100100001000011111111000000001111111111111111101000000110001001000001111100000000000000001100"
+            d0_init = "00000000"
+            d1_init = "00000000"
+            f0_blk_sync = 1
+            f0_bus_sync = 1
+            f1_blk_sync = 1
+            f1_bus_sync = 1
+            ff0_sync = 1
+            ff1_sync = 1
+            ov_msb_sync = 1
+            so_sync = 1
+            z0_sync = 1
+            z1_sync = 1
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+
+    datapathcell: Name =\ByteCounter:CounterUDB:sC8:counterdp:u0\
+        PORT MAP (
+            clock => ClockBlock_BUS_CLK ,
+            cs_addr_2 => __ONE__ ,
+            cs_addr_1 => \ByteCounter:CounterUDB:count_enable\ ,
+            cs_addr_0 => \ByteCounter:CounterUDB:reload\ ,
+            ce0_comb => \ByteCounter:CounterUDB:per_equal\ ,
+            z0_comb => \ByteCounter:CounterUDB:status_1\ ,
+            ce1_comb => \ByteCounter:CounterUDB:cmp_out_i\ ,
+            f0_bus_stat_comb => \ByteCounter:CounterUDB:status_6\ ,
+            f0_blk_stat_comb => \ByteCounter:CounterUDB:status_5\ );
+        Properties:
+        {
+            a0_init = "00000000"
+            a1_init = "00000000"
+            ce0_sync = 1
+            ce1_sync = 1
+            cl0_sync = 1
+            cl1_sync = 1
+            cmsb_sync = 1
+            co_msb_sync = 1
+            cy_dpconfig = "0000000001000000000000001000000001000000010000000000000010000000000000000100000010101000010100000010000001000000101010000101000011111111000000001111111111111111101000000000000000000001000000000000000000011000"
+            d0_init = "00000000"
+            d1_init = "00000000"
+            f0_blk_sync = 1
+            f0_bus_sync = 1
+            f1_blk_sync = 1
+            f1_bus_sync = 1
+            ff0_sync = 1
+            ff1_sync = 1
+            ov_msb_sync = 1
+            so_sync = 1
+            z0_sync = 1
+            z1_sync = 1
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+    </CYPRESSTAG>
+    <CYPRESSTAG name="Status register listing">
+    </CYPRESSTAG>
+    <CYPRESSTAG name="StatusI register listing">
+
+    ------------------------------------------------------------
+    StatusI register listing
+    ------------------------------------------------------------
+
+    statusicell: Name =\Timer_1:TimerUDB:rstSts:stsreg\
+        PORT MAP (
+            reset => Net_21 ,
+            clock => Net_19 ,
+            status_3 => \Timer_1:TimerUDB:status_3\ ,
+            status_2 => \Timer_1:TimerUDB:status_2\ ,
+            status_0 => \Timer_1:TimerUDB:status_tc\ ,
+            interrupt => Net_22 );
+        Properties:
+        {
+            cy_force_order = 1
+            cy_int_mask = "1111111"
+            cy_md_select = "0000011"
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+
+    statusicell: Name =\LabVIEW_UART:BUART:sTX:TxSts\
+        PORT MAP (
+            reset => \LabVIEW_UART:BUART:reset_reg\ ,
+            clock => \LabVIEW_UART:Net_9\ ,
+            status_3 => \LabVIEW_UART:BUART:tx_fifo_notfull\ ,
+            status_2 => \LabVIEW_UART:BUART:tx_status_2\ ,
+            status_1 => \LabVIEW_UART:BUART:tx_fifo_empty\ ,
+            status_0 => \LabVIEW_UART:BUART:tx_status_0\ );
+        Properties:
+        {
+            cy_force_order = 1
+            cy_int_mask = "1111111"
+            cy_md_select = "0000001"
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+
+    statusicell: Name =\LabVIEW_UART:BUART:sRX:RxSts\
+        PORT MAP (
+            reset => \LabVIEW_UART:BUART:reset_reg\ ,
+            clock => \LabVIEW_UART:Net_9\ ,
+            status_5 => \LabVIEW_UART:BUART:rx_status_5\ ,
+            status_4 => \LabVIEW_UART:BUART:rx_status_4\ ,
+            status_3 => \LabVIEW_UART:BUART:rx_status_3\ ,
+            interrupt => Net_48 );
+        Properties:
+        {
+            cy_force_order = 1
+            cy_int_mask = "1111111"
+            cy_md_select = "1011111"
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+
+    statusicell: Name =\ByteCounter:CounterUDB:sSTSReg:stsreg\
+        PORT MAP (
+            reset => Net_34 ,
+            clock => ClockBlock_BUS_CLK ,
+            status_6 => \ByteCounter:CounterUDB:status_6\ ,
+            status_5 => \ByteCounter:CounterUDB:status_5\ ,
+            status_2 => \ByteCounter:CounterUDB:status_2\ ,
+            status_1 => \ByteCounter:CounterUDB:status_1\ ,
+            status_0 => \ByteCounter:CounterUDB:status_0\ ,
+            interrupt => Net_75 );
+        Properties:
+        {
+            cy_force_order = 1
+            cy_int_mask = "1111111"
+            cy_md_select = "0011111"
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+    </CYPRESSTAG>
+    <CYPRESSTAG name="Sync listing">
+    </CYPRESSTAG>
+    <CYPRESSTAG name="Control register listing">
+
+    ------------------------------------------------------------
+    Control register listing
+    ------------------------------------------------------------
+
+    controlcell: Name =\TimerReset:Sync:ctrl_reg\
+        PORT MAP (
+            control_7 => \TimerReset:control_7\ ,
+            control_6 => \TimerReset:control_6\ ,
+            control_5 => \TimerReset:control_5\ ,
+            control_4 => \TimerReset:control_4\ ,
+            control_3 => \TimerReset:control_3\ ,
+            control_2 => \TimerReset:control_2\ ,
+            control_1 => \TimerReset:control_1\ ,
+            control_0 => Net_21 );
+        Properties:
+        {
+            cy_ctrl_mode_0 = "00000000"
+            cy_ctrl_mode_1 = "00000000"
+            cy_ext_reset = 0
+            cy_force_order = 1
+            cy_init_value = "00000001"
+        }
+        Clock Enable: True
+
+    controlcell: Name =\Timer_1:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\
+        PORT MAP (
+            clock => Net_19 ,
+            control_7 => \Timer_1:TimerUDB:control_7\ ,
+            control_6 => \Timer_1:TimerUDB:control_6\ ,
+            control_5 => \Timer_1:TimerUDB:control_5\ ,
+            control_4 => \Timer_1:TimerUDB:control_4\ ,
+            control_3 => \Timer_1:TimerUDB:control_3\ ,
+            control_2 => \Timer_1:TimerUDB:control_2\ ,
+            control_1 => \Timer_1:TimerUDB:control_1\ ,
+            control_0 => \Timer_1:TimerUDB:control_0\ );
+        Properties:
+        {
+            cy_ctrl_mode_0 = "11111111"
+            cy_ctrl_mode_1 = "00000000"
+            cy_ext_reset = 0
+            cy_force_order = 1
+            cy_init_value = "00000000"
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+
+    controlcell: Name =\UARTReset:Sync:ctrl_reg\
+        PORT MAP (
+            control_7 => \UARTReset:control_7\ ,
+            control_6 => \UARTReset:control_6\ ,
+            control_5 => \UARTReset:control_5\ ,
+            control_4 => \UARTReset:control_4\ ,
+            control_3 => \UARTReset:control_3\ ,
+            control_2 => \UARTReset:control_2\ ,
+            control_1 => \UARTReset:control_1\ ,
+            control_0 => Net_6 );
+        Properties:
+        {
+            cy_ctrl_mode_0 = "00000000"
+            cy_ctrl_mode_1 = "00000000"
+            cy_ext_reset = 0
+            cy_force_order = 1
+            cy_init_value = "00000001"
+        }
+        Clock Enable: True
+
+    controlcell: Name =\LEDDrive:Sync:ctrl_reg\
+        PORT MAP (
+            control_7 => \LEDDrive:control_7\ ,
+            control_6 => \LEDDrive:control_6\ ,
+            control_5 => \LEDDrive:control_5\ ,
+            control_4 => \LEDDrive:control_4\ ,
+            control_3 => \LEDDrive:control_3\ ,
+            control_2 => \LEDDrive:control_2\ ,
+            control_1 => \LEDDrive:control_1\ ,
+            control_0 => Net_65 );
+        Properties:
+        {
+            cy_ctrl_mode_0 = "00000000"
+            cy_ctrl_mode_1 = "00000000"
+            cy_ext_reset = 0
+            cy_force_order = 1
+            cy_init_value = "00000000"
+        }
+        Clock Enable: True
+
+    controlcell: Name =\ByteCounter:CounterUDB:sCTRLReg:ctrlreg\
+        PORT MAP (
+            clock => ClockBlock_BUS_CLK ,
+            control_7 => \ByteCounter:CounterUDB:control_7\ ,
+            control_6 => \ByteCounter:CounterUDB:control_6\ ,
+            control_5 => \ByteCounter:CounterUDB:control_5\ ,
+            control_4 => \ByteCounter:CounterUDB:control_4\ ,
+            control_3 => \ByteCounter:CounterUDB:control_3\ ,
+            control_2 => \ByteCounter:CounterUDB:control_2\ ,
+            control_1 => \ByteCounter:CounterUDB:control_1\ ,
+            control_0 => \ByteCounter:CounterUDB:control_0\ );
+        Properties:
+        {
+            cy_ctrl_mode_0 = "11111111"
+            cy_ctrl_mode_1 = "00000000"
+            cy_ext_reset = 0
+            cy_force_order = 1
+            cy_init_value = "00000000"
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+
+    controlcell: Name =\ByteCountReset:Sync:ctrl_reg\
+        PORT MAP (
+            control_7 => \ByteCountReset:control_7\ ,
+            control_6 => \ByteCountReset:control_6\ ,
+            control_5 => \ByteCountReset:control_5\ ,
+            control_4 => \ByteCountReset:control_4\ ,
+            control_3 => \ByteCountReset:control_3\ ,
+            control_2 => \ByteCountReset:control_2\ ,
+            control_1 => \ByteCountReset:control_1\ ,
+            control_0 => Net_34 );
+        Properties:
+        {
+            cy_ctrl_mode_0 = "00000000"
+            cy_ctrl_mode_1 = "00000000"
+            cy_ext_reset = 0
+            cy_force_order = 1
+            cy_init_value = "00000001"
+        }
+        Clock Enable: True
+    </CYPRESSTAG>
+    <CYPRESSTAG name="Count7 listing">
+
+    ------------------------------------------------------------
+    Count7 listing
+    ------------------------------------------------------------
+
+    count7cell: Name =\LabVIEW_UART:BUART:sRX:RxBitCounter\
+        PORT MAP (
+            clock => \LabVIEW_UART:Net_9\ ,
+            reset => \LabVIEW_UART:BUART:reset_reg\ ,
+            load => \LabVIEW_UART:BUART:rx_counter_load\ ,
+            count_6 => \LabVIEW_UART:BUART:rx_count_6\ ,
+            count_5 => \LabVIEW_UART:BUART:rx_count_5\ ,
+            count_4 => \LabVIEW_UART:BUART:rx_count_4\ ,
+            count_3 => \LabVIEW_UART:BUART:rx_count_3\ ,
+            count_2 => \LabVIEW_UART:BUART:rx_count_2\ ,
+            count_1 => \LabVIEW_UART:BUART:rx_count_1\ ,
+            count_0 => \LabVIEW_UART:BUART:rx_count_0\ ,
+            tc => \LabVIEW_UART:BUART:rx_count7_tc\ );
+        Properties:
+        {
+            cy_alt_mode = 0
+            cy_init_value = "0000000"
+            cy_period = "1110010"
+            cy_route_en = 1
+            cy_route_ld = 1
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+    </CYPRESSTAG>
+    <CYPRESSTAG name="DRQ listing">
+    </CYPRESSTAG>
+    <CYPRESSTAG name="Interrupt listing">
+
+    ------------------------------------------------------------
+    Interrupt listing
+    ------------------------------------------------------------
+
+    interrupt: Name =TimerInterrupt
+        PORT MAP (
+            interrupt => Net_22 );
+        Properties:
+        {
+            int_type = "10"
+            is_nmi = 0
+        }
+
+    interrupt: Name =ByteReceived
+        PORT MAP (
+            interrupt => Net_48 );
+        Properties:
+        {
+            int_type = "10"
+            is_nmi = 0
+        }
+
+    interrupt: Name =CommandReceived
+        PORT MAP (
+            interrupt => Net_75 );
+        Properties:
+        {
+            int_type = "10"
+            is_nmi = 0
+        }
+    </CYPRESSTAG>
+</CYPRESSTAG>
+<CYPRESSTAG name="Technology mapping summary" expanded>
+
+------------------------------------------------------------
+Technology mapping summary
+------------------------------------------------------------
+
+Resource Type                 : Used : Free :  Max :  % Used
+============================================================
+Digital Clocks                :    2 :    6 :    8 : 25.00 %
+Analog Clocks                 :    0 :    4 :    4 :  0.00 %
+CapSense Buffers              :    0 :    2 :    2 :  0.00 %
+Digital Filter Block          :    0 :    1 :    1 :  0.00 %
+Interrupts                    :    3 :   29 :   32 :  9.38 %
+IO                            :    6 :   42 :   48 : 12.50 %
+Segment LCD                   :    0 :    1 :    1 :  0.00 %
+CAN 2.0b                      :    0 :    1 :    1 :  0.00 %
+I2C                           :    0 :    1 :    1 :  0.00 %
+USB                           :    0 :    1 :    1 :  0.00 %
+DMA Channels                  :    0 :   24 :   24 :  0.00 %
+Timer                         :    0 :    4 :    4 :  0.00 %
+UDB                           :      :      :      :        
+  Macrocells                  :   36 :  156 :  192 : 18.75 %
+  Unique P-terms              :   67 :  317 :  384 : 17.45 %
+  Total P-terms               :   71 :      :      :        
+  Datapath Cells              :    6 :   18 :   24 : 25.00 %
+  Status Cells                :    5 :   19 :   24 : 20.83 %
+    StatusI Registers         :    4 :      :      :        
+    Routed Count7 Load/Enable :    1 :      :      :        
+  Control Cells               :    7 :   17 :   24 : 29.17 %
+    Control Registers         :    6 :      :      :        
+    Count7 Cells              :    1 :      :      :        
+Opamp                         :    0 :    4 :    4 :  0.00 %
+Comparator                    :    0 :    4 :    4 :  0.00 %
+Delta-Sigma ADC               :    0 :    1 :    1 :  0.00 %
+LPF                           :    0 :    2 :    2 :  0.00 %
+SAR ADC                       :    0 :    2 :    2 :  0.00 %
+Analog (SC/CT) Blocks         :    0 :    4 :    4 :  0.00 %
+DAC                           :      :      :      :        
+  VIDAC                       :    0 :    4 :    4 :  0.00 %
+</CYPRESSTAG>
+Technology Mapping: Elapsed time ==> 0s.334ms
+Tech Mapping phase: Elapsed time ==> 0s.440ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Analog Placement">
+Initial Analog Placement Results:
+IO_1@[IOP=(2)][IoId=(1)] : LED(0) (fixed)
+IO_6@[IOP=(12)][IoId=(6)] : Rx_1(0) (fixed)
+IO_7@[IOP=(12)][IoId=(7)] : Tx_1(0) (fixed)
+Analog Placement phase: Elapsed time ==> 0s.037ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Analog Routing">
+Analog Routing phase: Elapsed time ==> 0s.000ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Analog Code Generation">
+============ Analog Final Answer Routes ============
+Dump of CyAnalogRoutingResultsDB
+Map of net to items {
+}
+Map of item to net {
+}
+Mux Info {
+}
+Dump of CyP35AnalogRoutingResultsDB
+IsVddaHalfUsedForComp = False
+IsVddaHalfUsedForSar0 = False
+IsVddaHalfUsedForSar1 = False
+Analog Code Generation phase: Elapsed time ==> 0s.343ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Digital Placement">
+<CYPRESSTAG name="Detailed placement messages">
+I2076: Total run-time: 1.7 sec.
+
+</CYPRESSTAG>
+<CYPRESSTAG name="PLD Packing">
+<CYPRESSTAG name="PLD Packing Summary" expanded>
+
+------------------------------------------------------------
+PLD Packing Summary
+------------------------------------------------------------
+            Resource Type : Used : Free :  Max :  % Used
+    ====================================================
+                     PLDs :   17 :   31 :   48 :  35.42%
+
+<CYPRESSTAG name="PLD Statistics">
+
+        PLD Resource Type :     Average/LAB
+    =======================================
+                   Inputs :            5.94
+                   Pterms :            4.06
+               Macrocells :            2.12
+</CYPRESSTAG>
+<CYPRESSTAG name="Packed PLD Contents">
+Packed PLD Contents not displayed at this verbose level.</CYPRESSTAG>
+</CYPRESSTAG>
+PLD Packing: Elapsed time ==> 0s.002ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Partitioning">
+<CYPRESSTAG name="Initial Partitioning Summary">
+Initial Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
+<CYPRESSTAG name="Final Partitioning Summary">
+Final Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
+Partitioning: Elapsed time ==> 0s.040ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Final Placement Summary">
+
+------------------------------------------------------------
+Final Placement Summary
+------------------------------------------------------------
+
+       Resource Type :      Count : Avg Inputs : Avg Outputs
+    ========================================================
+                 UDB :          9 :       8.22 :       4.00
+<CYPRESSTAG name="Final Placement Details">
+<CYPRESSTAG name="Component Details">
+
+------------------------------------------------------------
+Component Placement Details
+------------------------------------------------------------
+UDB [UDB=(0,0)] contents:
+LAB@[UDB=(0,0)][LB=0] #macrocells=1, #inputs=3, #pterms=1
+{
+    [McSlotId=0]:     MacroCell: Name=\LabVIEW_UART:BUART:rx_bitclk_enable\, Mode=(D-Register) @ [UDB=(0,0)][LB=0][MC=0]
+        Total # of inputs        : 3
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\LabVIEW_UART:BUART:rx_count_2\ * 
+              !\LabVIEW_UART:BUART:rx_count_1\ * 
+              !\LabVIEW_UART:BUART:rx_count_0\
+        );
+        Output = \LabVIEW_UART:BUART:rx_bitclk_enable\ (fanout=6)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]: (empty)
+    [McSlotId=2]: (empty)
+    [McSlotId=3]: (empty)
+}
+
+LAB@[UDB=(0,0)][LB=1] #macrocells=1, #inputs=2, #pterms=1
+{
+    [McSlotId=0]: (empty)
+    [McSlotId=1]: (empty)
+    [McSlotId=2]:     MacroCell: Name=\LabVIEW_UART:BUART:rx_last\, Mode=(D-Register) @ [UDB=(0,0)][LB=1][MC=2]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * Net_46
+        );
+        Output = \LabVIEW_UART:BUART:rx_last\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]: (empty)
+}
+
+datapathcell: Name =\LabVIEW_UART:BUART:sTX:sCLOCK:TxBitClkGen\
+    PORT MAP (
+        reset => \LabVIEW_UART:BUART:reset_reg\ ,
+        clock => \LabVIEW_UART:Net_9\ ,
+        cs_addr_0 => \LabVIEW_UART:BUART:counter_load_not\ ,
+        ce0_reg => \LabVIEW_UART:BUART:tx_bitclk_enable_pre\ ,
+        ce1_reg => \LabVIEW_UART:BUART:tx_counter_dp\ );
+    Properties:
+    {
+        a0_init = "00000000"
+        a1_init = "00000000"
+        ce0_sync = 1
+        ce1_sync = 1
+        cl0_sync = 1
+        cl1_sync = 1
+        cmsb_sync = 1
+        co_msb_sync = 1
+        cy_dpconfig = "1010100001000000001000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111000000001111111100000111001000000100000000000101111100000000000000001000"
+        d0_init = "00000000"
+        d1_init = "00000000"
+        f0_blk_sync = 1
+        f0_bus_sync = 1
+        f1_blk_sync = 1
+        f1_bus_sync = 1
+        ff0_sync = 1
+        ff1_sync = 1
+        ov_msb_sync = 1
+        so_sync = 1
+        z0_sync = 1
+        z1_sync = 1
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+count7cell: Name =\LabVIEW_UART:BUART:sRX:RxBitCounter\
+    PORT MAP (
+        clock => \LabVIEW_UART:Net_9\ ,
+        reset => \LabVIEW_UART:BUART:reset_reg\ ,
+        load => \LabVIEW_UART:BUART:rx_counter_load\ ,
+        count_6 => \LabVIEW_UART:BUART:rx_count_6\ ,
+        count_5 => \LabVIEW_UART:BUART:rx_count_5\ ,
+        count_4 => \LabVIEW_UART:BUART:rx_count_4\ ,
+        count_3 => \LabVIEW_UART:BUART:rx_count_3\ ,
+        count_2 => \LabVIEW_UART:BUART:rx_count_2\ ,
+        count_1 => \LabVIEW_UART:BUART:rx_count_1\ ,
+        count_0 => \LabVIEW_UART:BUART:rx_count_0\ ,
+        tc => \LabVIEW_UART:BUART:rx_count7_tc\ );
+    Properties:
+    {
+        cy_alt_mode = 0
+        cy_init_value = "0000000"
+        cy_period = "1110010"
+        cy_route_en = 1
+        cy_route_ld = 1
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+UDB [UDB=(0,1)] contents:
+LAB@[UDB=(0,1)][LB=0] #macrocells=3, #inputs=12, #pterms=8
+{
+    [McSlotId=0]:     MacroCell: Name=\LabVIEW_UART:BUART:rx_state_2\, Mode=(T-Register) @ [UDB=(0,1)][LB=0][MC=0]
+        Total # of inputs        : 11
+        Total # of product terms : 6
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 6 pterms
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              !\LabVIEW_UART:BUART:rx_state_0\ * 
+              \LabVIEW_UART:BUART:rx_bitclk_enable\ * 
+              \LabVIEW_UART:BUART:rx_state_3\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              !\LabVIEW_UART:BUART:rx_state_0\ * 
+              !\LabVIEW_UART:BUART:rx_state_3\ * 
+              !\LabVIEW_UART:BUART:rx_state_2\ * !Net_46 * 
+              \LabVIEW_UART:BUART:rx_last\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              \LabVIEW_UART:BUART:rx_state_0\ * 
+              !\LabVIEW_UART:BUART:rx_state_3\ * 
+              !\LabVIEW_UART:BUART:rx_state_2\ * 
+              !\LabVIEW_UART:BUART:rx_count_6\ * 
+              !\LabVIEW_UART:BUART:rx_count_5\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              \LabVIEW_UART:BUART:rx_state_0\ * 
+              !\LabVIEW_UART:BUART:rx_state_3\ * 
+              !\LabVIEW_UART:BUART:rx_state_2\ * 
+              !\LabVIEW_UART:BUART:rx_count_6\ * 
+              !\LabVIEW_UART:BUART:rx_count_4\
+            + \LabVIEW_UART:BUART:reset_reg\ * 
+              \LabVIEW_UART:BUART:rx_state_2\
+            + !\LabVIEW_UART:BUART:rx_state_1\ * 
+              !\LabVIEW_UART:BUART:rx_state_0\ * 
+              \LabVIEW_UART:BUART:rx_bitclk_enable\ * 
+              \LabVIEW_UART:BUART:rx_state_2\
+        );
+        Output = \LabVIEW_UART:BUART:rx_state_2\ (fanout=7)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=\LabVIEW_UART:BUART:rx_state_stop1_reg\, Mode=(D-Register) @ [UDB=(0,1)][LB=0][MC=1]
+        Total # of inputs        : 4
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        !(
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              !\LabVIEW_UART:BUART:rx_state_0\ * 
+              \LabVIEW_UART:BUART:rx_state_3\ * 
+              \LabVIEW_UART:BUART:rx_state_2\
+        );
+        Output = \LabVIEW_UART:BUART:rx_state_stop1_reg\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=\LabVIEW_UART:BUART:reset_reg\, Mode=(D-Register) @ [UDB=(0,1)][LB=0][MC=2]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_6
+        );
+        Output = \LabVIEW_UART:BUART:reset_reg\ (fanout=21)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]: (empty)
+}
+
+LAB@[UDB=(0,1)][LB=1] #macrocells=4, #inputs=8, #pterms=8
+{
+    [McSlotId=0]:     MacroCell: Name=\LabVIEW_UART:BUART:rx_status_5\, Mode=(Combinatorial) @ [UDB=(0,1)][LB=1][MC=0]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \LabVIEW_UART:BUART:rx_fifonotempty\ * 
+              \LabVIEW_UART:BUART:rx_state_stop1_reg\
+        );
+        Output = \LabVIEW_UART:BUART:rx_status_5\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=\LabVIEW_UART:BUART:pollcount_1\, Mode=(D-Register) @ [UDB=(0,1)][LB=1][MC=1]
+        Total # of inputs        : 6
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_count_2\ * 
+              !\LabVIEW_UART:BUART:rx_count_1\ * 
+              !\LabVIEW_UART:BUART:pollcount_1\ * Net_46 * 
+              \LabVIEW_UART:BUART:pollcount_0\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_count_2\ * 
+              !\LabVIEW_UART:BUART:rx_count_1\ * 
+              \LabVIEW_UART:BUART:pollcount_1\ * !Net_46
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_count_2\ * 
+              !\LabVIEW_UART:BUART:rx_count_1\ * 
+              \LabVIEW_UART:BUART:pollcount_1\ * 
+              !\LabVIEW_UART:BUART:pollcount_0\
+        );
+        Output = \LabVIEW_UART:BUART:pollcount_1\ (fanout=4)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=\LabVIEW_UART:BUART:pollcount_0\, Mode=(D-Register) @ [UDB=(0,1)][LB=1][MC=2]
+        Total # of inputs        : 5
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_count_2\ * 
+              !\LabVIEW_UART:BUART:rx_count_1\ * !Net_46 * 
+              \LabVIEW_UART:BUART:pollcount_0\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_count_2\ * 
+              !\LabVIEW_UART:BUART:rx_count_1\ * Net_46 * 
+              !\LabVIEW_UART:BUART:pollcount_0\
+        );
+        Output = \LabVIEW_UART:BUART:pollcount_0\ (fanout=5)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]:     MacroCell: Name=\LabVIEW_UART:BUART:rx_postpoll\, Mode=(Combinatorial) @ [UDB=(0,1)][LB=1][MC=3]
+        Total # of inputs        : 3
+        Total # of product terms : 2
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              \LabVIEW_UART:BUART:pollcount_1\
+            + Net_46 * \LabVIEW_UART:BUART:pollcount_0\
+        );
+        Output = \LabVIEW_UART:BUART:rx_postpoll\ (fanout=1)
+        Properties               : 
+        {
+        }
+}
+
+datapathcell: Name =\LabVIEW_UART:BUART:sRX:RxShifter:u0\
+    PORT MAP (
+        reset => \LabVIEW_UART:BUART:reset_reg\ ,
+        clock => \LabVIEW_UART:Net_9\ ,
+        cs_addr_2 => \LabVIEW_UART:BUART:rx_state_1\ ,
+        cs_addr_1 => \LabVIEW_UART:BUART:rx_state_0\ ,
+        cs_addr_0 => \LabVIEW_UART:BUART:rx_bitclk_enable\ ,
+        route_si => \LabVIEW_UART:BUART:rx_postpoll\ ,
+        f0_load => \LabVIEW_UART:BUART:rx_load_fifo\ ,
+        f0_bus_stat_comb => \LabVIEW_UART:BUART:rx_fifonotempty\ ,
+        f0_blk_stat_comb => \LabVIEW_UART:BUART:rx_fifofull\ );
+    Properties:
+    {
+        a0_init = "00000000"
+        a1_init = "00000000"
+        ce0_sync = 1
+        ce1_sync = 1
+        cl0_sync = 1
+        cl1_sync = 1
+        cmsb_sync = 1
+        co_msb_sync = 1
+        cy_dpconfig = "0000000000000000000000000000000000000000000000000000001001000000000100000000000000010000001100000001000000000000000100100001000011111111000000001111111111111111101000000110001001000001111100000000000000001100"
+        d0_init = "00000000"
+        d1_init = "00000000"
+        f0_blk_sync = 1
+        f0_bus_sync = 1
+        f1_blk_sync = 1
+        f1_bus_sync = 1
+        ff0_sync = 1
+        ff1_sync = 1
+        ov_msb_sync = 1
+        so_sync = 1
+        z0_sync = 1
+        z1_sync = 1
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+statusicell: Name =\LabVIEW_UART:BUART:sRX:RxSts\
+    PORT MAP (
+        reset => \LabVIEW_UART:BUART:reset_reg\ ,
+        clock => \LabVIEW_UART:Net_9\ ,
+        status_5 => \LabVIEW_UART:BUART:rx_status_5\ ,
+        status_4 => \LabVIEW_UART:BUART:rx_status_4\ ,
+        status_3 => \LabVIEW_UART:BUART:rx_status_3\ ,
+        interrupt => Net_48 );
+    Properties:
+    {
+        cy_force_order = 1
+        cy_int_mask = "1111111"
+        cy_md_select = "1011111"
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+controlcell: Name =\UARTReset:Sync:ctrl_reg\
+    PORT MAP (
+        control_7 => \UARTReset:control_7\ ,
+        control_6 => \UARTReset:control_6\ ,
+        control_5 => \UARTReset:control_5\ ,
+        control_4 => \UARTReset:control_4\ ,
+        control_3 => \UARTReset:control_3\ ,
+        control_2 => \UARTReset:control_2\ ,
+        control_1 => \UARTReset:control_1\ ,
+        control_0 => Net_6 );
+    Properties:
+    {
+        cy_ctrl_mode_0 = "00000000"
+        cy_ctrl_mode_1 = "00000000"
+        cy_ext_reset = 0
+        cy_force_order = 1
+        cy_init_value = "00000001"
+    }
+    Clock Enable: True
+
+UDB [UDB=(0,2)] contents:
+LAB@[UDB=(0,2)][LB=0] #macrocells=3, #inputs=12, #pterms=7
+{
+    [McSlotId=0]:     MacroCell: Name=\LabVIEW_UART:BUART:rx_state_0\, Mode=(T-Register) @ [UDB=(0,2)][LB=0][MC=0]
+        Total # of inputs        : 12
+        Total # of product terms : 5
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 5 pterms
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              !\LabVIEW_UART:BUART:rx_state_0\ * 
+              \LabVIEW_UART:BUART:rx_bitclk_enable\ * 
+              !\LabVIEW_UART:BUART:rx_state_3\ * 
+              \LabVIEW_UART:BUART:rx_state_2\ * 
+              !\LabVIEW_UART:BUART:pollcount_1\ * !Net_46
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              !\LabVIEW_UART:BUART:rx_state_0\ * 
+              \LabVIEW_UART:BUART:rx_bitclk_enable\ * 
+              !\LabVIEW_UART:BUART:rx_state_3\ * 
+              \LabVIEW_UART:BUART:rx_state_2\ * 
+              !\LabVIEW_UART:BUART:pollcount_1\ * 
+              !\LabVIEW_UART:BUART:pollcount_0\
+            + \LabVIEW_UART:BUART:reset_reg\ * 
+              \LabVIEW_UART:BUART:rx_state_0\
+            + !\LabVIEW_UART:BUART:rx_state_1\ * 
+              \LabVIEW_UART:BUART:rx_state_0\ * 
+              !\LabVIEW_UART:BUART:rx_state_3\ * 
+              !\LabVIEW_UART:BUART:rx_state_2\ * 
+              !\LabVIEW_UART:BUART:rx_count_6\ * 
+              !\LabVIEW_UART:BUART:rx_count_5\
+            + !\LabVIEW_UART:BUART:rx_state_1\ * 
+              \LabVIEW_UART:BUART:rx_state_0\ * 
+              !\LabVIEW_UART:BUART:rx_state_3\ * 
+              !\LabVIEW_UART:BUART:rx_state_2\ * 
+              !\LabVIEW_UART:BUART:rx_count_6\ * 
+              !\LabVIEW_UART:BUART:rx_count_4\
+        );
+        Output = \LabVIEW_UART:BUART:rx_state_0\ (fanout=8)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=\LabVIEW_UART:BUART:rx_counter_load\, Mode=(Combinatorial) @ [UDB=(0,2)][LB=0][MC=1]
+        Total # of inputs        : 4
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              !\LabVIEW_UART:BUART:rx_state_0\ * 
+              !\LabVIEW_UART:BUART:rx_state_3\ * 
+              !\LabVIEW_UART:BUART:rx_state_2\
+        );
+        Output = \LabVIEW_UART:BUART:rx_counter_load\ (fanout=2)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=\LabVIEW_UART:BUART:rx_state_1\, Mode=(D-Register) @ [UDB=(0,2)][LB=0][MC=2]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * 
+              \LabVIEW_UART:BUART:rx_state_1\
+        );
+        Output = \LabVIEW_UART:BUART:rx_state_1\ (fanout=9)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]: (empty)
+}
+
+LAB@[UDB=(0,2)][LB=1] #macrocells=3, #inputs=12, #pterms=7
+{
+    [McSlotId=0]:     MacroCell: Name=\LabVIEW_UART:BUART:rx_status_3\, Mode=(D-Register) @ [UDB=(0,2)][LB=1][MC=0]
+        Total # of inputs        : 9
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              !\LabVIEW_UART:BUART:rx_state_0\ * 
+              \LabVIEW_UART:BUART:rx_bitclk_enable\ * 
+              \LabVIEW_UART:BUART:rx_state_3\ * 
+              \LabVIEW_UART:BUART:rx_state_2\ * 
+              !\LabVIEW_UART:BUART:pollcount_1\ * !Net_46
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              !\LabVIEW_UART:BUART:rx_state_0\ * 
+              \LabVIEW_UART:BUART:rx_bitclk_enable\ * 
+              \LabVIEW_UART:BUART:rx_state_3\ * 
+              \LabVIEW_UART:BUART:rx_state_2\ * 
+              !\LabVIEW_UART:BUART:pollcount_1\ * 
+              !\LabVIEW_UART:BUART:pollcount_0\
+        );
+        Output = \LabVIEW_UART:BUART:rx_status_3\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=\LabVIEW_UART:BUART:rx_state_3\, Mode=(T-Register) @ [UDB=(0,2)][LB=1][MC=1]
+        Total # of inputs        : 9
+        Total # of product terms : 4
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 4 pterms
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              \LabVIEW_UART:BUART:rx_state_0\ * 
+              !\LabVIEW_UART:BUART:rx_state_3\ * 
+              !\LabVIEW_UART:BUART:rx_state_2\ * 
+              !\LabVIEW_UART:BUART:rx_count_6\ * 
+              !\LabVIEW_UART:BUART:rx_count_5\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              \LabVIEW_UART:BUART:rx_state_0\ * 
+              !\LabVIEW_UART:BUART:rx_state_3\ * 
+              !\LabVIEW_UART:BUART:rx_state_2\ * 
+              !\LabVIEW_UART:BUART:rx_count_6\ * 
+              !\LabVIEW_UART:BUART:rx_count_4\
+            + \LabVIEW_UART:BUART:reset_reg\ * 
+              \LabVIEW_UART:BUART:rx_state_3\
+            + !\LabVIEW_UART:BUART:rx_state_1\ * 
+              !\LabVIEW_UART:BUART:rx_state_0\ * 
+              \LabVIEW_UART:BUART:rx_bitclk_enable\ * 
+              \LabVIEW_UART:BUART:rx_state_3\ * 
+              \LabVIEW_UART:BUART:rx_state_2\
+        );
+        Output = \LabVIEW_UART:BUART:rx_state_3\ (fanout=7)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=\LabVIEW_UART:BUART:rx_load_fifo\, Mode=(D-Register) @ [UDB=(0,2)][LB=1][MC=2]
+        Total # of inputs        : 9
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              !\LabVIEW_UART:BUART:rx_state_0\ * 
+              \LabVIEW_UART:BUART:rx_bitclk_enable\ * 
+              \LabVIEW_UART:BUART:rx_state_3\ * 
+              !\LabVIEW_UART:BUART:rx_state_2\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              \LabVIEW_UART:BUART:rx_state_0\ * 
+              !\LabVIEW_UART:BUART:rx_state_3\ * 
+              !\LabVIEW_UART:BUART:rx_state_2\ * 
+              !\LabVIEW_UART:BUART:rx_count_6\ * 
+              !\LabVIEW_UART:BUART:rx_count_5\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:rx_state_1\ * 
+              \LabVIEW_UART:BUART:rx_state_0\ * 
+              !\LabVIEW_UART:BUART:rx_state_3\ * 
+              !\LabVIEW_UART:BUART:rx_state_2\ * 
+              !\LabVIEW_UART:BUART:rx_count_6\ * 
+              !\LabVIEW_UART:BUART:rx_count_4\
+        );
+        Output = \LabVIEW_UART:BUART:rx_load_fifo\ (fanout=2)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]: (empty)
+}
+
+controlcell: Name =\LEDDrive:Sync:ctrl_reg\
+    PORT MAP (
+        control_7 => \LEDDrive:control_7\ ,
+        control_6 => \LEDDrive:control_6\ ,
+        control_5 => \LEDDrive:control_5\ ,
+        control_4 => \LEDDrive:control_4\ ,
+        control_3 => \LEDDrive:control_3\ ,
+        control_2 => \LEDDrive:control_2\ ,
+        control_1 => \LEDDrive:control_1\ ,
+        control_0 => Net_65 );
+    Properties:
+    {
+        cy_ctrl_mode_0 = "00000000"
+        cy_ctrl_mode_1 = "00000000"
+        cy_ext_reset = 0
+        cy_force_order = 1
+        cy_init_value = "00000000"
+    }
+    Clock Enable: True
+
+UDB [UDB=(0,3)] is empty.
+UDB [UDB=(0,4)] is empty.
+UDB [UDB=(0,5)] is empty.
+UDB [UDB=(1,0)] contents:
+LAB@[UDB=(1,0)][LB=0] #macrocells=3, #inputs=10, #pterms=7
+{
+    [McSlotId=0]: (empty)
+    [McSlotId=1]:     MacroCell: Name=\LabVIEW_UART:BUART:txn\, Mode=(D-Register) @ [UDB=(1,0)][LB=0][MC=1]
+        Total # of inputs        : 8
+        Total # of product terms : 5
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 5 pterms
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * \LabVIEW_UART:BUART:txn\ * 
+              \LabVIEW_UART:BUART:tx_state_1\ * 
+              !\LabVIEW_UART:BUART:tx_bitclk\
+            + !\LabVIEW_UART:BUART:reset_reg\ * \LabVIEW_UART:BUART:txn\ * 
+              \LabVIEW_UART:BUART:tx_state_2\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:tx_state_1\ * 
+              \LabVIEW_UART:BUART:tx_state_0\ * 
+              !\LabVIEW_UART:BUART:tx_shift_out\ * 
+              !\LabVIEW_UART:BUART:tx_state_2\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:tx_state_1\ * 
+              \LabVIEW_UART:BUART:tx_state_0\ * 
+              !\LabVIEW_UART:BUART:tx_state_2\ * 
+              !\LabVIEW_UART:BUART:tx_bitclk\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              \LabVIEW_UART:BUART:tx_state_1\ * 
+              !\LabVIEW_UART:BUART:tx_state_0\ * 
+              !\LabVIEW_UART:BUART:tx_shift_out\ * 
+              !\LabVIEW_UART:BUART:tx_state_2\ * 
+              !\LabVIEW_UART:BUART:tx_counter_dp\ * 
+              \LabVIEW_UART:BUART:tx_bitclk\
+        );
+        Output = \LabVIEW_UART:BUART:txn\ (fanout=2)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=Net_42, Mode=(Combinatorial) @ [UDB=(1,0)][LB=0][MC=2]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\LabVIEW_UART:BUART:txn\
+        );
+        Output = Net_42 (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]:     MacroCell: Name=\LabVIEW_UART:BUART:tx_status_0\, Mode=(Combinatorial) @ [UDB=(1,0)][LB=0][MC=3]
+        Total # of inputs        : 5
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\LabVIEW_UART:BUART:tx_state_1\ * 
+              !\LabVIEW_UART:BUART:tx_state_0\ * 
+              \LabVIEW_UART:BUART:tx_bitclk_enable_pre\ * 
+              \LabVIEW_UART:BUART:tx_fifo_empty\ * 
+              \LabVIEW_UART:BUART:tx_state_2\
+        );
+        Output = \LabVIEW_UART:BUART:tx_status_0\ (fanout=1)
+        Properties               : 
+        {
+        }
+}
+
+LAB@[UDB=(1,0)][LB=1] #macrocells=2, #inputs=5, #pterms=3
+{
+    [McSlotId=0]: (empty)
+    [McSlotId=1]: (empty)
+    [McSlotId=2]:     MacroCell: Name=\LabVIEW_UART:BUART:tx_status_2\, Mode=(Combinatorial) @ [UDB=(1,0)][LB=1][MC=2]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\LabVIEW_UART:BUART:tx_fifo_notfull\
+        );
+        Output = \LabVIEW_UART:BUART:tx_status_2\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]:     MacroCell: Name=\LabVIEW_UART:BUART:counter_load_not\, Mode=(Combinatorial) @ [UDB=(1,0)][LB=1][MC=3]
+        Total # of inputs        : 4
+        Total # of product terms : 2
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        !(
+              !\LabVIEW_UART:BUART:tx_state_1\ * 
+              !\LabVIEW_UART:BUART:tx_state_0\ * 
+              \LabVIEW_UART:BUART:tx_bitclk_enable_pre\
+            + !\LabVIEW_UART:BUART:tx_state_1\ * 
+              !\LabVIEW_UART:BUART:tx_state_0\ * 
+              !\LabVIEW_UART:BUART:tx_state_2\
+        );
+        Output = \LabVIEW_UART:BUART:counter_load_not\ (fanout=1)
+        Properties               : 
+        {
+        }
+}
+
+datapathcell: Name =\LabVIEW_UART:BUART:sTX:TxShifter:u0\
+    PORT MAP (
+        reset => \LabVIEW_UART:BUART:reset_reg\ ,
+        clock => \LabVIEW_UART:Net_9\ ,
+        cs_addr_2 => \LabVIEW_UART:BUART:tx_state_1\ ,
+        cs_addr_1 => \LabVIEW_UART:BUART:tx_state_0\ ,
+        cs_addr_0 => \LabVIEW_UART:BUART:tx_bitclk_enable_pre\ ,
+        so_comb => \LabVIEW_UART:BUART:tx_shift_out\ ,
+        f0_bus_stat_comb => \LabVIEW_UART:BUART:tx_fifo_notfull\ ,
+        f0_blk_stat_comb => \LabVIEW_UART:BUART:tx_fifo_empty\ );
+    Properties:
+    {
+        a0_init = "00000000"
+        a1_init = "00000000"
+        ce0_sync = 1
+        ce1_sync = 1
+        cl0_sync = 1
+        cl1_sync = 1
+        cmsb_sync = 1
+        co_msb_sync = 1
+        cy_dpconfig = "0000000000000000000000000000000000000000000000000000000011000000000000000000000000000010010000000000000000000000000000000000000011111111000000001111111111111111000000000000000001000100111100000000000000001100"
+        d0_init = "00000000"
+        d1_init = "00000000"
+        f0_blk_sync = 1
+        f0_bus_sync = 1
+        f1_blk_sync = 1
+        f1_bus_sync = 1
+        ff0_sync = 1
+        ff1_sync = 1
+        ov_msb_sync = 1
+        so_sync = 1
+        z0_sync = 1
+        z1_sync = 1
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+statusicell: Name =\LabVIEW_UART:BUART:sTX:TxSts\
+    PORT MAP (
+        reset => \LabVIEW_UART:BUART:reset_reg\ ,
+        clock => \LabVIEW_UART:Net_9\ ,
+        status_3 => \LabVIEW_UART:BUART:tx_fifo_notfull\ ,
+        status_2 => \LabVIEW_UART:BUART:tx_status_2\ ,
+        status_1 => \LabVIEW_UART:BUART:tx_fifo_empty\ ,
+        status_0 => \LabVIEW_UART:BUART:tx_status_0\ );
+    Properties:
+    {
+        cy_force_order = 1
+        cy_int_mask = "1111111"
+        cy_md_select = "0000001"
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+UDB [UDB=(1,1)] contents:
+LAB@[UDB=(1,1)][LB=0] #macrocells=1, #inputs=1, #pterms=1
+{
+    [McSlotId=0]:     MacroCell: Name=\ByteCounter:CounterUDB:overflow_reg_i\, Mode=(D-Register) @ [UDB=(1,1)][LB=0][MC=0]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \ByteCounter:CounterUDB:per_equal\
+        );
+        Output = \ByteCounter:CounterUDB:overflow_reg_i\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]: (empty)
+    [McSlotId=2]: (empty)
+    [McSlotId=3]: (empty)
+}
+
+LAB@[UDB=(1,1)][LB=1] #macrocells=2, #inputs=4, #pterms=2
+{
+    [McSlotId=0]: (empty)
+    [McSlotId=1]: (empty)
+    [McSlotId=2]:     MacroCell: Name=\LabVIEW_UART:BUART:rx_status_4\, Mode=(Combinatorial) @ [UDB=(1,1)][LB=1][MC=2]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \LabVIEW_UART:BUART:rx_load_fifo\ * 
+              \LabVIEW_UART:BUART:rx_fifofull\
+        );
+        Output = \LabVIEW_UART:BUART:rx_status_4\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]:     MacroCell: Name=\ByteCounter:CounterUDB:status_2\, Mode=(Combinatorial) @ [UDB=(1,1)][LB=1][MC=3]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \ByteCounter:CounterUDB:per_equal\ * 
+              !\ByteCounter:CounterUDB:overflow_reg_i\
+        );
+        Output = \ByteCounter:CounterUDB:status_2\ (fanout=1)
+        Properties               : 
+        {
+        }
+}
+
+controlcell: Name =\ByteCounter:CounterUDB:sCTRLReg:ctrlreg\
+    PORT MAP (
+        clock => ClockBlock_BUS_CLK ,
+        control_7 => \ByteCounter:CounterUDB:control_7\ ,
+        control_6 => \ByteCounter:CounterUDB:control_6\ ,
+        control_5 => \ByteCounter:CounterUDB:control_5\ ,
+        control_4 => \ByteCounter:CounterUDB:control_4\ ,
+        control_3 => \ByteCounter:CounterUDB:control_3\ ,
+        control_2 => \ByteCounter:CounterUDB:control_2\ ,
+        control_1 => \ByteCounter:CounterUDB:control_1\ ,
+        control_0 => \ByteCounter:CounterUDB:control_0\ );
+    Properties:
+    {
+        cy_ctrl_mode_0 = "11111111"
+        cy_ctrl_mode_1 = "00000000"
+        cy_ext_reset = 0
+        cy_force_order = 1
+        cy_init_value = "00000000"
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+UDB [UDB=(1,2)] contents:
+LAB@[UDB=(1,2)][LB=0] #macrocells=2, #inputs=3, #pterms=2
+{
+    [McSlotId=0]:     MacroCell: Name=\ByteCounter:CounterUDB:count_enable\, Mode=(Combinatorial) @ [UDB=(1,2)][LB=0][MC=0]
+        Total # of inputs        : 3
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_48 * \ByteCounter:CounterUDB:control_7\ * 
+              !\ByteCounter:CounterUDB:count_stored_i\
+        );
+        Output = \ByteCounter:CounterUDB:count_enable\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=\ByteCounter:CounterUDB:count_stored_i\, Mode=(D-Register) @ [UDB=(1,2)][LB=0][MC=1]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_48
+        );
+        Output = \ByteCounter:CounterUDB:count_stored_i\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]: (empty)
+    [McSlotId=3]: (empty)
+}
+
+LAB@[UDB=(1,2)][LB=1] #macrocells=3, #inputs=3, #pterms=3
+{
+    [McSlotId=0]: (empty)
+    [McSlotId=1]:     MacroCell: Name=\ByteCounter:CounterUDB:prevCompare\, Mode=(D-Register) @ [UDB=(1,2)][LB=1][MC=1]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \ByteCounter:CounterUDB:cmp_out_i\
+        );
+        Output = \ByteCounter:CounterUDB:prevCompare\ (fanout=2)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=\ByteCounter:CounterUDB:reload\, Mode=(Combinatorial) @ [UDB=(1,2)][LB=1][MC=2]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        !(
+              !Net_34 * !\ByteCounter:CounterUDB:prevCompare\
+        );
+        Output = \ByteCounter:CounterUDB:reload\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]:     MacroCell: Name=\ByteCounter:CounterUDB:status_0\, Mode=(Combinatorial) @ [UDB=(1,2)][LB=1][MC=3]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \ByteCounter:CounterUDB:cmp_out_i\ * 
+              !\ByteCounter:CounterUDB:prevCompare\
+        );
+        Output = \ByteCounter:CounterUDB:status_0\ (fanout=1)
+        Properties               : 
+        {
+        }
+}
+
+datapathcell: Name =\ByteCounter:CounterUDB:sC8:counterdp:u0\
+    PORT MAP (
+        clock => ClockBlock_BUS_CLK ,
+        cs_addr_2 => __ONE__ ,
+        cs_addr_1 => \ByteCounter:CounterUDB:count_enable\ ,
+        cs_addr_0 => \ByteCounter:CounterUDB:reload\ ,
+        ce0_comb => \ByteCounter:CounterUDB:per_equal\ ,
+        z0_comb => \ByteCounter:CounterUDB:status_1\ ,
+        ce1_comb => \ByteCounter:CounterUDB:cmp_out_i\ ,
+        f0_bus_stat_comb => \ByteCounter:CounterUDB:status_6\ ,
+        f0_blk_stat_comb => \ByteCounter:CounterUDB:status_5\ );
+    Properties:
+    {
+        a0_init = "00000000"
+        a1_init = "00000000"
+        ce0_sync = 1
+        ce1_sync = 1
+        cl0_sync = 1
+        cl1_sync = 1
+        cmsb_sync = 1
+        co_msb_sync = 1
+        cy_dpconfig = "0000000001000000000000001000000001000000010000000000000010000000000000000100000010101000010100000010000001000000101010000101000011111111000000001111111111111111101000000000000000000001000000000000000000011000"
+        d0_init = "00000000"
+        d1_init = "00000000"
+        f0_blk_sync = 1
+        f0_bus_sync = 1
+        f1_blk_sync = 1
+        f1_bus_sync = 1
+        ff0_sync = 1
+        ff1_sync = 1
+        ov_msb_sync = 1
+        so_sync = 1
+        z0_sync = 1
+        z1_sync = 1
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+statusicell: Name =\ByteCounter:CounterUDB:sSTSReg:stsreg\
+    PORT MAP (
+        reset => Net_34 ,
+        clock => ClockBlock_BUS_CLK ,
+        status_6 => \ByteCounter:CounterUDB:status_6\ ,
+        status_5 => \ByteCounter:CounterUDB:status_5\ ,
+        status_2 => \ByteCounter:CounterUDB:status_2\ ,
+        status_1 => \ByteCounter:CounterUDB:status_1\ ,
+        status_0 => \ByteCounter:CounterUDB:status_0\ ,
+        interrupt => Net_75 );
+    Properties:
+    {
+        cy_force_order = 1
+        cy_int_mask = "1111111"
+        cy_md_select = "0011111"
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+controlcell: Name =\ByteCountReset:Sync:ctrl_reg\
+    PORT MAP (
+        control_7 => \ByteCountReset:control_7\ ,
+        control_6 => \ByteCountReset:control_6\ ,
+        control_5 => \ByteCountReset:control_5\ ,
+        control_4 => \ByteCountReset:control_4\ ,
+        control_3 => \ByteCountReset:control_3\ ,
+        control_2 => \ByteCountReset:control_2\ ,
+        control_1 => \ByteCountReset:control_1\ ,
+        control_0 => Net_34 );
+    Properties:
+    {
+        cy_ctrl_mode_0 = "00000000"
+        cy_ctrl_mode_1 = "00000000"
+        cy_ext_reset = 0
+        cy_force_order = 1
+        cy_init_value = "00000001"
+    }
+    Clock Enable: True
+
+UDB [UDB=(1,3)] is empty.
+UDB [UDB=(1,4)] contents:
+LAB@[UDB=(1,4)][LB=1] #macrocells=1, #inputs=0, #pterms=0
+{
+    [McSlotId=0]:     MacroCell: Name=__ONE__, Mode=(Combinatorial) @ [UDB=(1,4)][LB=1][MC=0]
+        Total # of inputs        : 0
+        Total # of product terms : 0
+            Clock Enable: True
+        Main Equation            : 0 pterms
+        !(
+            0
+        );
+        Output = __ONE__ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]: (empty)
+    [McSlotId=2]: (empty)
+    [McSlotId=3]: (empty)
+}
+
+UDB [UDB=(1,5)] is empty.
+UDB [UDB=(2,0)] contents:
+LAB@[UDB=(2,0)][LB=0] #macrocells=2, #inputs=8, #pterms=5
+{
+    [McSlotId=0]:     MacroCell: Name=\LabVIEW_UART:BUART:tx_state_1\, Mode=(T-Register) @ [UDB=(2,0)][LB=0][MC=0]
+        Total # of inputs        : 7
+        Total # of product terms : 4
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 4 pterms
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * 
+              \LabVIEW_UART:BUART:tx_state_0\ * 
+              !\LabVIEW_UART:BUART:tx_state_2\ * 
+              \LabVIEW_UART:BUART:tx_bitclk\
+            + \LabVIEW_UART:BUART:reset_reg\ * 
+              \LabVIEW_UART:BUART:tx_state_1\
+            + \LabVIEW_UART:BUART:tx_state_1\ * 
+              \LabVIEW_UART:BUART:tx_state_0\ * 
+              \LabVIEW_UART:BUART:tx_bitclk_enable_pre\ * 
+              \LabVIEW_UART:BUART:tx_state_2\
+            + \LabVIEW_UART:BUART:tx_state_1\ * 
+              !\LabVIEW_UART:BUART:tx_state_2\ * 
+              \LabVIEW_UART:BUART:tx_counter_dp\ * 
+              \LabVIEW_UART:BUART:tx_bitclk\
+        );
+        Output = \LabVIEW_UART:BUART:tx_state_1\ (fanout=8)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]: (empty)
+    [McSlotId=2]:     MacroCell: Name=\LabVIEW_UART:BUART:rx_address_detected\, Mode=(D-Register) @ [UDB=(2,0)][LB=0][MC=2]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * 
+              \LabVIEW_UART:BUART:rx_address_detected\
+        );
+        Output = \LabVIEW_UART:BUART:rx_address_detected\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]: (empty)
+}
+
+LAB@[UDB=(2,0)][LB=1] #macrocells=1, #inputs=7, #pterms=5
+{
+    [McSlotId=0]:     MacroCell: Name=\LabVIEW_UART:BUART:tx_state_2\, Mode=(D-Register) @ [UDB=(2,0)][LB=1][MC=0]
+        Total # of inputs        : 7
+        Total # of product terms : 5
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 5 pterms
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:tx_state_1\ * 
+              \LabVIEW_UART:BUART:tx_state_0\ * 
+              \LabVIEW_UART:BUART:tx_state_2\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              \LabVIEW_UART:BUART:tx_state_1\ * 
+              !\LabVIEW_UART:BUART:tx_state_0\ * 
+              \LabVIEW_UART:BUART:tx_state_2\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              \LabVIEW_UART:BUART:tx_state_1\ * 
+              \LabVIEW_UART:BUART:tx_state_0\ * 
+              !\LabVIEW_UART:BUART:tx_state_2\ * 
+              \LabVIEW_UART:BUART:tx_bitclk\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              \LabVIEW_UART:BUART:tx_state_1\ * 
+              !\LabVIEW_UART:BUART:tx_state_2\ * 
+              \LabVIEW_UART:BUART:tx_counter_dp\ * 
+              \LabVIEW_UART:BUART:tx_bitclk\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:tx_bitclk_enable_pre\ * 
+              \LabVIEW_UART:BUART:tx_state_2\
+        );
+        Output = \LabVIEW_UART:BUART:tx_state_2\ (fanout=7)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]: (empty)
+    [McSlotId=2]: (empty)
+    [McSlotId=3]: (empty)
+}
+
+datapathcell: Name =\Timer_1:TimerUDB:sT16:timerdp:u0\
+    PORT MAP (
+        clock => Net_19 ,
+        cs_addr_2 => Net_21 ,
+        cs_addr_1 => \Timer_1:TimerUDB:control_7\ ,
+        cs_addr_0 => \Timer_1:TimerUDB:per_zero\ ,
+        chain_out => \Timer_1:TimerUDB:sT16:timerdp:carry\ );
+    Properties:
+    {
+        a0_init = "00000000"
+        a1_init = "00000000"
+        ce0_sync = 1
+        ce1_sync = 1
+        cl0_sync = 1
+        cl1_sync = 1
+        cmsb_sync = 1
+        co_msb_sync = 1
+        cy_dpconfig = "0000000001000000000000000100000001000000010000000000000010000000000000001000000000000000100000000000000010000000000000001000000011111111000000001111111111111111000000000000000000000001000000000000000000011000"
+        d0_init = "00000000"
+        d1_init = "00000000"
+        f0_blk_sync = 1
+        f0_bus_sync = 1
+        f1_blk_sync = 1
+        f1_bus_sync = 1
+        ff0_sync = 1
+        ff1_sync = 1
+        ov_msb_sync = 1
+        so_sync = 1
+        z0_sync = 1
+        z1_sync = 1
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+    Next in chain : \Timer_1:TimerUDB:sT16:timerdp:u1\
+
+controlcell: Name =\TimerReset:Sync:ctrl_reg\
+    PORT MAP (
+        control_7 => \TimerReset:control_7\ ,
+        control_6 => \TimerReset:control_6\ ,
+        control_5 => \TimerReset:control_5\ ,
+        control_4 => \TimerReset:control_4\ ,
+        control_3 => \TimerReset:control_3\ ,
+        control_2 => \TimerReset:control_2\ ,
+        control_1 => \TimerReset:control_1\ ,
+        control_0 => Net_21 );
+    Properties:
+    {
+        cy_ctrl_mode_0 = "00000000"
+        cy_ctrl_mode_1 = "00000000"
+        cy_ext_reset = 0
+        cy_force_order = 1
+        cy_init_value = "00000001"
+    }
+    Clock Enable: True
+
+UDB [UDB=(2,1)] is empty.
+UDB [UDB=(2,2)] is empty.
+UDB [UDB=(2,3)] is empty.
+UDB [UDB=(2,4)] is empty.
+UDB [UDB=(2,5)] is empty.
+UDB [UDB=(3,0)] contents:
+LAB@[UDB=(3,0)][LB=0] #macrocells=3, #inputs=9, #pterms=8
+{
+    [McSlotId=0]:     MacroCell: Name=\Timer_1:TimerUDB:status_tc\, Mode=(Combinatorial) @ [UDB=(3,0)][LB=0][MC=0]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \Timer_1:TimerUDB:control_7\ * \Timer_1:TimerUDB:per_zero\
+        );
+        Output = \Timer_1:TimerUDB:status_tc\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]: (empty)
+    [McSlotId=2]:     MacroCell: Name=\LabVIEW_UART:BUART:tx_state_0\, Mode=(T-Register) @ [UDB=(3,0)][LB=0][MC=2]
+        Total # of inputs        : 7
+        Total # of product terms : 5
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 5 pterms
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:tx_state_1\ * 
+              !\LabVIEW_UART:BUART:tx_state_0\ * 
+              \LabVIEW_UART:BUART:tx_bitclk_enable_pre\ * 
+              !\LabVIEW_UART:BUART:tx_fifo_empty\
+            + !\LabVIEW_UART:BUART:reset_reg\ * 
+              !\LabVIEW_UART:BUART:tx_state_1\ * 
+              !\LabVIEW_UART:BUART:tx_state_0\ * 
+              !\LabVIEW_UART:BUART:tx_fifo_empty\ * 
+              !\LabVIEW_UART:BUART:tx_state_2\
+            + \LabVIEW_UART:BUART:reset_reg\ * 
+              \LabVIEW_UART:BUART:tx_state_0\
+            + \LabVIEW_UART:BUART:tx_state_1\ * 
+              \LabVIEW_UART:BUART:tx_state_0\ * 
+              \LabVIEW_UART:BUART:tx_bitclk_enable_pre\ * 
+              \LabVIEW_UART:BUART:tx_fifo_empty\ * 
+              \LabVIEW_UART:BUART:tx_state_2\
+            + \LabVIEW_UART:BUART:tx_state_0\ * 
+              !\LabVIEW_UART:BUART:tx_state_2\ * 
+              \LabVIEW_UART:BUART:tx_bitclk\
+        );
+        Output = \LabVIEW_UART:BUART:tx_state_0\ (fanout=8)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]:     MacroCell: Name=\LabVIEW_UART:BUART:tx_bitclk\, Mode=(D-Register) @ [UDB=(3,0)][LB=0][MC=3]
+        Total # of inputs        : 4
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        !(
+              !\LabVIEW_UART:BUART:tx_state_1\ * 
+              !\LabVIEW_UART:BUART:tx_state_0\ * 
+              \LabVIEW_UART:BUART:tx_state_2\
+            + !\LabVIEW_UART:BUART:tx_bitclk_enable_pre\
+        );
+        Output = \LabVIEW_UART:BUART:tx_bitclk\ (fanout=4)
+        Properties               : 
+        {
+        }
+}
+
+LAB@[UDB=(3,0)][LB=1] #macrocells=1, #inputs=2, #pterms=1
+{
+    [McSlotId=0]:     MacroCell: Name=\LabVIEW_UART:BUART:tx_mark\, Mode=(D-Register) @ [UDB=(3,0)][LB=1][MC=0]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (\LabVIEW_UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\LabVIEW_UART:BUART:reset_reg\ * \LabVIEW_UART:BUART:tx_mark\
+        );
+        Output = \LabVIEW_UART:BUART:tx_mark\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]: (empty)
+    [McSlotId=2]: (empty)
+    [McSlotId=3]: (empty)
+}
+
+datapathcell: Name =\Timer_1:TimerUDB:sT16:timerdp:u1\
+    PORT MAP (
+        clock => Net_19 ,
+        cs_addr_2 => Net_21 ,
+        cs_addr_1 => \Timer_1:TimerUDB:control_7\ ,
+        cs_addr_0 => \Timer_1:TimerUDB:per_zero\ ,
+        z0_comb => \Timer_1:TimerUDB:per_zero\ ,
+        f0_bus_stat_comb => \Timer_1:TimerUDB:status_3\ ,
+        f0_blk_stat_comb => \Timer_1:TimerUDB:status_2\ ,
+        chain_in => \Timer_1:TimerUDB:sT16:timerdp:carry\ );
+    Properties:
+    {
+        a0_init = "00000000"
+        a1_init = "00000000"
+        ce0_sync = 1
+        ce1_sync = 1
+        cl0_sync = 1
+        cl1_sync = 1
+        cmsb_sync = 1
+        co_msb_sync = 1
+        cy_dpconfig = "0000000001000000000000000100000001000000010000000000000010000000000000001000000000000000100000000000000010000000000000001000000011111111000000001111111111111111100000110000000000000001000000110000000000011000"
+        d0_init = "00000000"
+        d1_init = "00000000"
+        f0_blk_sync = 1
+        f0_bus_sync = 1
+        f1_blk_sync = 1
+        f1_bus_sync = 1
+        ff0_sync = 1
+        ff1_sync = 1
+        ov_msb_sync = 1
+        so_sync = 1
+        z0_sync = 1
+        z1_sync = 1
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+    Previous in chain : \Timer_1:TimerUDB:sT16:timerdp:u0\
+
+statusicell: Name =\Timer_1:TimerUDB:rstSts:stsreg\
+    PORT MAP (
+        reset => Net_21 ,
+        clock => Net_19 ,
+        status_3 => \Timer_1:TimerUDB:status_3\ ,
+        status_2 => \Timer_1:TimerUDB:status_2\ ,
+        status_0 => \Timer_1:TimerUDB:status_tc\ ,
+        interrupt => Net_22 );
+    Properties:
+    {
+        cy_force_order = 1
+        cy_int_mask = "1111111"
+        cy_md_select = "0000011"
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+controlcell: Name =\Timer_1:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\
+    PORT MAP (
+        clock => Net_19 ,
+        control_7 => \Timer_1:TimerUDB:control_7\ ,
+        control_6 => \Timer_1:TimerUDB:control_6\ ,
+        control_5 => \Timer_1:TimerUDB:control_5\ ,
+        control_4 => \Timer_1:TimerUDB:control_4\ ,
+        control_3 => \Timer_1:TimerUDB:control_3\ ,
+        control_2 => \Timer_1:TimerUDB:control_2\ ,
+        control_1 => \Timer_1:TimerUDB:control_1\ ,
+        control_0 => \Timer_1:TimerUDB:control_0\ );
+    Properties:
+    {
+        cy_ctrl_mode_0 = "11111111"
+        cy_ctrl_mode_1 = "00000000"
+        cy_ext_reset = 0
+        cy_force_order = 1
+        cy_init_value = "00000000"
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+UDB [UDB=(3,1)] is empty.
+UDB [UDB=(3,2)] is empty.
+UDB [UDB=(3,3)] is empty.
+UDB [UDB=(3,4)] is empty.
+UDB [UDB=(3,5)] is empty.
+Intr container @ [IntrContainer=(0)]: 
+  Intr@ [IntrContainer=(0)][IntrId=(0)] 
+    interrupt: Name =ByteReceived
+        PORT MAP (
+            interrupt => Net_48 );
+        Properties:
+        {
+            int_type = "10"
+            is_nmi = 0
+        }
+  Intr@ [IntrContainer=(0)][IntrId=(1)] 
+    interrupt: Name =CommandReceived
+        PORT MAP (
+            interrupt => Net_75 );
+        Properties:
+        {
+            int_type = "10"
+            is_nmi = 0
+        }
+  Intr@ [IntrContainer=(0)][IntrId=(2)] 
+    interrupt: Name =TimerInterrupt
+        PORT MAP (
+            interrupt => Net_22 );
+        Properties:
+        {
+            int_type = "10"
+            is_nmi = 0
+        }
+Drq container @ [DrqContainer=(0)]: empty
+Port 0 contains the following IO cells:
+Port 1 contains the following IO cells:
+Port 2 contains the following IO cells:
+[IoId=1]: 
+Pin : Name = LED(0)
+    Attributes:
+        In Group/Port: True
+        In Sync Option: AUTO
+        Out Sync Option: NOSYNC
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: CMOS_OUT
+        VTrip: EITHER
+        Slew: FAST
+        Input Sync needed: False
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: ANY
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: False
+        Can contain Digital: True
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilities: DIGITAL, ROUTABLE
+        Initial Value: 0
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => LED(0)__PA ,
+        pin_input => Net_65 ,
+        pad => LED(0)_PAD );
+    Properties:
+    {
+    }
+
+Port 3 contains the following IO cells:
+Port 12 contains the following IO cells:
+[IoId=6]: 
+Pin : Name = Rx_1(0)
+    Attributes:
+        In Group/Port: True
+        In Sync Option: SYNC
+        Out Sync Option: AUTO
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: HI_Z_DIGITAL
+        VTrip: CMOS
+        Slew: FAST
+        Input Sync needed: True
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: ANY
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: False
+        Can contain Digital: True
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilities: DIGITAL, ROUTABLE
+        Initial Value: 0
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => Rx_1(0)__PA ,
+        fb => Net_46 ,
+        pad => Rx_1(0)_PAD );
+    Properties:
+    {
+    }
+
+[IoId=7]: 
+Pin : Name = Tx_1(0)
+    Attributes:
+        In Group/Port: True
+        In Sync Option: AUTO
+        Out Sync Option: NOSYNC
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: CMOS_OUT
+        VTrip: EITHER
+        Slew: FAST
+        Input Sync needed: False
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: ANY
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: False
+        Can contain Digital: True
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilities: DIGITAL, ROUTABLE
+        Initial Value: 1
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => Tx_1(0)__PA ,
+        pin_input => Net_42 ,
+        pad => Tx_1(0)_PAD );
+    Properties:
+    {
+    }
+
+Port 15 contains the following IO cells:
+ARM group 0: empty
+CAN group 0: empty
+Cache group 0: empty
+CapSense group 0: empty
+Clock group 0: 
+    Clock Block @ F(Clock,0): 
+    clockblockcell: Name =ClockBlock
+        PORT MAP (
+            imo => ClockBlock_IMO ,
+            pllout => ClockBlock_PLL_OUT ,
+            ilo => ClockBlock_ILO ,
+            clk_100k => ClockBlock_100k ,
+            clk_1k => ClockBlock_1k ,
+            clk_32k => ClockBlock_32k ,
+            xtal => ClockBlock_XTAL ,
+            clk_32k_xtal => ClockBlock_XTAL_32KHZ ,
+            clk_sync => ClockBlock_MASTER_CLK ,
+            clk_bus_glb => ClockBlock_BUS_CLK ,
+            clk_bus => ClockBlock_BUS_CLK_local ,
+            dclk_glb_0 => \LabVIEW_UART:Net_9\ ,
+            dclk_0 => \LabVIEW_UART:Net_9_local\ ,
+            dclk_glb_1 => Net_19 ,
+            dclk_1 => Net_19_local );
+        Properties:
+        {
+        }
+Comparator group 0: empty
+DFB group 0: empty
+DSM group 0: empty
+Decimator group 0: empty
+EMIF group 0: empty
+I2C group 0: empty
+LCD group 0: empty
+LVD group 0: empty
+PICU group 0: empty
+PM group 0: empty
+SC group 0: empty
+SPC group 0: empty
+Timer group 0: empty
+USB group 0: empty
+VIDAC group 0: empty
+OpAmp group 0: empty
+CsAbuf group 0: empty
+Vref group 0: empty
+LPF group 0: empty
+SAR group 0: empty
+ANAIF group 0: empty
+PHUB group 0: empty
+</CYPRESSTAG>
+<CYPRESSTAG name="Port Configuration Details">
+
+------------------------------------------------------------
+Port Configuration report
+------------------------------------------------------------
+     |     |       | Interrupt |                  |         | 
+Port | Pin | Fixed |      Type |       Drive Mode |    Name | Connections
+-----+-----+-------+-----------+------------------+---------+------------
+   2 |   1 |     * |      NONE |         CMOS_OUT |  LED(0) | In(Net_65)
+-----+-----+-------+-----------+------------------+---------+------------
+  12 |   6 |     * |      NONE |     HI_Z_DIGITAL | Rx_1(0) | FB(Net_46)
+     |   7 |     * |      NONE |         CMOS_OUT | Tx_1(0) | In(Net_42)
+-------------------------------------------------------------------------
+</CYPRESSTAG>
+</CYPRESSTAG>
+</CYPRESSTAG>
+Digital component placer commit/Report: Elapsed time ==> 0s.227ms
+Digital Placement phase: Elapsed time ==> 2s.318ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Digital Routing">
+"C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\bin/sjrouter.exe" --xml-path "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\dev\psoc5/psoc5lp/route_arch-rrg.cydata" --vh2-path "Lab6Sample_r.vh2" --pcf-path "Lab6Sample.pco" --des-name "Lab6Sample" --dsf-path "Lab6Sample.dsf" --sdc-path "Lab6Sample.sdc" --lib-path "Lab6Sample_r.lib"
+Routing successful.
+Digital Routing phase: Elapsed time ==> 2s.786ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Bitstream Generation">
+Bitstream Generation phase: Elapsed time ==> 0s.283ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Bitstream Verification">
+Bitstream Verification phase: Elapsed time ==> 0s.044ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Static timing analysis">
+Timing report is in Lab6Sample_timing.html.
+Static timing analysis phase: Elapsed time ==> 0s.608ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Data reporting">
+Data reporting phase: Elapsed time ==> 0s.185ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Database update...">
+Design database save phase: Elapsed time ==> 0s.258ms
+</CYPRESSTAG>
+cydsfit: Elapsed time ==> 7s.360ms
+</CYPRESSTAG>
+Fitter phase: Elapsed time ==> 7s.361ms
+API generation phase: Elapsed time ==> 1s.404ms
+Dependency generation phase: Elapsed time ==> 0s.021ms
+Cleanup phase: Elapsed time ==> 0s.125ms

@@ -1,0 +1,982 @@
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccCeV6th.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	main, %function
+  25              	main:
+  26              	.LFB63:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** 
+  14:main.c        **** uint8 transmitbuffer[16];
+  15:main.c        **** uint8 Data[128];
+  16:main.c        **** uint8 i=0;
+  17:main.c        **** uint16 Rcount;
+  18:main.c        **** 
+  19:main.c        **** uint8 Status;
+  20:main.c        **** 
+  21:main.c        **** int main(void)
+  22:main.c        **** {
+  28              		.loc 1 22 0
+  29              		.cfi_startproc
+  30              		@ Volatile: function does not return.
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 08B5     		push	{r3, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 3, -8
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccCeV6th.s 			page 2
+
+
+  36              		.cfi_offset 14, -4
+  23:main.c        ****     SPIM_1_Start();
+  37              		.loc 1 23 0
+  38 0002 FFF7FEFF 		bl	SPIM_1_Start
+  39              	.LVL0:
+  24:main.c        ****     SPIM_1_EnableRxInt();
+  40              		.loc 1 24 0
+  41 0006 FFF7FEFF 		bl	SPIM_1_EnableRxInt
+  42              	.LVL1:
+  25:main.c        ****     SPIM_1_EnableTxInt();
+  43              		.loc 1 25 0
+  44 000a FFF7FEFF 		bl	SPIM_1_EnableTxInt
+  45              	.LVL2:
+  26:main.c        ****     
+  27:main.c        ****     Status = SPIM_1_ReadRxStatus();
+  46              		.loc 1 27 0
+  47 000e FFF7FEFF 		bl	SPIM_1_ReadRxStatus
+  48              	.LVL3:
+  49 0012 234B     		ldr	r3, .L8
+  50 0014 1870     		strb	r0, [r3]
+  28:main.c        ****     
+  29:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  51              		.loc 1 29 0
+  52              		.syntax unified
+  53              	@ 29 "main.c" 1
+  54 0016 62B6     		CPSIE   i
+  55              	@ 0 "" 2
+  30:main.c        ****     
+  31:main.c        ****     transmitbuffer[0] = 0xae;  // first byte of no_checksum_sync (little endian -> least-significan
+  56              		.loc 1 31 0
+  57              		.thumb
+  58              		.syntax unified
+  59 0018 224B     		ldr	r3, .L8+4
+  60 001a AE22     		movs	r2, #174
+  61 001c 1A70     		strb	r2, [r3]
+  32:main.c        ****     transmitbuffer[1] = 0xc1;  // second byte of no_checksum_sync
+  62              		.loc 1 32 0
+  63 001e C122     		movs	r2, #193
+  64 0020 5A70     		strb	r2, [r3, #1]
+  33:main.c        ****     transmitbuffer[2] = 0x0e;  // this is the version request type
+  65              		.loc 1 33 0
+  66 0022 0E22     		movs	r2, #14
+  67 0024 9A70     		strb	r2, [r3, #2]
+  34:main.c        ****     transmitbuffer[3] = 0x00;  // data_length is 0
+  68              		.loc 1 34 0
+  69 0026 0022     		movs	r2, #0
+  70 0028 DA70     		strb	r2, [r3, #3]
+  71              	.L6:
+  35:main.c        **** 
+  36:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  37:main.c        **** 
+  38:main.c        ****     
+  39:main.c        ****     for(;;)
+  40:main.c        ****     {
+  41:main.c        ****         /* Place your application code here. */
+  42:main.c        ****         SPIM_1_WriteTxData(0xae);
+  72              		.loc 1 42 0
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccCeV6th.s 			page 3
+
+
+  73 002a AE20     		movs	r0, #174
+  74 002c FFF7FEFF 		bl	SPIM_1_WriteTxData
+  75              	.LVL4:
+  43:main.c        ****         SPIM_1_WriteTxData(0xc1);
+  76              		.loc 1 43 0
+  77 0030 C120     		movs	r0, #193
+  78 0032 FFF7FEFF 		bl	SPIM_1_WriteTxData
+  79              	.LVL5:
+  44:main.c        ****         SPIM_1_WriteTxData(0x0e);
+  80              		.loc 1 44 0
+  81 0036 0E20     		movs	r0, #14
+  82 0038 FFF7FEFF 		bl	SPIM_1_WriteTxData
+  83              	.LVL6:
+  45:main.c        ****         SPIM_1_WriteTxData(0x0a);
+  84              		.loc 1 45 0
+  85 003c 0A20     		movs	r0, #10
+  86 003e FFF7FEFF 		bl	SPIM_1_WriteTxData
+  87              	.LVL7:
+  46:main.c        ****         
+  47:main.c        **** //        SPIM_1_PutArray(transmitbuffer, 0x04);
+  48:main.c        **** //        CyDelayUs(1000);
+  49:main.c        ****         
+  50:main.c        ****         for(i=0;i<12;i++)
+  88              		.loc 1 50 0
+  89 0042 0022     		movs	r2, #0
+  90 0044 184B     		ldr	r3, .L8+8
+  91 0046 1A70     		strb	r2, [r3]
+  92 0048 10E0     		b	.L2
+  93              	.L3:
+  51:main.c        ****         {
+  52:main.c        ****             
+  53:main.c        ****             Status = SPIM_1_ReadRxStatus();
+  94              		.loc 1 53 0 discriminator 3
+  95 004a FFF7FEFF 		bl	SPIM_1_ReadRxStatus
+  96              	.LVL8:
+  97 004e 144B     		ldr	r3, .L8
+  98 0050 1870     		strb	r0, [r3]
+  54:main.c        ****             Rcount = SPIM_1_GetRxBufferSize();
+  99              		.loc 1 54 0 discriminator 3
+ 100 0052 FFF7FEFF 		bl	SPIM_1_GetRxBufferSize
+ 101              	.LVL9:
+ 102 0056 154B     		ldr	r3, .L8+12
+ 103 0058 1880     		strh	r0, [r3]	@ movhi
+  55:main.c        ****             Data[i] = SPIM_1_ReadRxData();
+ 104              		.loc 1 55 0 discriminator 3
+ 105 005a 134C     		ldr	r4, .L8+8
+ 106 005c 2578     		ldrb	r5, [r4]	@ zero_extendqisi2
+ 107 005e FFF7FEFF 		bl	SPIM_1_ReadRxData
+ 108              	.LVL10:
+ 109 0062 134B     		ldr	r3, .L8+16
+ 110 0064 5855     		strb	r0, [r3, r5]
+  50:main.c        ****         {
+ 111              		.loc 1 50 0 discriminator 3
+ 112 0066 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 113 0068 0133     		adds	r3, r3, #1
+ 114 006a 2370     		strb	r3, [r4]
+ 115              	.L2:
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccCeV6th.s 			page 4
+
+
+  50:main.c        ****         {
+ 116              		.loc 1 50 0 is_stmt 0 discriminator 1
+ 117 006c 0E4B     		ldr	r3, .L8+8
+ 118 006e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 119 0070 0B2B     		cmp	r3, #11
+ 120 0072 EAD9     		bls	.L3
+  56:main.c        ****         }
+  57:main.c        ****         i=0;
+ 121              		.loc 1 57 0 is_stmt 1
+ 122 0074 0022     		movs	r2, #0
+ 123 0076 0C4B     		ldr	r3, .L8+8
+ 124 0078 1A70     		strb	r2, [r3]
+  58:main.c        ****         Rcount = SPIM_1_GetRxBufferSize();
+ 125              		.loc 1 58 0
+ 126 007a FFF7FEFF 		bl	SPIM_1_GetRxBufferSize
+ 127              	.LVL11:
+ 128 007e 0B4B     		ldr	r3, .L8+12
+ 129 0080 1880     		strh	r0, [r3]	@ movhi
+  59:main.c        ****         while(Rcount != 0)
+ 130              		.loc 1 59 0
+ 131 0082 07E0     		b	.L4
+ 132              	.L5:
+  60:main.c        ****         {
+  61:main.c        ****             
+  62:main.c        ****             i++;
+ 133              		.loc 1 62 0
+ 134 0084 084A     		ldr	r2, .L8+8
+ 135 0086 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 136 0088 0133     		adds	r3, r3, #1
+ 137 008a 1370     		strb	r3, [r2]
+  63:main.c        ****             Rcount = SPIM_1_GetRxBufferSize();
+ 138              		.loc 1 63 0
+ 139 008c FFF7FEFF 		bl	SPIM_1_GetRxBufferSize
+ 140              	.LVL12:
+ 141 0090 064B     		ldr	r3, .L8+12
+ 142 0092 1880     		strh	r0, [r3]	@ movhi
+ 143              	.L4:
+  59:main.c        ****         while(Rcount != 0)
+ 144              		.loc 1 59 0
+ 145 0094 054B     		ldr	r3, .L8+12
+ 146 0096 1B88     		ldrh	r3, [r3]
+ 147 0098 002B     		cmp	r3, #0
+ 148 009a F3D1     		bne	.L5
+ 149 009c C5E7     		b	.L6
+ 150              	.L9:
+ 151 009e 00BF     		.align	2
+ 152              	.L8:
+ 153 00a0 00000000 		.word	Status
+ 154 00a4 00000000 		.word	transmitbuffer
+ 155 00a8 00000000 		.word	.LANCHOR0
+ 156 00ac 00000000 		.word	Rcount
+ 157 00b0 00000000 		.word	Data
+ 158              		.cfi_endproc
+ 159              	.LFE63:
+ 160              		.size	main, .-main
+ 161              		.comm	Status,1,1
+ 162              		.comm	Rcount,2,2
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccCeV6th.s 			page 5
+
+
+ 163              		.global	i
+ 164              		.comm	Data,128,4
+ 165              		.comm	transmitbuffer,16,4
+ 166              		.bss
+ 167              		.set	.LANCHOR0,. + 0
+ 168              		.type	i, %object
+ 169              		.size	i, 1
+ 170              	i:
+ 171 0000 00       		.space	1
+ 172              		.text
+ 173              	.Letext0:
+ 174              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 175              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 176              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 177              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 178              		.file 6 "Generated_Source\\PSoC5/SPIM_1.h"
+ 179              		.section	.debug_info,"",%progbits
+ 180              	.Ldebug_info0:
+ 181 0000 43020000 		.4byte	0x243
+ 182 0004 0400     		.2byte	0x4
+ 183 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 184 000a 04       		.byte	0x4
+ 185 000b 01       		.uleb128 0x1
+ 186 000c C4000000 		.4byte	.LASF30
+ 187 0010 0C       		.byte	0xc
+ 188 0011 06020000 		.4byte	.LASF31
+ 189 0015 31000000 		.4byte	.LASF32
+ 190 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 191 001d 00000000 		.4byte	0
+ 192 0021 00000000 		.4byte	.Ldebug_line0
+ 193 0025 02       		.uleb128 0x2
+ 194 0026 01       		.byte	0x1
+ 195 0027 06       		.byte	0x6
+ 196 0028 58020000 		.4byte	.LASF0
+ 197 002c 02       		.uleb128 0x2
+ 198 002d 01       		.byte	0x1
+ 199 002e 08       		.byte	0x8
+ 200 002f B6000000 		.4byte	.LASF1
+ 201 0033 02       		.uleb128 0x2
+ 202 0034 02       		.byte	0x2
+ 203 0035 05       		.byte	0x5
+ 204 0036 24020000 		.4byte	.LASF2
+ 205 003a 02       		.uleb128 0x2
+ 206 003b 02       		.byte	0x2
+ 207 003c 07       		.byte	0x7
+ 208 003d 64010000 		.4byte	.LASF3
+ 209 0041 03       		.uleb128 0x3
+ 210 0042 0D000000 		.4byte	.LASF9
+ 211 0046 02       		.byte	0x2
+ 212 0047 3F       		.byte	0x3f
+ 213 0048 4C000000 		.4byte	0x4c
+ 214 004c 02       		.uleb128 0x2
+ 215 004d 04       		.byte	0x4
+ 216 004e 05       		.byte	0x5
+ 217 004f 34020000 		.4byte	.LASF4
+ 218 0053 02       		.uleb128 0x2
+ 219 0054 04       		.byte	0x4
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccCeV6th.s 			page 6
+
+
+ 220 0055 07       		.byte	0x7
+ 221 0056 52010000 		.4byte	.LASF5
+ 222 005a 02       		.uleb128 0x2
+ 223 005b 08       		.byte	0x8
+ 224 005c 05       		.byte	0x5
+ 225 005d F8010000 		.4byte	.LASF6
+ 226 0061 02       		.uleb128 0x2
+ 227 0062 08       		.byte	0x8
+ 228 0063 07       		.byte	0x7
+ 229 0064 BD010000 		.4byte	.LASF7
+ 230 0068 04       		.uleb128 0x4
+ 231 0069 04       		.byte	0x4
+ 232 006a 05       		.byte	0x5
+ 233 006b 696E7400 		.ascii	"int\000"
+ 234 006f 02       		.uleb128 0x2
+ 235 0070 04       		.byte	0x4
+ 236 0071 07       		.byte	0x7
+ 237 0072 9C010000 		.4byte	.LASF8
+ 238 0076 03       		.uleb128 0x3
+ 239 0077 E7010000 		.4byte	.LASF10
+ 240 007b 03       		.byte	0x3
+ 241 007c 2C       		.byte	0x2c
+ 242 007d 41000000 		.4byte	0x41
+ 243 0081 05       		.uleb128 0x5
+ 244 0082 2E020000 		.4byte	.LASF11
+ 245 0086 04       		.byte	0x4
+ 246 0087 E401     		.2byte	0x1e4
+ 247 0089 2C000000 		.4byte	0x2c
+ 248 008d 05       		.uleb128 0x5
+ 249 008e 95010000 		.4byte	.LASF12
+ 250 0092 04       		.byte	0x4
+ 251 0093 E501     		.2byte	0x1e5
+ 252 0095 3A000000 		.4byte	0x3a
+ 253 0099 02       		.uleb128 0x2
+ 254 009a 04       		.byte	0x4
+ 255 009b 04       		.byte	0x4
+ 256 009c B0000000 		.4byte	.LASF13
+ 257 00a0 02       		.uleb128 0x2
+ 258 00a1 08       		.byte	0x8
+ 259 00a2 04       		.byte	0x4
+ 260 00a3 84010000 		.4byte	.LASF14
+ 261 00a7 02       		.uleb128 0x2
+ 262 00a8 01       		.byte	0x1
+ 263 00a9 08       		.byte	0x8
+ 264 00aa 0D020000 		.4byte	.LASF15
+ 265 00ae 02       		.uleb128 0x2
+ 266 00af 08       		.byte	0x8
+ 267 00b0 04       		.byte	0x4
+ 268 00b1 3D020000 		.4byte	.LASF16
+ 269 00b5 02       		.uleb128 0x2
+ 270 00b6 04       		.byte	0x4
+ 271 00b7 07       		.byte	0x7
+ 272 00b8 EF010000 		.4byte	.LASF17
+ 273 00bc 06       		.uleb128 0x6
+ 274 00bd 90010000 		.4byte	.LASF33
+ 275 00c1 01       		.byte	0x1
+ 276 00c2 15       		.byte	0x15
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccCeV6th.s 			page 7
+
+
+ 277 00c3 68000000 		.4byte	0x68
+ 278 00c7 00000000 		.4byte	.LFB63
+ 279 00cb B4000000 		.4byte	.LFE63-.LFB63
+ 280 00cf 01       		.uleb128 0x1
+ 281 00d0 9C       		.byte	0x9c
+ 282 00d1 75010000 		.4byte	0x175
+ 283 00d5 07       		.uleb128 0x7
+ 284 00d6 06000000 		.4byte	.LVL0
+ 285 00da F9010000 		.4byte	0x1f9
+ 286 00de 07       		.uleb128 0x7
+ 287 00df 0A000000 		.4byte	.LVL1
+ 288 00e3 04020000 		.4byte	0x204
+ 289 00e7 07       		.uleb128 0x7
+ 290 00e8 0E000000 		.4byte	.LVL2
+ 291 00ec 0F020000 		.4byte	0x20f
+ 292 00f0 07       		.uleb128 0x7
+ 293 00f1 12000000 		.4byte	.LVL3
+ 294 00f5 1A020000 		.4byte	0x21a
+ 295 00f9 08       		.uleb128 0x8
+ 296 00fa 30000000 		.4byte	.LVL4
+ 297 00fe 25020000 		.4byte	0x225
+ 298 0102 0D010000 		.4byte	0x10d
+ 299 0106 09       		.uleb128 0x9
+ 300 0107 01       		.uleb128 0x1
+ 301 0108 50       		.byte	0x50
+ 302 0109 02       		.uleb128 0x2
+ 303 010a 09       		.byte	0x9
+ 304 010b AE       		.byte	0xae
+ 305 010c 00       		.byte	0
+ 306 010d 08       		.uleb128 0x8
+ 307 010e 36000000 		.4byte	.LVL5
+ 308 0112 25020000 		.4byte	0x225
+ 309 0116 21010000 		.4byte	0x121
+ 310 011a 09       		.uleb128 0x9
+ 311 011b 01       		.uleb128 0x1
+ 312 011c 50       		.byte	0x50
+ 313 011d 02       		.uleb128 0x2
+ 314 011e 09       		.byte	0x9
+ 315 011f C1       		.byte	0xc1
+ 316 0120 00       		.byte	0
+ 317 0121 08       		.uleb128 0x8
+ 318 0122 3C000000 		.4byte	.LVL6
+ 319 0126 25020000 		.4byte	0x225
+ 320 012a 34010000 		.4byte	0x134
+ 321 012e 09       		.uleb128 0x9
+ 322 012f 01       		.uleb128 0x1
+ 323 0130 50       		.byte	0x50
+ 324 0131 01       		.uleb128 0x1
+ 325 0132 3E       		.byte	0x3e
+ 326 0133 00       		.byte	0
+ 327 0134 08       		.uleb128 0x8
+ 328 0135 42000000 		.4byte	.LVL7
+ 329 0139 25020000 		.4byte	0x225
+ 330 013d 47010000 		.4byte	0x147
+ 331 0141 09       		.uleb128 0x9
+ 332 0142 01       		.uleb128 0x1
+ 333 0143 50       		.byte	0x50
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccCeV6th.s 			page 8
+
+
+ 334 0144 01       		.uleb128 0x1
+ 335 0145 3A       		.byte	0x3a
+ 336 0146 00       		.byte	0
+ 337 0147 07       		.uleb128 0x7
+ 338 0148 4E000000 		.4byte	.LVL8
+ 339 014c 1A020000 		.4byte	0x21a
+ 340 0150 07       		.uleb128 0x7
+ 341 0151 56000000 		.4byte	.LVL9
+ 342 0155 30020000 		.4byte	0x230
+ 343 0159 07       		.uleb128 0x7
+ 344 015a 62000000 		.4byte	.LVL10
+ 345 015e 3B020000 		.4byte	0x23b
+ 346 0162 07       		.uleb128 0x7
+ 347 0163 7E000000 		.4byte	.LVL11
+ 348 0167 30020000 		.4byte	0x230
+ 349 016b 07       		.uleb128 0x7
+ 350 016c 90000000 		.4byte	.LVL12
+ 351 0170 30020000 		.4byte	0x230
+ 352 0174 00       		.byte	0
+ 353 0175 0A       		.uleb128 0xa
+ 354 0176 77010000 		.4byte	.LASF18
+ 355 017a 05       		.byte	0x5
+ 356 017b 1207     		.2byte	0x712
+ 357 017d 81010000 		.4byte	0x181
+ 358 0181 0B       		.uleb128 0xb
+ 359 0182 76000000 		.4byte	0x76
+ 360 0186 0C       		.uleb128 0xc
+ 361 0187 81000000 		.4byte	0x81
+ 362 018b 96010000 		.4byte	0x196
+ 363 018f 0D       		.uleb128 0xd
+ 364 0190 B5000000 		.4byte	0xb5
+ 365 0194 0F       		.byte	0xf
+ 366 0195 00       		.byte	0
+ 367 0196 0E       		.uleb128 0xe
+ 368 0197 49020000 		.4byte	.LASF19
+ 369 019b 01       		.byte	0x1
+ 370 019c 0E       		.byte	0xe
+ 371 019d 86010000 		.4byte	0x186
+ 372 01a1 05       		.uleb128 0x5
+ 373 01a2 03       		.byte	0x3
+ 374 01a3 00000000 		.4byte	transmitbuffer
+ 375 01a7 0C       		.uleb128 0xc
+ 376 01a8 81000000 		.4byte	0x81
+ 377 01ac B7010000 		.4byte	0x1b7
+ 378 01b0 0D       		.uleb128 0xd
+ 379 01b1 B5000000 		.4byte	0xb5
+ 380 01b5 7F       		.byte	0x7f
+ 381 01b6 00       		.byte	0
+ 382 01b7 0E       		.uleb128 0xe
+ 383 01b8 8B010000 		.4byte	.LASF20
+ 384 01bc 01       		.byte	0x1
+ 385 01bd 0F       		.byte	0xf
+ 386 01be A7010000 		.4byte	0x1a7
+ 387 01c2 05       		.uleb128 0x5
+ 388 01c3 03       		.byte	0x3
+ 389 01c4 00000000 		.4byte	Data
+ 390 01c8 0F       		.uleb128 0xf
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccCeV6th.s 			page 9
+
+
+ 391 01c9 6900     		.ascii	"i\000"
+ 392 01cb 01       		.byte	0x1
+ 393 01cc 10       		.byte	0x10
+ 394 01cd 81000000 		.4byte	0x81
+ 395 01d1 05       		.uleb128 0x5
+ 396 01d2 03       		.byte	0x3
+ 397 01d3 00000000 		.4byte	i
+ 398 01d7 0E       		.uleb128 0xe
+ 399 01d8 A9000000 		.4byte	.LASF21
+ 400 01dc 01       		.byte	0x1
+ 401 01dd 11       		.byte	0x11
+ 402 01de 8D000000 		.4byte	0x8d
+ 403 01e2 05       		.uleb128 0x5
+ 404 01e3 03       		.byte	0x3
+ 405 01e4 00000000 		.4byte	Rcount
+ 406 01e8 0E       		.uleb128 0xe
+ 407 01e9 2A000000 		.4byte	.LASF22
+ 408 01ed 01       		.byte	0x1
+ 409 01ee 13       		.byte	0x13
+ 410 01ef 81000000 		.4byte	0x81
+ 411 01f3 05       		.uleb128 0x5
+ 412 01f4 03       		.byte	0x3
+ 413 01f5 00000000 		.4byte	Status
+ 414 01f9 10       		.uleb128 0x10
+ 415 01fa 00000000 		.4byte	.LASF23
+ 416 01fe 00000000 		.4byte	.LASF23
+ 417 0202 06       		.byte	0x6
+ 418 0203 4D       		.byte	0x4d
+ 419 0204 10       		.uleb128 0x10
+ 420 0205 D4010000 		.4byte	.LASF24
+ 421 0209 D4010000 		.4byte	.LASF24
+ 422 020d 06       		.byte	0x6
+ 423 020e 51       		.byte	0x51
+ 424 020f 10       		.uleb128 0x10
+ 425 0210 17000000 		.4byte	.LASF25
+ 426 0214 17000000 		.4byte	.LASF25
+ 427 0218 06       		.byte	0x6
+ 428 0219 50       		.byte	0x50
+ 429 021a 10       		.uleb128 0x10
+ 430 021b A9010000 		.4byte	.LASF26
+ 431 021f A9010000 		.4byte	.LASF26
+ 432 0223 06       		.byte	0x6
+ 433 0224 5D       		.byte	0x5d
+ 434 0225 10       		.uleb128 0x10
+ 435 0226 64020000 		.4byte	.LASF27
+ 436 022a 64020000 		.4byte	.LASF27
+ 437 022e 06       		.byte	0x6
+ 438 022f 5E       		.byte	0x5e
+ 439 0230 10       		.uleb128 0x10
+ 440 0231 92000000 		.4byte	.LASF28
+ 441 0235 92000000 		.4byte	.LASF28
+ 442 0239 06       		.byte	0x6
+ 443 023a 62       		.byte	0x62
+ 444 023b 10       		.uleb128 0x10
+ 445 023c 12020000 		.4byte	.LASF29
+ 446 0240 12020000 		.4byte	.LASF29
+ 447 0244 06       		.byte	0x6
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccCeV6th.s 			page 10
+
+
+ 448 0245 60       		.byte	0x60
+ 449 0246 00       		.byte	0
+ 450              		.section	.debug_abbrev,"",%progbits
+ 451              	.Ldebug_abbrev0:
+ 452 0000 01       		.uleb128 0x1
+ 453 0001 11       		.uleb128 0x11
+ 454 0002 01       		.byte	0x1
+ 455 0003 25       		.uleb128 0x25
+ 456 0004 0E       		.uleb128 0xe
+ 457 0005 13       		.uleb128 0x13
+ 458 0006 0B       		.uleb128 0xb
+ 459 0007 03       		.uleb128 0x3
+ 460 0008 0E       		.uleb128 0xe
+ 461 0009 1B       		.uleb128 0x1b
+ 462 000a 0E       		.uleb128 0xe
+ 463 000b 55       		.uleb128 0x55
+ 464 000c 17       		.uleb128 0x17
+ 465 000d 11       		.uleb128 0x11
+ 466 000e 01       		.uleb128 0x1
+ 467 000f 10       		.uleb128 0x10
+ 468 0010 17       		.uleb128 0x17
+ 469 0011 00       		.byte	0
+ 470 0012 00       		.byte	0
+ 471 0013 02       		.uleb128 0x2
+ 472 0014 24       		.uleb128 0x24
+ 473 0015 00       		.byte	0
+ 474 0016 0B       		.uleb128 0xb
+ 475 0017 0B       		.uleb128 0xb
+ 476 0018 3E       		.uleb128 0x3e
+ 477 0019 0B       		.uleb128 0xb
+ 478 001a 03       		.uleb128 0x3
+ 479 001b 0E       		.uleb128 0xe
+ 480 001c 00       		.byte	0
+ 481 001d 00       		.byte	0
+ 482 001e 03       		.uleb128 0x3
+ 483 001f 16       		.uleb128 0x16
+ 484 0020 00       		.byte	0
+ 485 0021 03       		.uleb128 0x3
+ 486 0022 0E       		.uleb128 0xe
+ 487 0023 3A       		.uleb128 0x3a
+ 488 0024 0B       		.uleb128 0xb
+ 489 0025 3B       		.uleb128 0x3b
+ 490 0026 0B       		.uleb128 0xb
+ 491 0027 49       		.uleb128 0x49
+ 492 0028 13       		.uleb128 0x13
+ 493 0029 00       		.byte	0
+ 494 002a 00       		.byte	0
+ 495 002b 04       		.uleb128 0x4
+ 496 002c 24       		.uleb128 0x24
+ 497 002d 00       		.byte	0
+ 498 002e 0B       		.uleb128 0xb
+ 499 002f 0B       		.uleb128 0xb
+ 500 0030 3E       		.uleb128 0x3e
+ 501 0031 0B       		.uleb128 0xb
+ 502 0032 03       		.uleb128 0x3
+ 503 0033 08       		.uleb128 0x8
+ 504 0034 00       		.byte	0
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccCeV6th.s 			page 11
+
+
+ 505 0035 00       		.byte	0
+ 506 0036 05       		.uleb128 0x5
+ 507 0037 16       		.uleb128 0x16
+ 508 0038 00       		.byte	0
+ 509 0039 03       		.uleb128 0x3
+ 510 003a 0E       		.uleb128 0xe
+ 511 003b 3A       		.uleb128 0x3a
+ 512 003c 0B       		.uleb128 0xb
+ 513 003d 3B       		.uleb128 0x3b
+ 514 003e 05       		.uleb128 0x5
+ 515 003f 49       		.uleb128 0x49
+ 516 0040 13       		.uleb128 0x13
+ 517 0041 00       		.byte	0
+ 518 0042 00       		.byte	0
+ 519 0043 06       		.uleb128 0x6
+ 520 0044 2E       		.uleb128 0x2e
+ 521 0045 01       		.byte	0x1
+ 522 0046 3F       		.uleb128 0x3f
+ 523 0047 19       		.uleb128 0x19
+ 524 0048 03       		.uleb128 0x3
+ 525 0049 0E       		.uleb128 0xe
+ 526 004a 3A       		.uleb128 0x3a
+ 527 004b 0B       		.uleb128 0xb
+ 528 004c 3B       		.uleb128 0x3b
+ 529 004d 0B       		.uleb128 0xb
+ 530 004e 27       		.uleb128 0x27
+ 531 004f 19       		.uleb128 0x19
+ 532 0050 49       		.uleb128 0x49
+ 533 0051 13       		.uleb128 0x13
+ 534 0052 8701     		.uleb128 0x87
+ 535 0054 19       		.uleb128 0x19
+ 536 0055 11       		.uleb128 0x11
+ 537 0056 01       		.uleb128 0x1
+ 538 0057 12       		.uleb128 0x12
+ 539 0058 06       		.uleb128 0x6
+ 540 0059 40       		.uleb128 0x40
+ 541 005a 18       		.uleb128 0x18
+ 542 005b 9742     		.uleb128 0x2117
+ 543 005d 19       		.uleb128 0x19
+ 544 005e 01       		.uleb128 0x1
+ 545 005f 13       		.uleb128 0x13
+ 546 0060 00       		.byte	0
+ 547 0061 00       		.byte	0
+ 548 0062 07       		.uleb128 0x7
+ 549 0063 898201   		.uleb128 0x4109
+ 550 0066 00       		.byte	0
+ 551 0067 11       		.uleb128 0x11
+ 552 0068 01       		.uleb128 0x1
+ 553 0069 31       		.uleb128 0x31
+ 554 006a 13       		.uleb128 0x13
+ 555 006b 00       		.byte	0
+ 556 006c 00       		.byte	0
+ 557 006d 08       		.uleb128 0x8
+ 558 006e 898201   		.uleb128 0x4109
+ 559 0071 01       		.byte	0x1
+ 560 0072 11       		.uleb128 0x11
+ 561 0073 01       		.uleb128 0x1
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccCeV6th.s 			page 12
+
+
+ 562 0074 31       		.uleb128 0x31
+ 563 0075 13       		.uleb128 0x13
+ 564 0076 01       		.uleb128 0x1
+ 565 0077 13       		.uleb128 0x13
+ 566 0078 00       		.byte	0
+ 567 0079 00       		.byte	0
+ 568 007a 09       		.uleb128 0x9
+ 569 007b 8A8201   		.uleb128 0x410a
+ 570 007e 00       		.byte	0
+ 571 007f 02       		.uleb128 0x2
+ 572 0080 18       		.uleb128 0x18
+ 573 0081 9142     		.uleb128 0x2111
+ 574 0083 18       		.uleb128 0x18
+ 575 0084 00       		.byte	0
+ 576 0085 00       		.byte	0
+ 577 0086 0A       		.uleb128 0xa
+ 578 0087 34       		.uleb128 0x34
+ 579 0088 00       		.byte	0
+ 580 0089 03       		.uleb128 0x3
+ 581 008a 0E       		.uleb128 0xe
+ 582 008b 3A       		.uleb128 0x3a
+ 583 008c 0B       		.uleb128 0xb
+ 584 008d 3B       		.uleb128 0x3b
+ 585 008e 05       		.uleb128 0x5
+ 586 008f 49       		.uleb128 0x49
+ 587 0090 13       		.uleb128 0x13
+ 588 0091 3F       		.uleb128 0x3f
+ 589 0092 19       		.uleb128 0x19
+ 590 0093 3C       		.uleb128 0x3c
+ 591 0094 19       		.uleb128 0x19
+ 592 0095 00       		.byte	0
+ 593 0096 00       		.byte	0
+ 594 0097 0B       		.uleb128 0xb
+ 595 0098 35       		.uleb128 0x35
+ 596 0099 00       		.byte	0
+ 597 009a 49       		.uleb128 0x49
+ 598 009b 13       		.uleb128 0x13
+ 599 009c 00       		.byte	0
+ 600 009d 00       		.byte	0
+ 601 009e 0C       		.uleb128 0xc
+ 602 009f 01       		.uleb128 0x1
+ 603 00a0 01       		.byte	0x1
+ 604 00a1 49       		.uleb128 0x49
+ 605 00a2 13       		.uleb128 0x13
+ 606 00a3 01       		.uleb128 0x1
+ 607 00a4 13       		.uleb128 0x13
+ 608 00a5 00       		.byte	0
+ 609 00a6 00       		.byte	0
+ 610 00a7 0D       		.uleb128 0xd
+ 611 00a8 21       		.uleb128 0x21
+ 612 00a9 00       		.byte	0
+ 613 00aa 49       		.uleb128 0x49
+ 614 00ab 13       		.uleb128 0x13
+ 615 00ac 2F       		.uleb128 0x2f
+ 616 00ad 0B       		.uleb128 0xb
+ 617 00ae 00       		.byte	0
+ 618 00af 00       		.byte	0
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccCeV6th.s 			page 13
+
+
+ 619 00b0 0E       		.uleb128 0xe
+ 620 00b1 34       		.uleb128 0x34
+ 621 00b2 00       		.byte	0
+ 622 00b3 03       		.uleb128 0x3
+ 623 00b4 0E       		.uleb128 0xe
+ 624 00b5 3A       		.uleb128 0x3a
+ 625 00b6 0B       		.uleb128 0xb
+ 626 00b7 3B       		.uleb128 0x3b
+ 627 00b8 0B       		.uleb128 0xb
+ 628 00b9 49       		.uleb128 0x49
+ 629 00ba 13       		.uleb128 0x13
+ 630 00bb 3F       		.uleb128 0x3f
+ 631 00bc 19       		.uleb128 0x19
+ 632 00bd 02       		.uleb128 0x2
+ 633 00be 18       		.uleb128 0x18
+ 634 00bf 00       		.byte	0
+ 635 00c0 00       		.byte	0
+ 636 00c1 0F       		.uleb128 0xf
+ 637 00c2 34       		.uleb128 0x34
+ 638 00c3 00       		.byte	0
+ 639 00c4 03       		.uleb128 0x3
+ 640 00c5 08       		.uleb128 0x8
+ 641 00c6 3A       		.uleb128 0x3a
+ 642 00c7 0B       		.uleb128 0xb
+ 643 00c8 3B       		.uleb128 0x3b
+ 644 00c9 0B       		.uleb128 0xb
+ 645 00ca 49       		.uleb128 0x49
+ 646 00cb 13       		.uleb128 0x13
+ 647 00cc 3F       		.uleb128 0x3f
+ 648 00cd 19       		.uleb128 0x19
+ 649 00ce 02       		.uleb128 0x2
+ 650 00cf 18       		.uleb128 0x18
+ 651 00d0 00       		.byte	0
+ 652 00d1 00       		.byte	0
+ 653 00d2 10       		.uleb128 0x10
+ 654 00d3 2E       		.uleb128 0x2e
+ 655 00d4 00       		.byte	0
+ 656 00d5 3F       		.uleb128 0x3f
+ 657 00d6 19       		.uleb128 0x19
+ 658 00d7 3C       		.uleb128 0x3c
+ 659 00d8 19       		.uleb128 0x19
+ 660 00d9 6E       		.uleb128 0x6e
+ 661 00da 0E       		.uleb128 0xe
+ 662 00db 03       		.uleb128 0x3
+ 663 00dc 0E       		.uleb128 0xe
+ 664 00dd 3A       		.uleb128 0x3a
+ 665 00de 0B       		.uleb128 0xb
+ 666 00df 3B       		.uleb128 0x3b
+ 667 00e0 0B       		.uleb128 0xb
+ 668 00e1 00       		.byte	0
+ 669 00e2 00       		.byte	0
+ 670 00e3 00       		.byte	0
+ 671              		.section	.debug_aranges,"",%progbits
+ 672 0000 1C000000 		.4byte	0x1c
+ 673 0004 0200     		.2byte	0x2
+ 674 0006 00000000 		.4byte	.Ldebug_info0
+ 675 000a 04       		.byte	0x4
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccCeV6th.s 			page 14
+
+
+ 676 000b 00       		.byte	0
+ 677 000c 0000     		.2byte	0
+ 678 000e 0000     		.2byte	0
+ 679 0010 00000000 		.4byte	.LFB63
+ 680 0014 B4000000 		.4byte	.LFE63-.LFB63
+ 681 0018 00000000 		.4byte	0
+ 682 001c 00000000 		.4byte	0
+ 683              		.section	.debug_ranges,"",%progbits
+ 684              	.Ldebug_ranges0:
+ 685 0000 00000000 		.4byte	.LFB63
+ 686 0004 B4000000 		.4byte	.LFE63
+ 687 0008 00000000 		.4byte	0
+ 688 000c 00000000 		.4byte	0
+ 689              		.section	.debug_line,"",%progbits
+ 690              	.Ldebug_line0:
+ 691 0000 9C010000 		.section	.debug_str,"MS",%progbits,1
+ 691      02005801 
+ 691      00000201 
+ 691      FB0E0D00 
+ 691      01010101 
+ 692              	.LASF23:
+ 693 0000 5350494D 		.ascii	"SPIM_1_Start\000"
+ 693      5F315F53 
+ 693      74617274 
+ 693      00
+ 694              	.LASF9:
+ 695 000d 5F5F696E 		.ascii	"__int32_t\000"
+ 695      7433325F 
+ 695      7400
+ 696              	.LASF25:
+ 697 0017 5350494D 		.ascii	"SPIM_1_EnableTxInt\000"
+ 697      5F315F45 
+ 697      6E61626C 
+ 697      65547849 
+ 697      6E7400
+ 698              	.LASF22:
+ 699 002a 53746174 		.ascii	"Status\000"
+ 699      757300
+ 700              	.LASF32:
+ 701 0031 433A5C55 		.ascii	"C:\\Users\\George Anwar\\Documents\\UC Berkeley\\ME"
+ 701      73657273 
+ 701      5C47656F 
+ 701      72676520 
+ 701      416E7761 
+ 702 005f 31333520 		.ascii	"135 Spring 2020\\PSOC Creator\\ME135_235\\PIXY2.cyd"
+ 702      53707269 
+ 702      6E672032 
+ 702      3032305C 
+ 702      50534F43 
+ 703 008f 736E00   		.ascii	"sn\000"
+ 704              	.LASF28:
+ 705 0092 5350494D 		.ascii	"SPIM_1_GetRxBufferSize\000"
+ 705      5F315F47 
+ 705      65745278 
+ 705      42756666 
+ 705      65725369 
+ 706              	.LASF21:
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccCeV6th.s 			page 15
+
+
+ 707 00a9 52636F75 		.ascii	"Rcount\000"
+ 707      6E7400
+ 708              	.LASF13:
+ 709 00b0 666C6F61 		.ascii	"float\000"
+ 709      7400
+ 710              	.LASF1:
+ 711 00b6 756E7369 		.ascii	"unsigned char\000"
+ 711      676E6564 
+ 711      20636861 
+ 711      7200
+ 712              	.LASF30:
+ 713 00c4 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 713      43313120 
+ 713      352E342E 
+ 713      31203230 
+ 713      31363036 
+ 714 00f7 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 714      20726576 
+ 714      6973696F 
+ 714      6E203233 
+ 714      37373135 
+ 715 012a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 715      66756E63 
+ 715      74696F6E 
+ 715      2D736563 
+ 715      74696F6E 
+ 716              	.LASF5:
+ 717 0152 6C6F6E67 		.ascii	"long unsigned int\000"
+ 717      20756E73 
+ 717      69676E65 
+ 717      6420696E 
+ 717      7400
+ 718              	.LASF3:
+ 719 0164 73686F72 		.ascii	"short unsigned int\000"
+ 719      7420756E 
+ 719      7369676E 
+ 719      65642069 
+ 719      6E7400
+ 720              	.LASF18:
+ 721 0177 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 721      52784275 
+ 721      66666572 
+ 721      00
+ 722              	.LASF14:
+ 723 0184 646F7562 		.ascii	"double\000"
+ 723      6C6500
+ 724              	.LASF20:
+ 725 018b 44617461 		.ascii	"Data\000"
+ 725      00
+ 726              	.LASF33:
+ 727 0190 6D61696E 		.ascii	"main\000"
+ 727      00
+ 728              	.LASF12:
+ 729 0195 75696E74 		.ascii	"uint16\000"
+ 729      313600
+ 730              	.LASF8:
+ 731 019c 756E7369 		.ascii	"unsigned int\000"
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccCeV6th.s 			page 16
+
+
+ 731      676E6564 
+ 731      20696E74 
+ 731      00
+ 732              	.LASF26:
+ 733 01a9 5350494D 		.ascii	"SPIM_1_ReadRxStatus\000"
+ 733      5F315F52 
+ 733      65616452 
+ 733      78537461 
+ 733      74757300 
+ 734              	.LASF7:
+ 735 01bd 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 735      206C6F6E 
+ 735      6720756E 
+ 735      7369676E 
+ 735      65642069 
+ 736              	.LASF24:
+ 737 01d4 5350494D 		.ascii	"SPIM_1_EnableRxInt\000"
+ 737      5F315F45 
+ 737      6E61626C 
+ 737      65527849 
+ 737      6E7400
+ 738              	.LASF10:
+ 739 01e7 696E7433 		.ascii	"int32_t\000"
+ 739      325F7400 
+ 740              	.LASF17:
+ 741 01ef 73697A65 		.ascii	"sizetype\000"
+ 741      74797065 
+ 741      00
+ 742              	.LASF6:
+ 743 01f8 6C6F6E67 		.ascii	"long long int\000"
+ 743      206C6F6E 
+ 743      6720696E 
+ 743      7400
+ 744              	.LASF31:
+ 745 0206 6D61696E 		.ascii	"main.c\000"
+ 745      2E6300
+ 746              	.LASF15:
+ 747 020d 63686172 		.ascii	"char\000"
+ 747      00
+ 748              	.LASF29:
+ 749 0212 5350494D 		.ascii	"SPIM_1_ReadRxData\000"
+ 749      5F315F52 
+ 749      65616452 
+ 749      78446174 
+ 749      6100
+ 750              	.LASF2:
+ 751 0224 73686F72 		.ascii	"short int\000"
+ 751      7420696E 
+ 751      7400
+ 752              	.LASF11:
+ 753 022e 75696E74 		.ascii	"uint8\000"
+ 753      3800
+ 754              	.LASF4:
+ 755 0234 6C6F6E67 		.ascii	"long int\000"
+ 755      20696E74 
+ 755      00
+ 756              	.LASF16:
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccCeV6th.s 			page 17
+
+
+ 757 023d 6C6F6E67 		.ascii	"long double\000"
+ 757      20646F75 
+ 757      626C6500 
+ 758              	.LASF19:
+ 759 0249 7472616E 		.ascii	"transmitbuffer\000"
+ 759      736D6974 
+ 759      62756666 
+ 759      657200
+ 760              	.LASF0:
+ 761 0258 7369676E 		.ascii	"signed char\000"
+ 761      65642063 
+ 761      68617200 
+ 762              	.LASF27:
+ 763 0264 5350494D 		.ascii	"SPIM_1_WriteTxData\000"
+ 763      5F315F57 
+ 763      72697465 
+ 763      54784461 
+ 763      746100
+ 764              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

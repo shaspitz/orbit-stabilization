@@ -1,0 +1,3019 @@
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_metadata
+  20              		.global	cy_meta_flashprotect
+  21              		.global	cy_meta_wonvl
+  22              		.global	cy_meta_custnvl
+  23              		.global	cy_meta_configecc
+  24              		.section	.cyconfigecc,"a",%progbits
+  25              		.align	2
+  26              		.type	cy_meta_configecc, %object
+  27              		.size	cy_meta_configecc, 2384
+  28              	cy_meta_configecc:
+  29 0000 04       		.byte	4
+  30 0001 52       		.byte	82
+  31 0002 00       		.byte	0
+  32 0003 40       		.byte	64
+  33 0004 01       		.byte	1
+  34 0005 5A       		.byte	90
+  35 0006 00       		.byte	0
+  36 0007 40       		.byte	64
+  37 0008 07       		.byte	7
+  38 0009 64       		.byte	100
+  39 000a 00       		.byte	0
+  40 000b 40       		.byte	64
+  41 000c 05       		.byte	5
+  42 000d 65       		.byte	101
+  43 000e 00       		.byte	0
+  44 000f 40       		.byte	64
+  45 0010 02       		.byte	2
+  46 0011 03       		.byte	3
+  47 0012 01       		.byte	1
+  48 0013 40       		.byte	64
+  49 0014 2E       		.byte	46
+  50 0015 08       		.byte	8
+  51 0016 01       		.byte	1
+  52 0017 40       		.byte	64
+  53 0018 53       		.byte	83
+  54 0019 09       		.byte	9
+  55 001a 01       		.byte	1
+  56 001b 40       		.byte	64
+  57 001c 63       		.byte	99
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 2
+
+
+  58 001d 0A       		.byte	10
+  59 001e 01       		.byte	1
+  60 001f 40       		.byte	64
+  61 0020 52       		.byte	82
+  62 0021 0B       		.byte	11
+  63 0022 01       		.byte	1
+  64 0023 40       		.byte	64
+  65 0024 24       		.byte	36
+  66 0025 0C       		.byte	12
+  67 0026 01       		.byte	1
+  68 0027 40       		.byte	64
+  69 0028 4C       		.byte	76
+  70 0029 0D       		.byte	13
+  71 002a 01       		.byte	1
+  72 002b 40       		.byte	64
+  73 002c 6B       		.byte	107
+  74 002d 0E       		.byte	14
+  75 002e 01       		.byte	1
+  76 002f 40       		.byte	64
+  77 0030 3C       		.byte	60
+  78 0031 0F       		.byte	15
+  79 0032 01       		.byte	1
+  80 0033 40       		.byte	64
+  81 0034 02       		.byte	2
+  82 0035 15       		.byte	21
+  83 0036 01       		.byte	1
+  84 0037 40       		.byte	64
+  85 0038 46       		.byte	70
+  86 0039 18       		.byte	24
+  87 003a 01       		.byte	1
+  88 003b 40       		.byte	64
+  89 003c 44       		.byte	68
+  90 003d 19       		.byte	25
+  91 003e 01       		.byte	1
+  92 003f 40       		.byte	64
+  93 0040 17       		.byte	23
+  94 0041 1A       		.byte	26
+  95 0042 01       		.byte	1
+  96 0043 40       		.byte	64
+  97 0044 5E       		.byte	94
+  98 0045 1B       		.byte	27
+  99 0046 01       		.byte	1
+ 100 0047 40       		.byte	64
+ 101 0048 04       		.byte	4
+ 102 0049 40       		.byte	64
+ 103 004a 01       		.byte	1
+ 104 004b 40       		.byte	64
+ 105 004c 07       		.byte	7
+ 106 004d 41       		.byte	65
+ 107 004e 01       		.byte	1
+ 108 004f 40       		.byte	64
+ 109 0050 01       		.byte	1
+ 110 0051 42       		.byte	66
+ 111 0052 01       		.byte	1
+ 112 0053 40       		.byte	64
+ 113 0054 01       		.byte	1
+ 114 0055 43       		.byte	67
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 3
+
+
+ 115 0056 01       		.byte	1
+ 116 0057 40       		.byte	64
+ 117 0058 02       		.byte	2
+ 118 0059 44       		.byte	68
+ 119 005a 01       		.byte	1
+ 120 005b 40       		.byte	64
+ 121 005c 04       		.byte	4
+ 122 005d 45       		.byte	69
+ 123 005e 01       		.byte	1
+ 124 005f 40       		.byte	64
+ 125 0060 03       		.byte	3
+ 126 0061 46       		.byte	70
+ 127 0062 01       		.byte	1
+ 128 0063 40       		.byte	64
+ 129 0064 03       		.byte	3
+ 130 0065 47       		.byte	71
+ 131 0066 01       		.byte	1
+ 132 0067 40       		.byte	64
+ 133 0068 03       		.byte	3
+ 134 0069 48       		.byte	72
+ 135 006a 01       		.byte	1
+ 136 006b 40       		.byte	64
+ 137 006c 04       		.byte	4
+ 138 006d 49       		.byte	73
+ 139 006e 01       		.byte	1
+ 140 006f 40       		.byte	64
+ 141 0070 06       		.byte	6
+ 142 0071 4C       		.byte	76
+ 143 0072 01       		.byte	1
+ 144 0073 40       		.byte	64
+ 145 0074 06       		.byte	6
+ 146 0075 4D       		.byte	77
+ 147 0076 01       		.byte	1
+ 148 0077 40       		.byte	64
+ 149 0078 09       		.byte	9
+ 150 0079 50       		.byte	80
+ 151 007a 01       		.byte	1
+ 152 007b 40       		.byte	64
+ 153 007c 01       		.byte	1
+ 154 007d 51       		.byte	81
+ 155 007e 01       		.byte	1
+ 156 007f 40       		.byte	64
+ 157 0080 09       		.byte	9
+ 158 0081 80       		.byte	-128
+ 159 0082 10       		.byte	16
+ 160 0083 02       		.byte	2
+ 161 0084 11       		.byte	17
+ 162 0085 02       		.byte	2
+ 163 0086 64       		.byte	100
+ 164 0087 40       		.byte	64
+ 165 0088 DF       		.byte	-33
+ 166 0089 04       		.byte	4
+ 167 008a 78       		.byte	120
+ 168 008b 01       		.byte	1
+ 169 008c 7E       		.byte	126
+ 170 008d 01       		.byte	1
+ 171 008e 88       		.byte	-120
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 4
+
+
+ 172 008f 38       		.byte	56
+ 173 0090 8B       		.byte	-117
+ 174 0091 72       		.byte	114
+ 175 0092 8C       		.byte	-116
+ 176 0093 0F       		.byte	15
+ 177 0094 8D       		.byte	-115
+ 178 0095 67       		.byte	103
+ 179 0096 8E       		.byte	-114
+ 180 0097 0F       		.byte	15
+ 181 0098 79       		.byte	121
+ 182 0099 01       		.byte	1
+ 183 009a 7B       		.byte	123
+ 184 009b 01       		.byte	1
+ 185 009c 88       		.byte	-120
+ 186 009d 72       		.byte	114
+ 187 009e 89       		.byte	-119
+ 188 009f 38       		.byte	56
+ 189 00a0 8A       		.byte	-118
+ 190 00a1 67       		.byte	103
+ 191 00a2 E6       		.byte	-26
+ 192 00a3 C0       		.byte	-64
+ 193 00a4 EA       		.byte	-22
+ 194 00a5 02       		.byte	2
+ 195 00a6 88       		.byte	-120
+ 196 00a7 04       		.byte	4
+ 197 00a8 8E       		.byte	-114
+ 198 00a9 04       		.byte	4
+ 199 00aa 8F       		.byte	-113
+ 200 00ab 03       		.byte	3
+ 201 00ac 91       		.byte	-111
+ 202 00ad 01       		.byte	1
+ 203 00ae 92       		.byte	-110
+ 204 00af 04       		.byte	4
+ 205 00b0 9A       		.byte	-102
+ 206 00b1 02       		.byte	2
+ 207 00b2 A2       		.byte	-94
+ 208 00b3 02       		.byte	2
+ 209 00b4 A6       		.byte	-90
+ 210 00b5 01       		.byte	1
+ 211 00b6 B1       		.byte	-79
+ 212 00b7 02       		.byte	2
+ 213 00b8 B2       		.byte	-78
+ 214 00b9 04       		.byte	4
+ 215 00ba B3       		.byte	-77
+ 216 00bb 01       		.byte	1
+ 217 00bc B4       		.byte	-76
+ 218 00bd 02       		.byte	2
+ 219 00be B6       		.byte	-74
+ 220 00bf 01       		.byte	1
+ 221 00c0 BE       		.byte	-66
+ 222 00c1 14       		.byte	20
+ 223 00c2 BF       		.byte	-65
+ 224 00c3 04       		.byte	4
+ 225 00c4 C0       		.byte	-64
+ 226 00c5 35       		.byte	53
+ 227 00c6 C1       		.byte	-63
+ 228 00c7 02       		.byte	2
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 5
+
+
+ 229 00c8 C5       		.byte	-59
+ 230 00c9 4E       		.byte	78
+ 231 00ca C6       		.byte	-58
+ 232 00cb C0       		.byte	-64
+ 233 00cc C7       		.byte	-57
+ 234 00cd 02       		.byte	2
+ 235 00ce C8       		.byte	-56
+ 236 00cf 1F       		.byte	31
+ 237 00d0 C9       		.byte	-55
+ 238 00d1 FF       		.byte	-1
+ 239 00d2 CA       		.byte	-54
+ 240 00d3 FF       		.byte	-1
+ 241 00d4 CB       		.byte	-53
+ 242 00d5 FF       		.byte	-1
+ 243 00d6 CD       		.byte	-51
+ 244 00d7 A0       		.byte	-96
+ 245 00d8 CF       		.byte	-49
+ 246 00d9 01       		.byte	1
+ 247 00da D0       		.byte	-48
+ 248 00db 18       		.byte	24
+ 249 00dc D2       		.byte	-46
+ 250 00dd 80       		.byte	-128
+ 251 00de D8       		.byte	-40
+ 252 00df 04       		.byte	4
+ 253 00e0 D9       		.byte	-39
+ 254 00e1 04       		.byte	4
+ 255 00e2 DA       		.byte	-38
+ 256 00e3 04       		.byte	4
+ 257 00e4 DB       		.byte	-37
+ 258 00e5 04       		.byte	4
+ 259 00e6 DD       		.byte	-35
+ 260 00e7 99       		.byte	-103
+ 261 00e8 DF       		.byte	-33
+ 262 00e9 01       		.byte	1
+ 263 00ea E0       		.byte	-32
+ 264 00eb 40       		.byte	64
+ 265 00ec E2       		.byte	-30
+ 266 00ed 80       		.byte	-128
+ 267 00ee E4       		.byte	-28
+ 268 00ef 40       		.byte	64
+ 269 00f0 E5       		.byte	-27
+ 270 00f1 40       		.byte	64
+ 271 00f2 E6       		.byte	-26
+ 272 00f3 80       		.byte	-128
+ 273 00f4 E8       		.byte	-24
+ 274 00f5 40       		.byte	64
+ 275 00f6 EA       		.byte	-22
+ 276 00f7 50       		.byte	80
+ 277 00f8 EB       		.byte	-21
+ 278 00f9 A8       		.byte	-88
+ 279 00fa EC       		.byte	-20
+ 280 00fb 40       		.byte	64
+ 281 00fc ED       		.byte	-19
+ 282 00fd 20       		.byte	32
+ 283 00fe EE       		.byte	-18
+ 284 00ff 50       		.byte	80
+ 285 0100 EF       		.byte	-17
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 6
+
+
+ 286 0101 A8       		.byte	-88
+ 287 0102 00       		.byte	0
+ 288 0103 20       		.byte	32
+ 289 0104 02       		.byte	2
+ 290 0105 03       		.byte	3
+ 291 0106 05       		.byte	5
+ 292 0107 80       		.byte	-128
+ 293 0108 06       		.byte	6
+ 294 0109 80       		.byte	-128
+ 295 010a 07       		.byte	7
+ 296 010b 14       		.byte	20
+ 297 010c 0A       		.byte	10
+ 298 010d 44       		.byte	68
+ 299 010e 0C       		.byte	12
+ 300 010f 02       		.byte	2
+ 301 0110 0D       		.byte	13
+ 302 0111 60       		.byte	96
+ 303 0112 0E       		.byte	14
+ 304 0113 20       		.byte	32
+ 305 0114 10       		.byte	16
+ 306 0115 A0       		.byte	-96
+ 307 0116 14       		.byte	20
+ 308 0117 40       		.byte	64
+ 309 0118 15       		.byte	21
+ 310 0119 04       		.byte	4
+ 311 011a 16       		.byte	22
+ 312 011b 02       		.byte	2
+ 313 011c 17       		.byte	23
+ 314 011d 20       		.byte	32
+ 315 011e 18       		.byte	24
+ 316 011f 10       		.byte	16
+ 317 0120 19       		.byte	25
+ 318 0121 20       		.byte	32
+ 319 0122 1A       		.byte	26
+ 320 0123 01       		.byte	1
+ 321 0124 1E       		.byte	30
+ 322 0125 24       		.byte	36
+ 323 0126 1F       		.byte	31
+ 324 0127 84       		.byte	-124
+ 325 0128 21       		.byte	33
+ 326 0129 02       		.byte	2
+ 327 012a 22       		.byte	34
+ 328 012b 04       		.byte	4
+ 329 012c 26       		.byte	38
+ 330 012d 28       		.byte	40
+ 331 012e 27       		.byte	39
+ 332 012f 52       		.byte	82
+ 333 0130 28       		.byte	40
+ 334 0131 50       		.byte	80
+ 335 0132 2A       		.byte	42
+ 336 0133 04       		.byte	4
+ 337 0134 2B       		.byte	43
+ 338 0135 C0       		.byte	-64
+ 339 0136 2D       		.byte	45
+ 340 0137 85       		.byte	-123
+ 341 0138 2E       		.byte	46
+ 342 0139 08       		.byte	8
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 7
+
+
+ 343 013a 2F       		.byte	47
+ 344 013b 04       		.byte	4
+ 345 013c 31       		.byte	49
+ 346 013d 02       		.byte	2
+ 347 013e 36       		.byte	54
+ 348 013f 08       		.byte	8
+ 349 0140 37       		.byte	55
+ 350 0141 62       		.byte	98
+ 351 0142 38       		.byte	56
+ 352 0143 80       		.byte	-128
+ 353 0144 3D       		.byte	61
+ 354 0145 08       		.byte	8
+ 355 0146 3E       		.byte	62
+ 356 0147 22       		.byte	34
+ 357 0148 3F       		.byte	63
+ 358 0149 80       		.byte	-128
+ 359 014a 40       		.byte	64
+ 360 014b 10       		.byte	16
+ 361 014c 43       		.byte	67
+ 362 014d 20       		.byte	32
+ 363 014e 45       		.byte	69
+ 364 014f 24       		.byte	36
+ 365 0150 47       		.byte	71
+ 366 0151 06       		.byte	6
+ 367 0152 48       		.byte	72
+ 368 0153 40       		.byte	64
+ 369 0154 49       		.byte	73
+ 370 0155 44       		.byte	68
+ 371 0156 4C       		.byte	76
+ 372 0157 80       		.byte	-128
+ 373 0158 4D       		.byte	77
+ 374 0159 80       		.byte	-128
+ 375 015a 4F       		.byte	79
+ 376 015b 20       		.byte	32
+ 377 015c 52       		.byte	82
+ 378 015d 54       		.byte	84
+ 379 015e 56       		.byte	86
+ 380 015f 20       		.byte	32
+ 381 0160 5E       		.byte	94
+ 382 0161 02       		.byte	2
+ 383 0162 64       		.byte	100
+ 384 0163 02       		.byte	2
+ 385 0164 65       		.byte	101
+ 386 0165 20       		.byte	32
+ 387 0166 67       		.byte	103
+ 388 0167 80       		.byte	-128
+ 389 0168 6C       		.byte	108
+ 390 0169 02       		.byte	2
+ 391 016a 72       		.byte	114
+ 392 016b 40       		.byte	64
+ 393 016c 7E       		.byte	126
+ 394 016d 40       		.byte	64
+ 395 016e 7F       		.byte	127
+ 396 016f 80       		.byte	-128
+ 397 0170 90       		.byte	-112
+ 398 0171 80       		.byte	-128
+ 399 0172 95       		.byte	-107
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 8
+
+
+ 400 0173 04       		.byte	4
+ 401 0174 96       		.byte	-106
+ 402 0175 89       		.byte	-119
+ 403 0176 97       		.byte	-105
+ 404 0177 80       		.byte	-128
+ 405 0178 99       		.byte	-103
+ 406 0179 80       		.byte	-128
+ 407 017a 9A       		.byte	-102
+ 408 017b 8A       		.byte	-118
+ 409 017c 9B       		.byte	-101
+ 410 017d 20       		.byte	32
+ 411 017e 9C       		.byte	-100
+ 412 017f 08       		.byte	8
+ 413 0180 9F       		.byte	-97
+ 414 0181 10       		.byte	16
+ 415 0182 A0       		.byte	-96
+ 416 0183 20       		.byte	32
+ 417 0184 A1       		.byte	-95
+ 418 0185 2C       		.byte	44
+ 419 0186 A2       		.byte	-94
+ 420 0187 01       		.byte	1
+ 421 0188 A3       		.byte	-93
+ 422 0189 38       		.byte	56
+ 423 018a A6       		.byte	-90
+ 424 018b 12       		.byte	18
+ 425 018c A7       		.byte	-89
+ 426 018d 80       		.byte	-128
+ 427 018e B5       		.byte	-75
+ 428 018f 04       		.byte	4
+ 429 0190 B7       		.byte	-73
+ 430 0191 40       		.byte	64
+ 431 0192 C0       		.byte	-64
+ 432 0193 F3       		.byte	-13
+ 433 0194 C2       		.byte	-62
+ 434 0195 FA       		.byte	-6
+ 435 0196 C4       		.byte	-60
+ 436 0197 FC       		.byte	-4
+ 437 0198 CA       		.byte	-54
+ 438 0199 F0       		.byte	-16
+ 439 019a CC       		.byte	-52
+ 440 019b F1       		.byte	-15
+ 441 019c CE       		.byte	-50
+ 442 019d F8       		.byte	-8
+ 443 019e D0       		.byte	-48
+ 444 019f E6       		.byte	-26
+ 445 01a0 D2       		.byte	-46
+ 446 01a1 38       		.byte	56
+ 447 01a2 D6       		.byte	-42
+ 448 01a3 80       		.byte	-128
+ 449 01a4 D8       		.byte	-40
+ 450 01a5 B0       		.byte	-80
+ 451 01a6 DE       		.byte	-34
+ 452 01a7 80       		.byte	-128
+ 453 01a8 02       		.byte	2
+ 454 01a9 0C       		.byte	12
+ 455 01aa 07       		.byte	7
+ 456 01ab 01       		.byte	1
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 9
+
+
+ 457 01ac 08       		.byte	8
+ 458 01ad 4C       		.byte	76
+ 459 01ae 0A       		.byte	10
+ 460 01af 13       		.byte	19
+ 461 01b0 0F       		.byte	15
+ 462 01b1 10       		.byte	16
+ 463 01b2 10       		.byte	16
+ 464 01b3 1F       		.byte	31
+ 465 01b4 17       		.byte	23
+ 466 01b5 08       		.byte	8
+ 467 01b6 1B       		.byte	27
+ 468 01b7 0A       		.byte	10
+ 469 01b8 1C       		.byte	28
+ 470 01b9 61       		.byte	97
+ 471 01ba 1D       		.byte	29
+ 472 01bb 03       		.byte	3
+ 473 01bc 1E       		.byte	30
+ 474 01bd 0E       		.byte	14
+ 475 01be 1F       		.byte	31
+ 476 01bf 04       		.byte	4
+ 477 01c0 22       		.byte	34
+ 478 01c1 08       		.byte	8
+ 479 01c2 23       		.byte	35
+ 480 01c3 1C       		.byte	28
+ 481 01c4 24       		.byte	36
+ 482 01c5 62       		.byte	98
+ 483 01c6 25       		.byte	37
+ 484 01c7 12       		.byte	18
+ 485 01c8 26       		.byte	38
+ 486 01c9 05       		.byte	5
+ 487 01ca 27       		.byte	39
+ 488 01cb 08       		.byte	8
+ 489 01cc 28       		.byte	40
+ 490 01cd 10       		.byte	16
+ 491 01ce 2A       		.byte	42
+ 492 01cf 20       		.byte	32
+ 493 01d0 2F       		.byte	47
+ 494 01d1 12       		.byte	18
+ 495 01d2 32       		.byte	50
+ 496 01d3 1F       		.byte	31
+ 497 01d4 33       		.byte	51
+ 498 01d5 01       		.byte	1
+ 499 01d6 34       		.byte	52
+ 500 01d7 60       		.byte	96
+ 501 01d8 37       		.byte	55
+ 502 01d9 1E       		.byte	30
+ 503 01da 38       		.byte	56
+ 504 01db 20       		.byte	32
+ 505 01dc 3B       		.byte	59
+ 506 01dd 80       		.byte	-128
+ 507 01de 3E       		.byte	62
+ 508 01df 10       		.byte	16
+ 509 01e0 40       		.byte	64
+ 510 01e1 02       		.byte	2
+ 511 01e2 46       		.byte	70
+ 512 01e3 04       		.byte	4
+ 513 01e4 49       		.byte	73
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 10
+
+
+ 514 01e5 FF       		.byte	-1
+ 515 01e6 4A       		.byte	74
+ 516 01e7 07       		.byte	7
+ 517 01e8 4B       		.byte	75
+ 518 01e9 FF       		.byte	-1
+ 519 01ea 4C       		.byte	76
+ 520 01eb 40       		.byte	64
+ 521 01ec 4D       		.byte	77
+ 522 01ed 20       		.byte	32
+ 523 01ee 4E       		.byte	78
+ 524 01ef F0       		.byte	-16
+ 525 01f0 4F       		.byte	79
+ 526 01f1 05       		.byte	5
+ 527 01f2 50       		.byte	80
+ 528 01f3 08       		.byte	8
+ 529 01f4 58       		.byte	88
+ 530 01f5 04       		.byte	4
+ 531 01f6 59       		.byte	89
+ 532 01f7 04       		.byte	4
+ 533 01f8 5A       		.byte	90
+ 534 01f9 04       		.byte	4
+ 535 01fa 5C       		.byte	92
+ 536 01fb 11       		.byte	17
+ 537 01fc 5D       		.byte	93
+ 538 01fd 01       		.byte	1
+ 539 01fe 5F       		.byte	95
+ 540 01ff 09       		.byte	9
+ 541 0200 60       		.byte	96
+ 542 0201 40       		.byte	64
+ 543 0202 61       		.byte	97
+ 544 0203 A8       		.byte	-88
+ 545 0204 62       		.byte	98
+ 546 0205 40       		.byte	64
+ 547 0206 63       		.byte	99
+ 548 0207 20       		.byte	32
+ 549 0208 80       		.byte	-128
+ 550 0209 01       		.byte	1
+ 551 020a 81       		.byte	-127
+ 552 020b 7F       		.byte	127
+ 553 020c 82       		.byte	-126
+ 554 020d 80       		.byte	-128
+ 555 020e 84       		.byte	-124
+ 556 020f 3B       		.byte	59
+ 557 0210 85       		.byte	-123
+ 558 0211 FC       		.byte	-4
+ 559 0212 88       		.byte	-120
+ 560 0213 03       		.byte	3
+ 561 0214 89       		.byte	-119
+ 562 0215 FC       		.byte	-4
+ 563 0216 8C       		.byte	-116
+ 564 0217 23       		.byte	35
+ 565 0218 8D       		.byte	-115
+ 566 0219 80       		.byte	-128
+ 567 021a 8E       		.byte	-114
+ 568 021b 1C       		.byte	28
+ 569 021c 91       		.byte	-111
+ 570 021d 29       		.byte	41
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 11
+
+
+ 571 021e 92       		.byte	-110
+ 572 021f 03       		.byte	3
+ 573 0220 93       		.byte	-109
+ 574 0221 44       		.byte	68
+ 575 0222 94       		.byte	-108
+ 576 0223 38       		.byte	56
+ 577 0224 95       		.byte	-107
+ 578 0225 07       		.byte	7
+ 579 0226 96       		.byte	-106
+ 580 0227 03       		.byte	3
+ 581 0228 97       		.byte	-105
+ 582 0229 18       		.byte	24
+ 583 022a 98       		.byte	-104
+ 584 022b 3B       		.byte	59
+ 585 022c 9A       		.byte	-102
+ 586 022d 40       		.byte	64
+ 587 022e 9B       		.byte	-101
+ 588 022f 03       		.byte	3
+ 589 0230 9C       		.byte	-100
+ 590 0231 02       		.byte	2
+ 591 0232 9D       		.byte	-99
+ 592 0233 52       		.byte	82
+ 593 0234 9F       		.byte	-97
+ 594 0235 24       		.byte	36
+ 595 0236 A0       		.byte	-96
+ 596 0237 C3       		.byte	-61
+ 597 0238 A1       		.byte	-95
+ 598 0239 03       		.byte	3
+ 599 023a A2       		.byte	-94
+ 600 023b 04       		.byte	4
+ 601 023c A4       		.byte	-92
+ 602 023d 08       		.byte	8
+ 603 023e A7       		.byte	-89
+ 604 023f 03       		.byte	3
+ 605 0240 A8       		.byte	-88
+ 606 0241 18       		.byte	24
+ 607 0242 AB       		.byte	-85
+ 608 0243 03       		.byte	3
+ 609 0244 AC       		.byte	-84
+ 610 0245 10       		.byte	16
+ 611 0246 AD       		.byte	-83
+ 612 0247 03       		.byte	3
+ 613 0248 B0       		.byte	-80
+ 614 0249 20       		.byte	32
+ 615 024a B1       		.byte	-79
+ 616 024b 03       		.byte	3
+ 617 024c B2       		.byte	-78
+ 618 024d 80       		.byte	-128
+ 619 024e B3       		.byte	-77
+ 620 024f 80       		.byte	-128
+ 621 0250 B4       		.byte	-76
+ 622 0251 40       		.byte	64
+ 623 0252 B5       		.byte	-75
+ 624 0253 1C       		.byte	28
+ 625 0254 B6       		.byte	-74
+ 626 0255 1F       		.byte	31
+ 627 0256 B7       		.byte	-73
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 12
+
+
+ 628 0257 60       		.byte	96
+ 629 0258 BA       		.byte	-70
+ 630 0259 80       		.byte	-128
+ 631 025a BE       		.byte	-66
+ 632 025b 01       		.byte	1
+ 633 025c D6       		.byte	-42
+ 634 025d 02       		.byte	2
+ 635 025e D7       		.byte	-41
+ 636 025f 10       		.byte	16
+ 637 0260 D8       		.byte	-40
+ 638 0261 04       		.byte	4
+ 639 0262 D9       		.byte	-39
+ 640 0263 04       		.byte	4
+ 641 0264 DB       		.byte	-37
+ 642 0265 04       		.byte	4
+ 643 0266 DC       		.byte	-36
+ 644 0267 11       		.byte	17
+ 645 0268 DD       		.byte	-35
+ 646 0269 10       		.byte	16
+ 647 026a DE       		.byte	-34
+ 648 026b 08       		.byte	8
+ 649 026c DF       		.byte	-33
+ 650 026d 01       		.byte	1
+ 651 026e 00       		.byte	0
+ 652 026f 12       		.byte	18
+ 653 0270 02       		.byte	2
+ 654 0271 40       		.byte	64
+ 655 0272 05       		.byte	5
+ 656 0273 C8       		.byte	-56
+ 657 0274 06       		.byte	6
+ 658 0275 80       		.byte	-128
+ 659 0276 07       		.byte	7
+ 660 0277 14       		.byte	20
+ 661 0278 08       		.byte	8
+ 662 0279 40       		.byte	64
+ 663 027a 0A       		.byte	10
+ 664 027b 80       		.byte	-128
+ 665 027c 0B       		.byte	11
+ 666 027d 01       		.byte	1
+ 667 027e 0D       		.byte	13
+ 668 027f 80       		.byte	-128
+ 669 0280 0E       		.byte	14
+ 670 0281 28       		.byte	40
+ 671 0282 0F       		.byte	15
+ 672 0283 80       		.byte	-128
+ 673 0284 10       		.byte	16
+ 674 0285 98       		.byte	-104
+ 675 0286 13       		.byte	19
+ 676 0287 04       		.byte	4
+ 677 0288 15       		.byte	21
+ 678 0289 05       		.byte	5
+ 679 028a 16       		.byte	22
+ 680 028b 02       		.byte	2
+ 681 028c 17       		.byte	23
+ 682 028d 20       		.byte	32
+ 683 028e 18       		.byte	24
+ 684 028f 14       		.byte	20
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 13
+
+
+ 685 0290 19       		.byte	25
+ 686 0291 04       		.byte	4
+ 687 0292 1D       		.byte	29
+ 688 0293 68       		.byte	104
+ 689 0294 1E       		.byte	30
+ 690 0295 48       		.byte	72
+ 691 0296 21       		.byte	33
+ 692 0297 04       		.byte	4
+ 693 0298 23       		.byte	35
+ 694 0299 01       		.byte	1
+ 695 029a 24       		.byte	36
+ 696 029b 02       		.byte	2
+ 697 029c 25       		.byte	37
+ 698 029d 84       		.byte	-124
+ 699 029e 26       		.byte	38
+ 700 029f 81       		.byte	-127
+ 701 02a0 27       		.byte	39
+ 702 02a1 04       		.byte	4
+ 703 02a2 28       		.byte	40
+ 704 02a3 40       		.byte	64
+ 705 02a4 29       		.byte	41
+ 706 02a5 04       		.byte	4
+ 707 02a6 2A       		.byte	42
+ 708 02a7 40       		.byte	64
+ 709 02a8 2D       		.byte	45
+ 710 02a9 8A       		.byte	-118
+ 711 02aa 2E       		.byte	46
+ 712 02ab 20       		.byte	32
+ 713 02ac 30       		.byte	48
+ 714 02ad 18       		.byte	24
+ 715 02ae 33       		.byte	51
+ 716 02af 80       		.byte	-128
+ 717 02b0 36       		.byte	54
+ 718 02b1 90       		.byte	-112
+ 719 02b2 37       		.byte	55
+ 720 02b3 05       		.byte	5
+ 721 02b4 39       		.byte	57
+ 722 02b5 88       		.byte	-120
+ 723 02b6 3D       		.byte	61
+ 724 02b7 51       		.byte	81
+ 725 02b8 3E       		.byte	62
+ 726 02b9 04       		.byte	4
+ 727 02ba 40       		.byte	64
+ 728 02bb 04       		.byte	4
+ 729 02bc 45       		.byte	69
+ 730 02bd 04       		.byte	4
+ 731 02be 46       		.byte	70
+ 732 02bf 20       		.byte	32
+ 733 02c0 50       		.byte	80
+ 734 02c1 88       		.byte	-120
+ 735 02c2 51       		.byte	81
+ 736 02c3 40       		.byte	64
+ 737 02c4 5E       		.byte	94
+ 738 02c5 40       		.byte	64
+ 739 02c6 6D       		.byte	109
+ 740 02c7 50       		.byte	80
+ 741 02c8 6E       		.byte	110
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 14
+
+
+ 742 02c9 04       		.byte	4
+ 743 02ca 76       		.byte	118
+ 744 02cb 0A       		.byte	10
+ 745 02cc 77       		.byte	119
+ 746 02cd 20       		.byte	32
+ 747 02ce 79       		.byte	121
+ 748 02cf 01       		.byte	1
+ 749 02d0 7B       		.byte	123
+ 750 02d1 80       		.byte	-128
+ 751 02d2 7F       		.byte	127
+ 752 02d3 80       		.byte	-128
+ 753 02d4 85       		.byte	-123
+ 754 02d5 10       		.byte	16
+ 755 02d6 86       		.byte	-122
+ 756 02d7 80       		.byte	-128
+ 757 02d8 87       		.byte	-121
+ 758 02d9 01       		.byte	1
+ 759 02da 8D       		.byte	-115
+ 760 02db 02       		.byte	2
+ 761 02dc 8E       		.byte	-114
+ 762 02dd 04       		.byte	4
+ 763 02de 90       		.byte	-112
+ 764 02df 80       		.byte	-128
+ 765 02e0 93       		.byte	-109
+ 766 02e1 04       		.byte	4
+ 767 02e2 94       		.byte	-108
+ 768 02e3 02       		.byte	2
+ 769 02e4 95       		.byte	-107
+ 770 02e5 20       		.byte	32
+ 771 02e6 96       		.byte	-106
+ 772 02e7 89       		.byte	-119
+ 773 02e8 97       		.byte	-105
+ 774 02e9 81       		.byte	-127
+ 775 02ea 9C       		.byte	-100
+ 776 02eb 08       		.byte	8
+ 777 02ec 9D       		.byte	-99
+ 778 02ed 04       		.byte	4
+ 779 02ee 9F       		.byte	-97
+ 780 02ef 04       		.byte	4
+ 781 02f0 A0       		.byte	-96
+ 782 02f1 21       		.byte	33
+ 783 02f2 A3       		.byte	-93
+ 784 02f3 38       		.byte	56
+ 785 02f4 A4       		.byte	-92
+ 786 02f5 88       		.byte	-120
+ 787 02f6 A6       		.byte	-90
+ 788 02f7 02       		.byte	2
+ 789 02f8 AA       		.byte	-86
+ 790 02f9 08       		.byte	8
+ 791 02fa AB       		.byte	-85
+ 792 02fb 02       		.byte	2
+ 793 02fc B7       		.byte	-73
+ 794 02fd 02       		.byte	2
+ 795 02fe C0       		.byte	-64
+ 796 02ff FA       		.byte	-6
+ 797 0300 C2       		.byte	-62
+ 798 0301 F9       		.byte	-7
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 15
+
+
+ 799 0302 C4       		.byte	-60
+ 800 0303 FE       		.byte	-2
+ 801 0304 CA       		.byte	-54
+ 802 0305 FB       		.byte	-5
+ 803 0306 CC       		.byte	-52
+ 804 0307 FE       		.byte	-2
+ 805 0308 CE       		.byte	-50
+ 806 0309 FA       		.byte	-6
+ 807 030a D0       		.byte	-48
+ 808 030b 04       		.byte	4
+ 809 030c D6       		.byte	-42
+ 810 030d 10       		.byte	16
+ 811 030e DE       		.byte	-34
+ 812 030f 81       		.byte	-127
+ 813 0310 E2       		.byte	-30
+ 814 0311 02       		.byte	2
+ 815 0312 02       		.byte	2
+ 816 0313 02       		.byte	2
+ 817 0314 05       		.byte	5
+ 818 0315 02       		.byte	2
+ 819 0316 13       		.byte	19
+ 820 0317 04       		.byte	4
+ 821 0318 19       		.byte	25
+ 822 0319 04       		.byte	4
+ 823 031a 23       		.byte	35
+ 824 031b 05       		.byte	5
+ 825 031c 26       		.byte	38
+ 826 031d 01       		.byte	1
+ 827 031e 2A       		.byte	42
+ 828 031f 02       		.byte	2
+ 829 0320 31       		.byte	49
+ 830 0321 04       		.byte	4
+ 831 0322 32       		.byte	50
+ 832 0323 03       		.byte	3
+ 833 0324 33       		.byte	51
+ 834 0325 01       		.byte	1
+ 835 0326 35       		.byte	53
+ 836 0327 02       		.byte	2
+ 837 0328 38       		.byte	56
+ 838 0329 20       		.byte	32
+ 839 032a 3E       		.byte	62
+ 840 032b 14       		.byte	20
+ 841 032c 3F       		.byte	63
+ 842 032d 11       		.byte	17
+ 843 032e 40       		.byte	64
+ 844 032f 62       		.byte	98
+ 845 0330 41       		.byte	65
+ 846 0331 01       		.byte	1
+ 847 0332 45       		.byte	69
+ 848 0333 0B       		.byte	11
+ 849 0334 46       		.byte	70
+ 850 0335 C0       		.byte	-64
+ 851 0336 47       		.byte	71
+ 852 0337 0E       		.byte	14
+ 853 0338 48       		.byte	72
+ 854 0339 19       		.byte	25
+ 855 033a 49       		.byte	73
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 16
+
+
+ 856 033b FF       		.byte	-1
+ 857 033c 4A       		.byte	74
+ 858 033d FF       		.byte	-1
+ 859 033e 4B       		.byte	75
+ 860 033f FF       		.byte	-1
+ 861 0340 4E       		.byte	78
+ 862 0341 F0       		.byte	-16
+ 863 0342 4F       		.byte	79
+ 864 0343 44       		.byte	68
+ 865 0344 50       		.byte	80
+ 866 0345 0C       		.byte	12
+ 867 0346 54       		.byte	84
+ 868 0347 01       		.byte	1
+ 869 0348 58       		.byte	88
+ 870 0349 04       		.byte	4
+ 871 034a 59       		.byte	89
+ 872 034b 04       		.byte	4
+ 873 034c 5A       		.byte	90
+ 874 034d 04       		.byte	4
+ 875 034e 5B       		.byte	91
+ 876 034f 04       		.byte	4
+ 877 0350 5D       		.byte	93
+ 878 0351 11       		.byte	17
+ 879 0352 5F       		.byte	95
+ 880 0353 0D       		.byte	13
+ 881 0354 66       		.byte	102
+ 882 0355 C0       		.byte	-64
+ 883 0356 6A       		.byte	106
+ 884 0357 40       		.byte	64
+ 885 0358 6B       		.byte	107
+ 886 0359 02       		.byte	2
+ 887 035a 00       		.byte	0
+ 888 035b 12       		.byte	18
+ 889 035c 01       		.byte	1
+ 890 035d 48       		.byte	72
+ 891 035e 04       		.byte	4
+ 892 035f 02       		.byte	2
+ 893 0360 0A       		.byte	10
+ 894 0361 A1       		.byte	-95
+ 895 0362 0B       		.byte	11
+ 896 0363 04       		.byte	4
+ 897 0364 0E       		.byte	14
+ 898 0365 20       		.byte	32
+ 899 0366 0F       		.byte	15
+ 900 0367 20       		.byte	32
+ 901 0368 10       		.byte	16
+ 902 0369 A0       		.byte	-96
+ 903 036a 12       		.byte	18
+ 904 036b 01       		.byte	1
+ 905 036c 15       		.byte	21
+ 906 036d 20       		.byte	32
+ 907 036e 17       		.byte	23
+ 908 036f 04       		.byte	4
+ 909 0370 18       		.byte	24
+ 910 0371 14       		.byte	20
+ 911 0372 1A       		.byte	26
+ 912 0373 40       		.byte	64
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 17
+
+
+ 913 0374 1B       		.byte	27
+ 914 0375 08       		.byte	8
+ 915 0376 1E       		.byte	30
+ 916 0377 28       		.byte	40
+ 917 0378 1F       		.byte	31
+ 918 0379 20       		.byte	32
+ 919 037a 20       		.byte	32
+ 920 037b 02       		.byte	2
+ 921 037c 21       		.byte	33
+ 922 037d 40       		.byte	64
+ 923 037e 23       		.byte	35
+ 924 037f 44       		.byte	68
+ 925 0380 24       		.byte	36
+ 926 0381 40       		.byte	64
+ 927 0382 27       		.byte	39
+ 928 0383 28       		.byte	40
+ 929 0384 29       		.byte	41
+ 930 0385 0C       		.byte	12
+ 931 0386 2F       		.byte	47
+ 932 0387 40       		.byte	64
+ 933 0388 30       		.byte	48
+ 934 0389 0C       		.byte	12
+ 935 038a 32       		.byte	50
+ 936 038b 40       		.byte	64
+ 937 038c 35       		.byte	53
+ 938 038d 01       		.byte	1
+ 939 038e 37       		.byte	55
+ 940 038f 20       		.byte	32
+ 941 0390 38       		.byte	56
+ 942 0391 08       		.byte	8
+ 943 0392 39       		.byte	57
+ 944 0393 90       		.byte	-112
+ 945 0394 3A       		.byte	58
+ 946 0395 11       		.byte	17
+ 947 0396 3B       		.byte	59
+ 948 0397 05       		.byte	5
+ 949 0398 3F       		.byte	63
+ 950 0399 08       		.byte	8
+ 951 039a 40       		.byte	64
+ 952 039b 44       		.byte	68
+ 953 039c 44       		.byte	68
+ 954 039d 04       		.byte	4
+ 955 039e 46       		.byte	70
+ 956 039f 01       		.byte	1
+ 957 03a0 48       		.byte	72
+ 958 03a1 20       		.byte	32
+ 959 03a2 4A       		.byte	74
+ 960 03a3 44       		.byte	68
+ 961 03a4 4C       		.byte	76
+ 962 03a5 04       		.byte	4
+ 963 03a6 4E       		.byte	78
+ 964 03a7 10       		.byte	16
+ 965 03a8 50       		.byte	80
+ 966 03a9 40       		.byte	64
+ 967 03aa 51       		.byte	81
+ 968 03ab 08       		.byte	8
+ 969 03ac 52       		.byte	82
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 18
+
+
+ 970 03ad 20       		.byte	32
+ 971 03ae 56       		.byte	86
+ 972 03af 18       		.byte	24
+ 973 03b0 57       		.byte	87
+ 974 03b1 04       		.byte	4
+ 975 03b2 59       		.byte	89
+ 976 03b3 20       		.byte	32
+ 977 03b4 5A       		.byte	90
+ 978 03b5 48       		.byte	72
+ 979 03b6 5D       		.byte	93
+ 980 03b7 10       		.byte	16
+ 981 03b8 5F       		.byte	95
+ 982 03b9 4A       		.byte	74
+ 983 03ba 61       		.byte	97
+ 984 03bb 08       		.byte	8
+ 985 03bc 62       		.byte	98
+ 986 03bd 20       		.byte	32
+ 987 03be 63       		.byte	99
+ 988 03bf 80       		.byte	-128
+ 989 03c0 6F       		.byte	111
+ 990 03c1 02       		.byte	2
+ 991 03c2 71       		.byte	113
+ 992 03c3 01       		.byte	1
+ 993 03c4 79       		.byte	121
+ 994 03c5 40       		.byte	64
+ 995 03c6 7E       		.byte	126
+ 996 03c7 40       		.byte	64
+ 997 03c8 89       		.byte	-119
+ 998 03c9 20       		.byte	32
+ 999 03ca 8A       		.byte	-118
+ 1000 03cb 40       		.byte	64
+ 1001 03cc 8B       		.byte	-117
+ 1002 03cd 40       		.byte	64
+ 1003 03ce 8F       		.byte	-113
+ 1004 03cf 40       		.byte	64
+ 1005 03d0 91       		.byte	-111
+ 1006 03d1 40       		.byte	64
+ 1007 03d2 9C       		.byte	-100
+ 1008 03d3 08       		.byte	8
+ 1009 03d4 A6       		.byte	-90
+ 1010 03d5 02       		.byte	2
+ 1011 03d6 AE       		.byte	-82
+ 1012 03d7 02       		.byte	2
+ 1013 03d8 B1       		.byte	-79
+ 1014 03d9 20       		.byte	32
+ 1015 03da C0       		.byte	-64
+ 1016 03db 1F       		.byte	31
+ 1017 03dc C2       		.byte	-62
+ 1018 03dd 0F       		.byte	15
+ 1019 03de C4       		.byte	-60
+ 1020 03df 6D       		.byte	109
+ 1021 03e0 CA       		.byte	-54
+ 1022 03e1 82       		.byte	-126
+ 1023 03e2 CC       		.byte	-52
+ 1024 03e3 AA       		.byte	-86
+ 1025 03e4 CE       		.byte	-50
+ 1026 03e5 4F       		.byte	79
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 19
+
+
+ 1027 03e6 D0       		.byte	-48
+ 1028 03e7 35       		.byte	53
+ 1029 03e8 D2       		.byte	-46
+ 1030 03e9 24       		.byte	36
+ 1031 03ea D6       		.byte	-42
+ 1032 03eb FE       		.byte	-2
+ 1033 03ec D8       		.byte	-40
+ 1034 03ed 07       		.byte	7
+ 1035 03ee DE       		.byte	-34
+ 1036 03ef 88       		.byte	-120
+ 1037 03f0 E6       		.byte	-26
+ 1038 03f1 C0       		.byte	-64
+ 1039 03f2 04       		.byte	4
+ 1040 03f3 0C       		.byte	12
+ 1041 03f4 05       		.byte	5
+ 1042 03f5 03       		.byte	3
+ 1043 03f6 06       		.byte	6
+ 1044 03f7 11       		.byte	17
+ 1045 03f8 07       		.byte	7
+ 1046 03f9 28       		.byte	40
+ 1047 03fa 08       		.byte	8
+ 1048 03fb 20       		.byte	32
+ 1049 03fc 0A       		.byte	10
+ 1050 03fd 03       		.byte	3
+ 1051 03fe 0B       		.byte	11
+ 1052 03ff 29       		.byte	41
+ 1053 0400 0F       		.byte	15
+ 1054 0401 10       		.byte	16
+ 1055 0402 10       		.byte	16
+ 1056 0403 09       		.byte	9
+ 1057 0404 12       		.byte	18
+ 1058 0405 10       		.byte	16
+ 1059 0406 14       		.byte	20
+ 1060 0407 1F       		.byte	31
+ 1061 0408 15       		.byte	21
+ 1062 0409 12       		.byte	18
+ 1063 040a 17       		.byte	23
+ 1064 040b 28       		.byte	40
+ 1065 040c 18       		.byte	24
+ 1066 040d 10       		.byte	16
+ 1067 040e 19       		.byte	25
+ 1068 040f 23       		.byte	35
+ 1069 0410 1A       		.byte	26
+ 1070 0411 0C       		.byte	12
+ 1071 0412 1B       		.byte	27
+ 1072 0413 1C       		.byte	28
+ 1073 0414 20       		.byte	32
+ 1074 0415 10       		.byte	16
+ 1075 0416 21       		.byte	33
+ 1076 0417 40       		.byte	64
+ 1077 0418 24       		.byte	36
+ 1078 0419 14       		.byte	20
+ 1079 041a 25       		.byte	37
+ 1080 041b 23       		.byte	35
+ 1081 041c 27       		.byte	39
+ 1082 041d 08       		.byte	8
+ 1083 041e 28       		.byte	40
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 20
+
+
+ 1084 041f 1C       		.byte	28
+ 1085 0420 29       		.byte	41
+ 1086 0421 03       		.byte	3
+ 1087 0422 2A       		.byte	42
+ 1088 0423 02       		.byte	2
+ 1089 0424 2B       		.byte	43
+ 1090 0425 04       		.byte	4
+ 1091 0426 32       		.byte	50
+ 1092 0427 1F       		.byte	31
+ 1093 0428 33       		.byte	51
+ 1094 0429 40       		.byte	64
+ 1095 042a 34       		.byte	52
+ 1096 042b 20       		.byte	32
+ 1097 042c 35       		.byte	53
+ 1098 042d 1F       		.byte	31
+ 1099 042e 37       		.byte	55
+ 1100 042f 20       		.byte	32
+ 1101 0430 3B       		.byte	59
+ 1102 0431 20       		.byte	32
+ 1103 0432 3E       		.byte	62
+ 1104 0433 10       		.byte	16
+ 1105 0434 3F       		.byte	63
+ 1106 0435 44       		.byte	68
+ 1107 0436 40       		.byte	64
+ 1108 0437 63       		.byte	99
+ 1109 0438 41       		.byte	65
+ 1110 0439 02       		.byte	2
+ 1111 043a 45       		.byte	69
+ 1112 043b EB       		.byte	-21
+ 1113 043c 47       		.byte	71
+ 1114 043d 0C       		.byte	12
+ 1115 043e 48       		.byte	72
+ 1116 043f 13       		.byte	19
+ 1117 0440 49       		.byte	73
+ 1118 0441 FF       		.byte	-1
+ 1119 0442 4A       		.byte	74
+ 1120 0443 FF       		.byte	-1
+ 1121 0444 4B       		.byte	75
+ 1122 0445 FF       		.byte	-1
+ 1123 0446 4E       		.byte	78
+ 1124 0447 F0       		.byte	-16
+ 1125 0448 4F       		.byte	79
+ 1126 0449 44       		.byte	68
+ 1127 044a 50       		.byte	80
+ 1128 044b 0C       		.byte	12
+ 1129 044c 54       		.byte	84
+ 1130 044d 01       		.byte	1
+ 1131 044e 58       		.byte	88
+ 1132 044f 04       		.byte	4
+ 1133 0450 59       		.byte	89
+ 1134 0451 04       		.byte	4
+ 1135 0452 5A       		.byte	90
+ 1136 0453 04       		.byte	4
+ 1137 0454 5B       		.byte	91
+ 1138 0455 04       		.byte	4
+ 1139 0456 5C       		.byte	92
+ 1140 0457 22       		.byte	34
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 21
+
+
+ 1141 0458 5D       		.byte	93
+ 1142 0459 22       		.byte	34
+ 1143 045a 5F       		.byte	95
+ 1144 045b 0D       		.byte	13
+ 1145 045c 66       		.byte	102
+ 1146 045d C0       		.byte	-64
+ 1147 045e 6A       		.byte	106
+ 1148 045f 40       		.byte	64
+ 1149 0460 6B       		.byte	107
+ 1150 0461 02       		.byte	2
+ 1151 0462 82       		.byte	-126
+ 1152 0463 0C       		.byte	12
+ 1153 0464 83       		.byte	-125
+ 1154 0465 08       		.byte	8
+ 1155 0466 85       		.byte	-123
+ 1156 0467 11       		.byte	17
+ 1157 0468 87       		.byte	-121
+ 1158 0469 02       		.byte	2
+ 1159 046a 88       		.byte	-120
+ 1160 046b 21       		.byte	33
+ 1161 046c 8A       		.byte	-118
+ 1162 046d 0E       		.byte	14
+ 1163 046e 8B       		.byte	-117
+ 1164 046f 24       		.byte	36
+ 1165 0470 93       		.byte	-109
+ 1166 0471 10       		.byte	16
+ 1167 0472 94       		.byte	-108
+ 1168 0473 0C       		.byte	12
+ 1169 0474 95       		.byte	-107
+ 1170 0475 60       		.byte	96
+ 1171 0476 96       		.byte	-106
+ 1172 0477 33       		.byte	51
+ 1173 0478 97       		.byte	-105
+ 1174 0479 0E       		.byte	14
+ 1175 047a 98       		.byte	-104
+ 1176 047b 22       		.byte	34
+ 1177 047c 99       		.byte	-103
+ 1178 047d 60       		.byte	96
+ 1179 047e 9A       		.byte	-102
+ 1180 047f 05       		.byte	5
+ 1181 0480 9B       		.byte	-101
+ 1182 0481 05       		.byte	5
+ 1183 0482 9E       		.byte	-98
+ 1184 0483 08       		.byte	8
+ 1185 0484 A3       		.byte	-93
+ 1186 0485 09       		.byte	9
+ 1187 0486 A4       		.byte	-92
+ 1188 0487 50       		.byte	80
+ 1189 0488 A8       		.byte	-88
+ 1190 0489 1F       		.byte	31
+ 1191 048a A9       		.byte	-87
+ 1192 048b 49       		.byte	73
+ 1193 048c AB       		.byte	-85
+ 1194 048d 04       		.byte	4
+ 1195 048e B2       		.byte	-78
+ 1196 048f 1F       		.byte	31
+ 1197 0490 B3       		.byte	-77
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 22
+
+
+ 1198 0491 60       		.byte	96
+ 1199 0492 B5       		.byte	-75
+ 1200 0493 0F       		.byte	15
+ 1201 0494 B6       		.byte	-74
+ 1202 0495 60       		.byte	96
+ 1203 0496 B7       		.byte	-73
+ 1204 0497 10       		.byte	16
+ 1205 0498 B8       		.byte	-72
+ 1206 0499 80       		.byte	-128
+ 1207 049a B9       		.byte	-71
+ 1208 049b 08       		.byte	8
+ 1209 049c BB       		.byte	-69
+ 1210 049d 20       		.byte	32
+ 1211 049e BF       		.byte	-65
+ 1212 049f 04       		.byte	4
+ 1213 04a0 C0       		.byte	-64
+ 1214 04a1 02       		.byte	2
+ 1215 04a2 C5       		.byte	-59
+ 1216 04a3 40       		.byte	64
+ 1217 04a4 C9       		.byte	-55
+ 1218 04a5 FF       		.byte	-1
+ 1219 04a6 CA       		.byte	-54
+ 1220 04a7 07       		.byte	7
+ 1221 04a8 CB       		.byte	-53
+ 1222 04a9 FF       		.byte	-1
+ 1223 04aa CC       		.byte	-52
+ 1224 04ab 40       		.byte	64
+ 1225 04ac CD       		.byte	-51
+ 1226 04ad 20       		.byte	32
+ 1227 04ae CE       		.byte	-50
+ 1228 04af F0       		.byte	-16
+ 1229 04b0 CF       		.byte	-49
+ 1230 04b1 05       		.byte	5
+ 1231 04b2 D0       		.byte	-48
+ 1232 04b3 08       		.byte	8
+ 1233 04b4 D8       		.byte	-40
+ 1234 04b5 04       		.byte	4
+ 1235 04b6 D9       		.byte	-39
+ 1236 04b7 04       		.byte	4
+ 1237 04b8 DA       		.byte	-38
+ 1238 04b9 04       		.byte	4
+ 1239 04ba DC       		.byte	-36
+ 1240 04bb 22       		.byte	34
+ 1241 04bc DD       		.byte	-35
+ 1242 04bd 02       		.byte	2
+ 1243 04be DF       		.byte	-33
+ 1244 04bf 09       		.byte	9
+ 1245 04c0 E0       		.byte	-32
+ 1246 04c1 40       		.byte	64
+ 1247 04c2 E1       		.byte	-31
+ 1248 04c3 A8       		.byte	-88
+ 1249 04c4 E2       		.byte	-30
+ 1250 04c5 40       		.byte	64
+ 1251 04c6 E3       		.byte	-29
+ 1252 04c7 20       		.byte	32
+ 1253 04c8 00       		.byte	0
+ 1254 04c9 14       		.byte	20
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 23
+
+
+ 1255 04ca 04       		.byte	4
+ 1256 04cb 08       		.byte	8
+ 1257 04cc 06       		.byte	6
+ 1258 04cd 40       		.byte	64
+ 1259 04ce 07       		.byte	7
+ 1260 04cf 18       		.byte	24
+ 1261 04d0 08       		.byte	8
+ 1262 04d1 08       		.byte	8
+ 1263 04d2 0B       		.byte	11
+ 1264 04d3 84       		.byte	-124
+ 1265 04d4 0C       		.byte	12
+ 1266 04d5 84       		.byte	-124
+ 1267 04d6 0F       		.byte	15
+ 1268 04d7 04       		.byte	4
+ 1269 04d8 10       		.byte	16
+ 1270 04d9 A4       		.byte	-92
+ 1271 04da 14       		.byte	20
+ 1272 04db 08       		.byte	8
+ 1273 04dc 16       		.byte	22
+ 1274 04dd 20       		.byte	32
+ 1275 04de 18       		.byte	24
+ 1276 04df 10       		.byte	16
+ 1277 04e0 19       		.byte	25
+ 1278 04e1 20       		.byte	32
+ 1279 04e2 1F       		.byte	31
+ 1280 04e3 48       		.byte	72
+ 1281 04e4 20       		.byte	32
+ 1282 04e5 08       		.byte	8
+ 1283 04e6 22       		.byte	34
+ 1284 04e7 64       		.byte	100
+ 1285 04e8 23       		.byte	35
+ 1286 04e9 04       		.byte	4
+ 1287 04ea 24       		.byte	36
+ 1288 04eb 04       		.byte	4
+ 1289 04ec 27       		.byte	39
+ 1290 04ed 29       		.byte	41
+ 1291 04ee 28       		.byte	40
+ 1292 04ef 08       		.byte	8
+ 1293 04f0 29       		.byte	41
+ 1294 04f1 06       		.byte	6
+ 1295 04f2 2C       		.byte	44
+ 1296 04f3 04       		.byte	4
+ 1297 04f4 2F       		.byte	47
+ 1298 04f5 48       		.byte	72
+ 1299 04f6 32       		.byte	50
+ 1300 04f7 20       		.byte	32
+ 1301 04f8 33       		.byte	51
+ 1302 04f9 08       		.byte	8
+ 1303 04fa 35       		.byte	53
+ 1304 04fb 04       		.byte	4
+ 1305 04fc 36       		.byte	54
+ 1306 04fd 20       		.byte	32
+ 1307 04fe 37       		.byte	55
+ 1308 04ff 09       		.byte	9
+ 1309 0500 38       		.byte	56
+ 1310 0501 08       		.byte	8
+ 1311 0502 3A       		.byte	58
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 24
+
+
+ 1312 0503 60       		.byte	96
+ 1313 0504 3B       		.byte	59
+ 1314 0505 80       		.byte	-128
+ 1315 0506 3D       		.byte	61
+ 1316 0507 04       		.byte	4
+ 1317 0508 3F       		.byte	63
+ 1318 0509 21       		.byte	33
+ 1319 050a 40       		.byte	64
+ 1320 050b 04       		.byte	4
+ 1321 050c 42       		.byte	66
+ 1322 050d 20       		.byte	32
+ 1323 050e 47       		.byte	71
+ 1324 050f 20       		.byte	32
+ 1325 0510 48       		.byte	72
+ 1326 0511 24       		.byte	36
+ 1327 0512 49       		.byte	73
+ 1328 0513 02       		.byte	2
+ 1329 0514 4C       		.byte	76
+ 1330 0515 80       		.byte	-128
+ 1331 0516 4F       		.byte	79
+ 1332 0517 01       		.byte	1
+ 1333 0518 50       		.byte	80
+ 1334 0519 04       		.byte	4
+ 1335 051a 56       		.byte	86
+ 1336 051b 20       		.byte	32
+ 1337 051c 57       		.byte	87
+ 1338 051d 10       		.byte	16
+ 1339 051e 59       		.byte	89
+ 1340 051f 02       		.byte	2
+ 1341 0520 5A       		.byte	90
+ 1342 0521 88       		.byte	-120
+ 1343 0522 5B       		.byte	91
+ 1344 0523 10       		.byte	16
+ 1345 0524 69       		.byte	105
+ 1346 0525 40       		.byte	64
+ 1347 0526 78       		.byte	120
+ 1348 0527 08       		.byte	8
+ 1349 0528 79       		.byte	121
+ 1350 0529 04       		.byte	4
+ 1351 052a 7C       		.byte	124
+ 1352 052b 08       		.byte	8
+ 1353 052c C0       		.byte	-64
+ 1354 052d 56       		.byte	86
+ 1355 052e C2       		.byte	-62
+ 1356 052f EE       		.byte	-18
+ 1357 0530 C4       		.byte	-60
+ 1358 0531 6E       		.byte	110
+ 1359 0532 CA       		.byte	-54
+ 1360 0533 A7       		.byte	-89
+ 1361 0534 CC       		.byte	-52
+ 1362 0535 E6       		.byte	-26
+ 1363 0536 CE       		.byte	-50
+ 1364 0537 EE       		.byte	-18
+ 1365 0538 D0       		.byte	-48
+ 1366 0539 26       		.byte	38
+ 1367 053a D2       		.byte	-46
+ 1368 053b 04       		.byte	4
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 25
+
+
+ 1369 053c D6       		.byte	-42
+ 1370 053d 0F       		.byte	15
+ 1371 053e DE       		.byte	-34
+ 1372 053f 42       		.byte	66
+ 1373 0540 E6       		.byte	-26
+ 1374 0541 02       		.byte	2
+ 1375 0542 EC       		.byte	-20
+ 1376 0543 20       		.byte	32
+ 1377 0544 00       		.byte	0
+ 1378 0545 03       		.byte	3
+ 1379 0546 01       		.byte	1
+ 1380 0547 43       		.byte	67
+ 1381 0548 03       		.byte	3
+ 1382 0549 04       		.byte	4
+ 1383 054a 04       		.byte	4
+ 1384 054b 03       		.byte	3
+ 1385 054c 05       		.byte	5
+ 1386 054d 01       		.byte	1
+ 1387 054e 08       		.byte	8
+ 1388 054f FC       		.byte	-4
+ 1389 0550 09       		.byte	9
+ 1390 0551 03       		.byte	3
+ 1391 0552 0D       		.byte	13
+ 1392 0553 28       		.byte	40
+ 1393 0554 0E       		.byte	14
+ 1394 0555 03       		.byte	3
+ 1395 0556 0F       		.byte	15
+ 1396 0557 03       		.byte	3
+ 1397 0558 10       		.byte	16
+ 1398 0559 7F       		.byte	127
+ 1399 055a 11       		.byte	17
+ 1400 055b 23       		.byte	35
+ 1401 055c 13       		.byte	19
+ 1402 055d 0C       		.byte	12
+ 1403 055e 15       		.byte	21
+ 1404 055f 2B       		.byte	43
+ 1405 0560 16       		.byte	22
+ 1406 0561 03       		.byte	3
+ 1407 0562 18       		.byte	24
+ 1408 0563 0B       		.byte	11
+ 1409 0564 1A       		.byte	26
+ 1410 0565 14       		.byte	20
+ 1411 0566 1B       		.byte	27
+ 1412 0567 08       		.byte	8
+ 1413 0568 1C       		.byte	28
+ 1414 0569 52       		.byte	82
+ 1415 056a 1E       		.byte	30
+ 1416 056b 28       		.byte	40
+ 1417 056c 1F       		.byte	31
+ 1418 056d 40       		.byte	64
+ 1419 056e 22       		.byte	34
+ 1420 056f 03       		.byte	3
+ 1421 0570 23       		.byte	35
+ 1422 0571 10       		.byte	16
+ 1423 0572 24       		.byte	36
+ 1424 0573 25       		.byte	37
+ 1425 0574 25       		.byte	37
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 26
+
+
+ 1426 0575 02       		.byte	2
+ 1427 0576 26       		.byte	38
+ 1428 0577 48       		.byte	72
+ 1429 0578 28       		.byte	40
+ 1430 0579 FC       		.byte	-4
+ 1431 057a 29       		.byte	41
+ 1432 057b 23       		.byte	35
+ 1433 057c 2B       		.byte	43
+ 1434 057d 08       		.byte	8
+ 1435 057e 2C       		.byte	44
+ 1436 057f 80       		.byte	-128
+ 1437 0580 2F       		.byte	47
+ 1438 0581 10       		.byte	16
+ 1439 0582 30       		.byte	48
+ 1440 0583 03       		.byte	3
+ 1441 0584 31       		.byte	49
+ 1442 0585 40       		.byte	64
+ 1443 0586 32       		.byte	50
+ 1444 0587 80       		.byte	-128
+ 1445 0588 33       		.byte	51
+ 1446 0589 20       		.byte	32
+ 1447 058a 34       		.byte	52
+ 1448 058b 1C       		.byte	28
+ 1449 058c 35       		.byte	53
+ 1450 058d 10       		.byte	16
+ 1451 058e 36       		.byte	54
+ 1452 058f 60       		.byte	96
+ 1453 0590 37       		.byte	55
+ 1454 0591 0F       		.byte	15
+ 1455 0592 3B       		.byte	59
+ 1456 0593 80       		.byte	-128
+ 1457 0594 3F       		.byte	63
+ 1458 0595 14       		.byte	20
+ 1459 0596 56       		.byte	86
+ 1460 0597 02       		.byte	2
+ 1461 0598 57       		.byte	87
+ 1462 0599 11       		.byte	17
+ 1463 059a 58       		.byte	88
+ 1464 059b 04       		.byte	4
+ 1465 059c 59       		.byte	89
+ 1466 059d 04       		.byte	4
+ 1467 059e 5B       		.byte	91
+ 1468 059f 04       		.byte	4
+ 1469 05a0 5C       		.byte	92
+ 1470 05a1 22       		.byte	34
+ 1471 05a2 5D       		.byte	93
+ 1472 05a3 20       		.byte	32
+ 1473 05a4 5E       		.byte	94
+ 1474 05a5 08       		.byte	8
+ 1475 05a6 5F       		.byte	95
+ 1476 05a7 01       		.byte	1
+ 1477 05a8 80       		.byte	-128
+ 1478 05a9 04       		.byte	4
+ 1479 05aa 8C       		.byte	-116
+ 1480 05ab 01       		.byte	1
+ 1481 05ac 90       		.byte	-112
+ 1482 05ad 04       		.byte	4
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 27
+
+
+ 1483 05ae 95       		.byte	-107
+ 1484 05af 01       		.byte	1
+ 1485 05b0 A2       		.byte	-94
+ 1486 05b1 03       		.byte	3
+ 1487 05b2 B0       		.byte	-80
+ 1488 05b3 02       		.byte	2
+ 1489 05b4 B4       		.byte	-76
+ 1490 05b5 01       		.byte	1
+ 1491 05b6 B5       		.byte	-75
+ 1492 05b7 01       		.byte	1
+ 1493 05b8 B6       		.byte	-74
+ 1494 05b9 04       		.byte	4
+ 1495 05ba B8       		.byte	-72
+ 1496 05bb 80       		.byte	-128
+ 1497 05bc BE       		.byte	-66
+ 1498 05bd 50       		.byte	80
+ 1499 05be BF       		.byte	-65
+ 1500 05bf 10       		.byte	16
+ 1501 05c0 D4       		.byte	-44
+ 1502 05c1 18       		.byte	24
+ 1503 05c2 D6       		.byte	-42
+ 1504 05c3 04       		.byte	4
+ 1505 05c4 D8       		.byte	-40
+ 1506 05c5 04       		.byte	4
+ 1507 05c6 D9       		.byte	-39
+ 1508 05c7 04       		.byte	4
+ 1509 05c8 DB       		.byte	-37
+ 1510 05c9 04       		.byte	4
+ 1511 05ca DC       		.byte	-36
+ 1512 05cb 09       		.byte	9
+ 1513 05cc DD       		.byte	-35
+ 1514 05cd 20       		.byte	32
+ 1515 05ce DF       		.byte	-33
+ 1516 05cf 05       		.byte	5
+ 1517 05d0 00       		.byte	0
+ 1518 05d1 40       		.byte	64
+ 1519 05d2 01       		.byte	1
+ 1520 05d3 02       		.byte	2
+ 1521 05d4 04       		.byte	4
+ 1522 05d5 82       		.byte	-126
+ 1523 05d6 07       		.byte	7
+ 1524 05d7 24       		.byte	36
+ 1525 05d8 0A       		.byte	10
+ 1526 05d9 40       		.byte	64
+ 1527 05da 0C       		.byte	12
+ 1528 05db 40       		.byte	64
+ 1529 05dc 0E       		.byte	14
+ 1530 05dd 25       		.byte	37
+ 1531 05de 0F       		.byte	15
+ 1532 05df 80       		.byte	-128
+ 1533 05e0 12       		.byte	18
+ 1534 05e1 40       		.byte	64
+ 1535 05e2 14       		.byte	20
+ 1536 05e3 20       		.byte	32
+ 1537 05e4 15       		.byte	21
+ 1538 05e5 40       		.byte	64
+ 1539 05e6 17       		.byte	23
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 28
+
+
+ 1540 05e7 11       		.byte	17
+ 1541 05e8 18       		.byte	24
+ 1542 05e9 40       		.byte	64
+ 1543 05ea 19       		.byte	25
+ 1544 05eb 40       		.byte	64
+ 1545 05ec 1A       		.byte	26
+ 1546 05ed 08       		.byte	8
+ 1547 05ee 1C       		.byte	28
+ 1548 05ef 08       		.byte	8
+ 1549 05f0 1D       		.byte	29
+ 1550 05f1 09       		.byte	9
+ 1551 05f2 1E       		.byte	30
+ 1552 05f3 25       		.byte	37
+ 1553 05f4 1F       		.byte	31
+ 1554 05f5 40       		.byte	64
+ 1555 05f6 22       		.byte	34
+ 1556 05f7 20       		.byte	32
+ 1557 05f8 24       		.byte	36
+ 1558 05f9 10       		.byte	16
+ 1559 05fa 25       		.byte	37
+ 1560 05fb 10       		.byte	16
+ 1561 05fc 27       		.byte	39
+ 1562 05fd 41       		.byte	65
+ 1563 05fe 2C       		.byte	44
+ 1564 05ff 08       		.byte	8
+ 1565 0600 2D       		.byte	45
+ 1566 0601 09       		.byte	9
+ 1567 0602 2F       		.byte	47
+ 1568 0603 06       		.byte	6
+ 1569 0604 33       		.byte	51
+ 1570 0605 08       		.byte	8
+ 1571 0606 36       		.byte	54
+ 1572 0607 14       		.byte	20
+ 1573 0608 37       		.byte	55
+ 1574 0609 41       		.byte	65
+ 1575 060a 3D       		.byte	61
+ 1576 060b 80       		.byte	-128
+ 1577 060c 3E       		.byte	62
+ 1578 060d 28       		.byte	40
+ 1579 060e 3F       		.byte	63
+ 1580 060f 02       		.byte	2
+ 1581 0610 59       		.byte	89
+ 1582 0611 01       		.byte	1
+ 1583 0612 5C       		.byte	92
+ 1584 0613 10       		.byte	16
+ 1585 0614 60       		.byte	96
+ 1586 0615 04       		.byte	4
+ 1587 0616 62       		.byte	98
+ 1588 0617 01       		.byte	1
+ 1589 0618 63       		.byte	99
+ 1590 0619 01       		.byte	1
+ 1591 061a 69       		.byte	105
+ 1592 061b 80       		.byte	-128
+ 1593 061c 6A       		.byte	106
+ 1594 061d 40       		.byte	64
+ 1595 061e 6D       		.byte	109
+ 1596 061f 40       		.byte	64
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 29
+
+
+ 1597 0620 6F       		.byte	111
+ 1598 0621 14       		.byte	20
+ 1599 0622 76       		.byte	118
+ 1600 0623 2A       		.byte	42
+ 1601 0624 78       		.byte	120
+ 1602 0625 08       		.byte	8
+ 1603 0626 7C       		.byte	124
+ 1604 0627 08       		.byte	8
+ 1605 0628 80       		.byte	-128
+ 1606 0629 48       		.byte	72
+ 1607 062a 8A       		.byte	-118
+ 1608 062b 20       		.byte	32
+ 1609 062c 98       		.byte	-104
+ 1610 062d 10       		.byte	16
+ 1611 062e 99       		.byte	-103
+ 1612 062f 04       		.byte	4
+ 1613 0630 9A       		.byte	-102
+ 1614 0631 50       		.byte	80
+ 1615 0632 9C       		.byte	-100
+ 1616 0633 08       		.byte	8
+ 1617 0634 9D       		.byte	-99
+ 1618 0635 40       		.byte	64
+ 1619 0636 9E       		.byte	-98
+ 1620 0637 01       		.byte	1
+ 1621 0638 A0       		.byte	-96
+ 1622 0639 40       		.byte	64
+ 1623 063a A3       		.byte	-93
+ 1624 063b 08       		.byte	8
+ 1625 063c A4       		.byte	-92
+ 1626 063d 10       		.byte	16
+ 1627 063e B1       		.byte	-79
+ 1628 063f 21       		.byte	33
+ 1629 0640 B4       		.byte	-76
+ 1630 0641 02       		.byte	2
+ 1631 0642 B5       		.byte	-75
+ 1632 0643 48       		.byte	72
+ 1633 0644 B6       		.byte	-74
+ 1634 0645 20       		.byte	32
+ 1635 0646 C0       		.byte	-64
+ 1636 0647 F9       		.byte	-7
+ 1637 0648 C2       		.byte	-62
+ 1638 0649 F8       		.byte	-8
+ 1639 064a C4       		.byte	-60
+ 1640 064b F8       		.byte	-8
+ 1641 064c CA       		.byte	-54
+ 1642 064d F0       		.byte	-16
+ 1643 064e CC       		.byte	-52
+ 1644 064f F2       		.byte	-14
+ 1645 0650 CE       		.byte	-50
+ 1646 0651 F0       		.byte	-16
+ 1647 0652 D6       		.byte	-42
+ 1648 0653 21       		.byte	33
+ 1649 0654 D8       		.byte	-40
+ 1650 0655 0D       		.byte	13
+ 1651 0656 DE       		.byte	-34
+ 1652 0657 42       		.byte	66
+ 1653 0658 00       		.byte	0
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 30
+
+
+ 1654 0659 08       		.byte	8
+ 1655 065a 03       		.byte	3
+ 1656 065b 02       		.byte	2
+ 1657 065c 06       		.byte	6
+ 1658 065d 04       		.byte	4
+ 1659 065e 07       		.byte	7
+ 1660 065f 01       		.byte	1
+ 1661 0660 0E       		.byte	14
+ 1662 0661 09       		.byte	9
+ 1663 0662 12       		.byte	18
+ 1664 0663 02       		.byte	2
+ 1665 0664 1A       		.byte	26
+ 1666 0665 02       		.byte	2
+ 1667 0666 1B       		.byte	27
+ 1668 0667 01       		.byte	1
+ 1669 0668 30       		.byte	48
+ 1670 0669 01       		.byte	1
+ 1671 066a 33       		.byte	51
+ 1672 066b 02       		.byte	2
+ 1673 066c 34       		.byte	52
+ 1674 066d 06       		.byte	6
+ 1675 066e 35       		.byte	53
+ 1676 066f 01       		.byte	1
+ 1677 0670 36       		.byte	54
+ 1678 0671 08       		.byte	8
+ 1679 0672 3E       		.byte	62
+ 1680 0673 50       		.byte	80
+ 1681 0674 3F       		.byte	63
+ 1682 0675 10       		.byte	16
+ 1683 0676 54       		.byte	84
+ 1684 0677 07       		.byte	7
+ 1685 0678 56       		.byte	86
+ 1686 0679 04       		.byte	4
+ 1687 067a 58       		.byte	88
+ 1688 067b 04       		.byte	4
+ 1689 067c 59       		.byte	89
+ 1690 067d 04       		.byte	4
+ 1691 067e 5B       		.byte	91
+ 1692 067f 04       		.byte	4
+ 1693 0680 5C       		.byte	92
+ 1694 0681 99       		.byte	-103
+ 1695 0682 5D       		.byte	93
+ 1696 0683 90       		.byte	-112
+ 1697 0684 5F       		.byte	95
+ 1698 0685 05       		.byte	5
+ 1699 0686 00       		.byte	0
+ 1700 0687 88       		.byte	-120
+ 1701 0688 01       		.byte	1
+ 1702 0689 06       		.byte	6
+ 1703 068a 04       		.byte	4
+ 1704 068b 02       		.byte	2
+ 1705 068c 06       		.byte	6
+ 1706 068d 2A       		.byte	42
+ 1707 068e 08       		.byte	8
+ 1708 068f 20       		.byte	32
+ 1709 0690 0B       		.byte	11
+ 1710 0691 80       		.byte	-128
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 31
+
+
+ 1711 0692 0D       		.byte	13
+ 1712 0693 08       		.byte	8
+ 1713 0694 0E       		.byte	14
+ 1714 0695 42       		.byte	66
+ 1715 0696 0F       		.byte	15
+ 1716 0697 04       		.byte	4
+ 1717 0698 14       		.byte	20
+ 1718 0699 22       		.byte	34
+ 1719 069a 17       		.byte	23
+ 1720 069b 21       		.byte	33
+ 1721 069c 19       		.byte	25
+ 1722 069d 82       		.byte	-126
+ 1723 069e 1B       		.byte	27
+ 1724 069f 10       		.byte	16
+ 1725 06a0 1D       		.byte	29
+ 1726 06a1 02       		.byte	2
+ 1727 06a2 1F       		.byte	31
+ 1728 06a3 26       		.byte	38
+ 1729 06a4 20       		.byte	32
+ 1730 06a5 24       		.byte	36
+ 1731 06a6 24       		.byte	36
+ 1732 06a7 02       		.byte	2
+ 1733 06a8 25       		.byte	37
+ 1734 06a9 40       		.byte	64
+ 1735 06aa 26       		.byte	38
+ 1736 06ab 25       		.byte	37
+ 1737 06ac 27       		.byte	39
+ 1738 06ad 30       		.byte	48
+ 1739 06ae 28       		.byte	40
+ 1740 06af 02       		.byte	2
+ 1741 06b0 2B       		.byte	43
+ 1742 06b1 01       		.byte	1
+ 1743 06b2 2C       		.byte	44
+ 1744 06b3 01       		.byte	1
+ 1745 06b4 2D       		.byte	45
+ 1746 06b5 04       		.byte	4
+ 1747 06b6 2E       		.byte	46
+ 1748 06b7 02       		.byte	2
+ 1749 06b8 2F       		.byte	47
+ 1750 06b9 04       		.byte	4
+ 1751 06ba 32       		.byte	50
+ 1752 06bb 20       		.byte	32
+ 1753 06bc 34       		.byte	52
+ 1754 06bd 40       		.byte	64
+ 1755 06be 35       		.byte	53
+ 1756 06bf 08       		.byte	8
+ 1757 06c0 37       		.byte	55
+ 1758 06c1 11       		.byte	17
+ 1759 06c2 3A       		.byte	58
+ 1760 06c3 05       		.byte	5
+ 1761 06c4 3D       		.byte	61
+ 1762 06c5 80       		.byte	-128
+ 1763 06c6 3E       		.byte	62
+ 1764 06c7 28       		.byte	40
+ 1765 06c8 3F       		.byte	63
+ 1766 06c9 02       		.byte	2
+ 1767 06ca 45       		.byte	69
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 32
+
+
+ 1768 06cb 0A       		.byte	10
+ 1769 06cc 47       		.byte	71
+ 1770 06cd 10       		.byte	16
+ 1771 06ce 4C       		.byte	76
+ 1772 06cf 01       		.byte	1
+ 1773 06d0 4D       		.byte	77
+ 1774 06d1 01       		.byte	1
+ 1775 06d2 4F       		.byte	79
+ 1776 06d3 20       		.byte	32
+ 1777 06d4 56       		.byte	86
+ 1778 06d5 04       		.byte	4
+ 1779 06d6 58       		.byte	88
+ 1780 06d7 10       		.byte	16
+ 1781 06d8 59       		.byte	89
+ 1782 06d9 80       		.byte	-128
+ 1783 06da 5A       		.byte	90
+ 1784 06db 08       		.byte	8
+ 1785 06dc 61       		.byte	97
+ 1786 06dd 04       		.byte	4
+ 1787 06de 62       		.byte	98
+ 1788 06df 10       		.byte	16
+ 1789 06e0 63       		.byte	99
+ 1790 06e1 40       		.byte	64
+ 1791 06e2 67       		.byte	103
+ 1792 06e3 0C       		.byte	12
+ 1793 06e4 6E       		.byte	110
+ 1794 06e5 40       		.byte	64
+ 1795 06e6 79       		.byte	121
+ 1796 06e7 80       		.byte	-128
+ 1797 06e8 7C       		.byte	124
+ 1798 06e9 08       		.byte	8
+ 1799 06ea 7D       		.byte	125
+ 1800 06eb 08       		.byte	8
+ 1801 06ec 7F       		.byte	127
+ 1802 06ed 20       		.byte	32
+ 1803 06ee 84       		.byte	-124
+ 1804 06ef 01       		.byte	1
+ 1805 06f0 85       		.byte	-123
+ 1806 06f1 08       		.byte	8
+ 1807 06f2 87       		.byte	-121
+ 1808 06f3 61       		.byte	97
+ 1809 06f4 88       		.byte	-120
+ 1810 06f5 20       		.byte	32
+ 1811 06f6 89       		.byte	-119
+ 1812 06f7 08       		.byte	8
+ 1813 06f8 8D       		.byte	-115
+ 1814 06f9 04       		.byte	4
+ 1815 06fa 8F       		.byte	-113
+ 1816 06fb 40       		.byte	64
+ 1817 06fc 91       		.byte	-111
+ 1818 06fd 80       		.byte	-128
+ 1819 06fe 92       		.byte	-110
+ 1820 06ff 08       		.byte	8
+ 1821 0700 93       		.byte	-109
+ 1822 0701 80       		.byte	-128
+ 1823 0702 94       		.byte	-108
+ 1824 0703 06       		.byte	6
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 33
+
+
+ 1825 0704 95       		.byte	-107
+ 1826 0705 01       		.byte	1
+ 1827 0706 97       		.byte	-105
+ 1828 0707 08       		.byte	8
+ 1829 0708 98       		.byte	-104
+ 1830 0709 50       		.byte	80
+ 1831 070a 99       		.byte	-103
+ 1832 070b 04       		.byte	4
+ 1833 070c 9A       		.byte	-102
+ 1834 070d 3B       		.byte	59
+ 1835 070e 9B       		.byte	-101
+ 1836 070f 01       		.byte	1
+ 1837 0710 9C       		.byte	-100
+ 1838 0711 28       		.byte	40
+ 1839 0712 9D       		.byte	-99
+ 1840 0713 02       		.byte	2
+ 1841 0714 9F       		.byte	-97
+ 1842 0715 20       		.byte	32
+ 1843 0716 A0       		.byte	-96
+ 1844 0717 44       		.byte	68
+ 1845 0718 A1       		.byte	-95
+ 1846 0719 08       		.byte	8
+ 1847 071a A4       		.byte	-92
+ 1848 071b 10       		.byte	16
+ 1849 071c A5       		.byte	-91
+ 1850 071d 40       		.byte	64
+ 1851 071e A6       		.byte	-90
+ 1852 071f 04       		.byte	4
+ 1853 0720 A7       		.byte	-89
+ 1854 0721 43       		.byte	67
+ 1855 0722 B1       		.byte	-79
+ 1856 0723 08       		.byte	8
+ 1857 0724 B2       		.byte	-78
+ 1858 0725 02       		.byte	2
+ 1859 0726 B5       		.byte	-75
+ 1860 0727 10       		.byte	16
+ 1861 0728 B7       		.byte	-73
+ 1862 0729 01       		.byte	1
+ 1863 072a C0       		.byte	-64
+ 1864 072b FD       		.byte	-3
+ 1865 072c C2       		.byte	-62
+ 1866 072d FA       		.byte	-6
+ 1867 072e C4       		.byte	-60
+ 1868 072f F0       		.byte	-16
+ 1869 0730 CA       		.byte	-54
+ 1870 0731 F0       		.byte	-16
+ 1871 0732 CC       		.byte	-52
+ 1872 0733 F4       		.byte	-12
+ 1873 0734 CE       		.byte	-50
+ 1874 0735 F3       		.byte	-13
+ 1875 0736 D0       		.byte	-48
+ 1876 0737 E0       		.byte	-32
+ 1877 0738 D2       		.byte	-46
+ 1878 0739 30       		.byte	48
+ 1879 073a D6       		.byte	-42
+ 1880 073b 0E       		.byte	14
+ 1881 073c D8       		.byte	-40
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 34
+
+
+ 1882 073d 07       		.byte	7
+ 1883 073e DE       		.byte	-34
+ 1884 073f 48       		.byte	72
+ 1885 0740 EC       		.byte	-20
+ 1886 0741 20       		.byte	32
+ 1887 0742 30       		.byte	48
+ 1888 0743 22       		.byte	34
+ 1889 0744 36       		.byte	54
+ 1890 0745 20       		.byte	32
+ 1891 0746 37       		.byte	55
+ 1892 0747 08       		.byte	8
+ 1893 0748 CC       		.byte	-52
+ 1894 0749 F0       		.byte	-16
+ 1895 074a 8B       		.byte	-117
+ 1896 074b 08       		.byte	8
+ 1897 074c 8C       		.byte	-116
+ 1898 074d 02       		.byte	2
+ 1899 074e 9F       		.byte	-97
+ 1900 074f 08       		.byte	8
+ 1901 0750 A4       		.byte	-92
+ 1902 0751 02       		.byte	2
+ 1903 0752 A6       		.byte	-90
+ 1904 0753 20       		.byte	32
+ 1905 0754 AC       		.byte	-84
+ 1906 0755 20       		.byte	32
+ 1907 0756 EA       		.byte	-22
+ 1908 0757 40       		.byte	64
+ 1909 0758 A6       		.byte	-90
+ 1910 0759 20       		.byte	32
+ 1911 075a A6       		.byte	-90
+ 1912 075b 20       		.byte	32
+ 1913 075c 73       		.byte	115
+ 1914 075d 40       		.byte	64
+ 1915 075e DC       		.byte	-36
+ 1916 075f 01       		.byte	1
+ 1917 0760 5D       		.byte	93
+ 1918 0761 80       		.byte	-128
+ 1919 0762 B3       		.byte	-77
+ 1920 0763 40       		.byte	64
+ 1921 0764 D6       		.byte	-42
+ 1922 0765 04       		.byte	4
+ 1923 0766 E8       		.byte	-24
+ 1924 0767 04       		.byte	4
+ 1925 0768 86       		.byte	-122
+ 1926 0769 10       		.byte	16
+ 1927 076a B5       		.byte	-75
+ 1928 076b 80       		.byte	-128
+ 1929 076c EC       		.byte	-20
+ 1930 076d 02       		.byte	2
+ 1931 076e 02       		.byte	2
+ 1932 076f 10       		.byte	16
+ 1933 0770 9E       		.byte	-98
+ 1934 0771 10       		.byte	16
+ 1935 0772 C0       		.byte	-64
+ 1936 0773 08       		.byte	8
+ 1937 0774 27       		.byte	39
+ 1938 0775 01       		.byte	1
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 35
+
+
+ 1939 0776 A6       		.byte	-90
+ 1940 0777 20       		.byte	32
+ 1941 0778 C8       		.byte	-56
+ 1942 0779 20       		.byte	32
+ 1943 077a 86       		.byte	-122
+ 1944 077b 20       		.byte	32
+ 1945 077c A6       		.byte	-90
+ 1946 077d 20       		.byte	32
+ 1947 077e B3       		.byte	-77
+ 1948 077f 01       		.byte	1
+ 1949 0780 E6       		.byte	-26
+ 1950 0781 40       		.byte	64
+ 1951 0782 30       		.byte	48
+ 1952 0783 01       		.byte	1
+ 1953 0784 60       		.byte	96
+ 1954 0785 80       		.byte	-128
+ 1955 0786 88       		.byte	-120
+ 1956 0787 80       		.byte	-128
+ 1957 0788 CC       		.byte	-52
+ 1958 0789 02       		.byte	2
+ 1959 078a D8       		.byte	-40
+ 1960 078b 02       		.byte	2
+ 1961 078c E0       		.byte	-32
+ 1962 078d 04       		.byte	4
+ 1963 078e 10       		.byte	16
+ 1964 078f 40       		.byte	64
+ 1965 0790 88       		.byte	-120
+ 1966 0791 40       		.byte	64
+ 1967 0792 B0       		.byte	-80
+ 1968 0793 01       		.byte	1
+ 1969 0794 C4       		.byte	-60
+ 1970 0795 08       		.byte	8
+ 1971 0796 E2       		.byte	-30
+ 1972 0797 01       		.byte	1
+ 1973 0798 EC       		.byte	-20
+ 1974 0799 04       		.byte	4
+ 1975 079a 00       		.byte	0
+ 1976 079b 07       		.byte	7
+ 1977 079c 01       		.byte	1
+ 1978 079d 01       		.byte	1
+ 1979 079e 0C       		.byte	12
+ 1980 079f 03       		.byte	3
+ 1981 07a0 0D       		.byte	13
+ 1982 07a1 01       		.byte	1
+ 1983 07a2 0E       		.byte	14
+ 1984 07a3 07       		.byte	7
+ 1985 07a4 10       		.byte	16
+ 1986 07a5 04       		.byte	4
+ 1987 07a6 11       		.byte	17
+ 1988 07a7 01       		.byte	1
+ 1989 07a8 1C       		.byte	28
+ 1990 07a9 04       		.byte	4
+ 1991 07aa 1D       		.byte	29
+ 1992 07ab 01       		.byte	1
+ 1993 07ac 00       		.byte	0
+ 1994 07ad FF       		.byte	-1
+ 1995 07ae 00       		.byte	0
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 36
+
+
+ 1996 07af 00       		.byte	0
+ 1997 07b0 02       		.byte	2
+ 1998 07b1 02       		.byte	2
+ 1999 07b2 00       		.byte	0
+ 2000 07b3 00       		.byte	0
+ 2001 07b4 0E       		.byte	14
+ 2002 07b5 00       		.byte	0
+ 2003 07b6 41       		.byte	65
+ 2004 07b7 28       		.byte	40
+ 2005 07b8 00       		.byte	0
+ 2006 07b9 00       		.byte	0
+ 2007 07ba 21       		.byte	33
+ 2008 07bb 10       		.byte	16
+ 2009 07bc 63       		.byte	99
+ 2010 07bd 63       		.byte	99
+ 2011 07be 0C       		.byte	12
+ 2012 07bf 04       		.byte	4
+ 2013 07c0 00       		.byte	0
+ 2014 07c1 00       		.byte	0
+ 2015 07c2 80       		.byte	-128
+ 2016 07c3 10       		.byte	16
+ 2017 07c4 0E       		.byte	14
+ 2018 07c5 03       		.byte	3
+ 2019 07c6 70       		.byte	112
+ 2020 07c7 2C       		.byte	44
+ 2021 07c8 6F       		.byte	111
+ 2022 07c9 03       		.byte	3
+ 2023 07ca 00       		.byte	0
+ 2024 07cb 00       		.byte	0
+ 2025 07cc 00       		.byte	0
+ 2026 07cd 00       		.byte	0
+ 2027 07ce 02       		.byte	2
+ 2028 07cf 40       		.byte	64
+ 2029 07d0 0F       		.byte	15
+ 2030 07d1 2B       		.byte	43
+ 2031 07d2 10       		.byte	16
+ 2032 07d3 00       		.byte	0
+ 2033 07d4 04       		.byte	4
+ 2034 07d5 01       		.byte	1
+ 2035 07d6 00       		.byte	0
+ 2036 07d7 00       		.byte	0
+ 2037 07d8 0C       		.byte	12
+ 2038 07d9 23       		.byte	35
+ 2039 07da 00       		.byte	0
+ 2040 07db 08       		.byte	8
+ 2041 07dc 08       		.byte	8
+ 2042 07dd 28       		.byte	40
+ 2043 07de 00       		.byte	0
+ 2044 07df 03       		.byte	3
+ 2045 07e0 00       		.byte	0
+ 2046 07e1 40       		.byte	64
+ 2047 07e2 3F       		.byte	63
+ 2048 07e3 0F       		.byte	15
+ 2049 07e4 40       		.byte	64
+ 2050 07e5 10       		.byte	16
+ 2051 07e6 80       		.byte	-128
+ 2052 07e7 23       		.byte	35
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 37
+
+
+ 2053 07e8 20       		.byte	32
+ 2054 07e9 00       		.byte	0
+ 2055 07ea 08       		.byte	8
+ 2056 07eb 08       		.byte	8
+ 2057 07ec 00       		.byte	0
+ 2058 07ed 00       		.byte	0
+ 2059 07ee 00       		.byte	0
+ 2060 07ef 10       		.byte	16
+ 2061 07f0 53       		.byte	83
+ 2062 07f1 02       		.byte	2
+ 2063 07f2 04       		.byte	4
+ 2064 07f3 00       		.byte	0
+ 2065 07f4 06       		.byte	6
+ 2066 07f5 E0       		.byte	-32
+ 2067 07f6 C0       		.byte	-64
+ 2068 07f7 00       		.byte	0
+ 2069 07f8 0A       		.byte	10
+ 2070 07f9 FF       		.byte	-1
+ 2071 07fa FF       		.byte	-1
+ 2072 07fb FF       		.byte	-1
+ 2073 07fc 62       		.byte	98
+ 2074 07fd A0       		.byte	-96
+ 2075 07fe F0       		.byte	-16
+ 2076 07ff 41       		.byte	65
+ 2077 0800 0C       		.byte	12
+ 2078 0801 00       		.byte	0
+ 2079 0802 00       		.byte	0
+ 2080 0803 00       		.byte	0
+ 2081 0804 18       		.byte	24
+ 2082 0805 00       		.byte	0
+ 2083 0806 04       		.byte	4
+ 2084 0807 00       		.byte	0
+ 2085 0808 04       		.byte	4
+ 2086 0809 04       		.byte	4
+ 2087 080a 04       		.byte	4
+ 2088 080b 04       		.byte	4
+ 2089 080c 11       		.byte	17
+ 2090 080d 11       		.byte	17
+ 2091 080e 00       		.byte	0
+ 2092 080f 0D       		.byte	13
+ 2093 0810 00       		.byte	0
+ 2094 0811 00       		.byte	0
+ 2095 0812 00       		.byte	0
+ 2096 0813 00       		.byte	0
+ 2097 0814 00       		.byte	0
+ 2098 0815 00       		.byte	0
+ 2099 0816 40       		.byte	64
+ 2100 0817 02       		.byte	2
+ 2101 0818 00       		.byte	0
+ 2102 0819 10       		.byte	16
+ 2103 081a 30       		.byte	48
+ 2104 081b 10       		.byte	16
+ 2105 081c 00       		.byte	0
+ 2106 081d 10       		.byte	16
+ 2107 081e 10       		.byte	16
+ 2108 081f 12       		.byte	18
+ 2109 0820 00       		.byte	0
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 38
+
+
+ 2110 0821 00       		.byte	0
+ 2111 0822 00       		.byte	0
+ 2112 0823 00       		.byte	0
+ 2113 0824 00       		.byte	0
+ 2114 0825 00       		.byte	0
+ 2115 0826 00       		.byte	0
+ 2116 0827 00       		.byte	0
+ 2117 0828 00       		.byte	0
+ 2118 0829 00       		.byte	0
+ 2119 082a 00       		.byte	0
+ 2120 082b 00       		.byte	0
+ 2121 082c 00       		.byte	0
+ 2122 082d 00       		.byte	0
+ 2123 082e 00       		.byte	0
+ 2124 082f 00       		.byte	0
+ 2125 0830 09       		.byte	9
+ 2126 0831 A3       		.byte	-93
+ 2127 0832 10       		.byte	16
+ 2128 0833 08       		.byte	8
+ 2129 0834 1C       		.byte	28
+ 2130 0835 A3       		.byte	-93
+ 2131 0836 02       		.byte	2
+ 2132 0837 1C       		.byte	28
+ 2133 0838 00       		.byte	0
+ 2134 0839 03       		.byte	3
+ 2135 083a 03       		.byte	3
+ 2136 083b 88       		.byte	-120
+ 2137 083c 20       		.byte	32
+ 2138 083d 00       		.byte	0
+ 2139 083e 00       		.byte	0
+ 2140 083f 10       		.byte	16
+ 2141 0840 1F       		.byte	31
+ 2142 0841 00       		.byte	0
+ 2143 0842 00       		.byte	0
+ 2144 0843 00       		.byte	0
+ 2145 0844 14       		.byte	20
+ 2146 0845 40       		.byte	64
+ 2147 0846 00       		.byte	0
+ 2148 0847 89       		.byte	-119
+ 2149 0848 10       		.byte	16
+ 2150 0849 00       		.byte	0
+ 2151 084a 0C       		.byte	12
+ 2152 084b 00       		.byte	0
+ 2153 084c 60       		.byte	96
+ 2154 084d 03       		.byte	3
+ 2155 084e 00       		.byte	0
+ 2156 084f 04       		.byte	4
+ 2157 0850 10       		.byte	16
+ 2158 0851 00       		.byte	0
+ 2159 0852 00       		.byte	0
+ 2160 0853 00       		.byte	0
+ 2161 0854 00       		.byte	0
+ 2162 0855 12       		.byte	18
+ 2163 0856 40       		.byte	64
+ 2164 0857 A8       		.byte	-88
+ 2165 0858 00       		.byte	0
+ 2166 0859 00       		.byte	0
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 39
+
+
+ 2167 085a 00       		.byte	0
+ 2168 085b 00       		.byte	0
+ 2169 085c 0C       		.byte	12
+ 2170 085d 00       		.byte	0
+ 2171 085e 11       		.byte	17
+ 2172 085f 00       		.byte	0
+ 2173 0860 40       		.byte	64
+ 2174 0861 80       		.byte	-128
+ 2175 0862 1F       		.byte	31
+ 2176 0863 00       		.byte	0
+ 2177 0864 20       		.byte	32
+ 2178 0865 1F       		.byte	31
+ 2179 0866 00       		.byte	0
+ 2180 0867 60       		.byte	96
+ 2181 0868 20       		.byte	32
+ 2182 0869 80       		.byte	-128
+ 2183 086a 00       		.byte	0
+ 2184 086b 20       		.byte	32
+ 2185 086c 00       		.byte	0
+ 2186 086d 00       		.byte	0
+ 2187 086e 11       		.byte	17
+ 2188 086f 01       		.byte	1
+ 2189 0870 42       		.byte	66
+ 2190 0871 06       		.byte	6
+ 2191 0872 00       		.byte	0
+ 2192 0873 00       		.byte	0
+ 2193 0874 00       		.byte	0
+ 2194 0875 24       		.byte	36
+ 2195 0876 C0       		.byte	-64
+ 2196 0877 0E       		.byte	14
+ 2197 0878 1F       		.byte	31
+ 2198 0879 FF       		.byte	-1
+ 2199 087a FF       		.byte	-1
+ 2200 087b FF       		.byte	-1
+ 2201 087c 00       		.byte	0
+ 2202 087d A0       		.byte	-96
+ 2203 087e 00       		.byte	0
+ 2204 087f 01       		.byte	1
+ 2205 0880 18       		.byte	24
+ 2206 0881 00       		.byte	0
+ 2207 0882 80       		.byte	-128
+ 2208 0883 00       		.byte	0
+ 2209 0884 07       		.byte	7
+ 2210 0885 00       		.byte	0
+ 2211 0886 04       		.byte	4
+ 2212 0887 00       		.byte	0
+ 2213 0888 04       		.byte	4
+ 2214 0889 04       		.byte	4
+ 2215 088a 04       		.byte	4
+ 2216 088b 04       		.byte	4
+ 2217 088c 11       		.byte	17
+ 2218 088d 00       		.byte	0
+ 2219 088e 00       		.byte	0
+ 2220 088f 05       		.byte	5
+ 2221 0890 40       		.byte	64
+ 2222 0891 00       		.byte	0
+ 2223 0892 80       		.byte	-128
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 40
+
+
+ 2224 0893 00       		.byte	0
+ 2225 0894 40       		.byte	64
+ 2226 0895 40       		.byte	64
+ 2227 0896 80       		.byte	-128
+ 2228 0897 00       		.byte	0
+ 2229 0898 40       		.byte	64
+ 2230 0899 00       		.byte	0
+ 2231 089a 50       		.byte	80
+ 2232 089b A8       		.byte	-88
+ 2233 089c 40       		.byte	64
+ 2234 089d 20       		.byte	32
+ 2235 089e 50       		.byte	80
+ 2236 089f A8       		.byte	-88
+ 2237 08a0 00       		.byte	0
+ 2238 08a1 00       		.byte	0
+ 2239 08a2 00       		.byte	0
+ 2240 08a3 00       		.byte	0
+ 2241 08a4 00       		.byte	0
+ 2242 08a5 00       		.byte	0
+ 2243 08a6 00       		.byte	0
+ 2244 08a7 00       		.byte	0
+ 2245 08a8 00       		.byte	0
+ 2246 08a9 00       		.byte	0
+ 2247 08aa 00       		.byte	0
+ 2248 08ab 00       		.byte	0
+ 2249 08ac 00       		.byte	0
+ 2250 08ad 00       		.byte	0
+ 2251 08ae 00       		.byte	0
+ 2252 08af 00       		.byte	0
+ 2253 08b0 63       		.byte	99
+ 2254 08b1 63       		.byte	99
+ 2255 08b2 0C       		.byte	12
+ 2256 08b3 04       		.byte	4
+ 2257 08b4 0C       		.byte	12
+ 2258 08b5 08       		.byte	8
+ 2259 08b6 00       		.byte	0
+ 2260 08b7 00       		.byte	0
+ 2261 08b8 04       		.byte	4
+ 2262 08b9 18       		.byte	24
+ 2263 08ba 00       		.byte	0
+ 2264 08bb 00       		.byte	0
+ 2265 08bc 08       		.byte	8
+ 2266 08bd 83       		.byte	-125
+ 2267 08be 00       		.byte	0
+ 2268 08bf 1C       		.byte	28
+ 2269 08c0 00       		.byte	0
+ 2270 08c1 1B       		.byte	27
+ 2271 08c2 80       		.byte	-128
+ 2272 08c3 80       		.byte	-128
+ 2273 08c4 00       		.byte	0
+ 2274 08c5 01       		.byte	1
+ 2275 08c6 61       		.byte	97
+ 2276 08c7 40       		.byte	64
+ 2277 08c8 4E       		.byte	78
+ 2278 08c9 9B       		.byte	-101
+ 2279 08ca 30       		.byte	48
+ 2280 08cb 20       		.byte	32
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 41
+
+
+ 2281 08cc 00       		.byte	0
+ 2282 08cd 02       		.byte	2
+ 2283 08ce 02       		.byte	2
+ 2284 08cf 00       		.byte	0
+ 2285 08d0 0E       		.byte	14
+ 2286 08d1 10       		.byte	16
+ 2287 08d2 41       		.byte	65
+ 2288 08d3 00       		.byte	0
+ 2289 08d4 02       		.byte	2
+ 2290 08d5 03       		.byte	3
+ 2291 08d6 00       		.byte	0
+ 2292 08d7 00       		.byte	0
+ 2293 08d8 6F       		.byte	111
+ 2294 08d9 18       		.byte	24
+ 2295 08da 00       		.byte	0
+ 2296 08db 83       		.byte	-125
+ 2297 08dc 4F       		.byte	79
+ 2298 08dd 00       		.byte	0
+ 2299 08de 10       		.byte	16
+ 2300 08df 03       		.byte	3
+ 2301 08e0 4C       		.byte	76
+ 2302 08e1 40       		.byte	64
+ 2303 08e2 3F       		.byte	63
+ 2304 08e3 20       		.byte	32
+ 2305 08e4 80       		.byte	-128
+ 2306 08e5 80       		.byte	-128
+ 2307 08e6 00       		.byte	0
+ 2308 08e7 1F       		.byte	31
+ 2309 08e8 00       		.byte	0
+ 2310 08e9 20       		.byte	32
+ 2311 08ea 08       		.byte	8
+ 2312 08eb 80       		.byte	-128
+ 2313 08ec 00       		.byte	0
+ 2314 08ed 00       		.byte	0
+ 2315 08ee 00       		.byte	0
+ 2316 08ef 00       		.byte	0
+ 2317 08f0 53       		.byte	83
+ 2318 08f1 02       		.byte	2
+ 2319 08f2 04       		.byte	4
+ 2320 08f3 00       		.byte	0
+ 2321 08f4 06       		.byte	6
+ 2322 08f5 C0       		.byte	-64
+ 2323 08f6 00       		.byte	0
+ 2324 08f7 0E       		.byte	14
+ 2325 08f8 12       		.byte	18
+ 2326 08f9 FF       		.byte	-1
+ 2327 08fa FF       		.byte	-1
+ 2328 08fb FF       		.byte	-1
+ 2329 08fc 62       		.byte	98
+ 2330 08fd A0       		.byte	-96
+ 2331 08fe F0       		.byte	-16
+ 2332 08ff 41       		.byte	65
+ 2333 0900 0C       		.byte	12
+ 2334 0901 00       		.byte	0
+ 2335 0902 00       		.byte	0
+ 2336 0903 00       		.byte	0
+ 2337 0904 00       		.byte	0
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 42
+
+
+ 2338 0905 00       		.byte	0
+ 2339 0906 00       		.byte	0
+ 2340 0907 00       		.byte	0
+ 2341 0908 04       		.byte	4
+ 2342 0909 04       		.byte	4
+ 2343 090a 04       		.byte	4
+ 2344 090b 04       		.byte	4
+ 2345 090c 22       		.byte	34
+ 2346 090d 02       		.byte	2
+ 2347 090e 00       		.byte	0
+ 2348 090f 09       		.byte	9
+ 2349 0910 00       		.byte	0
+ 2350 0911 00       		.byte	0
+ 2351 0912 00       		.byte	0
+ 2352 0913 00       		.byte	0
+ 2353 0914 00       		.byte	0
+ 2354 0915 00       		.byte	0
+ 2355 0916 40       		.byte	64
+ 2356 0917 02       		.byte	2
+ 2357 0918 00       		.byte	0
+ 2358 0919 10       		.byte	16
+ 2359 091a 30       		.byte	48
+ 2360 091b 10       		.byte	16
+ 2361 091c 00       		.byte	0
+ 2362 091d 10       		.byte	16
+ 2363 091e 10       		.byte	16
+ 2364 091f 12       		.byte	18
+ 2365 0920 00       		.byte	0
+ 2366 0921 00       		.byte	0
+ 2367 0922 00       		.byte	0
+ 2368 0923 00       		.byte	0
+ 2369 0924 00       		.byte	0
+ 2370 0925 00       		.byte	0
+ 2371 0926 00       		.byte	0
+ 2372 0927 00       		.byte	0
+ 2373 0928 00       		.byte	0
+ 2374 0929 00       		.byte	0
+ 2375 092a 00       		.byte	0
+ 2376 092b 00       		.byte	0
+ 2377 092c 00       		.byte	0
+ 2378 092d 00       		.byte	0
+ 2379 092e 00       		.byte	0
+ 2380 092f 00       		.byte	0
+ 2381 0930 80       		.byte	-128
+ 2382 0931 00       		.byte	0
+ 2383 0932 40       		.byte	64
+ 2384 0933 80       		.byte	-128
+ 2385 0934 80       		.byte	-128
+ 2386 0935 00       		.byte	0
+ 2387 0936 80       		.byte	-128
+ 2388 0937 00       		.byte	0
+ 2389 0938 00       		.byte	0
+ 2390 0939 00       		.byte	0
+ 2391 093a 00       		.byte	0
+ 2392 093b 00       		.byte	0
+ 2393 093c 80       		.byte	-128
+ 2394 093d 00       		.byte	0
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 43
+
+
+ 2395 093e 00       		.byte	0
+ 2396 093f 8B       		.byte	-117
+ 2397 0940 8B       		.byte	-117
+ 2398 0941 00       		.byte	0
+ 2399 0942 80       		.byte	-128
+ 2400 0943 00       		.byte	0
+ 2401 0944 40       		.byte	64
+ 2402 0945 00       		.byte	0
+ 2403 0946 00       		.byte	0
+ 2404 0947 00       		.byte	0
+ 2405 0948 00       		.byte	0
+ 2406 0949 02       		.byte	2
+ 2407 094a 02       		.byte	2
+ 2408 094b 00       		.byte	0
+ 2409 094c 02       		.byte	2
+ 2410 094d 00       		.byte	0
+ 2411 094e 00       		.byte	0
+ 2412 094f 00       		.byte	0
+ 2413              		.section	.cywolatch,"a",%progbits
+ 2414              		.align	2
+ 2415              		.type	cy_meta_wonvl, %object
+ 2416              		.size	cy_meta_wonvl, 4
+ 2417              	cy_meta_wonvl:
+ 2418 0000 BC       		.byte	-68
+ 2419 0001 90       		.byte	-112
+ 2420 0002 AC       		.byte	-84
+ 2421 0003 AF       		.byte	-81
+ 2422              		.section	.cycustnvl,"a",%progbits
+ 2423              		.align	2
+ 2424              		.type	cy_meta_custnvl, %object
+ 2425              		.size	cy_meta_custnvl, 4
+ 2426              	cy_meta_custnvl:
+ 2427 0000 00       		.byte	0
+ 2428 0001 00       		.byte	0
+ 2429 0002 40       		.byte	64
+ 2430 0003 05       		.byte	5
+ 2431              		.section	.cymeta,"a",%progbits
+ 2432              		.align	2
+ 2433              		.type	cy_metadata, %object
+ 2434              		.size	cy_metadata, 12
+ 2435              	cy_metadata:
+ 2436 0000 00       		.byte	0
+ 2437 0001 01       		.byte	1
+ 2438 0002 2E       		.byte	46
+ 2439 0003 16       		.byte	22
+ 2440 0004 10       		.byte	16
+ 2441 0005 69       		.byte	105
+ 2442 0006 00       		.byte	0
+ 2443 0007 01       		.byte	1
+ 2444 0008 00       		.byte	0
+ 2445 0009 00       		.byte	0
+ 2446 000a 00       		.byte	0
+ 2447 000b 00       		.byte	0
+ 2448              		.section	.cyflashprotect,"a",%progbits
+ 2449              		.align	2
+ 2450              		.type	cy_meta_flashprotect, %object
+ 2451              		.size	cy_meta_flashprotect, 256
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 44
+
+
+ 2452              	cy_meta_flashprotect:
+ 2453 0000 00000000 		.space	256
+ 2453      00000000 
+ 2453      00000000 
+ 2453      00000000 
+ 2453      00000000 
+ 2454              		.text
+ 2455              	.Letext0:
+ 2456              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 2457              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 2458              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+ 2459              		.section	.debug_info,"",%progbits
+ 2460              	.Ldebug_info0:
+ 2461 0000 35010000 		.4byte	0x135
+ 2462 0004 0400     		.2byte	0x4
+ 2463 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 2464 000a 04       		.byte	0x4
+ 2465 000b 01       		.uleb128 0x1
+ 2466 000c 8C000000 		.4byte	.LASF17
+ 2467 0010 0C       		.byte	0xc
+ 2468 0011 E6010000 		.4byte	.LASF18
+ 2469 0015 0A000000 		.4byte	.LASF19
+ 2470 0019 00000000 		.4byte	.Ldebug_line0
+ 2471 001d 02       		.uleb128 0x2
+ 2472 001e 01       		.byte	0x1
+ 2473 001f 06       		.byte	0x6
+ 2474 0020 DA010000 		.4byte	.LASF0
+ 2475 0024 03       		.uleb128 0x3
+ 2476 0025 00000000 		.4byte	.LASF9
+ 2477 0029 01       		.byte	0x1
+ 2478 002a 1D       		.byte	0x1d
+ 2479 002b 2F000000 		.4byte	0x2f
+ 2480 002f 02       		.uleb128 0x2
+ 2481 0030 01       		.byte	0x1
+ 2482 0031 08       		.byte	0x8
+ 2483 0032 7E000000 		.4byte	.LASF1
+ 2484 0036 02       		.uleb128 0x2
+ 2485 0037 02       		.byte	0x2
+ 2486 0038 05       		.byte	0x5
+ 2487 0039 C7010000 		.4byte	.LASF2
+ 2488 003d 02       		.uleb128 0x2
+ 2489 003e 02       		.byte	0x2
+ 2490 003f 07       		.byte	0x7
+ 2491 0040 2C010000 		.4byte	.LASF3
+ 2492 0044 02       		.uleb128 0x2
+ 2493 0045 04       		.byte	0x4
+ 2494 0046 05       		.byte	0x5
+ 2495 0047 D1010000 		.4byte	.LASF4
+ 2496 004b 02       		.uleb128 0x2
+ 2497 004c 04       		.byte	0x4
+ 2498 004d 07       		.byte	0x7
+ 2499 004e 1A010000 		.4byte	.LASF5
+ 2500 0052 02       		.uleb128 0x2
+ 2501 0053 08       		.byte	0x8
+ 2502 0054 05       		.byte	0x5
+ 2503 0055 B9010000 		.4byte	.LASF6
+ 2504 0059 02       		.uleb128 0x2
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 45
+
+
+ 2505 005a 08       		.byte	0x8
+ 2506 005b 07       		.byte	0x7
+ 2507 005c 6E010000 		.4byte	.LASF7
+ 2508 0060 04       		.uleb128 0x4
+ 2509 0061 04       		.byte	0x4
+ 2510 0062 05       		.byte	0x5
+ 2511 0063 696E7400 		.ascii	"int\000"
+ 2512 0067 02       		.uleb128 0x2
+ 2513 0068 04       		.byte	0x4
+ 2514 0069 07       		.byte	0x7
+ 2515 006a 61010000 		.4byte	.LASF8
+ 2516 006e 03       		.uleb128 0x3
+ 2517 006f 85010000 		.4byte	.LASF10
+ 2518 0073 02       		.byte	0x2
+ 2519 0074 18       		.byte	0x18
+ 2520 0075 24000000 		.4byte	0x24
+ 2521 0079 05       		.uleb128 0x5
+ 2522 007a 91000000 		.4byte	0x91
+ 2523 007e 8A000000 		.4byte	0x8a
+ 2524 0082 06       		.uleb128 0x6
+ 2525 0083 8A000000 		.4byte	0x8a
+ 2526 0087 4F09     		.2byte	0x94f
+ 2527 0089 00       		.byte	0
+ 2528 008a 02       		.uleb128 0x2
+ 2529 008b 04       		.byte	0x4
+ 2530 008c 07       		.byte	0x7
+ 2531 008d B0010000 		.4byte	.LASF11
+ 2532 0091 07       		.uleb128 0x7
+ 2533 0092 6E000000 		.4byte	0x6e
+ 2534 0096 08       		.uleb128 0x8
+ 2535 0097 4F010000 		.4byte	.LASF12
+ 2536 009b 03       		.byte	0x3
+ 2537 009c 1F       		.byte	0x1f
+ 2538 009d A7000000 		.4byte	0xa7
+ 2539 00a1 05       		.uleb128 0x5
+ 2540 00a2 03       		.byte	0x3
+ 2541 00a3 00000000 		.4byte	cy_meta_configecc
+ 2542 00a7 07       		.uleb128 0x7
+ 2543 00a8 79000000 		.4byte	0x79
+ 2544 00ac 05       		.uleb128 0x5
+ 2545 00ad 91000000 		.4byte	0x91
+ 2546 00b1 BC000000 		.4byte	0xbc
+ 2547 00b5 09       		.uleb128 0x9
+ 2548 00b6 8A000000 		.4byte	0x8a
+ 2549 00ba 03       		.byte	0x3
+ 2550 00bb 00       		.byte	0
+ 2551 00bc 0A       		.uleb128 0xa
+ 2552 00bd 3F010000 		.4byte	.LASF13
+ 2553 00c1 03       		.byte	0x3
+ 2554 00c2 5601     		.2byte	0x156
+ 2555 00c4 CE000000 		.4byte	0xce
+ 2556 00c8 05       		.uleb128 0x5
+ 2557 00c9 03       		.byte	0x3
+ 2558 00ca 00000000 		.4byte	cy_meta_custnvl
+ 2559 00ce 07       		.uleb128 0x7
+ 2560 00cf AC000000 		.4byte	0xac
+ 2561 00d3 0A       		.uleb128 0xa
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 46
+
+
+ 2562 00d4 A2010000 		.4byte	.LASF14
+ 2563 00d8 03       		.byte	0x3
+ 2564 00d9 6401     		.2byte	0x164
+ 2565 00db E5000000 		.4byte	0xe5
+ 2566 00df 05       		.uleb128 0x5
+ 2567 00e0 03       		.byte	0x3
+ 2568 00e1 00000000 		.4byte	cy_meta_wonvl
+ 2569 00e5 07       		.uleb128 0x7
+ 2570 00e6 AC000000 		.4byte	0xac
+ 2571 00ea 05       		.uleb128 0x5
+ 2572 00eb 91000000 		.4byte	0x91
+ 2573 00ef FA000000 		.4byte	0xfa
+ 2574 00f3 09       		.uleb128 0x9
+ 2575 00f4 8A000000 		.4byte	0x8a
+ 2576 00f8 FF       		.byte	0xff
+ 2577 00f9 00       		.byte	0
+ 2578 00fa 0A       		.uleb128 0xa
+ 2579 00fb 8D010000 		.4byte	.LASF15
+ 2580 00ff 03       		.byte	0x3
+ 2581 0100 7201     		.2byte	0x172
+ 2582 0102 0C010000 		.4byte	0x10c
+ 2583 0106 05       		.uleb128 0x5
+ 2584 0107 03       		.byte	0x3
+ 2585 0108 00000000 		.4byte	cy_meta_flashprotect
+ 2586 010c 07       		.uleb128 0x7
+ 2587 010d EA000000 		.4byte	0xea
+ 2588 0111 05       		.uleb128 0x5
+ 2589 0112 91000000 		.4byte	0x91
+ 2590 0116 21010000 		.4byte	0x121
+ 2591 011a 09       		.uleb128 0x9
+ 2592 011b 8A000000 		.4byte	0x8a
+ 2593 011f 0B       		.byte	0xb
+ 2594 0120 00       		.byte	0
+ 2595 0121 0A       		.uleb128 0xa
+ 2596 0122 72000000 		.4byte	.LASF16
+ 2597 0126 03       		.byte	0x3
+ 2598 0127 9F01     		.2byte	0x19f
+ 2599 0129 33010000 		.4byte	0x133
+ 2600 012d 05       		.uleb128 0x5
+ 2601 012e 03       		.byte	0x3
+ 2602 012f 00000000 		.4byte	cy_metadata
+ 2603 0133 07       		.uleb128 0x7
+ 2604 0134 11010000 		.4byte	0x111
+ 2605 0138 00       		.byte	0
+ 2606              		.section	.debug_abbrev,"",%progbits
+ 2607              	.Ldebug_abbrev0:
+ 2608 0000 01       		.uleb128 0x1
+ 2609 0001 11       		.uleb128 0x11
+ 2610 0002 01       		.byte	0x1
+ 2611 0003 25       		.uleb128 0x25
+ 2612 0004 0E       		.uleb128 0xe
+ 2613 0005 13       		.uleb128 0x13
+ 2614 0006 0B       		.uleb128 0xb
+ 2615 0007 03       		.uleb128 0x3
+ 2616 0008 0E       		.uleb128 0xe
+ 2617 0009 1B       		.uleb128 0x1b
+ 2618 000a 0E       		.uleb128 0xe
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 47
+
+
+ 2619 000b 10       		.uleb128 0x10
+ 2620 000c 17       		.uleb128 0x17
+ 2621 000d 00       		.byte	0
+ 2622 000e 00       		.byte	0
+ 2623 000f 02       		.uleb128 0x2
+ 2624 0010 24       		.uleb128 0x24
+ 2625 0011 00       		.byte	0
+ 2626 0012 0B       		.uleb128 0xb
+ 2627 0013 0B       		.uleb128 0xb
+ 2628 0014 3E       		.uleb128 0x3e
+ 2629 0015 0B       		.uleb128 0xb
+ 2630 0016 03       		.uleb128 0x3
+ 2631 0017 0E       		.uleb128 0xe
+ 2632 0018 00       		.byte	0
+ 2633 0019 00       		.byte	0
+ 2634 001a 03       		.uleb128 0x3
+ 2635 001b 16       		.uleb128 0x16
+ 2636 001c 00       		.byte	0
+ 2637 001d 03       		.uleb128 0x3
+ 2638 001e 0E       		.uleb128 0xe
+ 2639 001f 3A       		.uleb128 0x3a
+ 2640 0020 0B       		.uleb128 0xb
+ 2641 0021 3B       		.uleb128 0x3b
+ 2642 0022 0B       		.uleb128 0xb
+ 2643 0023 49       		.uleb128 0x49
+ 2644 0024 13       		.uleb128 0x13
+ 2645 0025 00       		.byte	0
+ 2646 0026 00       		.byte	0
+ 2647 0027 04       		.uleb128 0x4
+ 2648 0028 24       		.uleb128 0x24
+ 2649 0029 00       		.byte	0
+ 2650 002a 0B       		.uleb128 0xb
+ 2651 002b 0B       		.uleb128 0xb
+ 2652 002c 3E       		.uleb128 0x3e
+ 2653 002d 0B       		.uleb128 0xb
+ 2654 002e 03       		.uleb128 0x3
+ 2655 002f 08       		.uleb128 0x8
+ 2656 0030 00       		.byte	0
+ 2657 0031 00       		.byte	0
+ 2658 0032 05       		.uleb128 0x5
+ 2659 0033 01       		.uleb128 0x1
+ 2660 0034 01       		.byte	0x1
+ 2661 0035 49       		.uleb128 0x49
+ 2662 0036 13       		.uleb128 0x13
+ 2663 0037 01       		.uleb128 0x1
+ 2664 0038 13       		.uleb128 0x13
+ 2665 0039 00       		.byte	0
+ 2666 003a 00       		.byte	0
+ 2667 003b 06       		.uleb128 0x6
+ 2668 003c 21       		.uleb128 0x21
+ 2669 003d 00       		.byte	0
+ 2670 003e 49       		.uleb128 0x49
+ 2671 003f 13       		.uleb128 0x13
+ 2672 0040 2F       		.uleb128 0x2f
+ 2673 0041 05       		.uleb128 0x5
+ 2674 0042 00       		.byte	0
+ 2675 0043 00       		.byte	0
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 48
+
+
+ 2676 0044 07       		.uleb128 0x7
+ 2677 0045 26       		.uleb128 0x26
+ 2678 0046 00       		.byte	0
+ 2679 0047 49       		.uleb128 0x49
+ 2680 0048 13       		.uleb128 0x13
+ 2681 0049 00       		.byte	0
+ 2682 004a 00       		.byte	0
+ 2683 004b 08       		.uleb128 0x8
+ 2684 004c 34       		.uleb128 0x34
+ 2685 004d 00       		.byte	0
+ 2686 004e 03       		.uleb128 0x3
+ 2687 004f 0E       		.uleb128 0xe
+ 2688 0050 3A       		.uleb128 0x3a
+ 2689 0051 0B       		.uleb128 0xb
+ 2690 0052 3B       		.uleb128 0x3b
+ 2691 0053 0B       		.uleb128 0xb
+ 2692 0054 49       		.uleb128 0x49
+ 2693 0055 13       		.uleb128 0x13
+ 2694 0056 3F       		.uleb128 0x3f
+ 2695 0057 19       		.uleb128 0x19
+ 2696 0058 02       		.uleb128 0x2
+ 2697 0059 18       		.uleb128 0x18
+ 2698 005a 00       		.byte	0
+ 2699 005b 00       		.byte	0
+ 2700 005c 09       		.uleb128 0x9
+ 2701 005d 21       		.uleb128 0x21
+ 2702 005e 00       		.byte	0
+ 2703 005f 49       		.uleb128 0x49
+ 2704 0060 13       		.uleb128 0x13
+ 2705 0061 2F       		.uleb128 0x2f
+ 2706 0062 0B       		.uleb128 0xb
+ 2707 0063 00       		.byte	0
+ 2708 0064 00       		.byte	0
+ 2709 0065 0A       		.uleb128 0xa
+ 2710 0066 34       		.uleb128 0x34
+ 2711 0067 00       		.byte	0
+ 2712 0068 03       		.uleb128 0x3
+ 2713 0069 0E       		.uleb128 0xe
+ 2714 006a 3A       		.uleb128 0x3a
+ 2715 006b 0B       		.uleb128 0xb
+ 2716 006c 3B       		.uleb128 0x3b
+ 2717 006d 05       		.uleb128 0x5
+ 2718 006e 49       		.uleb128 0x49
+ 2719 006f 13       		.uleb128 0x13
+ 2720 0070 3F       		.uleb128 0x3f
+ 2721 0071 19       		.uleb128 0x19
+ 2722 0072 02       		.uleb128 0x2
+ 2723 0073 18       		.uleb128 0x18
+ 2724 0074 00       		.byte	0
+ 2725 0075 00       		.byte	0
+ 2726 0076 00       		.byte	0
+ 2727              		.section	.debug_aranges,"",%progbits
+ 2728 0000 14000000 		.4byte	0x14
+ 2729 0004 0200     		.2byte	0x2
+ 2730 0006 00000000 		.4byte	.Ldebug_info0
+ 2731 000a 04       		.byte	0x4
+ 2732 000b 00       		.byte	0
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 49
+
+
+ 2733 000c 0000     		.2byte	0
+ 2734 000e 0000     		.2byte	0
+ 2735 0010 00000000 		.4byte	0
+ 2736 0014 00000000 		.4byte	0
+ 2737              		.section	.debug_line,"",%progbits
+ 2738              	.Ldebug_line0:
+ 2739 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
+ 2739      02003701 
+ 2739      00000201 
+ 2739      FB0E0D00 
+ 2739      01010101 
+ 2740              	.LASF9:
+ 2741 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 2741      6E74385F 
+ 2741      7400
+ 2742              	.LASF19:
+ 2743 000a 433A5C55 		.ascii	"C:\\Users\\George Anwar\\Documents\\UC Berkeley\\ME"
+ 2743      73657273 
+ 2743      5C47656F 
+ 2743      72676520 
+ 2743      416E7761 
+ 2744 0038 31333520 		.ascii	"135 Spring 2020\\PSOC Creator\\ME135_235\\PIXY2LabV"
+ 2744      53707269 
+ 2744      6E672032 
+ 2744      3032305C 
+ 2744      50534F43 
+ 2745 0068 4945572E 		.ascii	"IEW.cydsn\000"
+ 2745      63796473 
+ 2745      6E00
+ 2746              	.LASF16:
+ 2747 0072 63795F6D 		.ascii	"cy_metadata\000"
+ 2747      65746164 
+ 2747      61746100 
+ 2748              	.LASF1:
+ 2749 007e 756E7369 		.ascii	"unsigned char\000"
+ 2749      676E6564 
+ 2749      20636861 
+ 2749      7200
+ 2750              	.LASF17:
+ 2751 008c 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2751      43313120 
+ 2751      352E342E 
+ 2751      31203230 
+ 2751      31363036 
+ 2752 00bf 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 2752      20726576 
+ 2752      6973696F 
+ 2752      6E203233 
+ 2752      37373135 
+ 2753 00f2 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2753      66756E63 
+ 2753      74696F6E 
+ 2753      2D736563 
+ 2753      74696F6E 
+ 2754              	.LASF5:
+ 2755 011a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2755      20756E73 
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 50
+
+
+ 2755      69676E65 
+ 2755      6420696E 
+ 2755      7400
+ 2756              	.LASF3:
+ 2757 012c 73686F72 		.ascii	"short unsigned int\000"
+ 2757      7420756E 
+ 2757      7369676E 
+ 2757      65642069 
+ 2757      6E7400
+ 2758              	.LASF13:
+ 2759 013f 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 2759      6574615F 
+ 2759      63757374 
+ 2759      6E766C00 
+ 2760              	.LASF12:
+ 2761 014f 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 2761      6574615F 
+ 2761      636F6E66 
+ 2761      69676563 
+ 2761      6300
+ 2762              	.LASF8:
+ 2763 0161 756E7369 		.ascii	"unsigned int\000"
+ 2763      676E6564 
+ 2763      20696E74 
+ 2763      00
+ 2764              	.LASF7:
+ 2765 016e 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2765      206C6F6E 
+ 2765      6720756E 
+ 2765      7369676E 
+ 2765      65642069 
+ 2766              	.LASF10:
+ 2767 0185 75696E74 		.ascii	"uint8_t\000"
+ 2767      385F7400 
+ 2768              	.LASF15:
+ 2769 018d 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 2769      6574615F 
+ 2769      666C6173 
+ 2769      6870726F 
+ 2769      74656374 
+ 2770              	.LASF14:
+ 2771 01a2 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 2771      6574615F 
+ 2771      776F6E76 
+ 2771      6C00
+ 2772              	.LASF11:
+ 2773 01b0 73697A65 		.ascii	"sizetype\000"
+ 2773      74797065 
+ 2773      00
+ 2774              	.LASF6:
+ 2775 01b9 6C6F6E67 		.ascii	"long long int\000"
+ 2775      206C6F6E 
+ 2775      6720696E 
+ 2775      7400
+ 2776              	.LASF2:
+ 2777 01c7 73686F72 		.ascii	"short int\000"
+ 2777      7420696E 
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccYFROsL.s 			page 51
+
+
+ 2777      7400
+ 2778              	.LASF4:
+ 2779 01d1 6C6F6E67 		.ascii	"long int\000"
+ 2779      20696E74 
+ 2779      00
+ 2780              	.LASF0:
+ 2781 01da 7369676E 		.ascii	"signed char\000"
+ 2781      65642063 
+ 2781      68617200 
+ 2782              	.LASF18:
+ 2783 01e6 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 2783      72617465 
+ 2783      645F536F 
+ 2783      75726365 
+ 2783      5C50536F 
+ 2784              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

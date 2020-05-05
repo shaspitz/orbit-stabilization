@@ -1,0 +1,1369 @@
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccdz2pST.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_metadata
+  20              		.global	cy_meta_flashprotect
+  21              		.global	cy_meta_wonvl
+  22              		.global	cy_meta_custnvl
+  23              		.global	cy_meta_configecc
+  24              		.section	.cyconfigecc,"a",%progbits
+  25              		.align	2
+  26              		.type	cy_meta_configecc, %object
+  27              		.size	cy_meta_configecc, 836
+  28              	cy_meta_configecc:
+  29 0000 01       		.byte	1
+  30 0001 52       		.byte	82
+  31 0002 00       		.byte	0
+  32 0003 40       		.byte	64
+  33 0004 03       		.byte	3
+  34 0005 65       		.byte	101
+  35 0006 00       		.byte	0
+  36 0007 40       		.byte	64
+  37 0008 05       		.byte	5
+  38 0009 05       		.byte	5
+  39 000a 01       		.byte	1
+  40 000b 40       		.byte	64
+  41 000c 02       		.byte	2
+  42 000d 07       		.byte	7
+  43 000e 01       		.byte	1
+  44 000f 40       		.byte	64
+  45 0010 01       		.byte	1
+  46 0011 0B       		.byte	11
+  47 0012 01       		.byte	1
+  48 0013 40       		.byte	64
+  49 0014 13       		.byte	19
+  50 0015 14       		.byte	20
+  51 0016 01       		.byte	1
+  52 0017 40       		.byte	64
+  53 0018 4F       		.byte	79
+  54 0019 15       		.byte	21
+  55 001a 01       		.byte	1
+  56 001b 40       		.byte	64
+  57 001c 71       		.byte	113
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccdz2pST.s 			page 2
+
+
+  58 001d 16       		.byte	22
+  59 001e 01       		.byte	1
+  60 001f 40       		.byte	64
+  61 0020 40       		.byte	64
+  62 0021 17       		.byte	23
+  63 0022 01       		.byte	1
+  64 0023 40       		.byte	64
+  65 0024 03       		.byte	3
+  66 0025 41       		.byte	65
+  67 0026 01       		.byte	1
+  68 0027 40       		.byte	64
+  69 0028 02       		.byte	2
+  70 0029 42       		.byte	66
+  71 002a 01       		.byte	1
+  72 002b 40       		.byte	64
+  73 002c 01       		.byte	1
+  74 002d 43       		.byte	67
+  75 002e 01       		.byte	1
+  76 002f 40       		.byte	64
+  77 0030 02       		.byte	2
+  78 0031 45       		.byte	69
+  79 0032 01       		.byte	1
+  80 0033 40       		.byte	64
+  81 0034 02       		.byte	2
+  82 0035 46       		.byte	70
+  83 0036 01       		.byte	1
+  84 0037 40       		.byte	64
+  85 0038 01       		.byte	1
+  86 0039 48       		.byte	72
+  87 003a 01       		.byte	1
+  88 003b 40       		.byte	64
+  89 003c 03       		.byte	3
+  90 003d 49       		.byte	73
+  91 003e 01       		.byte	1
+  92 003f 40       		.byte	64
+  93 0040 02       		.byte	2
+  94 0041 50       		.byte	80
+  95 0042 01       		.byte	1
+  96 0043 40       		.byte	64
+  97 0044 01       		.byte	1
+  98 0045 02       		.byte	2
+  99 0046 84       		.byte	-124
+ 100 0047 72       		.byte	114
+ 101 0048 85       		.byte	-123
+ 102 0049 38       		.byte	56
+ 103 004a 87       		.byte	-121
+ 104 004b 0F       		.byte	15
+ 105 004c 90       		.byte	-112
+ 106 004d 08       		.byte	8
+ 107 004e A1       		.byte	-95
+ 108 004f 01       		.byte	1
+ 109 0050 B4       		.byte	-76
+ 110 0051 04       		.byte	4
+ 111 0052 B5       		.byte	-75
+ 112 0053 01       		.byte	1
+ 113 0054 EA       		.byte	-22
+ 114 0055 10       		.byte	16
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccdz2pST.s 			page 3
+
+
+ 115 0056 90       		.byte	-112
+ 116 0057 08       		.byte	8
+ 117 0058 A1       		.byte	-95
+ 118 0059 01       		.byte	1
+ 119 005a EA       		.byte	-22
+ 120 005b 10       		.byte	16
+ 121 005c 83       		.byte	-125
+ 122 005d 01       		.byte	1
+ 123 005e 84       		.byte	-124
+ 124 005f 04       		.byte	4
+ 125 0060 88       		.byte	-120
+ 126 0061 08       		.byte	8
+ 127 0062 8C       		.byte	-116
+ 128 0063 01       		.byte	1
+ 129 0064 92       		.byte	-110
+ 130 0065 02       		.byte	2
+ 131 0066 9A       		.byte	-102
+ 132 0067 02       		.byte	2
+ 133 0068 A4       		.byte	-92
+ 134 0069 01       		.byte	1
+ 135 006a A8       		.byte	-88
+ 136 006b 01       		.byte	1
+ 137 006c B0       		.byte	-80
+ 138 006d 01       		.byte	1
+ 139 006e B1       		.byte	-79
+ 140 006f 01       		.byte	1
+ 141 0070 B2       		.byte	-78
+ 142 0071 02       		.byte	2
+ 143 0072 B4       		.byte	-76
+ 144 0073 04       		.byte	4
+ 145 0074 B6       		.byte	-74
+ 146 0075 08       		.byte	8
+ 147 0076 BE       		.byte	-66
+ 148 0077 54       		.byte	84
+ 149 0078 D4       		.byte	-44
+ 150 0079 18       		.byte	24
+ 151 007a D8       		.byte	-40
+ 152 007b 04       		.byte	4
+ 153 007c D9       		.byte	-39
+ 154 007d 04       		.byte	4
+ 155 007e DB       		.byte	-37
+ 156 007f 04       		.byte	4
+ 157 0080 DF       		.byte	-33
+ 158 0081 01       		.byte	1
+ 159 0082 00       		.byte	0
+ 160 0083 04       		.byte	4
+ 161 0084 01       		.byte	1
+ 162 0085 C2       		.byte	-62
+ 163 0086 03       		.byte	3
+ 164 0087 08       		.byte	8
+ 165 0088 05       		.byte	5
+ 166 0089 10       		.byte	16
+ 167 008a 06       		.byte	6
+ 168 008b 10       		.byte	16
+ 169 008c 07       		.byte	7
+ 170 008d 01       		.byte	1
+ 171 008e 09       		.byte	9
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccdz2pST.s 			page 4
+
+
+ 172 008f 09       		.byte	9
+ 173 0090 0A       		.byte	10
+ 174 0091 08       		.byte	8
+ 175 0092 0B       		.byte	11
+ 176 0093 02       		.byte	2
+ 177 0094 0D       		.byte	13
+ 178 0095 10       		.byte	16
+ 179 0096 0F       		.byte	15
+ 180 0097 40       		.byte	64
+ 181 0098 10       		.byte	16
+ 182 0099 80       		.byte	-128
+ 183 009a 12       		.byte	18
+ 184 009b 44       		.byte	68
+ 185 009c 13       		.byte	19
+ 186 009d 28       		.byte	40
+ 187 009e 17       		.byte	23
+ 188 009f 14       		.byte	20
+ 189 00a0 18       		.byte	24
+ 190 00a1 06       		.byte	6
+ 191 00a2 19       		.byte	25
+ 192 00a3 81       		.byte	-127
+ 193 00a4 1B       		.byte	27
+ 194 00a5 28       		.byte	40
+ 195 00a6 1C       		.byte	28
+ 196 00a7 40       		.byte	64
+ 197 00a8 1D       		.byte	29
+ 198 00a9 06       		.byte	6
+ 199 00aa 1E       		.byte	30
+ 200 00ab 04       		.byte	4
+ 201 00ac 1F       		.byte	31
+ 202 00ad 41       		.byte	65
+ 203 00ae 21       		.byte	33
+ 204 00af 09       		.byte	9
+ 205 00b0 23       		.byte	35
+ 206 00b1 51       		.byte	81
+ 207 00b2 27       		.byte	39
+ 208 00b3 40       		.byte	64
+ 209 00b4 29       		.byte	41
+ 210 00b5 02       		.byte	2
+ 211 00b6 2A       		.byte	42
+ 212 00b7 44       		.byte	68
+ 213 00b8 2B       		.byte	43
+ 214 00b9 08       		.byte	8
+ 215 00ba 31       		.byte	49
+ 216 00bb 02       		.byte	2
+ 217 00bc 32       		.byte	50
+ 218 00bd 04       		.byte	4
+ 219 00be 33       		.byte	51
+ 220 00bf 60       		.byte	96
+ 221 00c0 38       		.byte	56
+ 222 00c1 28       		.byte	40
+ 223 00c2 39       		.byte	57
+ 224 00c3 41       		.byte	65
+ 225 00c4 3D       		.byte	61
+ 226 00c5 02       		.byte	2
+ 227 00c6 40       		.byte	64
+ 228 00c7 44       		.byte	68
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccdz2pST.s 			page 5
+
+
+ 229 00c8 43       		.byte	67
+ 230 00c9 08       		.byte	8
+ 231 00ca 48       		.byte	72
+ 232 00cb 05       		.byte	5
+ 233 00cc 4A       		.byte	74
+ 234 00cd 80       		.byte	-128
+ 235 00ce 51       		.byte	81
+ 236 00cf 10       		.byte	16
+ 237 00d0 59       		.byte	89
+ 238 00d1 01       		.byte	1
+ 239 00d2 5F       		.byte	95
+ 240 00d3 01       		.byte	1
+ 241 00d4 64       		.byte	100
+ 242 00d5 02       		.byte	2
+ 243 00d6 67       		.byte	103
+ 244 00d7 04       		.byte	4
+ 245 00d8 6A       		.byte	106
+ 246 00d9 20       		.byte	32
+ 247 00da 6B       		.byte	107
+ 248 00db 15       		.byte	21
+ 249 00dc 70       		.byte	112
+ 250 00dd 90       		.byte	-112
+ 251 00de 73       		.byte	115
+ 252 00df 28       		.byte	40
+ 253 00e0 84       		.byte	-124
+ 254 00e1 04       		.byte	4
+ 255 00e2 85       		.byte	-123
+ 256 00e3 01       		.byte	1
+ 257 00e4 87       		.byte	-121
+ 258 00e5 40       		.byte	64
+ 259 00e6 89       		.byte	-119
+ 260 00e7 01       		.byte	1
+ 261 00e8 8B       		.byte	-117
+ 262 00e9 31       		.byte	49
+ 263 00ea 8C       		.byte	-116
+ 264 00eb 02       		.byte	2
+ 265 00ec 8D       		.byte	-115
+ 266 00ed 04       		.byte	4
+ 267 00ee 90       		.byte	-112
+ 268 00ef 08       		.byte	8
+ 269 00f0 92       		.byte	-110
+ 270 00f1 08       		.byte	8
+ 271 00f2 93       		.byte	-109
+ 272 00f3 04       		.byte	4
+ 273 00f4 94       		.byte	-108
+ 274 00f5 02       		.byte	2
+ 275 00f6 96       		.byte	-106
+ 276 00f7 24       		.byte	36
+ 277 00f8 97       		.byte	-105
+ 278 00f9 10       		.byte	16
+ 279 00fa 99       		.byte	-103
+ 280 00fb 12       		.byte	18
+ 281 00fc 9A       		.byte	-102
+ 282 00fd 10       		.byte	16
+ 283 00fe 9F       		.byte	-97
+ 284 00ff 10       		.byte	16
+ 285 0100 A0       		.byte	-96
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccdz2pST.s 			page 6
+
+
+ 286 0101 01       		.byte	1
+ 287 0102 A1       		.byte	-95
+ 288 0103 01       		.byte	1
+ 289 0104 A6       		.byte	-90
+ 290 0105 80       		.byte	-128
+ 291 0106 A7       		.byte	-89
+ 292 0107 09       		.byte	9
+ 293 0108 B0       		.byte	-80
+ 294 0109 01       		.byte	1
+ 295 010a B2       		.byte	-78
+ 296 010b 10       		.byte	16
+ 297 010c C0       		.byte	-64
+ 298 010d EF       		.byte	-17
+ 299 010e C2       		.byte	-62
+ 300 010f 5F       		.byte	95
+ 301 0110 C4       		.byte	-60
+ 302 0111 6E       		.byte	110
+ 303 0112 CA       		.byte	-54
+ 304 0113 0F       		.byte	15
+ 305 0114 CC       		.byte	-52
+ 306 0115 0F       		.byte	15
+ 307 0116 CE       		.byte	-50
+ 308 0117 8F       		.byte	-113
+ 309 0118 D0       		.byte	-48
+ 310 0119 07       		.byte	7
+ 311 011a D2       		.byte	-46
+ 312 011b 0C       		.byte	12
+ 313 011c D6       		.byte	-42
+ 314 011d 81       		.byte	-127
+ 315 011e D8       		.byte	-40
+ 316 011f 30       		.byte	48
+ 317 0120 00       		.byte	0
+ 318 0121 09       		.byte	9
+ 319 0122 02       		.byte	2
+ 320 0123 D0       		.byte	-48
+ 321 0124 03       		.byte	3
+ 322 0125 0C       		.byte	12
+ 323 0126 07       		.byte	7
+ 324 0127 08       		.byte	8
+ 325 0128 09       		.byte	9
+ 326 0129 80       		.byte	-128
+ 327 012a 0A       		.byte	10
+ 328 012b 03       		.byte	3
+ 329 012c 0B       		.byte	11
+ 330 012d 13       		.byte	19
+ 331 012e 0C       		.byte	12
+ 332 012f 10       		.byte	16
+ 333 0130 0E       		.byte	14
+ 334 0131 AC       		.byte	-84
+ 335 0132 16       		.byte	22
+ 336 0133 20       		.byte	32
+ 337 0134 19       		.byte	25
+ 338 0135 2C       		.byte	44
+ 339 0136 1B       		.byte	27
+ 340 0137 43       		.byte	67
+ 341 0138 1C       		.byte	28
+ 342 0139 0C       		.byte	12
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccdz2pST.s 			page 7
+
+
+ 343 013a 1E       		.byte	30
+ 344 013b 71       		.byte	113
+ 345 013c 20       		.byte	32
+ 346 013d 14       		.byte	20
+ 347 013e 21       		.byte	33
+ 348 013f 71       		.byte	113
+ 349 0140 23       		.byte	35
+ 350 0141 0E       		.byte	14
+ 351 0142 24       		.byte	36
+ 352 0143 DC       		.byte	-36
+ 353 0144 26       		.byte	38
+ 354 0145 22       		.byte	34
+ 355 0146 28       		.byte	40
+ 356 0147 10       		.byte	16
+ 357 0148 2A       		.byte	42
+ 358 0149 40       		.byte	64
+ 359 014a 2D       		.byte	45
+ 360 014b 71       		.byte	113
+ 361 014c 2F       		.byte	47
+ 362 014d 06       		.byte	6
+ 363 014e 33       		.byte	51
+ 364 014f 30       		.byte	48
+ 365 0150 34       		.byte	52
+ 366 0151 1F       		.byte	31
+ 367 0152 35       		.byte	53
+ 368 0153 0F       		.byte	15
+ 369 0154 36       		.byte	54
+ 370 0155 E0       		.byte	-32
+ 371 0156 37       		.byte	55
+ 372 0157 C0       		.byte	-64
+ 373 0158 39       		.byte	57
+ 374 0159 88       		.byte	-120
+ 375 015a 3A       		.byte	58
+ 376 015b 80       		.byte	-128
+ 377 015c 3B       		.byte	59
+ 378 015d 20       		.byte	32
+ 379 015e 3F       		.byte	63
+ 380 015f 04       		.byte	4
+ 381 0160 40       		.byte	64
+ 382 0161 02       		.byte	2
+ 383 0162 47       		.byte	71
+ 384 0163 04       		.byte	4
+ 385 0164 49       		.byte	73
+ 386 0165 FF       		.byte	-1
+ 387 0166 4A       		.byte	74
+ 388 0167 07       		.byte	7
+ 389 0168 4B       		.byte	75
+ 390 0169 FF       		.byte	-1
+ 391 016a 4C       		.byte	76
+ 392 016b 40       		.byte	64
+ 393 016c 4D       		.byte	77
+ 394 016d 20       		.byte	32
+ 395 016e 4E       		.byte	78
+ 396 016f F0       		.byte	-16
+ 397 0170 4F       		.byte	79
+ 398 0171 05       		.byte	5
+ 399 0172 50       		.byte	80
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccdz2pST.s 			page 8
+
+
+ 400 0173 08       		.byte	8
+ 401 0174 58       		.byte	88
+ 402 0175 04       		.byte	4
+ 403 0176 59       		.byte	89
+ 404 0177 04       		.byte	4
+ 405 0178 5A       		.byte	90
+ 406 0179 04       		.byte	4
+ 407 017a 5F       		.byte	95
+ 408 017b 01       		.byte	1
+ 409 017c 60       		.byte	96
+ 410 017d 40       		.byte	64
+ 411 017e 61       		.byte	97
+ 412 017f A8       		.byte	-88
+ 413 0180 62       		.byte	98
+ 414 0181 40       		.byte	64
+ 415 0182 63       		.byte	99
+ 416 0183 20       		.byte	32
+ 417 0184 82       		.byte	-126
+ 418 0185 08       		.byte	8
+ 419 0186 83       		.byte	-125
+ 420 0187 01       		.byte	1
+ 421 0188 84       		.byte	-124
+ 422 0189 20       		.byte	32
+ 423 018a 85       		.byte	-123
+ 424 018b 08       		.byte	8
+ 425 018c 86       		.byte	-122
+ 426 018d C0       		.byte	-64
+ 427 018e 87       		.byte	-121
+ 428 018f 14       		.byte	20
+ 429 0190 88       		.byte	-120
+ 430 0191 80       		.byte	-128
+ 431 0192 8A       		.byte	-118
+ 432 0193 20       		.byte	32
+ 433 0194 8B       		.byte	-117
+ 434 0195 01       		.byte	1
+ 435 0196 8C       		.byte	-116
+ 436 0197 13       		.byte	19
+ 437 0198 8E       		.byte	-114
+ 438 0199 0C       		.byte	12
+ 439 019a 8F       		.byte	-113
+ 440 019b 20       		.byte	32
+ 441 019c 90       		.byte	-112
+ 442 019d 13       		.byte	19
+ 443 019e 92       		.byte	-110
+ 444 019f 04       		.byte	4
+ 445 01a0 94       		.byte	-108
+ 446 01a1 E0       		.byte	-32
+ 447 01a2 95       		.byte	-107
+ 448 01a3 10       		.byte	16
+ 449 01a4 97       		.byte	-105
+ 450 01a5 0C       		.byte	12
+ 451 01a6 98       		.byte	-104
+ 452 01a7 03       		.byte	3
+ 453 01a8 99       		.byte	-103
+ 454 01a9 18       		.byte	24
+ 455 01aa 9A       		.byte	-102
+ 456 01ab 14       		.byte	20
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccdz2pST.s 			page 9
+
+
+ 457 01ac 9F       		.byte	-97
+ 458 01ad 20       		.byte	32
+ 459 01ae A0       		.byte	-96
+ 460 01af 40       		.byte	64
+ 461 01b0 A1       		.byte	-95
+ 462 01b1 18       		.byte	24
+ 463 01b2 A2       		.byte	-94
+ 464 01b3 20       		.byte	32
+ 465 01b4 A4       		.byte	-92
+ 466 01b5 0A       		.byte	10
+ 467 01b6 A6       		.byte	-90
+ 468 01b7 14       		.byte	20
+ 469 01b8 A7       		.byte	-89
+ 470 01b9 02       		.byte	2
+ 471 01ba A9       		.byte	-87
+ 472 01bb 01       		.byte	1
+ 473 01bc AA       		.byte	-86
+ 474 01bd 15       		.byte	21
+ 475 01be AC       		.byte	-84
+ 476 01bf E0       		.byte	-32
+ 477 01c0 AD       		.byte	-83
+ 478 01c1 01       		.byte	1
+ 479 01c2 B0       		.byte	-80
+ 480 01c3 0F       		.byte	15
+ 481 01c4 B1       		.byte	-79
+ 482 01c5 01       		.byte	1
+ 483 01c6 B3       		.byte	-77
+ 484 01c7 18       		.byte	24
+ 485 01c8 B4       		.byte	-76
+ 486 01c9 E0       		.byte	-32
+ 487 01ca B5       		.byte	-75
+ 488 01cb 20       		.byte	32
+ 489 01cc B6       		.byte	-74
+ 490 01cd 10       		.byte	16
+ 491 01ce B7       		.byte	-73
+ 492 01cf 06       		.byte	6
+ 493 01d0 B9       		.byte	-71
+ 494 01d1 02       		.byte	2
+ 495 01d2 BA       		.byte	-70
+ 496 01d3 02       		.byte	2
+ 497 01d4 BE       		.byte	-66
+ 498 01d5 40       		.byte	64
+ 499 01d6 BF       		.byte	-65
+ 500 01d7 50       		.byte	80
+ 501 01d8 C0       		.byte	-64
+ 502 01d9 53       		.byte	83
+ 503 01da C1       		.byte	-63
+ 504 01db 01       		.byte	1
+ 505 01dc C5       		.byte	-59
+ 506 01dd 0C       		.byte	12
+ 507 01de C6       		.byte	-58
+ 508 01df E0       		.byte	-32
+ 509 01e0 C7       		.byte	-57
+ 510 01e1 B0       		.byte	-80
+ 511 01e2 C8       		.byte	-56
+ 512 01e3 29       		.byte	41
+ 513 01e4 C9       		.byte	-55
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccdz2pST.s 			page 10
+
+
+ 514 01e5 FF       		.byte	-1
+ 515 01e6 CA       		.byte	-54
+ 516 01e7 FF       		.byte	-1
+ 517 01e8 CB       		.byte	-53
+ 518 01e9 FF       		.byte	-1
+ 519 01ea CE       		.byte	-50
+ 520 01eb F0       		.byte	-16
+ 521 01ec CF       		.byte	-49
+ 522 01ed 44       		.byte	68
+ 523 01ee D0       		.byte	-48
+ 524 01ef 0C       		.byte	12
+ 525 01f0 D4       		.byte	-44
+ 526 01f1 01       		.byte	1
+ 527 01f2 D8       		.byte	-40
+ 528 01f3 04       		.byte	4
+ 529 01f4 D9       		.byte	-39
+ 530 01f5 04       		.byte	4
+ 531 01f6 DA       		.byte	-38
+ 532 01f7 04       		.byte	4
+ 533 01f8 DB       		.byte	-37
+ 534 01f9 04       		.byte	4
+ 535 01fa DF       		.byte	-33
+ 536 01fb 01       		.byte	1
+ 537 01fc E6       		.byte	-26
+ 538 01fd C0       		.byte	-64
+ 539 01fe EA       		.byte	-22
+ 540 01ff 40       		.byte	64
+ 541 0200 EB       		.byte	-21
+ 542 0201 02       		.byte	2
+ 543 0202 00       		.byte	0
+ 544 0203 21       		.byte	33
+ 545 0204 03       		.byte	3
+ 546 0205 22       		.byte	34
+ 547 0206 04       		.byte	4
+ 548 0207 01       		.byte	1
+ 549 0208 05       		.byte	5
+ 550 0209 90       		.byte	-112
+ 551 020a 08       		.byte	8
+ 552 020b 10       		.byte	16
+ 553 020c 0A       		.byte	10
+ 554 020d 20       		.byte	32
+ 555 020e 0B       		.byte	11
+ 556 020f 88       		.byte	-120
+ 557 0210 0D       		.byte	13
+ 558 0211 80       		.byte	-128
+ 559 0212 0F       		.byte	15
+ 560 0213 20       		.byte	32
+ 561 0214 11       		.byte	17
+ 562 0215 22       		.byte	34
+ 563 0216 12       		.byte	18
+ 564 0217 21       		.byte	33
+ 565 0218 15       		.byte	21
+ 566 0219 02       		.byte	2
+ 567 021a 16       		.byte	22
+ 568 021b 08       		.byte	8
+ 569 021c 17       		.byte	23
+ 570 021d 04       		.byte	4
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccdz2pST.s 			page 11
+
+
+ 571 021e 19       		.byte	25
+ 572 021f 40       		.byte	64
+ 573 0220 1B       		.byte	27
+ 574 0221 22       		.byte	34
+ 575 0222 1D       		.byte	29
+ 576 0223 90       		.byte	-112
+ 577 0224 1F       		.byte	31
+ 578 0225 40       		.byte	64
+ 579 0226 20       		.byte	32
+ 580 0227 22       		.byte	34
+ 581 0228 21       		.byte	33
+ 582 0229 08       		.byte	8
+ 583 022a 22       		.byte	34
+ 584 022b 04       		.byte	4
+ 585 022c 23       		.byte	35
+ 586 022d 44       		.byte	68
+ 587 022e 24       		.byte	36
+ 588 022f 01       		.byte	1
+ 589 0230 26       		.byte	38
+ 590 0231 20       		.byte	32
+ 591 0232 27       		.byte	39
+ 592 0233 24       		.byte	36
+ 593 0234 29       		.byte	41
+ 594 0235 01       		.byte	1
+ 595 0236 2A       		.byte	42
+ 596 0237 01       		.byte	1
+ 597 0238 2B       		.byte	43
+ 598 0239 29       		.byte	41
+ 599 023a 2D       		.byte	45
+ 600 023b 80       		.byte	-128
+ 601 023c 2F       		.byte	47
+ 602 023d 42       		.byte	66
+ 603 023e 31       		.byte	49
+ 604 023f 08       		.byte	8
+ 605 0240 32       		.byte	50
+ 606 0241 90       		.byte	-112
+ 607 0242 36       		.byte	54
+ 608 0243 20       		.byte	32
+ 609 0244 38       		.byte	56
+ 610 0245 0A       		.byte	10
+ 611 0246 3B       		.byte	59
+ 612 0247 50       		.byte	80
+ 613 0248 3C       		.byte	60
+ 614 0249 01       		.byte	1
+ 615 024a 3E       		.byte	62
+ 616 024b 08       		.byte	8
+ 617 024c 3F       		.byte	63
+ 618 024d 20       		.byte	32
+ 619 024e 41       		.byte	65
+ 620 024f 80       		.byte	-128
+ 621 0250 42       		.byte	66
+ 622 0251 20       		.byte	32
+ 623 0252 47       		.byte	71
+ 624 0253 20       		.byte	32
+ 625 0254 49       		.byte	73
+ 626 0255 80       		.byte	-128
+ 627 0256 4B       		.byte	75
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccdz2pST.s 			page 12
+
+
+ 628 0257 08       		.byte	8
+ 629 0258 51       		.byte	81
+ 630 0259 01       		.byte	1
+ 631 025a 52       		.byte	82
+ 632 025b 10       		.byte	16
+ 633 025c 55       		.byte	85
+ 634 025d 10       		.byte	16
+ 635 025e 56       		.byte	86
+ 636 025f 28       		.byte	40
+ 637 0260 57       		.byte	87
+ 638 0261 10       		.byte	16
+ 639 0262 58       		.byte	88
+ 640 0263 11       		.byte	17
+ 641 0264 59       		.byte	89
+ 642 0265 40       		.byte	64
+ 643 0266 5A       		.byte	90
+ 644 0267 04       		.byte	4
+ 645 0268 81       		.byte	-127
+ 646 0269 03       		.byte	3
+ 647 026a 83       		.byte	-125
+ 648 026b 30       		.byte	48
+ 649 026c 90       		.byte	-112
+ 650 026d 08       		.byte	8
+ 651 026e A1       		.byte	-95
+ 652 026f 01       		.byte	1
+ 653 0270 C0       		.byte	-64
+ 654 0271 DF       		.byte	-33
+ 655 0272 C2       		.byte	-62
+ 656 0273 AE       		.byte	-82
+ 657 0274 C4       		.byte	-60
+ 658 0275 7F       		.byte	127
+ 659 0276 CA       		.byte	-54
+ 660 0277 9F       		.byte	-97
+ 661 0278 CC       		.byte	-52
+ 662 0279 2E       		.byte	46
+ 663 027a CE       		.byte	-50
+ 664 027b EF       		.byte	-17
+ 665 027c D0       		.byte	-48
+ 666 027d 2A       		.byte	42
+ 667 027e D2       		.byte	-46
+ 668 027f 08       		.byte	8
+ 669 0280 D6       		.byte	-42
+ 670 0281 0F       		.byte	15
+ 671 0282 52       		.byte	82
+ 672 0283 08       		.byte	8
+ 673 0284 5B       		.byte	91
+ 674 0285 40       		.byte	64
+ 675 0286 D4       		.byte	-44
+ 676 0287 A0       		.byte	-96
+ 677 0288 A6       		.byte	-90
+ 678 0289 08       		.byte	8
+ 679 028a B7       		.byte	-73
+ 680 028b 40       		.byte	64
+ 681 028c A6       		.byte	-90
+ 682 028d 08       		.byte	8
+ 683 028e 11       		.byte	17
+ 684 028f 02       		.byte	2
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccdz2pST.s 			page 13
+
+
+ 685 0290 C4       		.byte	-60
+ 686 0291 08       		.byte	8
+ 687 0292 B5       		.byte	-75
+ 688 0293 01       		.byte	1
+ 689 0294 EA       		.byte	-22
+ 690 0295 08       		.byte	8
+ 691 0296 A6       		.byte	-90
+ 692 0297 08       		.byte	8
+ 693 0298 86       		.byte	-122
+ 694 0299 08       		.byte	8
+ 695 029a A6       		.byte	-90
+ 696 029b 08       		.byte	8
+ 697 029c E2       		.byte	-30
+ 698 029d 10       		.byte	16
+ 699 029e 10       		.byte	16
+ 700 029f 01       		.byte	1
+ 701 02a0 1A       		.byte	26
+ 702 02a1 01       		.byte	1
+ 703 02a2 00       		.byte	0
+ 704 02a3 00       		.byte	0
+ 705 02a4 03       		.byte	3
+ 706 02a5 3C       		.byte	60
+ 707 02a6 00       		.byte	0
+ 708 02a7 C2       		.byte	-62
+ 709 02a8 33       		.byte	51
+ 710 02a9 44       		.byte	68
+ 711 02aa 0C       		.byte	12
+ 712 02ab 00       		.byte	0
+ 713 02ac 3F       		.byte	63
+ 714 02ad 08       		.byte	8
+ 715 02ae 00       		.byte	0
+ 716 02af 00       		.byte	0
+ 717 02b0 1F       		.byte	31
+ 718 02b1 1C       		.byte	28
+ 719 02b2 20       		.byte	32
+ 720 02b3 E1       		.byte	-31
+ 721 02b4 01       		.byte	1
+ 722 02b5 00       		.byte	0
+ 723 02b6 00       		.byte	0
+ 724 02b7 E3       		.byte	-29
+ 725 02b8 1C       		.byte	28
+ 726 02b9 80       		.byte	-128
+ 727 02ba 23       		.byte	35
+ 728 02bb 00       		.byte	0
+ 729 02bc 02       		.byte	2
+ 730 02bd E7       		.byte	-25
+ 731 02be 00       		.byte	0
+ 732 02bf 18       		.byte	24
+ 733 02c0 00       		.byte	0
+ 734 02c1 00       		.byte	0
+ 735 02c2 23       		.byte	35
+ 736 02c3 04       		.byte	4
+ 737 02c4 08       		.byte	8
+ 738 02c5 C0       		.byte	-64
+ 739 02c6 00       		.byte	0
+ 740 02c7 00       		.byte	0
+ 741 02c8 04       		.byte	4
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccdz2pST.s 			page 14
+
+
+ 742 02c9 18       		.byte	24
+ 743 02ca 00       		.byte	0
+ 744 02cb 00       		.byte	0
+ 745 02cc 0C       		.byte	12
+ 746 02cd FF       		.byte	-1
+ 747 02ce 00       		.byte	0
+ 748 02cf 00       		.byte	0
+ 749 02d0 00       		.byte	0
+ 750 02d1 10       		.byte	16
+ 751 02d2 00       		.byte	0
+ 752 02d3 00       		.byte	0
+ 753 02d4 10       		.byte	16
+ 754 02d5 38       		.byte	56
+ 755 02d6 00       		.byte	0
+ 756 02d7 1F       		.byte	31
+ 757 02d8 0F       		.byte	15
+ 758 02d9 00       		.byte	0
+ 759 02da 2C       		.byte	44
+ 760 02db C0       		.byte	-64
+ 761 02dc 00       		.byte	0
+ 762 02dd 00       		.byte	0
+ 763 02de A8       		.byte	-88
+ 764 02df 08       		.byte	8
+ 765 02e0 00       		.byte	0
+ 766 02e1 00       		.byte	0
+ 767 02e2 01       		.byte	1
+ 768 02e3 00       		.byte	0
+ 769 02e4 24       		.byte	36
+ 770 02e5 03       		.byte	3
+ 771 02e6 06       		.byte	6
+ 772 02e7 00       		.byte	0
+ 773 02e8 05       		.byte	5
+ 774 02e9 E0       		.byte	-32
+ 775 02ea C0       		.byte	-64
+ 776 02eb 00       		.byte	0
+ 777 02ec 0A       		.byte	10
+ 778 02ed FF       		.byte	-1
+ 779 02ee FF       		.byte	-1
+ 780 02ef FF       		.byte	-1
+ 781 02f0 62       		.byte	98
+ 782 02f1 A0       		.byte	-96
+ 783 02f2 F0       		.byte	-16
+ 784 02f3 41       		.byte	65
+ 785 02f4 0C       		.byte	12
+ 786 02f5 00       		.byte	0
+ 787 02f6 00       		.byte	0
+ 788 02f7 00       		.byte	0
+ 789 02f8 00       		.byte	0
+ 790 02f9 00       		.byte	0
+ 791 02fa 02       		.byte	2
+ 792 02fb 13       		.byte	19
+ 793 02fc 04       		.byte	4
+ 794 02fd 04       		.byte	4
+ 795 02fe 04       		.byte	4
+ 796 02ff 04       		.byte	4
+ 797 0300 00       		.byte	0
+ 798 0301 00       		.byte	0
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccdz2pST.s 			page 15
+
+
+ 799 0302 00       		.byte	0
+ 800 0303 01       		.byte	1
+ 801 0304 00       		.byte	0
+ 802 0305 00       		.byte	0
+ 803 0306 00       		.byte	0
+ 804 0307 00       		.byte	0
+ 805 0308 00       		.byte	0
+ 806 0309 00       		.byte	0
+ 807 030a 40       		.byte	64
+ 808 030b 02       		.byte	2
+ 809 030c 00       		.byte	0
+ 810 030d 10       		.byte	16
+ 811 030e 30       		.byte	48
+ 812 030f 10       		.byte	16
+ 813 0310 00       		.byte	0
+ 814 0311 10       		.byte	16
+ 815 0312 10       		.byte	16
+ 816 0313 12       		.byte	18
+ 817 0314 00       		.byte	0
+ 818 0315 00       		.byte	0
+ 819 0316 00       		.byte	0
+ 820 0317 00       		.byte	0
+ 821 0318 00       		.byte	0
+ 822 0319 00       		.byte	0
+ 823 031a 00       		.byte	0
+ 824 031b 00       		.byte	0
+ 825 031c 00       		.byte	0
+ 826 031d 00       		.byte	0
+ 827 031e 00       		.byte	0
+ 828 031f 00       		.byte	0
+ 829 0320 00       		.byte	0
+ 830 0321 00       		.byte	0
+ 831 0322 00       		.byte	0
+ 832 0323 00       		.byte	0
+ 833 0324 01       		.byte	1
+ 834 0325 00       		.byte	0
+ 835 0326 00       		.byte	0
+ 836 0327 03       		.byte	3
+ 837 0328 03       		.byte	3
+ 838 0329 00       		.byte	0
+ 839 032a 03       		.byte	3
+ 840 032b 00       		.byte	0
+ 841 032c 00       		.byte	0
+ 842 032d 00       		.byte	0
+ 843 032e 00       		.byte	0
+ 844 032f 00       		.byte	0
+ 845 0330 00       		.byte	0
+ 846 0331 0B       		.byte	11
+ 847 0332 0B       		.byte	11
+ 848 0333 00       		.byte	0
+ 849 0334 00       		.byte	0
+ 850 0335 00       		.byte	0
+ 851 0336 00       		.byte	0
+ 852 0337 00       		.byte	0
+ 853 0338 00       		.byte	0
+ 854 0339 00       		.byte	0
+ 855 033a 00       		.byte	0
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccdz2pST.s 			page 16
+
+
+ 856 033b 00       		.byte	0
+ 857 033c 00       		.byte	0
+ 858 033d 00       		.byte	0
+ 859 033e 04       		.byte	4
+ 860 033f 00       		.byte	0
+ 861 0340 01       		.byte	1
+ 862 0341 00       		.byte	0
+ 863 0342 18       		.byte	24
+ 864 0343 01       		.byte	1
+ 865              		.section	.cywolatch,"a",%progbits
+ 866              		.align	2
+ 867              		.type	cy_meta_wonvl, %object
+ 868              		.size	cy_meta_wonvl, 4
+ 869              	cy_meta_wonvl:
+ 870 0000 BC       		.byte	-68
+ 871 0001 90       		.byte	-112
+ 872 0002 AC       		.byte	-84
+ 873 0003 AF       		.byte	-81
+ 874              		.section	.cycustnvl,"a",%progbits
+ 875              		.align	2
+ 876              		.type	cy_meta_custnvl, %object
+ 877              		.size	cy_meta_custnvl, 4
+ 878              	cy_meta_custnvl:
+ 879 0000 00       		.byte	0
+ 880 0001 00       		.byte	0
+ 881 0002 40       		.byte	64
+ 882 0003 05       		.byte	5
+ 883              		.section	.cymeta,"a",%progbits
+ 884              		.align	2
+ 885              		.type	cy_metadata, %object
+ 886              		.size	cy_metadata, 12
+ 887              	cy_metadata:
+ 888 0000 00       		.byte	0
+ 889 0001 01       		.byte	1
+ 890 0002 2E       		.byte	46
+ 891 0003 16       		.byte	22
+ 892 0004 10       		.byte	16
+ 893 0005 69       		.byte	105
+ 894 0006 00       		.byte	0
+ 895 0007 01       		.byte	1
+ 896 0008 00       		.byte	0
+ 897 0009 00       		.byte	0
+ 898 000a 00       		.byte	0
+ 899 000b 00       		.byte	0
+ 900              		.section	.cyflashprotect,"a",%progbits
+ 901              		.align	2
+ 902              		.type	cy_meta_flashprotect, %object
+ 903              		.size	cy_meta_flashprotect, 256
+ 904              	cy_meta_flashprotect:
+ 905 0000 00000000 		.space	256
+ 905      00000000 
+ 905      00000000 
+ 905      00000000 
+ 905      00000000 
+ 906              		.text
+ 907              	.Letext0:
+ 908              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccdz2pST.s 			page 17
+
+
+ 909              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 910              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+ 911              		.section	.debug_info,"",%progbits
+ 912              	.Ldebug_info0:
+ 913 0000 31010000 		.4byte	0x131
+ 914 0004 0400     		.2byte	0x4
+ 915 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 916 000a 04       		.byte	0x4
+ 917 000b 01       		.uleb128 0x1
+ 918 000c 24000000 		.4byte	.LASF17
+ 919 0010 0C       		.byte	0xc
+ 920 0011 E3010000 		.4byte	.LASF18
+ 921 0015 25010000 		.4byte	.LASF19
+ 922 0019 00000000 		.4byte	.Ldebug_line0
+ 923 001d 02       		.uleb128 0x2
+ 924 001e 01       		.byte	0x1
+ 925 001f 06       		.byte	0x6
+ 926 0020 D7010000 		.4byte	.LASF0
+ 927 0024 03       		.uleb128 0x3
+ 928 0025 00000000 		.4byte	.LASF9
+ 929 0029 01       		.byte	0x1
+ 930 002a 1D       		.byte	0x1d
+ 931 002b 2F000000 		.4byte	0x2f
+ 932 002f 02       		.uleb128 0x2
+ 933 0030 01       		.byte	0x1
+ 934 0031 08       		.byte	0x8
+ 935 0032 16000000 		.4byte	.LASF1
+ 936 0036 02       		.uleb128 0x2
+ 937 0037 02       		.byte	0x2
+ 938 0038 05       		.byte	0x5
+ 939 0039 C4010000 		.4byte	.LASF2
+ 940 003d 02       		.uleb128 0x2
+ 941 003e 02       		.byte	0x2
+ 942 003f 07       		.byte	0x7
+ 943 0040 C4000000 		.4byte	.LASF3
+ 944 0044 02       		.uleb128 0x2
+ 945 0045 04       		.byte	0x4
+ 946 0046 05       		.byte	0x5
+ 947 0047 CE010000 		.4byte	.LASF4
+ 948 004b 02       		.uleb128 0x2
+ 949 004c 04       		.byte	0x4
+ 950 004d 07       		.byte	0x7
+ 951 004e B2000000 		.4byte	.LASF5
+ 952 0052 02       		.uleb128 0x2
+ 953 0053 08       		.byte	0x8
+ 954 0054 05       		.byte	0x5
+ 955 0055 B6010000 		.4byte	.LASF6
+ 956 0059 02       		.uleb128 0x2
+ 957 005a 08       		.byte	0x8
+ 958 005b 07       		.byte	0x7
+ 959 005c 06010000 		.4byte	.LASF7
+ 960 0060 04       		.uleb128 0x4
+ 961 0061 04       		.byte	0x4
+ 962 0062 05       		.byte	0x5
+ 963 0063 696E7400 		.ascii	"int\000"
+ 964 0067 02       		.uleb128 0x2
+ 965 0068 04       		.byte	0x4
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccdz2pST.s 			page 18
+
+
+ 966 0069 07       		.byte	0x7
+ 967 006a F9000000 		.4byte	.LASF8
+ 968 006e 03       		.uleb128 0x3
+ 969 006f 1D010000 		.4byte	.LASF10
+ 970 0073 02       		.byte	0x2
+ 971 0074 18       		.byte	0x18
+ 972 0075 24000000 		.4byte	0x24
+ 973 0079 05       		.uleb128 0x5
+ 974 007a 91000000 		.4byte	0x91
+ 975 007e 8A000000 		.4byte	0x8a
+ 976 0082 06       		.uleb128 0x6
+ 977 0083 8A000000 		.4byte	0x8a
+ 978 0087 4303     		.2byte	0x343
+ 979 0089 00       		.byte	0
+ 980 008a 02       		.uleb128 0x2
+ 981 008b 04       		.byte	0x4
+ 982 008c 07       		.byte	0x7
+ 983 008d AD010000 		.4byte	.LASF11
+ 984 0091 07       		.uleb128 0x7
+ 985 0092 6E000000 		.4byte	0x6e
+ 986 0096 08       		.uleb128 0x8
+ 987 0097 E7000000 		.4byte	.LASF12
+ 988 009b 03       		.byte	0x3
+ 989 009c 1F       		.byte	0x1f
+ 990 009d A7000000 		.4byte	0xa7
+ 991 00a1 05       		.uleb128 0x5
+ 992 00a2 03       		.byte	0x3
+ 993 00a3 00000000 		.4byte	cy_meta_configecc
+ 994 00a7 07       		.uleb128 0x7
+ 995 00a8 79000000 		.4byte	0x79
+ 996 00ac 05       		.uleb128 0x5
+ 997 00ad 91000000 		.4byte	0x91
+ 998 00b1 BC000000 		.4byte	0xbc
+ 999 00b5 09       		.uleb128 0x9
+ 1000 00b6 8A000000 		.4byte	0x8a
+ 1001 00ba 03       		.byte	0x3
+ 1002 00bb 00       		.byte	0
+ 1003 00bc 08       		.uleb128 0x8
+ 1004 00bd D7000000 		.4byte	.LASF13
+ 1005 00c1 03       		.byte	0x3
+ 1006 00c2 95       		.byte	0x95
+ 1007 00c3 CD000000 		.4byte	0xcd
+ 1008 00c7 05       		.uleb128 0x5
+ 1009 00c8 03       		.byte	0x3
+ 1010 00c9 00000000 		.4byte	cy_meta_custnvl
+ 1011 00cd 07       		.uleb128 0x7
+ 1012 00ce AC000000 		.4byte	0xac
+ 1013 00d2 08       		.uleb128 0x8
+ 1014 00d3 9F010000 		.4byte	.LASF14
+ 1015 00d7 03       		.byte	0x3
+ 1016 00d8 A3       		.byte	0xa3
+ 1017 00d9 E3000000 		.4byte	0xe3
+ 1018 00dd 05       		.uleb128 0x5
+ 1019 00de 03       		.byte	0x3
+ 1020 00df 00000000 		.4byte	cy_meta_wonvl
+ 1021 00e3 07       		.uleb128 0x7
+ 1022 00e4 AC000000 		.4byte	0xac
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccdz2pST.s 			page 19
+
+
+ 1023 00e8 05       		.uleb128 0x5
+ 1024 00e9 91000000 		.4byte	0x91
+ 1025 00ed F8000000 		.4byte	0xf8
+ 1026 00f1 09       		.uleb128 0x9
+ 1027 00f2 8A000000 		.4byte	0x8a
+ 1028 00f6 FF       		.byte	0xff
+ 1029 00f7 00       		.byte	0
+ 1030 00f8 08       		.uleb128 0x8
+ 1031 00f9 8A010000 		.4byte	.LASF15
+ 1032 00fd 03       		.byte	0x3
+ 1033 00fe B1       		.byte	0xb1
+ 1034 00ff 09010000 		.4byte	0x109
+ 1035 0103 05       		.uleb128 0x5
+ 1036 0104 03       		.byte	0x3
+ 1037 0105 00000000 		.4byte	cy_meta_flashprotect
+ 1038 0109 07       		.uleb128 0x7
+ 1039 010a E8000000 		.4byte	0xe8
+ 1040 010e 05       		.uleb128 0x5
+ 1041 010f 91000000 		.4byte	0x91
+ 1042 0113 1E010000 		.4byte	0x11e
+ 1043 0117 09       		.uleb128 0x9
+ 1044 0118 8A000000 		.4byte	0x8a
+ 1045 011c 0B       		.byte	0xb
+ 1046 011d 00       		.byte	0
+ 1047 011e 08       		.uleb128 0x8
+ 1048 011f 0A000000 		.4byte	.LASF16
+ 1049 0123 03       		.byte	0x3
+ 1050 0124 DE       		.byte	0xde
+ 1051 0125 2F010000 		.4byte	0x12f
+ 1052 0129 05       		.uleb128 0x5
+ 1053 012a 03       		.byte	0x3
+ 1054 012b 00000000 		.4byte	cy_metadata
+ 1055 012f 07       		.uleb128 0x7
+ 1056 0130 0E010000 		.4byte	0x10e
+ 1057 0134 00       		.byte	0
+ 1058              		.section	.debug_abbrev,"",%progbits
+ 1059              	.Ldebug_abbrev0:
+ 1060 0000 01       		.uleb128 0x1
+ 1061 0001 11       		.uleb128 0x11
+ 1062 0002 01       		.byte	0x1
+ 1063 0003 25       		.uleb128 0x25
+ 1064 0004 0E       		.uleb128 0xe
+ 1065 0005 13       		.uleb128 0x13
+ 1066 0006 0B       		.uleb128 0xb
+ 1067 0007 03       		.uleb128 0x3
+ 1068 0008 0E       		.uleb128 0xe
+ 1069 0009 1B       		.uleb128 0x1b
+ 1070 000a 0E       		.uleb128 0xe
+ 1071 000b 10       		.uleb128 0x10
+ 1072 000c 17       		.uleb128 0x17
+ 1073 000d 00       		.byte	0
+ 1074 000e 00       		.byte	0
+ 1075 000f 02       		.uleb128 0x2
+ 1076 0010 24       		.uleb128 0x24
+ 1077 0011 00       		.byte	0
+ 1078 0012 0B       		.uleb128 0xb
+ 1079 0013 0B       		.uleb128 0xb
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccdz2pST.s 			page 20
+
+
+ 1080 0014 3E       		.uleb128 0x3e
+ 1081 0015 0B       		.uleb128 0xb
+ 1082 0016 03       		.uleb128 0x3
+ 1083 0017 0E       		.uleb128 0xe
+ 1084 0018 00       		.byte	0
+ 1085 0019 00       		.byte	0
+ 1086 001a 03       		.uleb128 0x3
+ 1087 001b 16       		.uleb128 0x16
+ 1088 001c 00       		.byte	0
+ 1089 001d 03       		.uleb128 0x3
+ 1090 001e 0E       		.uleb128 0xe
+ 1091 001f 3A       		.uleb128 0x3a
+ 1092 0020 0B       		.uleb128 0xb
+ 1093 0021 3B       		.uleb128 0x3b
+ 1094 0022 0B       		.uleb128 0xb
+ 1095 0023 49       		.uleb128 0x49
+ 1096 0024 13       		.uleb128 0x13
+ 1097 0025 00       		.byte	0
+ 1098 0026 00       		.byte	0
+ 1099 0027 04       		.uleb128 0x4
+ 1100 0028 24       		.uleb128 0x24
+ 1101 0029 00       		.byte	0
+ 1102 002a 0B       		.uleb128 0xb
+ 1103 002b 0B       		.uleb128 0xb
+ 1104 002c 3E       		.uleb128 0x3e
+ 1105 002d 0B       		.uleb128 0xb
+ 1106 002e 03       		.uleb128 0x3
+ 1107 002f 08       		.uleb128 0x8
+ 1108 0030 00       		.byte	0
+ 1109 0031 00       		.byte	0
+ 1110 0032 05       		.uleb128 0x5
+ 1111 0033 01       		.uleb128 0x1
+ 1112 0034 01       		.byte	0x1
+ 1113 0035 49       		.uleb128 0x49
+ 1114 0036 13       		.uleb128 0x13
+ 1115 0037 01       		.uleb128 0x1
+ 1116 0038 13       		.uleb128 0x13
+ 1117 0039 00       		.byte	0
+ 1118 003a 00       		.byte	0
+ 1119 003b 06       		.uleb128 0x6
+ 1120 003c 21       		.uleb128 0x21
+ 1121 003d 00       		.byte	0
+ 1122 003e 49       		.uleb128 0x49
+ 1123 003f 13       		.uleb128 0x13
+ 1124 0040 2F       		.uleb128 0x2f
+ 1125 0041 05       		.uleb128 0x5
+ 1126 0042 00       		.byte	0
+ 1127 0043 00       		.byte	0
+ 1128 0044 07       		.uleb128 0x7
+ 1129 0045 26       		.uleb128 0x26
+ 1130 0046 00       		.byte	0
+ 1131 0047 49       		.uleb128 0x49
+ 1132 0048 13       		.uleb128 0x13
+ 1133 0049 00       		.byte	0
+ 1134 004a 00       		.byte	0
+ 1135 004b 08       		.uleb128 0x8
+ 1136 004c 34       		.uleb128 0x34
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccdz2pST.s 			page 21
+
+
+ 1137 004d 00       		.byte	0
+ 1138 004e 03       		.uleb128 0x3
+ 1139 004f 0E       		.uleb128 0xe
+ 1140 0050 3A       		.uleb128 0x3a
+ 1141 0051 0B       		.uleb128 0xb
+ 1142 0052 3B       		.uleb128 0x3b
+ 1143 0053 0B       		.uleb128 0xb
+ 1144 0054 49       		.uleb128 0x49
+ 1145 0055 13       		.uleb128 0x13
+ 1146 0056 3F       		.uleb128 0x3f
+ 1147 0057 19       		.uleb128 0x19
+ 1148 0058 02       		.uleb128 0x2
+ 1149 0059 18       		.uleb128 0x18
+ 1150 005a 00       		.byte	0
+ 1151 005b 00       		.byte	0
+ 1152 005c 09       		.uleb128 0x9
+ 1153 005d 21       		.uleb128 0x21
+ 1154 005e 00       		.byte	0
+ 1155 005f 49       		.uleb128 0x49
+ 1156 0060 13       		.uleb128 0x13
+ 1157 0061 2F       		.uleb128 0x2f
+ 1158 0062 0B       		.uleb128 0xb
+ 1159 0063 00       		.byte	0
+ 1160 0064 00       		.byte	0
+ 1161 0065 00       		.byte	0
+ 1162              		.section	.debug_aranges,"",%progbits
+ 1163 0000 14000000 		.4byte	0x14
+ 1164 0004 0200     		.2byte	0x2
+ 1165 0006 00000000 		.4byte	.Ldebug_info0
+ 1166 000a 04       		.byte	0x4
+ 1167 000b 00       		.byte	0
+ 1168 000c 0000     		.2byte	0
+ 1169 000e 0000     		.2byte	0
+ 1170 0010 00000000 		.4byte	0
+ 1171 0014 00000000 		.4byte	0
+ 1172              		.section	.debug_line,"",%progbits
+ 1173              	.Ldebug_line0:
+ 1174 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
+ 1174      02003701 
+ 1174      00000201 
+ 1174      FB0E0D00 
+ 1174      01010101 
+ 1175              	.LASF9:
+ 1176 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 1176      6E74385F 
+ 1176      7400
+ 1177              	.LASF16:
+ 1178 000a 63795F6D 		.ascii	"cy_metadata\000"
+ 1178      65746164 
+ 1178      61746100 
+ 1179              	.LASF1:
+ 1180 0016 756E7369 		.ascii	"unsigned char\000"
+ 1180      676E6564 
+ 1180      20636861 
+ 1180      7200
+ 1181              	.LASF17:
+ 1182 0024 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccdz2pST.s 			page 22
+
+
+ 1182      43313120 
+ 1182      352E342E 
+ 1182      31203230 
+ 1182      31363036 
+ 1183 0057 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1183      20726576 
+ 1183      6973696F 
+ 1183      6E203233 
+ 1183      37373135 
+ 1184 008a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1184      66756E63 
+ 1184      74696F6E 
+ 1184      2D736563 
+ 1184      74696F6E 
+ 1185              	.LASF5:
+ 1186 00b2 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1186      20756E73 
+ 1186      69676E65 
+ 1186      6420696E 
+ 1186      7400
+ 1187              	.LASF3:
+ 1188 00c4 73686F72 		.ascii	"short unsigned int\000"
+ 1188      7420756E 
+ 1188      7369676E 
+ 1188      65642069 
+ 1188      6E7400
+ 1189              	.LASF13:
+ 1190 00d7 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 1190      6574615F 
+ 1190      63757374 
+ 1190      6E766C00 
+ 1191              	.LASF12:
+ 1192 00e7 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 1192      6574615F 
+ 1192      636F6E66 
+ 1192      69676563 
+ 1192      6300
+ 1193              	.LASF8:
+ 1194 00f9 756E7369 		.ascii	"unsigned int\000"
+ 1194      676E6564 
+ 1194      20696E74 
+ 1194      00
+ 1195              	.LASF7:
+ 1196 0106 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1196      206C6F6E 
+ 1196      6720756E 
+ 1196      7369676E 
+ 1196      65642069 
+ 1197              	.LASF10:
+ 1198 011d 75696E74 		.ascii	"uint8_t\000"
+ 1198      385F7400 
+ 1199              	.LASF19:
+ 1200 0125 433A5C55 		.ascii	"C:\\Users\\George Anwar\\Documents\\UC Berkeley\\ME"
+ 1200      73657273 
+ 1200      5C47656F 
+ 1200      72676520 
+ 1200      416E7761 
+ARM GAS  C:\Users\GEORGE~1\AppData\Local\Temp\ccdz2pST.s 			page 23
+
+
+ 1201 0153 31333520 		.ascii	"135 Spring 2020\\PSOC Creator\\ME135_235\\PIXY2UART"
+ 1201      53707269 
+ 1201      6E672032 
+ 1201      3032305C 
+ 1201      50534F43 
+ 1202 0183 2E637964 		.ascii	".cydsn\000"
+ 1202      736E00
+ 1203              	.LASF15:
+ 1204 018a 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 1204      6574615F 
+ 1204      666C6173 
+ 1204      6870726F 
+ 1204      74656374 
+ 1205              	.LASF14:
+ 1206 019f 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 1206      6574615F 
+ 1206      776F6E76 
+ 1206      6C00
+ 1207              	.LASF11:
+ 1208 01ad 73697A65 		.ascii	"sizetype\000"
+ 1208      74797065 
+ 1208      00
+ 1209              	.LASF6:
+ 1210 01b6 6C6F6E67 		.ascii	"long long int\000"
+ 1210      206C6F6E 
+ 1210      6720696E 
+ 1210      7400
+ 1211              	.LASF2:
+ 1212 01c4 73686F72 		.ascii	"short int\000"
+ 1212      7420696E 
+ 1212      7400
+ 1213              	.LASF4:
+ 1214 01ce 6C6F6E67 		.ascii	"long int\000"
+ 1214      20696E74 
+ 1214      00
+ 1215              	.LASF0:
+ 1216 01d7 7369676E 		.ascii	"signed char\000"
+ 1216      65642063 
+ 1216      68617200 
+ 1217              	.LASF18:
+ 1218 01e3 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 1218      72617465 
+ 1218      645F536F 
+ 1218      75726365 
+ 1218      5C50536F 
+ 1219              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
