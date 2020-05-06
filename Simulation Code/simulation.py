@@ -14,6 +14,7 @@ import threading
 import serial
 import scipy
 from scipy.integrate import solve_ivp
+from scipy.linalg import solve_discrete_are
 
 
 '''
@@ -64,14 +65,21 @@ class sim_env:
     In space vehicles, one can find multiple sources of process disturbances,
     such as thruster misalignments, or even atmospheric drag.
     These will be represented by system's our process uncertainty, v(k).
+    Noise is assumed unbiased and Gaussian. Below the system's process noise
+    covariance matrix is defined.
     '''
-    # Process noise covariance matrix
-    V = np.array([[10e9, 0, 0, 0],
+    V = np.array([[10e5, 0, 0, 0],
                   [0, 1, 0, 0],
                   [0, 0, 1e-12, 0],
                   [0, 0, 0, 1e-12]])
 
-    def __init__(self, hardware_in_loop, x0, Ts):
+    '''
+    Measurement noise covariance matrix is define below. The measurement
+    assumes unbiased and Gaussian noise.
+    '''
+    W = np.eye(4)
+
+    def __init__(self, hardware_in_loop, lqg_active, x0, Ts):
         '''
         Constructor for instance variables
         '''
@@ -106,11 +114,34 @@ class sim_env:
                                     [0, 0],
                                     [0, (1+Ts)/sim_env.r0]])
 
-        # Run-type
+        # Run-types
+        self.lqg_active = lqg_active
+
+        if self.lqg_active:
+
+            # Implement steady-state LQG (KF and LQR)
+
+            # These need tuning
+            self.R_m = np.eye(2)
+            self.Q = np.array([[1, 0, 0, 0],
+                               [0, 0, 0, 0],
+                               [0, 0, 1, 0],
+                               [0, 0, 0, 1]])
+            self.H = np.eye(4)
+            self.Pinf = solve_discrete_are(
+                self.A_discrete.T, self.H.T, sim_env.V, sim_env.W)
+            self.Kinf = self.Pinf @ (self.H.T) @ (np.linalg.inv(
+                self.H @self.Pinf @self.H.T + sim_env.W))
+            self.Uinf = solve_discrete_are(
+                self.A_discrete, self.B_discrete, self.Q, self.R_m)
+            self.Finf = np.linalg.inv(
+                self.R + self.B_discrete.T @ self.Uinf @ self.B_discrete
+                ) @ self.B_discrete.T @ self.Uinf @ self.A_discrete
+
         self.hardware_in_loop = hardware_in_loop
 
         if self.hardware_in_loop:
-            # Serial config
+            # Serial configuration
             self.ser = serial.Serial(port='COM5', baudrate=115200, parity='N')
             if self.ser.is_open:
                 self.ser.close()
@@ -142,8 +173,13 @@ class sim_env:
         # ODE solver uses 1-d arrays, convert to 2-d arrays for lin alg
         x = np.array([[x[i]] for i in range(len(x))])
 
-        # output 1-d array again
-        return (self.A_continuous @ x + self.B_continuous @ u).ravel()
+        # output 1-d array with ravel method
+        if self.lqg_active and not self.hardware_in_loop:
+            xdot = (self.A_continuous @ x + self.B_continuous @ (-self.Finf @ x)).ravel()
+        else:
+            xdot = (self.A_continuous @ x + self.B_continuous @ u).ravel()
+
+        return xdot
 
     def lin_dyn_discrete(self, x, Ts, u=np.zeros((2, 1))):
         '''
@@ -159,7 +195,23 @@ class sim_env:
                       [np.random.normal(0, np.sqrt(sim_env.V[2][2]))],
                       [np.random.normal(0, np.sqrt(sim_env.V[3][3]))]])
 
-        return (self.A_discrete @ x + self.B_discrete @ u + v).ravel()
+        if self.lqg_active:
+            # Kalman filter estimate
+            x_est = x  # just LQR right now with e_est = x (perfect state knowledge)
+
+            # Apply linear feedback LQR policy accordingly
+            x_next = ((self.A_discrete - self.B_discrete @
+                       self.Finf) @ x_est + v).ravel()
+        else:
+            x_next = (self.A_discrete @ x + self.B_discrete @ u + v).ravel()
+
+        return x_next
+
+    def gen_measurement(self):
+        '''
+        Start out with full state measurement?
+        '''
+        return 0
 
     def step_sim_cont(self):
         '''
@@ -239,13 +291,17 @@ class sim_env:
         '''
         return np.array([sim_env.r0, 0, sim_env.w0*t, sim_env.w0])
 
-    def equil_orbit(self, N):
+    def equil_orbit(self, N, t_end=None):
         '''
         Generate single equilibrium orbit
         '''
         equil_orbit = np.zeros((len(self.x0), N))
-        for k, t in enumerate(np.linspace(0, sim_env.t_orbital, N)):
-            equil_orbit[:, k] = self.equil(t)
+        if t_end is None:
+            for k, t in enumerate(np.linspace(0, sim_env.t_orbital, N)):
+                equil_orbit[:, k] = self.equil(t)
+        else:
+            for k, t in enumerate(np.linspace(0, t_end, N)):
+                equil_orbit[:, k] = self.equil(t)
 
         return equil_orbit
 
@@ -268,6 +324,30 @@ class sim_env:
         Send start message to PSOC
         '''
         self.ser.write(str.encode('s'))
+
+    def plot_solution(self, x_sol, y_sol, title, sol_type, t_end):
+        '''
+        Repeatable plotting
+        '''
+        # Generate equilibrium orbit for visualization
+        if t_end is None:
+            equil_orbit = self.equil_orbit(100)
+            x_equil, y_equil = sim_env.convert_cartesian(equil_orbit)
+        else:
+            equil_orbit = self.equil_orbit(100, t_end)
+            x_equil, y_equil = sim_env.convert_cartesian(equil_orbit)
+
+        # Plotting
+        fig, ax = plt.subplots()
+        circle = plt.Circle((0, 0), sim_env.R, color='b')
+        ax.add_artist(circle)
+        ax.plot(x_sol, y_sol, linewidth=4, color='g', linestyle='--')
+        ax.plot(x_equil, y_equil, linewidth=2, color='r', linestyle='--')
+        plt.xlabel('x')
+        plt.ylabel('y')
+        plt.title(title)
+        plt.gca().set_aspect('equal', adjustable='box')
+        plt.legend([sol_type, 'Equilibrium Orbit'], loc='lower right')
 
     @staticmethod
     def convert_cartesian(sys_sol):
@@ -295,6 +375,7 @@ class sim_env:
 def main():
 
     hardware_in_loop = False
+    lqg_active = True
 
     # Initial conditions (deviation from equilibrium in polar coordinates)
     x0 = np.array([0, 0, 0, 0])
@@ -304,7 +385,7 @@ def main():
         Ts = 2
 
         # Simulation environment instantiation
-        sim_env_instance = sim_env(hardware_in_loop, x0, Ts)
+        sim_env_instance = sim_env(hardware_in_loop, lqg_active, x0, Ts)
 
         sim_env_instance.start_command()
         '''
@@ -335,13 +416,13 @@ def main():
 
     else:
         # Analysis, no serial interface
-        t_end = 10e4  # [sec]
-        sim_steps = 100
+        t_end = 10e4/5  # [sec]
+        sim_steps = 1000
         t_sim = np.linspace(0, t_end, sim_steps)
         Ts = t_sim[-1] / len(t_sim)
 
         # Simulation environment instantiation
-        sim_env_instance = sim_env(hardware_in_loop, x0, Ts)
+        sim_env_instance = sim_env(hardware_in_loop, lqg_active, x0, Ts)
 
         # Full linear and discrete simulations
         sys_sol_cont = sim_env_instance.full_sim_cont(t_sim)
@@ -353,24 +434,16 @@ def main():
         x_sat_discrete, y_sat_discrete = sim_env_instance.convert_cartesian(
             sys_sol_discrete)
 
-        # Generate equilibrium orbit for visualization
-        equil_orbit = sim_env_instance.equil_orbit(100)
-        x_equil, y_equil = sim_env_instance.convert_cartesian(equil_orbit)
+        # Plotting for continuous and discrete solutions
+        title = 'Satellite Path (LQR, perfect state knowledge, With ZOH Noise)'
+        sol_type = 'Continuous Model'
+        sim_env_instance.plot_solution(
+            x_sat_cont, y_sat_cont, title, sol_type, t_end)
 
-        #  Plotting
-        fig, ax = plt.subplots()
-        circle1 = plt.Circle((0, 0), sim_env_instance.R, color='b')
-        ax.add_artist(circle1)
-        ax.plot(x_sat_cont, y_sat_cont, linewidth=4, color='r', linestyle='-')
-        ax.plot(x_sat_discrete, y_sat_discrete, linewidth=4, color='g',
-                linestyle='--')
-        ax.plot(x_equil, y_equil, linewidth=2, color='m', linestyle='--')
-        plt.xlabel('x')
-        plt.ylabel('y')
-        plt.title(r'Satellite Path (No Input With ZOH Noise)')
-        plt.gca().set_aspect('equal', adjustable='box')
-        plt.legend(['Continuous Linear Model', 'Discrete Linear Model',
-                    'Equilibrium Orbit'], loc='lower right')
+        sol_type = 'Discrete Model'
+        sim_env_instance.plot_solution(
+            x_sat_discrete, y_sat_discrete, title, sol_type, t_end)
+
         plt.show()
 
 
