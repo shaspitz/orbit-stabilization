@@ -71,8 +71,8 @@ class sim_env:
     '''
     V = np.array([[10e5, 0, 0, 0],
                   [0, 1, 0, 0],
-                  [0, 0, 1e-15, 0],
-                  [0, 0, 0, 1e-18]])
+                  [0, 0, 10e-15, 0],
+                  [0, 0, 0, 10e-18]])
 
     '''
     Measurement noise covariance matrix is define below. The measurement
@@ -80,7 +80,8 @@ class sim_env:
     our sensors provide two position values for each measurement in
     the r and phi directions.
     '''
-    W = np.eye(2)
+    W = np.array([[10e5, 0],
+                  [0, 10e5]])
     H = np.array([[1, 0, 0, 0],
                   [0, 0, 1, 0]])
 
@@ -125,6 +126,9 @@ class sim_env:
         if self.lqg_active:
 
             # Implement steady-state LQG (KF and LQR)
+
+            # Initialize x_est with 2D array of x0
+            self.x_est = np.array([[self.x0[i]] for i in range(len(self.x0))])
 
             # These need tuning
             self.R_m = np.eye(2)
@@ -201,12 +205,16 @@ class sim_env:
                       [np.random.normal(0, np.sqrt(sim_env.V[3][3]))]])
 
         if self.lqg_active:
+            # Obtain measurement
+            zk = self.gen_measurement()
+
             # Kalman filter estimate
-            x_est = x  # just LQR right now with e_est = x (perfect state knowledge)
+            self.x_est = self.A_discrete @ self.x_est - self.B_discrete @ self.Finf @ self.x_est + self.Kinf @ zk
+#             self.x_est = x
 
             # Apply linear feedback LQR policy accordingly
-            x_next = ((self.A_discrete - self.B_discrete @
-                       self.Finf) @ x_est + v).ravel()
+            x_next = (self.A_discrete @ x - self.B_discrete @
+                      self.Finf @ self.x_est + v).ravel()
         else:
             x_next = (self.A_discrete @ x + self.B_discrete @ u + v).ravel()
 
@@ -217,9 +225,18 @@ class sim_env:
 
     def gen_measurement(self):
         '''
-        Start out with full state measurement?
+        2 state measurement right now
         '''
-        return 0
+        wk = np.array([[np.random.normal(0, np.sqrt(sim_env.W[0][0]))],
+                      [np.random.normal(0, np.sqrt(sim_env.W[1][1]))]])
+
+        # ODE solver uses 1-d arrays, convert to 2-d arrays for lin alg
+        xk = np.array([[self.x_step[i]] for i in range(len(self.x_step))])
+
+        # Add generated measurement noise onto perfect measurement of state
+        zk = self.H @ xk + wk
+
+        return zk
 
     def step_sim_cont(self):
         '''
@@ -339,7 +356,7 @@ class sim_env:
 
     def send_lqg_command(self):
         '''
-        Send LQG matricies, Kinf and Finf to the PSOC to be implemented
+        Send LQG matricies, Kinf and Finf to the PSOC for C implementation
         '''
         self.ser.write(str.encode('l'))
         # Perhaps restructure commands to have a packet attached to their ends
@@ -419,7 +436,7 @@ class gui:
 
 def main():
 
-    hardware_in_loop = True
+    hardware_in_loop = False
     lqg_active = True
 
     # Initial conditions (deviation from equilibrium in polar coordinates)
