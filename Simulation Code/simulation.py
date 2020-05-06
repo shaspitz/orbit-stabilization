@@ -9,54 +9,12 @@ https://ethz.ch/content/dam/ethz/special-interest/mavt/dynamic-systems-n-control
 
 import matplotlib.pyplot as plt
 import numpy as np
-import csv
-import time
 import schedule
 import threading
 import serial
 import scipy
 from scipy.integrate import solve_ivp
 
-# Setup global variables
-
-# Run-type
-hardware_in_loop = False
-
-# Radius of the Earth [m]
-R = 6378000
-
-# Mass of the Earth [kg]
-M = 5.972*(10**24)
-
-# Mass of satellite [kg]
-m = 1500
-
-# Universal gravitation constant G [m3/(s2kg)]
-G = 6.673*(10**(-11))
-
-# Orbit turn rate for linearization [rad/s]
-w0 = 7.2910**-5
-
-# Orbital period [s]
-t_orbital = 2*np.pi/w0
-
-# Geostationary orbit radius for linearization [m]
-r0 = 4.22*10**7
-
-'''
-"In space vehicles, one can find multiple
-sources of disturbances, such as position or velocity measuring errors,
-thruster misalignments, or even atmospheric drag"
-
-source: https://www.sciencedirect.com/science/article/abs/pii/S0967066111001985
-
-These things will be our process uncertainty, v(k).
-'''
-# Process noise covariance matrix
-V = np.array([[10e9, 0, 0, 0],
-              [0, 1, 0, 0],
-              [0, 0, 1e-12, 0],
-              [0, 0, 0, 1e-12]])
 
 '''
 Define the following quantities:
@@ -77,196 +35,219 @@ u2(t) = F_tan/m
 '''
 
 
-def nl_dyn_cont(t, x, u=np.zeros(2)):
+class sim_env:
     '''
-    Continuous nonlinear dynamics of sattellite system (uses 1-d nparrays)
+    Simulation environment class
     '''
-    x_out = np.array([x[1],
-                      x[0]*x[3]**2-G*M*x[0]**2+u[0]/m,
-                      x[3],
-                      ((-2*x[1]*x[3])/x[0])+u[1]/(m*x[0])])
-    return x_out
+    # Radius of the Earth [m]
+    R = 6378000
 
+    # Mass of the Earth [kg]
+    M = 5.972*(10**24)
 
-def lin_dyn_cont(t, x, r0, u=np.zeros((2, 1))):
-    '''
-    Continuous linear dynamics of sattellite system.
-    Assumes ZOH of inputs
-    '''
-    # ODE solver uses 1-d arrays, convert to 2-d nparrays for lin alg
-    x = np.array([[x[i]] for i in range(len(x))])
+    # Mass of satellite [kg]
+    m = 1500
 
-    A = np.array([[0, 1, 0, 0],
-                  [3*w0**2, 0, 0, 2*r0*w0],
-                  [0, 0, 0, 1],
-                  [0, -2*w0/r0, 0, 0]])
+    # Universal gravitation constant G [m3/(s2kg)]
+    G = 6.673*(10**(-11))
 
-    B = np.array([[0, 0],
-                  [1, 0],
-                  [0, 0],
-                  [0, 1/r0]])
+    # Orbit turn rate for linearization [rad/s]
+    w0 = 7.2910**-5
 
-    # output 1-d array again
-    return (A @ x + B @ u).ravel()
+    # Orbital period [s]
+    t_orbital = 2*np.pi/w0
 
-
-def lin_dyn_discrete(x, r0, Ts, u=np.zeros((2, 1))):
-    '''
-    Discrete dynamics using forward Euler method (with additive process noise)
-    '''
-    # ODE solver uses 1-d arrays, convert to 2-d nparrays for lin alg
-    x = np.array([[x[i]] for i in range(len(x))])
+    # Geostationary orbit radius for linearization [m]
+    r0 = 4.22*10**7
 
     '''
-    One method for discrete dynamics:
-    dx = lin_dyn_cont(t=None, x=x, r0=r0, u=u)
-    xnext = x + Ts*dx
+    In space vehicles, one can find multiple sources of process disturbances,
+    such as thruster misalignments, or even atmospheric drag.
+    These will be reoresented by system's our process uncertainty, v(k).
     '''
+    # Process noise covariance matrix
+    V = np.array([[10e9, 0, 0, 0],
+                  [0, 1, 0, 0],
+                  [0, 0, 1e-12, 0],
+                  [0, 0, 0, 1e-12]])
 
-    A = np.array([[1, Ts, 0, 0],
-                  [3*Ts*w0**2, 1, 0, 2*Ts*r0*w0],
-                  [0, 0, 1, Ts],
-                  [0, -2*Ts*w0/r0, 0, 1]])
+    def __init__(self, hardware_in_loop, x0, Ts):
+        '''
+        Constructor for instance variables
+        '''
+        self.t_instance = 0
+        self.x0_step = x0
+        self.Ts = Ts
+        self.u = np.zeros((2, 1))  # Change later when LQG implemented
 
-    # Process noise from global covariance matrix
-    v = np.array([[np.random.normal(0, np.sqrt(V[0][0]))],
-                  [np.random.normal(0, np.sqrt(V[1][1]))],
-                  [np.random.normal(0, np.sqrt(V[2][2]))],
-                  [np.random.normal(0, np.sqrt(V[3][3]))]])
+        # Run-type
+        self.hardware_in_loop = hardware_in_loop
 
-    xnext = A @ x + v
-    return xnext.ravel()
+        if self.hardware_in_loop:
+            # Serial config
+            self.ser = serial.Serial(port='COM5', baudrate=115200, parity='N')
+            if self.ser.is_open:
+                self.ser.close()
+                self.ser.open()
+            else:
+                self.ser.open()
 
+            self.first_sim_step = True
 
-def simulate_system_cont():
-    '''
-    Simulate system forward using continuous dynamics, additive ZOH noise,
-    and discrete inputs.
-    Global variable Ts is simulation length and ZOH process noise length
-    '''
-    # We manipulate x0_step, and t_global
-    global x0_step, t_global
+    def nl_dyn_cont(self, t, x, u=np.zeros(2)):
+        '''
+        Continuous nonlinear dynamics of sattellite system (uses 1-d nparrays).
+        Note: ODE took too long to solve, nl dynamics are no longer used. 
+        '''
+        x_out = np.array([x[1],
+                          x[0]*x[3]**2-sim_env.G*sim_env.M*x[0]**2+u[0]/sim_env.m,
+                          x[3],
+                          ((-2*x[1]*x[3])/x[0])+u[1]/(sim_env.m*x[0])])
+        return x_out
 
-    # Simulate forward 'Ts' seconds
-    t_sim = np.linspace(0, Ts, 2)
+    def lin_dyn_cont(self, t, x, u=np.zeros((2, 1))):
+        '''
+        Continuous linear dynamics of sattellite system.
+        Assumes ZOH of inputs
+        '''
+        # ODE solver uses 1-d arrays, convert to 2-d nparrays for lin alg
+        x = np.array([[x[i]] for i in range(len(x))])
 
-    # Evaluate solution for each timestep (only use 2nd solution)
-    step_sol = solve_ivp(lin_dyn_cont,
-                         [t_sim[0], t_sim[-1:]],
-                         x0_step, method='RK45',
-                         t_eval=t_sim, args=(r0, u))
+        A = np.array([[0, 1, 0, 0],
+                      [3*sim_env.w0**2, 0, 0, 2*sim_env.r0*sim_env.w0],
+                      [0, 0, 0, 1],
+                      [0, -2*sim_env.w0/sim_env.r0, 0, 0]])
 
-    # Add process noise to step_sol
-    v = np.array([np.random.normal(0, np.sqrt(V[0][0])),
-                  np.random.normal(0, np.sqrt(V[1][1])),
-                  np.random.normal(0, np.sqrt(V[2][2])),
-                  np.random.normal(0, np.sqrt(V[3][3]))])
-    step_sol.y[:, -1] += v
+        B = np.array([[0, 0],
+                      [1, 0],
+                      [0, 0],
+                      [0, 1/sim_env.r0]])
 
-    # reset IC for next step (no equilibrium added)
-    x0_step = [sol[-1] for sol in step_sol.y]
+        # output 1-d array again
+        return (A @ x + B @ u).ravel()
 
-    # propogate t_global forward from simulated time
-    t_global += t_sim[-1]
+    def lin_dyn_discrete(self, x, Ts, u=np.zeros((2, 1))):
+        '''
+        Discrete dynamics using forward Euler method (with additive process noise)
+        '''
+        # ODE solver uses 1-d arrays, convert to 2-d nparrays for lin alg
+        x = np.array([[x[i]] for i in range(len(x))])
 
-    # add equilibrium back to solution (only second timestep)
-    for i in range(len(step_sol.y)):
-        step_sol.y[i][-1] = step_sol.y[i][-1] + equil(t_global)[i]
+        '''
+        One method for discrete dynamics:
+        dx = lin_dyn_cont(t=None, x=x, r0=r0, u=u)
+        xnext = x + Ts*dx
+        '''
 
-    if hardware_in_loop:
-        # Real time visualization (eventually tkinter GUI)
-        print('Simulation and input: ', [sol[-1] for sol in step_sol.y], u, t_global)
+        A = np.array([[1, Ts, 0, 0],
+                      [3*Ts*sim_env.w0**2, 1, 0, 2*Ts*sim_env.r0*sim_env.w0],
+                      [0, 0, 1, Ts],
+                      [0, -2*Ts*sim_env.w0/sim_env.r0, 0, 1]])
 
-    else:
-        return step_sol.y[:, -1]
+        # Process noise from global covariance matrix
+        v = np.array([[np.random.normal(0, np.sqrt(sim_env.V[0][0]))],
+                      [np.random.normal(0, np.sqrt(sim_env.V[1][1]))],
+                      [np.random.normal(0, np.sqrt(sim_env.V[2][2]))],
+                      [np.random.normal(0, np.sqrt(sim_env.V[3][3]))]])
 
+        xnext = A @ x + v
+        return xnext.ravel()
 
-def equil(t):
-    '''
-    For adding equil trajectory back to solution
-    '''
-    return np.array([r0, 0, w0*t, w0])
+    def step_sim_cont(self):
+        '''
+        Simulate system forward 'Ts' seconds using continuous dynamics,
+        additive ZOH noise, and discrete inputs.
+        Global variable Ts is simulation length and ZOH process noise length
+        '''
+        # Base case: skip first sim step for hardware in loop
+        if self.hardware_in_loop and self.first_sim_step:
+            self.first_sim_step = False
+            return 0
 
+        # Simulate forward 'Ts' seconds (one step)
+        t_sim = np.linspace(0, self.Ts, 2)
 
-def KalmanFilter(x0,z,N):
-    #using linearized dynamics
-    A = np.array([[0, 1, 0, 0],
-                  [3*w0**2, 0, 0, 2*r0*w0],
-                  [0, 0, 0, 1],
-                  [0, -2*w0/r0, 0, 0]])
-    H=np.eye(4)
+        # Evaluate solution for each timestep (only use 2nd solution)
+        step_sol = solve_ivp(self.lin_dyn_cont,
+                             [t_sim[0], t_sim[-1:]],
+                             self.x0_step, method='RK45',
+                             t_eval=t_sim, args=(self.u, ))
 
+        # Add process noise to step_sol
+        v = np.array([np.random.normal(0, np.sqrt(sim_env.V[0][0])),
+                      np.random.normal(0, np.sqrt(sim_env.V[1][1])),
+                      np.random.normal(0, np.sqrt(sim_env.V[2][2])),
+                      np.random.normal(0, np.sqrt(sim_env.V[3][3]))])
+        step_sol.y[:, -1] += v
 
-    # Initialize estimate and covariance of state (at k = 0)
-    XM = x0
-    Pm = np.eye(4)
-    V = np.eye(4)
-    W = np.eye(4)
+        # reset IC for next step (no equilibrium added)
+        self.x0_step = [sol[-1] for sol in step_sol.y]
 
-    for k in range(N):
-        # prior update
-        XP = A@XM
-        Pp = A@Pm@A.T + V
-        # measurement update
-        K = Pp@H.T @ np.linalg.inv(H@Pp@H.T + W)
-        XM = XP + K@(z[k] - H@XP)
-        Pm = (np.eye(4)-K@H)@Pp@(np.eye(4)-K@H).T + K@W@K.T
+        # propogate instance time forward from step simulated time
+        self.t_instance += t_sim[-1]
 
+        # add equilibrium back to solution (only second timestep)
+        for i in range(len(step_sol.y)):
+            step_sol.y[i][-1] = step_sol.y[i][-1] + self.equil(
+                self.t_instance)[i]
 
-    # Return posterior mean and variance
-    return XM, Pm
+        if self.hardware_in_loop:
+            # Real time visualization (eventually tkinter GUI)
+            print('Simulation and input: ', [sol[-1] for sol in step_sol.y],
+                  self.u, 'simulation time: ', self.t_instance)
 
+        else:
+            return step_sol.y[:, -1]
 
-def input_command():
-    '''
-    Writes input command to PSOC and obtains corresponding control input
-    '''
-    # We manipulate u
-    global u
+    def equil(self, t):
+        '''
+        For adding equil trajectory back to solution
+        '''
+        return np.array([sim_env.r0, 0, sim_env.w0*t, sim_env.w0])
 
-    # Write input command to PSOC
-    ser.write(str.encode('u'))
+    def input_command(self):
+        '''
+        Writes input command to PSOC and obtains corresponding control input
+        '''
 
-    # Get input integers from PSOC
-    s = ser.readline().decode()
-    s_processed = np.array([[int(x.strip())] for x in s.split(',')])
-    t, u = s_processed[0][0], s_processed[1:3]
-    print('time: ', t, '\n', 'input: ', u)
+        # Write input command to PSOC
+        self.ser.write(str.encode('u'))
 
+        # Get input integers from PSOC
+        s = self.ser.readline().decode()
+        s_processed = np.array([[int(x.strip())] for x in s.split(',')])
+        self.PSOC_time, self.u = s_processed[0][0], s_processed[1:3]
+        print('PSOC time: ', self.PSOC_time, '\n', 'input: ', self.u)
 
-def run_threaded(job_func):
-    '''
-    Automatically makes daemon thread for any commanded task
-    '''
-    job_thread = threading.Thread(target=job_func)
-    job_thread.daemon = True
-    job_thread.start()
+    def start_command(self):
+        '''
+        Send start message to PSOC
+        '''
+        self.ser.write(str.encode('s'))
+
+    def run_threaded(self, job_func):
+        '''
+        Automatically makes daemon thread for any commanded task
+        '''
+        job_thread = threading.Thread(target=job_func)
+        job_thread.daemon = True
+        job_thread.start()
 
 
 def main():
-    # Manipulated global variables within main
-    global x0_step, u, t_global, ser, Ts
+
+    hardware_in_loop = False
+
+    # Intial conditions (deviation from equil in polar coordinates)
+    x0 = np.array([0, 0, 0, 0])
 
     if hardware_in_loop:
-        # Serial interfacing
-
-        # Intialize ode solver
-        t_global = 0
-        x0_step = [0, 0, 0, 0]
-        u = np.zeros((2, 1))
         Ts = 2
 
-        # Serial config
-        ser = serial.Serial(port='COM5', baudrate=115200, parity='N')
-        if ser.is_open:
-            ser.close()
-            ser.open()
-        else:
-            ser.open()
+        # Simulation environment instantiation
+        sim_env_instance = sim_env(hardware_in_loop, x0, Ts)
 
-        # Send start message
-        ser.write(str.encode('s'))
-
+        sim_env_instance.start_command()
         '''
         Schedule periodic execution of input command tasks.
         Note that Python does not run in real time, so additional .002518
@@ -274,53 +255,50 @@ def main():
         counteract Windows' latency in sending input commands to PSOC.
         Allow for +-10 ms in communication timing error.
         '''
-        schedule.every(1.002518).seconds.do(run_threaded, input_command)
+        schedule.every(1.002518).seconds.do(sim_env_instance.run_threaded,
+                                            sim_env_instance.input_command)
 
         # schedule periodic sim of system (lower freq than input commands)
-        schedule.every(2).seconds.do(run_threaded, simulate_system_cont)
+        schedule.every(2).seconds.do(sim_env_instance.run_threaded,
+                                     sim_env_instance.step_sim_cont)
 
-        print('About to enter loop')
+        '''
+        ^^^ the above involves real-time considerations because we have to
+        receive the commands from the PSOC which updates our simulation
+        environment instance variable 'u' before the appropriate step_sim is
+        executed
+        '''
 
+        print('Entering loop')
         while True:
             schedule.run_pending()
-
             # Implement ping-pong Queue object here to handle inputs?
 
     else:
-        # Simulations
-
-        # Intial conditions (deviation from equil in polar coordinates)
-        x0 = [0, 0, 0, 0]
-
-        # Simulate continuous linearized system
+        # Analysis, no serial interface
         t_sim = np.linspace(0, 100000, 100)
         Ts = t_sim[-1] / len(t_sim)
-        u = np.zeros((2, 1))
-        t_global = 0
-        x0_step = x0
-        sys_sol_lin = np.zeros((4, len(t_sim)))
+
+        # Simulation environment instantiation
+        sim_env_instance = sim_env(hardware_in_loop, x0, Ts)
+
+        # MAKE THE FOLLOWING CODE MEMBER FUNCTIONS EVENTUALLY
+
+        # Simulate continuous linearized system (no inputs, ZOH noise)
+        sys_sol_lin = np.zeros((len(x0), len(t_sim)))
         for k in range(len(t_sim)):
-            sys_sol_lin[:, k] = simulate_system_cont()  # equilibrium added
+            sys_sol_lin[:, k] = sim_env_instance.step_sim_cont()
 
-        # Simulate continuous nonlinear system (yes it does run, not quickly)
-        '''
-        t_sim = np.linspace(0, 10, 100)
-        x0 = [r0, 1, w0, 1]
-        sys_sol_nl = solve_ivp(nl_dyn_cont, [t_sim[0], t_sim[-1:]], x0,
-                            method='RK45', t_eval=t_sim)
-        '''
-        # kalman filter
-#         XM,Pm=KalmanFilter(x0,[5,5,5.5,6,5.6,7,6.5,5.4,6,5.6],10)
-
-        # Simulate discrete linearized system
-        x_discrete = np.zeros((4, len(t_sim)+1))
+        # Simulate discrete linearized system (no inputs, ZOH noise)
+        x_discrete = np.zeros((len(x0), len(t_sim)+1))
         x_discrete[:, 0] = x0
         for k in range(len(t_sim)):
-            x_discrete[:, k+1] = lin_dyn_discrete(x_discrete[:, k], r0, Ts)
+            x_discrete[:, k+1] = sim_env_instance.lin_dyn_discrete(
+                x_discrete[:, k], Ts)
 
         # Add equilibrium values for discrete system
         for k in range(len(x_discrete[0])):
-            x_discrete[:, k] = x_discrete[:, k] + equil(k*Ts)
+            x_discrete[:, k] = x_discrete[:, k] + sim_env_instance.equil(k*Ts)
 
         # Convert to 2D cartesian coordinates centered at earth's core
         x_sat_lin = [sys_sol_lin[0][i]*np.cos(sys_sol_lin[2][i]) for i in range(len(t_sim))]
@@ -332,26 +310,25 @@ def main():
 
         # Generate equilibrium orbit for visualization
         equil_orbit = np.zeros((4, 100))
-        for k, t in enumerate(np.linspace(0, t_orbital, 100)):
-            equil_orbit[:, k] = equil(t)
+        for k, t in enumerate(np.linspace(0, sim_env_instance.t_orbital, 100)):
+            equil_orbit[:, k] = sim_env_instance.equil(t)
         x_equil = [equil_orbit[0][k]*np.cos(equil_orbit[2][k]) for k in range(len(equil_orbit[0]))]
         y_equil = [equil_orbit[0][k]*np.sin(equil_orbit[2][k]) for k in range(len(equil_orbit[0]))]
 
         #  Plotting
         fig, ax = plt.subplots()
-        circle1 = plt.Circle((0, 0), R, color='b')
+        circle1 = plt.Circle((0, 0), sim_env_instance.R, color='b')
         ax.add_artist(circle1)
         ax.plot(x_sat_lin, y_sat_lin, linewidth=4, color='r', linestyle='-')
         ax.plot(x_sat_lin_discrete, y_sat_lin_discrete, linewidth=4, color='g',
                 linestyle='--')
         ax.plot(x_equil, y_equil, linewidth=2, color='m', linestyle='--')
-        # plt.plot(x_sat_nl, y_sat_nl, linewidth=2)
         plt.xlabel('x')
         plt.ylabel('y')
         plt.title(r'Satellite Path (No Input With ZOH Noise)')
         plt.gca().set_aspect('equal', adjustable='box')
-        plt.legend(['Continuos Linear Model', 'Discrete Linear Model', 'Equilibrium Orbit'],
-                   loc='lower right')
+        plt.legend(['Continuos Linear Model', 'Discrete Linear Model',
+                    'Equilibrium Orbit'], loc='lower right')
         plt.show()
 
 
