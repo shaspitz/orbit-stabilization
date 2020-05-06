@@ -70,8 +70,8 @@ class sim_env:
     '''
     V = np.array([[10e5, 0, 0, 0],
                   [0, 1, 0, 0],
-                  [0, 0, 1e-12, 0],
-                  [0, 0, 0, 1e-12]])
+                  [0, 0, 1e-15, 0],
+                  [0, 0, 0, 1e-18]])
 
     '''
     Measurement noise covariance matrix is define below. The measurement
@@ -416,7 +416,7 @@ def main():
 
     else:
         # Analysis, no serial interface
-        t_end = 10e4/5  # [sec]
+        t_end = 10e4/2  # [sec]
         sim_steps = 1000
         t_sim = np.linspace(0, t_end, sim_steps)
         Ts = t_sim[-1] / len(t_sim)
