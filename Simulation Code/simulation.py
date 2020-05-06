@@ -63,7 +63,7 @@ class sim_env:
     '''
     In space vehicles, one can find multiple sources of process disturbances,
     such as thruster misalignments, or even atmospheric drag.
-    These will be reoresented by system's our process uncertainty, v(k).
+    These will be represented by system's our process uncertainty, v(k).
     '''
     # Process noise covariance matrix
     V = np.array([[10e9, 0, 0, 0],
@@ -96,11 +96,12 @@ class sim_env:
 
     def nl_dyn_cont(self, t, x, u=np.zeros(2)):
         '''
-        Continuous nonlinear dynamics of sattellite system (uses 1-d nparrays).
-        Note: ODE took too long to solve, nl dynamics are no longer used. 
+        Continuous nonlinear dynamics of satellite system (uses 1-d arrays).
+        Note: ODE took too long to solve, nl dynamics are no longer used.
         '''
         x_out = np.array([x[1],
-                          x[0]*x[3]**2-sim_env.G*sim_env.M*x[0]**2+u[0]/sim_env.m,
+                          x[0]*x[3]**2-sim_env.G*sim_env.M*x[
+                              0]**2+u[0]/sim_env.m,
                           x[3],
                           ((-2*x[1]*x[3])/x[0])+u[1]/(sim_env.m*x[0])])
         return x_out
@@ -128,7 +129,8 @@ class sim_env:
 
     def lin_dyn_discrete(self, x, Ts, u=np.zeros((2, 1))):
         '''
-        Discrete dynamics using forward Euler method (with additive process noise)
+        Discrete dynamics using forward Euler method
+        (with additive process noise)
         '''
         # ODE solver uses 1-d arrays, convert to 2-d nparrays for lin alg
         x = np.array([[x[i]] for i in range(len(x))])
@@ -183,7 +185,7 @@ class sim_env:
         # reset IC for next step (no equilibrium added)
         self.x0_step = [sol[-1] for sol in step_sol.y]
 
-        # propogate instance time forward from step simulated time
+        # propagate instance time forward from step simulated time
         self.t_instance += t_sim[-1]
 
         # add equilibrium back to solution (only second timestep)
@@ -238,7 +240,7 @@ def main():
 
     hardware_in_loop = False
 
-    # Intial conditions (deviation from equil in polar coordinates)
+    # Initial conditions (deviation from equilibrium in polar coordinates)
     x0 = np.array([0, 0, 0, 0])
 
     if hardware_in_loop:
@@ -290,30 +292,35 @@ def main():
             sys_sol_lin[:, k] = sim_env_instance.step_sim_cont()
 
         # Simulate discrete linearized system (no inputs, ZOH noise)
-        x_discrete = np.zeros((len(x0), len(t_sim)+1))
-        x_discrete[:, 0] = x0
+        sys_sol_discrete = np.zeros((len(x0), len(t_sim)+1))
+        sys_sol_discrete[:, 0] = x0
         for k in range(len(t_sim)):
-            x_discrete[:, k+1] = sim_env_instance.lin_dyn_discrete(
-                x_discrete[:, k], Ts)
+            sys_sol_discrete[:, k+1] = sim_env_instance.lin_dyn_discrete(
+                sys_sol_discrete[:, k], Ts)
 
         # Add equilibrium values for discrete system
-        for k in range(len(x_discrete[0])):
-            x_discrete[:, k] = x_discrete[:, k] + sim_env_instance.equil(k*Ts)
+        for k in range(len(sys_sol_discrete[0])):
+            sys_sol_discrete[:, k] = sys_sol_discrete[
+                :, k] + sim_env_instance.equil(k*Ts)
 
         # Convert to 2D cartesian coordinates centered at earth's core
-        x_sat_lin = [sys_sol_lin[0][i]*np.cos(sys_sol_lin[2][i]) for i in range(len(t_sim))]
-        y_sat_lin = [sys_sol_lin[0][i]*np.sin(sys_sol_lin[2][i]) for i in range(len(t_sim))]
-        # x_sat_nl = [sys_sol_nl.y[0][i]*np.cos(sys_sol_nl.y[2][i]) for i in range(len(t_sim))]
-        # y_sat_nl = [sys_sol_nl.y[0][i]*np.sin(sys_sol_nl.y[2][i]) for i in range(len(t_sim))]
-        x_sat_lin_discrete = [x_discrete[0][k]*np.cos(x_discrete[2][k]) for k in range(len(x_discrete[0]))]
-        y_sat_lin_discrete = [x_discrete[0][k]*np.sin(x_discrete[2][k]) for k in range(len(x_discrete[0]))]
+        x_sat_lin = [sys_sol_lin[0][i]*np.cos(
+            sys_sol_lin[2][i]) for i in range(len(t_sim))]
+        y_sat_lin = [sys_sol_lin[0][i]*np.sin(
+            sys_sol_lin[2][i]) for i in range(len(t_sim))]
+        x_sat_lin_discrete = [sys_sol_discrete[0][k]*np.cos(
+            sys_sol_discrete[2][k]) for k in range(len(sys_sol_discrete[0]))]
+        y_sat_lin_discrete = [sys_sol_discrete[0][k]*np.sin(
+            sys_sol_discrete[2][k]) for k in range(len(sys_sol_discrete[0]))]
 
         # Generate equilibrium orbit for visualization
         equil_orbit = np.zeros((4, 100))
         for k, t in enumerate(np.linspace(0, sim_env_instance.t_orbital, 100)):
             equil_orbit[:, k] = sim_env_instance.equil(t)
-        x_equil = [equil_orbit[0][k]*np.cos(equil_orbit[2][k]) for k in range(len(equil_orbit[0]))]
-        y_equil = [equil_orbit[0][k]*np.sin(equil_orbit[2][k]) for k in range(len(equil_orbit[0]))]
+        x_equil = [equil_orbit[0][k]*np.cos(
+            equil_orbit[2][k]) for k in range(len(equil_orbit[0]))]
+        y_equil = [equil_orbit[0][k]*np.sin(
+            equil_orbit[2][k]) for k in range(len(equil_orbit[0]))]
 
         #  Plotting
         fig, ax = plt.subplots()
