@@ -80,6 +80,31 @@ class sim_env:
         self.Ts = Ts
         self.u = np.zeros((2, 1))  # Change later when LQG implemented
 
+        # A and B matricies for continuous system, dx/dt = Ax + Bu + v(k)
+        self.A_continuous = np.array([[0, 1, 0, 0],
+                                      [3*sim_env.w0**2,
+                                       0, 0, 2*sim_env.r0*sim_env.w0],
+                                      [0, 0, 0, 1],
+                                      [0, -2*sim_env.w0/sim_env.r0, 0, 0]])
+
+        self.B_continuous = np.array([[0, 0],
+                                      [1, 0],
+                                      [0, 0],
+                                      [0, 1/sim_env.r0]])
+
+        # A and B matricies for discrete system, x(k+1) = Ax(k) + Bu(k) + v(k)
+        # Note: discretized by hand using forward Euler method
+        self.A_discrete = np.array([[1, Ts, 0, 0],
+                                    [3*Ts*sim_env.w0**2,
+                                     1, 0, 2*Ts*sim_env.r0*sim_env.w0],
+                                    [0, 0, 1, Ts],
+                                    [0, -2*Ts*sim_env.w0/sim_env.r0, 0, 1]])
+
+        self.B_discrete = np.array([[0, 0],
+                                    [1+Ts, 0],
+                                    [0, 0],
+                                    [0, (1+Ts)/sim_env.r0]])
+
         # Run-type
         self.hardware_in_loop = hardware_in_loop
 
@@ -108,58 +133,37 @@ class sim_env:
 
     def lin_dyn_cont(self, t, x, u=np.zeros((2, 1))):
         '''
-        Continuous linear dynamics of sattellite system.
-        Assumes ZOH of inputs
+        Continuous linear dynamics of satellite system.
+        Assumes ZOH of inputs. Note that noise is not added here,
+        (see step_sim_cont)
         '''
-        # ODE solver uses 1-d arrays, convert to 2-d nparrays for lin alg
+        # ODE solver uses 1-d arrays, convert to 2-d arrays for lin alg
         x = np.array([[x[i]] for i in range(len(x))])
 
-        A = np.array([[0, 1, 0, 0],
-                      [3*sim_env.w0**2, 0, 0, 2*sim_env.r0*sim_env.w0],
-                      [0, 0, 0, 1],
-                      [0, -2*sim_env.w0/sim_env.r0, 0, 0]])
-
-        B = np.array([[0, 0],
-                      [1, 0],
-                      [0, 0],
-                      [0, 1/sim_env.r0]])
-
         # output 1-d array again
-        return (A @ x + B @ u).ravel()
+        return (self.A_continuous @ x + self.B_continuous @ u).ravel()
 
     def lin_dyn_discrete(self, x, Ts, u=np.zeros((2, 1))):
         '''
         Discrete dynamics using forward Euler method
         (with additive process noise)
         '''
-        # ODE solver uses 1-d arrays, convert to 2-d nparrays for lin alg
+        # ODE solver uses 1-d arrays, convert to 2-d arrays for lin alg
         x = np.array([[x[i]] for i in range(len(x))])
 
-        '''
-        One method for discrete dynamics:
-        dx = lin_dyn_cont(t=None, x=x, r0=r0, u=u)
-        xnext = x + Ts*dx
-        '''
-
-        A = np.array([[1, Ts, 0, 0],
-                      [3*Ts*sim_env.w0**2, 1, 0, 2*Ts*sim_env.r0*sim_env.w0],
-                      [0, 0, 1, Ts],
-                      [0, -2*Ts*sim_env.w0/sim_env.r0, 0, 1]])
-
-        # Process noise from global covariance matrix
+        # Process noise
         v = np.array([[np.random.normal(0, np.sqrt(sim_env.V[0][0]))],
                       [np.random.normal(0, np.sqrt(sim_env.V[1][1]))],
                       [np.random.normal(0, np.sqrt(sim_env.V[2][2]))],
                       [np.random.normal(0, np.sqrt(sim_env.V[3][3]))]])
 
-        xnext = A @ x + v
-        return xnext.ravel()
+        return (self.A_discrete @ x + self.B_discrete @ u + v).ravel()
 
     def step_sim_cont(self):
         '''
         Simulate system forward 'Ts' seconds using continuous dynamics,
         additive ZOH noise, and discrete inputs.
-        Global variable Ts is simulation length and ZOH process noise length
+        Instance variable Ts is simulation length and ZOH process noise length
         '''
         # Base case: skip first sim step for hardware in loop
         if self.hardware_in_loop and self.first_sim_step:
@@ -188,7 +192,7 @@ class sim_env:
         # propagate instance time forward from step simulated time
         self.t_instance += t_sim[-1]
 
-        # add equilibrium back to solution (only second timestep)
+        # add equilibrium back to solution (only second time step)
         for i in range(len(step_sol.y)):
             step_sol.y[i][-1] = step_sol.y[i][-1] + self.equil(
                 self.t_instance)[i]
