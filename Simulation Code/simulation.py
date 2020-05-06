@@ -76,6 +76,7 @@ class sim_env:
         Constructor for instance variables
         '''
         self.t_instance = 0
+        self.x0 = x0
         self.x0_step = x0
         self.Ts = Ts
         self.u = np.zeros((2, 1))  # Change later when LQG implemented
@@ -129,6 +130,7 @@ class sim_env:
                               0]**2+u[0]/sim_env.m,
                           x[3],
                           ((-2*x[1]*x[3])/x[0])+u[1]/(sim_env.m*x[0])])
+
         return x_out
 
     def lin_dyn_cont(self, t, x, u=np.zeros((2, 1))):
@@ -201,15 +203,51 @@ class sim_env:
             # Real time visualization (eventually tkinter GUI)
             print('Simulation and input: ', [sol[-1] for sol in step_sol.y],
                   self.u, 'simulation time: ', self.t_instance)
-
         else:
             return step_sol.y[:, -1]
 
+    def full_sim_cont(self, t_sim):
+        '''
+        Simulate continuous linearized system (ZOH noise)
+        '''
+        sys_sol_lin = np.zeros((len(self.x0), len(t_sim)))
+        for k in range(len(t_sim)):
+            sys_sol_lin[:, k] = self.step_sim_cont()
+
+        return sys_sol_lin
+
+    def full_sim_discrete(self, t_sim):
+        '''
+        Simulate discrete linearized system (ZOH noise)
+        '''
+        sys_sol_discrete = np.zeros((len(self.x0), len(t_sim)+1))
+        sys_sol_discrete[:, 0] = self.x0
+        for k in range(len(t_sim)):
+            sys_sol_discrete[:, k+1] = self.lin_dyn_discrete(
+                sys_sol_discrete[:, k], self.Ts)
+
+        # Add equilibrium values
+        for k in range(len(sys_sol_discrete[0])):
+            sys_sol_discrete[:, k] = sys_sol_discrete[
+                :, k] + self.equil(k*self.Ts)
+
+        return sys_sol_discrete
+
     def equil(self, t):
         '''
-        For adding equil trajectory back to solution
+        For adding equilibrium trajectory back to solution
         '''
         return np.array([sim_env.r0, 0, sim_env.w0*t, sim_env.w0])
+
+    def equil_orbit(self, N):
+        '''
+        Generate single equilibrium orbit
+        '''
+        equil_orbit = np.zeros((len(self.x0), N))
+        for k, t in enumerate(np.linspace(0, sim_env.t_orbital, N)):
+            equil_orbit[:, k] = self.equil(t)
+
+        return equil_orbit
 
     def input_command(self):
         '''
@@ -231,7 +269,21 @@ class sim_env:
         '''
         self.ser.write(str.encode('s'))
 
-    def run_threaded(self, job_func):
+    @staticmethod
+    def convert_cartesian(sys_sol):
+        '''
+        Converts from polar coordinates describing state to
+        2D cartesian coordinates
+        '''
+        x_sol = [sys_sol[0][i]*np.cos(
+            sys_sol[2][i]) for i in range(len(sys_sol[0]))]
+        y_sol = [sys_sol[0][i]*np.sin(
+            sys_sol[2][i]) for i in range(len(sys_sol[0]))]
+
+        return x_sol, y_sol
+
+    @staticmethod
+    def run_threaded(job_func):
         '''
         Automatically makes daemon thread for any commanded task
         '''
@@ -248,6 +300,7 @@ def main():
     x0 = np.array([0, 0, 0, 0])
 
     if hardware_in_loop:
+        # Simulation sample time, not 'real' sampling time
         Ts = 2
 
         # Simulation environment instantiation
@@ -282,63 +335,41 @@ def main():
 
     else:
         # Analysis, no serial interface
-        t_sim = np.linspace(0, 100000, 100)
+        t_end = 10e4  # [sec]
+        sim_steps = 100
+        t_sim = np.linspace(0, t_end, sim_steps)
         Ts = t_sim[-1] / len(t_sim)
 
         # Simulation environment instantiation
         sim_env_instance = sim_env(hardware_in_loop, x0, Ts)
 
-        # MAKE THE FOLLOWING CODE MEMBER FUNCTIONS EVENTUALLY
-
-        # Simulate continuous linearized system (no inputs, ZOH noise)
-        sys_sol_lin = np.zeros((len(x0), len(t_sim)))
-        for k in range(len(t_sim)):
-            sys_sol_lin[:, k] = sim_env_instance.step_sim_cont()
-
-        # Simulate discrete linearized system (no inputs, ZOH noise)
-        sys_sol_discrete = np.zeros((len(x0), len(t_sim)+1))
-        sys_sol_discrete[:, 0] = x0
-        for k in range(len(t_sim)):
-            sys_sol_discrete[:, k+1] = sim_env_instance.lin_dyn_discrete(
-                sys_sol_discrete[:, k], Ts)
-
-        # Add equilibrium values for discrete system
-        for k in range(len(sys_sol_discrete[0])):
-            sys_sol_discrete[:, k] = sys_sol_discrete[
-                :, k] + sim_env_instance.equil(k*Ts)
+        # Full linear and discrete simulations
+        sys_sol_cont = sim_env_instance.full_sim_cont(t_sim)
+        sys_sol_discrete = sim_env_instance.full_sim_discrete(t_sim)
 
         # Convert to 2D cartesian coordinates centered at earth's core
-        x_sat_lin = [sys_sol_lin[0][i]*np.cos(
-            sys_sol_lin[2][i]) for i in range(len(t_sim))]
-        y_sat_lin = [sys_sol_lin[0][i]*np.sin(
-            sys_sol_lin[2][i]) for i in range(len(t_sim))]
-        x_sat_lin_discrete = [sys_sol_discrete[0][k]*np.cos(
-            sys_sol_discrete[2][k]) for k in range(len(sys_sol_discrete[0]))]
-        y_sat_lin_discrete = [sys_sol_discrete[0][k]*np.sin(
-            sys_sol_discrete[2][k]) for k in range(len(sys_sol_discrete[0]))]
+        x_sat_cont, y_sat_cont = sim_env_instance.convert_cartesian(
+            sys_sol_cont)
+        x_sat_discrete, y_sat_discrete = sim_env_instance.convert_cartesian(
+            sys_sol_discrete)
 
         # Generate equilibrium orbit for visualization
-        equil_orbit = np.zeros((4, 100))
-        for k, t in enumerate(np.linspace(0, sim_env_instance.t_orbital, 100)):
-            equil_orbit[:, k] = sim_env_instance.equil(t)
-        x_equil = [equil_orbit[0][k]*np.cos(
-            equil_orbit[2][k]) for k in range(len(equil_orbit[0]))]
-        y_equil = [equil_orbit[0][k]*np.sin(
-            equil_orbit[2][k]) for k in range(len(equil_orbit[0]))]
+        equil_orbit = sim_env_instance.equil_orbit(100)
+        x_equil, y_equil = sim_env_instance.convert_cartesian(equil_orbit)
 
         #  Plotting
         fig, ax = plt.subplots()
         circle1 = plt.Circle((0, 0), sim_env_instance.R, color='b')
         ax.add_artist(circle1)
-        ax.plot(x_sat_lin, y_sat_lin, linewidth=4, color='r', linestyle='-')
-        ax.plot(x_sat_lin_discrete, y_sat_lin_discrete, linewidth=4, color='g',
+        ax.plot(x_sat_cont, y_sat_cont, linewidth=4, color='r', linestyle='-')
+        ax.plot(x_sat_discrete, y_sat_discrete, linewidth=4, color='g',
                 linestyle='--')
         ax.plot(x_equil, y_equil, linewidth=2, color='m', linestyle='--')
         plt.xlabel('x')
         plt.ylabel('y')
         plt.title(r'Satellite Path (No Input With ZOH Noise)')
         plt.gca().set_aspect('equal', adjustable='box')
-        plt.legend(['Continuos Linear Model', 'Discrete Linear Model',
+        plt.legend(['Continuous Linear Model', 'Discrete Linear Model',
                     'Equilibrium Orbit'], loc='lower right')
         plt.show()
 
