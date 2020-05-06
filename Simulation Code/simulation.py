@@ -43,12 +43,6 @@ t_orbital = 2*np.pi/w0
 # Geostationary orbit radius for linearization [m]
 r0 = 4.22*10**7
 
-# Process noise covariance matrix
-V = np.array([[10e9, 0, 0, 0],
-              [0, 1, 0, 0],
-              [0, 0, 1e-12, 0],
-              [0, 0, 0, 1e-12]])
-
 '''
 "In space vehicles, one can find multiple
 sources of disturbances, such as position or velocity measuring errors,
@@ -56,63 +50,49 @@ thruster misalignments, or even atmospheric drag"
 
 source: https://www.sciencedirect.com/science/article/abs/pii/S0967066111001985
 
-These things will be our process uncertainty, v(k). If we care enough to
-research how much uncertainity this will correspond to numerically, we can do
-that. Otherwise we can mess with the numerics.
+These things will be our process uncertainty, v(k).
 '''
+# Process noise covariance matrix
+V = np.array([[10e9, 0, 0, 0],
+              [0, 1, 0, 0],
+              [0, 0, 1e-12, 0],
+              [0, 0, 0, 1e-12]])
 
 '''
-How would we make a space rendevous a 2D problem? its about launch timing,
-see: https://www.youtube.com/watch?v=oNXPtZDS-cg
-'''
+Define the following quantities:
+r: dist. Earth center to satellite [m]
+phi: orbit angle of the satellite [rad]
+F_rad: radial force [N]
+F_tan: tangential force [N]
 
-'''
-Problem could be sattellite rendevous instead of just traj stabilization?
-Could formulate problem as regulating the chaser sattellites orbit to be the
-same as the target sattellite. Then would use "V-bar approach" to increase
-radial velocity along the target orbit until proximity is reached.
+States:
+x1(t) = r
+x2(t) = d(r)/dt
+x3(t) = phi
+x4(t) = d(phi)/dt
+
+Inputs:
+u1(t) = F_rad/m,
+u2(t) = F_tan/m
 '''
 
 
 def nl_dyn_cont(t, x, u=np.zeros(2)):
-    # Continuous nonlinear dynamics of sattellite system (uses 1-d nparrays)
-
     '''
-    Define the following quantities:
-    r: dist. Earth center to satellite [m]
-    phi: orbit angle of the satellite [rad]
-    F_rad: radial force [N]
-    F_tan: tangential force [N]
+    Continuous nonlinear dynamics of sattellite system (uses 1-d nparrays)
     '''
-    # States:
-    # x1(t) = r,
-    # x2(t) = r',
-    # x3(t) = phi,
-    # x4(t) = phi'
-
-    # Input:
-    # u1(t) = F_rad/m,
-    # u2(t) = F_tan/m
-
     x_out = np.array([x[1],
                       x[0]*x[3]**2-G*M*x[0]**2+u[0]/m,
                       x[3],
                       ((-2*x[1]*x[3])/x[0])+u[1]/(m*x[0])])
-
-    # testing
-    # x_out = np.zeros(4)
-
-    '''
-    # add new position to path array
-    path = np.append(path, np.array([x_sat, y_sat]))
-    '''
-    return x_out  # , path
+    return x_out
 
 
 def lin_dyn_cont(t, x, r0, u=np.zeros((2, 1))):
-    # Continuous linear dynamics of sattellite system
-    # Assumes ZOH of inputs
-
+    '''
+    Continuous linear dynamics of sattellite system.
+    Assumes ZOH of inputs
+    '''
     # ODE solver uses 1-d arrays, convert to 2-d nparrays for lin alg
     x = np.array([[x[i]] for i in range(len(x))])
 
@@ -126,43 +106,8 @@ def lin_dyn_cont(t, x, r0, u=np.zeros((2, 1))):
                   [0, 0],
                   [0, 1/r0]])
 
-#     # Process noise from global covariance matrix (assumes ZOH)
-#     v = np.array([[np.random.normal(0, np.sqrt(V[0][0]))],
-#                   [np.random.normal(0, np.sqrt(V[1][1]))],
-#                   [np.random.normal(0, np.sqrt(V[2][2]))],
-#                   [np.random.normal(0, np.sqrt(V[3][3]))]])
-
-    # output 1-d array again (process noise added)
-    return (A @ x + B @ u).ravel() #+ v).ravel()
-
-
-def KalmanFilter(x0,z,N):
-    #using linearized dynamics
-    A = np.array([[0, 1, 0, 0],
-                  [3*w0**2, 0, 0, 2*r0*w0],
-                  [0, 0, 0, 1],
-                  [0, -2*w0/r0, 0, 0]])
-    H=np.eye(4)
-
-
-    # Initialize estimate and covariance of state (at k = 0)
-    XM = x0
-    Pm = np.eye(4)
-    V = np.eye(4)
-    W = np.eye(4)
-
-    for k in range(N):
-        # prior update
-        XP = A@XM
-        Pp = A@Pm@A.T + V
-        # measurement update
-        K = Pp@H.T @ np.linalg.inv(H@Pp@H.T + W)
-        XM = XP + K@(z[k] - H@XP)
-        Pm = (np.eye(4)-K@H)@Pp@(np.eye(4)-K@H).T + K@W@K.T
-
-
-    # Return posterior mean and variance
-    return XM, Pm
+    # output 1-d array again
+    return (A @ x + B @ u).ravel()
 
 
 def lin_dyn_discrete(x, r0, Ts, u=np.zeros((2, 1))):
@@ -172,8 +117,11 @@ def lin_dyn_discrete(x, r0, Ts, u=np.zeros((2, 1))):
     # ODE solver uses 1-d arrays, convert to 2-d nparrays for lin alg
     x = np.array([[x[i]] for i in range(len(x))])
 
-#     dx = lin_dyn_cont(t=None, x=x, r0=r0, u=u)
-#     xnext = x + Ts*dx
+    '''
+    One method for discrete dynamics:
+    dx = lin_dyn_cont(t=None, x=x, r0=r0, u=u)
+    xnext = x + Ts*dx
+    '''
 
     A = np.array([[1, Ts, 0, 0],
                   [3*Ts*w0**2, 1, 0, 2*Ts*r0*w0],
@@ -190,39 +138,16 @@ def lin_dyn_discrete(x, r0, Ts, u=np.zeros((2, 1))):
     return xnext.ravel()
 
 
-def equil(t):
+def simulate_system_cont(Ts):
     '''
-    For adding equil trajectory back to solution
-    '''
-    return np.array([r0, 0, w0*t, w0])
-
-
-def input_command():
-    '''
-    Writes input command to PSOC and obtains corresponding control input
-    '''
-    # We manipulate u
-    global u
-
-    # Write input command to PSOC
-    ser.write(str.encode('u'))
-
-    # Get input integers from PSOC
-    s = ser.readline().decode()
-    s_processed = np.array([[int(x.strip())] for x in s.split(',')])
-    t, u = s_processed[0][0], s_processed[1:3]
-    print('time: ', t, '\n', 'input: ', u)
-
-
-def simulate_system(Ts):
-    '''
-    Simulate system using continuous dynamics and discrete inputs
-    given from PSOC
+    Simulate system forward using continuous dynamics, additive ZOH noise,
+    and discrete inputs.
+    Ts: simulation length and ZOH process noise length
     '''
     # We manipulate x0_step, and t_global
     global x0_step, t_global
 
-    # Simulate forward 2 seconds (eventually make bigger, like 20000 sec)
+    # Simulate forward 'Ts' seconds
     t_sim = np.linspace(0, Ts, 2)
 
     # Evaluate solution for each timestep (only use 2nd solution)
@@ -256,6 +181,59 @@ def simulate_system(Ts):
         return step_sol.y[:, -1]
 
 
+def equil(t):
+    '''
+    For adding equil trajectory back to solution
+    '''
+    return np.array([r0, 0, w0*t, w0])
+
+
+def KalmanFilter(x0,z,N):
+    #using linearized dynamics
+    A = np.array([[0, 1, 0, 0],
+                  [3*w0**2, 0, 0, 2*r0*w0],
+                  [0, 0, 0, 1],
+                  [0, -2*w0/r0, 0, 0]])
+    H=np.eye(4)
+
+
+    # Initialize estimate and covariance of state (at k = 0)
+    XM = x0
+    Pm = np.eye(4)
+    V = np.eye(4)
+    W = np.eye(4)
+
+    for k in range(N):
+        # prior update
+        XP = A@XM
+        Pp = A@Pm@A.T + V
+        # measurement update
+        K = Pp@H.T @ np.linalg.inv(H@Pp@H.T + W)
+        XM = XP + K@(z[k] - H@XP)
+        Pm = (np.eye(4)-K@H)@Pp@(np.eye(4)-K@H).T + K@W@K.T
+
+
+    # Return posterior mean and variance
+    return XM, Pm
+
+
+def input_command():
+    '''
+    Writes input command to PSOC and obtains corresponding control input
+    '''
+    # We manipulate u
+    global u
+
+    # Write input command to PSOC
+    ser.write(str.encode('u'))
+
+    # Get input integers from PSOC
+    s = ser.readline().decode()
+    s_processed = np.array([[int(x.strip())] for x in s.split(',')])
+    t, u = s_processed[0][0], s_processed[1:3]
+    print('time: ', t, '\n', 'input: ', u)
+
+
 def run_threaded(job_func):
     '''
     Automatically makes thread for any commanded task
@@ -266,7 +244,6 @@ def run_threaded(job_func):
 
 
 def main():
-
     # Manipulated global variables within main
     global x0_step, u, t_global, ser
 
@@ -300,7 +277,7 @@ def main():
         schedule.every(1.002518).seconds.do(run_threaded, input_command)
 
         # schedule periodic sim of system (lower freq than input commands)
-        schedule.every(2).seconds.do(run_threaded, simulate_system)
+        schedule.every(2).seconds.do(run_threaded, simulate_system_cont)
 
         print('About to enter loop')
 
@@ -309,51 +286,21 @@ def main():
 
             # Implement ping-pong Queue object here to handle inputs?
 
-        '''
-        Psuedocode:
-
-        while reading serial_data:
-
-            [x,u]=received_data
-            # update the satellite coordinates and the path taken data
-            X_satellite,Y_satellite,path=NonLinearDynamics(x,u)
-            satellite.set_data(X_satellite, Y_satellite)
-            path.set_data(path[:,0], path[:,1])
-
-
-            ax.relim()
-            ax.autoscale_view()
-            ax.axis("equal")
-            fig.canvas.draw()
-        '''
     else:
         # Simulations
 
-        # Intial conditions, deviation from equil in polar coordinates
+        # Intial conditions (deviation from equil in polar coordinates)
         x0 = [0, 0, 0, 0]
 
         # Simulate continuous linearized system
         t_sim = np.linspace(0, 100000, 100)
         Ts = t_sim[-1] / len(t_sim)
         u = np.zeros((2, 1))
-
-        # Intialize ode solver for continuous simulation with ZOH process noise
         t_global = 0
         x0_step = x0
-
         sys_sol_lin = np.zeros((4, len(t_sim)))
         for k in range(len(t_sim)):
-            sys_sol_lin[:, k] = simulate_system(Ts)
-
-
-#         sys_sol_lin = solve_ivp(lin_dyn_cont, [t_sim[0], t_sim[-1:]], x0,
-#                                 method='RK45', t_eval=t_sim, args=(r0, u))
-
-        # Add equilibrium values for continous system
-#         for i in range(len(sys_sol_lin.y)):
-#             sys_sol_lin.y[i] = np.array(
-#                 [sys_sol_lin.y[i][j]
-#                  + equil(t_sim[j])[i] for j in range(len(t_sim))])
+            sys_sol_lin[:, k] = simulate_system_cont(Ts)  # equilibrium added
 
         # Simulate continuous nonlinear system (yes it does run, not quickly)
         '''
@@ -364,9 +311,8 @@ def main():
         '''
         # kalman filter
 #         XM,Pm=KalmanFilter(x0,[5,5,5.5,6,5.6,7,6.5,5.4,6,5.6],10)
-        # solution will be sys_sol.y with [0:3] being arrays of state
 
-        # Simulate discrete nonlinear system
+        # Simulate discrete linearized system
         x_discrete = np.zeros((4, len(t_sim)+1))
         x_discrete[:, 0] = x0
         for k in range(len(t_sim)):
@@ -402,7 +348,7 @@ def main():
         # plt.plot(x_sat_nl, y_sat_nl, linewidth=2)
         plt.xlabel('x')
         plt.ylabel('y')
-        plt.title(r'Satellite Path')
+        plt.title(r'Satellite Path (No Input With ZOH Noise)')
         plt.gca().set_aspect('equal', adjustable='box')
         plt.legend(['Continuos Linear Model', 'Discrete Linear Model', 'Equilibrium Orbit'],
                    loc='lower right')
