@@ -236,7 +236,7 @@ def input_command():
 
 def run_threaded(job_func):
     '''
-    Automatically makes thread for any commanded task
+    Automatically makes daemon thread for any commanded task
     '''
     job_thread = threading.Thread(target=job_func)
     job_thread.daemon = True
