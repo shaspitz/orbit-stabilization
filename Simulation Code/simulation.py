@@ -12,9 +12,10 @@ import numpy as np
 import schedule
 import threading
 import serial
-import scipy
 from scipy.integrate import solve_ivp
 from scipy.linalg import solve_discrete_are
+import tkinter as tk
+from tkinter import ttk
 
 
 '''
@@ -75,9 +76,13 @@ class sim_env:
 
     '''
     Measurement noise covariance matrix is define below. The measurement
-    assumes unbiased and Gaussian noise.
+    assumes unbiased and Gaussian noise. We also currently assume that
+    our sensors provide two position values for each measurement in
+    the r and phi directions.
     '''
-    W = np.eye(4)
+    W = np.eye(2)
+    H = np.array([[1, 0, 0, 0],
+                  [0, 0, 1, 0]])
 
     def __init__(self, hardware_in_loop, lqg_active, x0, Ts):
         '''
@@ -85,7 +90,7 @@ class sim_env:
         '''
         self.t_instance = 0
         self.x0 = x0
-        self.x0_step = x0
+        self.x_step = x0
         self.Ts = Ts
         self.u = np.zeros((2, 1))  # Change later when LQG implemented
 
@@ -123,17 +128,16 @@ class sim_env:
 
             # These need tuning
             self.R_m = np.eye(2)
-            self.Q = np.array([[1, 0, 0, 0],
-                               [0, 0, 0, 0],
-                               [0, 0, 1, 0],
-                               [0, 0, 0, 1]])
-            self.H = np.eye(4)
+            self.Q_m = np.array([[1, 0, 0, 0],
+                                 [0, 0, 0, 0],
+                                 [0, 0, 1, 0],
+                                 [0, 0, 0, 1]])
             self.Pinf = solve_discrete_are(
                 self.A_discrete.T, self.H.T, sim_env.V, sim_env.W)
             self.Kinf = self.Pinf @ (self.H.T) @ (np.linalg.inv(
                 self.H @self.Pinf @self.H.T + sim_env.W))
             self.Uinf = solve_discrete_are(
-                self.A_discrete, self.B_discrete, self.Q, self.R_m)
+                self.A_discrete, self.B_discrete, self.Q_m, self.R_m)
             self.Finf = np.linalg.inv(
                 self.R + self.B_discrete.T @ self.Uinf @ self.B_discrete
                 ) @ self.B_discrete.T @ self.Uinf @ self.A_discrete
@@ -175,7 +179,8 @@ class sim_env:
 
         # output 1-d array with ravel method
         if self.lqg_active and not self.hardware_in_loop:
-            xdot = (self.A_continuous @ x + self.B_continuous @ (-self.Finf @ x)).ravel()
+            xdot = (self.A_continuous @ x + self.B_continuous
+                    @ (-self.Finf @ x)).ravel()
         else:
             xdot = (self.A_continuous @ x + self.B_continuous @ u).ravel()
 
@@ -205,6 +210,9 @@ class sim_env:
         else:
             x_next = (self.A_discrete @ x + self.B_discrete @ u + v).ravel()
 
+        # Update x_step for measurement
+        self.x_step = x_next
+
         return x_next
 
     def gen_measurement(self):
@@ -227,10 +235,10 @@ class sim_env:
         # Simulate forward 'Ts' seconds (one step)
         t_sim = np.linspace(0, self.Ts, 2)
 
-        # Evaluate solution for each timestep (only use 2nd solution)
+        # Evaluate solution for each time step (only use 2nd solution)
         step_sol = solve_ivp(self.lin_dyn_cont,
                              [t_sim[0], t_sim[-1:]],
-                             self.x0_step, method='RK45',
+                             self.x_step, method='RK45',
                              t_eval=t_sim, args=(self.u, ))
 
         # Add process noise to step_sol
@@ -241,7 +249,7 @@ class sim_env:
         step_sol.y[:, -1] += v
 
         # reset IC for next step (no equilibrium added)
-        self.x0_step = [sol[-1] for sol in step_sol.y]
+        self.x_step = np.array([sol[-1] for sol in step_sol.y])
 
         # propagate instance time forward from step simulated time
         self.t_instance += t_sim[-1]
@@ -262,6 +270,8 @@ class sim_env:
         '''
         Simulate continuous linearized system (ZOH noise)
         '''
+        self.x_step = self.x0
+
         sys_sol_lin = np.zeros((len(self.x0), len(t_sim)))
         for k in range(len(t_sim)):
             sys_sol_lin[:, k] = self.step_sim_cont()
@@ -272,6 +282,8 @@ class sim_env:
         '''
         Simulate discrete linearized system (ZOH noise)
         '''
+        self.x_step = self.x0
+
         sys_sol_discrete = np.zeros((len(self.x0), len(t_sim)+1))
         sys_sol_discrete[:, 0] = self.x0
         for k in range(len(t_sim)):
@@ -325,6 +337,13 @@ class sim_env:
         '''
         self.ser.write(str.encode('s'))
 
+    def send_lqg_command(self):
+        '''
+        Send LQG matricies, Kinf and Finf to the PSOC to be implemented
+        '''
+        self.ser.write(str.encode('l'))
+        # Perhaps restructure commands to have a packet attached to their ends
+
     def plot_solution(self, x_sol, y_sol, title, sol_type, t_end):
         '''
         Repeatable plotting
@@ -372,20 +391,51 @@ class sim_env:
         job_thread.start()
 
 
+class gui:
+
+    def __init__(self, master, sim_env):
+
+        # GUI title
+        self.master = master
+        master.title('Real Time Satellite Visualization')
+
+        # Initialize sim_env
+        self.sim_env = sim_env
+
+        # Initialize state display
+        self.state_display = np.array([tk.StringVar() for state in sim_env.x0])
+        self.update_state_display()
+        for state_iter in range(len(self.sim_env.x0)):
+            tk.Label(master, textvariable=self.state_display[
+                state_iter]).grid(row=state_iter, column=0)
+
+    def update_state_display(self):
+        '''
+        Continuously looping function that updates StringVar objects for GUI
+        '''
+        for state_iter in range(len(self.sim_env.x0)):
+            self.state_display[state_iter].set(repr(self.sim_env.x_step[state_iter]))
+
+
 def main():
 
-    hardware_in_loop = False
+    hardware_in_loop = True
     lqg_active = True
 
     # Initial conditions (deviation from equilibrium in polar coordinates)
     x0 = np.array([0, 0, 0, 0])
 
     if hardware_in_loop:
+
         # Simulation sample time, not 'real' sampling time
         Ts = 2
 
         # Simulation environment instantiation
         sim_env_instance = sim_env(hardware_in_loop, lqg_active, x0, Ts)
+
+        # GUI instantiation
+        root = tk.Tk()
+        gui_instance = gui(root, sim_env_instance)
 
         sim_env_instance.start_command()
         '''
@@ -413,6 +463,11 @@ def main():
         while True:
             schedule.run_pending()
             # Implement ping-pong Queue object here to handle inputs?
+
+            # These two lines are the non-blocking versions of root.mainloop()
+            root.update_idletasks()
+            root.update()
+            gui_instance.update_state_display()
 
     else:
         # Analysis, no serial interface
