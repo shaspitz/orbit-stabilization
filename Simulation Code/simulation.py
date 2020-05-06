@@ -138,11 +138,11 @@ def lin_dyn_discrete(x, r0, Ts, u=np.zeros((2, 1))):
     return xnext.ravel()
 
 
-def simulate_system_cont(Ts):
+def simulate_system_cont():
     '''
     Simulate system forward using continuous dynamics, additive ZOH noise,
     and discrete inputs.
-    Ts: simulation length and ZOH process noise length
+    Global variable Ts is simulation length and ZOH process noise length
     '''
     # We manipulate x0_step, and t_global
     global x0_step, t_global
@@ -245,7 +245,7 @@ def run_threaded(job_func):
 
 def main():
     # Manipulated global variables within main
-    global x0_step, u, t_global, ser
+    global x0_step, u, t_global, ser, Ts
 
     if hardware_in_loop:
         # Serial interfacing
@@ -300,7 +300,7 @@ def main():
         x0_step = x0
         sys_sol_lin = np.zeros((4, len(t_sim)))
         for k in range(len(t_sim)):
-            sys_sol_lin[:, k] = simulate_system_cont(Ts)  # equilibrium added
+            sys_sol_lin[:, k] = simulate_system_cont()  # equilibrium added
 
         # Simulate continuous nonlinear system (yes it does run, not quickly)
         '''

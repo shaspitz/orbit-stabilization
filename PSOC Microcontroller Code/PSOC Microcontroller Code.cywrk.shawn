@@ -109,34 +109,6 @@
 <VisibleNodeIds>
 <v>PSOC Microcontroller Code</v>
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer_1.lst</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer_1_PM.lst</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\TimerInterrupt.lst</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1.lst</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_BOOT.lst</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_INT.lst</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_IntClock.lst</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_PM.lst</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\PSOC Microcontroller Code.elf</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\PSOC Microcontroller Code.hex</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\PSOC Microcontroller Code.map</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\PSOC Microcontroller Code.gpdsc</v>
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\PSOC Microcontroller Code.rpt</v>
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\PSOC Microcontroller Code_timing.html</v>
 </VisibleNodeIds>
