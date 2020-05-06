@@ -467,6 +467,8 @@ def main():
             # These two lines are the non-blocking versions of root.mainloop()
             root.update_idletasks()
             root.update()
+
+            # Update GUI displays
             gui_instance.update_state_display()
 
     else:
