@@ -251,7 +251,7 @@ def main():
         '''
         Schedule periodic execution of input command tasks.
         Note that Python does not run in real time, so additional .002518
-        seconds of schedule time was hueristically implemented to
+        seconds of schedule time was heuristically implemented to
         counteract Windows' latency in sending input commands to PSOC.
         Allow for +-10 ms in communication timing error.
         '''
