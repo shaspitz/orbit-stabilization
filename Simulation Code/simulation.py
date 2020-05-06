@@ -298,10 +298,10 @@ def main():
 #         
                 #implement steady state LQG
         A,B = dyn_discrete(r0,w0,Ts)
-        R_m = np.eye(2)
-        Q = np.eye(4)
+        R_m = 10 * np.eye(2)
+        Q = 1 * np.eye(4)
         H = np.eye(4)
-        V = np.eye(4)
+        V = 1 * np.eye(4)
         W = np.eye(4)
         N = len(t_sim)
         x = np.zeros((4,N))
