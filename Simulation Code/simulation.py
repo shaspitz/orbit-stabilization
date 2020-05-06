@@ -80,8 +80,8 @@ class sim_env:
     our sensors provide two position values for each measurement in
     the r and phi directions.
     '''
-    W = np.array([[10e5, 0],
-                  [0, 10e5]])
+    W = np.array([[10e4, 0],
+                  [0, 10e4]])
     H = np.array([[1, 0, 0, 0],
                   [0, 0, 1, 0]])
 
@@ -210,7 +210,12 @@ class sim_env:
 
             # Kalman filter estimate
             self.x_est = self.A_discrete @ self.x_est - self.B_discrete @ self.Finf @ self.x_est + self.Kinf @ zk
+
+            # Uncomment this if you want LQR only
 #             self.x_est = x
+
+            # Estimate error
+            print('Estimate Error, e(k): ', x - self.x_est)
 
             # Apply linear feedback LQR policy accordingly
             x_next = (self.A_discrete @ x - self.B_discrete @
@@ -509,7 +514,7 @@ def main():
             sys_sol_discrete)
 
         # Plotting for continuous and discrete solutions
-        title = 'Satellite Path (LQR, perfect state knowledge, With ZOH Noise)'
+        title = 'Satellite Path (LQG with Measurement Noise, ZOH Process Noise)'
         sol_type = 'Continuous Model'
         sim_env_instance.plot_solution(
             x_sat_cont, y_sat_cont, title, sol_type, t_end)
