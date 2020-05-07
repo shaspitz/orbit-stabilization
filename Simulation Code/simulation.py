@@ -14,8 +14,17 @@ import threading
 import serial
 from scipy.integrate import solve_ivp
 from scipy.linalg import solve_discrete_are
+from matplotlib.backends.backend_tkagg import ( FigureCanvasTkAgg, NavigationToolbar2Tk)
+from matplotlib.figure import Figure
+from matplotlib.backend_bases import key_press_handler
+import matplotlib.animation as animation
 import tkinter as tk
-from tkinter import ttk
+import tkinter.ttk as ttk
+from tkinter import Tk, Label, Button, filedialog
+
+from matplotlib.figure import Figure
+from tkinter import *
+import tkinter.messagebox
 
 
 '''
@@ -404,10 +413,13 @@ class sim_env:
         Converts from polar coordinates describing state to
         2D cartesian coordinates
         '''
-        x_sol = [sys_sol[0][i]*np.cos(
-            sys_sol[2][i]) for i in range(len(sys_sol[0]))]
-        y_sol = [sys_sol[0][i]*np.sin(
-            sys_sol[2][i]) for i in range(len(sys_sol[0]))]
+#         x_sol = [sys_sol[0][i]*np.cos(
+#             sys_sol[2][i]) for i in range(len(sys_sol[0]))]
+#         y_sol = [sys_sol[0][i]*np.sin(
+#             sys_sol[2][i]) for i in range(len(sys_sol[0]))]
+        x_sol = sys_sol[0]*np.cos(sys_sol[2])
+        y_sol = sys_sol[0]*np.sin(sys_sol[2])
+        
 
         return x_sol, y_sol
 
@@ -425,41 +437,81 @@ class gui:
 
     def __init__(self, master, sim_env):
 
-        # GUI title
-        self.master = master
-        master.title('Real Time Satellite Visualization')
-
-        # Initialize sim_env
+        self.master=master
         self.sim_env = sim_env
+        self.root = tk.Tk()
+        #dd in overall title
+        self.root.wm_title("Real Time Satellite Visualization")
+        
+        #define inputs for control, no control and equilibrium
+        self.state_display = np.array([state for state in self.sim_env.x0])
+        self.x_cartesian_LQG = np.zeros((len(self.sim_env.x0),1))
+        self.y_cartesian_LQG= np.zeros((len(self.sim_env.x0),1))
+        
+        self.fig = Figure()
+        gui.a = self.fig.add_subplot(2,1,1)
+        circle = plt.Circle((0, 0), 5, color='b')
+        self.a.add_artist(circle)
+        #self.a.suptitle("Satellite Path With Control Input")
+#         self.b = self.fig.add_subplot(2,1,2)
+#         self.b.ax.add_artist(circle)
+#         self.b.suptitle("Satellite Path Without Control Input")
 
-        # Initialize state display
-        self.state_display = np.array([tk.StringVar() for state in sim_env.x0])
-        self.update_state_display()
+        #draw plots on gui 
+        gui.canvas = FigureCanvasTkAgg(self.fig,master=self.root)
+        gui.canvas.get_tk_widget().pack(side=tkinter.LEFT)
+        gui.canvas.draw()
+        
+        #add in "STOP" button to terminate process
+        button = tkinter.Button(master=self.root, text="Quit", command=quit)
+        button.pack(side=tkinter.BOTTOM)
+        
+    def updateGraphs(self):
+        #get the updated states from the PSOC
         for state_iter in range(len(self.sim_env.x0)):
-            tk.Label(master, textvariable=self.state_display[
-                state_iter]).grid(row=state_iter, column=0)
+            self.state_display[state_iter]=self.sim_env.x_step[state_iter]
 
-        # Anthony-------------------------
-        if self.ser.isOpen():
-            input = 1
-            while 1:
-                time.sleep(0.01)
+        #convert polar to cartestian for plotting
+        x,y=self.sim_env.convert_cartesian(self.state_display)
+        print(x)
+        print(y)
+        # append data to data buff, and then remove the old items
+        self.x_cartesian_LQG = np.append(self.x_cartesian_LQG, x)
+        self.x_cartesian_LQG = self.x_cartesian_LQG[1:] 
 
-                while self.ser.inWaiting() > 0:
-                    # plot
+        self.y_cartesian_LQG = np.append(self.y_cartesian_LQG, y)
+        self.y_cartesian_LQG = self.y_cartesian_LQG[1:] 
 
+#         self.x_cartesian = np.append(self.x_cartesian, x)
+#         self.x_cartesian = self.x_cartesian[len(x):] 
+# 
+#         self.y_cartesian = np.append(self.y_cartesian, y)
+#         self.y_cartesian = self.y_cartesian[len(y):] 
+# 
+#         self.x_equil = np.append(self.x_equil, x)
+#         self.x_equil = self.x_equil[len(x):] 
+# 
+#         self.y_equil = np.append(self.y_equil, y)
+#         self.y_equil = self.y_equil[len(y):] 
 
-    def update_state_display(self):
-        '''
-        Continuously looping function that updates StringVar objects for GUI
-        '''
-        for state_iter in range(len(self.sim_env.x0)):
-            self.state_display[state_iter].set(repr(self.sim_env.x_step[state_iter]))
-
+        #gui.a.set_xlim((self.x_cartesian_LQG[0], self.x_cartesian_LQG[len(self.x_cartesian_LQG) - 1]))
+        gui.a.plot(self.x_cartesian_LQG, self.y_cartesian_LQG, linewidth=4, color='g', linestyle='--')
+        #gui.a.plot(self.x_equil, self.y_equil, linewidth=2, color='r', linestyle='-')
+# 
+#         gui.b.set_xlim((self.x_cartesian[0], self.x_cartesian[len(self.x_cartesian) - 1]))
+#         gui.b.plot(self.x_cartesian, self.y_cartesian, linewidth=4, color='g', linestyle='--')
+#         gui.b.plot(self.x_equil, self.y_equil, linewidth=2, color='r', linestyle='-')
+#     
+    #Stop Button
+    def _quit(self):
+        self.root.quit()     # stops mainloop
+        self.root.destroy()  # this is necessary on Windows to prevent
+                    # Fatal Python Error: PyEval_RestoreThread: NULL tstate
+                    
 
 def main():
 
-    hardware_in_loop = False
+    hardware_in_loop = True
     lqg_active = False
 
     # Initial conditions (deviation from equilibrium in polar coordinates)
@@ -509,7 +561,8 @@ def main():
             root.update()
 
             # Update GUI displays
-            gui_instance.update_state_display()
+            gui_instance.updateGraphs()
+            gui.canvas.draw()
 
     else:
         # Analysis, no serial interface
