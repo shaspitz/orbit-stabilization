@@ -69,21 +69,27 @@ class sim_env:
     Noise is assumed unbiased and Gaussian. Below the system's process noise
     covariance matrix is defined.
     '''
-    V = np.array([[10e5, 0, 0, 0],
-                  [0, 1, 0, 0],
-                  [0, 0, 10e-15, 0],
-                  [0, 0, 0, 10e-18]])
+    V = np.array([[10e8/2, 0, 0, 0],
+                  [0, 10e-3, 0, 0],
+                  [0, 0, 10e-10, 0],
+                  [0, 0, 0, 10e-20]])
 
     '''
     Measurement noise covariance matrix is define below. The measurement
-    assumes unbiased and Gaussian noise. We also currently assume that
-    our sensors provide two position values for each measurement in
-    the r and phi directions.
+    assumes unbiased and Gaussian noise. Assumed that
+    we receive a measurement for every state.
     '''
-    W = np.array([[10e4, 0],
-                  [0, 10e4]])
+    W = np.array([[10e7, 0, 0, 0],
+                  [0, 1, 0, 0],
+                  [0, 0, 10e-5, 0],
+                  [0, 0, 0, 10e-10]])
+
     H = np.array([[1, 0, 0, 0],
-                  [0, 0, 1, 0]])
+                  [0, 1, 0, 0],
+                  [0, 0, 1, 0],
+                  [0, 0, 0, 1]])
+#     H = np.eye(4)
+#     W = np.eye(4)
 
     def __init__(self, hardware_in_loop, lqg_active, x0, Ts):
         '''
@@ -211,7 +217,7 @@ class sim_env:
             # Kalman filter estimate
             self.x_est = self.A_discrete @ self.x_est - self.B_discrete @ self.Finf @ self.x_est + self.Kinf @ zk
 
-            # Uncomment this if you want LQR only
+            # Uncomment this if you want LQR only (perfect state knowledge)
 #             self.x_est = x
 
             # Estimate error
@@ -233,7 +239,9 @@ class sim_env:
         2 state measurement right now
         '''
         wk = np.array([[np.random.normal(0, np.sqrt(sim_env.W[0][0]))],
-                      [np.random.normal(0, np.sqrt(sim_env.W[1][1]))]])
+                      [np.random.normal(0, np.sqrt(sim_env.W[1][1]))],
+                      [np.random.normal(0, np.sqrt(sim_env.W[2][2]))],
+                      [np.random.normal(0, np.sqrt(sim_env.W[3][3]))]])
 
         # ODE solver uses 1-d arrays, convert to 2-d arrays for lin alg
         xk = np.array([[self.x_step[i]] for i in range(len(self.x_step))])
@@ -442,10 +450,10 @@ class gui:
 def main():
 
     hardware_in_loop = False
-    lqg_active = True
+    lqg_active = False
 
     # Initial conditions (deviation from equilibrium in polar coordinates)
-    x0 = np.array([0, 0, 0, 0])
+    x0 = np.array([10e4, 0, 0, 0])
 
     if hardware_in_loop:
 
