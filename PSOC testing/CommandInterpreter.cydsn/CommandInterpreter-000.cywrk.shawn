@@ -150,6 +150,46 @@
 <VisibleNodeIds>
 <v>CommandInterpreter-000</v>
 <v>CommandInterpreter-000\CommandInterpreter</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\ByteCounter.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\ByteCounter_PM.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\ByteCountReset.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\ByteCountReset_PM.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\ByteReceived.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\CommandReceived.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\LEDDrive.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\LEDDrive_PM.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer_1.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer_1_PM.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\TimerInterrupt.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\UART1.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\UART1_BOOT.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\UART1_INT.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\UART1_IntClock.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\UART1_PM.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\UARTReset.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\UARTReset_PM.lst</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\CommandInterpreter.elf</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\CommandInterpreter.hex</v>
+<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\CommandInterpreter.map</v>
+<v>CommandInterpreter-000\CommandInterpreter\CommandInterpreter.gpdsc</v>
 <v>CommandInterpreter-000\CommandInterpreter\CommandInterpreter.rpt</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>

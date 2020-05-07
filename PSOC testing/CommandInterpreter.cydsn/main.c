@@ -18,6 +18,12 @@ uint8 Status;
 uint8 ReceivedBuffer[66];
 uint8 TransmitBuffer[66];
 
+uint32 Time = 0; //ms
+uint32 TimeStart;
+
+double input1;
+double input2;
+
 struct command_protocol
 {
     uint8 packet_size;
@@ -26,9 +32,6 @@ struct command_protocol
 } Command_Packet;
 
 struct command_protocol Transmit_Packet;
-
-uint32 Time = 0; //ms
-uint32 TimeStart;
 
 // Interrupts 
 CY_ISR(TimerInterrupt)
@@ -122,7 +125,7 @@ int main(void)
                     TransmitBuffer[1] = Transmit_Packet.command;
                     Transmit_Packet.packet_size = Command_Packet.packet_size;
                     TransmitBuffer[0] = Transmit_Packet.packet_size;
-                    for(i=0; i<Transmit_Packet.packet_size; ++i)
+                    for(i = 0; i < Transmit_Packet.packet_size; ++i)
                     {
                         Transmit_Packet.buffer[i+2] = Command_Packet.buffer[i];
                         TransmitBuffer[i+2] = Transmit_Packet.buffer[i+2];
@@ -141,7 +144,20 @@ int main(void)
                     if (ActiveFlag)
                     {   
                         // Send two double inputs to Python
+                        Transmit_Packet.command = Command_Packet.command;
                         Transmit_Packet.packet_size = 18;
+                        
+                        input1 = 5.678;
+                        input2 = 6.345;
+                        
+                        uint8 *ptr_input1 = &input1;
+                        uint8 *ptr_input2 = &input2;
+                        
+                        for (i=0; i < Transmit_Packet.packet_size; ++i)
+                        {
+                            Transmit_Packet.buffer[i+2] = 
+                            TransmitBuffer[i+2] = Transmit_Packet.buffer[i+2];
+                        }
                     }
                 break;
                 
