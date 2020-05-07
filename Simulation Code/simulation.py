@@ -155,6 +155,10 @@ class sim_env:
         self.hardware_in_loop = hardware_in_loop
 
         if self.hardware_in_loop:
+
+            # Variable for checking if PSOC misses input timing
+            self.last_input = None
+
             # Serial configuration
             self.ser = serial.Serial(port='COM5', baudrate=115200, parity='N')
             if self.ser.is_open:
@@ -215,13 +219,14 @@ class sim_env:
             zk = self.gen_measurement()
 
             # Kalman filter estimate
-            self.x_est = self.A_discrete @ self.x_est - self.B_discrete @ self.Finf @ self.x_est + self.Kinf @ zk
+            self.x_est = (self.A_discrete @ self.x_est -
+                          self.B_discrete @ self.Finf @ self.x_est + self.Kinf @ zk)
 
             # Uncomment this if you want LQR only (perfect state knowledge)
 #             self.x_est = x
 
             # Estimate error
-            print('Estimate Error, e(k): ', x - self.x_est)
+#             print('Estimate Error, e(k): ', x - self.x_est)
 
             # Apply linear feedback LQR policy accordingly
             x_next = (self.A_discrete @ x - self.B_discrete @
@@ -258,9 +263,13 @@ class sim_env:
         Instance variable Ts is simulation length and ZOH process noise length
         '''
         # Base case: skip first sim step for hardware in loop
-        if self.hardware_in_loop and self.first_sim_step:
-            self.first_sim_step = False
-            return 0
+#         if self.hardware_in_loop and self.first_sim_step:
+#             self.first_sim_step = False
+#             return 0
+
+        # Immediately check if we received a new input from PSOC
+        if (self.u == self.last_input).all():
+            print('Missed Timing or no new input')
 
         # Simulate forward 'Ts' seconds (one step)
         t_sim = np.linspace(0, self.Ts, 2)
@@ -288,6 +297,9 @@ class sim_env:
         for i in range(len(step_sol.y)):
             step_sol.y[i][-1] = step_sol.y[i][-1] + self.equil(
                 self.t_instance)[i]
+
+        # Update last input
+        self.last_input = self.u
 
         if self.hardware_in_loop:
             # Real time visualization (eventually tkinter GUI)
@@ -449,8 +461,8 @@ class gui:
 
 def main():
 
-    hardware_in_loop = False
-    lqg_active = False
+    hardware_in_loop = True
+    lqg_active = True
 
     # Initial conditions (deviation from equilibrium in polar coordinates)
     x0 = np.array([10e4, 0, 0, 0])
@@ -475,12 +487,15 @@ def main():
         counteract Windows' latency in sending input commands to PSOC.
         Allow for +-10 ms in communication timing error.
         '''
-        schedule.every(1.002518).seconds.do(sim_env_instance.run_threaded,
-                                            sim_env_instance.input_command)
+        sec_equiv = 1.002518
+
+        # Schedule input commands
+        schedule.every(sec_equiv).seconds.do(sim_env_instance.run_threaded,
+                                             sim_env_instance.input_command)
 
         # schedule periodic sim of system (lower freq than input commands)
-        schedule.every(2).seconds.do(sim_env_instance.run_threaded,
-                                     sim_env_instance.step_sim_cont)
+        schedule.every(2*sec_equiv).seconds.do(sim_env_instance.run_threaded,
+                                               sim_env_instance.step_sim_cont)
 
         '''
         ^^^ the above involves real-time considerations because we have to
