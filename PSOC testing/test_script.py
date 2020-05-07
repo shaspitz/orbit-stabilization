@@ -15,34 +15,36 @@ else:
     ser.open()
 
 
-# def send_double_packet(command, double):
-#     '''
-#     Constructs packet
-#     '''
-#     buffer = struct.pack('d', double)
-#     packet_size = len(buffer) + 2
-#
-#     transmit_packet = bytes([packet_size])
-#     transmit_packet += bytes([command])
+def send_double_packet(command, double):
+    '''
+    Constructs and sends packet containing double (with command)
+    '''
+    buffer = struct.pack('d', double)
+    packet_size = len(buffer) + 2
 
-# Pack float
-send_float = 5353535355324.42342
-num = struct.pack('f', send_float)
-packet = bytes([6])
-packet += bytes([5])
-packet += num
-print('bytes in sending packet: ', len(packet))
-print('packet being sent: ', packet)
+    # Transmit byte array
+    transmit_packet = bytes([packet_size])
+    transmit_packet += bytes([command])
+    transmit_packet += buffer
 
-ser.write(packet)
-print('packet was sent')
-packet_size = int.from_bytes(ser.read(), byteorder='little')
-print('returned packet size:', packet_size)
-command = int.from_bytes(ser.read(), byteorder='little')
-print('returned command:', command)
-buffer = ser.read(packet_size-2)
-print('bytes buffer: ', buffer)
-return_float = struct.unpack('f', buffer)[0]
-print('returned float', return_float)
+    ser.write(transmit_packet)
 
+
+def read_double_packet():
+    '''
+    Receives double precision float from PSOC (with command)
+    '''
+    packet_size = int.from_bytes(ser.read(), byteorder='little')
+    command = int.from_bytes(ser.read(), byteorder='little')
+    buffer = ser.read(packet_size-2)
+    double = struct.unpack('d', buffer)[0]
+
+    return command, double
+
+
+# Testing
+send_double_packet(5, 563434534534.2424234)
+return_command, rx_double = read_double_packet()
+
+print(rx_double)
 print('If this prints, full packet received!!!! You are not stupid')
