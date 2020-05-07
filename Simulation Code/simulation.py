@@ -69,7 +69,7 @@ class sim_env:
     Noise is assumed unbiased and Gaussian. Below the system's process noise
     covariance matrix is defined.
     '''
-    V = np.array([[10e8/2, 0, 0, 0],
+    V = np.array([[5e7, 0, 0, 0],
                   [0, 10e-3, 0, 0],
                   [0, 0, 10e-10, 0],
                   [0, 0, 0, 10e-20]])
@@ -80,7 +80,7 @@ class sim_env:
     we receive a measurement for every state.
     '''
     W = np.array([[10e7, 0, 0, 0],
-                  [0, 1, 0, 0],
+                  [0, 10, 0, 0],
                   [0, 0, 10e-5, 0],
                   [0, 0, 0, 10e-10]])
 
@@ -137,11 +137,11 @@ class sim_env:
             self.x_est = np.array([[self.x0[i]] for i in range(len(self.x0))])
 
             # These need tuning
-            self.R_m = np.eye(2)
-            self.Q_m = np.array([[1, 0, 0, 0],
-                                 [0, 0, 0, 0],
-                                 [0, 0, 1, 0],
-                                 [0, 0, 0, 1]])
+            self.R_m = 25e12*np.eye(2)
+            self.Q_m = 25e4*np.array([[1, 0, 0, 0],
+                                    [0, 1, 0, 0],
+                                    [0, 0, 1, 0],
+                                    [0, 0, 0, 1]])
             self.Pinf = solve_discrete_are(
                 self.A_discrete.T, self.H.T, sim_env.V, sim_env.W)
             self.Kinf = self.Pinf @ (self.H.T) @ (np.linalg.inv(
@@ -218,7 +218,7 @@ class sim_env:
             self.x_est = self.A_discrete @ self.x_est - self.B_discrete @ self.Finf @ self.x_est + self.Kinf @ zk
 
             # Uncomment this if you want LQR only (perfect state knowledge)
-#             self.x_est = x
+            # self.x_est = x
 
             # Estimate error
             print('Estimate Error, e(k): ', x - self.x_est)
@@ -450,7 +450,8 @@ class gui:
 def main():
 
     hardware_in_loop = False
-    lqg_active = False
+    lqg_active = True
+
 
     # Initial conditions (deviation from equilibrium in polar coordinates)
     x0 = np.array([10e4, 0, 0, 0])
@@ -503,7 +504,7 @@ def main():
 
     else:
         # Analysis, no serial interface
-        t_end = 10e4/2  # [sec]
+        t_end = 26e4/2  # [sec]
         sim_steps = 1000
         t_sim = np.linspace(0, t_end, sim_steps)
         Ts = t_sim[-1] / len(t_sim)
