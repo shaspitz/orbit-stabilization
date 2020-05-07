@@ -1,0 +1,2262 @@
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.TimerInterrupt,"ax",%progbits
+  20              		.align	2
+  21              		.global	TimerInterrupt
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	TimerInterrupt, %function
+  25              	TimerInterrupt:
+  26              	.LFB63:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  Author: Shawn Marshall-Spitzbart
+   3:main.c        **** (adapted from code written by George Anwar)
+   4:main.c        ****  * ========================================
+   5:main.c        **** */
+   6:main.c        **** #include "project.h"
+   7:main.c        **** 
+   8:main.c        **** // Project Defines
+   9:main.c        **** #define FALSE  0
+  10:main.c        **** #define TRUE   1
+  11:main.c        **** 
+  12:main.c        **** uint8 ByteCount = 0;
+  13:main.c        **** uint8 firstbyte = 0;
+  14:main.c        **** uint8 CommandReady = 0;
+  15:main.c        **** uint8 Count = 0;
+  16:main.c        **** uint8 Status;
+  17:main.c        **** 
+  18:main.c        **** uint8 ReceivedBuffer[66];
+  19:main.c        **** uint8 TransmitBuffer[66];
+  20:main.c        **** 
+  21:main.c        **** uint32 Time = 0; //ms
+  22:main.c        **** uint32 TimeStart;
+  23:main.c        **** 
+  24:main.c        **** double Input1;
+  25:main.c        **** double Input2;
+  26:main.c        **** 
+  27:main.c        **** struct command_protocol
+  28:main.c        **** {
+  29:main.c        ****     uint8 packet_size;
+  30:main.c        ****     uint8 command;
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 2
+
+
+  31:main.c        ****     uint8 buffer[64];
+  32:main.c        **** } Command_Packet;
+  33:main.c        **** 
+  34:main.c        **** struct command_protocol Transmit_Packet;
+  35:main.c        **** 
+  36:main.c        **** // Interrupts 
+  37:main.c        **** CY_ISR(TimerInterrupt)
+  38:main.c        **** {
+  28              		.loc 1 38 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  39:main.c        ****     // Timer interrupt runs at 1000Hz
+  40:main.c        ****     ++Time;
+  36              		.loc 1 40 0
+  37 0002 034A     		ldr	r2, .L3
+  38 0004 1368     		ldr	r3, [r2]
+  39 0006 0133     		adds	r3, r3, #1
+  40 0008 1360     		str	r3, [r2]
+  41:main.c        ****     Timer_1_ReadStatusRegister();
+  41              		.loc 1 41 0
+  42 000a FFF7FEFF 		bl	Timer_1_ReadStatusRegister
+  43              	.LVL0:
+  44 000e 08BD     		pop	{r3, pc}
+  45              	.L4:
+  46              		.align	2
+  47              	.L3:
+  48 0010 00000000 		.word	.LANCHOR0
+  49              		.cfi_endproc
+  50              	.LFE63:
+  51              		.size	TimerInterrupt, .-TimerInterrupt
+  52              		.section	.text.ByteReceived,"ax",%progbits
+  53              		.align	2
+  54              		.global	ByteReceived
+  55              		.thumb
+  56              		.thumb_func
+  57              		.type	ByteReceived, %function
+  58              	ByteReceived:
+  59              	.LFB64:
+  42:main.c        **** }
+  43:main.c        **** 
+  44:main.c        **** CY_ISR(ByteReceived)
+  45:main.c        **** { 
+  60              		.loc 1 45 0
+  61              		.cfi_startproc
+  62              		@ args = 0, pretend = 0, frame = 0
+  63              		@ frame_needed = 0, uses_anonymous_args = 0
+  64 0000 38B5     		push	{r3, r4, r5, lr}
+  65              		.cfi_def_cfa_offset 16
+  66              		.cfi_offset 3, -16
+  67              		.cfi_offset 4, -12
+  68              		.cfi_offset 5, -8
+  69              		.cfi_offset 14, -4
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 3
+
+
+  46:main.c        ****     //LEDDrive_Write(1);
+  47:main.c        ****     ReceivedBuffer[ByteCount++] = (uint8) (UART1_GetByte()&0x00ff);
+  70              		.loc 1 47 0
+  71 0002 0C4C     		ldr	r4, .L8
+  72 0004 2579     		ldrb	r5, [r4, #4]	@ zero_extendqisi2
+  73 0006 6B1C     		adds	r3, r5, #1
+  74 0008 2371     		strb	r3, [r4, #4]
+  75 000a FFF7FEFF 		bl	UART1_GetByte
+  76              	.LVL1:
+  77 000e 0A4B     		ldr	r3, .L8+4
+  78 0010 5855     		strb	r0, [r3, r5]
+  48:main.c        ****     if(firstbyte == 0)
+  79              		.loc 1 48 0
+  80 0012 6379     		ldrb	r3, [r4, #5]	@ zero_extendqisi2
+  81 0014 2BB9     		cbnz	r3, .L6
+  49:main.c        ****     {
+  50:main.c        ****         ByteCounter_WriteCompare(ReceivedBuffer[0]);
+  82              		.loc 1 50 0
+  83 0016 084B     		ldr	r3, .L8+4
+  84 0018 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+  85 001a FFF7FEFF 		bl	ByteCounter_WriteCompare
+  86              	.LVL2:
+  51:main.c        ****         firstbyte = 1;
+  87              		.loc 1 51 0
+  88 001e 0122     		movs	r2, #1
+  89 0020 6271     		strb	r2, [r4, #5]
+  90              	.L6:
+  52:main.c        ****    
+  53:main.c        ****     }
+  54:main.c        ****     Count = ByteCounter_ReadCounter();
+  91              		.loc 1 54 0
+  92 0022 FFF7FEFF 		bl	ByteCounter_ReadCounter
+  93              	.LVL3:
+  94 0026 034B     		ldr	r3, .L8
+  95 0028 9871     		strb	r0, [r3, #6]
+  55:main.c        ****     Status = ByteCounter_ReadStatusRegister();
+  96              		.loc 1 55 0
+  97 002a FFF7FEFF 		bl	ByteCounter_ReadStatusRegister
+  98              	.LVL4:
+  99 002e 034B     		ldr	r3, .L8+8
+ 100 0030 1870     		strb	r0, [r3]
+ 101 0032 38BD     		pop	{r3, r4, r5, pc}
+ 102              	.L9:
+ 103              		.align	2
+ 104              	.L8:
+ 105 0034 00000000 		.word	.LANCHOR0
+ 106 0038 00000000 		.word	ReceivedBuffer
+ 107 003c 00000000 		.word	Status
+ 108              		.cfi_endproc
+ 109              	.LFE64:
+ 110              		.size	ByteReceived, .-ByteReceived
+ 111              		.section	.text.CommandReceived,"ax",%progbits
+ 112              		.align	2
+ 113              		.global	CommandReceived
+ 114              		.thumb
+ 115              		.thumb_func
+ 116              		.type	CommandReceived, %function
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 4
+
+
+ 117              	CommandReceived:
+ 118              	.LFB65:
+  56:main.c        ****     //LEDDrive_Write(0);
+  57:main.c        ****     
+  58:main.c        **** }
+  59:main.c        **** 
+  60:main.c        **** CY_ISR(CommandReceived)
+  61:main.c        **** {
+ 119              		.loc 1 61 0
+ 120              		.cfi_startproc
+ 121              		@ args = 0, pretend = 0, frame = 0
+ 122              		@ frame_needed = 0, uses_anonymous_args = 0
+ 123 0000 08B5     		push	{r3, lr}
+ 124              		.cfi_def_cfa_offset 8
+ 125              		.cfi_offset 3, -8
+ 126              		.cfi_offset 14, -4
+  62:main.c        ****     uint8 i;
+  63:main.c        ****     //LEDDrive_Write(1);
+  64:main.c        ****     if(CommandReady == 0)
+ 127              		.loc 1 64 0
+ 128 0002 0F4B     		ldr	r3, .L15
+ 129 0004 DB79     		ldrb	r3, [r3, #7]	@ zero_extendqisi2
+ 130 0006 C3B9     		cbnz	r3, .L11
+  65:main.c        ****     {
+  66:main.c        ****         Command_Packet.packet_size = ReceivedBuffer[0];
+ 131              		.loc 1 66 0
+ 132 0008 0E4A     		ldr	r2, .L15+4
+ 133 000a 1078     		ldrb	r0, [r2]	@ zero_extendqisi2
+ 134 000c 0E4B     		ldr	r3, .L15+8
+ 135 000e 1870     		strb	r0, [r3]
+  67:main.c        ****         Command_Packet.command = ReceivedBuffer[1];
+ 136              		.loc 1 67 0
+ 137 0010 5278     		ldrb	r2, [r2, #1]	@ zero_extendqisi2
+ 138 0012 5A70     		strb	r2, [r3, #1]
+ 139              	.LVL5:
+  68:main.c        ****     
+  69:main.c        ****         for(i=0;i<(Command_Packet.packet_size - 2);i++)
+ 140              		.loc 1 69 0
+ 141 0014 0023     		movs	r3, #0
+ 142 0016 07E0     		b	.L12
+ 143              	.LVL6:
+ 144              	.L13:
+  70:main.c        ****         {
+  71:main.c        ****             Command_Packet.buffer[i] =  ReceivedBuffer[i+2];
+ 145              		.loc 1 71 0 discriminator 3
+ 146 0018 9A1C     		adds	r2, r3, #2
+ 147 001a 0A49     		ldr	r1, .L15+4
+ 148 001c 895C     		ldrb	r1, [r1, r2]	@ zero_extendqisi2
+ 149 001e 0A4A     		ldr	r2, .L15+8
+ 150 0020 1A44     		add	r2, r2, r3
+ 151 0022 9170     		strb	r1, [r2, #2]
+  69:main.c        ****         {
+ 152              		.loc 1 69 0 discriminator 3
+ 153 0024 0133     		adds	r3, r3, #1
+ 154              	.LVL7:
+ 155 0026 DBB2     		uxtb	r3, r3
+ 156              	.LVL8:
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 5
+
+
+ 157              	.L12:
+  69:main.c        ****         {
+ 158              		.loc 1 69 0 is_stmt 0 discriminator 1
+ 159 0028 821E     		subs	r2, r0, #2
+ 160 002a 9342     		cmp	r3, r2
+ 161 002c F4DB     		blt	.L13
+  72:main.c        ****         }
+  73:main.c        ****     
+  74:main.c        ****         firstbyte = 0;
+ 162              		.loc 1 74 0 is_stmt 1
+ 163 002e 044B     		ldr	r3, .L15
+ 164              	.LVL9:
+ 165 0030 0022     		movs	r2, #0
+ 166 0032 5A71     		strb	r2, [r3, #5]
+  75:main.c        ****         CommandReady = 1;
+ 167              		.loc 1 75 0
+ 168 0034 0121     		movs	r1, #1
+ 169 0036 D971     		strb	r1, [r3, #7]
+  76:main.c        ****         ByteCount = 0;
+ 170              		.loc 1 76 0
+ 171 0038 1A71     		strb	r2, [r3, #4]
+ 172              	.L11:
+  77:main.c        ****     }
+  78:main.c        ****     ByteCounter_ReadStatusRegister();
+ 173              		.loc 1 78 0
+ 174 003a FFF7FEFF 		bl	ByteCounter_ReadStatusRegister
+ 175              	.LVL10:
+ 176 003e 08BD     		pop	{r3, pc}
+ 177              	.L16:
+ 178              		.align	2
+ 179              	.L15:
+ 180 0040 00000000 		.word	.LANCHOR0
+ 181 0044 00000000 		.word	ReceivedBuffer
+ 182 0048 00000000 		.word	Command_Packet
+ 183              		.cfi_endproc
+ 184              	.LFE65:
+ 185              		.size	CommandReceived, .-CommandReceived
+ 186              		.global	__aeabi_ui2d
+ 187              		.global	__aeabi_dadd
+ 188              		.section	.text.main,"ax",%progbits
+ 189              		.align	2
+ 190              		.global	main
+ 191              		.thumb
+ 192              		.thumb_func
+ 193              		.type	main, %function
+ 194              	main:
+ 195              	.LFB66:
+  79:main.c        ****     //LEDDrive_Write(0);
+  80:main.c        **** }
+  81:main.c        **** 
+  82:main.c        **** int main(void)
+  83:main.c        **** {
+ 196              		.loc 1 83 0
+ 197              		.cfi_startproc
+ 198              		@ args = 0, pretend = 0, frame = 0
+ 199              		@ frame_needed = 0, uses_anonymous_args = 0
+ 200 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 6
+
+
+ 201              		.cfi_def_cfa_offset 32
+ 202              		.cfi_offset 3, -32
+ 203              		.cfi_offset 4, -28
+ 204              		.cfi_offset 5, -24
+ 205              		.cfi_offset 6, -20
+ 206              		.cfi_offset 7, -16
+ 207              		.cfi_offset 8, -12
+ 208              		.cfi_offset 9, -8
+ 209              		.cfi_offset 14, -4
+  84:main.c        ****     uint8 i;
+  85:main.c        ****     
+  86:main.c        ****     Timer_1_Start();
+ 210              		.loc 1 86 0
+ 211 0004 FFF7FEFF 		bl	Timer_1_Start
+ 212              	.LVL11:
+  87:main.c        ****     TimerInterrupt_Start();
+ 213              		.loc 1 87 0
+ 214 0008 FFF7FEFF 		bl	TimerInterrupt_Start
+ 215              	.LVL12:
+  88:main.c        ****     TimerInterrupt_StartEx(TimerInterrupt);
+ 216              		.loc 1 88 0
+ 217 000c 5248     		ldr	r0, .L31+16
+ 218 000e FFF7FEFF 		bl	TimerInterrupt_StartEx
+ 219              	.LVL13:
+  89:main.c        ****     TimerInterrupt_Enable();
+ 220              		.loc 1 89 0
+ 221 0012 FFF7FEFF 		bl	TimerInterrupt_Enable
+ 222              	.LVL14:
+  90:main.c        ****     
+  91:main.c        ****     UARTReset_Write(0);
+ 223              		.loc 1 91 0
+ 224 0016 0020     		movs	r0, #0
+ 225 0018 FFF7FEFF 		bl	UARTReset_Write
+ 226              	.LVL15:
+  92:main.c        ****     ByteCountReset_Write(0);
+ 227              		.loc 1 92 0
+ 228 001c 0020     		movs	r0, #0
+ 229 001e FFF7FEFF 		bl	ByteCountReset_Write
+ 230              	.LVL16:
+  93:main.c        ****     
+  94:main.c        ****     UART1_Start();
+ 231              		.loc 1 94 0
+ 232 0022 FFF7FEFF 		bl	UART1_Start
+ 233              	.LVL17:
+  95:main.c        ****     
+  96:main.c        ****     ByteCounter_Start();
+ 234              		.loc 1 96 0
+ 235 0026 FFF7FEFF 		bl	ByteCounter_Start
+ 236              	.LVL18:
+  97:main.c        ****     ByteCounter_Enable();
+ 237              		.loc 1 97 0
+ 238 002a FFF7FEFF 		bl	ByteCounter_Enable
+ 239              	.LVL19:
+  98:main.c        ****     ByteCounter_SetInterruptMode(ByteCounter_STATUS_CMP_INT_EN_MASK);
+ 240              		.loc 1 98 0
+ 241 002e 0120     		movs	r0, #1
+ 242 0030 FFF7FEFF 		bl	ByteCounter_SetInterruptMode
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 7
+
+
+ 243              	.LVL20:
+  99:main.c        ****        
+ 100:main.c        ****     ByteReceived_Start();
+ 244              		.loc 1 100 0
+ 245 0034 FFF7FEFF 		bl	ByteReceived_Start
+ 246              	.LVL21:
+ 101:main.c        ****     ByteReceived_StartEx(ByteReceived);
+ 247              		.loc 1 101 0
+ 248 0038 4848     		ldr	r0, .L31+20
+ 249 003a FFF7FEFF 		bl	ByteReceived_StartEx
+ 250              	.LVL22:
+ 102:main.c        ****     ByteReceived_Enable();
+ 251              		.loc 1 102 0
+ 252 003e FFF7FEFF 		bl	ByteReceived_Enable
+ 253              	.LVL23:
+ 103:main.c        ****     
+ 104:main.c        ****     CommandReceived_Start();
+ 254              		.loc 1 104 0
+ 255 0042 FFF7FEFF 		bl	CommandReceived_Start
+ 256              	.LVL24:
+ 105:main.c        ****     CommandReceived_StartEx(CommandReceived);
+ 257              		.loc 1 105 0
+ 258 0046 4648     		ldr	r0, .L31+24
+ 259 0048 FFF7FEFF 		bl	CommandReceived_StartEx
+ 260              	.LVL25:
+ 106:main.c        ****     CommandReceived_Enable();
+ 261              		.loc 1 106 0
+ 262 004c FFF7FEFF 		bl	CommandReceived_Enable
+ 263              	.LVL26:
+ 107:main.c        ****     
+ 108:main.c        ****     CyGlobalIntEnable; //Enable global interrupts
+ 264              		.loc 1 108 0
+ 265              		.syntax unified
+ 266              	@ 108 "main.c" 1
+ 267 0050 62B6     		CPSIE   i
+ 268              	@ 0 "" 2
+ 269              	.LVL27:
+ 109:main.c        **** 
+ 110:main.c        ****     // Initialize flags
+ 111:main.c        ****     uint8 ActiveFlag = FALSE;
+ 270              		.loc 1 111 0
+ 271              		.thumb
+ 272              		.syntax unified
+ 273 0052 0024     		movs	r4, #0
+ 274              	.LVL28:
+ 275              	.L18:
+ 112:main.c        ****     uint8 InputFlag = FALSE;
+ 113:main.c        ****     uint8 MeasFlag = FALSE;
+ 114:main.c        ****     
+ 115:main.c        ****     for(;;)
+ 116:main.c        ****     {        
+ 117:main.c        ****         if(CommandReady)
+ 276              		.loc 1 117 0
+ 277 0054 434B     		ldr	r3, .L31+28
+ 278 0056 DB79     		ldrb	r3, [r3, #7]	@ zero_extendqisi2
+ 279 0058 002B     		cmp	r3, #0
+ 280 005a FBD0     		beq	.L18
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 8
+
+
+ 118:main.c        ****         {
+ 119:main.c        ****             switch(Command_Packet.command)
+ 281              		.loc 1 119 0
+ 282 005c 424B     		ldr	r3, .L31+32
+ 283 005e 5A78     		ldrb	r2, [r3, #1]	@ zero_extendqisi2
+ 284 0060 531E     		subs	r3, r2, #1
+ 285 0062 032B     		cmp	r3, #3
+ 286 0064 68D8     		bhi	.L19
+ 287 0066 DFE803F0 		tbb	[pc, r3]
+ 288              	.L21:
+ 289 006a 02       		.byte	(.L20-.L21)/2
+ 290 006b 1D       		.byte	(.L22-.L21)/2
+ 291 006c 25       		.byte	(.L23-.L21)/2
+ 292 006d 64       		.byte	(.L24-.L21)/2
+ 293              		.p2align 1
+ 294              	.L20:
+ 120:main.c        ****             {
+ 121:main.c        ****                 case 1:
+ 122:main.c        ****                     // Relay bytes back to Python (for testing)
+ 123:main.c        ****                     Transmit_Packet.command = Command_Packet.command;
+ 295              		.loc 1 123 0
+ 296 006e 3F49     		ldr	r1, .L31+36
+ 297 0070 4A70     		strb	r2, [r1, #1]
+ 124:main.c        ****                     TransmitBuffer[1] = Transmit_Packet.command;
+ 298              		.loc 1 124 0
+ 299 0072 3F4B     		ldr	r3, .L31+40
+ 300 0074 5A70     		strb	r2, [r3, #1]
+ 125:main.c        ****                     Transmit_Packet.packet_size = Command_Packet.packet_size;
+ 301              		.loc 1 125 0
+ 302 0076 3C4A     		ldr	r2, .L31+32
+ 303 0078 1578     		ldrb	r5, [r2]	@ zero_extendqisi2
+ 304 007a 0D70     		strb	r5, [r1]
+ 126:main.c        ****                     TransmitBuffer[0] = Transmit_Packet.packet_size;
+ 305              		.loc 1 126 0
+ 306 007c 1D70     		strb	r5, [r3]
+ 307              	.LVL29:
+ 127:main.c        ****                     for(i = 0; i < Transmit_Packet.packet_size; ++i)
+ 308              		.loc 1 127 0
+ 309 007e 0023     		movs	r3, #0
+ 310 0080 0AE0     		b	.L25
+ 311              	.LVL30:
+ 312              	.L26:
+ 128:main.c        ****                     {
+ 129:main.c        ****                         Transmit_Packet.buffer[i+2] = Command_Packet.buffer[i];
+ 313              		.loc 1 129 0 discriminator 3
+ 314 0082 991C     		adds	r1, r3, #2
+ 315 0084 384A     		ldr	r2, .L31+32
+ 316 0086 1A44     		add	r2, r2, r3
+ 317 0088 9078     		ldrb	r0, [r2, #2]	@ zero_extendqisi2
+ 318 008a 384A     		ldr	r2, .L31+36
+ 319 008c 0A44     		add	r2, r2, r1
+ 320 008e 9070     		strb	r0, [r2, #2]
+ 130:main.c        ****                         TransmitBuffer[i+2] = Transmit_Packet.buffer[i+2];
+ 321              		.loc 1 130 0 discriminator 3
+ 322 0090 374A     		ldr	r2, .L31+40
+ 323 0092 5054     		strb	r0, [r2, r1]
+ 127:main.c        ****                     for(i = 0; i < Transmit_Packet.packet_size; ++i)
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 9
+
+
+ 324              		.loc 1 127 0 discriminator 3
+ 325 0094 0133     		adds	r3, r3, #1
+ 326              	.LVL31:
+ 327 0096 DBB2     		uxtb	r3, r3
+ 328              	.LVL32:
+ 329              	.L25:
+ 127:main.c        ****                     for(i = 0; i < Transmit_Packet.packet_size; ++i)
+ 330              		.loc 1 127 0 is_stmt 0 discriminator 1
+ 331 0098 AB42     		cmp	r3, r5
+ 332 009a F2D3     		bcc	.L26
+ 131:main.c        ****                     }
+ 132:main.c        ****                     CommandReady = 0;
+ 333              		.loc 1 132 0 is_stmt 1
+ 334 009c 0022     		movs	r2, #0
+ 335 009e 314B     		ldr	r3, .L31+28
+ 336              	.LVL33:
+ 337 00a0 DA71     		strb	r2, [r3, #7]
+ 133:main.c        ****                 break;
+ 338              		.loc 1 133 0
+ 339 00a2 49E0     		b	.L19
+ 340              	.L22:
+ 134:main.c        ****                 
+ 135:main.c        ****                 case 2:
+ 136:main.c        ****                     // Start timing for computation alongside Python
+ 137:main.c        ****                     TimeStart = Time;
+ 341              		.loc 1 137 0
+ 342 00a4 2F4B     		ldr	r3, .L31+28
+ 343 00a6 1968     		ldr	r1, [r3]
+ 344 00a8 324A     		ldr	r2, .L31+44
+ 345 00aa 1160     		str	r1, [r2]
+ 346              	.LVL34:
+ 138:main.c        ****                     ActiveFlag = TRUE;
+ 139:main.c        ****                     CommandReady = 0;
+ 347              		.loc 1 139 0
+ 348 00ac 0022     		movs	r2, #0
+ 349 00ae DA71     		strb	r2, [r3, #7]
+ 138:main.c        ****                     ActiveFlag = TRUE;
+ 350              		.loc 1 138 0
+ 351 00b0 0124     		movs	r4, #1
+ 140:main.c        ****                 break;
+ 352              		.loc 1 140 0
+ 353 00b2 41E0     		b	.L19
+ 354              	.LVL35:
+ 355              	.L23:
+ 141:main.c        ****                 
+ 142:main.c        ****                 case 3:
+ 143:main.c        ****                     LEDDrive_Write(1);
+ 356              		.loc 1 143 0
+ 357 00b4 0120     		movs	r0, #1
+ 358 00b6 FFF7FEFF 		bl	LEDDrive_Write
+ 359              	.LVL36:
+ 144:main.c        ****                     // Input requested
+ 145:main.c        ****                     if (ActiveFlag)
+ 360              		.loc 1 145 0
+ 361 00ba 002C     		cmp	r4, #0
+ 362 00bc 3CD0     		beq	.L19
+ 363              	.LBB2:
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 10
+
+
+ 146:main.c        ****                     {   
+ 147:main.c        ****                         // Send two double inputs to Python
+ 148:main.c        ****                         Transmit_Packet.command = Command_Packet.command;
+ 364              		.loc 1 148 0
+ 365 00be 2A4B     		ldr	r3, .L31+32
+ 366 00c0 5A78     		ldrb	r2, [r3, #1]	@ zero_extendqisi2
+ 367 00c2 2A49     		ldr	r1, .L31+36
+ 368 00c4 4A70     		strb	r2, [r1, #1]
+ 149:main.c        ****                         TransmitBuffer[1] = Transmit_Packet.command;
+ 369              		.loc 1 149 0
+ 370 00c6 2A4B     		ldr	r3, .L31+40
+ 371 00c8 5A70     		strb	r2, [r3, #1]
+ 150:main.c        ****                         
+ 151:main.c        ****                         // Set packet size for sending two doubles
+ 152:main.c        ****                         Transmit_Packet.packet_size = 18;
+ 372              		.loc 1 152 0
+ 373 00ca 1222     		movs	r2, #18
+ 374 00cc 0A70     		strb	r2, [r1]
+ 153:main.c        ****                         TransmitBuffer[0] = Transmit_Packet.packet_size;
+ 375              		.loc 1 153 0
+ 376 00ce 1A70     		strb	r2, [r3]
+ 154:main.c        ****                         
+ 155:main.c        ****                         // Values of those doubles (will be LQG eventually)
+ 156:main.c        ****                         Input1 = 5.678 + (double) Time;
+ 377              		.loc 1 156 0
+ 378 00d0 244B     		ldr	r3, .L31+28
+ 379 00d2 1868     		ldr	r0, [r3]
+ 380 00d4 FFF7FEFF 		bl	__aeabi_ui2d
+ 381              	.LVL37:
+ 382 00d8 8046     		mov	r8, r0
+ 383 00da 8946     		mov	r9, r1
+ 384 00dc 1AA3     		adr	r3, .L31
+ 385 00de D3E90023 		ldrd	r2, [r3]
+ 386 00e2 FFF7FEFF 		bl	__aeabi_dadd
+ 387              	.LVL38:
+ 388 00e6 244E     		ldr	r6, .L31+48
+ 389 00e8 C6E90001 		strd	r0, [r6]
+ 157:main.c        ****                         Input2 = 9.7834594324234 + (double) Time;
+ 390              		.loc 1 157 0
+ 391 00ec 18A3     		adr	r3, .L31+8
+ 392 00ee D3E90023 		ldrd	r2, [r3]
+ 393 00f2 4046     		mov	r0, r8
+ 394 00f4 4946     		mov	r1, r9
+ 395 00f6 FFF7FEFF 		bl	__aeabi_dadd
+ 396              	.LVL39:
+ 397 00fa 204F     		ldr	r7, .L31+52
+ 398 00fc C7E90001 		strd	r0, [r7]
+ 399              	.LVL40:
+ 158:main.c        ****                         
+ 159:main.c        ****                         // Pointer declaration for sending doubles by byte
+ 160:main.c        ****                         uint8 *PtrInput1 = &Input1;
+ 161:main.c        ****                         uint8 *PtrInput2 = &Input2;
+ 162:main.c        ****                         
+ 163:main.c        ****                         /*
+ 164:main.c        ****                         Load bytes representing doubles into transmit buffer via
+ 165:main.c        ****                         iteration
+ 166:main.c        ****                         */
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 11
+
+
+ 167:main.c        ****                         for (i=0; i < (Transmit_Packet.packet_size-2)/2; ++i)
+ 400              		.loc 1 167 0
+ 401 0100 0023     		movs	r3, #0
+ 402 0102 10E0     		b	.L27
+ 403              	.LVL41:
+ 404              	.L28:
+ 168:main.c        ****                         {
+ 169:main.c        ****                             Transmit_Packet.buffer[i+2] = *PtrInput1;
+ 405              		.loc 1 169 0 discriminator 3
+ 406 0104 991C     		adds	r1, r3, #2
+ 407 0106 16F8015B 		ldrb	r5, [r6], #1	@ zero_extendqisi2
+ 408              	.LVL42:
+ 409 010a 184A     		ldr	r2, .L31+36
+ 410 010c 5018     		adds	r0, r2, r1
+ 411 010e 8570     		strb	r5, [r0, #2]
+ 170:main.c        ****                             TransmitBuffer[i+2] = Transmit_Packet.buffer[i+2];
+ 412              		.loc 1 170 0 discriminator 3
+ 413 0110 1748     		ldr	r0, .L31+40
+ 414 0112 4554     		strb	r5, [r0, r1]
+ 415              	.LVL43:
+ 171:main.c        ****                             ++PtrInput1;
+ 172:main.c        ****                             
+ 173:main.c        ****                             Transmit_Packet.buffer[i+2+8] = *PtrInput2;
+ 416              		.loc 1 173 0 discriminator 3
+ 417 0114 03F10A01 		add	r1, r3, #10
+ 418 0118 17F8015B 		ldrb	r5, [r7], #1	@ zero_extendqisi2
+ 419              	.LVL44:
+ 420 011c 0A44     		add	r2, r2, r1
+ 421 011e 9570     		strb	r5, [r2, #2]
+ 174:main.c        ****                             TransmitBuffer[i+2+8] = Transmit_Packet.buffer[i+2+8];
+ 422              		.loc 1 174 0 discriminator 3
+ 423 0120 4554     		strb	r5, [r0, r1]
+ 424              	.LVL45:
+ 167:main.c        ****                         {
+ 425              		.loc 1 167 0 discriminator 3
+ 426 0122 0133     		adds	r3, r3, #1
+ 427              	.LVL46:
+ 428 0124 DBB2     		uxtb	r3, r3
+ 429              	.LVL47:
+ 430              	.L27:
+ 167:main.c        ****                         {
+ 431              		.loc 1 167 0 is_stmt 0 discriminator 1
+ 432 0126 072B     		cmp	r3, #7
+ 433 0128 ECDD     		ble	.L28
+ 175:main.c        ****                             ++PtrInput2;
+ 176:main.c        ****                         }
+ 177:main.c        ****                         CommandReady = 0;
+ 434              		.loc 1 177 0 is_stmt 1
+ 435 012a 0022     		movs	r2, #0
+ 436 012c 0D4B     		ldr	r3, .L31+28
+ 437              	.LVL48:
+ 438 012e DA71     		strb	r2, [r3, #7]
+ 439 0130 02E0     		b	.L19
+ 440              	.LVL49:
+ 441              	.L24:
+ 442              	.LBE2:
+ 178:main.c        ****                     }
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 12
+
+
+ 179:main.c        ****                 break;
+ 180:main.c        ****                 
+ 181:main.c        ****                 case 4:
+ 182:main.c        ****                     // Incoming measurement data
+ 183:main.c        ****                     if (ActiveFlag)
+ 184:main.c        ****                     {
+ 185:main.c        ****                     }
+ 186:main.c        ****                     CommandReady = 0;
+ 443              		.loc 1 186 0
+ 444 0132 0022     		movs	r2, #0
+ 445 0134 0B4B     		ldr	r3, .L31+28
+ 446 0136 DA71     		strb	r2, [r3, #7]
+ 447              	.LVL50:
+ 448              	.L19:
+ 187:main.c        ****                 break;
+ 188:main.c        ****                 
+ 189:main.c        ****                 case 5:
+ 190:main.c        ****                     // Store LQG matricies
+ 191:main.c        ****                 break;
+ 192:main.c        ****                 
+ 193:main.c        ****                 default:
+ 194:main.c        ****                 break;
+ 195:main.c        ****             }
+ 196:main.c        ****             UART1_PutArray(TransmitBuffer,Transmit_Packet.packet_size);
+ 449              		.loc 1 196 0
+ 450 0138 0C4B     		ldr	r3, .L31+36
+ 451 013a 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 452 013c 0C48     		ldr	r0, .L31+40
+ 453 013e FFF7FEFF 		bl	UART1_PutArray
+ 454              	.LVL51:
+ 455 0142 87E7     		b	.L18
+ 456              	.L32:
+ 457 0144 AFF30080 		.align	3
+ 458              	.L31:
+ 459 0148 83C0CAA1 		.word	-1580547965
+ 460 014c 45B61640 		.word	1075230277
+ 461 0150 A1004098 		.word	-1740635999
+ 462 0154 21912340 		.word	1076072737
+ 463 0158 00000000 		.word	TimerInterrupt
+ 464 015c 00000000 		.word	ByteReceived
+ 465 0160 00000000 		.word	CommandReceived
+ 466 0164 00000000 		.word	.LANCHOR0
+ 467 0168 00000000 		.word	Command_Packet
+ 468 016c 00000000 		.word	Transmit_Packet
+ 469 0170 00000000 		.word	TransmitBuffer
+ 470 0174 00000000 		.word	TimeStart
+ 471 0178 00000000 		.word	Input1
+ 472 017c 00000000 		.word	Input2
+ 473              		.cfi_endproc
+ 474              	.LFE66:
+ 475              		.size	main, .-main
+ 476              		.comm	Transmit_Packet,66,4
+ 477              		.comm	Command_Packet,66,4
+ 478              		.comm	Input2,8,8
+ 479              		.comm	Input1,8,8
+ 480              		.comm	TimeStart,4,4
+ 481              		.global	Time
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 13
+
+
+ 482              		.comm	TransmitBuffer,66,4
+ 483              		.comm	ReceivedBuffer,66,4
+ 484              		.comm	Status,1,1
+ 485              		.global	Count
+ 486              		.global	CommandReady
+ 487              		.global	firstbyte
+ 488              		.global	ByteCount
+ 489              		.bss
+ 490              		.align	2
+ 491              		.set	.LANCHOR0,. + 0
+ 492              		.type	Time, %object
+ 493              		.size	Time, 4
+ 494              	Time:
+ 495 0000 00000000 		.space	4
+ 496              		.type	ByteCount, %object
+ 497              		.size	ByteCount, 1
+ 498              	ByteCount:
+ 499 0004 00       		.space	1
+ 500              		.type	firstbyte, %object
+ 501              		.size	firstbyte, 1
+ 502              	firstbyte:
+ 503 0005 00       		.space	1
+ 504              		.type	Count, %object
+ 505              		.size	Count, 1
+ 506              	Count:
+ 507 0006 00       		.space	1
+ 508              		.type	CommandReady, %object
+ 509              		.size	CommandReady, 1
+ 510              	CommandReady:
+ 511 0007 00       		.space	1
+ 512              		.text
+ 513              	.Letext0:
+ 514              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 515              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 516              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 517              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 518              		.file 6 "Generated_Source\\PSoC5/Timer_1.h"
+ 519              		.file 7 "Generated_Source\\PSoC5/UART1.h"
+ 520              		.file 8 "Generated_Source\\PSoC5/ByteCounter.h"
+ 521              		.file 9 "Generated_Source\\PSoC5/TimerInterrupt.h"
+ 522              		.file 10 "Generated_Source\\PSoC5/UARTReset.h"
+ 523              		.file 11 "Generated_Source\\PSoC5/ByteCountReset.h"
+ 524              		.file 12 "Generated_Source\\PSoC5/ByteReceived.h"
+ 525              		.file 13 "Generated_Source\\PSoC5/CommandReceived.h"
+ 526              		.file 14 "Generated_Source\\PSoC5/LEDDrive.h"
+ 527              		.section	.debug_info,"",%progbits
+ 528              	.Ldebug_info0:
+ 529 0000 F8040000 		.4byte	0x4f8
+ 530 0004 0400     		.2byte	0x4
+ 531 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 532 000a 04       		.byte	0x4
+ 533 000b 01       		.uleb128 0x1
+ 534 000c B7020000 		.4byte	.LASF66
+ 535 0010 0C       		.byte	0xc
+ 536 0011 C5030000 		.4byte	.LASF67
+ 537 0015 22010000 		.4byte	.LASF68
+ 538 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 14
+
+
+ 539 001d 00000000 		.4byte	0
+ 540 0021 00000000 		.4byte	.Ldebug_line0
+ 541 0025 02       		.uleb128 0x2
+ 542 0026 01       		.byte	0x1
+ 543 0027 06       		.byte	0x6
+ 544 0028 F5000000 		.4byte	.LASF0
+ 545 002c 02       		.uleb128 0x2
+ 546 002d 01       		.byte	0x1
+ 547 002e 08       		.byte	0x8
+ 548 002f 19020000 		.4byte	.LASF1
+ 549 0033 02       		.uleb128 0x2
+ 550 0034 02       		.byte	0x2
+ 551 0035 05       		.byte	0x5
+ 552 0036 37000000 		.4byte	.LASF2
+ 553 003a 02       		.uleb128 0x2
+ 554 003b 02       		.byte	0x2
+ 555 003c 07       		.byte	0x7
+ 556 003d A4020000 		.4byte	.LASF3
+ 557 0041 03       		.uleb128 0x3
+ 558 0042 27040000 		.4byte	.LASF9
+ 559 0046 02       		.byte	0x2
+ 560 0047 3F       		.byte	0x3f
+ 561 0048 4C000000 		.4byte	0x4c
+ 562 004c 02       		.uleb128 0x2
+ 563 004d 04       		.byte	0x4
+ 564 004e 05       		.byte	0x5
+ 565 004f A2010000 		.4byte	.LASF4
+ 566 0053 02       		.uleb128 0x2
+ 567 0054 04       		.byte	0x4
+ 568 0055 07       		.byte	0x7
+ 569 0056 8C020000 		.4byte	.LASF5
+ 570 005a 02       		.uleb128 0x2
+ 571 005b 08       		.byte	0x8
+ 572 005c 05       		.byte	0x5
+ 573 005d 14010000 		.4byte	.LASF6
+ 574 0061 02       		.uleb128 0x2
+ 575 0062 08       		.byte	0x8
+ 576 0063 07       		.byte	0x7
+ 577 0064 4E020000 		.4byte	.LASF7
+ 578 0068 04       		.uleb128 0x4
+ 579 0069 04       		.byte	0x4
+ 580 006a 05       		.byte	0x5
+ 581 006b 696E7400 		.ascii	"int\000"
+ 582 006f 02       		.uleb128 0x2
+ 583 0070 04       		.byte	0x4
+ 584 0071 07       		.byte	0x7
+ 585 0072 73020000 		.4byte	.LASF8
+ 586 0076 03       		.uleb128 0x3
+ 587 0077 75030000 		.4byte	.LASF10
+ 588 007b 03       		.byte	0x3
+ 589 007c 2C       		.byte	0x2c
+ 590 007d 41000000 		.4byte	0x41
+ 591 0081 05       		.uleb128 0x5
+ 592 0082 AD000000 		.4byte	.LASF11
+ 593 0086 04       		.byte	0x4
+ 594 0087 E401     		.2byte	0x1e4
+ 595 0089 2C000000 		.4byte	0x2c
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 15
+
+
+ 596 008d 05       		.uleb128 0x5
+ 597 008e BE030000 		.4byte	.LASF12
+ 598 0092 04       		.byte	0x4
+ 599 0093 E601     		.2byte	0x1e6
+ 600 0095 53000000 		.4byte	0x53
+ 601 0099 02       		.uleb128 0x2
+ 602 009a 04       		.byte	0x4
+ 603 009b 04       		.byte	0x4
+ 604 009c 01010000 		.4byte	.LASF13
+ 605 00a0 02       		.uleb128 0x2
+ 606 00a1 08       		.byte	0x8
+ 607 00a2 04       		.byte	0x4
+ 608 00a3 E5030000 		.4byte	.LASF14
+ 609 00a7 02       		.uleb128 0x2
+ 610 00a8 01       		.byte	0x1
+ 611 00a9 08       		.byte	0x8
+ 612 00aa 54030000 		.4byte	.LASF15
+ 613 00ae 02       		.uleb128 0x2
+ 614 00af 08       		.byte	0x8
+ 615 00b0 04       		.byte	0x4
+ 616 00b1 0D020000 		.4byte	.LASF16
+ 617 00b5 02       		.uleb128 0x2
+ 618 00b6 04       		.byte	0x4
+ 619 00b7 07       		.byte	0x7
+ 620 00b8 41000000 		.4byte	.LASF17
+ 621 00bc 06       		.uleb128 0x6
+ 622 00bd FC010000 		.4byte	.LASF69
+ 623 00c1 42       		.byte	0x42
+ 624 00c2 01       		.byte	0x1
+ 625 00c3 1B       		.byte	0x1b
+ 626 00c4 ED000000 		.4byte	0xed
+ 627 00c8 07       		.uleb128 0x7
+ 628 00c9 80020000 		.4byte	.LASF18
+ 629 00cd 01       		.byte	0x1
+ 630 00ce 1D       		.byte	0x1d
+ 631 00cf 81000000 		.4byte	0x81
+ 632 00d3 00       		.byte	0
+ 633 00d4 07       		.uleb128 0x7
+ 634 00d5 B1040000 		.4byte	.LASF19
+ 635 00d9 01       		.byte	0x1
+ 636 00da 1E       		.byte	0x1e
+ 637 00db 81000000 		.4byte	0x81
+ 638 00df 01       		.byte	0x1
+ 639 00e0 07       		.uleb128 0x7
+ 640 00e1 B7030000 		.4byte	.LASF20
+ 641 00e5 01       		.byte	0x1
+ 642 00e6 1F       		.byte	0x1f
+ 643 00e7 ED000000 		.4byte	0xed
+ 644 00eb 02       		.byte	0x2
+ 645 00ec 00       		.byte	0
+ 646 00ed 08       		.uleb128 0x8
+ 647 00ee 81000000 		.4byte	0x81
+ 648 00f2 FD000000 		.4byte	0xfd
+ 649 00f6 09       		.uleb128 0x9
+ 650 00f7 B5000000 		.4byte	0xb5
+ 651 00fb 3F       		.byte	0x3f
+ 652 00fc 00       		.byte	0
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 16
+
+
+ 653 00fd 0A       		.uleb128 0xa
+ 654 00fe 66030000 		.4byte	.LASF21
+ 655 0102 01       		.byte	0x1
+ 656 0103 25       		.byte	0x25
+ 657 0104 00000000 		.4byte	.LFB63
+ 658 0108 14000000 		.4byte	.LFE63-.LFB63
+ 659 010c 01       		.uleb128 0x1
+ 660 010d 9C       		.byte	0x9c
+ 661 010e 1C010000 		.4byte	0x11c
+ 662 0112 0B       		.uleb128 0xb
+ 663 0113 0E000000 		.4byte	.LVL0
+ 664 0117 FE030000 		.4byte	0x3fe
+ 665 011b 00       		.byte	0
+ 666 011c 0A       		.uleb128 0xa
+ 667 011d 07010000 		.4byte	.LASF22
+ 668 0121 01       		.byte	0x1
+ 669 0122 2C       		.byte	0x2c
+ 670 0123 00000000 		.4byte	.LFB64
+ 671 0127 40000000 		.4byte	.LFE64-.LFB64
+ 672 012b 01       		.uleb128 0x1
+ 673 012c 9C       		.byte	0x9c
+ 674 012d 56010000 		.4byte	0x156
+ 675 0131 0B       		.uleb128 0xb
+ 676 0132 0E000000 		.4byte	.LVL1
+ 677 0136 09040000 		.4byte	0x409
+ 678 013a 0B       		.uleb128 0xb
+ 679 013b 1E000000 		.4byte	.LVL2
+ 680 013f 14040000 		.4byte	0x414
+ 681 0143 0B       		.uleb128 0xb
+ 682 0144 26000000 		.4byte	.LVL3
+ 683 0148 1F040000 		.4byte	0x41f
+ 684 014c 0B       		.uleb128 0xb
+ 685 014d 2E000000 		.4byte	.LVL4
+ 686 0151 2A040000 		.4byte	0x42a
+ 687 0155 00       		.byte	0
+ 688 0156 0A       		.uleb128 0xa
+ 689 0157 B9040000 		.4byte	.LASF23
+ 690 015b 01       		.byte	0x1
+ 691 015c 3C       		.byte	0x3c
+ 692 015d 00000000 		.4byte	.LFB65
+ 693 0161 4C000000 		.4byte	.LFE65-.LFB65
+ 694 0165 01       		.uleb128 0x1
+ 695 0166 9C       		.byte	0x9c
+ 696 0167 82010000 		.4byte	0x182
+ 697 016b 0C       		.uleb128 0xc
+ 698 016c 6900     		.ascii	"i\000"
+ 699 016e 01       		.byte	0x1
+ 700 016f 3E       		.byte	0x3e
+ 701 0170 81000000 		.4byte	0x81
+ 702 0174 00000000 		.4byte	.LLST0
+ 703 0178 0B       		.uleb128 0xb
+ 704 0179 3E000000 		.4byte	.LVL10
+ 705 017d 2A040000 		.4byte	0x42a
+ 706 0181 00       		.byte	0
+ 707 0182 0D       		.uleb128 0xd
+ 708 0183 60000000 		.4byte	.LASF70
+ 709 0187 01       		.byte	0x1
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 17
+
+
+ 710 0188 52       		.byte	0x52
+ 711 0189 68000000 		.4byte	0x68
+ 712 018d 00000000 		.4byte	.LFB66
+ 713 0191 80010000 		.4byte	.LFE66-.LFB66
+ 714 0195 01       		.uleb128 0x1
+ 715 0196 9C       		.byte	0x9c
+ 716 0197 FA020000 		.4byte	0x2fa
+ 717 019b 0C       		.uleb128 0xc
+ 718 019c 6900     		.ascii	"i\000"
+ 719 019e 01       		.byte	0x1
+ 720 019f 54       		.byte	0x54
+ 721 01a0 81000000 		.4byte	0x81
+ 722 01a4 2A000000 		.4byte	.LLST1
+ 723 01a8 0E       		.uleb128 0xe
+ 724 01a9 1C040000 		.4byte	.LASF24
+ 725 01ad 01       		.byte	0x1
+ 726 01ae 6F       		.byte	0x6f
+ 727 01af 81000000 		.4byte	0x81
+ 728 01b3 76000000 		.4byte	.LLST2
+ 729 01b7 0F       		.uleb128 0xf
+ 730 01b8 56000000 		.4byte	.LASF25
+ 731 01bc 01       		.byte	0x1
+ 732 01bd 70       		.byte	0x70
+ 733 01be 81000000 		.4byte	0x81
+ 734 01c2 00       		.byte	0
+ 735 01c3 0F       		.uleb128 0xf
+ 736 01c4 DE010000 		.4byte	.LASF26
+ 737 01c8 01       		.byte	0x1
+ 738 01c9 71       		.byte	0x71
+ 739 01ca 81000000 		.4byte	0x81
+ 740 01ce 00       		.byte	0
+ 741 01cf 10       		.uleb128 0x10
+ 742 01d0 BE000000 		.4byte	.LBB2
+ 743 01d4 74000000 		.4byte	.LBE2-.LBB2
+ 744 01d8 FB010000 		.4byte	0x1fb
+ 745 01dc 0E       		.uleb128 0xe
+ 746 01dd 9D040000 		.4byte	.LASF27
+ 747 01e1 01       		.byte	0x1
+ 748 01e2 A0       		.byte	0xa0
+ 749 01e3 FA020000 		.4byte	0x2fa
+ 750 01e7 AC000000 		.4byte	.LLST3
+ 751 01eb 0E       		.uleb128 0xe
+ 752 01ec A7040000 		.4byte	.LASF28
+ 753 01f0 01       		.byte	0x1
+ 754 01f1 A1       		.byte	0xa1
+ 755 01f2 FA020000 		.4byte	0x2fa
+ 756 01f6 E7000000 		.4byte	.LLST4
+ 757 01fa 00       		.byte	0
+ 758 01fb 0B       		.uleb128 0xb
+ 759 01fc 08000000 		.4byte	.LVL11
+ 760 0200 35040000 		.4byte	0x435
+ 761 0204 0B       		.uleb128 0xb
+ 762 0205 0C000000 		.4byte	.LVL12
+ 763 0209 40040000 		.4byte	0x440
+ 764 020d 11       		.uleb128 0x11
+ 765 020e 12000000 		.4byte	.LVL13
+ 766 0212 4B040000 		.4byte	0x44b
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 18
+
+
+ 767 0216 24020000 		.4byte	0x224
+ 768 021a 12       		.uleb128 0x12
+ 769 021b 01       		.uleb128 0x1
+ 770 021c 50       		.byte	0x50
+ 771 021d 05       		.uleb128 0x5
+ 772 021e 03       		.byte	0x3
+ 773 021f 00000000 		.4byte	TimerInterrupt
+ 774 0223 00       		.byte	0
+ 775 0224 0B       		.uleb128 0xb
+ 776 0225 16000000 		.4byte	.LVL14
+ 777 0229 56040000 		.4byte	0x456
+ 778 022d 11       		.uleb128 0x11
+ 779 022e 1C000000 		.4byte	.LVL15
+ 780 0232 61040000 		.4byte	0x461
+ 781 0236 40020000 		.4byte	0x240
+ 782 023a 12       		.uleb128 0x12
+ 783 023b 01       		.uleb128 0x1
+ 784 023c 50       		.byte	0x50
+ 785 023d 01       		.uleb128 0x1
+ 786 023e 30       		.byte	0x30
+ 787 023f 00       		.byte	0
+ 788 0240 11       		.uleb128 0x11
+ 789 0241 22000000 		.4byte	.LVL16
+ 790 0245 6C040000 		.4byte	0x46c
+ 791 0249 53020000 		.4byte	0x253
+ 792 024d 12       		.uleb128 0x12
+ 793 024e 01       		.uleb128 0x1
+ 794 024f 50       		.byte	0x50
+ 795 0250 01       		.uleb128 0x1
+ 796 0251 30       		.byte	0x30
+ 797 0252 00       		.byte	0
+ 798 0253 0B       		.uleb128 0xb
+ 799 0254 26000000 		.4byte	.LVL17
+ 800 0258 77040000 		.4byte	0x477
+ 801 025c 0B       		.uleb128 0xb
+ 802 025d 2A000000 		.4byte	.LVL18
+ 803 0261 82040000 		.4byte	0x482
+ 804 0265 0B       		.uleb128 0xb
+ 805 0266 2E000000 		.4byte	.LVL19
+ 806 026a 8D040000 		.4byte	0x48d
+ 807 026e 11       		.uleb128 0x11
+ 808 026f 34000000 		.4byte	.LVL20
+ 809 0273 98040000 		.4byte	0x498
+ 810 0277 81020000 		.4byte	0x281
+ 811 027b 12       		.uleb128 0x12
+ 812 027c 01       		.uleb128 0x1
+ 813 027d 50       		.byte	0x50
+ 814 027e 01       		.uleb128 0x1
+ 815 027f 31       		.byte	0x31
+ 816 0280 00       		.byte	0
+ 817 0281 0B       		.uleb128 0xb
+ 818 0282 38000000 		.4byte	.LVL21
+ 819 0286 A3040000 		.4byte	0x4a3
+ 820 028a 11       		.uleb128 0x11
+ 821 028b 3E000000 		.4byte	.LVL22
+ 822 028f AE040000 		.4byte	0x4ae
+ 823 0293 A1020000 		.4byte	0x2a1
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 19
+
+
+ 824 0297 12       		.uleb128 0x12
+ 825 0298 01       		.uleb128 0x1
+ 826 0299 50       		.byte	0x50
+ 827 029a 05       		.uleb128 0x5
+ 828 029b 03       		.byte	0x3
+ 829 029c 00000000 		.4byte	ByteReceived
+ 830 02a0 00       		.byte	0
+ 831 02a1 0B       		.uleb128 0xb
+ 832 02a2 42000000 		.4byte	.LVL23
+ 833 02a6 B9040000 		.4byte	0x4b9
+ 834 02aa 0B       		.uleb128 0xb
+ 835 02ab 46000000 		.4byte	.LVL24
+ 836 02af C4040000 		.4byte	0x4c4
+ 837 02b3 11       		.uleb128 0x11
+ 838 02b4 4C000000 		.4byte	.LVL25
+ 839 02b8 CF040000 		.4byte	0x4cf
+ 840 02bc CA020000 		.4byte	0x2ca
+ 841 02c0 12       		.uleb128 0x12
+ 842 02c1 01       		.uleb128 0x1
+ 843 02c2 50       		.byte	0x50
+ 844 02c3 05       		.uleb128 0x5
+ 845 02c4 03       		.byte	0x3
+ 846 02c5 00000000 		.4byte	CommandReceived
+ 847 02c9 00       		.byte	0
+ 848 02ca 0B       		.uleb128 0xb
+ 849 02cb 50000000 		.4byte	.LVL26
+ 850 02cf DA040000 		.4byte	0x4da
+ 851 02d3 11       		.uleb128 0x11
+ 852 02d4 BA000000 		.4byte	.LVL36
+ 853 02d8 E5040000 		.4byte	0x4e5
+ 854 02dc E6020000 		.4byte	0x2e6
+ 855 02e0 12       		.uleb128 0x12
+ 856 02e1 01       		.uleb128 0x1
+ 857 02e2 50       		.byte	0x50
+ 858 02e3 01       		.uleb128 0x1
+ 859 02e4 31       		.byte	0x31
+ 860 02e5 00       		.byte	0
+ 861 02e6 13       		.uleb128 0x13
+ 862 02e7 42010000 		.4byte	.LVL51
+ 863 02eb F0040000 		.4byte	0x4f0
+ 864 02ef 12       		.uleb128 0x12
+ 865 02f0 01       		.uleb128 0x1
+ 866 02f1 50       		.byte	0x50
+ 867 02f2 05       		.uleb128 0x5
+ 868 02f3 03       		.byte	0x3
+ 869 02f4 00000000 		.4byte	TransmitBuffer
+ 870 02f8 00       		.byte	0
+ 871 02f9 00       		.byte	0
+ 872 02fa 14       		.uleb128 0x14
+ 873 02fb 04       		.byte	0x4
+ 874 02fc 81000000 		.4byte	0x81
+ 875 0300 15       		.uleb128 0x15
+ 876 0301 59030000 		.4byte	.LASF29
+ 877 0305 05       		.byte	0x5
+ 878 0306 1207     		.2byte	0x712
+ 879 0308 0C030000 		.4byte	0x30c
+ 880 030c 16       		.uleb128 0x16
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 20
+
+
+ 881 030d 76000000 		.4byte	0x76
+ 882 0311 17       		.uleb128 0x17
+ 883 0312 AB010000 		.4byte	.LASF30
+ 884 0316 01       		.byte	0x1
+ 885 0317 0C       		.byte	0xc
+ 886 0318 81000000 		.4byte	0x81
+ 887 031c 05       		.uleb128 0x5
+ 888 031d 03       		.byte	0x3
+ 889 031e 00000000 		.4byte	ByteCount
+ 890 0322 17       		.uleb128 0x17
+ 891 0323 4F040000 		.4byte	.LASF31
+ 892 0327 01       		.byte	0x1
+ 893 0328 0D       		.byte	0xd
+ 894 0329 81000000 		.4byte	0x81
+ 895 032d 05       		.uleb128 0x5
+ 896 032e 03       		.byte	0x3
+ 897 032f 00000000 		.4byte	firstbyte
+ 898 0333 17       		.uleb128 0x17
+ 899 0334 EC030000 		.4byte	.LASF32
+ 900 0338 01       		.byte	0x1
+ 901 0339 0E       		.byte	0xe
+ 902 033a 81000000 		.4byte	0x81
+ 903 033e 05       		.uleb128 0x5
+ 904 033f 03       		.byte	0x3
+ 905 0340 00000000 		.4byte	CommandReady
+ 906 0344 17       		.uleb128 0x17
+ 907 0345 9E020000 		.4byte	.LASF33
+ 908 0349 01       		.byte	0x1
+ 909 034a 0F       		.byte	0xf
+ 910 034b 81000000 		.4byte	0x81
+ 911 034f 05       		.uleb128 0x5
+ 912 0350 03       		.byte	0x3
+ 913 0351 00000000 		.4byte	Count
+ 914 0355 17       		.uleb128 0x17
+ 915 0356 48040000 		.4byte	.LASF34
+ 916 035a 01       		.byte	0x1
+ 917 035b 10       		.byte	0x10
+ 918 035c 81000000 		.4byte	0x81
+ 919 0360 05       		.uleb128 0x5
+ 920 0361 03       		.byte	0x3
+ 921 0362 00000000 		.4byte	Status
+ 922 0366 08       		.uleb128 0x8
+ 923 0367 81000000 		.4byte	0x81
+ 924 036b 76030000 		.4byte	0x376
+ 925 036f 09       		.uleb128 0x9
+ 926 0370 B5000000 		.4byte	0xb5
+ 927 0374 41       		.byte	0x41
+ 928 0375 00       		.byte	0
+ 929 0376 17       		.uleb128 0x17
+ 930 0377 8F000000 		.4byte	.LASF35
+ 931 037b 01       		.byte	0x1
+ 932 037c 12       		.byte	0x12
+ 933 037d 66030000 		.4byte	0x366
+ 934 0381 05       		.uleb128 0x5
+ 935 0382 03       		.byte	0x3
+ 936 0383 00000000 		.4byte	ReceivedBuffer
+ 937 0387 17       		.uleb128 0x17
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 21
+
+
+ 938 0388 65000000 		.4byte	.LASF36
+ 939 038c 01       		.byte	0x1
+ 940 038d 13       		.byte	0x13
+ 941 038e 66030000 		.4byte	0x366
+ 942 0392 05       		.uleb128 0x5
+ 943 0393 03       		.byte	0x3
+ 944 0394 00000000 		.4byte	TransmitBuffer
+ 945 0398 17       		.uleb128 0x17
+ 946 0399 17040000 		.4byte	.LASF37
+ 947 039d 01       		.byte	0x1
+ 948 039e 15       		.byte	0x15
+ 949 039f 8D000000 		.4byte	0x8d
+ 950 03a3 05       		.uleb128 0x5
+ 951 03a4 03       		.byte	0x3
+ 952 03a5 00000000 		.4byte	Time
+ 953 03a9 17       		.uleb128 0x17
+ 954 03aa 27020000 		.4byte	.LASF38
+ 955 03ae 01       		.byte	0x1
+ 956 03af 16       		.byte	0x16
+ 957 03b0 8D000000 		.4byte	0x8d
+ 958 03b4 05       		.uleb128 0x5
+ 959 03b5 03       		.byte	0x3
+ 960 03b6 00000000 		.4byte	TimeStart
+ 961 03ba 17       		.uleb128 0x17
+ 962 03bb 65020000 		.4byte	.LASF39
+ 963 03bf 01       		.byte	0x1
+ 964 03c0 18       		.byte	0x18
+ 965 03c1 A0000000 		.4byte	0xa0
+ 966 03c5 05       		.uleb128 0x5
+ 967 03c6 03       		.byte	0x3
+ 968 03c7 00000000 		.4byte	Input1
+ 969 03cb 17       		.uleb128 0x17
+ 970 03cc 6C020000 		.4byte	.LASF40
+ 971 03d0 01       		.byte	0x1
+ 972 03d1 19       		.byte	0x19
+ 973 03d2 A0000000 		.4byte	0xa0
+ 974 03d6 05       		.uleb128 0x5
+ 975 03d7 03       		.byte	0x3
+ 976 03d8 00000000 		.4byte	Input2
+ 977 03dc 17       		.uleb128 0x17
+ 978 03dd 45030000 		.4byte	.LASF41
+ 979 03e1 01       		.byte	0x1
+ 980 03e2 20       		.byte	0x20
+ 981 03e3 BC000000 		.4byte	0xbc
+ 982 03e7 05       		.uleb128 0x5
+ 983 03e8 03       		.byte	0x3
+ 984 03e9 00000000 		.4byte	Command_Packet
+ 985 03ed 17       		.uleb128 0x17
+ 986 03ee D2000000 		.4byte	.LASF42
+ 987 03f2 01       		.byte	0x1
+ 988 03f3 22       		.byte	0x22
+ 989 03f4 BC000000 		.4byte	0xbc
+ 990 03f8 05       		.uleb128 0x5
+ 991 03f9 03       		.byte	0x3
+ 992 03fa 00000000 		.4byte	Transmit_Packet
+ 993 03fe 18       		.uleb128 0x18
+ 994 03ff 74000000 		.4byte	.LASF43
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 22
+
+
+ 995 0403 74000000 		.4byte	.LASF43
+ 996 0407 06       		.byte	0x6
+ 997 0408 5E       		.byte	0x5e
+ 998 0409 18       		.uleb128 0x18
+ 999 040a 09040000 		.4byte	.LASF44
+ 1000 040e 09040000 		.4byte	.LASF44
+ 1001 0412 07       		.byte	0x7
+ 1002 0413 72       		.byte	0x72
+ 1003 0414 18       		.uleb128 0x18
+ 1004 0415 CC030000 		.4byte	.LASF45
+ 1005 0419 CC030000 		.4byte	.LASF45
+ 1006 041d 08       		.byte	0x8
+ 1007 041e 63       		.byte	0x63
+ 1008 041f 18       		.uleb128 0x18
+ 1009 0420 85040000 		.4byte	.LASF46
+ 1010 0424 85040000 		.4byte	.LASF46
+ 1011 0428 08       		.byte	0x8
+ 1012 0429 5D       		.byte	0x5d
+ 1013 042a 18       		.uleb128 0x18
+ 1014 042b B3000000 		.4byte	.LASF47
+ 1015 042f B3000000 		.4byte	.LASF47
+ 1016 0433 08       		.byte	0x8
+ 1017 0434 52       		.byte	0x52
+ 1018 0435 18       		.uleb128 0x18
+ 1019 0436 A9030000 		.4byte	.LASF48
+ 1020 043a A9030000 		.4byte	.LASF48
+ 1021 043e 06       		.byte	0x6
+ 1022 043f 5A       		.byte	0x5a
+ 1023 0440 18       		.uleb128 0x18
+ 1024 0441 E7010000 		.4byte	.LASF49
+ 1025 0445 E7010000 		.4byte	.LASF49
+ 1026 0449 09       		.byte	0x9
+ 1027 044a 17       		.byte	0x17
+ 1028 044b 18       		.uleb128 0x18
+ 1029 044c B5010000 		.4byte	.LASF50
+ 1030 0450 B5010000 		.4byte	.LASF50
+ 1031 0454 09       		.byte	0x9
+ 1032 0455 18       		.byte	0x18
+ 1033 0456 18       		.uleb128 0x18
+ 1034 0457 6F040000 		.4byte	.LASF51
+ 1035 045b 6F040000 		.4byte	.LASF51
+ 1036 045f 09       		.byte	0x9
+ 1037 0460 23       		.byte	0x23
+ 1038 0461 18       		.uleb128 0x18
+ 1039 0462 F9030000 		.4byte	.LASF52
+ 1040 0466 F9030000 		.4byte	.LASF52
+ 1041 046a 0A       		.byte	0xa
+ 1042 046b 2F       		.byte	0x2f
+ 1043 046c 18       		.uleb128 0x18
+ 1044 046d C9040000 		.4byte	.LASF53
+ 1045 0471 C9040000 		.4byte	.LASF53
+ 1046 0475 0B       		.byte	0xb
+ 1047 0476 2F       		.byte	0x2f
+ 1048 0477 18       		.uleb128 0x18
+ 1049 0478 4A000000 		.4byte	.LASF54
+ 1050 047c 4A000000 		.4byte	.LASF54
+ 1051 0480 07       		.byte	0x7
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 23
+
+
+ 1052 0481 54       		.byte	0x54
+ 1053 0482 18       		.uleb128 0x18
+ 1054 0483 CC010000 		.4byte	.LASF55
+ 1055 0487 CC010000 		.4byte	.LASF55
+ 1056 048b 08       		.byte	0x8
+ 1057 048c 4F       		.byte	0x4f
+ 1058 048d 18       		.uleb128 0x18
+ 1059 048e 24000000 		.4byte	.LASF56
+ 1060 0492 24000000 		.4byte	.LASF56
+ 1061 0496 08       		.byte	0x8
+ 1062 0497 71       		.byte	0x71
+ 1063 0498 18       		.uleb128 0x18
+ 1064 0499 31020000 		.4byte	.LASF57
+ 1065 049d 31020000 		.4byte	.LASF57
+ 1066 04a1 08       		.byte	0x8
+ 1067 04a2 51       		.byte	0x51
+ 1068 04a3 18       		.uleb128 0x18
+ 1069 04a4 E2000000 		.4byte	.LASF58
+ 1070 04a8 E2000000 		.4byte	.LASF58
+ 1071 04ac 0C       		.byte	0xc
+ 1072 04ad 17       		.byte	0x17
+ 1073 04ae 18       		.uleb128 0x18
+ 1074 04af 00000000 		.4byte	.LASF59
+ 1075 04b3 00000000 		.4byte	.LASF59
+ 1076 04b7 0C       		.byte	0xc
+ 1077 04b8 18       		.byte	0x18
+ 1078 04b9 18       		.uleb128 0x18
+ 1079 04ba 95030000 		.4byte	.LASF60
+ 1080 04be 95030000 		.4byte	.LASF60
+ 1081 04c2 0C       		.byte	0xc
+ 1082 04c3 23       		.byte	0x23
+ 1083 04c4 18       		.uleb128 0x18
+ 1084 04c5 59040000 		.4byte	.LASF61
+ 1085 04c9 59040000 		.4byte	.LASF61
+ 1086 04cd 0D       		.byte	0xd
+ 1087 04ce 17       		.byte	0x17
+ 1088 04cf 18       		.uleb128 0x18
+ 1089 04d0 7D030000 		.4byte	.LASF62
+ 1090 04d4 7D030000 		.4byte	.LASF62
+ 1091 04d8 0D       		.byte	0xd
+ 1092 04d9 18       		.byte	0x18
+ 1093 04da 18       		.uleb128 0x18
+ 1094 04db 31040000 		.4byte	.LASF63
+ 1095 04df 31040000 		.4byte	.LASF63
+ 1096 04e3 0D       		.byte	0xd
+ 1097 04e4 23       		.byte	0x23
+ 1098 04e5 18       		.uleb128 0x18
+ 1099 04e6 9E000000 		.4byte	.LASF64
+ 1100 04ea 9E000000 		.4byte	.LASF64
+ 1101 04ee 0E       		.byte	0xe
+ 1102 04ef 2F       		.byte	0x2f
+ 1103 04f0 18       		.uleb128 0x18
+ 1104 04f1 15000000 		.4byte	.LASF65
+ 1105 04f5 15000000 		.4byte	.LASF65
+ 1106 04f9 07       		.byte	0x7
+ 1107 04fa 8C       		.byte	0x8c
+ 1108 04fb 00       		.byte	0
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 24
+
+
+ 1109              		.section	.debug_abbrev,"",%progbits
+ 1110              	.Ldebug_abbrev0:
+ 1111 0000 01       		.uleb128 0x1
+ 1112 0001 11       		.uleb128 0x11
+ 1113 0002 01       		.byte	0x1
+ 1114 0003 25       		.uleb128 0x25
+ 1115 0004 0E       		.uleb128 0xe
+ 1116 0005 13       		.uleb128 0x13
+ 1117 0006 0B       		.uleb128 0xb
+ 1118 0007 03       		.uleb128 0x3
+ 1119 0008 0E       		.uleb128 0xe
+ 1120 0009 1B       		.uleb128 0x1b
+ 1121 000a 0E       		.uleb128 0xe
+ 1122 000b 55       		.uleb128 0x55
+ 1123 000c 17       		.uleb128 0x17
+ 1124 000d 11       		.uleb128 0x11
+ 1125 000e 01       		.uleb128 0x1
+ 1126 000f 10       		.uleb128 0x10
+ 1127 0010 17       		.uleb128 0x17
+ 1128 0011 00       		.byte	0
+ 1129 0012 00       		.byte	0
+ 1130 0013 02       		.uleb128 0x2
+ 1131 0014 24       		.uleb128 0x24
+ 1132 0015 00       		.byte	0
+ 1133 0016 0B       		.uleb128 0xb
+ 1134 0017 0B       		.uleb128 0xb
+ 1135 0018 3E       		.uleb128 0x3e
+ 1136 0019 0B       		.uleb128 0xb
+ 1137 001a 03       		.uleb128 0x3
+ 1138 001b 0E       		.uleb128 0xe
+ 1139 001c 00       		.byte	0
+ 1140 001d 00       		.byte	0
+ 1141 001e 03       		.uleb128 0x3
+ 1142 001f 16       		.uleb128 0x16
+ 1143 0020 00       		.byte	0
+ 1144 0021 03       		.uleb128 0x3
+ 1145 0022 0E       		.uleb128 0xe
+ 1146 0023 3A       		.uleb128 0x3a
+ 1147 0024 0B       		.uleb128 0xb
+ 1148 0025 3B       		.uleb128 0x3b
+ 1149 0026 0B       		.uleb128 0xb
+ 1150 0027 49       		.uleb128 0x49
+ 1151 0028 13       		.uleb128 0x13
+ 1152 0029 00       		.byte	0
+ 1153 002a 00       		.byte	0
+ 1154 002b 04       		.uleb128 0x4
+ 1155 002c 24       		.uleb128 0x24
+ 1156 002d 00       		.byte	0
+ 1157 002e 0B       		.uleb128 0xb
+ 1158 002f 0B       		.uleb128 0xb
+ 1159 0030 3E       		.uleb128 0x3e
+ 1160 0031 0B       		.uleb128 0xb
+ 1161 0032 03       		.uleb128 0x3
+ 1162 0033 08       		.uleb128 0x8
+ 1163 0034 00       		.byte	0
+ 1164 0035 00       		.byte	0
+ 1165 0036 05       		.uleb128 0x5
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 25
+
+
+ 1166 0037 16       		.uleb128 0x16
+ 1167 0038 00       		.byte	0
+ 1168 0039 03       		.uleb128 0x3
+ 1169 003a 0E       		.uleb128 0xe
+ 1170 003b 3A       		.uleb128 0x3a
+ 1171 003c 0B       		.uleb128 0xb
+ 1172 003d 3B       		.uleb128 0x3b
+ 1173 003e 05       		.uleb128 0x5
+ 1174 003f 49       		.uleb128 0x49
+ 1175 0040 13       		.uleb128 0x13
+ 1176 0041 00       		.byte	0
+ 1177 0042 00       		.byte	0
+ 1178 0043 06       		.uleb128 0x6
+ 1179 0044 13       		.uleb128 0x13
+ 1180 0045 01       		.byte	0x1
+ 1181 0046 03       		.uleb128 0x3
+ 1182 0047 0E       		.uleb128 0xe
+ 1183 0048 0B       		.uleb128 0xb
+ 1184 0049 0B       		.uleb128 0xb
+ 1185 004a 3A       		.uleb128 0x3a
+ 1186 004b 0B       		.uleb128 0xb
+ 1187 004c 3B       		.uleb128 0x3b
+ 1188 004d 0B       		.uleb128 0xb
+ 1189 004e 01       		.uleb128 0x1
+ 1190 004f 13       		.uleb128 0x13
+ 1191 0050 00       		.byte	0
+ 1192 0051 00       		.byte	0
+ 1193 0052 07       		.uleb128 0x7
+ 1194 0053 0D       		.uleb128 0xd
+ 1195 0054 00       		.byte	0
+ 1196 0055 03       		.uleb128 0x3
+ 1197 0056 0E       		.uleb128 0xe
+ 1198 0057 3A       		.uleb128 0x3a
+ 1199 0058 0B       		.uleb128 0xb
+ 1200 0059 3B       		.uleb128 0x3b
+ 1201 005a 0B       		.uleb128 0xb
+ 1202 005b 49       		.uleb128 0x49
+ 1203 005c 13       		.uleb128 0x13
+ 1204 005d 38       		.uleb128 0x38
+ 1205 005e 0B       		.uleb128 0xb
+ 1206 005f 00       		.byte	0
+ 1207 0060 00       		.byte	0
+ 1208 0061 08       		.uleb128 0x8
+ 1209 0062 01       		.uleb128 0x1
+ 1210 0063 01       		.byte	0x1
+ 1211 0064 49       		.uleb128 0x49
+ 1212 0065 13       		.uleb128 0x13
+ 1213 0066 01       		.uleb128 0x1
+ 1214 0067 13       		.uleb128 0x13
+ 1215 0068 00       		.byte	0
+ 1216 0069 00       		.byte	0
+ 1217 006a 09       		.uleb128 0x9
+ 1218 006b 21       		.uleb128 0x21
+ 1219 006c 00       		.byte	0
+ 1220 006d 49       		.uleb128 0x49
+ 1221 006e 13       		.uleb128 0x13
+ 1222 006f 2F       		.uleb128 0x2f
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 26
+
+
+ 1223 0070 0B       		.uleb128 0xb
+ 1224 0071 00       		.byte	0
+ 1225 0072 00       		.byte	0
+ 1226 0073 0A       		.uleb128 0xa
+ 1227 0074 2E       		.uleb128 0x2e
+ 1228 0075 01       		.byte	0x1
+ 1229 0076 3F       		.uleb128 0x3f
+ 1230 0077 19       		.uleb128 0x19
+ 1231 0078 03       		.uleb128 0x3
+ 1232 0079 0E       		.uleb128 0xe
+ 1233 007a 3A       		.uleb128 0x3a
+ 1234 007b 0B       		.uleb128 0xb
+ 1235 007c 3B       		.uleb128 0x3b
+ 1236 007d 0B       		.uleb128 0xb
+ 1237 007e 27       		.uleb128 0x27
+ 1238 007f 19       		.uleb128 0x19
+ 1239 0080 11       		.uleb128 0x11
+ 1240 0081 01       		.uleb128 0x1
+ 1241 0082 12       		.uleb128 0x12
+ 1242 0083 06       		.uleb128 0x6
+ 1243 0084 40       		.uleb128 0x40
+ 1244 0085 18       		.uleb128 0x18
+ 1245 0086 9742     		.uleb128 0x2117
+ 1246 0088 19       		.uleb128 0x19
+ 1247 0089 01       		.uleb128 0x1
+ 1248 008a 13       		.uleb128 0x13
+ 1249 008b 00       		.byte	0
+ 1250 008c 00       		.byte	0
+ 1251 008d 0B       		.uleb128 0xb
+ 1252 008e 898201   		.uleb128 0x4109
+ 1253 0091 00       		.byte	0
+ 1254 0092 11       		.uleb128 0x11
+ 1255 0093 01       		.uleb128 0x1
+ 1256 0094 31       		.uleb128 0x31
+ 1257 0095 13       		.uleb128 0x13
+ 1258 0096 00       		.byte	0
+ 1259 0097 00       		.byte	0
+ 1260 0098 0C       		.uleb128 0xc
+ 1261 0099 34       		.uleb128 0x34
+ 1262 009a 00       		.byte	0
+ 1263 009b 03       		.uleb128 0x3
+ 1264 009c 08       		.uleb128 0x8
+ 1265 009d 3A       		.uleb128 0x3a
+ 1266 009e 0B       		.uleb128 0xb
+ 1267 009f 3B       		.uleb128 0x3b
+ 1268 00a0 0B       		.uleb128 0xb
+ 1269 00a1 49       		.uleb128 0x49
+ 1270 00a2 13       		.uleb128 0x13
+ 1271 00a3 02       		.uleb128 0x2
+ 1272 00a4 17       		.uleb128 0x17
+ 1273 00a5 00       		.byte	0
+ 1274 00a6 00       		.byte	0
+ 1275 00a7 0D       		.uleb128 0xd
+ 1276 00a8 2E       		.uleb128 0x2e
+ 1277 00a9 01       		.byte	0x1
+ 1278 00aa 3F       		.uleb128 0x3f
+ 1279 00ab 19       		.uleb128 0x19
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 27
+
+
+ 1280 00ac 03       		.uleb128 0x3
+ 1281 00ad 0E       		.uleb128 0xe
+ 1282 00ae 3A       		.uleb128 0x3a
+ 1283 00af 0B       		.uleb128 0xb
+ 1284 00b0 3B       		.uleb128 0x3b
+ 1285 00b1 0B       		.uleb128 0xb
+ 1286 00b2 27       		.uleb128 0x27
+ 1287 00b3 19       		.uleb128 0x19
+ 1288 00b4 49       		.uleb128 0x49
+ 1289 00b5 13       		.uleb128 0x13
+ 1290 00b6 8701     		.uleb128 0x87
+ 1291 00b8 19       		.uleb128 0x19
+ 1292 00b9 11       		.uleb128 0x11
+ 1293 00ba 01       		.uleb128 0x1
+ 1294 00bb 12       		.uleb128 0x12
+ 1295 00bc 06       		.uleb128 0x6
+ 1296 00bd 40       		.uleb128 0x40
+ 1297 00be 18       		.uleb128 0x18
+ 1298 00bf 9642     		.uleb128 0x2116
+ 1299 00c1 19       		.uleb128 0x19
+ 1300 00c2 01       		.uleb128 0x1
+ 1301 00c3 13       		.uleb128 0x13
+ 1302 00c4 00       		.byte	0
+ 1303 00c5 00       		.byte	0
+ 1304 00c6 0E       		.uleb128 0xe
+ 1305 00c7 34       		.uleb128 0x34
+ 1306 00c8 00       		.byte	0
+ 1307 00c9 03       		.uleb128 0x3
+ 1308 00ca 0E       		.uleb128 0xe
+ 1309 00cb 3A       		.uleb128 0x3a
+ 1310 00cc 0B       		.uleb128 0xb
+ 1311 00cd 3B       		.uleb128 0x3b
+ 1312 00ce 0B       		.uleb128 0xb
+ 1313 00cf 49       		.uleb128 0x49
+ 1314 00d0 13       		.uleb128 0x13
+ 1315 00d1 02       		.uleb128 0x2
+ 1316 00d2 17       		.uleb128 0x17
+ 1317 00d3 00       		.byte	0
+ 1318 00d4 00       		.byte	0
+ 1319 00d5 0F       		.uleb128 0xf
+ 1320 00d6 34       		.uleb128 0x34
+ 1321 00d7 00       		.byte	0
+ 1322 00d8 03       		.uleb128 0x3
+ 1323 00d9 0E       		.uleb128 0xe
+ 1324 00da 3A       		.uleb128 0x3a
+ 1325 00db 0B       		.uleb128 0xb
+ 1326 00dc 3B       		.uleb128 0x3b
+ 1327 00dd 0B       		.uleb128 0xb
+ 1328 00de 49       		.uleb128 0x49
+ 1329 00df 13       		.uleb128 0x13
+ 1330 00e0 1C       		.uleb128 0x1c
+ 1331 00e1 0B       		.uleb128 0xb
+ 1332 00e2 00       		.byte	0
+ 1333 00e3 00       		.byte	0
+ 1334 00e4 10       		.uleb128 0x10
+ 1335 00e5 0B       		.uleb128 0xb
+ 1336 00e6 01       		.byte	0x1
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 28
+
+
+ 1337 00e7 11       		.uleb128 0x11
+ 1338 00e8 01       		.uleb128 0x1
+ 1339 00e9 12       		.uleb128 0x12
+ 1340 00ea 06       		.uleb128 0x6
+ 1341 00eb 01       		.uleb128 0x1
+ 1342 00ec 13       		.uleb128 0x13
+ 1343 00ed 00       		.byte	0
+ 1344 00ee 00       		.byte	0
+ 1345 00ef 11       		.uleb128 0x11
+ 1346 00f0 898201   		.uleb128 0x4109
+ 1347 00f3 01       		.byte	0x1
+ 1348 00f4 11       		.uleb128 0x11
+ 1349 00f5 01       		.uleb128 0x1
+ 1350 00f6 31       		.uleb128 0x31
+ 1351 00f7 13       		.uleb128 0x13
+ 1352 00f8 01       		.uleb128 0x1
+ 1353 00f9 13       		.uleb128 0x13
+ 1354 00fa 00       		.byte	0
+ 1355 00fb 00       		.byte	0
+ 1356 00fc 12       		.uleb128 0x12
+ 1357 00fd 8A8201   		.uleb128 0x410a
+ 1358 0100 00       		.byte	0
+ 1359 0101 02       		.uleb128 0x2
+ 1360 0102 18       		.uleb128 0x18
+ 1361 0103 9142     		.uleb128 0x2111
+ 1362 0105 18       		.uleb128 0x18
+ 1363 0106 00       		.byte	0
+ 1364 0107 00       		.byte	0
+ 1365 0108 13       		.uleb128 0x13
+ 1366 0109 898201   		.uleb128 0x4109
+ 1367 010c 01       		.byte	0x1
+ 1368 010d 11       		.uleb128 0x11
+ 1369 010e 01       		.uleb128 0x1
+ 1370 010f 31       		.uleb128 0x31
+ 1371 0110 13       		.uleb128 0x13
+ 1372 0111 00       		.byte	0
+ 1373 0112 00       		.byte	0
+ 1374 0113 14       		.uleb128 0x14
+ 1375 0114 0F       		.uleb128 0xf
+ 1376 0115 00       		.byte	0
+ 1377 0116 0B       		.uleb128 0xb
+ 1378 0117 0B       		.uleb128 0xb
+ 1379 0118 49       		.uleb128 0x49
+ 1380 0119 13       		.uleb128 0x13
+ 1381 011a 00       		.byte	0
+ 1382 011b 00       		.byte	0
+ 1383 011c 15       		.uleb128 0x15
+ 1384 011d 34       		.uleb128 0x34
+ 1385 011e 00       		.byte	0
+ 1386 011f 03       		.uleb128 0x3
+ 1387 0120 0E       		.uleb128 0xe
+ 1388 0121 3A       		.uleb128 0x3a
+ 1389 0122 0B       		.uleb128 0xb
+ 1390 0123 3B       		.uleb128 0x3b
+ 1391 0124 05       		.uleb128 0x5
+ 1392 0125 49       		.uleb128 0x49
+ 1393 0126 13       		.uleb128 0x13
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 29
+
+
+ 1394 0127 3F       		.uleb128 0x3f
+ 1395 0128 19       		.uleb128 0x19
+ 1396 0129 3C       		.uleb128 0x3c
+ 1397 012a 19       		.uleb128 0x19
+ 1398 012b 00       		.byte	0
+ 1399 012c 00       		.byte	0
+ 1400 012d 16       		.uleb128 0x16
+ 1401 012e 35       		.uleb128 0x35
+ 1402 012f 00       		.byte	0
+ 1403 0130 49       		.uleb128 0x49
+ 1404 0131 13       		.uleb128 0x13
+ 1405 0132 00       		.byte	0
+ 1406 0133 00       		.byte	0
+ 1407 0134 17       		.uleb128 0x17
+ 1408 0135 34       		.uleb128 0x34
+ 1409 0136 00       		.byte	0
+ 1410 0137 03       		.uleb128 0x3
+ 1411 0138 0E       		.uleb128 0xe
+ 1412 0139 3A       		.uleb128 0x3a
+ 1413 013a 0B       		.uleb128 0xb
+ 1414 013b 3B       		.uleb128 0x3b
+ 1415 013c 0B       		.uleb128 0xb
+ 1416 013d 49       		.uleb128 0x49
+ 1417 013e 13       		.uleb128 0x13
+ 1418 013f 3F       		.uleb128 0x3f
+ 1419 0140 19       		.uleb128 0x19
+ 1420 0141 02       		.uleb128 0x2
+ 1421 0142 18       		.uleb128 0x18
+ 1422 0143 00       		.byte	0
+ 1423 0144 00       		.byte	0
+ 1424 0145 18       		.uleb128 0x18
+ 1425 0146 2E       		.uleb128 0x2e
+ 1426 0147 00       		.byte	0
+ 1427 0148 3F       		.uleb128 0x3f
+ 1428 0149 19       		.uleb128 0x19
+ 1429 014a 3C       		.uleb128 0x3c
+ 1430 014b 19       		.uleb128 0x19
+ 1431 014c 6E       		.uleb128 0x6e
+ 1432 014d 0E       		.uleb128 0xe
+ 1433 014e 03       		.uleb128 0x3
+ 1434 014f 0E       		.uleb128 0xe
+ 1435 0150 3A       		.uleb128 0x3a
+ 1436 0151 0B       		.uleb128 0xb
+ 1437 0152 3B       		.uleb128 0x3b
+ 1438 0153 0B       		.uleb128 0xb
+ 1439 0154 00       		.byte	0
+ 1440 0155 00       		.byte	0
+ 1441 0156 00       		.byte	0
+ 1442              		.section	.debug_loc,"",%progbits
+ 1443              	.Ldebug_loc0:
+ 1444              	.LLST0:
+ 1445 0000 14000000 		.4byte	.LVL5
+ 1446 0004 18000000 		.4byte	.LVL6
+ 1447 0008 0200     		.2byte	0x2
+ 1448 000a 30       		.byte	0x30
+ 1449 000b 9F       		.byte	0x9f
+ 1450 000c 18000000 		.4byte	.LVL6
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 30
+
+
+ 1451 0010 26000000 		.4byte	.LVL7
+ 1452 0014 0100     		.2byte	0x1
+ 1453 0016 53       		.byte	0x53
+ 1454 0017 28000000 		.4byte	.LVL8
+ 1455 001b 30000000 		.4byte	.LVL9
+ 1456 001f 0100     		.2byte	0x1
+ 1457 0021 53       		.byte	0x53
+ 1458 0022 00000000 		.4byte	0
+ 1459 0026 00000000 		.4byte	0
+ 1460              	.LLST1:
+ 1461 002a 7E000000 		.4byte	.LVL29
+ 1462 002e 82000000 		.4byte	.LVL30
+ 1463 0032 0200     		.2byte	0x2
+ 1464 0034 30       		.byte	0x30
+ 1465 0035 9F       		.byte	0x9f
+ 1466 0036 82000000 		.4byte	.LVL30
+ 1467 003a 96000000 		.4byte	.LVL31
+ 1468 003e 0100     		.2byte	0x1
+ 1469 0040 53       		.byte	0x53
+ 1470 0041 98000000 		.4byte	.LVL32
+ 1471 0045 A0000000 		.4byte	.LVL33
+ 1472 0049 0100     		.2byte	0x1
+ 1473 004b 53       		.byte	0x53
+ 1474 004c 00010000 		.4byte	.LVL40
+ 1475 0050 04010000 		.4byte	.LVL41
+ 1476 0054 0200     		.2byte	0x2
+ 1477 0056 30       		.byte	0x30
+ 1478 0057 9F       		.byte	0x9f
+ 1479 0058 04010000 		.4byte	.LVL41
+ 1480 005c 24010000 		.4byte	.LVL46
+ 1481 0060 0100     		.2byte	0x1
+ 1482 0062 53       		.byte	0x53
+ 1483 0063 26010000 		.4byte	.LVL47
+ 1484 0067 2E010000 		.4byte	.LVL48
+ 1485 006b 0100     		.2byte	0x1
+ 1486 006d 53       		.byte	0x53
+ 1487 006e 00000000 		.4byte	0
+ 1488 0072 00000000 		.4byte	0
+ 1489              	.LLST2:
+ 1490 0076 52000000 		.4byte	.LVL27
+ 1491 007a 54000000 		.4byte	.LVL28
+ 1492 007e 0200     		.2byte	0x2
+ 1493 0080 30       		.byte	0x30
+ 1494 0081 9F       		.byte	0x9f
+ 1495 0082 54000000 		.4byte	.LVL28
+ 1496 0086 AC000000 		.4byte	.LVL34
+ 1497 008a 0100     		.2byte	0x1
+ 1498 008c 54       		.byte	0x54
+ 1499 008d AC000000 		.4byte	.LVL34
+ 1500 0091 B4000000 		.4byte	.LVL35
+ 1501 0095 0200     		.2byte	0x2
+ 1502 0097 31       		.byte	0x31
+ 1503 0098 9F       		.byte	0x9f
+ 1504 0099 B4000000 		.4byte	.LVL35
+ 1505 009d 80010000 		.4byte	.LFE66
+ 1506 00a1 0100     		.2byte	0x1
+ 1507 00a3 54       		.byte	0x54
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 31
+
+
+ 1508 00a4 00000000 		.4byte	0
+ 1509 00a8 00000000 		.4byte	0
+ 1510              	.LLST3:
+ 1511 00ac 00010000 		.4byte	.LVL40
+ 1512 00b0 04010000 		.4byte	.LVL41
+ 1513 00b4 0600     		.2byte	0x6
+ 1514 00b6 03       		.byte	0x3
+ 1515 00b7 00000000 		.4byte	Input1
+ 1516 00bb 9F       		.byte	0x9f
+ 1517 00bc 04010000 		.4byte	.LVL41
+ 1518 00c0 0A010000 		.4byte	.LVL42
+ 1519 00c4 0100     		.2byte	0x1
+ 1520 00c6 56       		.byte	0x56
+ 1521 00c7 0A010000 		.4byte	.LVL42
+ 1522 00cb 14010000 		.4byte	.LVL43
+ 1523 00cf 0300     		.2byte	0x3
+ 1524 00d1 76       		.byte	0x76
+ 1525 00d2 7F       		.sleb128 -1
+ 1526 00d3 9F       		.byte	0x9f
+ 1527 00d4 14010000 		.4byte	.LVL43
+ 1528 00d8 32010000 		.4byte	.LVL49
+ 1529 00dc 0100     		.2byte	0x1
+ 1530 00de 56       		.byte	0x56
+ 1531 00df 00000000 		.4byte	0
+ 1532 00e3 00000000 		.4byte	0
+ 1533              	.LLST4:
+ 1534 00e7 00010000 		.4byte	.LVL40
+ 1535 00eb 04010000 		.4byte	.LVL41
+ 1536 00ef 0600     		.2byte	0x6
+ 1537 00f1 03       		.byte	0x3
+ 1538 00f2 00000000 		.4byte	Input2
+ 1539 00f6 9F       		.byte	0x9f
+ 1540 00f7 04010000 		.4byte	.LVL41
+ 1541 00fb 1C010000 		.4byte	.LVL44
+ 1542 00ff 0100     		.2byte	0x1
+ 1543 0101 57       		.byte	0x57
+ 1544 0102 1C010000 		.4byte	.LVL44
+ 1545 0106 22010000 		.4byte	.LVL45
+ 1546 010a 0300     		.2byte	0x3
+ 1547 010c 77       		.byte	0x77
+ 1548 010d 7F       		.sleb128 -1
+ 1549 010e 9F       		.byte	0x9f
+ 1550 010f 22010000 		.4byte	.LVL45
+ 1551 0113 32010000 		.4byte	.LVL49
+ 1552 0117 0100     		.2byte	0x1
+ 1553 0119 57       		.byte	0x57
+ 1554 011a 00000000 		.4byte	0
+ 1555 011e 00000000 		.4byte	0
+ 1556              		.section	.debug_aranges,"",%progbits
+ 1557 0000 34000000 		.4byte	0x34
+ 1558 0004 0200     		.2byte	0x2
+ 1559 0006 00000000 		.4byte	.Ldebug_info0
+ 1560 000a 04       		.byte	0x4
+ 1561 000b 00       		.byte	0
+ 1562 000c 0000     		.2byte	0
+ 1563 000e 0000     		.2byte	0
+ 1564 0010 00000000 		.4byte	.LFB63
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 32
+
+
+ 1565 0014 14000000 		.4byte	.LFE63-.LFB63
+ 1566 0018 00000000 		.4byte	.LFB64
+ 1567 001c 40000000 		.4byte	.LFE64-.LFB64
+ 1568 0020 00000000 		.4byte	.LFB65
+ 1569 0024 4C000000 		.4byte	.LFE65-.LFB65
+ 1570 0028 00000000 		.4byte	.LFB66
+ 1571 002c 80010000 		.4byte	.LFE66-.LFB66
+ 1572 0030 00000000 		.4byte	0
+ 1573 0034 00000000 		.4byte	0
+ 1574              		.section	.debug_ranges,"",%progbits
+ 1575              	.Ldebug_ranges0:
+ 1576 0000 00000000 		.4byte	.LFB63
+ 1577 0004 14000000 		.4byte	.LFE63
+ 1578 0008 00000000 		.4byte	.LFB64
+ 1579 000c 40000000 		.4byte	.LFE64
+ 1580 0010 00000000 		.4byte	.LFB65
+ 1581 0014 4C000000 		.4byte	.LFE65
+ 1582 0018 00000000 		.4byte	.LFB66
+ 1583 001c 80010000 		.4byte	.LFE66
+ 1584 0020 00000000 		.4byte	0
+ 1585 0024 00000000 		.4byte	0
+ 1586              		.section	.debug_line,"",%progbits
+ 1587              	.Ldebug_line0:
+ 1588 0000 B0020000 		.section	.debug_str,"MS",%progbits,1
+ 1588      0200E101 
+ 1588      00000201 
+ 1588      FB0E0D00 
+ 1588      01010101 
+ 1589              	.LASF59:
+ 1590 0000 42797465 		.ascii	"ByteReceived_StartEx\000"
+ 1590      52656365 
+ 1590      69766564 
+ 1590      5F537461 
+ 1590      72744578 
+ 1591              	.LASF65:
+ 1592 0015 55415254 		.ascii	"UART1_PutArray\000"
+ 1592      315F5075 
+ 1592      74417272 
+ 1592      617900
+ 1593              	.LASF56:
+ 1594 0024 42797465 		.ascii	"ByteCounter_Enable\000"
+ 1594      436F756E 
+ 1594      7465725F 
+ 1594      456E6162 
+ 1594      6C6500
+ 1595              	.LASF2:
+ 1596 0037 73686F72 		.ascii	"short int\000"
+ 1596      7420696E 
+ 1596      7400
+ 1597              	.LASF17:
+ 1598 0041 73697A65 		.ascii	"sizetype\000"
+ 1598      74797065 
+ 1598      00
+ 1599              	.LASF54:
+ 1600 004a 55415254 		.ascii	"UART1_Start\000"
+ 1600      315F5374 
+ 1600      61727400 
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 33
+
+
+ 1601              	.LASF25:
+ 1602 0056 496E7075 		.ascii	"InputFlag\000"
+ 1602      74466C61 
+ 1602      6700
+ 1603              	.LASF70:
+ 1604 0060 6D61696E 		.ascii	"main\000"
+ 1604      00
+ 1605              	.LASF36:
+ 1606 0065 5472616E 		.ascii	"TransmitBuffer\000"
+ 1606      736D6974 
+ 1606      42756666 
+ 1606      657200
+ 1607              	.LASF43:
+ 1608 0074 54696D65 		.ascii	"Timer_1_ReadStatusRegister\000"
+ 1608      725F315F 
+ 1608      52656164 
+ 1608      53746174 
+ 1608      75735265 
+ 1609              	.LASF35:
+ 1610 008f 52656365 		.ascii	"ReceivedBuffer\000"
+ 1610      69766564 
+ 1610      42756666 
+ 1610      657200
+ 1611              	.LASF64:
+ 1612 009e 4C454444 		.ascii	"LEDDrive_Write\000"
+ 1612      72697665 
+ 1612      5F577269 
+ 1612      746500
+ 1613              	.LASF11:
+ 1614 00ad 75696E74 		.ascii	"uint8\000"
+ 1614      3800
+ 1615              	.LASF47:
+ 1616 00b3 42797465 		.ascii	"ByteCounter_ReadStatusRegister\000"
+ 1616      436F756E 
+ 1616      7465725F 
+ 1616      52656164 
+ 1616      53746174 
+ 1617              	.LASF42:
+ 1618 00d2 5472616E 		.ascii	"Transmit_Packet\000"
+ 1618      736D6974 
+ 1618      5F506163 
+ 1618      6B657400 
+ 1619              	.LASF58:
+ 1620 00e2 42797465 		.ascii	"ByteReceived_Start\000"
+ 1620      52656365 
+ 1620      69766564 
+ 1620      5F537461 
+ 1620      727400
+ 1621              	.LASF0:
+ 1622 00f5 7369676E 		.ascii	"signed char\000"
+ 1622      65642063 
+ 1622      68617200 
+ 1623              	.LASF13:
+ 1624 0101 666C6F61 		.ascii	"float\000"
+ 1624      7400
+ 1625              	.LASF22:
+ 1626 0107 42797465 		.ascii	"ByteReceived\000"
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 34
+
+
+ 1626      52656365 
+ 1626      69766564 
+ 1626      00
+ 1627              	.LASF6:
+ 1628 0114 6C6F6E67 		.ascii	"long long int\000"
+ 1628      206C6F6E 
+ 1628      6720696E 
+ 1628      7400
+ 1629              	.LASF68:
+ 1630 0122 433A5C55 		.ascii	"C:\\Users\\shawn\\Desktop\\Real-Time-Estimation-and"
+ 1630      73657273 
+ 1630      5C736861 
+ 1630      776E5C44 
+ 1630      65736B74 
+ 1631 0151 2D436F6E 		.ascii	"-Control-For-Satellite-Orbit-Stabilization\\PSOC te"
+ 1631      74726F6C 
+ 1631      2D466F72 
+ 1631      2D536174 
+ 1631      656C6C69 
+ 1632 0183 7374696E 		.ascii	"sting\\CommandInterpreter.cydsn\000"
+ 1632      675C436F 
+ 1632      6D6D616E 
+ 1632      64496E74 
+ 1632      65727072 
+ 1633              	.LASF4:
+ 1634 01a2 6C6F6E67 		.ascii	"long int\000"
+ 1634      20696E74 
+ 1634      00
+ 1635              	.LASF30:
+ 1636 01ab 42797465 		.ascii	"ByteCount\000"
+ 1636      436F756E 
+ 1636      7400
+ 1637              	.LASF50:
+ 1638 01b5 54696D65 		.ascii	"TimerInterrupt_StartEx\000"
+ 1638      72496E74 
+ 1638      65727275 
+ 1638      70745F53 
+ 1638      74617274 
+ 1639              	.LASF55:
+ 1640 01cc 42797465 		.ascii	"ByteCounter_Start\000"
+ 1640      436F756E 
+ 1640      7465725F 
+ 1640      53746172 
+ 1640      7400
+ 1641              	.LASF26:
+ 1642 01de 4D656173 		.ascii	"MeasFlag\000"
+ 1642      466C6167 
+ 1642      00
+ 1643              	.LASF49:
+ 1644 01e7 54696D65 		.ascii	"TimerInterrupt_Start\000"
+ 1644      72496E74 
+ 1644      65727275 
+ 1644      70745F53 
+ 1644      74617274 
+ 1645              	.LASF69:
+ 1646 01fc 636F6D6D 		.ascii	"command_protocol\000"
+ 1646      616E645F 
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 35
+
+
+ 1646      70726F74 
+ 1646      6F636F6C 
+ 1646      00
+ 1647              	.LASF16:
+ 1648 020d 6C6F6E67 		.ascii	"long double\000"
+ 1648      20646F75 
+ 1648      626C6500 
+ 1649              	.LASF1:
+ 1650 0219 756E7369 		.ascii	"unsigned char\000"
+ 1650      676E6564 
+ 1650      20636861 
+ 1650      7200
+ 1651              	.LASF38:
+ 1652 0227 54696D65 		.ascii	"TimeStart\000"
+ 1652      53746172 
+ 1652      7400
+ 1653              	.LASF57:
+ 1654 0231 42797465 		.ascii	"ByteCounter_SetInterruptMode\000"
+ 1654      436F756E 
+ 1654      7465725F 
+ 1654      53657449 
+ 1654      6E746572 
+ 1655              	.LASF7:
+ 1656 024e 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1656      206C6F6E 
+ 1656      6720756E 
+ 1656      7369676E 
+ 1656      65642069 
+ 1657              	.LASF39:
+ 1658 0265 496E7075 		.ascii	"Input1\000"
+ 1658      743100
+ 1659              	.LASF40:
+ 1660 026c 496E7075 		.ascii	"Input2\000"
+ 1660      743200
+ 1661              	.LASF8:
+ 1662 0273 756E7369 		.ascii	"unsigned int\000"
+ 1662      676E6564 
+ 1662      20696E74 
+ 1662      00
+ 1663              	.LASF18:
+ 1664 0280 7061636B 		.ascii	"packet_size\000"
+ 1664      65745F73 
+ 1664      697A6500 
+ 1665              	.LASF5:
+ 1666 028c 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1666      20756E73 
+ 1666      69676E65 
+ 1666      6420696E 
+ 1666      7400
+ 1667              	.LASF33:
+ 1668 029e 436F756E 		.ascii	"Count\000"
+ 1668      7400
+ 1669              	.LASF3:
+ 1670 02a4 73686F72 		.ascii	"short unsigned int\000"
+ 1670      7420756E 
+ 1670      7369676E 
+ 1670      65642069 
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 36
+
+
+ 1670      6E7400
+ 1671              	.LASF66:
+ 1672 02b7 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1672      43313120 
+ 1672      352E342E 
+ 1672      31203230 
+ 1672      31363036 
+ 1673 02ea 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1673      20726576 
+ 1673      6973696F 
+ 1673      6E203233 
+ 1673      37373135 
+ 1674 031d 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1674      66756E63 
+ 1674      74696F6E 
+ 1674      2D736563 
+ 1674      74696F6E 
+ 1675              	.LASF41:
+ 1676 0345 436F6D6D 		.ascii	"Command_Packet\000"
+ 1676      616E645F 
+ 1676      5061636B 
+ 1676      657400
+ 1677              	.LASF15:
+ 1678 0354 63686172 		.ascii	"char\000"
+ 1678      00
+ 1679              	.LASF29:
+ 1680 0359 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1680      52784275 
+ 1680      66666572 
+ 1680      00
+ 1681              	.LASF21:
+ 1682 0366 54696D65 		.ascii	"TimerInterrupt\000"
+ 1682      72496E74 
+ 1682      65727275 
+ 1682      707400
+ 1683              	.LASF10:
+ 1684 0375 696E7433 		.ascii	"int32_t\000"
+ 1684      325F7400 
+ 1685              	.LASF62:
+ 1686 037d 436F6D6D 		.ascii	"CommandReceived_StartEx\000"
+ 1686      616E6452 
+ 1686      65636569 
+ 1686      7665645F 
+ 1686      53746172 
+ 1687              	.LASF60:
+ 1688 0395 42797465 		.ascii	"ByteReceived_Enable\000"
+ 1688      52656365 
+ 1688      69766564 
+ 1688      5F456E61 
+ 1688      626C6500 
+ 1689              	.LASF48:
+ 1690 03a9 54696D65 		.ascii	"Timer_1_Start\000"
+ 1690      725F315F 
+ 1690      53746172 
+ 1690      7400
+ 1691              	.LASF20:
+ 1692 03b7 62756666 		.ascii	"buffer\000"
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 37
+
+
+ 1692      657200
+ 1693              	.LASF12:
+ 1694 03be 75696E74 		.ascii	"uint32\000"
+ 1694      333200
+ 1695              	.LASF67:
+ 1696 03c5 6D61696E 		.ascii	"main.c\000"
+ 1696      2E6300
+ 1697              	.LASF45:
+ 1698 03cc 42797465 		.ascii	"ByteCounter_WriteCompare\000"
+ 1698      436F756E 
+ 1698      7465725F 
+ 1698      57726974 
+ 1698      65436F6D 
+ 1699              	.LASF14:
+ 1700 03e5 646F7562 		.ascii	"double\000"
+ 1700      6C6500
+ 1701              	.LASF32:
+ 1702 03ec 436F6D6D 		.ascii	"CommandReady\000"
+ 1702      616E6452 
+ 1702      65616479 
+ 1702      00
+ 1703              	.LASF52:
+ 1704 03f9 55415254 		.ascii	"UARTReset_Write\000"
+ 1704      52657365 
+ 1704      745F5772 
+ 1704      69746500 
+ 1705              	.LASF44:
+ 1706 0409 55415254 		.ascii	"UART1_GetByte\000"
+ 1706      315F4765 
+ 1706      74427974 
+ 1706      6500
+ 1707              	.LASF37:
+ 1708 0417 54696D65 		.ascii	"Time\000"
+ 1708      00
+ 1709              	.LASF24:
+ 1710 041c 41637469 		.ascii	"ActiveFlag\000"
+ 1710      7665466C 
+ 1710      616700
+ 1711              	.LASF9:
+ 1712 0427 5F5F696E 		.ascii	"__int32_t\000"
+ 1712      7433325F 
+ 1712      7400
+ 1713              	.LASF63:
+ 1714 0431 436F6D6D 		.ascii	"CommandReceived_Enable\000"
+ 1714      616E6452 
+ 1714      65636569 
+ 1714      7665645F 
+ 1714      456E6162 
+ 1715              	.LASF34:
+ 1716 0448 53746174 		.ascii	"Status\000"
+ 1716      757300
+ 1717              	.LASF31:
+ 1718 044f 66697273 		.ascii	"firstbyte\000"
+ 1718      74627974 
+ 1718      6500
+ 1719              	.LASF61:
+ 1720 0459 436F6D6D 		.ascii	"CommandReceived_Start\000"
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccq5ADw7.s 			page 38
+
+
+ 1720      616E6452 
+ 1720      65636569 
+ 1720      7665645F 
+ 1720      53746172 
+ 1721              	.LASF51:
+ 1722 046f 54696D65 		.ascii	"TimerInterrupt_Enable\000"
+ 1722      72496E74 
+ 1722      65727275 
+ 1722      70745F45 
+ 1722      6E61626C 
+ 1723              	.LASF46:
+ 1724 0485 42797465 		.ascii	"ByteCounter_ReadCounter\000"
+ 1724      436F756E 
+ 1724      7465725F 
+ 1724      52656164 
+ 1724      436F756E 
+ 1725              	.LASF27:
+ 1726 049d 50747249 		.ascii	"PtrInput1\000"
+ 1726      6E707574 
+ 1726      3100
+ 1727              	.LASF28:
+ 1728 04a7 50747249 		.ascii	"PtrInput2\000"
+ 1728      6E707574 
+ 1728      3200
+ 1729              	.LASF19:
+ 1730 04b1 636F6D6D 		.ascii	"command\000"
+ 1730      616E6400 
+ 1731              	.LASF23:
+ 1732 04b9 436F6D6D 		.ascii	"CommandReceived\000"
+ 1732      616E6452 
+ 1732      65636569 
+ 1732      76656400 
+ 1733              	.LASF53:
+ 1734 04c9 42797465 		.ascii	"ByteCountReset_Write\000"
+ 1734      436F756E 
+ 1734      74526573 
+ 1734      65745F57 
+ 1734      72697465 
+ 1735              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
