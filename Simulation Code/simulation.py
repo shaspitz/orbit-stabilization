@@ -218,7 +218,7 @@ class sim_env:
             self.x_est = self.A_discrete @ self.x_est - self.B_discrete @ self.Finf @ self.x_est + self.Kinf @ zk
 
             # Uncomment this if you want LQR only (perfect state knowledge)
-#             self.x_est = x
+            # self.x_est = x
 
             # Estimate error
             print('Estimate Error, e(k): ', x - self.x_est)
@@ -438,6 +438,16 @@ class gui:
         for state_iter in range(len(self.sim_env.x0)):
             tk.Label(master, textvariable=self.state_display[
                 state_iter]).grid(row=state_iter, column=0)
+
+        # Anthony-------------------------
+        if self.ser.isOpen():
+            input = 1
+            while 1:
+                time.sleep(0.01)
+
+                while self.ser.inWaiting() > 0:
+                    # plot
+
 
     def update_state_display(self):
         '''
