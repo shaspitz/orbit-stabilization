@@ -15,70 +15,67 @@ import tkinter.messagebox
 
 class gui(tk.Tk):
     def __init__(self, master):
+        self.master=master
+        self.dummy_function = dummy_function
         self.root = tkinter.Tk()
         #dd in overall title
         self.root.wm_title("Real Time Satellite Visualization")
-        
-        #this is where data will be read in
-        x = self.dummy_function.N
-        y_a = self.dummy_function.x0
-        y_b = self.dummy_function.x0
+        #data is initialized
+        # Initialize display
+        #self.x = np.array([tk.StringVar() for state in dummy_function.N])
+        self.y_a = np.array([tk.IntVar() for state in dummy_function.x0])
+        self.y_b = np.array([tk.IntVar() for state in dummy_function.x0])
+        self.updateGraphs()
         
         #first plot with control input
         self.a = Figure(figsize=(4,4))
-        self.plot_a = self.a.add_subplot(111).plot(self.x,y_a)
+        self.plot_a = self.a.add_subplot(111).plot(self.y_a)
         self.a.suptitle("Satellite Path With Control Input")
+        
         #second plot without control input
         self.b = Figure(figsize=(4,4))
-        self.plot_b = self.b.add_subplot(111).plot(self.x,y_b)
+        self.plot_b = self.b.add_subplot(111).plot(self.y_b)
         self.b.suptitle("Satellite Path Without Control Input")
 
-        canvas = FigureCanvasTkAgg(self.a, master=self.root)  # A tk.DrawingArea.
-        canvas.draw()
-        canvas.get_tk_widget().pack(side=tkinter.LEFT, expand=0)
+        #draw the plots on the canvas
+        self.canvas1 = FigureCanvasTkAgg(self.a, master=self.root)  # A tk.DrawingArea.
+        self.canvas1.draw()
+        self.canvas1.get_tk_widget().pack(side=tkinter.LEFT, expand=0)
 
-        canvas = FigureCanvasTkAgg(self.b, master=self.root)  # A tk.DrawingArea.
-        canvas.draw()
-        canvas.get_tk_widget().pack(side=tkinter.RIGHT, expand=0)
+        self.canvas2 = FigureCanvasTkAgg(self.b, master=self.root)  # A tk.DrawingArea.
+        self.canvas2.draw()
+        self.canvas2.get_tk_widget().pack(side=tkinter.RIGHT, expand=0)
+
         
         #add in "STOP" button to terminate process
         button = tkinter.Button(master=self.root, text="Quit", command=quit)
         button.pack(side=tkinter.BOTTOM)
         
-        updateGraphs(self)
-
 
     def updateGraphs(self):
-        #keep the loop running until the Quit button is pressed
-        while not self.root.quit():
-            self.x = self.dummy_function.N
-            self.y_a = self.dummy_function.x0
-            self.y_b = self.dummy_function.x0
-        
-            self.plot_a.clear()
-            self.plot_a.plot(self.x,self.y_a)
-
-            self.plot_b.clear()
-            self.plot_b.plot(self.x,self.y_b)
+        #get the next array from dummy function and update the GUI
+        for state_iter in range(len(self.dummy_function.x0)):
+            self.state_display[state_iter].set(repr(self.dummy_function.x_true[state_iter]))
+            self.canvas1.update()
+            self.state_display[state_iter].set(repr(self.dummy_function.x_false[state_iter]))        
+            self.canvas2.update()
         '''
         Continuously looping function that updates StringVar objects for GUI
         '''
-        #for state_iter in range(len(self.dummy_function.x0)):
-         #   self.state_display[state_iter].set(repr(self.dummy_function.x0[state_iter]))
-    
     #Stop Button
     def _quit(self):
         self.root.quit()     # stops mainloop
         self.root.destroy()  # this is necessary on Windows to prevent
                     # Fatal Python Error: PyEval_RestoreThread: NULL tstate
-def dummy_function(self):
+                    
+class dummy_function:
     N=1000
-    x_real=np.zeros(N)        
+    x_real=np.zeros(N)
     x_false=np.zeros(N)
-    x0 = np.rando.normal(0,5,(10,1))
+    x0 = np.random.normal(0,5,(N,1))
     for k in range(N):
-        x_real = np.cos(x0[k])
-        x_false=np.sin(x0[k])
+        x_real[k] = np.cos(x0[k])
+        x_false[k]=np.sin(x0[k])
             
 root=gui(tk.Tk)
 tkinter.mainloop()
