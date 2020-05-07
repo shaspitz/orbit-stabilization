@@ -438,7 +438,8 @@ class gui:
         for state_iter in range(len(self.sim_env.x0)):
             tk.Label(master, textvariable=self.state_display[
                 state_iter]).grid(row=state_iter, column=0)
-
+        
+        '''
         # Anthony-------------------------
         if self.ser.isOpen():
             input = 1
@@ -447,7 +448,7 @@ class gui:
 
                 while self.ser.inWaiting() > 0:
                     # plot
-
+        '''
 
     def update_state_display(self):
         '''
