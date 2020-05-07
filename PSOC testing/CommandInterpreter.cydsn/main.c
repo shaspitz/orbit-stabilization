@@ -1,15 +1,13 @@
 /* ========================================
- *
- * Copyright YOUR COMPANY, THE YEAR
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
- *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF your company.
- *
+ Author: Shawn Marshall-Spitzbart
+(adapted from code written by George Anwar)
  * ========================================
 */
 #include "project.h"
+
+// Project Defines
+#define FALSE  0
+#define TRUE   1
 
 uint8 ByteCount = 0;
 uint8 firstbyte = 0;
@@ -29,10 +27,21 @@ struct command_protocol
 
 struct command_protocol Transmit_Packet;
 
+uint32 Time = 0; //ms
+uint32 TimeStart;
+
+// Interrupts 
+CY_ISR(TimerInterrupt)
+{
+    // Timer interrupt runs at 1000Hz
+    ++Time;
+    Timer_1_ReadStatusRegister();
+}
+
 CY_ISR(ByteReceived)
 { 
     //LEDDrive_Write(1);
-    ReceivedBuffer[ByteCount++] = (uint8) (LabVIEW_UART_GetByte()&0x00ff);
+    ReceivedBuffer[ByteCount++] = (uint8) (UART1_GetByte()&0x00ff);
     if(firstbyte == 0)
     {
         ByteCounter_WriteCompare(ReceivedBuffer[0]);
@@ -71,11 +80,15 @@ int main(void)
 {
     uint8 i;
     
+    Timer_1_Start();
+    TimerInterrupt_Start();
+    TimerInterrupt_StartEx(TimerInterrupt);
+    TimerInterrupt_Enable();
+    
     UARTReset_Write(0);
     ByteCountReset_Write(0);
     
-    LabVIEW_UART_Start();
-    
+    UART1_Start();
     
     ByteCounter_Start();
     ByteCounter_Enable();
@@ -89,43 +102,60 @@ int main(void)
     CommandReceived_StartEx(CommandReceived);
     CommandReceived_Enable();
     
-   
-    
-    CyGlobalIntEnable; /* Enable global interrupts. */
+    CyGlobalIntEnable; //Enable global interrupts
 
-    /* Place your initialization/startup code here (e.g. MyInst_Start()) */
-
-    //LabVIEW_UART_PutString("PSOC Started\r\n");
+    // Initialize flags
+    uint8 ActiveFlag = FALSE;
+    uint8 InputFlag = FALSE;
+    uint8 MeasFlag = FALSE;
     
     for(;;)
-    {
-        /* Place your application code here. */
-        
+    {        
         if(CommandReady)
         {
             switch(Command_Packet.command)
             {
-                case 5:
+                case 1:
+                    // Relay bytes back to Python
                     LEDDrive_Write(1);
                     Transmit_Packet.command = Command_Packet.command;
                     TransmitBuffer[1] = Transmit_Packet.command;
                     Transmit_Packet.packet_size = Command_Packet.packet_size;
                     TransmitBuffer[0] = Transmit_Packet.packet_size;
-                    for(i=0;i<Transmit_Packet.packet_size;i++)
+                    for(i=0; i<Transmit_Packet.packet_size; ++i)
                     {
-                            Transmit_Packet.buffer[i+2] = Command_Packet.buffer[i];
-                            TransmitBuffer[i+2] = Transmit_Packet.buffer[i+2];
+                        Transmit_Packet.buffer[i+2] = Command_Packet.buffer[i];
+                        TransmitBuffer[i+2] = Transmit_Packet.buffer[i+2];
                     }
                     CommandReady = 0;
                 break;
+                
+                case 2:
+                    // Start timing for computation alongside Python
+                    TimeStart = Time;
+                    ActiveFlag = TRUE;
+                break;
+                
+                case 3:
+                    // Input requested
+                    if (ActiveFlag)
+                    {   
+                        // Send two double inputs to Python
+                        Transmit_Packet.packet_size = 18;
+                    }
+                break;
+                
+                case 4:
+                    // Incoming measurement data
+                    if (ActiveFlag)
+                    {
+                    }
                 default:
                 break;
             }
-            LabVIEW_UART_PutArray(TransmitBuffer,Transmit_Packet.packet_size);
-        }
-        
-                        
+            UART1_PutArray(TransmitBuffer,Transmit_Packet.packet_size);
+        }                 
     }
 }
 
-/* [] END OF FILE */
+// END OF FILE

@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: LabVIEW_UART_IntClock.c
+* File Name: UART1_IntClock.c
 * Version 2.20
 *
 *  Description:
@@ -15,7 +15,7 @@
 *******************************************************************************/
 
 #include <cydevice_trm.h>
-#include "LabVIEW_UART_IntClock.h"
+#include "UART1_IntClock.h"
 
 /* Clock Distribution registers. */
 #define CLK_DIST_LD              (* (reg8 *) CYREG_CLKDIST_LD)
@@ -28,7 +28,7 @@
 
 
 /*******************************************************************************
-* Function Name: LabVIEW_UART_IntClock_Start
+* Function Name: UART1_IntClock_Start
 ********************************************************************************
 *
 * Summary:
@@ -42,16 +42,16 @@
 *  None
 *
 *******************************************************************************/
-void LabVIEW_UART_IntClock_Start(void) 
+void UART1_IntClock_Start(void) 
 {
     /* Set the bit to enable the clock. */
-    LabVIEW_UART_IntClock_CLKEN |= LabVIEW_UART_IntClock_CLKEN_MASK;
-	LabVIEW_UART_IntClock_CLKSTBY |= LabVIEW_UART_IntClock_CLKSTBY_MASK;
+    UART1_IntClock_CLKEN |= UART1_IntClock_CLKEN_MASK;
+	UART1_IntClock_CLKSTBY |= UART1_IntClock_CLKSTBY_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: LabVIEW_UART_IntClock_Stop
+* Function Name: UART1_IntClock_Stop
 ********************************************************************************
 *
 * Summary:
@@ -68,11 +68,11 @@ void LabVIEW_UART_IntClock_Start(void)
 *  None
 *
 *******************************************************************************/
-void LabVIEW_UART_IntClock_Stop(void) 
+void UART1_IntClock_Stop(void) 
 {
     /* Clear the bit to disable the clock. */
-    LabVIEW_UART_IntClock_CLKEN &= (uint8)(~LabVIEW_UART_IntClock_CLKEN_MASK);
-	LabVIEW_UART_IntClock_CLKSTBY &= (uint8)(~LabVIEW_UART_IntClock_CLKSTBY_MASK);
+    UART1_IntClock_CLKEN &= (uint8)(~UART1_IntClock_CLKEN_MASK);
+	UART1_IntClock_CLKSTBY &= (uint8)(~UART1_IntClock_CLKSTBY_MASK);
 }
 
 
@@ -80,7 +80,7 @@ void LabVIEW_UART_IntClock_Stop(void)
 
 
 /*******************************************************************************
-* Function Name: LabVIEW_UART_IntClock_StopBlock
+* Function Name: UART1_IntClock_StopBlock
 ********************************************************************************
 *
 * Summary:
@@ -97,9 +97,9 @@ void LabVIEW_UART_IntClock_Stop(void)
 *  None
 *
 *******************************************************************************/
-void LabVIEW_UART_IntClock_StopBlock(void) 
+void UART1_IntClock_StopBlock(void) 
 {
-    if ((LabVIEW_UART_IntClock_CLKEN & LabVIEW_UART_IntClock_CLKEN_MASK) != 0u)
+    if ((UART1_IntClock_CLKEN & UART1_IntClock_CLKEN_MASK) != 0u)
     {
 #if HAS_CLKDIST_LD_DISABLE
         uint16 oldDivider;
@@ -107,18 +107,18 @@ void LabVIEW_UART_IntClock_StopBlock(void)
         CLK_DIST_LD = 0u;
 
         /* Clear all the mask bits except ours. */
-#if defined(LabVIEW_UART_IntClock__CFG3)
-        CLK_DIST_AMASK = LabVIEW_UART_IntClock_CLKEN_MASK;
+#if defined(UART1_IntClock__CFG3)
+        CLK_DIST_AMASK = UART1_IntClock_CLKEN_MASK;
         CLK_DIST_DMASK = 0x00u;
 #else
-        CLK_DIST_DMASK = LabVIEW_UART_IntClock_CLKEN_MASK;
+        CLK_DIST_DMASK = UART1_IntClock_CLKEN_MASK;
         CLK_DIST_AMASK = 0x00u;
-#endif /* LabVIEW_UART_IntClock__CFG3 */
+#endif /* UART1_IntClock__CFG3 */
 
         /* Clear mask of bus clock. */
         CLK_DIST_BCFG2 &= (uint8)(~BCFG2_MASK);
 
-        oldDivider = CY_GET_REG16(LabVIEW_UART_IntClock_DIV_PTR);
+        oldDivider = CY_GET_REG16(UART1_IntClock_DIV_PTR);
         CY_SET_REG16(CYREG_CLKDIST_WRK0, oldDivider);
         CLK_DIST_LD = CYCLK_LD_DISABLE | CYCLK_LD_SYNC_EN | CYCLK_LD_LOAD;
 
@@ -127,13 +127,13 @@ void LabVIEW_UART_IntClock_StopBlock(void)
 #endif /* HAS_CLKDIST_LD_DISABLE */
 
         /* Clear the bit to disable the clock. */
-        LabVIEW_UART_IntClock_CLKEN &= (uint8)(~LabVIEW_UART_IntClock_CLKEN_MASK);
-        LabVIEW_UART_IntClock_CLKSTBY &= (uint8)(~LabVIEW_UART_IntClock_CLKSTBY_MASK);
+        UART1_IntClock_CLKEN &= (uint8)(~UART1_IntClock_CLKEN_MASK);
+        UART1_IntClock_CLKSTBY &= (uint8)(~UART1_IntClock_CLKSTBY_MASK);
 
 #if HAS_CLKDIST_LD_DISABLE
         /* Clear the disable bit */
         CLK_DIST_LD = 0x00u;
-        CY_SET_REG16(LabVIEW_UART_IntClock_DIV_PTR, oldDivider);
+        CY_SET_REG16(UART1_IntClock_DIV_PTR, oldDivider);
 #endif /* HAS_CLKDIST_LD_DISABLE */
     }
 }
@@ -141,7 +141,7 @@ void LabVIEW_UART_IntClock_StopBlock(void)
 
 
 /*******************************************************************************
-* Function Name: LabVIEW_UART_IntClock_StandbyPower
+* Function Name: UART1_IntClock_StandbyPower
 ********************************************************************************
 *
 * Summary:
@@ -154,21 +154,21 @@ void LabVIEW_UART_IntClock_StopBlock(void)
 *  None
 *
 *******************************************************************************/
-void LabVIEW_UART_IntClock_StandbyPower(uint8 state) 
+void UART1_IntClock_StandbyPower(uint8 state) 
 {
     if(state == 0u)
     {
-        LabVIEW_UART_IntClock_CLKSTBY &= (uint8)(~LabVIEW_UART_IntClock_CLKSTBY_MASK);
+        UART1_IntClock_CLKSTBY &= (uint8)(~UART1_IntClock_CLKSTBY_MASK);
     }
     else
     {
-        LabVIEW_UART_IntClock_CLKSTBY |= LabVIEW_UART_IntClock_CLKSTBY_MASK;
+        UART1_IntClock_CLKSTBY |= UART1_IntClock_CLKSTBY_MASK;
     }
 }
 
 
 /*******************************************************************************
-* Function Name: LabVIEW_UART_IntClock_SetDividerRegister
+* Function Name: UART1_IntClock_SetDividerRegister
 ********************************************************************************
 *
 * Summary:
@@ -190,17 +190,17 @@ void LabVIEW_UART_IntClock_StandbyPower(uint8 state)
 *  None
 *
 *******************************************************************************/
-void LabVIEW_UART_IntClock_SetDividerRegister(uint16 clkDivider, uint8 restart)
+void UART1_IntClock_SetDividerRegister(uint16 clkDivider, uint8 restart)
                                 
 {
     uint8 enabled;
 
-    uint8 currSrc = LabVIEW_UART_IntClock_GetSourceRegister();
-    uint16 oldDivider = LabVIEW_UART_IntClock_GetDividerRegister();
+    uint8 currSrc = UART1_IntClock_GetSourceRegister();
+    uint16 oldDivider = UART1_IntClock_GetDividerRegister();
 
     if (clkDivider != oldDivider)
     {
-        enabled = LabVIEW_UART_IntClock_CLKEN & LabVIEW_UART_IntClock_CLKEN_MASK;
+        enabled = UART1_IntClock_CLKEN & UART1_IntClock_CLKEN_MASK;
 
         if ((currSrc == (uint8)CYCLK_SRC_SEL_CLK_SYNC_D) && ((oldDivider == 0u) || (clkDivider == 0u)))
         {
@@ -210,15 +210,15 @@ void LabVIEW_UART_IntClock_SetDividerRegister(uint16 clkDivider, uint8 restart)
                 /* Moving away from SSS, set the divider first so when SSS is cleared we    */
                 /* don't halt the clock.  Using the shadow load isn't required as the       */
                 /* divider is ignored while SSS is set.                                     */
-                CY_SET_REG16(LabVIEW_UART_IntClock_DIV_PTR, clkDivider);
-                LabVIEW_UART_IntClock_MOD_SRC &= (uint8)(~CYCLK_SSS);
+                CY_SET_REG16(UART1_IntClock_DIV_PTR, clkDivider);
+                UART1_IntClock_MOD_SRC &= (uint8)(~CYCLK_SSS);
             }
             else
             {
                 /* Moving to SSS, set SSS which then ignores the divider and we can set     */
                 /* it without bothering with the shadow load.                               */
-                LabVIEW_UART_IntClock_MOD_SRC |= CYCLK_SSS;
-                CY_SET_REG16(LabVIEW_UART_IntClock_DIV_PTR, clkDivider);
+                UART1_IntClock_MOD_SRC |= CYCLK_SSS;
+                CY_SET_REG16(UART1_IntClock_DIV_PTR, clkDivider);
             }
         }
         else
@@ -229,18 +229,18 @@ void LabVIEW_UART_IntClock_SetDividerRegister(uint16 clkDivider, uint8 restart)
                 CLK_DIST_LD = 0x00u;
 
                 /* Clear all the mask bits except ours. */
-#if defined(LabVIEW_UART_IntClock__CFG3)
-                CLK_DIST_AMASK = LabVIEW_UART_IntClock_CLKEN_MASK;
+#if defined(UART1_IntClock__CFG3)
+                CLK_DIST_AMASK = UART1_IntClock_CLKEN_MASK;
                 CLK_DIST_DMASK = 0x00u;
 #else
-                CLK_DIST_DMASK = LabVIEW_UART_IntClock_CLKEN_MASK;
+                CLK_DIST_DMASK = UART1_IntClock_CLKEN_MASK;
                 CLK_DIST_AMASK = 0x00u;
-#endif /* LabVIEW_UART_IntClock__CFG3 */
+#endif /* UART1_IntClock__CFG3 */
                 /* Clear mask of bus clock. */
                 CLK_DIST_BCFG2 &= (uint8)(~BCFG2_MASK);
 
                 /* If clock is currently enabled, disable it if async or going from N-to-1*/
-                if (((LabVIEW_UART_IntClock_MOD_SRC & CYCLK_SYNC) == 0u) || (clkDivider == 0u))
+                if (((UART1_IntClock_MOD_SRC & CYCLK_SYNC) == 0u) || (clkDivider == 0u))
                 {
 #if HAS_CLKDIST_LD_DISABLE
                     CY_SET_REG16(CYREG_CLKDIST_WRK0, oldDivider);
@@ -250,7 +250,7 @@ void LabVIEW_UART_IntClock_SetDividerRegister(uint16 clkDivider, uint8 restart)
                     while ((CLK_DIST_LD & CYCLK_LD_LOAD) != 0u) { }
 #endif /* HAS_CLKDIST_LD_DISABLE */
 
-                    LabVIEW_UART_IntClock_CLKEN &= (uint8)(~LabVIEW_UART_IntClock_CLKEN_MASK);
+                    UART1_IntClock_CLKEN &= (uint8)(~UART1_IntClock_CLKEN_MASK);
 
 #if HAS_CLKDIST_LD_DISABLE
                     /* Clear the disable bit */
@@ -260,7 +260,7 @@ void LabVIEW_UART_IntClock_SetDividerRegister(uint16 clkDivider, uint8 restart)
             }
 
             /* Load divide value. */
-            if ((LabVIEW_UART_IntClock_CLKEN & LabVIEW_UART_IntClock_CLKEN_MASK) != 0u)
+            if ((UART1_IntClock_CLKEN & UART1_IntClock_CLKEN_MASK) != 0u)
             {
                 /* If the clock is still enabled, use the shadow registers */
                 CY_SET_REG16(CYREG_CLKDIST_WRK0, clkDivider);
@@ -271,8 +271,8 @@ void LabVIEW_UART_IntClock_SetDividerRegister(uint16 clkDivider, uint8 restart)
             else
             {
                 /* If the clock is disabled, set the divider directly */
-                CY_SET_REG16(LabVIEW_UART_IntClock_DIV_PTR, clkDivider);
-				LabVIEW_UART_IntClock_CLKEN |= enabled;
+                CY_SET_REG16(UART1_IntClock_DIV_PTR, clkDivider);
+				UART1_IntClock_CLKEN |= enabled;
             }
         }
     }
@@ -280,7 +280,7 @@ void LabVIEW_UART_IntClock_SetDividerRegister(uint16 clkDivider, uint8 restart)
 
 
 /*******************************************************************************
-* Function Name: LabVIEW_UART_IntClock_GetDividerRegister
+* Function Name: UART1_IntClock_GetDividerRegister
 ********************************************************************************
 *
 * Summary:
@@ -294,14 +294,14 @@ void LabVIEW_UART_IntClock_SetDividerRegister(uint16 clkDivider, uint8 restart)
 *  divide by 2, the return value will be 1.
 *
 *******************************************************************************/
-uint16 LabVIEW_UART_IntClock_GetDividerRegister(void) 
+uint16 UART1_IntClock_GetDividerRegister(void) 
 {
-    return CY_GET_REG16(LabVIEW_UART_IntClock_DIV_PTR);
+    return CY_GET_REG16(UART1_IntClock_DIV_PTR);
 }
 
 
 /*******************************************************************************
-* Function Name: LabVIEW_UART_IntClock_SetModeRegister
+* Function Name: UART1_IntClock_SetModeRegister
 ********************************************************************************
 *
 * Summary:
@@ -329,14 +329,14 @@ uint16 LabVIEW_UART_IntClock_GetDividerRegister(void)
 *  None
 *
 *******************************************************************************/
-void LabVIEW_UART_IntClock_SetModeRegister(uint8 modeBitMask) 
+void UART1_IntClock_SetModeRegister(uint8 modeBitMask) 
 {
-    LabVIEW_UART_IntClock_MOD_SRC |= modeBitMask & (uint8)LabVIEW_UART_IntClock_MODE_MASK;
+    UART1_IntClock_MOD_SRC |= modeBitMask & (uint8)UART1_IntClock_MODE_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: LabVIEW_UART_IntClock_ClearModeRegister
+* Function Name: UART1_IntClock_ClearModeRegister
 ********************************************************************************
 *
 * Summary:
@@ -364,14 +364,14 @@ void LabVIEW_UART_IntClock_SetModeRegister(uint8 modeBitMask)
 *  None
 *
 *******************************************************************************/
-void LabVIEW_UART_IntClock_ClearModeRegister(uint8 modeBitMask) 
+void UART1_IntClock_ClearModeRegister(uint8 modeBitMask) 
 {
-    LabVIEW_UART_IntClock_MOD_SRC &= (uint8)(~modeBitMask) | (uint8)(~(uint8)(LabVIEW_UART_IntClock_MODE_MASK));
+    UART1_IntClock_MOD_SRC &= (uint8)(~modeBitMask) | (uint8)(~(uint8)(UART1_IntClock_MODE_MASK));
 }
 
 
 /*******************************************************************************
-* Function Name: LabVIEW_UART_IntClock_GetModeRegister
+* Function Name: UART1_IntClock_GetModeRegister
 ********************************************************************************
 *
 * Summary:
@@ -385,14 +385,14 @@ void LabVIEW_UART_IntClock_ClearModeRegister(uint8 modeBitMask)
 *  ClearModeRegister descriptions for details about the mode bits.
 *
 *******************************************************************************/
-uint8 LabVIEW_UART_IntClock_GetModeRegister(void) 
+uint8 UART1_IntClock_GetModeRegister(void) 
 {
-    return LabVIEW_UART_IntClock_MOD_SRC & (uint8)(LabVIEW_UART_IntClock_MODE_MASK);
+    return UART1_IntClock_MOD_SRC & (uint8)(UART1_IntClock_MODE_MASK);
 }
 
 
 /*******************************************************************************
-* Function Name: LabVIEW_UART_IntClock_SetSourceRegister
+* Function Name: UART1_IntClock_SetSourceRegister
 ********************************************************************************
 *
 * Summary:
@@ -416,39 +416,39 @@ uint8 LabVIEW_UART_IntClock_GetModeRegister(void)
 *  None
 *
 *******************************************************************************/
-void LabVIEW_UART_IntClock_SetSourceRegister(uint8 clkSource) 
+void UART1_IntClock_SetSourceRegister(uint8 clkSource) 
 {
-    uint16 currDiv = LabVIEW_UART_IntClock_GetDividerRegister();
-    uint8 oldSrc = LabVIEW_UART_IntClock_GetSourceRegister();
+    uint16 currDiv = UART1_IntClock_GetDividerRegister();
+    uint8 oldSrc = UART1_IntClock_GetSourceRegister();
 
     if (((oldSrc != ((uint8)CYCLK_SRC_SEL_CLK_SYNC_D)) && 
         (clkSource == ((uint8)CYCLK_SRC_SEL_CLK_SYNC_D))) && (currDiv == 0u))
     {
         /* Switching to Master and divider is 1, set SSS, which will output master, */
         /* then set the source so we are consistent.                                */
-        LabVIEW_UART_IntClock_MOD_SRC |= CYCLK_SSS;
-        LabVIEW_UART_IntClock_MOD_SRC =
-            (LabVIEW_UART_IntClock_MOD_SRC & (uint8)(~LabVIEW_UART_IntClock_SRC_SEL_MSK)) | clkSource;
+        UART1_IntClock_MOD_SRC |= CYCLK_SSS;
+        UART1_IntClock_MOD_SRC =
+            (UART1_IntClock_MOD_SRC & (uint8)(~UART1_IntClock_SRC_SEL_MSK)) | clkSource;
     }
     else if (((oldSrc == ((uint8)CYCLK_SRC_SEL_CLK_SYNC_D)) && 
             (clkSource != ((uint8)CYCLK_SRC_SEL_CLK_SYNC_D))) && (currDiv == 0u))
     {
         /* Switching from Master to not and divider is 1, set source, so we don't   */
         /* lock when we clear SSS.                                                  */
-        LabVIEW_UART_IntClock_MOD_SRC =
-            (LabVIEW_UART_IntClock_MOD_SRC & (uint8)(~LabVIEW_UART_IntClock_SRC_SEL_MSK)) | clkSource;
-        LabVIEW_UART_IntClock_MOD_SRC &= (uint8)(~CYCLK_SSS);
+        UART1_IntClock_MOD_SRC =
+            (UART1_IntClock_MOD_SRC & (uint8)(~UART1_IntClock_SRC_SEL_MSK)) | clkSource;
+        UART1_IntClock_MOD_SRC &= (uint8)(~CYCLK_SSS);
     }
     else
     {
-        LabVIEW_UART_IntClock_MOD_SRC =
-            (LabVIEW_UART_IntClock_MOD_SRC & (uint8)(~LabVIEW_UART_IntClock_SRC_SEL_MSK)) | clkSource;
+        UART1_IntClock_MOD_SRC =
+            (UART1_IntClock_MOD_SRC & (uint8)(~UART1_IntClock_SRC_SEL_MSK)) | clkSource;
     }
 }
 
 
 /*******************************************************************************
-* Function Name: LabVIEW_UART_IntClock_GetSourceRegister
+* Function Name: UART1_IntClock_GetSourceRegister
 ********************************************************************************
 *
 * Summary:
@@ -461,17 +461,17 @@ void LabVIEW_UART_IntClock_SetSourceRegister(uint8 clkSource)
 *  The input source of the clock. See SetSourceRegister for details.
 *
 *******************************************************************************/
-uint8 LabVIEW_UART_IntClock_GetSourceRegister(void) 
+uint8 UART1_IntClock_GetSourceRegister(void) 
 {
-    return LabVIEW_UART_IntClock_MOD_SRC & LabVIEW_UART_IntClock_SRC_SEL_MSK;
+    return UART1_IntClock_MOD_SRC & UART1_IntClock_SRC_SEL_MSK;
 }
 
 
-#if defined(LabVIEW_UART_IntClock__CFG3)
+#if defined(UART1_IntClock__CFG3)
 
 
 /*******************************************************************************
-* Function Name: LabVIEW_UART_IntClock_SetPhaseRegister
+* Function Name: UART1_IntClock_SetPhaseRegister
 ********************************************************************************
 *
 * Summary:
@@ -489,14 +489,14 @@ uint8 LabVIEW_UART_IntClock_GetSourceRegister(void)
 *  None
 *
 *******************************************************************************/
-void LabVIEW_UART_IntClock_SetPhaseRegister(uint8 clkPhase) 
+void UART1_IntClock_SetPhaseRegister(uint8 clkPhase) 
 {
-    LabVIEW_UART_IntClock_PHASE = clkPhase & LabVIEW_UART_IntClock_PHASE_MASK;
+    UART1_IntClock_PHASE = clkPhase & UART1_IntClock_PHASE_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: LabVIEW_UART_IntClock_GetPhase
+* Function Name: UART1_IntClock_GetPhase
 ********************************************************************************
 *
 * Summary:
@@ -510,12 +510,12 @@ void LabVIEW_UART_IntClock_SetPhaseRegister(uint8 clkPhase)
 *  Phase of the analog clock. See SetPhaseRegister for details.
 *
 *******************************************************************************/
-uint8 LabVIEW_UART_IntClock_GetPhaseRegister(void) 
+uint8 UART1_IntClock_GetPhaseRegister(void) 
 {
-    return LabVIEW_UART_IntClock_PHASE & LabVIEW_UART_IntClock_PHASE_MASK;
+    return UART1_IntClock_PHASE & UART1_IntClock_PHASE_MASK;
 }
 
-#endif /* LabVIEW_UART_IntClock__CFG3 */
+#endif /* UART1_IntClock__CFG3 */
 
 
 /* [] END OF FILE */

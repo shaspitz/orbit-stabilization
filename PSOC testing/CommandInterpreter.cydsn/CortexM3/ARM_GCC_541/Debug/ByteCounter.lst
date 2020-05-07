@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
   28:Generated_Source\PSoC5/ByteCounter.c **** *     Initialize to the schematic state
   29:Generated_Source\PSoC5/ByteCounter.c **** * 
   30:Generated_Source\PSoC5/ByteCounter.c **** * Parameters:  
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 2
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 2
 
 
   31:Generated_Source\PSoC5/ByteCounter.c **** *  void  
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
   85:Generated_Source\PSoC5/ByteCounter.c ****             #if( 0 != ByteCounter_CAPTURE_MODE_CONF)
   86:Generated_Source\PSoC5/ByteCounter.c ****                 ByteCounter_CONTROL = ctrl | ByteCounter_DEFAULT_CAPTURE_MODE;
   87:Generated_Source\PSoC5/ByteCounter.c ****             #else
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 3
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 3
 
 
   88:Generated_Source\PSoC5/ByteCounter.c ****                 ByteCounter_CONTROL = ctrl;
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  142:Generated_Source\PSoC5/ByteCounter.c **** *******************************************************************************/
  143:Generated_Source\PSoC5/ByteCounter.c **** void ByteCounter_Enable(void) 
  144:Generated_Source\PSoC5/ByteCounter.c **** {
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 4
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 4
 
 
   28              		.loc 1 144 0
@@ -206,7 +206,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
   39              	.L3:
   40              		.align	2
   41              	.L2:
-  42 000c 79640040 		.word	1073767545
+  42 000c 79650040 		.word	1073767801
   43              		.cfi_endproc
   44              	.LFE1:
   45              		.size	ByteCounter_Enable, .-ByteCounter_Enable
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  173:Generated_Source\PSoC5/ByteCounter.c **** * Global variables:
  174:Generated_Source\PSoC5/ByteCounter.c **** *  ByteCounter_initVar: Is modified when this function is called for the  
  175:Generated_Source\PSoC5/ByteCounter.c **** *   first time. Is used to ensure that initialization happens only once.
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 5
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 5
 
 
  176:Generated_Source\PSoC5/ByteCounter.c **** *
@@ -292,13 +292,13 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
   65              	.L6:
   66              		.align	2
   67              	.L5:
-  68 000c 79640040 		.word	1073767545
+  68 000c 79650040 		.word	1073767801
   69              		.cfi_endproc
   70              	.LFE3:
   71              		.size	ByteCounter_Stop, .-ByteCounter_Stop
   72              		.section	.text.ByteCounter_SetInterruptMode,"ax",%progbits
   73              		.align	2
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 6
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 6
 
 
   74              		.global	ByteCounter_SetInterruptMode
@@ -347,7 +347,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
   90              	.L9:
   91 0006 00BF     		.align	2
   92              	.L8:
-  93 0008 8A650040 		.word	1073767818
+  93 0008 8B650040 		.word	1073767819
   94              		.cfi_endproc
   95              	.LFE4:
   96              		.size	ByteCounter_SetInterruptMode, .-ByteCounter_SetInterruptMode
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  101              		.thumb_func
  102              		.type	ByteCounter_ReadStatusRegister, %function
  103              	ByteCounter_ReadStatusRegister:
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 7
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 7
 
 
  104              	.LFB5:
@@ -400,7 +400,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  115              	.L12:
  116 0006 00BF     		.align	2
  117              	.L11:
- 118 0008 6A650040 		.word	1073767786
+ 118 0008 6B650040 		.word	1073767787
  119              		.cfi_endproc
  120              	.LFE5:
  121              		.size	ByteCounter_ReadStatusRegister, .-ByteCounter_ReadStatusRegister
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  268:Generated_Source\PSoC5/ByteCounter.c **** /*******************************************************************************
  269:Generated_Source\PSoC5/ByteCounter.c **** * Function Name: ByteCounter_ReadControlRegister
  270:Generated_Source\PSoC5/ByteCounter.c **** ********************************************************************************
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 8
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 8
 
 
  271:Generated_Source\PSoC5/ByteCounter.c **** * Summary:
@@ -450,7 +450,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  140              	.L15:
  141 0006 00BF     		.align	2
  142              	.L14:
- 143 0008 79640040 		.word	1073767545
+ 143 0008 79650040 		.word	1073767801
  144              		.cfi_endproc
  145              	.LFE6:
  146              		.size	ByteCounter_ReadControlRegister, .-ByteCounter_ReadControlRegister
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  300:Generated_Source\PSoC5/ByteCounter.c **** * Return: 
  301:Generated_Source\PSoC5/ByteCounter.c **** *  (uint8) The contents of the control register
  302:Generated_Source\PSoC5/ByteCounter.c **** *
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 9
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 9
 
 
  303:Generated_Source\PSoC5/ByteCounter.c **** *******************************************************************************/
@@ -498,7 +498,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  165              	.L18:
  166 0006 00BF     		.align	2
  167              	.L17:
- 168 0008 79640040 		.word	1073767545
+ 168 0008 79650040 		.word	1073767801
  169              		.cfi_endproc
  170              	.LFE7:
  171              		.size	ByteCounter_WriteControlRegister, .-ByteCounter_WriteControlRegister
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  183              		@ frame_needed = 0, uses_anonymous_args = 0
  184              		@ link register save eliminated.
  185              	.LVL2:
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 10
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 10
 
 
  329:Generated_Source\PSoC5/ByteCounter.c ****     #if(ByteCounter_UsingFixedFunction)
@@ -557,7 +557,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  190              	.L21:
  191 0006 00BF     		.align	2
  192              	.L20:
- 193 0008 0A650040 		.word	1073767690
+ 193 0008 08650040 		.word	1073767688
  194              		.cfi_endproc
  195              	.LFE8:
  196              		.size	ByteCounter_WriteCounter, .-ByteCounter_WriteCounter
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  359:Generated_Source\PSoC5/ByteCounter.c ****     /* Force capture by reading Accumulator */
  360:Generated_Source\PSoC5/ByteCounter.c ****     /* Must first do a software capture to be able to read the counter */
  361:Generated_Source\PSoC5/ByteCounter.c ****     /* It is up to the user code to make sure there isn't already captured data in the FIFO */
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 11
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 11
 
 
  362:Generated_Source\PSoC5/ByteCounter.c ****     #if(ByteCounter_UsingFixedFunction)
@@ -625,8 +625,8 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  218              	.L24:
  219 000a 00BF     		.align	2
  220              	.L23:
- 221 000c 0A650040 		.word	1073767690
- 222 0010 4A650040 		.word	1073767754
+ 221 000c 08650040 		.word	1073767688
+ 222 0010 48650040 		.word	1073767752
  223              		.cfi_endproc
  224              	.LFE9:
  225              		.size	ByteCounter_ReadCounter, .-ByteCounter_ReadCounter
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  234              		.loc 1 391 0
  235              		.cfi_startproc
  236              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 12
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 12
 
 
  237              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -677,7 +677,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  244              	.L27:
  245 0006 00BF     		.align	2
  246              	.L26:
- 247 0008 4A650040 		.word	1073767754
+ 247 0008 48650040 		.word	1073767752
  248              		.cfi_endproc
  249              	.LFE10:
  250              		.size	ByteCounter_ReadCapture, .-ByteCounter_ReadCapture
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  418:Generated_Source\PSoC5/ByteCounter.c ****         CY_SET_REG16(ByteCounter_PERIOD_LSB_PTR,(uint16)period);
  419:Generated_Source\PSoC5/ByteCounter.c ****     #else
  420:Generated_Source\PSoC5/ByteCounter.c ****         CY_SET_REG8(ByteCounter_PERIOD_LSB_PTR, period);
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 13
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 13
 
 
  265              		.loc 1 420 0
@@ -728,7 +728,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  269              	.L30:
  270 0006 00BF     		.align	2
  271              	.L29:
- 272 0008 2A650040 		.word	1073767722
+ 272 0008 28650040 		.word	1073767720
  273              		.cfi_endproc
  274              	.LFE11:
  275              		.size	ByteCounter_WritePeriod, .-ByteCounter_WritePeriod
@@ -778,10 +778,10 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  294              	.L33:
  295 0006 00BF     		.align	2
  296              	.L32:
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 14
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 14
 
 
- 297 0008 2A650040 		.word	1073767722
+ 297 0008 28650040 		.word	1073767720
  298              		.cfi_endproc
  299              	.LFE12:
  300              		.size	ByteCounter_ReadPeriod, .-ByteCounter_ReadPeriod
@@ -832,13 +832,13 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  319              	.L36:
  320 0006 00BF     		.align	2
  321              	.L35:
- 322 0008 3A650040 		.word	1073767738
+ 322 0008 38650040 		.word	1073767736
  323              		.cfi_endproc
  324              	.LFE13:
  325              		.size	ByteCounter_WriteCompare, .-ByteCounter_WriteCompare
  326              		.section	.text.ByteCounter_ReadCompare,"ax",%progbits
  327              		.align	2
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 15
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 15
 
 
  328              		.global	ByteCounter_ReadCompare
@@ -881,7 +881,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  344              	.L39:
  345 0006 00BF     		.align	2
  346              	.L38:
- 347 0008 3A650040 		.word	1073767738
+ 347 0008 38650040 		.word	1073767736
  348              		.cfi_endproc
  349              	.LFE14:
  350              		.size	ByteCounter_ReadCompare, .-ByteCounter_ReadCompare
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  495:Generated_Source\PSoC5/ByteCounter.c **** #if (ByteCounter_COMPARE_MODE_SOFTWARE)
  496:Generated_Source\PSoC5/ByteCounter.c **** /*******************************************************************************
  497:Generated_Source\PSoC5/ByteCounter.c **** * Function Name: ByteCounter_SetCompareMode
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 16
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 16
 
 
  498:Generated_Source\PSoC5/ByteCounter.c **** ********************************************************************************
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  552:Generated_Source\PSoC5/ByteCounter.c **** *  void:
  553:Generated_Source\PSoC5/ByteCounter.c **** *
  554:Generated_Source\PSoC5/ByteCounter.c **** * Return: 
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 17
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 17
 
 
  555:Generated_Source\PSoC5/ByteCounter.c **** *  None
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  399              		.cfi_offset 14, -4
   79:Generated_Source\PSoC5/ByteCounter.c ****             ByteCounter_CONTROL = ctrl | ByteCounter_DEFAULT_COMPARE_MODE;
  400              		.loc 1 79 0
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 18
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 18
 
 
  401 0002 114B     		ldr	r3, .L46
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  120:Generated_Source\PSoC5/ByteCounter.c ****             
  444              		.loc 1 120 0
  445 0042 FFF7FEFF 		bl	CyExitCriticalSection
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 19
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 19
 
 
  446              	.LVL17:
@@ -1086,8 +1086,8 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  448              	.L47:
  449              		.align	2
  450              	.L46:
- 451 0048 79640040 		.word	1073767545
- 452 004c 9A650040 		.word	1073767834
+ 451 0048 79650040 		.word	1073767801
+ 452 004c 9B650040 		.word	1073767835
  453              		.cfi_endproc
  454              	.LFE0:
  455              		.size	ByteCounter_Init, .-ByteCounter_Init
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  495              		.global	ByteCounter_initVar
  496              		.bss
  497              		.set	.LANCHOR0,. + 0
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 20
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 20
 
 
  498              		.type	ByteCounter_initVar, %object
@@ -1158,15 +1158,15 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  512 000b 01       		.uleb128 0x1
  513 000c B6000000 		.4byte	.LASF41
  514 0010 0C       		.byte	0xc
- 515 0011 99020000 		.4byte	.LASF42
- 516 0015 35020000 		.4byte	.LASF43
+ 515 0011 D6020000 		.4byte	.LASF42
+ 516 0015 5B010000 		.4byte	.LASF43
  517 0019 00000000 		.4byte	.Ldebug_ranges0+0
  518 001d 00000000 		.4byte	0
  519 0021 00000000 		.4byte	.Ldebug_line0
  520 0025 02       		.uleb128 0x2
  521 0026 01       		.byte	0x1
  522 0027 06       		.byte	0x6
- 523 0028 3F030000 		.4byte	.LASF0
+ 523 0028 82030000 		.4byte	.LASF0
  524 002c 02       		.uleb128 0x2
  525 002d 01       		.byte	0x1
  526 002e 08       		.byte	0x8
@@ -1174,7 +1174,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  528 0033 02       		.uleb128 0x2
  529 0034 02       		.byte	0x2
  530 0035 05       		.byte	0x5
- 531 0036 20030000 		.4byte	.LASF2
+ 531 0036 5D030000 		.4byte	.LASF2
  532 003a 02       		.uleb128 0x2
  533 003b 02       		.byte	0x2
  534 003c 07       		.byte	0x7
@@ -1182,7 +1182,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  536 0041 02       		.uleb128 0x2
  537 0042 04       		.byte	0x4
  538 0043 05       		.byte	0x5
- 539 0044 2A030000 		.4byte	.LASF4
+ 539 0044 6D030000 		.4byte	.LASF4
  540 0048 02       		.uleb128 0x2
  541 0049 04       		.byte	0x4
  542 004a 07       		.byte	0x7
@@ -1190,7 +1190,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  544 004f 02       		.uleb128 0x2
  545 0050 08       		.byte	0x8
  546 0051 05       		.byte	0x5
- 547 0052 D5020000 		.4byte	.LASF6
+ 547 0052 12030000 		.4byte	.LASF6
  548 0056 02       		.uleb128 0x2
  549 0057 08       		.byte	0x8
  550 0058 07       		.byte	0x7
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  552 005d 03       		.uleb128 0x3
  553 005e 04       		.byte	0x4
  554 005f 05       		.byte	0x5
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 21
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 21
 
 
  555 0060 696E7400 		.ascii	"int\000"
@@ -1207,7 +1207,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  558 0066 07       		.byte	0x7
  559 0067 46000000 		.4byte	.LASF8
  560 006b 04       		.uleb128 0x4
- 561 006c 5B010000 		.4byte	.LASF12
+ 561 006c 67030000 		.4byte	.LASF12
  562 0070 02       		.byte	0x2
  563 0071 E401     		.2byte	0x1e4
  564 0073 2C000000 		.4byte	0x2c
@@ -1218,11 +1218,11 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  569 007e 02       		.uleb128 0x2
  570 007f 08       		.byte	0x8
  571 0080 04       		.byte	0x4
- 572 0081 78010000 		.4byte	.LASF10
+ 572 0081 F2010000 		.4byte	.LASF10
  573 0085 02       		.uleb128 0x2
  574 0086 01       		.byte	0x1
  575 0087 08       		.byte	0x8
- 576 0088 1B030000 		.4byte	.LASF11
+ 576 0088 58030000 		.4byte	.LASF11
  577 008c 04       		.uleb128 0x4
  578 008d 44010000 		.4byte	.LASF13
  579 0091 02       		.byte	0x2
@@ -1233,11 +1233,11 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  584 009d 02       		.uleb128 0x2
  585 009e 08       		.byte	0x8
  586 009f 04       		.byte	0x4
- 587 00a0 33030000 		.4byte	.LASF14
+ 587 00a0 76030000 		.4byte	.LASF14
  588 00a4 02       		.uleb128 0x2
  589 00a5 04       		.byte	0x4
  590 00a6 07       		.byte	0x7
- 591 00a7 90020000 		.4byte	.LASF15
+ 591 00a7 CD020000 		.4byte	.LASF15
  592 00ab 06       		.uleb128 0x6
  593 00ac 19000000 		.4byte	.LASF16
  594 00b0 01       		.byte	0x1
@@ -1247,7 +1247,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  598 00ba 01       		.uleb128 0x1
  599 00bb 9C       		.byte	0x9c
  600 00bc 06       		.uleb128 0x6
- 601 00bd 74030000 		.4byte	.LASF17
+ 601 00bd B7030000 		.4byte	.LASF17
  602 00c1 01       		.byte	0x1
  603 00c2 D0       		.byte	0xd0
  604 00c3 00000000 		.4byte	.LFB3
@@ -1255,10 +1255,10 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  606 00cb 01       		.uleb128 0x1
  607 00cc 9C       		.byte	0x9c
  608 00cd 07       		.uleb128 0x7
- 609 00ce DF010000 		.4byte	.LASF20
+ 609 00ce 59020000 		.4byte	.LASF20
  610 00d2 01       		.byte	0x1
  611 00d3 ED       		.byte	0xed
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 22
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 22
 
 
  612 00d4 00000000 		.4byte	.LFB4
@@ -1267,7 +1267,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  615 00dd 9C       		.byte	0x9c
  616 00de F0000000 		.4byte	0xf0
  617 00e2 08       		.uleb128 0x8
- 618 00e3 69010000 		.4byte	.LASF22
+ 618 00e3 E3010000 		.4byte	.LASF22
  619 00e7 01       		.byte	0x1
  620 00e8 ED       		.byte	0xed
  621 00e9 6B000000 		.4byte	0x6b
@@ -1275,7 +1275,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  623 00ee 50       		.byte	0x50
  624 00ef 00       		.byte	0
  625 00f0 09       		.uleb128 0x9
- 626 00f1 99030000 		.4byte	.LASF18
+ 626 00f1 DC030000 		.4byte	.LASF18
  627 00f5 01       		.byte	0x1
  628 00f6 0501     		.2byte	0x105
  629 00f8 6B000000 		.4byte	0x6b
@@ -1284,7 +1284,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  632 0104 01       		.uleb128 0x1
  633 0105 9C       		.byte	0x9c
  634 0106 09       		.uleb128 0x9
- 635 0107 E3020000 		.4byte	.LASF19
+ 635 0107 20030000 		.4byte	.LASF19
  636 010b 01       		.byte	0x1
  637 010c 1B01     		.2byte	0x11b
  638 010e 6B000000 		.4byte	0x6b
@@ -1293,7 +1293,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  641 011a 01       		.uleb128 0x1
  642 011b 9C       		.byte	0x9c
  643 011c 0A       		.uleb128 0xa
- 644 011d 53030000 		.4byte	.LASF21
+ 644 011d 96030000 		.4byte	.LASF21
  645 0121 01       		.byte	0x1
  646 0122 3001     		.2byte	0x130
  647 0124 00000000 		.4byte	.LFB7
@@ -1302,7 +1302,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  650 012d 9C       		.byte	0x9c
  651 012e 41010000 		.4byte	0x141
  652 0132 0B       		.uleb128 0xb
- 653 0133 61010000 		.4byte	.LASF23
+ 653 0133 DB010000 		.4byte	.LASF23
  654 0137 01       		.byte	0x1
  655 0138 3001     		.2byte	0x130
  656 013a 6B000000 		.4byte	0x6b
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  666 0151 01       		.uleb128 0x1
  667 0152 9C       		.byte	0x9c
  668 0153 66010000 		.4byte	0x166
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 23
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 23
 
 
  669 0157 0B       		.uleb128 0xb
@@ -1330,7 +1330,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  675 0164 50       		.byte	0x50
  676 0165 00       		.byte	0
  677 0166 09       		.uleb128 0x9
- 678 0167 B0010000 		.4byte	.LASF26
+ 678 0167 2A020000 		.4byte	.LASF26
  679 016b 01       		.byte	0x1
  680 016c 6501     		.2byte	0x165
  681 016e 6B000000 		.4byte	0x6b
@@ -1348,7 +1348,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  693 0190 01       		.uleb128 0x1
  694 0191 9C       		.byte	0x9c
  695 0192 0A       		.uleb128 0xa
- 696 0193 03030000 		.4byte	.LASF28
+ 696 0193 40030000 		.4byte	.LASF28
  697 0197 01       		.byte	0x1
  698 0198 9F01     		.2byte	0x19f
  699 019a 00000000 		.4byte	.LFB11
@@ -1365,7 +1365,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  710 01b5 50       		.byte	0x50
  711 01b6 00       		.byte	0
  712 01b7 09       		.uleb128 0x9
- 713 01b8 C8010000 		.4byte	.LASF30
+ 713 01b8 42020000 		.4byte	.LASF30
  714 01bc 01       		.byte	0x1
  715 01bd B601     		.2byte	0x1b6
  716 01bf 6B000000 		.4byte	0x6b
@@ -1374,11 +1374,11 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  719 01cb 01       		.uleb128 0x1
  720 01cc 9C       		.byte	0x9c
  721 01cd 0A       		.uleb128 0xa
- 722 01ce 77020000 		.4byte	.LASF31
+ 722 01ce B4020000 		.4byte	.LASF31
  723 01d2 01       		.byte	0x1
  724 01d3 D101     		.2byte	0x1d1
  725 01d5 00000000 		.4byte	.LFB13
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 24
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 24
 
 
  726 01d9 0C000000 		.4byte	.LFE13-.LFB13
@@ -1386,7 +1386,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  728 01de 9C       		.byte	0x9c
  729 01df F2010000 		.4byte	0x1f2
  730 01e3 0B       		.uleb128 0xb
- 731 01e4 4B030000 		.4byte	.LASF32
+ 731 01e4 8E030000 		.4byte	.LASF32
  732 01e8 01       		.byte	0x1
  733 01e9 D101     		.2byte	0x1d1
  734 01eb 6B000000 		.4byte	0x6b
@@ -1403,7 +1403,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  745 0206 01       		.uleb128 0x1
  746 0207 9C       		.byte	0x9c
  747 0208 0A       		.uleb128 0xa
- 748 0209 7F010000 		.4byte	.LASF34
+ 748 0209 F9010000 		.4byte	.LASF34
  749 020d 01       		.byte	0x1
  750 020e 2E02     		.2byte	0x22e
  751 0210 00000000 		.4byte	.LFB15
@@ -1419,7 +1419,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  761 022c F0000000 		.4byte	0xf0
  762 0230 00       		.byte	0
  763 0231 07       		.uleb128 0x7
- 764 0232 24020000 		.4byte	.LASF35
+ 764 0232 9E020000 		.4byte	.LASF35
  765 0236 01       		.byte	0x1
  766 0237 25       		.byte	0x25
  767 0238 00000000 		.4byte	.LFB0
@@ -1428,17 +1428,17 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  770 0241 9C       		.byte	0x9c
  771 0242 D7020000 		.4byte	0x2d7
  772 0246 0D       		.uleb128 0xd
- 773 0247 72020000 		.4byte	.LASF36
+ 773 0247 AF020000 		.4byte	.LASF36
  774 024b 01       		.byte	0x1
  775 024c 28       		.byte	0x28
  776 024d 6B000000 		.4byte	0x6b
  777 0251 00000000 		.4byte	.LLST0
  778 0255 0D       		.uleb128 0xd
- 779 0256 95010000 		.4byte	.LASF37
+ 779 0256 0F020000 		.4byte	.LASF37
  780 025a 01       		.byte	0x1
  781 025b 2D       		.byte	0x2d
  782 025c 6B000000 		.4byte	0x6b
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 25
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 25
 
 
  783 0260 2A000000 		.4byte	.LLST1
@@ -1498,10 +1498,10 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  837 02d2 1B030000 		.4byte	0x31b
  838 02d6 00       		.byte	0
  839 02d7 07       		.uleb128 0x7
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 26
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 26
 
 
- 840 02d8 12020000 		.4byte	.LASF38
+ 840 02d8 8C020000 		.4byte	.LASF38
  841 02dc 01       		.byte	0x1
  842 02dd B2       		.byte	0xb2
  843 02de 00000000 		.4byte	.LFB2
@@ -1517,7 +1517,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  853 02fa AB000000 		.4byte	0xab
  854 02fe 00       		.byte	0
  855 02ff 10       		.uleb128 0x10
- 856 0300 85030000 		.4byte	.LASF44
+ 856 0300 C8030000 		.4byte	.LASF44
  857 0304 01       		.byte	0x1
  858 0305 15       		.byte	0x15
  859 0306 6B000000 		.4byte	0x6b
@@ -1525,13 +1525,13 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  861 030b 03       		.byte	0x3
  862 030c 00000000 		.4byte	ByteCounter_initVar
  863 0310 11       		.uleb128 0x11
- 864 0311 BE020000 		.4byte	.LASF39
- 865 0315 BE020000 		.4byte	.LASF39
+ 864 0311 FB020000 		.4byte	.LASF39
+ 865 0315 FB020000 		.4byte	.LASF39
  866 0319 03       		.byte	0x3
  867 031a 7D       		.byte	0x7d
  868 031b 11       		.uleb128 0x11
- 869 031c FC010000 		.4byte	.LASF40
- 870 0320 FC010000 		.4byte	.LASF40
+ 869 031c 76020000 		.4byte	.LASF40
+ 870 0320 76020000 		.4byte	.LASF40
  871 0324 03       		.byte	0x3
  872 0325 7E       		.byte	0x7e
  873 0326 00       		.byte	0
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  894 0012 00       		.byte	0
  895 0013 02       		.uleb128 0x2
  896 0014 24       		.uleb128 0x24
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 27
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 27
 
 
  897 0015 00       		.byte	0
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  951 004b 01       		.uleb128 0x1
  952 004c 12       		.uleb128 0x12
  953 004d 06       		.uleb128 0x6
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 28
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 28
 
 
  954 004e 40       		.uleb128 0x40
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  1008 0086 0B       		.uleb128 0xb
  1009 0087 3B       		.uleb128 0x3b
  1010 0088 05       		.uleb128 0x5
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 29
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 29
 
 
  1011 0089 27       		.uleb128 0x27
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  1065 00c1 0C       		.uleb128 0xc
  1066 00c2 898201   		.uleb128 0x4109
  1067 00c5 00       		.byte	0
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 30
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 30
 
 
  1068 00c6 11       		.uleb128 0x11
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  1122 0101 02       		.uleb128 0x2
  1123 0102 18       		.uleb128 0x18
  1124 0103 00       		.byte	0
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 31
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 31
 
 
  1125 0104 00       		.byte	0
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  1179 0018 00000000 		.4byte	.LFB3
  1180 001c 10000000 		.4byte	.LFE3-.LFB3
  1181 0020 00000000 		.4byte	.LFB4
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 32
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 32
 
 
  1182 0024 0C000000 		.4byte	.LFE4-.LFB4
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  1236 005c 0C000000 		.4byte	.LFE13
  1237 0060 00000000 		.4byte	.LFB14
  1238 0064 0C000000 		.4byte	.LFE14
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 33
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 33
 
 
  1239 0068 00000000 		.4byte	.LFB15
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  1265 0083 666C6F61 		.ascii	"float\000"
  1265      7400
  1266              	.LASF25:
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 34
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 34
 
 
  1267 0089 636F756E 		.ascii	"counter\000"
@@ -2019,173 +2019,179 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 1
  1279      69676E65 
  1279      6420696E 
  1279      7400
- 1280              	.LASF12:
- 1281 015b 75696E74 		.ascii	"uint8\000"
- 1281      3800
- 1282              	.LASF23:
- 1283 0161 636F6E74 		.ascii	"control\000"
- 1283      726F6C00 
- 1284              	.LASF22:
- 1285 0169 696E7465 		.ascii	"interruptsMask\000"
- 1285      72727570 
- 1285      74734D61 
- 1285      736B00
- 1286              	.LASF10:
- 1287 0178 646F7562 		.ascii	"double\000"
- 1287      6C6500
- 1288              	.LASF34:
- 1289 017f 42797465 		.ascii	"ByteCounter_ClearFIFO\000"
- 1289      436F756E 
- 1289      7465725F 
- 1289      436C6561 
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 35
+ 1280              	.LASF43:
+ 1281 015b 433A5C55 		.ascii	"C:\\Users\\shawn\\Desktop\\Real-Time-Estimation-and"
+ 1281      73657273 
+ 1281      5C736861 
+ 1281      776E5C44 
+ 1281      65736B74 
+ 1282 018a 2D436F6E 		.ascii	"-Control-For-Satellite-Orbit-Stabilization\\PSOC te"
+ 1282      74726F6C 
+ 1282      2D466F72 
+ 1282      2D536174 
+ 1282      656C6C69 
+ 1283 01bc 7374696E 		.ascii	"sting\\CommandInterpreter.cydsn\000"
+ 1283      675C436F 
+ 1283      6D6D616E 
+ 1283      64496E74 
+ 1283      65727072 
+ 1284              	.LASF23:
+ 1285 01db 636F6E74 		.ascii	"control\000"
+ 1285      726F6C00 
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 35
 
 
- 1289      72464946 
- 1290              	.LASF37:
- 1291 0195 42797465 		.ascii	"ByteCounter_interruptState\000"
+ 1286              	.LASF22:
+ 1287 01e3 696E7465 		.ascii	"interruptsMask\000"
+ 1287      72727570 
+ 1287      74734D61 
+ 1287      736B00
+ 1288              	.LASF10:
+ 1289 01f2 646F7562 		.ascii	"double\000"
+ 1289      6C6500
+ 1290              	.LASF34:
+ 1291 01f9 42797465 		.ascii	"ByteCounter_ClearFIFO\000"
  1291      436F756E 
  1291      7465725F 
- 1291      696E7465 
- 1291      72727570 
- 1292              	.LASF26:
- 1293 01b0 42797465 		.ascii	"ByteCounter_ReadCounter\000"
+ 1291      436C6561 
+ 1291      72464946 
+ 1292              	.LASF37:
+ 1293 020f 42797465 		.ascii	"ByteCounter_interruptState\000"
  1293      436F756E 
  1293      7465725F 
- 1293      52656164 
- 1293      436F756E 
- 1294              	.LASF30:
- 1295 01c8 42797465 		.ascii	"ByteCounter_ReadPeriod\000"
+ 1293      696E7465 
+ 1293      72727570 
+ 1294              	.LASF26:
+ 1295 022a 42797465 		.ascii	"ByteCounter_ReadCounter\000"
  1295      436F756E 
  1295      7465725F 
  1295      52656164 
- 1295      50657269 
- 1296              	.LASF20:
- 1297 01df 42797465 		.ascii	"ByteCounter_SetInterruptMode\000"
+ 1295      436F756E 
+ 1296              	.LASF30:
+ 1297 0242 42797465 		.ascii	"ByteCounter_ReadPeriod\000"
  1297      436F756E 
  1297      7465725F 
- 1297      53657449 
- 1297      6E746572 
- 1298              	.LASF40:
- 1299 01fc 43794578 		.ascii	"CyExitCriticalSection\000"
- 1299      69744372 
- 1299      69746963 
- 1299      616C5365 
- 1299      6374696F 
- 1300              	.LASF38:
- 1301 0212 42797465 		.ascii	"ByteCounter_Start\000"
- 1301      436F756E 
- 1301      7465725F 
- 1301      53746172 
- 1301      7400
- 1302              	.LASF35:
- 1303 0224 42797465 		.ascii	"ByteCounter_Init\000"
+ 1297      52656164 
+ 1297      50657269 
+ 1298              	.LASF20:
+ 1299 0259 42797465 		.ascii	"ByteCounter_SetInterruptMode\000"
+ 1299      436F756E 
+ 1299      7465725F 
+ 1299      53657449 
+ 1299      6E746572 
+ 1300              	.LASF40:
+ 1301 0276 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1301      69744372 
+ 1301      69746963 
+ 1301      616C5365 
+ 1301      6374696F 
+ 1302              	.LASF38:
+ 1303 028c 42797465 		.ascii	"ByteCounter_Start\000"
  1303      436F756E 
  1303      7465725F 
- 1303      496E6974 
- 1303      00
- 1304              	.LASF43:
- 1305 0235 433A5C55 		.ascii	"C:\\Users\\shawn\\Desktop\\PSOC testing\\CommandInt"
- 1305      73657273 
- 1305      5C736861 
- 1305      776E5C44 
- 1305      65736B74 
- 1306 0263 65727072 		.ascii	"erpreter.cydsn\000"
- 1306      65746572 
- 1306      2E637964 
- 1306      736E00
- 1307              	.LASF36:
- 1308 0272 6374726C 		.ascii	"ctrl\000"
- 1308      00
- 1309              	.LASF31:
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 36
+ 1303      53746172 
+ 1303      7400
+ 1304              	.LASF35:
+ 1305 029e 42797465 		.ascii	"ByteCounter_Init\000"
+ 1305      436F756E 
+ 1305      7465725F 
+ 1305      496E6974 
+ 1305      00
+ 1306              	.LASF36:
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 36
 
 
- 1310 0277 42797465 		.ascii	"ByteCounter_WriteCompare\000"
- 1310      436F756E 
- 1310      7465725F 
- 1310      57726974 
- 1310      65436F6D 
- 1311              	.LASF15:
- 1312 0290 73697A65 		.ascii	"sizetype\000"
- 1312      74797065 
- 1312      00
- 1313              	.LASF42:
- 1314 0299 47656E65 		.ascii	"Generated_Source\\PSoC5\\ByteCounter.c\000"
- 1314      72617465 
- 1314      645F536F 
- 1314      75726365 
- 1314      5C50536F 
- 1315              	.LASF39:
- 1316 02be 4379456E 		.ascii	"CyEnterCriticalSection\000"
- 1316      74657243 
- 1316      72697469 
- 1316      63616C53 
- 1316      65637469 
- 1317              	.LASF6:
- 1318 02d5 6C6F6E67 		.ascii	"long long int\000"
- 1318      206C6F6E 
- 1318      6720696E 
- 1318      7400
- 1319              	.LASF19:
- 1320 02e3 42797465 		.ascii	"ByteCounter_ReadControlRegister\000"
- 1320      436F756E 
- 1320      7465725F 
- 1320      52656164 
- 1320      436F6E74 
- 1321              	.LASF28:
- 1322 0303 42797465 		.ascii	"ByteCounter_WritePeriod\000"
- 1322      436F756E 
- 1322      7465725F 
- 1322      57726974 
- 1322      65506572 
- 1323              	.LASF11:
- 1324 031b 63686172 		.ascii	"char\000"
- 1324      00
- 1325              	.LASF2:
- 1326 0320 73686F72 		.ascii	"short int\000"
- 1326      7420696E 
- 1326      7400
- 1327              	.LASF4:
- 1328 032a 6C6F6E67 		.ascii	"long int\000"
- 1328      20696E74 
- 1328      00
- 1329              	.LASF14:
- 1330 0333 6C6F6E67 		.ascii	"long double\000"
- 1330      20646F75 
- 1330      626C6500 
- 1331              	.LASF0:
- 1332 033f 7369676E 		.ascii	"signed char\000"
- 1332      65642063 
- 1332      68617200 
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc4LDt6N.s 			page 37
+ 1307 02af 6374726C 		.ascii	"ctrl\000"
+ 1307      00
+ 1308              	.LASF31:
+ 1309 02b4 42797465 		.ascii	"ByteCounter_WriteCompare\000"
+ 1309      436F756E 
+ 1309      7465725F 
+ 1309      57726974 
+ 1309      65436F6D 
+ 1310              	.LASF15:
+ 1311 02cd 73697A65 		.ascii	"sizetype\000"
+ 1311      74797065 
+ 1311      00
+ 1312              	.LASF42:
+ 1313 02d6 47656E65 		.ascii	"Generated_Source\\PSoC5\\ByteCounter.c\000"
+ 1313      72617465 
+ 1313      645F536F 
+ 1313      75726365 
+ 1313      5C50536F 
+ 1314              	.LASF39:
+ 1315 02fb 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1315      74657243 
+ 1315      72697469 
+ 1315      63616C53 
+ 1315      65637469 
+ 1316              	.LASF6:
+ 1317 0312 6C6F6E67 		.ascii	"long long int\000"
+ 1317      206C6F6E 
+ 1317      6720696E 
+ 1317      7400
+ 1318              	.LASF19:
+ 1319 0320 42797465 		.ascii	"ByteCounter_ReadControlRegister\000"
+ 1319      436F756E 
+ 1319      7465725F 
+ 1319      52656164 
+ 1319      436F6E74 
+ 1320              	.LASF28:
+ 1321 0340 42797465 		.ascii	"ByteCounter_WritePeriod\000"
+ 1321      436F756E 
+ 1321      7465725F 
+ 1321      57726974 
+ 1321      65506572 
+ 1322              	.LASF11:
+ 1323 0358 63686172 		.ascii	"char\000"
+ 1323      00
+ 1324              	.LASF2:
+ 1325 035d 73686F72 		.ascii	"short int\000"
+ 1325      7420696E 
+ 1325      7400
+ 1326              	.LASF12:
+ 1327 0367 75696E74 		.ascii	"uint8\000"
+ 1327      3800
+ 1328              	.LASF4:
+ 1329 036d 6C6F6E67 		.ascii	"long int\000"
+ 1329      20696E74 
+ 1329      00
+ 1330              	.LASF14:
+ 1331 0376 6C6F6E67 		.ascii	"long double\000"
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc6NoMXB.s 			page 37
 
 
- 1333              	.LASF32:
- 1334 034b 636F6D70 		.ascii	"compare\000"
- 1334      61726500 
- 1335              	.LASF21:
- 1336 0353 42797465 		.ascii	"ByteCounter_WriteControlRegister\000"
- 1336      436F756E 
- 1336      7465725F 
- 1336      57726974 
- 1336      65436F6E 
- 1337              	.LASF17:
- 1338 0374 42797465 		.ascii	"ByteCounter_Stop\000"
- 1338      436F756E 
- 1338      7465725F 
- 1338      53746F70 
- 1338      00
- 1339              	.LASF44:
- 1340 0385 42797465 		.ascii	"ByteCounter_initVar\000"
- 1340      436F756E 
- 1340      7465725F 
- 1340      696E6974 
- 1340      56617200 
- 1341              	.LASF18:
- 1342 0399 42797465 		.ascii	"ByteCounter_ReadStatusRegister\000"
- 1342      436F756E 
- 1342      7465725F 
- 1342      52656164 
- 1342      53746174 
- 1343              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 1331      20646F75 
+ 1331      626C6500 
+ 1332              	.LASF0:
+ 1333 0382 7369676E 		.ascii	"signed char\000"
+ 1333      65642063 
+ 1333      68617200 
+ 1334              	.LASF32:
+ 1335 038e 636F6D70 		.ascii	"compare\000"
+ 1335      61726500 
+ 1336              	.LASF21:
+ 1337 0396 42797465 		.ascii	"ByteCounter_WriteControlRegister\000"
+ 1337      436F756E 
+ 1337      7465725F 
+ 1337      57726974 
+ 1337      65436F6E 
+ 1338              	.LASF17:
+ 1339 03b7 42797465 		.ascii	"ByteCounter_Stop\000"
+ 1339      436F756E 
+ 1339      7465725F 
+ 1339      53746F70 
+ 1339      00
+ 1340              	.LASF44:
+ 1341 03c8 42797465 		.ascii	"ByteCounter_initVar\000"
+ 1341      436F756E 
+ 1341      7465725F 
+ 1341      696E6974 
+ 1341      56617200 
+ 1342              	.LASF18:
+ 1343 03dc 42797465 		.ascii	"ByteCounter_ReadStatusRegister\000"
+ 1343      436F756E 
+ 1343      7465725F 
+ 1343      52656164 
+ 1343      53746174 
+ 1344              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

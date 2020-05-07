@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: LabVIEW_UART_PM.c
+* File Name: UART1_PM.c
 * Version 2.50
 *
 * Description:
@@ -14,14 +14,14 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#include "LabVIEW_UART.h"
+#include "UART1.h"
 
 
 /***************************************
 * Local data allocation
 ***************************************/
 
-static LabVIEW_UART_BACKUP_STRUCT  LabVIEW_UART_backup =
+static UART1_BACKUP_STRUCT  UART1_backup =
 {
     /* enableState - disabled */
     0u,
@@ -30,13 +30,13 @@ static LabVIEW_UART_BACKUP_STRUCT  LabVIEW_UART_backup =
 
 
 /*******************************************************************************
-* Function Name: LabVIEW_UART_SaveConfig
+* Function Name: UART1_SaveConfig
 ********************************************************************************
 *
 * Summary:
 *  This function saves the component nonretention control register.
 *  Does not save the FIFO which is a set of nonretention registers.
-*  This function is called by the LabVIEW_UART_Sleep() function.
+*  This function is called by the UART1_Sleep() function.
 *
 * Parameters:
 *  None.
@@ -45,22 +45,22 @@ static LabVIEW_UART_BACKUP_STRUCT  LabVIEW_UART_backup =
 *  None.
 *
 * Global Variables:
-*  LabVIEW_UART_backup - modified when non-retention registers are saved.
+*  UART1_backup - modified when non-retention registers are saved.
 *
 * Reentrant:
 *  No.
 *
 *******************************************************************************/
-void LabVIEW_UART_SaveConfig(void)
+void UART1_SaveConfig(void)
 {
-    #if(LabVIEW_UART_CONTROL_REG_REMOVED == 0u)
-        LabVIEW_UART_backup.cr = LabVIEW_UART_CONTROL_REG;
-    #endif /* End LabVIEW_UART_CONTROL_REG_REMOVED */
+    #if(UART1_CONTROL_REG_REMOVED == 0u)
+        UART1_backup.cr = UART1_CONTROL_REG;
+    #endif /* End UART1_CONTROL_REG_REMOVED */
 }
 
 
 /*******************************************************************************
-* Function Name: LabVIEW_UART_RestoreConfig
+* Function Name: UART1_RestoreConfig
 ********************************************************************************
 *
 * Summary:
@@ -74,34 +74,34 @@ void LabVIEW_UART_SaveConfig(void)
 *  None.
 *
 * Global Variables:
-*  LabVIEW_UART_backup - used when non-retention registers are restored.
+*  UART1_backup - used when non-retention registers are restored.
 *
 * Reentrant:
 *  No.
 *
 * Notes:
-*  If this function is called without calling LabVIEW_UART_SaveConfig() 
+*  If this function is called without calling UART1_SaveConfig() 
 *  first, the data loaded may be incorrect.
 *
 *******************************************************************************/
-void LabVIEW_UART_RestoreConfig(void)
+void UART1_RestoreConfig(void)
 {
-    #if(LabVIEW_UART_CONTROL_REG_REMOVED == 0u)
-        LabVIEW_UART_CONTROL_REG = LabVIEW_UART_backup.cr;
-    #endif /* End LabVIEW_UART_CONTROL_REG_REMOVED */
+    #if(UART1_CONTROL_REG_REMOVED == 0u)
+        UART1_CONTROL_REG = UART1_backup.cr;
+    #endif /* End UART1_CONTROL_REG_REMOVED */
 }
 
 
 /*******************************************************************************
-* Function Name: LabVIEW_UART_Sleep
+* Function Name: UART1_Sleep
 ********************************************************************************
 *
 * Summary:
 *  This is the preferred API to prepare the component for sleep. 
-*  The LabVIEW_UART_Sleep() API saves the current component state. Then it
-*  calls the LabVIEW_UART_Stop() function and calls 
-*  LabVIEW_UART_SaveConfig() to save the hardware configuration.
-*  Call the LabVIEW_UART_Sleep() function before calling the CyPmSleep() 
+*  The UART1_Sleep() API saves the current component state. Then it
+*  calls the UART1_Stop() function and calls 
+*  UART1_SaveConfig() to save the hardware configuration.
+*  Call the UART1_Sleep() function before calling the CyPmSleep() 
 *  or the CyPmHibernate() function. 
 *
 * Parameters:
@@ -111,49 +111,49 @@ void LabVIEW_UART_RestoreConfig(void)
 *  None.
 *
 * Global Variables:
-*  LabVIEW_UART_backup - modified when non-retention registers are saved.
+*  UART1_backup - modified when non-retention registers are saved.
 *
 * Reentrant:
 *  No.
 *
 *******************************************************************************/
-void LabVIEW_UART_Sleep(void)
+void UART1_Sleep(void)
 {
-    #if(LabVIEW_UART_RX_ENABLED || LabVIEW_UART_HD_ENABLED)
-        if((LabVIEW_UART_RXSTATUS_ACTL_REG  & LabVIEW_UART_INT_ENABLE) != 0u)
+    #if(UART1_RX_ENABLED || UART1_HD_ENABLED)
+        if((UART1_RXSTATUS_ACTL_REG  & UART1_INT_ENABLE) != 0u)
         {
-            LabVIEW_UART_backup.enableState = 1u;
+            UART1_backup.enableState = 1u;
         }
         else
         {
-            LabVIEW_UART_backup.enableState = 0u;
+            UART1_backup.enableState = 0u;
         }
     #else
-        if((LabVIEW_UART_TXSTATUS_ACTL_REG  & LabVIEW_UART_INT_ENABLE) !=0u)
+        if((UART1_TXSTATUS_ACTL_REG  & UART1_INT_ENABLE) !=0u)
         {
-            LabVIEW_UART_backup.enableState = 1u;
+            UART1_backup.enableState = 1u;
         }
         else
         {
-            LabVIEW_UART_backup.enableState = 0u;
+            UART1_backup.enableState = 0u;
         }
-    #endif /* End LabVIEW_UART_RX_ENABLED || LabVIEW_UART_HD_ENABLED*/
+    #endif /* End UART1_RX_ENABLED || UART1_HD_ENABLED*/
 
-    LabVIEW_UART_Stop();
-    LabVIEW_UART_SaveConfig();
+    UART1_Stop();
+    UART1_SaveConfig();
 }
 
 
 /*******************************************************************************
-* Function Name: LabVIEW_UART_Wakeup
+* Function Name: UART1_Wakeup
 ********************************************************************************
 *
 * Summary:
 *  This is the preferred API to restore the component to the state when 
-*  LabVIEW_UART_Sleep() was called. The LabVIEW_UART_Wakeup() function
-*  calls the LabVIEW_UART_RestoreConfig() function to restore the 
+*  UART1_Sleep() was called. The UART1_Wakeup() function
+*  calls the UART1_RestoreConfig() function to restore the 
 *  configuration. If the component was enabled before the 
-*  LabVIEW_UART_Sleep() function was called, the LabVIEW_UART_Wakeup()
+*  UART1_Sleep() function was called, the UART1_Wakeup()
 *  function will also re-enable the component.
 *
 * Parameters:
@@ -163,25 +163,25 @@ void LabVIEW_UART_Sleep(void)
 *  None.
 *
 * Global Variables:
-*  LabVIEW_UART_backup - used when non-retention registers are restored.
+*  UART1_backup - used when non-retention registers are restored.
 *
 * Reentrant:
 *  No.
 *
 *******************************************************************************/
-void LabVIEW_UART_Wakeup(void)
+void UART1_Wakeup(void)
 {
-    LabVIEW_UART_RestoreConfig();
-    #if( (LabVIEW_UART_RX_ENABLED) || (LabVIEW_UART_HD_ENABLED) )
-        LabVIEW_UART_ClearRxBuffer();
-    #endif /* End (LabVIEW_UART_RX_ENABLED) || (LabVIEW_UART_HD_ENABLED) */
-    #if(LabVIEW_UART_TX_ENABLED || LabVIEW_UART_HD_ENABLED)
-        LabVIEW_UART_ClearTxBuffer();
-    #endif /* End LabVIEW_UART_TX_ENABLED || LabVIEW_UART_HD_ENABLED */
+    UART1_RestoreConfig();
+    #if( (UART1_RX_ENABLED) || (UART1_HD_ENABLED) )
+        UART1_ClearRxBuffer();
+    #endif /* End (UART1_RX_ENABLED) || (UART1_HD_ENABLED) */
+    #if(UART1_TX_ENABLED || UART1_HD_ENABLED)
+        UART1_ClearTxBuffer();
+    #endif /* End UART1_TX_ENABLED || UART1_HD_ENABLED */
 
-    if(LabVIEW_UART_backup.enableState != 0u)
+    if(UART1_backup.enableState != 0u)
     {
-        LabVIEW_UART_Enable();
+        UART1_Enable();
     }
 }
 

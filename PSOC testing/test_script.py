@@ -42,8 +42,10 @@ def read_double_packet():
     return command, double
 
 
+# def get_input():
+
 # Testing
-send_double_packet(5, 563434534534.2424234)
+send_double_packet(command=1, double=563434534534.2424234)
 return_command, rx_double = read_double_packet()
 
 print(rx_double)

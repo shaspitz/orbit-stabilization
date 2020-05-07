@@ -6,7 +6,7 @@
 
 #Build Date:         Dec  5 2017 15:35:27
 
-#File Generated:     May 7 2020 13:27:33
+#File Generated:     May 7 2020 14:35:51
 
 #Purpose:            
 
@@ -79,14 +79,15 @@ analysis after routing.
 ######################################################################
                      Clock Summary 
 ======================================================================
-Number of clocks: 7
-Clock: Clock_1              | Frequency:  22.7 MHz | Target:  12.0 MHz
-Clock: CyBUS_CLK            | Frequency:  32.7 MHz | Target:  24.0 MHz
+Number of clocks: 8
+Clock: Clock_1              | Frequency:  21.6 MHz | Target:  12.0 MHz
+Clock: CyBUS_CLK            | Frequency:  33.0 MHz | Target:  24.0 MHz
+Clock: CyBUS_CLK(fixed-function) | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyIMO                | Frequency: N/A       | Target:   3.0 MHz
-Clock: CyMASTER_CLK         | Frequency:  22.7 MHz | Target:  24.0 MHz
+Clock: CyMASTER_CLK         | Frequency:  21.6 MHz | Target:  24.0 MHz
 Clock: CyPLL_OUT            | Frequency: N/A       | Target:  24.0 MHz
-Clock: LabVIEW_UART_IntClock | Frequency:  22.7 MHz | Target:   0.9 MHz
+Clock: UART1_IntClock       | Frequency:  21.6 MHz | Target:   0.9 MHz
 
 ======================================================================
                      End of Clock Summary
@@ -98,14 +99,15 @@ Phase 7
 ######################################################################
                      Clock Summary 
 ======================================================================
-Number of clocks: 7
-Clock: Clock_1              | Frequency:  22.8 MHz | Target:  12.0 MHz
-Clock: CyBUS_CLK            | Frequency:   1.6 MHz | Target:  24.0 MHz
+Number of clocks: 8
+Clock: Clock_1              | Frequency:  22.7 MHz | Target:  12.0 MHz
+Clock: CyBUS_CLK            | Frequency:  33.6 MHz | Target:  24.0 MHz
+Clock: CyBUS_CLK(fixed-function) | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyIMO                | Frequency: N/A       | Target:   3.0 MHz
-Clock: CyMASTER_CLK         | Frequency:  22.8 MHz | Target:  24.0 MHz
+Clock: CyMASTER_CLK         | Frequency:  22.7 MHz | Target:  24.0 MHz
 Clock: CyPLL_OUT            | Frequency: N/A       | Target:  24.0 MHz
-Clock: LabVIEW_UART_IntClock | Frequency:   1.6 MHz | Target:   0.9 MHz
+Clock: UART1_IntClock       | Frequency:  22.7 MHz | Target:   0.9 MHz
 
 ======================================================================
                      End of Clock Summary
@@ -140,14 +142,15 @@ analysis after routing.
 ######################################################################
                      Clock Summary 
 ======================================================================
-Number of clocks: 7
-Clock: Clock_1              | Frequency:  25.4 MHz | Target:  12.0 MHz
-Clock: CyBUS_CLK            | Frequency:   1.5 MHz | Target:  24.0 MHz
+Number of clocks: 8
+Clock: Clock_1              | Frequency:  25.1 MHz | Target:  12.0 MHz
+Clock: CyBUS_CLK            | Frequency:   1.6 MHz | Target:  24.0 MHz
+Clock: CyBUS_CLK(fixed-function) | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyIMO                | Frequency: N/A       | Target:   3.0 MHz
-Clock: CyMASTER_CLK         | Frequency:  25.4 MHz | Target:  24.0 MHz
+Clock: CyMASTER_CLK         | Frequency:  25.1 MHz | Target:  24.0 MHz
 Clock: CyPLL_OUT            | Frequency: N/A       | Target:  24.0 MHz
-Clock: LabVIEW_UART_IntClock | Frequency:   1.5 MHz | Target:   0.9 MHz
+Clock: UART1_IntClock       | Frequency:   1.6 MHz | Target:   0.9 MHz
 
 ======================================================================
                      End of Clock Summary
@@ -158,5 +161,5 @@ D2088: Phase 8, elapsed time : 0.0 (sec)
 
 D2054: Placement of the design completed successfully
 
-I2076: Total run-time: 0.7 sec.
+I2076: Total run-time: 0.8 sec.
 

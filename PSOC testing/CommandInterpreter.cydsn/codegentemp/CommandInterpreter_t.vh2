@@ -1,5 +1,5 @@
 -- Project:   C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\CommandInterpreter.cyprj
--- Generated: 05/07/2020 13:27:35
+-- Generated: 05/07/2020 14:35:53
 -- PSoC Creator  4.2
 
 ENTITY CommandInterpreter IS
@@ -31,8 +31,9 @@ ARCHITECTURE __DEFAULT__ OF CommandInterpreter IS
     SIGNAL ClockBlock_XTAL : bit;
     SIGNAL ClockBlock_XTAL_32KHZ : bit;
     SIGNAL LED(0)__PA : bit;
+    SIGNAL Net_11 : bit;
     SIGNAL Net_2 : bit;
-    ATTRIBUTE placement_force OF Net_2 : SIGNAL IS "U(0,2,B)3";
+    ATTRIBUTE placement_force OF Net_2 : SIGNAL IS "U(0,2,A)3";
     SIGNAL Net_27 : bit;
     SIGNAL Net_34 : bit;
     SIGNAL Net_37 : bit;
@@ -62,21 +63,21 @@ ARCHITECTURE __DEFAULT__ OF CommandInterpreter IS
     SIGNAL \ByteCounter:CounterUDB:control_6\ : bit;
     SIGNAL \ByteCounter:CounterUDB:control_7\ : bit;
     SIGNAL \ByteCounter:CounterUDB:count_enable\ : bit;
-    ATTRIBUTE placement_force OF \ByteCounter:CounterUDB:count_enable\ : SIGNAL IS "U(0,0,A)2";
+    ATTRIBUTE placement_force OF \ByteCounter:CounterUDB:count_enable\ : SIGNAL IS "U(1,1,B)2";
     SIGNAL \ByteCounter:CounterUDB:count_stored_i\ : bit;
-    ATTRIBUTE placement_force OF \ByteCounter:CounterUDB:count_stored_i\ : SIGNAL IS "U(0,0,A)0";
+    ATTRIBUTE placement_force OF \ByteCounter:CounterUDB:count_stored_i\ : SIGNAL IS "U(1,1,B)0";
     SIGNAL \ByteCounter:CounterUDB:overflow_reg_i\ : bit;
-    ATTRIBUTE placement_force OF \ByteCounter:CounterUDB:overflow_reg_i\ : SIGNAL IS "U(0,1,B)2";
+    ATTRIBUTE placement_force OF \ByteCounter:CounterUDB:overflow_reg_i\ : SIGNAL IS "U(0,0,A)1";
     SIGNAL \ByteCounter:CounterUDB:per_equal\ : bit;
     SIGNAL \ByteCounter:CounterUDB:prevCompare\ : bit;
-    ATTRIBUTE placement_force OF \ByteCounter:CounterUDB:prevCompare\ : SIGNAL IS "U(0,0,B)0";
+    ATTRIBUTE placement_force OF \ByteCounter:CounterUDB:prevCompare\ : SIGNAL IS "U(1,0,A)2";
     SIGNAL \ByteCounter:CounterUDB:reload\ : bit;
-    ATTRIBUTE placement_force OF \ByteCounter:CounterUDB:reload\ : SIGNAL IS "U(0,0,A)3";
+    ATTRIBUTE placement_force OF \ByteCounter:CounterUDB:reload\ : SIGNAL IS "U(1,0,A)3";
     SIGNAL \ByteCounter:CounterUDB:status_0\ : bit;
-    ATTRIBUTE placement_force OF \ByteCounter:CounterUDB:status_0\ : SIGNAL IS "U(0,0,B)1";
+    ATTRIBUTE placement_force OF \ByteCounter:CounterUDB:status_0\ : SIGNAL IS "U(1,0,A)1";
     SIGNAL \ByteCounter:CounterUDB:status_1\ : bit;
     SIGNAL \ByteCounter:CounterUDB:status_2\ : bit;
-    ATTRIBUTE placement_force OF \ByteCounter:CounterUDB:status_2\ : SIGNAL IS "U(0,1,B)0";
+    ATTRIBUTE placement_force OF \ByteCounter:CounterUDB:status_2\ : SIGNAL IS "U(0,0,A)0";
     SIGNAL \ByteCounter:CounterUDB:status_5\ : bit;
     SIGNAL \ByteCounter:CounterUDB:status_6\ : bit;
     SIGNAL \LEDDrive:control_1\ : bit;
@@ -86,77 +87,79 @@ ARCHITECTURE __DEFAULT__ OF CommandInterpreter IS
     SIGNAL \LEDDrive:control_5\ : bit;
     SIGNAL \LEDDrive:control_6\ : bit;
     SIGNAL \LEDDrive:control_7\ : bit;
-    SIGNAL \LabVIEW_UART:BUART:counter_load_not\ : bit;
-    ATTRIBUTE placement_force OF \LabVIEW_UART:BUART:counter_load_not\ : SIGNAL IS "U(0,2,A)2";
-    SIGNAL \LabVIEW_UART:BUART:pollcount_0\ : bit;
-    ATTRIBUTE placement_force OF \LabVIEW_UART:BUART:pollcount_0\ : SIGNAL IS "U(1,0,B)2";
-    SIGNAL \LabVIEW_UART:BUART:pollcount_1\ : bit;
-    ATTRIBUTE placement_force OF \LabVIEW_UART:BUART:pollcount_1\ : SIGNAL IS "U(1,0,B)1";
-    SIGNAL \LabVIEW_UART:BUART:reset_reg\ : bit;
-    ATTRIBUTE placement_force OF \LabVIEW_UART:BUART:reset_reg\ : SIGNAL IS "U(0,1,A)3";
-    SIGNAL \LabVIEW_UART:BUART:rx_address_detected\ : bit;
-    ATTRIBUTE placement_force OF \LabVIEW_UART:BUART:rx_address_detected\ : SIGNAL IS "U(1,1,B)3";
-    SIGNAL \LabVIEW_UART:BUART:rx_bitclk_enable\ : bit;
-    ATTRIBUTE placement_force OF \LabVIEW_UART:BUART:rx_bitclk_enable\ : SIGNAL IS "U(1,0,B)3";
-    SIGNAL \LabVIEW_UART:BUART:rx_count7_tc\ : bit;
-    SIGNAL \LabVIEW_UART:BUART:rx_count_0\ : bit;
-    SIGNAL \LabVIEW_UART:BUART:rx_count_1\ : bit;
-    SIGNAL \LabVIEW_UART:BUART:rx_count_2\ : bit;
-    SIGNAL \LabVIEW_UART:BUART:rx_count_3\ : bit;
-    SIGNAL \LabVIEW_UART:BUART:rx_count_4\ : bit;
-    SIGNAL \LabVIEW_UART:BUART:rx_count_5\ : bit;
-    SIGNAL \LabVIEW_UART:BUART:rx_count_6\ : bit;
-    SIGNAL \LabVIEW_UART:BUART:rx_counter_load\ : bit;
-    ATTRIBUTE placement_force OF \LabVIEW_UART:BUART:rx_counter_load\ : SIGNAL IS "U(1,0,A)1";
-    SIGNAL \LabVIEW_UART:BUART:rx_fifofull\ : bit;
-    SIGNAL \LabVIEW_UART:BUART:rx_fifonotempty\ : bit;
-    SIGNAL \LabVIEW_UART:BUART:rx_last\ : bit;
-    ATTRIBUTE placement_force OF \LabVIEW_UART:BUART:rx_last\ : SIGNAL IS "U(1,0,A)3";
-    SIGNAL \LabVIEW_UART:BUART:rx_load_fifo\ : bit;
-    ATTRIBUTE placement_force OF \LabVIEW_UART:BUART:rx_load_fifo\ : SIGNAL IS "U(1,1,B)2";
-    SIGNAL \LabVIEW_UART:BUART:rx_postpoll\ : bit;
-    ATTRIBUTE placement_force OF \LabVIEW_UART:BUART:rx_postpoll\ : SIGNAL IS "U(0,1,A)0";
-    SIGNAL \LabVIEW_UART:BUART:rx_state_0\ : bit;
-    ATTRIBUTE placement_force OF \LabVIEW_UART:BUART:rx_state_0\ : SIGNAL IS "U(1,0,A)0";
-    SIGNAL \LabVIEW_UART:BUART:rx_state_1\ : bit;
-    ATTRIBUTE placement_force OF \LabVIEW_UART:BUART:rx_state_1\ : SIGNAL IS "U(1,1,A)2";
-    SIGNAL \LabVIEW_UART:BUART:rx_state_2\ : bit;
-    ATTRIBUTE placement_force OF \LabVIEW_UART:BUART:rx_state_2\ : SIGNAL IS "U(1,1,A)0";
-    SIGNAL \LabVIEW_UART:BUART:rx_state_3\ : bit;
-    ATTRIBUTE placement_force OF \LabVIEW_UART:BUART:rx_state_3\ : SIGNAL IS "U(1,1,B)1";
-    SIGNAL \LabVIEW_UART:BUART:rx_state_stop1_reg\ : bit;
-    ATTRIBUTE placement_force OF \LabVIEW_UART:BUART:rx_state_stop1_reg\ : SIGNAL IS "U(1,1,A)1";
-    SIGNAL \LabVIEW_UART:BUART:rx_status_3\ : bit;
-    ATTRIBUTE placement_force OF \LabVIEW_UART:BUART:rx_status_3\ : SIGNAL IS "U(1,0,B)0";
-    SIGNAL \LabVIEW_UART:BUART:rx_status_4\ : bit;
-    ATTRIBUTE placement_force OF \LabVIEW_UART:BUART:rx_status_4\ : SIGNAL IS "U(1,1,B)0";
-    SIGNAL \LabVIEW_UART:BUART:rx_status_5\ : bit;
-    ATTRIBUTE placement_force OF \LabVIEW_UART:BUART:rx_status_5\ : SIGNAL IS "U(0,1,A)2";
-    SIGNAL \LabVIEW_UART:BUART:tx_bitclk\ : bit;
-    ATTRIBUTE placement_force OF \LabVIEW_UART:BUART:tx_bitclk\ : SIGNAL IS "U(1,2,A)1";
-    SIGNAL \LabVIEW_UART:BUART:tx_bitclk_enable_pre\ : bit;
-    SIGNAL \LabVIEW_UART:BUART:tx_counter_dp\ : bit;
-    SIGNAL \LabVIEW_UART:BUART:tx_fifo_empty\ : bit;
-    SIGNAL \LabVIEW_UART:BUART:tx_fifo_notfull\ : bit;
-    SIGNAL \LabVIEW_UART:BUART:tx_mark\ : bit;
-    ATTRIBUTE placement_force OF \LabVIEW_UART:BUART:tx_mark\ : SIGNAL IS "U(1,2,A)2";
-    SIGNAL \LabVIEW_UART:BUART:tx_shift_out\ : bit;
-    SIGNAL \LabVIEW_UART:BUART:tx_state_0\ : bit;
-    ATTRIBUTE placement_force OF \LabVIEW_UART:BUART:tx_state_0\ : SIGNAL IS "U(1,2,A)0";
-    SIGNAL \LabVIEW_UART:BUART:tx_state_1\ : bit;
-    ATTRIBUTE placement_force OF \LabVIEW_UART:BUART:tx_state_1\ : SIGNAL IS "U(0,2,A)0";
-    SIGNAL \LabVIEW_UART:BUART:tx_state_2\ : bit;
-    ATTRIBUTE placement_force OF \LabVIEW_UART:BUART:tx_state_2\ : SIGNAL IS "U(1,2,B)0";
-    SIGNAL \LabVIEW_UART:BUART:tx_status_0\ : bit;
-    ATTRIBUTE placement_force OF \LabVIEW_UART:BUART:tx_status_0\ : SIGNAL IS "U(1,2,B)2";
-    SIGNAL \LabVIEW_UART:BUART:tx_status_2\ : bit;
-    ATTRIBUTE placement_force OF \LabVIEW_UART:BUART:tx_status_2\ : SIGNAL IS "U(1,2,B)3";
-    SIGNAL \LabVIEW_UART:BUART:txn\ : bit;
-    ATTRIBUTE placement_force OF \LabVIEW_UART:BUART:txn\ : SIGNAL IS "U(0,2,B)0";
-    SIGNAL \LabVIEW_UART:Net_9\ : bit;
-    ATTRIBUTE udbclken_assigned OF \LabVIEW_UART:Net_9\ : SIGNAL IS "True";
-    ATTRIBUTE global_signal OF \LabVIEW_UART:Net_9\ : SIGNAL IS true;
-    SIGNAL \LabVIEW_UART:Net_9_local\ : bit;
+    SIGNAL \Timer_1:Net_261\ : bit;
+    SIGNAL \Timer_1:Net_51\ : bit;
+    SIGNAL \UART1:BUART:counter_load_not\ : bit;
+    ATTRIBUTE placement_force OF \UART1:BUART:counter_load_not\ : SIGNAL IS "U(0,1,A)1";
+    SIGNAL \UART1:BUART:pollcount_0\ : bit;
+    ATTRIBUTE placement_force OF \UART1:BUART:pollcount_0\ : SIGNAL IS "U(1,1,A)2";
+    SIGNAL \UART1:BUART:pollcount_1\ : bit;
+    ATTRIBUTE placement_force OF \UART1:BUART:pollcount_1\ : SIGNAL IS "U(1,1,A)1";
+    SIGNAL \UART1:BUART:reset_reg\ : bit;
+    ATTRIBUTE placement_force OF \UART1:BUART:reset_reg\ : SIGNAL IS "U(0,0,B)1";
+    SIGNAL \UART1:BUART:rx_address_detected\ : bit;
+    ATTRIBUTE placement_force OF \UART1:BUART:rx_address_detected\ : SIGNAL IS "U(0,2,A)1";
+    SIGNAL \UART1:BUART:rx_bitclk_enable\ : bit;
+    ATTRIBUTE placement_force OF \UART1:BUART:rx_bitclk_enable\ : SIGNAL IS "U(1,1,A)3";
+    SIGNAL \UART1:BUART:rx_count7_tc\ : bit;
+    SIGNAL \UART1:BUART:rx_count_0\ : bit;
+    SIGNAL \UART1:BUART:rx_count_1\ : bit;
+    SIGNAL \UART1:BUART:rx_count_2\ : bit;
+    SIGNAL \UART1:BUART:rx_count_3\ : bit;
+    SIGNAL \UART1:BUART:rx_count_4\ : bit;
+    SIGNAL \UART1:BUART:rx_count_5\ : bit;
+    SIGNAL \UART1:BUART:rx_count_6\ : bit;
+    SIGNAL \UART1:BUART:rx_counter_load\ : bit;
+    ATTRIBUTE placement_force OF \UART1:BUART:rx_counter_load\ : SIGNAL IS "U(1,2,A)1";
+    SIGNAL \UART1:BUART:rx_fifofull\ : bit;
+    SIGNAL \UART1:BUART:rx_fifonotempty\ : bit;
+    SIGNAL \UART1:BUART:rx_last\ : bit;
+    ATTRIBUTE placement_force OF \UART1:BUART:rx_last\ : SIGNAL IS "U(1,0,B)1";
+    SIGNAL \UART1:BUART:rx_load_fifo\ : bit;
+    ATTRIBUTE placement_force OF \UART1:BUART:rx_load_fifo\ : SIGNAL IS "U(1,2,B)2";
+    SIGNAL \UART1:BUART:rx_postpoll\ : bit;
+    ATTRIBUTE placement_force OF \UART1:BUART:rx_postpoll\ : SIGNAL IS "U(1,0,A)0";
+    SIGNAL \UART1:BUART:rx_state_0\ : bit;
+    ATTRIBUTE placement_force OF \UART1:BUART:rx_state_0\ : SIGNAL IS "U(1,2,A)0";
+    SIGNAL \UART1:BUART:rx_state_1\ : bit;
+    ATTRIBUTE placement_force OF \UART1:BUART:rx_state_1\ : SIGNAL IS "U(1,2,A)2";
+    SIGNAL \UART1:BUART:rx_state_2\ : bit;
+    ATTRIBUTE placement_force OF \UART1:BUART:rx_state_2\ : SIGNAL IS "U(1,0,B)0";
+    SIGNAL \UART1:BUART:rx_state_3\ : bit;
+    ATTRIBUTE placement_force OF \UART1:BUART:rx_state_3\ : SIGNAL IS "U(1,2,B)1";
+    SIGNAL \UART1:BUART:rx_state_stop1_reg\ : bit;
+    ATTRIBUTE placement_force OF \UART1:BUART:rx_state_stop1_reg\ : SIGNAL IS "U(1,2,A)3";
+    SIGNAL \UART1:BUART:rx_status_3\ : bit;
+    ATTRIBUTE placement_force OF \UART1:BUART:rx_status_3\ : SIGNAL IS "U(1,1,A)0";
+    SIGNAL \UART1:BUART:rx_status_4\ : bit;
+    ATTRIBUTE placement_force OF \UART1:BUART:rx_status_4\ : SIGNAL IS "U(1,1,B)3";
+    SIGNAL \UART1:BUART:rx_status_5\ : bit;
+    ATTRIBUTE placement_force OF \UART1:BUART:rx_status_5\ : SIGNAL IS "U(1,1,B)1";
+    SIGNAL \UART1:BUART:tx_bitclk\ : bit;
+    ATTRIBUTE placement_force OF \UART1:BUART:tx_bitclk\ : SIGNAL IS "U(0,0,B)3";
+    SIGNAL \UART1:BUART:tx_bitclk_enable_pre\ : bit;
+    SIGNAL \UART1:BUART:tx_counter_dp\ : bit;
+    SIGNAL \UART1:BUART:tx_fifo_empty\ : bit;
+    SIGNAL \UART1:BUART:tx_fifo_notfull\ : bit;
+    SIGNAL \UART1:BUART:tx_mark\ : bit;
+    ATTRIBUTE placement_force OF \UART1:BUART:tx_mark\ : SIGNAL IS "U(0,0,B)2";
+    SIGNAL \UART1:BUART:tx_shift_out\ : bit;
+    SIGNAL \UART1:BUART:tx_state_0\ : bit;
+    ATTRIBUTE placement_force OF \UART1:BUART:tx_state_0\ : SIGNAL IS "U(0,1,A)0";
+    SIGNAL \UART1:BUART:tx_state_1\ : bit;
+    ATTRIBUTE placement_force OF \UART1:BUART:tx_state_1\ : SIGNAL IS "U(0,0,B)0";
+    SIGNAL \UART1:BUART:tx_state_2\ : bit;
+    ATTRIBUTE placement_force OF \UART1:BUART:tx_state_2\ : SIGNAL IS "U(0,1,B)0";
+    SIGNAL \UART1:BUART:tx_status_0\ : bit;
+    ATTRIBUTE placement_force OF \UART1:BUART:tx_status_0\ : SIGNAL IS "U(0,1,A)2";
+    SIGNAL \UART1:BUART:tx_status_2\ : bit;
+    ATTRIBUTE placement_force OF \UART1:BUART:tx_status_2\ : SIGNAL IS "U(0,2,A)2";
+    SIGNAL \UART1:BUART:txn\ : bit;
+    ATTRIBUTE placement_force OF \UART1:BUART:txn\ : SIGNAL IS "U(0,2,A)0";
+    SIGNAL \UART1:Net_9\ : bit;
+    ATTRIBUTE udbclken_assigned OF \UART1:Net_9\ : SIGNAL IS "True";
+    ATTRIBUTE global_signal OF \UART1:Net_9\ : SIGNAL IS true;
+    SIGNAL \UART1:Net_9_local\ : bit;
     SIGNAL \UARTReset:control_1\ : bit;
     SIGNAL \UARTReset:control_2\ : bit;
     SIGNAL \UARTReset:control_3\ : bit;
@@ -165,7 +168,7 @@ ARCHITECTURE __DEFAULT__ OF CommandInterpreter IS
     SIGNAL \UARTReset:control_6\ : bit;
     SIGNAL \UARTReset:control_7\ : bit;
     SIGNAL __ONE__ : bit;
-    ATTRIBUTE placement_force OF __ONE__ : SIGNAL IS "U(3,1,B)0";
+    ATTRIBUTE placement_force OF __ONE__ : SIGNAL IS "U(2,5,A)2";
     ATTRIBUTE POWER OF __ONE__ : SIGNAL IS true;
     SIGNAL __ZERO__ : bit;
     ATTRIBUTE GROUND OF __ZERO__ : SIGNAL IS true;
@@ -173,6 +176,7 @@ ARCHITECTURE __DEFAULT__ OF CommandInterpreter IS
     ATTRIBUTE POWER OF one : SIGNAL IS true;
     SIGNAL zero : bit;
     ATTRIBUTE GROUND OF zero : SIGNAL IS true;
+    SIGNAL \ClockBlock.clk_bus_glb_ff__sig\ : bit;
     ATTRIBUTE Location OF ClockBlock : LABEL IS "F(Clock,0)";
     ATTRIBUTE lib_model OF Rx_1(0) : LABEL IS "iocell1";
     ATTRIBUTE Location OF Rx_1(0) : LABEL IS "P12[6]";
@@ -182,99 +186,101 @@ ARCHITECTURE __DEFAULT__ OF CommandInterpreter IS
     ATTRIBUTE Location OF LED(0) : LABEL IS "P2[1]";
     ATTRIBUTE lib_model OF Net_2 : LABEL IS "macrocell1";
     ATTRIBUTE Location OF Net_2 : LABEL IS "U(0,2)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:counter_load_not\ : LABEL IS "macrocell2";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:counter_load_not\ : LABEL IS "U(0,2)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:tx_status_0\ : LABEL IS "macrocell3";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:tx_status_0\ : LABEL IS "U(1,2)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:tx_status_2\ : LABEL IS "macrocell4";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:tx_status_2\ : LABEL IS "U(1,2)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:rx_counter_load\ : LABEL IS "macrocell5";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:rx_counter_load\ : LABEL IS "U(1,0)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:rx_postpoll\ : LABEL IS "macrocell6";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:rx_postpoll\ : LABEL IS "U(0,1)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:rx_status_4\ : LABEL IS "macrocell7";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:rx_status_4\ : LABEL IS "U(1,1)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:rx_status_5\ : LABEL IS "macrocell8";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:rx_status_5\ : LABEL IS "U(0,1)";
+    ATTRIBUTE lib_model OF \UART1:BUART:counter_load_not\ : LABEL IS "macrocell2";
+    ATTRIBUTE Location OF \UART1:BUART:counter_load_not\ : LABEL IS "U(0,1)";
+    ATTRIBUTE lib_model OF \UART1:BUART:tx_status_0\ : LABEL IS "macrocell3";
+    ATTRIBUTE Location OF \UART1:BUART:tx_status_0\ : LABEL IS "U(0,1)";
+    ATTRIBUTE lib_model OF \UART1:BUART:tx_status_2\ : LABEL IS "macrocell4";
+    ATTRIBUTE Location OF \UART1:BUART:tx_status_2\ : LABEL IS "U(0,2)";
+    ATTRIBUTE lib_model OF \UART1:BUART:rx_counter_load\ : LABEL IS "macrocell5";
+    ATTRIBUTE Location OF \UART1:BUART:rx_counter_load\ : LABEL IS "U(1,2)";
+    ATTRIBUTE lib_model OF \UART1:BUART:rx_postpoll\ : LABEL IS "macrocell6";
+    ATTRIBUTE Location OF \UART1:BUART:rx_postpoll\ : LABEL IS "U(1,0)";
+    ATTRIBUTE lib_model OF \UART1:BUART:rx_status_4\ : LABEL IS "macrocell7";
+    ATTRIBUTE Location OF \UART1:BUART:rx_status_4\ : LABEL IS "U(1,1)";
+    ATTRIBUTE lib_model OF \UART1:BUART:rx_status_5\ : LABEL IS "macrocell8";
+    ATTRIBUTE Location OF \UART1:BUART:rx_status_5\ : LABEL IS "U(1,1)";
     ATTRIBUTE lib_model OF \ByteCounter:CounterUDB:reload\ : LABEL IS "macrocell9";
-    ATTRIBUTE Location OF \ByteCounter:CounterUDB:reload\ : LABEL IS "U(0,0)";
+    ATTRIBUTE Location OF \ByteCounter:CounterUDB:reload\ : LABEL IS "U(1,0)";
     ATTRIBUTE lib_model OF \ByteCounter:CounterUDB:status_0\ : LABEL IS "macrocell10";
-    ATTRIBUTE Location OF \ByteCounter:CounterUDB:status_0\ : LABEL IS "U(0,0)";
+    ATTRIBUTE Location OF \ByteCounter:CounterUDB:status_0\ : LABEL IS "U(1,0)";
     ATTRIBUTE lib_model OF \ByteCounter:CounterUDB:status_2\ : LABEL IS "macrocell11";
-    ATTRIBUTE Location OF \ByteCounter:CounterUDB:status_2\ : LABEL IS "U(0,1)";
+    ATTRIBUTE Location OF \ByteCounter:CounterUDB:status_2\ : LABEL IS "U(0,0)";
     ATTRIBUTE lib_model OF \ByteCounter:CounterUDB:count_enable\ : LABEL IS "macrocell12";
-    ATTRIBUTE Location OF \ByteCounter:CounterUDB:count_enable\ : LABEL IS "U(0,0)";
+    ATTRIBUTE Location OF \ByteCounter:CounterUDB:count_enable\ : LABEL IS "U(1,1)";
     ATTRIBUTE lib_model OF __ONE__ : LABEL IS "macrocell13";
-    ATTRIBUTE Location OF __ONE__ : LABEL IS "U(3,1)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:sTX:TxShifter:u0\ : LABEL IS "datapathcell1";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:sTX:TxShifter:u0\ : LABEL IS "U(1,2)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:sTX:sCLOCK:TxBitClkGen\ : LABEL IS "datapathcell2";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:sTX:sCLOCK:TxBitClkGen\ : LABEL IS "U(0,2)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:sTX:TxSts\ : LABEL IS "statusicell1";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:sTX:TxSts\ : LABEL IS "U(1,2)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:sRX:RxShifter:u0\ : LABEL IS "datapathcell3";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:sRX:RxShifter:u0\ : LABEL IS "U(1,1)";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:sRX:RxBitCounter\ : LABEL IS "U(1,0)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:sRX:RxSts\ : LABEL IS "statusicell2";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:sRX:RxSts\ : LABEL IS "U(0,1)";
+    ATTRIBUTE Location OF __ONE__ : LABEL IS "U(2,5)";
+    ATTRIBUTE lib_model OF \UART1:BUART:sTX:TxShifter:u0\ : LABEL IS "datapathcell1";
+    ATTRIBUTE Location OF \UART1:BUART:sTX:TxShifter:u0\ : LABEL IS "U(0,2)";
+    ATTRIBUTE lib_model OF \UART1:BUART:sTX:sCLOCK:TxBitClkGen\ : LABEL IS "datapathcell2";
+    ATTRIBUTE Location OF \UART1:BUART:sTX:sCLOCK:TxBitClkGen\ : LABEL IS "U(0,1)";
+    ATTRIBUTE lib_model OF \UART1:BUART:sTX:TxSts\ : LABEL IS "statusicell1";
+    ATTRIBUTE Location OF \UART1:BUART:sTX:TxSts\ : LABEL IS "U(0,2)";
+    ATTRIBUTE lib_model OF \UART1:BUART:sRX:RxShifter:u0\ : LABEL IS "datapathcell3";
+    ATTRIBUTE Location OF \UART1:BUART:sRX:RxShifter:u0\ : LABEL IS "U(1,0)";
+    ATTRIBUTE Location OF \UART1:BUART:sRX:RxBitCounter\ : LABEL IS "U(1,2)";
+    ATTRIBUTE lib_model OF \UART1:BUART:sRX:RxSts\ : LABEL IS "statusicell2";
+    ATTRIBUTE Location OF \UART1:BUART:sRX:RxSts\ : LABEL IS "U(1,1)";
     ATTRIBUTE lib_model OF \UARTReset:Sync:ctrl_reg\ : LABEL IS "controlcell1";
-    ATTRIBUTE Location OF \UARTReset:Sync:ctrl_reg\ : LABEL IS "U(0,1)";
+    ATTRIBUTE Location OF \UARTReset:Sync:ctrl_reg\ : LABEL IS "U(0,0)";
     ATTRIBUTE Location OF ByteReceived : LABEL IS "[IntrContainer=(0)][IntrId=(0)]";
     ATTRIBUTE lib_model OF \LEDDrive:Sync:ctrl_reg\ : LABEL IS "controlcell2";
-    ATTRIBUTE Location OF \LEDDrive:Sync:ctrl_reg\ : LABEL IS "U(1,2)";
+    ATTRIBUTE Location OF \LEDDrive:Sync:ctrl_reg\ : LABEL IS "U(0,2)";
     ATTRIBUTE lib_model OF \ByteCounter:CounterUDB:sCTRLReg:ctrlreg\ : LABEL IS "controlcell3";
-    ATTRIBUTE Location OF \ByteCounter:CounterUDB:sCTRLReg:ctrlreg\ : LABEL IS "U(0,2)";
+    ATTRIBUTE Location OF \ByteCounter:CounterUDB:sCTRLReg:ctrlreg\ : LABEL IS "U(0,1)";
     ATTRIBUTE lib_model OF \ByteCounter:CounterUDB:sSTSReg:stsreg\ : LABEL IS "statusicell3";
-    ATTRIBUTE Location OF \ByteCounter:CounterUDB:sSTSReg:stsreg\ : LABEL IS "U(0,0)";
+    ATTRIBUTE Location OF \ByteCounter:CounterUDB:sSTSReg:stsreg\ : LABEL IS "U(1,0)";
     ATTRIBUTE lib_model OF \ByteCounter:CounterUDB:sC8:counterdp:u0\ : LABEL IS "datapathcell4";
-    ATTRIBUTE Location OF \ByteCounter:CounterUDB:sC8:counterdp:u0\ : LABEL IS "U(0,0)";
+    ATTRIBUTE Location OF \ByteCounter:CounterUDB:sC8:counterdp:u0\ : LABEL IS "U(1,1)";
     ATTRIBUTE lib_model OF \ByteCountReset:Sync:ctrl_reg\ : LABEL IS "controlcell4";
-    ATTRIBUTE Location OF \ByteCountReset:Sync:ctrl_reg\ : LABEL IS "U(1,1)";
+    ATTRIBUTE Location OF \ByteCountReset:Sync:ctrl_reg\ : LABEL IS "U(1,0)";
     ATTRIBUTE Location OF CommandReceived : LABEL IS "[IntrContainer=(0)][IntrId=(1)]";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:reset_reg\ : LABEL IS "macrocell14";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:reset_reg\ : LABEL IS "U(0,1)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:txn\ : LABEL IS "macrocell15";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:txn\ : LABEL IS "U(0,2)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:tx_state_1\ : LABEL IS "macrocell16";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:tx_state_1\ : LABEL IS "U(0,2)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:tx_state_0\ : LABEL IS "macrocell17";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:tx_state_0\ : LABEL IS "U(1,2)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:tx_state_2\ : LABEL IS "macrocell18";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:tx_state_2\ : LABEL IS "U(1,2)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:tx_bitclk\ : LABEL IS "macrocell19";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:tx_bitclk\ : LABEL IS "U(1,2)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:tx_mark\ : LABEL IS "macrocell20";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:tx_mark\ : LABEL IS "U(1,2)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:rx_state_1\ : LABEL IS "macrocell21";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:rx_state_1\ : LABEL IS "U(1,1)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:rx_state_0\ : LABEL IS "macrocell22";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:rx_state_0\ : LABEL IS "U(1,0)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:rx_load_fifo\ : LABEL IS "macrocell23";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:rx_load_fifo\ : LABEL IS "U(1,1)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:rx_state_3\ : LABEL IS "macrocell24";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:rx_state_3\ : LABEL IS "U(1,1)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:rx_state_2\ : LABEL IS "macrocell25";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:rx_state_2\ : LABEL IS "U(1,1)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:rx_bitclk_enable\ : LABEL IS "macrocell26";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:rx_bitclk_enable\ : LABEL IS "U(1,0)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:rx_state_stop1_reg\ : LABEL IS "macrocell27";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:rx_state_stop1_reg\ : LABEL IS "U(1,1)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:pollcount_1\ : LABEL IS "macrocell28";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:pollcount_1\ : LABEL IS "U(1,0)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:pollcount_0\ : LABEL IS "macrocell29";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:pollcount_0\ : LABEL IS "U(1,0)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:rx_status_3\ : LABEL IS "macrocell30";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:rx_status_3\ : LABEL IS "U(1,0)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:rx_address_detected\ : LABEL IS "macrocell31";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:rx_address_detected\ : LABEL IS "U(1,1)";
-    ATTRIBUTE lib_model OF \LabVIEW_UART:BUART:rx_last\ : LABEL IS "macrocell32";
-    ATTRIBUTE Location OF \LabVIEW_UART:BUART:rx_last\ : LABEL IS "U(1,0)";
+    ATTRIBUTE Location OF \Timer_1:TimerHW\ : LABEL IS "F(Timer,0)";
+    ATTRIBUTE Location OF TimerInterrupt : LABEL IS "[IntrContainer=(0)][IntrId=(17)]";
+    ATTRIBUTE lib_model OF \UART1:BUART:reset_reg\ : LABEL IS "macrocell14";
+    ATTRIBUTE Location OF \UART1:BUART:reset_reg\ : LABEL IS "U(0,0)";
+    ATTRIBUTE lib_model OF \UART1:BUART:txn\ : LABEL IS "macrocell15";
+    ATTRIBUTE Location OF \UART1:BUART:txn\ : LABEL IS "U(0,2)";
+    ATTRIBUTE lib_model OF \UART1:BUART:tx_state_1\ : LABEL IS "macrocell16";
+    ATTRIBUTE Location OF \UART1:BUART:tx_state_1\ : LABEL IS "U(0,0)";
+    ATTRIBUTE lib_model OF \UART1:BUART:tx_state_0\ : LABEL IS "macrocell17";
+    ATTRIBUTE Location OF \UART1:BUART:tx_state_0\ : LABEL IS "U(0,1)";
+    ATTRIBUTE lib_model OF \UART1:BUART:tx_state_2\ : LABEL IS "macrocell18";
+    ATTRIBUTE Location OF \UART1:BUART:tx_state_2\ : LABEL IS "U(0,1)";
+    ATTRIBUTE lib_model OF \UART1:BUART:tx_bitclk\ : LABEL IS "macrocell19";
+    ATTRIBUTE Location OF \UART1:BUART:tx_bitclk\ : LABEL IS "U(0,0)";
+    ATTRIBUTE lib_model OF \UART1:BUART:tx_mark\ : LABEL IS "macrocell20";
+    ATTRIBUTE Location OF \UART1:BUART:tx_mark\ : LABEL IS "U(0,0)";
+    ATTRIBUTE lib_model OF \UART1:BUART:rx_state_1\ : LABEL IS "macrocell21";
+    ATTRIBUTE Location OF \UART1:BUART:rx_state_1\ : LABEL IS "U(1,2)";
+    ATTRIBUTE lib_model OF \UART1:BUART:rx_state_0\ : LABEL IS "macrocell22";
+    ATTRIBUTE Location OF \UART1:BUART:rx_state_0\ : LABEL IS "U(1,2)";
+    ATTRIBUTE lib_model OF \UART1:BUART:rx_load_fifo\ : LABEL IS "macrocell23";
+    ATTRIBUTE Location OF \UART1:BUART:rx_load_fifo\ : LABEL IS "U(1,2)";
+    ATTRIBUTE lib_model OF \UART1:BUART:rx_state_3\ : LABEL IS "macrocell24";
+    ATTRIBUTE Location OF \UART1:BUART:rx_state_3\ : LABEL IS "U(1,2)";
+    ATTRIBUTE lib_model OF \UART1:BUART:rx_state_2\ : LABEL IS "macrocell25";
+    ATTRIBUTE Location OF \UART1:BUART:rx_state_2\ : LABEL IS "U(1,0)";
+    ATTRIBUTE lib_model OF \UART1:BUART:rx_bitclk_enable\ : LABEL IS "macrocell26";
+    ATTRIBUTE Location OF \UART1:BUART:rx_bitclk_enable\ : LABEL IS "U(1,1)";
+    ATTRIBUTE lib_model OF \UART1:BUART:rx_state_stop1_reg\ : LABEL IS "macrocell27";
+    ATTRIBUTE Location OF \UART1:BUART:rx_state_stop1_reg\ : LABEL IS "U(1,2)";
+    ATTRIBUTE lib_model OF \UART1:BUART:pollcount_1\ : LABEL IS "macrocell28";
+    ATTRIBUTE Location OF \UART1:BUART:pollcount_1\ : LABEL IS "U(1,1)";
+    ATTRIBUTE lib_model OF \UART1:BUART:pollcount_0\ : LABEL IS "macrocell29";
+    ATTRIBUTE Location OF \UART1:BUART:pollcount_0\ : LABEL IS "U(1,1)";
+    ATTRIBUTE lib_model OF \UART1:BUART:rx_status_3\ : LABEL IS "macrocell30";
+    ATTRIBUTE Location OF \UART1:BUART:rx_status_3\ : LABEL IS "U(1,1)";
+    ATTRIBUTE lib_model OF \UART1:BUART:rx_address_detected\ : LABEL IS "macrocell31";
+    ATTRIBUTE Location OF \UART1:BUART:rx_address_detected\ : LABEL IS "U(0,2)";
+    ATTRIBUTE lib_model OF \UART1:BUART:rx_last\ : LABEL IS "macrocell32";
+    ATTRIBUTE Location OF \UART1:BUART:rx_last\ : LABEL IS "U(1,0)";
     ATTRIBUTE lib_model OF \ByteCounter:CounterUDB:overflow_reg_i\ : LABEL IS "macrocell33";
-    ATTRIBUTE Location OF \ByteCounter:CounterUDB:overflow_reg_i\ : LABEL IS "U(0,1)";
+    ATTRIBUTE Location OF \ByteCounter:CounterUDB:overflow_reg_i\ : LABEL IS "U(0,0)";
     ATTRIBUTE lib_model OF \ByteCounter:CounterUDB:prevCompare\ : LABEL IS "macrocell34";
-    ATTRIBUTE Location OF \ByteCounter:CounterUDB:prevCompare\ : LABEL IS "U(0,0)";
+    ATTRIBUTE Location OF \ByteCounter:CounterUDB:prevCompare\ : LABEL IS "U(1,0)";
     ATTRIBUTE lib_model OF \ByteCounter:CounterUDB:count_stored_i\ : LABEL IS "macrocell35";
-    ATTRIBUTE Location OF \ByteCounter:CounterUDB:count_stored_i\ : LABEL IS "U(0,0)";
+    ATTRIBUTE Location OF \ByteCounter:CounterUDB:count_stored_i\ : LABEL IS "U(1,1)";
     COMPONENT clockblockcell
         PORT (
             dclk_0 : OUT std_ulogic;
@@ -577,6 +583,17 @@ ARCHITECTURE __DEFAULT__ OF CommandInterpreter IS
             interrupt : OUT std_ulogic;
             clk_en : IN std_ulogic);
     END COMPONENT;
+    COMPONENT timercell
+        PORT (
+            clock : IN std_ulogic;
+            kill : IN std_ulogic;
+            enable : IN std_ulogic;
+            capture : IN std_ulogic;
+            timer_reset : IN std_ulogic;
+            tc : OUT std_ulogic;
+            cmp : OUT std_ulogic;
+            irq : OUT std_ulogic);
+    END COMPONENT;
 BEGIN
 
     ClockBlock:clockblockcell
@@ -596,8 +613,9 @@ BEGIN
             dsi_glb_div => open,
             dclk_glb_0 => Net_37,
             dclk_0 => Net_37_local,
-            dclk_glb_1 => \LabVIEW_UART:Net_9\,
-            dclk_1 => \LabVIEW_UART:Net_9_local\);
+            dclk_glb_1 => \UART1:Net_9\,
+            dclk_1 => \UART1:Net_9_local\,
+            clk_bus_glb_ff => \ClockBlock.clk_bus_glb_ff__sig\);
 
     Rx_1:logicalport
         GENERIC MAP(
@@ -882,84 +900,84 @@ BEGIN
             clken_mode => 1)
         PORT MAP(
             q => Net_2,
-            main_0 => \LabVIEW_UART:BUART:txn\);
+            main_0 => \UART1:BUART:txn\);
 
-    \LabVIEW_UART:BUART:counter_load_not\:macrocell
+    \UART1:BUART:counter_load_not\:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0 * !main_1 * main_2) + (!main_0 * !main_1 * !main_3)",
             regmode => 0,
             clken_mode => 1)
         PORT MAP(
-            q => \LabVIEW_UART:BUART:counter_load_not\,
-            main_0 => \LabVIEW_UART:BUART:tx_state_1\,
-            main_1 => \LabVIEW_UART:BUART:tx_state_0\,
-            main_2 => \LabVIEW_UART:BUART:tx_bitclk_enable_pre\,
-            main_3 => \LabVIEW_UART:BUART:tx_state_2\);
+            q => \UART1:BUART:counter_load_not\,
+            main_0 => \UART1:BUART:tx_state_1\,
+            main_1 => \UART1:BUART:tx_state_0\,
+            main_2 => \UART1:BUART:tx_bitclk_enable_pre\,
+            main_3 => \UART1:BUART:tx_state_2\);
 
-    \LabVIEW_UART:BUART:tx_status_0\:macrocell
+    \UART1:BUART:tx_status_0\:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0 * !main_1 * main_2 * main_3 * main_4)",
             regmode => 0,
             clken_mode => 1)
         PORT MAP(
-            q => \LabVIEW_UART:BUART:tx_status_0\,
-            main_0 => \LabVIEW_UART:BUART:tx_state_1\,
-            main_1 => \LabVIEW_UART:BUART:tx_state_0\,
-            main_2 => \LabVIEW_UART:BUART:tx_bitclk_enable_pre\,
-            main_3 => \LabVIEW_UART:BUART:tx_fifo_empty\,
-            main_4 => \LabVIEW_UART:BUART:tx_state_2\);
+            q => \UART1:BUART:tx_status_0\,
+            main_0 => \UART1:BUART:tx_state_1\,
+            main_1 => \UART1:BUART:tx_state_0\,
+            main_2 => \UART1:BUART:tx_bitclk_enable_pre\,
+            main_3 => \UART1:BUART:tx_fifo_empty\,
+            main_4 => \UART1:BUART:tx_state_2\);
 
-    \LabVIEW_UART:BUART:tx_status_2\:macrocell
+    \UART1:BUART:tx_status_2\:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0)",
             regmode => 0,
             clken_mode => 1)
         PORT MAP(
-            q => \LabVIEW_UART:BUART:tx_status_2\,
-            main_0 => \LabVIEW_UART:BUART:tx_fifo_notfull\);
+            q => \UART1:BUART:tx_status_2\,
+            main_0 => \UART1:BUART:tx_fifo_notfull\);
 
-    \LabVIEW_UART:BUART:rx_counter_load\:macrocell
+    \UART1:BUART:rx_counter_load\:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0 * !main_1 * !main_2 * !main_3)",
             regmode => 0,
             clken_mode => 1)
         PORT MAP(
-            q => \LabVIEW_UART:BUART:rx_counter_load\,
-            main_0 => \LabVIEW_UART:BUART:rx_state_1\,
-            main_1 => \LabVIEW_UART:BUART:rx_state_0\,
-            main_2 => \LabVIEW_UART:BUART:rx_state_3\,
-            main_3 => \LabVIEW_UART:BUART:rx_state_2\);
+            q => \UART1:BUART:rx_counter_load\,
+            main_0 => \UART1:BUART:rx_state_1\,
+            main_1 => \UART1:BUART:rx_state_0\,
+            main_2 => \UART1:BUART:rx_state_3\,
+            main_3 => \UART1:BUART:rx_state_2\);
 
-    \LabVIEW_UART:BUART:rx_postpoll\:macrocell
+    \UART1:BUART:rx_postpoll\:macrocell
         GENERIC MAP(
             eqn_main => "(main_0) + (main_1 * main_2)",
             regmode => 0,
             clken_mode => 1)
         PORT MAP(
-            q => \LabVIEW_UART:BUART:rx_postpoll\,
-            main_0 => \LabVIEW_UART:BUART:pollcount_1\,
+            q => \UART1:BUART:rx_postpoll\,
+            main_0 => \UART1:BUART:pollcount_1\,
             main_1 => Net_7,
-            main_2 => \LabVIEW_UART:BUART:pollcount_0\);
+            main_2 => \UART1:BUART:pollcount_0\);
 
-    \LabVIEW_UART:BUART:rx_status_4\:macrocell
+    \UART1:BUART:rx_status_4\:macrocell
         GENERIC MAP(
             eqn_main => "(main_0 * main_1)",
             regmode => 0,
             clken_mode => 1)
         PORT MAP(
-            q => \LabVIEW_UART:BUART:rx_status_4\,
-            main_0 => \LabVIEW_UART:BUART:rx_load_fifo\,
-            main_1 => \LabVIEW_UART:BUART:rx_fifofull\);
+            q => \UART1:BUART:rx_status_4\,
+            main_0 => \UART1:BUART:rx_load_fifo\,
+            main_1 => \UART1:BUART:rx_fifofull\);
 
-    \LabVIEW_UART:BUART:rx_status_5\:macrocell
+    \UART1:BUART:rx_status_5\:macrocell
         GENERIC MAP(
             eqn_main => "(main_0 * main_1)",
             regmode => 0,
             clken_mode => 1)
         PORT MAP(
-            q => \LabVIEW_UART:BUART:rx_status_5\,
-            main_0 => \LabVIEW_UART:BUART:rx_fifonotempty\,
-            main_1 => \LabVIEW_UART:BUART:rx_state_stop1_reg\);
+            q => \UART1:BUART:rx_status_5\,
+            main_0 => \UART1:BUART:rx_fifonotempty\,
+            main_1 => \UART1:BUART:rx_state_stop1_reg\);
 
     \ByteCounter:CounterUDB:reload\:macrocell
         GENERIC MAP(
@@ -1010,7 +1028,7 @@ BEGIN
         PORT MAP(
             q => __ONE__);
 
-    \LabVIEW_UART:BUART:sTX:TxShifter:u0\:datapathcell
+    \UART1:BUART:sTX:TxShifter:u0\:datapathcell
         GENERIC MAP(
             a0_init => "00000000",
             a1_init => "00000000",
@@ -1039,17 +1057,17 @@ BEGIN
             clken_mode => 1,
             reset_inv => '0')
         PORT MAP(
-            reset => \LabVIEW_UART:BUART:reset_reg\,
-            clock => \LabVIEW_UART:Net_9\,
-            cs_addr_2 => \LabVIEW_UART:BUART:tx_state_1\,
-            cs_addr_1 => \LabVIEW_UART:BUART:tx_state_0\,
-            cs_addr_0 => \LabVIEW_UART:BUART:tx_bitclk_enable_pre\,
-            so_comb => \LabVIEW_UART:BUART:tx_shift_out\,
-            f0_bus_stat_comb => \LabVIEW_UART:BUART:tx_fifo_notfull\,
-            f0_blk_stat_comb => \LabVIEW_UART:BUART:tx_fifo_empty\,
+            reset => \UART1:BUART:reset_reg\,
+            clock => \UART1:Net_9\,
+            cs_addr_2 => \UART1:BUART:tx_state_1\,
+            cs_addr_1 => \UART1:BUART:tx_state_0\,
+            cs_addr_0 => \UART1:BUART:tx_bitclk_enable_pre\,
+            so_comb => \UART1:BUART:tx_shift_out\,
+            f0_bus_stat_comb => \UART1:BUART:tx_fifo_notfull\,
+            f0_blk_stat_comb => \UART1:BUART:tx_fifo_empty\,
             busclk => ClockBlock_BUS_CLK);
 
-    \LabVIEW_UART:BUART:sTX:sCLOCK:TxBitClkGen\:datapathcell
+    \UART1:BUART:sTX:sCLOCK:TxBitClkGen\:datapathcell
         GENERIC MAP(
             a0_init => "00000000",
             a1_init => "00000000",
@@ -1078,14 +1096,14 @@ BEGIN
             clken_mode => 1,
             reset_inv => '0')
         PORT MAP(
-            reset => \LabVIEW_UART:BUART:reset_reg\,
-            clock => \LabVIEW_UART:Net_9\,
-            cs_addr_0 => \LabVIEW_UART:BUART:counter_load_not\,
-            ce0_reg => \LabVIEW_UART:BUART:tx_bitclk_enable_pre\,
-            ce1_reg => \LabVIEW_UART:BUART:tx_counter_dp\,
+            reset => \UART1:BUART:reset_reg\,
+            clock => \UART1:Net_9\,
+            cs_addr_0 => \UART1:BUART:counter_load_not\,
+            ce0_reg => \UART1:BUART:tx_bitclk_enable_pre\,
+            ce1_reg => \UART1:BUART:tx_counter_dp\,
             busclk => ClockBlock_BUS_CLK);
 
-    \LabVIEW_UART:BUART:sTX:TxSts\:statusicell
+    \UART1:BUART:sTX:TxSts\:statusicell
         GENERIC MAP(
             cy_force_order => 1,
             cy_int_mask => "1111111",
@@ -1094,17 +1112,17 @@ BEGIN
             clken_mode => 1,
             reset_inv => '0')
         PORT MAP(
-            reset => \LabVIEW_UART:BUART:reset_reg\,
-            clock => \LabVIEW_UART:Net_9\,
+            reset => \UART1:BUART:reset_reg\,
+            clock => \UART1:Net_9\,
             status_6 => open,
             status_5 => open,
             status_4 => open,
-            status_3 => \LabVIEW_UART:BUART:tx_fifo_notfull\,
-            status_2 => \LabVIEW_UART:BUART:tx_status_2\,
-            status_1 => \LabVIEW_UART:BUART:tx_fifo_empty\,
-            status_0 => \LabVIEW_UART:BUART:tx_status_0\);
+            status_3 => \UART1:BUART:tx_fifo_notfull\,
+            status_2 => \UART1:BUART:tx_status_2\,
+            status_1 => \UART1:BUART:tx_fifo_empty\,
+            status_0 => \UART1:BUART:tx_status_0\);
 
-    \LabVIEW_UART:BUART:sRX:RxShifter:u0\:datapathcell
+    \UART1:BUART:sRX:RxShifter:u0\:datapathcell
         GENERIC MAP(
             a0_init => "00000000",
             a1_init => "00000000",
@@ -1133,18 +1151,18 @@ BEGIN
             clken_mode => 1,
             reset_inv => '0')
         PORT MAP(
-            reset => \LabVIEW_UART:BUART:reset_reg\,
-            clock => \LabVIEW_UART:Net_9\,
-            cs_addr_2 => \LabVIEW_UART:BUART:rx_state_1\,
-            cs_addr_1 => \LabVIEW_UART:BUART:rx_state_0\,
-            cs_addr_0 => \LabVIEW_UART:BUART:rx_bitclk_enable\,
-            route_si => \LabVIEW_UART:BUART:rx_postpoll\,
-            f0_load => \LabVIEW_UART:BUART:rx_load_fifo\,
-            f0_bus_stat_comb => \LabVIEW_UART:BUART:rx_fifonotempty\,
-            f0_blk_stat_comb => \LabVIEW_UART:BUART:rx_fifofull\,
+            reset => \UART1:BUART:reset_reg\,
+            clock => \UART1:Net_9\,
+            cs_addr_2 => \UART1:BUART:rx_state_1\,
+            cs_addr_1 => \UART1:BUART:rx_state_0\,
+            cs_addr_0 => \UART1:BUART:rx_bitclk_enable\,
+            route_si => \UART1:BUART:rx_postpoll\,
+            f0_load => \UART1:BUART:rx_load_fifo\,
+            f0_bus_stat_comb => \UART1:BUART:rx_fifonotempty\,
+            f0_blk_stat_comb => \UART1:BUART:rx_fifofull\,
             busclk => ClockBlock_BUS_CLK);
 
-    \LabVIEW_UART:BUART:sRX:RxBitCounter\:count7cell
+    \UART1:BUART:sRX:RxBitCounter\:count7cell
         GENERIC MAP(
             cy_alt_mode => 0,
             cy_init_value => "0000000",
@@ -1155,20 +1173,20 @@ BEGIN
             clken_mode => 1,
             reset_inv => '0')
         PORT MAP(
-            clock => \LabVIEW_UART:Net_9\,
-            reset => \LabVIEW_UART:BUART:reset_reg\,
-            load => \LabVIEW_UART:BUART:rx_counter_load\,
+            clock => \UART1:Net_9\,
+            reset => \UART1:BUART:reset_reg\,
+            load => \UART1:BUART:rx_counter_load\,
             enable => open,
-            count_6 => \LabVIEW_UART:BUART:rx_count_6\,
-            count_5 => \LabVIEW_UART:BUART:rx_count_5\,
-            count_4 => \LabVIEW_UART:BUART:rx_count_4\,
-            count_3 => \LabVIEW_UART:BUART:rx_count_3\,
-            count_2 => \LabVIEW_UART:BUART:rx_count_2\,
-            count_1 => \LabVIEW_UART:BUART:rx_count_1\,
-            count_0 => \LabVIEW_UART:BUART:rx_count_0\,
-            tc => \LabVIEW_UART:BUART:rx_count7_tc\);
+            count_6 => \UART1:BUART:rx_count_6\,
+            count_5 => \UART1:BUART:rx_count_5\,
+            count_4 => \UART1:BUART:rx_count_4\,
+            count_3 => \UART1:BUART:rx_count_3\,
+            count_2 => \UART1:BUART:rx_count_2\,
+            count_1 => \UART1:BUART:rx_count_1\,
+            count_0 => \UART1:BUART:rx_count_0\,
+            tc => \UART1:BUART:rx_count7_tc\);
 
-    \LabVIEW_UART:BUART:sRX:RxSts\:statusicell
+    \UART1:BUART:sRX:RxSts\:statusicell
         GENERIC MAP(
             cy_force_order => 1,
             cy_int_mask => "1111111",
@@ -1177,12 +1195,12 @@ BEGIN
             clken_mode => 1,
             reset_inv => '0')
         PORT MAP(
-            reset => \LabVIEW_UART:BUART:reset_reg\,
-            clock => \LabVIEW_UART:Net_9\,
+            reset => \UART1:BUART:reset_reg\,
+            clock => \UART1:Net_9\,
             status_6 => open,
-            status_5 => \LabVIEW_UART:BUART:rx_status_5\,
-            status_4 => \LabVIEW_UART:BUART:rx_status_4\,
-            status_3 => \LabVIEW_UART:BUART:rx_status_3\,
+            status_5 => \UART1:BUART:rx_status_5\,
+            status_4 => \UART1:BUART:rx_status_4\,
+            status_3 => \UART1:BUART:rx_status_3\,
             status_2 => open,
             status_1 => open,
             status_0 => open,
@@ -1341,304 +1359,325 @@ BEGIN
             interrupt => Net_38,
             clock => ClockBlock_BUS_CLK);
 
-    \LabVIEW_UART:BUART:reset_reg\:macrocell
+    \Timer_1:TimerHW\:timercell
+        GENERIC MAP(
+            cy_registers => "")
+        PORT MAP(
+            clock => \ClockBlock.clk_bus_glb_ff__sig\,
+            kill => open,
+            enable => __ONE__,
+            capture => open,
+            timer_reset => open,
+            tc => \Timer_1:Net_51\,
+            cmp => \Timer_1:Net_261\,
+            irq => Net_11);
+
+    TimerInterrupt:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => Net_11,
+            clock => ClockBlock_BUS_CLK);
+
+    \UART1:BUART:reset_reg\:macrocell
         GENERIC MAP(
             eqn_main => "(main_0)",
             regmode => 1,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            q => \LabVIEW_UART:BUART:reset_reg\,
-            clock_0 => \LabVIEW_UART:Net_9\,
+            q => \UART1:BUART:reset_reg\,
+            clock_0 => \UART1:Net_9\,
             main_0 => Net_6);
 
-    \LabVIEW_UART:BUART:txn\:macrocell
+    \UART1:BUART:txn\:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0 * main_1 * main_2 * !main_7) + (!main_0 * main_1 * main_5) + (!main_0 * !main_2 * main_3 * !main_4 * !main_5) + (!main_0 * !main_2 * main_3 * !main_5 * !main_7) + (!main_0 * main_2 * !main_3 * !main_4 * !main_5 * !main_6 * main_7)",
             regmode => 1,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            q => \LabVIEW_UART:BUART:txn\,
-            clock_0 => \LabVIEW_UART:Net_9\,
-            main_0 => \LabVIEW_UART:BUART:reset_reg\,
-            main_1 => \LabVIEW_UART:BUART:txn\,
-            main_2 => \LabVIEW_UART:BUART:tx_state_1\,
-            main_3 => \LabVIEW_UART:BUART:tx_state_0\,
-            main_4 => \LabVIEW_UART:BUART:tx_shift_out\,
-            main_5 => \LabVIEW_UART:BUART:tx_state_2\,
-            main_6 => \LabVIEW_UART:BUART:tx_counter_dp\,
-            main_7 => \LabVIEW_UART:BUART:tx_bitclk\);
+            q => \UART1:BUART:txn\,
+            clock_0 => \UART1:Net_9\,
+            main_0 => \UART1:BUART:reset_reg\,
+            main_1 => \UART1:BUART:txn\,
+            main_2 => \UART1:BUART:tx_state_1\,
+            main_3 => \UART1:BUART:tx_state_0\,
+            main_4 => \UART1:BUART:tx_shift_out\,
+            main_5 => \UART1:BUART:tx_state_2\,
+            main_6 => \UART1:BUART:tx_counter_dp\,
+            main_7 => \UART1:BUART:tx_bitclk\);
 
-    \LabVIEW_UART:BUART:tx_state_1\:macrocell
+    \UART1:BUART:tx_state_1\:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0 * main_2 * !main_4 * main_6) + (main_0 * main_1) + (main_1 * main_2 * main_3 * main_4) + (main_1 * !main_4 * main_5 * main_6)",
             regmode => 2,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            q => \LabVIEW_UART:BUART:tx_state_1\,
-            clock_0 => \LabVIEW_UART:Net_9\,
-            main_0 => \LabVIEW_UART:BUART:reset_reg\,
-            main_1 => \LabVIEW_UART:BUART:tx_state_1\,
-            main_2 => \LabVIEW_UART:BUART:tx_state_0\,
-            main_3 => \LabVIEW_UART:BUART:tx_bitclk_enable_pre\,
-            main_4 => \LabVIEW_UART:BUART:tx_state_2\,
-            main_5 => \LabVIEW_UART:BUART:tx_counter_dp\,
-            main_6 => \LabVIEW_UART:BUART:tx_bitclk\);
+            q => \UART1:BUART:tx_state_1\,
+            clock_0 => \UART1:Net_9\,
+            main_0 => \UART1:BUART:reset_reg\,
+            main_1 => \UART1:BUART:tx_state_1\,
+            main_2 => \UART1:BUART:tx_state_0\,
+            main_3 => \UART1:BUART:tx_bitclk_enable_pre\,
+            main_4 => \UART1:BUART:tx_state_2\,
+            main_5 => \UART1:BUART:tx_counter_dp\,
+            main_6 => \UART1:BUART:tx_bitclk\);
 
-    \LabVIEW_UART:BUART:tx_state_0\:macrocell
+    \UART1:BUART:tx_state_0\:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0 * !main_1 * !main_2 * main_3 * !main_4) + (!main_0 * !main_1 * !main_2 * !main_4 * !main_5) + (main_0 * main_2) + (main_1 * main_2 * main_3 * main_4 * main_5) + (main_2 * !main_5 * main_6)",
             regmode => 2,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            q => \LabVIEW_UART:BUART:tx_state_0\,
-            clock_0 => \LabVIEW_UART:Net_9\,
-            main_0 => \LabVIEW_UART:BUART:reset_reg\,
-            main_1 => \LabVIEW_UART:BUART:tx_state_1\,
-            main_2 => \LabVIEW_UART:BUART:tx_state_0\,
-            main_3 => \LabVIEW_UART:BUART:tx_bitclk_enable_pre\,
-            main_4 => \LabVIEW_UART:BUART:tx_fifo_empty\,
-            main_5 => \LabVIEW_UART:BUART:tx_state_2\,
-            main_6 => \LabVIEW_UART:BUART:tx_bitclk\);
+            q => \UART1:BUART:tx_state_0\,
+            clock_0 => \UART1:Net_9\,
+            main_0 => \UART1:BUART:reset_reg\,
+            main_1 => \UART1:BUART:tx_state_1\,
+            main_2 => \UART1:BUART:tx_state_0\,
+            main_3 => \UART1:BUART:tx_bitclk_enable_pre\,
+            main_4 => \UART1:BUART:tx_fifo_empty\,
+            main_5 => \UART1:BUART:tx_state_2\,
+            main_6 => \UART1:BUART:tx_bitclk\);
 
-    \LabVIEW_UART:BUART:tx_state_2\:macrocell
+    \UART1:BUART:tx_state_2\:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0 * !main_1 * main_2 * main_4) + (!main_0 * main_1 * !main_2 * main_4) + (!main_0 * main_1 * main_2 * !main_4 * main_6) + (!main_0 * main_1 * !main_4 * main_5 * main_6) + (!main_0 * !main_3 * main_4)",
             regmode => 1,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            q => \LabVIEW_UART:BUART:tx_state_2\,
-            clock_0 => \LabVIEW_UART:Net_9\,
-            main_0 => \LabVIEW_UART:BUART:reset_reg\,
-            main_1 => \LabVIEW_UART:BUART:tx_state_1\,
-            main_2 => \LabVIEW_UART:BUART:tx_state_0\,
-            main_3 => \LabVIEW_UART:BUART:tx_bitclk_enable_pre\,
-            main_4 => \LabVIEW_UART:BUART:tx_state_2\,
-            main_5 => \LabVIEW_UART:BUART:tx_counter_dp\,
-            main_6 => \LabVIEW_UART:BUART:tx_bitclk\);
+            q => \UART1:BUART:tx_state_2\,
+            clock_0 => \UART1:Net_9\,
+            main_0 => \UART1:BUART:reset_reg\,
+            main_1 => \UART1:BUART:tx_state_1\,
+            main_2 => \UART1:BUART:tx_state_0\,
+            main_3 => \UART1:BUART:tx_bitclk_enable_pre\,
+            main_4 => \UART1:BUART:tx_state_2\,
+            main_5 => \UART1:BUART:tx_counter_dp\,
+            main_6 => \UART1:BUART:tx_bitclk\);
 
-    \LabVIEW_UART:BUART:tx_bitclk\:macrocell
+    \UART1:BUART:tx_bitclk\:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0 * !main_1 * main_3) + (!main_2)",
             regmode => 1,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            q => \LabVIEW_UART:BUART:tx_bitclk\,
-            clock_0 => \LabVIEW_UART:Net_9\,
-            main_0 => \LabVIEW_UART:BUART:tx_state_1\,
-            main_1 => \LabVIEW_UART:BUART:tx_state_0\,
-            main_2 => \LabVIEW_UART:BUART:tx_bitclk_enable_pre\,
-            main_3 => \LabVIEW_UART:BUART:tx_state_2\);
+            q => \UART1:BUART:tx_bitclk\,
+            clock_0 => \UART1:Net_9\,
+            main_0 => \UART1:BUART:tx_state_1\,
+            main_1 => \UART1:BUART:tx_state_0\,
+            main_2 => \UART1:BUART:tx_bitclk_enable_pre\,
+            main_3 => \UART1:BUART:tx_state_2\);
 
-    \LabVIEW_UART:BUART:tx_mark\:macrocell
+    \UART1:BUART:tx_mark\:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0 * main_1)",
             regmode => 1,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            q => \LabVIEW_UART:BUART:tx_mark\,
-            clock_0 => \LabVIEW_UART:Net_9\,
-            main_0 => \LabVIEW_UART:BUART:reset_reg\,
-            main_1 => \LabVIEW_UART:BUART:tx_mark\);
+            q => \UART1:BUART:tx_mark\,
+            clock_0 => \UART1:Net_9\,
+            main_0 => \UART1:BUART:reset_reg\,
+            main_1 => \UART1:BUART:tx_mark\);
 
-    \LabVIEW_UART:BUART:rx_state_1\:macrocell
+    \UART1:BUART:rx_state_1\:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0 * main_1)",
             regmode => 1,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            q => \LabVIEW_UART:BUART:rx_state_1\,
-            clock_0 => \LabVIEW_UART:Net_9\,
-            main_0 => \LabVIEW_UART:BUART:reset_reg\,
-            main_1 => \LabVIEW_UART:BUART:rx_state_1\);
+            q => \UART1:BUART:rx_state_1\,
+            clock_0 => \UART1:Net_9\,
+            main_0 => \UART1:BUART:reset_reg\,
+            main_1 => \UART1:BUART:rx_state_1\);
 
-    \LabVIEW_UART:BUART:rx_state_0\:macrocell
+    \UART1:BUART:rx_state_0\:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0 * !main_1 * !main_2 * main_3 * !main_4 * main_5 * !main_9 * !main_10) + (!main_0 * !main_1 * !main_2 * main_3 * !main_4 * main_5 * !main_9 * !main_11) + (main_0 * main_2) + (!main_1 * main_2 * !main_4 * !main_5 * !main_6 * !main_7) + (!main_1 * main_2 * !main_4 * !main_5 * !main_6 * !main_8)",
             regmode => 2,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            q => \LabVIEW_UART:BUART:rx_state_0\,
-            clock_0 => \LabVIEW_UART:Net_9\,
-            main_0 => \LabVIEW_UART:BUART:reset_reg\,
-            main_1 => \LabVIEW_UART:BUART:rx_state_1\,
-            main_2 => \LabVIEW_UART:BUART:rx_state_0\,
-            main_3 => \LabVIEW_UART:BUART:rx_bitclk_enable\,
-            main_4 => \LabVIEW_UART:BUART:rx_state_3\,
-            main_5 => \LabVIEW_UART:BUART:rx_state_2\,
-            main_6 => \LabVIEW_UART:BUART:rx_count_6\,
-            main_7 => \LabVIEW_UART:BUART:rx_count_5\,
-            main_8 => \LabVIEW_UART:BUART:rx_count_4\,
-            main_9 => \LabVIEW_UART:BUART:pollcount_1\,
+            q => \UART1:BUART:rx_state_0\,
+            clock_0 => \UART1:Net_9\,
+            main_0 => \UART1:BUART:reset_reg\,
+            main_1 => \UART1:BUART:rx_state_1\,
+            main_2 => \UART1:BUART:rx_state_0\,
+            main_3 => \UART1:BUART:rx_bitclk_enable\,
+            main_4 => \UART1:BUART:rx_state_3\,
+            main_5 => \UART1:BUART:rx_state_2\,
+            main_6 => \UART1:BUART:rx_count_6\,
+            main_7 => \UART1:BUART:rx_count_5\,
+            main_8 => \UART1:BUART:rx_count_4\,
+            main_9 => \UART1:BUART:pollcount_1\,
             main_10 => Net_7,
-            main_11 => \LabVIEW_UART:BUART:pollcount_0\);
+            main_11 => \UART1:BUART:pollcount_0\);
 
-    \LabVIEW_UART:BUART:rx_load_fifo\:macrocell
+    \UART1:BUART:rx_load_fifo\:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0 * !main_1 * !main_2 * main_3 * main_4 * !main_5) + (!main_0 * !main_1 * main_2 * !main_4 * !main_5 * !main_6 * !main_7) + (!main_0 * !main_1 * main_2 * !main_4 * !main_5 * !main_6 * !main_8)",
             regmode => 1,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            q => \LabVIEW_UART:BUART:rx_load_fifo\,
-            clock_0 => \LabVIEW_UART:Net_9\,
-            main_0 => \LabVIEW_UART:BUART:reset_reg\,
-            main_1 => \LabVIEW_UART:BUART:rx_state_1\,
-            main_2 => \LabVIEW_UART:BUART:rx_state_0\,
-            main_3 => \LabVIEW_UART:BUART:rx_bitclk_enable\,
-            main_4 => \LabVIEW_UART:BUART:rx_state_3\,
-            main_5 => \LabVIEW_UART:BUART:rx_state_2\,
-            main_6 => \LabVIEW_UART:BUART:rx_count_6\,
-            main_7 => \LabVIEW_UART:BUART:rx_count_5\,
-            main_8 => \LabVIEW_UART:BUART:rx_count_4\);
+            q => \UART1:BUART:rx_load_fifo\,
+            clock_0 => \UART1:Net_9\,
+            main_0 => \UART1:BUART:reset_reg\,
+            main_1 => \UART1:BUART:rx_state_1\,
+            main_2 => \UART1:BUART:rx_state_0\,
+            main_3 => \UART1:BUART:rx_bitclk_enable\,
+            main_4 => \UART1:BUART:rx_state_3\,
+            main_5 => \UART1:BUART:rx_state_2\,
+            main_6 => \UART1:BUART:rx_count_6\,
+            main_7 => \UART1:BUART:rx_count_5\,
+            main_8 => \UART1:BUART:rx_count_4\);
 
-    \LabVIEW_UART:BUART:rx_state_3\:macrocell
+    \UART1:BUART:rx_state_3\:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0 * !main_1 * main_2 * !main_4 * !main_5 * !main_6 * !main_7) + (!main_0 * !main_1 * main_2 * !main_4 * !main_5 * !main_6 * !main_8) + (main_0 * main_4) + (!main_1 * !main_2 * main_3 * main_4 * main_5)",
             regmode => 2,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            q => \LabVIEW_UART:BUART:rx_state_3\,
-            clock_0 => \LabVIEW_UART:Net_9\,
-            main_0 => \LabVIEW_UART:BUART:reset_reg\,
-            main_1 => \LabVIEW_UART:BUART:rx_state_1\,
-            main_2 => \LabVIEW_UART:BUART:rx_state_0\,
-            main_3 => \LabVIEW_UART:BUART:rx_bitclk_enable\,
-            main_4 => \LabVIEW_UART:BUART:rx_state_3\,
-            main_5 => \LabVIEW_UART:BUART:rx_state_2\,
-            main_6 => \LabVIEW_UART:BUART:rx_count_6\,
-            main_7 => \LabVIEW_UART:BUART:rx_count_5\,
-            main_8 => \LabVIEW_UART:BUART:rx_count_4\);
+            q => \UART1:BUART:rx_state_3\,
+            clock_0 => \UART1:Net_9\,
+            main_0 => \UART1:BUART:reset_reg\,
+            main_1 => \UART1:BUART:rx_state_1\,
+            main_2 => \UART1:BUART:rx_state_0\,
+            main_3 => \UART1:BUART:rx_bitclk_enable\,
+            main_4 => \UART1:BUART:rx_state_3\,
+            main_5 => \UART1:BUART:rx_state_2\,
+            main_6 => \UART1:BUART:rx_count_6\,
+            main_7 => \UART1:BUART:rx_count_5\,
+            main_8 => \UART1:BUART:rx_count_4\);
 
-    \LabVIEW_UART:BUART:rx_state_2\:macrocell
+    \UART1:BUART:rx_state_2\:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0 * !main_1 * !main_2 * main_3 * main_4) + (!main_0 * !main_1 * !main_2 * !main_4 * !main_5 * !main_9 * main_10) + (!main_0 * !main_1 * main_2 * !main_4 * !main_5 * !main_6 * !main_7) + (!main_0 * !main_1 * main_2 * !main_4 * !main_5 * !main_6 * !main_8) + (main_0 * main_5) + (!main_1 * !main_2 * main_3 * main_5)",
             regmode => 2,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            q => \LabVIEW_UART:BUART:rx_state_2\,
-            clock_0 => \LabVIEW_UART:Net_9\,
-            main_0 => \LabVIEW_UART:BUART:reset_reg\,
-            main_1 => \LabVIEW_UART:BUART:rx_state_1\,
-            main_2 => \LabVIEW_UART:BUART:rx_state_0\,
-            main_3 => \LabVIEW_UART:BUART:rx_bitclk_enable\,
-            main_4 => \LabVIEW_UART:BUART:rx_state_3\,
-            main_5 => \LabVIEW_UART:BUART:rx_state_2\,
-            main_6 => \LabVIEW_UART:BUART:rx_count_6\,
-            main_7 => \LabVIEW_UART:BUART:rx_count_5\,
-            main_8 => \LabVIEW_UART:BUART:rx_count_4\,
+            q => \UART1:BUART:rx_state_2\,
+            clock_0 => \UART1:Net_9\,
+            main_0 => \UART1:BUART:reset_reg\,
+            main_1 => \UART1:BUART:rx_state_1\,
+            main_2 => \UART1:BUART:rx_state_0\,
+            main_3 => \UART1:BUART:rx_bitclk_enable\,
+            main_4 => \UART1:BUART:rx_state_3\,
+            main_5 => \UART1:BUART:rx_state_2\,
+            main_6 => \UART1:BUART:rx_count_6\,
+            main_7 => \UART1:BUART:rx_count_5\,
+            main_8 => \UART1:BUART:rx_count_4\,
             main_9 => Net_7,
-            main_10 => \LabVIEW_UART:BUART:rx_last\);
+            main_10 => \UART1:BUART:rx_last\);
 
-    \LabVIEW_UART:BUART:rx_bitclk_enable\:macrocell
+    \UART1:BUART:rx_bitclk_enable\:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0 * !main_1 * !main_2)",
             regmode => 1,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            q => \LabVIEW_UART:BUART:rx_bitclk_enable\,
-            clock_0 => \LabVIEW_UART:Net_9\,
-            main_0 => \LabVIEW_UART:BUART:rx_count_2\,
-            main_1 => \LabVIEW_UART:BUART:rx_count_1\,
-            main_2 => \LabVIEW_UART:BUART:rx_count_0\);
+            q => \UART1:BUART:rx_bitclk_enable\,
+            clock_0 => \UART1:Net_9\,
+            main_0 => \UART1:BUART:rx_count_2\,
+            main_1 => \UART1:BUART:rx_count_1\,
+            main_2 => \UART1:BUART:rx_count_0\);
 
-    \LabVIEW_UART:BUART:rx_state_stop1_reg\:macrocell
+    \UART1:BUART:rx_state_stop1_reg\:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0 * !main_1 * main_2 * main_3)",
             regmode => 1,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            q => \LabVIEW_UART:BUART:rx_state_stop1_reg\,
-            clock_0 => \LabVIEW_UART:Net_9\,
-            main_0 => \LabVIEW_UART:BUART:rx_state_1\,
-            main_1 => \LabVIEW_UART:BUART:rx_state_0\,
-            main_2 => \LabVIEW_UART:BUART:rx_state_3\,
-            main_3 => \LabVIEW_UART:BUART:rx_state_2\);
+            q => \UART1:BUART:rx_state_stop1_reg\,
+            clock_0 => \UART1:Net_9\,
+            main_0 => \UART1:BUART:rx_state_1\,
+            main_1 => \UART1:BUART:rx_state_0\,
+            main_2 => \UART1:BUART:rx_state_3\,
+            main_3 => \UART1:BUART:rx_state_2\);
 
-    \LabVIEW_UART:BUART:pollcount_1\:macrocell
+    \UART1:BUART:pollcount_1\:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0 * !main_1 * !main_2 * !main_3 * main_4 * main_5) + (!main_0 * !main_1 * !main_2 * main_3 * !main_4) + (!main_0 * !main_1 * !main_2 * main_3 * !main_5)",
             regmode => 1,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            q => \LabVIEW_UART:BUART:pollcount_1\,
-            clock_0 => \LabVIEW_UART:Net_9\,
-            main_0 => \LabVIEW_UART:BUART:reset_reg\,
-            main_1 => \LabVIEW_UART:BUART:rx_count_2\,
-            main_2 => \LabVIEW_UART:BUART:rx_count_1\,
-            main_3 => \LabVIEW_UART:BUART:pollcount_1\,
+            q => \UART1:BUART:pollcount_1\,
+            clock_0 => \UART1:Net_9\,
+            main_0 => \UART1:BUART:reset_reg\,
+            main_1 => \UART1:BUART:rx_count_2\,
+            main_2 => \UART1:BUART:rx_count_1\,
+            main_3 => \UART1:BUART:pollcount_1\,
             main_4 => Net_7,
-            main_5 => \LabVIEW_UART:BUART:pollcount_0\);
+            main_5 => \UART1:BUART:pollcount_0\);
 
-    \LabVIEW_UART:BUART:pollcount_0\:macrocell
+    \UART1:BUART:pollcount_0\:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0 * !main_1 * !main_2 * !main_3 * main_4) + (!main_0 * !main_1 * !main_2 * main_3 * !main_4)",
             regmode => 1,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            q => \LabVIEW_UART:BUART:pollcount_0\,
-            clock_0 => \LabVIEW_UART:Net_9\,
-            main_0 => \LabVIEW_UART:BUART:reset_reg\,
-            main_1 => \LabVIEW_UART:BUART:rx_count_2\,
-            main_2 => \LabVIEW_UART:BUART:rx_count_1\,
+            q => \UART1:BUART:pollcount_0\,
+            clock_0 => \UART1:Net_9\,
+            main_0 => \UART1:BUART:reset_reg\,
+            main_1 => \UART1:BUART:rx_count_2\,
+            main_2 => \UART1:BUART:rx_count_1\,
             main_3 => Net_7,
-            main_4 => \LabVIEW_UART:BUART:pollcount_0\);
+            main_4 => \UART1:BUART:pollcount_0\);
 
-    \LabVIEW_UART:BUART:rx_status_3\:macrocell
+    \UART1:BUART:rx_status_3\:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0 * !main_1 * !main_2 * main_3 * main_4 * main_5 * !main_6 * !main_7) + (!main_0 * !main_1 * !main_2 * main_3 * main_4 * main_5 * !main_6 * !main_8)",
             regmode => 1,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            q => \LabVIEW_UART:BUART:rx_status_3\,
-            clock_0 => \LabVIEW_UART:Net_9\,
-            main_0 => \LabVIEW_UART:BUART:reset_reg\,
-            main_1 => \LabVIEW_UART:BUART:rx_state_1\,
-            main_2 => \LabVIEW_UART:BUART:rx_state_0\,
-            main_3 => \LabVIEW_UART:BUART:rx_bitclk_enable\,
-            main_4 => \LabVIEW_UART:BUART:rx_state_3\,
-            main_5 => \LabVIEW_UART:BUART:rx_state_2\,
-            main_6 => \LabVIEW_UART:BUART:pollcount_1\,
+            q => \UART1:BUART:rx_status_3\,
+            clock_0 => \UART1:Net_9\,
+            main_0 => \UART1:BUART:reset_reg\,
+            main_1 => \UART1:BUART:rx_state_1\,
+            main_2 => \UART1:BUART:rx_state_0\,
+            main_3 => \UART1:BUART:rx_bitclk_enable\,
+            main_4 => \UART1:BUART:rx_state_3\,
+            main_5 => \UART1:BUART:rx_state_2\,
+            main_6 => \UART1:BUART:pollcount_1\,
             main_7 => Net_7,
-            main_8 => \LabVIEW_UART:BUART:pollcount_0\);
+            main_8 => \UART1:BUART:pollcount_0\);
 
-    \LabVIEW_UART:BUART:rx_address_detected\:macrocell
+    \UART1:BUART:rx_address_detected\:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0 * main_1)",
             regmode => 1,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            q => \LabVIEW_UART:BUART:rx_address_detected\,
-            clock_0 => \LabVIEW_UART:Net_9\,
-            main_0 => \LabVIEW_UART:BUART:reset_reg\,
-            main_1 => \LabVIEW_UART:BUART:rx_address_detected\);
+            q => \UART1:BUART:rx_address_detected\,
+            clock_0 => \UART1:Net_9\,
+            main_0 => \UART1:BUART:reset_reg\,
+            main_1 => \UART1:BUART:rx_address_detected\);
 
-    \LabVIEW_UART:BUART:rx_last\:macrocell
+    \UART1:BUART:rx_last\:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0 * main_1)",
             regmode => 1,
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            q => \LabVIEW_UART:BUART:rx_last\,
-            clock_0 => \LabVIEW_UART:Net_9\,
-            main_0 => \LabVIEW_UART:BUART:reset_reg\,
+            q => \UART1:BUART:rx_last\,
+            clock_0 => \UART1:Net_9\,
+            main_0 => \UART1:BUART:reset_reg\,
             main_1 => Net_7);
 
     \ByteCounter:CounterUDB:overflow_reg_i\:macrocell

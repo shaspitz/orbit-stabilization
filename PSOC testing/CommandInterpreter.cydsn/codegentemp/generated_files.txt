@@ -18,11 +18,11 @@
   <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\cyfitteriar.inc" value="HEADER;;;;;" />
   <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\cyfitter.h" value="HEADER;;;;;" />
   <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\cydisabledsheets.h" value="HEADER;;;;;" />
-  <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\LabVIEW_UART.c" value="SOURCE_C;CortexM3;;;;LabVIEW_UART" />
-  <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\LabVIEW_UART.h" value="HEADER;;;;;LabVIEW_UART" />
-  <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\LabVIEW_UART_PM.c" value="SOURCE_C;CortexM3;;;;LabVIEW_UART" />
-  <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\LabVIEW_UART_INT.c" value="SOURCE_C;CortexM3;;;;LabVIEW_UART" />
-  <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\LabVIEW_UART_BOOT.c" value="SOURCE_C;CortexM3;;;;LabVIEW_UART" />
+  <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\UART1.c" value="SOURCE_C;CortexM3;;;;UART1" />
+  <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\UART1.h" value="HEADER;;;;;UART1" />
+  <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\UART1_PM.c" value="SOURCE_C;CortexM3;;;;UART1" />
+  <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\UART1_INT.c" value="SOURCE_C;CortexM3;;;;UART1" />
+  <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\UART1_BOOT.c" value="SOURCE_C;CortexM3;;;;UART1" />
   <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\UARTReset.h" value="HEADER;;;;;UARTReset" />
   <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\UARTReset.c" value="SOURCE_C;CortexM3;;;;UARTReset" />
   <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\UARTReset_PM.c" value="SOURCE_C;CortexM3;;;;UARTReset" />
@@ -44,8 +44,13 @@
   <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\ByteCountReset_PM.c" value="SOURCE_C;CortexM3;;;;ByteCountReset" />
   <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\CommandReceived.c" value="SOURCE_C;CortexM3;;;;CommandReceived" />
   <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\CommandReceived.h" value="HEADER;;;;;CommandReceived" />
-  <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\LabVIEW_UART_IntClock.c" value="SOURCE_C;CortexM3;;;;LabVIEW_UART_IntClock" />
-  <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\LabVIEW_UART_IntClock.h" value="HEADER;;;;;LabVIEW_UART_IntClock" />
+  <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\Timer_1.c" value="SOURCE_C;CortexM3;;;;Timer_1" />
+  <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\Timer_1.h" value="HEADER;;;;;Timer_1" />
+  <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\Timer_1_PM.c" value="SOURCE_C;CortexM3;;;;Timer_1" />
+  <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\TimerInterrupt.c" value="SOURCE_C;CortexM3;;;;TimerInterrupt" />
+  <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\TimerInterrupt.h" value="HEADER;;;;;TimerInterrupt" />
+  <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\UART1_IntClock.c" value="SOURCE_C;CortexM3;;;;UART1_IntClock" />
+  <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\UART1_IntClock.h" value="HEADER;;;;;UART1_IntClock" />
   <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\cy_em_eeprom.c" value="SOURCE_C;CortexM3;;;;Em_EEPROM_Dynamic" />
   <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\cy_em_eeprom.h" value="HEADER;;;;;Em_EEPROM_Dynamic" />
   <file name="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\codegentemp\cm3gcc.ld" value="LINKER_SCRIPT;;;b98f980c-3bd1-4fc7-a887-c56a20a46fdd;;cy_boot" />
