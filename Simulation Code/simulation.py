@@ -11,11 +11,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 import schedule
 import threading
+import time
 import serial
 from scipy.integrate import solve_ivp
 from scipy.linalg import solve_discrete_are
 import tkinter as tk
 from tkinter import ttk
+from math import log10, floor
 
 
 '''
@@ -79,10 +81,10 @@ class sim_env:
     assumes unbiased and Gaussian noise. Assumed that
     we receive a measurement for every state.
     '''
-    W = np.array([[10e7, 0, 0, 0],
-                  [0, 1, 0, 0],
-                  [0, 0, 10e-5, 0],
-                  [0, 0, 0, 10e-10]])
+    W = np.array([[10e2, 0, 0, 0],
+                  [0, 10e-8, 0, 0],
+                  [0, 0, 10e-18, 0],
+                  [0, 0, 0, 10e-25]])
 
     H = np.array([[1, 0, 0, 0],
                   [0, 1, 0, 0],
@@ -267,9 +269,10 @@ class sim_env:
 #             self.first_sim_step = False
 #             return 0
 
-        # Immediately check if we received a new input from PSOC
-        if (self.u == self.last_input).all():
-            print('Missed Timing or no new input')
+        if self.hardware_in_loop:
+            # Immediately check if we received a new input from PSOC
+            if (self.u == self.last_input).all():
+                print('Missed Timing or no new input')
 
         # Simulate forward 'Ts' seconds (one step)
         t_sim = np.linspace(0, self.Ts, 2)
@@ -364,8 +367,8 @@ class sim_env:
         Writes input command to PSOC and obtains corresponding control input
         '''
 
-        # Write input command to PSOC
-        self.ser.write(str.encode('u'))
+#         # Write input command to PSOC
+#         self.ser.write(str.encode('u'))
 
         # Get input integers from PSOC
         s = self.ser.readline().decode()
@@ -385,6 +388,54 @@ class sim_env:
         '''
         self.ser.write(str.encode('l'))
         # Perhaps restructure commands to have a packet attached to their ends
+
+    def send_measurement(self):
+        '''
+        Send simulated measurement to PSOC for LQG feedback computation
+        Measurements are rounded to 10 significant figures
+        '''
+        self.ser.write(str.encode('m'))
+        zk = self.gen_measurement()
+        zk_str = ''
+        for i in range(len(zk)):
+            zk_str += str(sim_env.round_sig_fig(zk[i][0], sig_fig=10))
+            if i < len(zk) - 1:
+                zk_str += ','
+
+        print('Measurement string sent to psoc: ', zk_str)
+        self.ser.write(zk_str.encode('ascii'))
+
+        # Testing
+#         self.ser.write(str.encode('m'))
+
+        # Read relayed measurement
+        s = self.ser.readline().decode('ascii')
+        print('Relayed meas: ', s)
+
+    def scheduler_function(self):
+        '''
+        Command scheduler function that gets called
+        at start of every 'real' time step
+        '''
+        # Simulate system forward at start of every second
+        self.step_sim_cont()
+
+        # Sleep for 0.8 seconds so simulation can finish
+        time.sleep(0.8)
+
+        # Send simulated measurement to PSOC for LQG computation
+        self.send_measurement()
+
+        # Sleep for 0.1 seconds before requesting input
+        time.sleep(0.1)
+
+        '''
+        Input commands applied to next time step,
+        ie. x(k+1) = x(k) + u(k-1)
+        input commands are sent at intervals of (0.9sec, 1.9sec, 2.9sec, etc.)
+        This timing scheme assumes that u(0) = 0
+        '''
+        self.input_command()
 
     def plot_solution(self, x_sol, y_sol, title, sol_type, t_end):
         '''
@@ -432,6 +483,13 @@ class sim_env:
         job_thread.daemon = True
         job_thread.start()
 
+    @staticmethod
+    def round_sig_fig(x, sig_fig):
+        '''
+        Used for rounding sig figs of measurments
+        '''
+        return round(x, sig_fig-int(floor(log10(abs(x))))-1)
+
 
 class gui:
 
@@ -470,7 +528,7 @@ def main():
     if hardware_in_loop:
 
         # Simulation sample time, not 'real' sampling time
-        Ts = 2
+        Ts = 1
 
         # Simulation environment instantiation
         sim_env_instance = sim_env(hardware_in_loop, lqg_active, x0, Ts)
@@ -479,7 +537,6 @@ def main():
         root = tk.Tk()
         gui_instance = gui(root, sim_env_instance)
 
-        sim_env_instance.start_command()
         '''
         Schedule periodic execution of input command tasks.
         Note that Python does not run in real time, so additional .002518
@@ -487,15 +544,13 @@ def main():
         counteract Windows' latency in sending input commands to PSOC.
         Allow for +-10 ms in communication timing error.
         '''
-        sec_equiv = 1.002518
+        sec_equiv = 1.002518  # 'real' sampling time
 
-        # Schedule input commands
-        schedule.every(sec_equiv).seconds.do(sim_env_instance.run_threaded,
-                                             sim_env_instance.input_command)
+        sim_env_instance.start_command()
 
-        # schedule periodic sim of system (lower freq than input commands)
-        schedule.every(2*sec_equiv).seconds.do(sim_env_instance.run_threaded,
-                                               sim_env_instance.step_sim_cont)
+        # schedule periodic sim/input command of system, (0sec, 1sec, 2sec, etc.)
+        schedule.every(1*sec_equiv).seconds.do(sim_env_instance.run_threaded,
+                                               sim_env_instance.scheduler_function)
 
         '''
         ^^^ the above involves real-time considerations because we have to

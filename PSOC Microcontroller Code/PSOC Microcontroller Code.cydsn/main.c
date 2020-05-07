@@ -47,7 +47,7 @@
 /* Project Defines */
 #define FALSE  0
 #define TRUE   1
-#define TRANSMIT_BUFFER_SIZE  16
+#define TRANSMIT_BUFFER_SIZE  64
 
 
 /*******************************************************************************
@@ -65,34 +65,47 @@
 *  None.
 *
 *******************************************************************************/
-uint32 time = 0; //ms
-uint time_start;
+uint32 Time = 0; //ms
+uint TimeStart;
+uint8 LedState = 0;
 
 // Interrupts 
 CY_ISR(TimerInterrupt)
 {
     // Timer interrupt runs at 1000Hz
-    ++time;
+    ++Time;
     Timer_1_ReadStatusRegister();
 }
 
 int main()
 {
+    uint8 i;
+    uint8 j;
+    
     Timer_1_Start();
     TimerInterrupt_Start();
     TimerInterrupt_StartEx(TimerInterrupt);
     TimerInterrupt_Enable();
-    CyGlobalIntEnable; // Enable global interrupts
+    
+    // Enable global interrupts
+    CyGlobalIntEnable;
 
     // Variable to store UART received character 
     uint8 Ch;
-    // Transmit Buffer 
+    
+    // Transmit buffer 
     char TransmitBuffer[TRANSMIT_BUFFER_SIZE];
+    
+    // Measurement buffer
+    char MeasBuffer[64];
+    
     // Start UART
     UART_1_Start();
-    // Initialize input flag
-    uint8 input_flag = FALSE;
-    uint8 active = FALSE;
+    
+    // Initialize flags
+    uint8 ActiveFlag = FALSE;
+    uint8 InputFlag = FALSE;
+    uint8 MeasFlag = FALSE;
 
     for(;;)
     {
@@ -107,23 +120,53 @@ int main()
                 break;
             case 's':
                 // Start timing for computation alongside Python
-                time_start = time;
-                active = TRUE;
+                TimeStart = Time;
+                ActiveFlag = TRUE;
             case 'u':
-                input_flag = TRUE;
+                // Input requested
+                InputFlag = TRUE;
+            case 'm':
+                // Incoming measurement data
+                MeasFlag = TRUE;
             default:
                 // Place error handling code here //
                 break;    
         }
-
-        if(input_flag && active)
+        /*
+        if(InputFlag && ActiveFlag)
         {
-            uint32 input1 = 0;
-            uint32 input2 = 0;
-            sprintf(TransmitBuffer, "%lu,%lu,%lu\n", time-time_start, input1, input2);
-            // can send to sending array directly by using array command (and activating at top of script!!!)
+            uint32 Input1 = UART_1_GetRxBufferSize();
+            uint32 Input2 = UART_1_GetRxBufferSize();
+            sprintf(TransmitBuffer, "%lu,%lu,%lu\n", Time-TimeStart, Input1, Input2);
             UART_1_PutString(TransmitBuffer);
-            input_flag = FALSE;
+            InputFlag = FALSE;
+        }
+        */
+        
+        if (MeasFlag && ActiveFlag)
+        {
+            //For testing
+            /*
+            LedState = !LedState;
+            LEDDrive_Write(LedState);
+            char test = UART_1_ReadRxData();
+            sprintf(TransmitBuffer, "UART GetChar not working, testing..see code: %c\n", test);
+            UART_1_PutString(TransmitBuffer);
+            */
+            
+            uint8 NumChar = 20;//UART_1_GetRxBufferSize();
+            
+            for(i=0; i < NumChar; ++i)
+            {
+                MeasBuffer[i] = UART_1_ReadRxData();
+            }
+            sprintf(TransmitBuffer, "Testing: %s\n", MeasBuffer);
+            UART_1_PutString(TransmitBuffer);
+            for(i=0; i < NumChar; ++i)
+            {   
+                
+            }
+            MeasFlag = FALSE;
         }
     }
 }
