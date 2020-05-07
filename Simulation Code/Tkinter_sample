@@ -8,6 +8,8 @@ from matplotlib.backend_bases import key_press_handler
 import matplotlib.animation as animation
 import tkinter as tk
 import tkinter.ttk as ttk
+from tkinter import Tk, Label, Button, filedialog
+
 from matplotlib.figure import Figure
 from tkinter import *
 import tkinter.messagebox
@@ -16,66 +18,93 @@ import tkinter.messagebox
 class gui(tk.Tk):
     def __init__(self, master):
         self.master=master
-        self.dummy_function = dummy_function
+        self.sim_env = sim_env
         self.root = tkinter.Tk()
         #dd in overall title
         self.root.wm_title("Real Time Satellite Visualization")
-        #data is initialized
-        # Initialize display
-        #self.x = np.array([tk.StringVar() for state in dummy_function.N])
-        self.y_a = np.array([tk.IntVar() for state in dummy_function.x0])
-        self.y_b = np.array([tk.IntVar() for state in dummy_function.x0])
-        self.updateGraphs()
         
-        #first plot with control input
-        self.a = Figure(figsize=(4,4))
-        self.plot_a = self.a.add_subplot(111).plot(self.y_a)
+        #define inputs for control, no control and equilibrium
+        self.x_cartesian_LQG = np.zeros(len(self.sim_env.x_step))
+        self.y_cartesian_LQG= np.zeros(len(self.sim_env.x_step))
+        self.x_cartesian = np.zeros(len(self.sim_env.x_step))
+        self.y_cartesian = np.zeros(len(self.sim_env.x_step))
+        self.x_equil=np.zeros(len(self.sim_env.x_step))
+        self.y_equil=np.zeros(len(self.sim_env.x_step))
+        
+        #set up both plots 
+        self.ax, self.fig = Figure()
+        self.a = self.fig.add_subplot(2,1,1)
+        circle = plt.Circle((0, 0), self.sim_env.R, color='b')
+        self.a.ax.add_artist(circle)
         self.a.suptitle("Satellite Path With Control Input")
-        
-        #second plot without control input
-        self.b = Figure(figsize=(4,4))
-        self.plot_b = self.b.add_subplot(111).plot(self.y_b)
+        self.b = self.fig.add_subplot(2,1,2)
+        self.b.ax.add_artist(circle)
         self.b.suptitle("Satellite Path Without Control Input")
 
-        #draw the plots on the canvas
-        self.canvas1 = FigureCanvasTkAgg(self.a, master=self.root)  # A tk.DrawingArea.
-        self.canvas1.draw()
-        self.canvas1.get_tk_widget().pack(side=tkinter.LEFT, expand=0)
-
-        self.canvas2 = FigureCanvasTkAgg(self.b, master=self.root)  # A tk.DrawingArea.
-        self.canvas2.draw()
-        self.canvas2.get_tk_widget().pack(side=tkinter.RIGHT, expand=0)
-
+        #draw plots on gui
+        self.canvas = FigureCanvasTkAgg(self.fig,master=root)
+        self.canvas.get_tk_widget().grid(row=3,column=1,rowspan=3)
+        self.canvas.draw()
         
         #add in "STOP" button to terminate process
         button = tkinter.Button(master=self.root, text="Quit", command=quit)
         button.pack(side=tkinter.BOTTOM)
         
-
+        
     def updateGraphs(self):
-        #get the next array from dummy function and update the GUI
-        for state_iter in range(len(self.dummy_function.x0)):
-            self.state_display[state_iter].set(repr(self.dummy_function.x_true[state_iter]))
-            self.canvas1.update()
-            self.state_display[state_iter].set(repr(self.dummy_function.x_false[state_iter]))        
-            self.canvas2.update()
-        '''
-        Continuously looping function that updates StringVar objects for GUI
-        '''
+        #get the next array from sim_env and update the GUI
+        x,y=self.sim_env.convert_cartesian(self.sys_sol_discrete)
+        # append data to data buff, and then remove the old items
+        self.x_cartesian_LQG = np.append(self.x_cartesian_LQG, x)
+        self.x_cartesian_LQG = self.x_cartesian_LQG[len(x):] 
+
+        self.y_cartesian_LQG = np.append(self.y_cartesian_LQG, y)
+        self.y_cartesian_LQG = self.y_cartesian_LQG[len(y):] 
+
+        self.x_cartesian = np.append(self.x_cartesian, x)
+        self.x_cartesian = self.x_cartesian[len(x):] 
+
+        self.y_cartesian = np.append(self.y_cartesian, y)
+        self.y_cartesian = self.y_cartesian[len(y):] 
+
+        self.x_equil = np.append(self.x_equil, x)
+        self.x_equil = self.x_equil[len(x):] 
+
+        self.y_equil = np.append(self.y_equil, y)
+        self.y_equil = self.y_equil[len(y):] 
+
+        gui.a.set_xlim((self.x_cartesian_LQG[0], self.x_cartesian_LQG[len(self.x_cartesian_LQG) - 1]))
+        gui.a.plot(self.x_cartesian_LQG, self.y_cartesian_LQG, linewidth=4, color='g', linestyle='--')
+        gui.a.plot(self.x_equil, self.y_equil, linewidth=2, color='r', linestyle='-')
+
+        gui.b.set_xlim((self.x_cartesian[0], self.x_cartesian[len(self.x_cartesian) - 1]))
+        gui.b.plot(self.x_cartesian, self.y_cartesian, linewidth=4, color='g', linestyle='--')
+        gui.b.plot(self.x_equil, self.y_equil, linewidth=2, color='r', linestyle='-')
+    
     #Stop Button
     def _quit(self):
         self.root.quit()     # stops mainloop
         self.root.destroy()  # this is necessary on Windows to prevent
                     # Fatal Python Error: PyEval_RestoreThread: NULL tstate
                     
-class dummy_function:
-    N=1000
-    x_real=np.zeros(N)
-    x_false=np.zeros(N)
-    x0 = np.random.normal(0,5,(N,1))
-    for k in range(N):
-        x_real[k] = np.cos(x0[k])
-        x_false[k]=np.sin(x0[k])
-            
-root=gui(tk.Tk)
-tkinter.mainloop()
+
+if __name__ == "__main__":
+
+    if not sim_env_instance:
+        print("No new data to plot")
+        exit()
+    else:
+        print("Reading...")
+        
+    root = Tk()
+    gui = gui(root)
+    
+    while 1:
+        plt.pause(0.01)
+           
+        gui.updateGraphs()
+        gui.canvas.draw()
+        
+        root.update_idletasks()
+        root.update()
+                    
