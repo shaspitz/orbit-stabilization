@@ -132,7 +132,7 @@ int main()
                 // Place error handling code here //
                 break;    
         }
-        /*
+        
         if(InputFlag && ActiveFlag)
         {
             uint32 Input1 = UART_1_GetRxBufferSize();
@@ -141,32 +141,11 @@ int main()
             UART_1_PutString(TransmitBuffer);
             InputFlag = FALSE;
         }
-        */
+        
         
         if (MeasFlag && ActiveFlag)
         {
-            //For testing
-            /*
-            LedState = !LedState;
-            LEDDrive_Write(LedState);
-            char test = UART_1_ReadRxData();
-            sprintf(TransmitBuffer, "UART GetChar not working, testing..see code: %c\n", test);
-            UART_1_PutString(TransmitBuffer);
-            */
-            
-            uint8 NumChar = 20;//UART_1_GetRxBufferSize();
-            
-            for(i=0; i < NumChar; ++i)
-            {
-                MeasBuffer[i] = UART_1_ReadRxData();
-            }
-            sprintf(TransmitBuffer, "Testing: %s\n", MeasBuffer);
-            UART_1_PutString(TransmitBuffer);
-            for(i=0; i < NumChar; ++i)
-            {   
-                
-            }
-            MeasFlag = FALSE;
+
         }
     }
 }

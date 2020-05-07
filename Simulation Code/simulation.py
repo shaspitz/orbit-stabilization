@@ -17,7 +17,6 @@ from scipy.integrate import solve_ivp
 from scipy.linalg import solve_discrete_are
 import tkinter as tk
 from tkinter import ttk
-from math import log10, floor
 
 
 '''
@@ -81,10 +80,16 @@ class sim_env:
     assumes unbiased and Gaussian noise. Assumed that
     we receive a measurement for every state.
     '''
-    W = np.array([[10e2, 0, 0, 0],
-                  [0, 10e-8, 0, 0],
-                  [0, 0, 10e-18, 0],
-                  [0, 0, 0, 10e-25]])
+    W = np.array([[10e7, 0, 0, 0],
+                  [0, 1, 0, 0],
+                  [0, 0, 10e-5, 0],
+                  [0, 0, 0, 10e-10]])
+
+    # Uncomment for more realistic noise
+#     W = np.array([[10e2, 0, 0, 0],
+#                   [0, 10e-8, 0, 0],
+#                   [0, 0, 10e-18, 0],
+#                   [0, 0, 0, 10e-25]])
 
     H = np.array([[1, 0, 0, 0],
                   [0, 1, 0, 0],
@@ -367,8 +372,8 @@ class sim_env:
         Writes input command to PSOC and obtains corresponding control input
         '''
 
-#         # Write input command to PSOC
-#         self.ser.write(str.encode('u'))
+        # Write input command to PSOC
+        self.ser.write(str.encode('u'))
 
         # Get input integers from PSOC
         s = self.ser.readline().decode()
@@ -394,23 +399,20 @@ class sim_env:
         Send simulated measurement to PSOC for LQG feedback computation
         Measurements are rounded to 10 significant figures
         '''
-        self.ser.write(str.encode('m'))
-        zk = self.gen_measurement()
-        zk_str = ''
-        for i in range(len(zk)):
-            zk_str += str(sim_env.round_sig_fig(zk[i][0], sig_fig=10))
-            if i < len(zk) - 1:
-                zk_str += ','
-
-        print('Measurement string sent to psoc: ', zk_str)
-        self.ser.write(zk_str.encode('ascii'))
-
-        # Testing
 #         self.ser.write(str.encode('m'))
-
-        # Read relayed measurement
-        s = self.ser.readline().decode('ascii')
-        print('Relayed meas: ', s)
+#         zk = self.gen_measurement()
+#         zk_str = ''
+#         for i in range(len(zk)):
+#             zk_str += str(sim_env.round_sig_fig(zk[i][0], sig_fig=10))
+#             if i < len(zk) - 1:
+#                 zk_str += ','
+#
+#         print('Measurement string sent to psoc: ', zk_str)
+#         self.ser.write(zk_str.encode('ascii'))
+#
+#         Read relayed measurement
+#         s = self.ser.readline().decode('ascii')
+#         print('Relayed meas: ', s)
 
     def scheduler_function(self):
         '''
@@ -483,13 +485,6 @@ class sim_env:
         job_thread.daemon = True
         job_thread.start()
 
-    @staticmethod
-    def round_sig_fig(x, sig_fig):
-        '''
-        Used for rounding sig figs of measurments
-        '''
-        return round(x, sig_fig-int(floor(log10(abs(x))))-1)
-
 
 class gui:
 
@@ -520,7 +515,7 @@ class gui:
 def main():
 
     hardware_in_loop = True
-    lqg_active = True
+    lqg_active = False
 
     # Initial conditions (deviation from equilibrium in polar coordinates)
     x0 = np.array([10e4, 0, 0, 0])
