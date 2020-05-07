@@ -21,8 +21,8 @@ uint8 TransmitBuffer[66];
 uint32 Time = 0; //ms
 uint32 TimeStart;
 
-double input1;
-double input2;
+double Input1;
+double Input2;
 
 struct command_protocol
 {
@@ -119,8 +119,7 @@ int main(void)
             switch(Command_Packet.command)
             {
                 case 1:
-                    // Relay bytes back to Python
-                    LEDDrive_Write(1);
+                    // Relay bytes back to Python (for testing)
                     Transmit_Packet.command = Command_Packet.command;
                     TransmitBuffer[1] = Transmit_Packet.command;
                     Transmit_Packet.packet_size = Command_Packet.packet_size;
@@ -137,27 +136,45 @@ int main(void)
                     // Start timing for computation alongside Python
                     TimeStart = Time;
                     ActiveFlag = TRUE;
+                    CommandReady = 0;
                 break;
                 
                 case 3:
+                    LEDDrive_Write(1);
                     // Input requested
                     if (ActiveFlag)
                     {   
                         // Send two double inputs to Python
                         Transmit_Packet.command = Command_Packet.command;
+                        TransmitBuffer[1] = Transmit_Packet.command;
+                        
+                        // Set packet size for sending two doubles
                         Transmit_Packet.packet_size = 18;
+                        TransmitBuffer[0] = Transmit_Packet.packet_size;
                         
-                        input1 = 5.678;
-                        input2 = 6.345;
+                        // Values of those doubles (will be LQG eventually)
+                        Input1 = 5.678 + (double) Time;
+                        Input2 = 9.7834594324234 + (double) Time;
                         
-                        uint8 *ptr_input1 = &input1;
-                        uint8 *ptr_input2 = &input2;
+                        // Pointer declaration for sending doubles by byte
+                        uint8 *PtrInput1 = &Input1;
+                        uint8 *PtrInput2 = &Input2;
                         
-                        for (i=0; i < Transmit_Packet.packet_size; ++i)
+                        /*
+                        Load bytes representing doubles into transmit buffer via
+                        iteration
+                        */
+                        for (i=0; i < (Transmit_Packet.packet_size-2)/2; ++i)
                         {
-                            Transmit_Packet.buffer[i+2] = 
+                            Transmit_Packet.buffer[i+2] = *PtrInput1;
                             TransmitBuffer[i+2] = Transmit_Packet.buffer[i+2];
+                            ++PtrInput1;
+                            
+                            Transmit_Packet.buffer[i+2+8] = *PtrInput2;
+                            TransmitBuffer[i+2+8] = Transmit_Packet.buffer[i+2+8];
+                            ++PtrInput2;
                         }
+                        CommandReady = 0;
                     }
                 break;
                 
@@ -166,6 +183,13 @@ int main(void)
                     if (ActiveFlag)
                     {
                     }
+                    CommandReady = 0;
+                break;
+                
+                case 5:
+                    // Store LQG matricies
+                break;
+                
                 default:
                 break;
             }

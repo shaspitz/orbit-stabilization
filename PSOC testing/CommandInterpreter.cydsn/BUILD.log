@@ -1,11 +1,17 @@
---------------- Build Started: 05/07/2020 14:39:18 Project: CommandInterpreter, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Build Started: 05/07/2020 16:07:26 Project: CommandInterpreter, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c main.c -o .\CortexM3\ARM_GCC_541\Debug\main.o
 main.c: In function 'main':
-main.c:110:11: warning: unused variable 'MeasFlag' [-Wunused-variable]
+main.c:160:44: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+                         uint8 *PtrInput1 = &Input1;
+                                            ^
+main.c:161:44: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+                         uint8 *PtrInput2 = &Input2;
+                                            ^
+main.c:113:11: warning: unused variable 'MeasFlag' [-Wunused-variable]
      uint8 MeasFlag = FALSE;
            ^
-main.c:109:11: warning: unused variable 'InputFlag' [-Wunused-variable]
+main.c:112:11: warning: unused variable 'InputFlag' [-Wunused-variable]
      uint8 InputFlag = FALSE;
            ^
 arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_541\Debug\CommandInterpreter.a .\CortexM3\ARM_GCC_541\Debug\UARTReset.o .\CortexM3\ARM_GCC_541\Debug\UARTReset_PM.o .\CortexM3\ARM_GCC_541\Debug\ByteReceived.o .\CortexM3\ARM_GCC_541\Debug\LEDDrive.o .\CortexM3\ARM_GCC_541\Debug\LEDDrive_PM.o .\CortexM3\ARM_GCC_541\Debug\LED.o .\CortexM3\ARM_GCC_541\Debug\ByteCounter.o .\CortexM3\ARM_GCC_541\Debug\ByteCounter_PM.o .\CortexM3\ARM_GCC_541\Debug\Clock_1.o .\CortexM3\ARM_GCC_541\Debug\ByteCountReset.o .\CortexM3\ARM_GCC_541\Debug\ByteCountReset_PM.o .\CortexM3\ARM_GCC_541\Debug\CommandReceived.o .\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM3\ARM_GCC_541\Debug\CyDmac.o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o .\CortexM3\ARM_GCC_541\Debug\CyLib.o .\CortexM3\ARM_GCC_541\Debug\cyPm.o .\CortexM3\ARM_GCC_541\Debug\CySpc.o .\CortexM3\ARM_GCC_541\Debug\cyutils.o .\CortexM3\ARM_GCC_541\Debug\UART1.o .\CortexM3\ARM_GCC_541\Debug\UART1_PM.o .\CortexM3\ARM_GCC_541\Debug\UART1_INT.o .\CortexM3\ARM_GCC_541\Debug\UART1_BOOT.o .\CortexM3\ARM_GCC_541\Debug\UART1_IntClock.o .\CortexM3\ARM_GCC_541\Debug\Timer_1.o .\CortexM3\ARM_GCC_541\Debug\Timer_1_PM.o .\CortexM3\ARM_GCC_541\Debug\TimerInterrupt.o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o
@@ -16,6 +22,6 @@ No ELF section .cychecksum found, creating one
 Application checksum calculated and stored in ELF section .cychecksum
 Checksum calculated and stored in ELF section .cymeta
 cyelftool.exe -S "C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\CortexM3\ARM_GCC_541\Debug\CommandInterpreter.elf"
-Flash used: 2830 of 262144 bytes (1.1%).
-SRAM used: 2793 of 65536 bytes (4.3%). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 05/07/2020 14:39:18 ---------------
+Flash used: 3870 of 262144 bytes (1.5%).
+SRAM used: 2817 of 65536 bytes (4.3%). Stack: 2048 bytes. Heap: 128 bytes.
+--------------- Build Succeeded: 05/07/2020 16:07:27 ---------------
