@@ -444,15 +444,16 @@ class gui:
         self.root.wm_title("Real Time Satellite Visualization")
         
         #define inputs for control, no control and equilibrium
-        self.state_display = np.array([state for state in self.sim_env.x0])
-        self.x_cartesian_LQG = np.zeros((len(self.sim_env.x0),1))
-        self.y_cartesian_LQG= np.zeros((len(self.sim_env.x0),1))
+        self.state_sys = np.array([state for state in self.sim_env.x0])
+        print(self.state_sys)
+        self.x_cartesian_LQG = np.zeros((2,1))
+        self.y_cartesian_LQG= np.zeros((2,1))
         
         self.fig = Figure()
         gui.a = self.fig.add_subplot(2,1,1)
         circle = plt.Circle((0, 0), 5, color='b')
         self.a.add_artist(circle)
-        #self.a.suptitle("Satellite Path With Control Input")
+        #self.a.title("Satellite Path With Control Input")
 #         self.b = self.fig.add_subplot(2,1,2)
 #         self.b.ax.add_artist(circle)
 #         self.b.suptitle("Satellite Path Without Control Input")
@@ -469,12 +470,10 @@ class gui:
     def updateGraphs(self):
         #get the updated states from the PSOC
         for state_iter in range(len(self.sim_env.x0)):
-            self.state_display[state_iter]=self.sim_env.x_step[state_iter]
-
+            self.state_sys[state_iter]=self.sim_env.x_step[state_iter]
+        print(self.state_sys)
         #convert polar to cartestian for plotting
-        x,y=self.sim_env.convert_cartesian(self.state_display)
-        print(x)
-        print(y)
+        x,y=self.sim_env.convert_cartesian(self.state_sys)
         # append data to data buff, and then remove the old items
         self.x_cartesian_LQG = np.append(self.x_cartesian_LQG, x)
         self.x_cartesian_LQG = self.x_cartesian_LQG[1:] 
@@ -524,7 +523,6 @@ def main():
 
         # Simulation environment instantiation
         sim_env_instance = sim_env(hardware_in_loop, lqg_active, x0, Ts)
-
         # GUI instantiation
         root = tk.Tk()
         gui_instance = gui(root, sim_env_instance)
