@@ -63,7 +63,7 @@ class sim_env:
     G = 6.673*(10**(-11))
 
     # Orbit turn rate for linearization [rad/s]
-    w0 = 7.2910**-5
+    w0 = 7.2910**-3
 
     # Orbital period [s]
     t_orbital = 2*np.pi/w0
@@ -514,8 +514,8 @@ class gui:
             self.state_sys[state_iter]=self.sim_env.x_step[state_iter]
         #print(self.state_sys)
         #add equilibrium orbit to measurement
-        #self.state_sys+=np.transpose(self.sim_env.equil_orbit(1))[0]
-        #print(self.state_sys)
+        self.state_sys+=self.sim_env.equil(self.timestep)
+        print(self.state_sys)
         
         #convert polar to cartestian for plotting
         x,y=self.sim_env.convert_cartesian(self.state_sys)
