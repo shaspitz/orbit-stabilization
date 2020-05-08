@@ -15,14 +15,20 @@ uint8 CommandReady = 0;
 uint8 Count = 0;
 uint8 Status;
 
-uint8 ReceivedBuffer[66];
-uint8 TransmitBuffer[66];
+// Change back buffer size to 66 if it causes problems
+uint8 ReceivedBuffer[130];
+uint8 TransmitBuffer[130];
 
 uint32 Time = 0; //ms
 uint32 TimeStart;
 
+double Kinf[4][4];
+double *PtrKinf;
+
 double Input1;
 double Input2;
+uint8 *PtrInput1;
+uint8 *PtrInput2;
 
 struct command_protocol
 {
@@ -82,6 +88,7 @@ CY_ISR(CommandReceived)
 int main(void)
 {
     uint8 i;
+    uint8 j;
     
     Timer_1_Start();
     TimerInterrupt_Start();
@@ -109,8 +116,6 @@ int main(void)
 
     // Initialize flags
     uint8 ActiveFlag = FALSE;
-    uint8 InputFlag = FALSE;
-    uint8 MeasFlag = FALSE;
     
     for(;;)
     {        
@@ -133,22 +138,39 @@ int main(void)
                 break;
                 
                 case 2:
+                    // Store simulation environment information (Ts, Kinf, Finf)
+                    
+                    // Kinf storage
+                    
+                    //Command_Packet.packet_size;
+                    for (i = 0; i < 4; ++i)
+                    {
+                        for (j = 0; j < 4; ++j)
+                        {   
+                            PtrKinf = &Command_Packet.buffer[32*i + 8*j];
+                            Kinf[i][j] = (double) *PtrKinf;
+                        }
+                    }
+                    CommandReady = 0;
+                break;
+                
+                case 3:
                     // Start timing for computation alongside Python
                     TimeStart = Time;
                     ActiveFlag = TRUE;
                     CommandReady = 0;
                 break;
                 
-                case 3:
+                case 4:
                     LEDDrive_Write(1);
                     // Input requested
                     if (ActiveFlag)
                     {   
-                        // Send two double inputs to Python
+                        // Set command for sending inputs
                         Transmit_Packet.command = Command_Packet.command;
                         TransmitBuffer[1] = Transmit_Packet.command;
                         
-                        // Set packet size for sending two doubles
+                        // Set packet size for sending inputs
                         Transmit_Packet.packet_size = 18;
                         TransmitBuffer[0] = Transmit_Packet.packet_size;
                         
@@ -162,7 +184,7 @@ int main(void)
                         
                         /*
                         Load bytes representing doubles into transmit buffer via
-                        iteration
+                        iteration of pointers
                         */
                         for (i=0; i < (Transmit_Packet.packet_size-2)/2; ++i)
                         {
@@ -178,16 +200,12 @@ int main(void)
                     }
                 break;
                 
-                case 4:
+                case 5:
                     // Incoming measurement data
                     if (ActiveFlag)
                     {
                     }
                     CommandReady = 0;
-                break;
-                
-                case 5:
-                    // Store LQG matricies
                 break;
                 
                 default:

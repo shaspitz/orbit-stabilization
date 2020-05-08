@@ -525,8 +525,8 @@ class gui:
 
 def main():
 
-    hardware_in_loop = True
-    lqg_active = False
+    hardware_in_loop = False
+    lqg_active = True
 
     # Initial conditions (deviation from equilibrium in polar coordinates)
     x0 = np.array([10e4, 0, 0, 0])
