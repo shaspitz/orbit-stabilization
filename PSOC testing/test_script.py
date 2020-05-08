@@ -69,6 +69,8 @@ class psoc_interface:
         buffer = bytes()
         for x in range(len(Kinf)):
             for y in range(len(Kinf[0])):
+                print('component of Kinf: ', Kinf[x][y])
+                print('bytes: ', struct.pack('d', Kinf[x][y]), 'len: ', len(struct.pack('d', Kinf[x][y])))
                 buffer += struct.pack('d', Kinf[x][y])
 
         packet_size = len(buffer)+2
@@ -94,6 +96,13 @@ class psoc_interface:
         transmit_packet += bytes([command])
         self.ser.write(transmit_packet)
 
+        # Receive relayed byte array and confirm psoc started
+        packet_size = int.from_bytes(self.ser.read(), byteorder='little')
+        command = int.from_bytes(ser.read(), byteorder='little')
+
+        if packet_size == 2 and command == 3:
+            print('psoc timing started!')
+
     def request_input(self):
         '''
         Receives two double precision floats from PSOC
@@ -109,10 +118,11 @@ class psoc_interface:
 
         packet_size = int.from_bytes(self.ser.read(), byteorder='little')
 
-        command = int.from_bytes(ser.read(), byteorder='little')
+        command = int.from_bytes(self.ser.read(), byteorder='little')
 
         if command == 4 and packet_size == 18:
 
+            # Receive byte array
             buffer = ser.read(packet_size-2)
             input_1 = struct.unpack('d', buffer[:8])[0]
             input_2 = struct.unpack('d', buffer[8:])[0]
@@ -128,6 +138,10 @@ psoc = psoc_interface(ser)
 # test_double = psoc.relay_double(1.234567)
 # print(test_double)
 
+# psoc.send_sim_env_info(np.array([[1.0, 1.0, 1.0, 1.0],
+#                                  [1.0, 1.0, 1.0, 1.0],
+#                                  [1.0, 1.0, 1.0, 1.0],
+#                                  [1.0, 1.0, 1.0, 9.8]]))
 psoc.start_psoc()
 input_1, input_2 = psoc.request_input()
 print(input_1, input_2)

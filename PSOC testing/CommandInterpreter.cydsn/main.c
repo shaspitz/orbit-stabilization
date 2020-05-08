@@ -143,6 +143,7 @@ int main(void)
                     // Kinf storage
                     
                     //Command_Packet.packet_size;
+                    Input1 = (double) Command_Packet.packet_size;
                     for (i = 0; i < 4; ++i)
                     {
                         for (j = 0; j < 4; ++j)
@@ -159,7 +160,15 @@ int main(void)
                     TimeStart = Time;
                     ActiveFlag = TRUE;
                     CommandReady = 0;
-                break;
+                    
+                    // Set command that timing has started
+                    Transmit_Packet.command = Command_Packet.command;
+                    TransmitBuffer[1] = Transmit_Packet.command;
+                    
+                    // Set packet size for this relay
+                    Transmit_Packet.packet_size = 2;
+                    TransmitBuffer[0] = Transmit_Packet.packet_size;
+            break;
                 
                 case 4:
                     LEDDrive_Write(1);
@@ -175,8 +184,11 @@ int main(void)
                         TransmitBuffer[0] = Transmit_Packet.packet_size;
                         
                         // Values of those doubles (will be LQG eventually)
-                        Input1 = 5.678 + (double) Time;
-                        Input2 = 9.7834594324234 + (double) Time;
+                        //Input1 = 5.678 + (double) Time;
+                        
+                        // Set input 1 to Kinf[3][3] for testing
+                        //Input1 = Kinf[3][3];
+                        Input2 = 9.7834594324234 + (double) Time - TimeStart;
                         
                         // Pointer declaration for sending doubles by byte
                         uint8 *PtrInput1 = &Input1;
