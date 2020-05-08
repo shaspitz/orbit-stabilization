@@ -73,9 +73,6 @@ class psoc_interface:
                 print('bytes: ', struct.pack('d', Kinf[x][y]), 'len: ', len(struct.pack('d', Kinf[x][y])))
                 buffer += struct.pack('d', Kinf[x][y])
 
-        print('TEST', struct.unpack('d', buffer[-8:]))
-        print('TEST', struct.unpack('d', buffer[120:]))
-
         packet_size = len(buffer)+2
 
         # Transmit byte array
@@ -135,6 +132,14 @@ class psoc_interface:
             print('Error! Printing incorrect command or packet size.')
             print('Command:', command, 'Packet size:', packet_size)
 
+    def send_measurement(self, meas):
+        '''
+        Sends current measurement of the satellite state to psoc
+        Note that input is a 2d numpy array
+        '''
+        command = 5
+        return 0
+
 
 # testing
 psoc = psoc_interface(ser)
@@ -142,11 +147,15 @@ psoc = psoc_interface(ser)
 # test_double = psoc.relay_double(1.234567)
 # print(test_double)
 
-psoc.send_sim_env_info(np.array([[1.0, 1.0, 1.0, 1.0],
-                                 [1.0, 1.0, 1.0, 1.0],
-                                 [1.0, 1.0, 1.0, 1.0],
-                                 [1.0, 1.0, 1.0, 9.34267]]))
+psoc.send_sim_env_info(np.array([[1.0, 2.0, 3.0, 4.0],
+                                 [5.0, 6.0, 7.0, 8.0],
+                                 [9.0, 10.0, 11.0, 12.0],
+                                 [13.0, 14.0, 15.0, 16.0]]))
 psoc.start_psoc()
+input_1, input_2 = psoc.request_input()
+print(input_1, input_2)
+
+
 input_1, input_2 = psoc.request_input()
 print(input_1, input_2)
 

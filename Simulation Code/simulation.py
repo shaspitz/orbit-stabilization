@@ -248,17 +248,17 @@ class sim_env:
 
     def gen_measurement(self):
         '''
-        2 state measurement right now
+        Generates full state measurement
         '''
         wk = np.array([[np.random.normal(0, np.sqrt(sim_env.W[0][0]))],
                       [np.random.normal(0, np.sqrt(sim_env.W[1][1]))],
                       [np.random.normal(0, np.sqrt(sim_env.W[2][2]))],
                       [np.random.normal(0, np.sqrt(sim_env.W[3][3]))]])
 
-        # ODE solver uses 1-d arrays, convert to 2-d arrays for lin alg
+        # Convert to 2-d array for lin alg
         xk = np.array([[self.x_step[i]] for i in range(len(self.x_step))])
 
-        # Add generated measurement noise onto perfect measurement of state
+        # Add generated measurement noise onto true state
         zk = self.H @ xk + wk
 
         return zk
