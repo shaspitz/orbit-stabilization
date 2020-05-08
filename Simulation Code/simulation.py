@@ -477,11 +477,13 @@ class gui:
         gui.canvas = FigureCanvasTkAgg(self.fig,master=self.root)
         gui.canvas.get_tk_widget().pack(side=tkinter.LEFT)
         gui.canvas.draw()
+        self.a_label = Label(self.root,text="Satellite Path Without Control Input") #assumes that data is coming in at 1kHz or so.
+        self.a_label.pack(side=tkinter.LEFT)
         
         #add in "STOP" button to terminate process
         #Stop doesn't work when pressed
         button = tkinter.Button(master=self.root, text="Quit", command=quit)
-        button.pack(side=tkinter.BOTTOM)
+        button.pack(side=tkinter.TOP)
         
         
     def update_state_display(self):
