@@ -16,74 +16,92 @@ else:
     ser.open()
 
 
-def send_double_packet(command, double):
-    '''
-    Constructs and sends packet containing double (with command)
-    '''
-    buffer = struct.pack('d', double)
-    packet_size = len(buffer) + 2
+class psoc_interface:
 
-    # Transmit byte array
-    transmit_packet = bytes([packet_size])
-    transmit_packet += bytes([command])
-    transmit_packet += buffer
+    def __init__(self, ser):
+        self.ser = ser
 
-    ser.write(transmit_packet)
+    def start_psoc(self):
+        '''
+        Constructs and sends packet containing command to start psoc timer
+        and activate other commands
+        '''
+        command = 2
+        packet_size = 2
+
+        # Transmit byte array
+        transmit_packet = bytes([packet_size])
+        transmit_packet += bytes([command])
+        self.ser.write(transmit_packet)
+
+    def send_sim_env_info(self, Ts, Kinf, Finf):
+        '''
+        Initializes psoc interface with parameters for
+        simulation, estimation and control
+        '''
+        return 0
+
+    def request_input(self):
+        '''
+        Receives two double precision floats from PSOC
+        (for getting inputs)
+        '''
+        command = 3
+        packet_size = 2
+
+        # Transmit byte array
+        transmit_packet = bytes([packet_size])
+        transmit_packet += bytes([command])
+        self.ser.write(transmit_packet)
+
+        packet_size = int.from_bytes(self.ser.read(), byteorder='little')
+
+        command = int.from_bytes(ser.read(), byteorder='little')
+        if command == 3 and packet_size == 18:
+
+            buffer = ser.read(packet_size-2)
+            input_1 = struct.unpack('d', buffer[:8])[0]
+            input_2 = struct.unpack('d', buffer[8:])[0]
+
+            return input_1, input_2
+        else:
+            print('Error!')
+
+    def relay_double(self, double):
+        '''
+        Sends and receives a double to and from psoc
+        (for testing, currently doesn't work with other functions)
+        '''
+        command = 1
+        buffer = struct.pack('d', double)
+        packet_size = len(buffer) + 2
+
+        # Transmit byte array
+        transmit_packet = bytes([packet_size])
+        transmit_packet += bytes([command])
+        transmit_packet += buffer
+        ser.write(transmit_packet)
+
+        # Receive byte array
+        packet_size = int.from_bytes(ser.read(), byteorder='little')
+        command = int.from_bytes(ser.read(), byteorder='little')
+        if command == 1 and packet_size == 10:
+            buffer = ser.read(packet_size-2)
+            double = struct.unpack('d', buffer)[0]
+
+            return double
+        else:
+            print('Error!')
 
 
-def send_command(command):
-    '''
-    Constructs and sends packet containing command only
-    '''
-    packet_size = 2
+# testing
+psoc = psoc_interface(ser)
 
-    # Transmit byte array
-    transmit_packet = bytes([packet_size])
-    transmit_packet += bytes([command])
+# test_double = psoc.relay_double(1.234567)
+# print(test_double)
 
-    ser.write(transmit_packet)
+psoc.start_psoc()
+input_1, input_2 = psoc.request_input()
+print(input_1, input_2)
 
-
-def read_double_packet():
-    '''
-    Receives double precision float from PSOC (with command)
-    '''
-    packet_size = int.from_bytes(ser.read(), byteorder='little')
-    command = int.from_bytes(ser.read(), byteorder='little')
-    buffer = ser.read(packet_size-2)
-    double = struct.unpack('d', buffer)[0]
-
-    return command, double
-
-
-def read_two_double_packet():
-    '''
-    Receives two double precision floats from PSOC (with command)
-    (for getting input commands)
-    '''
-    packet_size = int.from_bytes(ser.read(), byteorder='little')
-    print('return packet size: ', packet_size)
-    command = int.from_bytes(ser.read(), byteorder='little')
-    buffer = ser.read(packet_size-2)
-    print('buffer: ', buffer)
-    double_1 = struct.unpack('d', buffer[:8])[0]
-    double_2 = struct.unpack('d', buffer[8:])[0]
-
-    return command, double_1, double_2
-
-
-# Testing
-# send_double_packet(command=1, double=563434534534.2424234)
-# return_command, rx_double = read_double_packet()
-# print(rx_double)
-
-# Activate PSOC
-send_command(2)
-
-# Get inputs
-for i in range(5):
-    send_command(3)
-    command, double_1, double_2 = read_two_double_packet()
-    print('return command:', command, 'doubles:', double_1, double_2)
-    time.sleep(1)
 
