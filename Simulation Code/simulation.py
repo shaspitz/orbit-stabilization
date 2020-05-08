@@ -436,23 +436,38 @@ class sim_env:
 class gui:
 
     def __init__(self, master, sim_env):
-
+        #set up class parameters
         self.master=master
         self.sim_env = sim_env
         self.root = tk.Tk()
-        #dd in overall title
+        #add in overall title
         self.root.wm_title("Real Time Satellite Visualization")
         
-        #define inputs for control, no control and equilibrium
+        # Initialize state display
+        self.state_display = np.array([tk.StringVar() for state in sim_env.x0])
+        self.update_state_display()
+        for state_iter in range(len(self.sim_env.x0)):
+            tk.Label(master, textvariable=self.state_display[
+                state_iter]).grid(row=state_iter, column=0)
+
+        #set arrays for no control (from PSOC) and equilibrium orbits
         self.state_sys = np.array([state for state in self.sim_env.x0])
-        print(self.state_sys)
         self.x_cartesian_LQG = np.zeros((2,1))
         self.y_cartesian_LQG= np.zeros((2,1))
         
+        self.timestep=0
+        #unsure if should be using full_sim_discrete here?? please clarify function
+        self.e_orbit=self.sim_env.full_sim_discrete(np.linspace(0,self.timestep,self.timestep))
+        self.x_equil = np.zeros((4,1))
+        self.y_equil= np.zeros((4,1))
+        
+        #set up figure for gui
         self.fig = Figure()
         gui.a = self.fig.add_subplot(2,1,1)
-        circle = plt.Circle((0, 0), 5, color='b')
+        circle = plt.Circle((0, 0), self.sim_env.R, color='b')
         self.a.add_artist(circle)
+        
+        
         #self.a.title("Satellite Path With Control Input")
 #         self.b = self.fig.add_subplot(2,1,2)
 #         self.b.ax.add_artist(circle)
@@ -464,39 +479,60 @@ class gui:
         gui.canvas.draw()
         
         #add in "STOP" button to terminate process
+        #Stop doesn't work when pressed
         button = tkinter.Button(master=self.root, text="Quit", command=quit)
         button.pack(side=tkinter.BOTTOM)
         
+        
+    def update_state_display(self):
+        #update state display window
+        for state_iter in range(len(self.sim_env.x0)):
+            self.state_display[state_iter].set(repr(self.sim_env.x_step[state_iter]))
+            
     def updateGraphs(self):
+        #calculate the updated equilibrium orbit position and convert to cartesian
+        self.timestep+=1
+        self.e_orbit=self.sim_env.full_sim_discrete(np.linspace(0,self.timestep,self.timestep))
+        x_e_orbit,y_e_orbit=self.sim_env.convert_cartesian(self.e_orbit[:,-1])
+        
         #get the updated states from the PSOC
         for state_iter in range(len(self.sim_env.x0)):
             self.state_sys[state_iter]=self.sim_env.x_step[state_iter]
-        print(self.state_sys)
+        #print(self.state_sys)
+        #add equilibrium orbit to measurement
+        self.state_sys+=np.transpose(self.sim_env.equil_orbit(1))[0]
+        #print(self.state_sys)
+        
         #convert polar to cartestian for plotting
         x,y=self.sim_env.convert_cartesian(self.state_sys)
-        # append data to data buff, and then remove the old items
+        
+        # append data to array, and then remove the old items
         self.x_cartesian_LQG = np.append(self.x_cartesian_LQG, x)
         self.x_cartesian_LQG = self.x_cartesian_LQG[1:] 
-
+        
         self.y_cartesian_LQG = np.append(self.y_cartesian_LQG, y)
         self.y_cartesian_LQG = self.y_cartesian_LQG[1:] 
-
+        
 #         self.x_cartesian = np.append(self.x_cartesian, x)
 #         self.x_cartesian = self.x_cartesian[len(x):] 
 # 
 #         self.y_cartesian = np.append(self.y_cartesian, y)
 #         self.y_cartesian = self.y_cartesian[len(y):] 
-# 
-#         self.x_equil = np.append(self.x_equil, x)
-#         self.x_equil = self.x_equil[len(x):] 
-# 
-#         self.y_equil = np.append(self.y_equil, y)
-#         self.y_equil = self.y_equil[len(y):] 
+        
+        #set up equilibrium plot data
+        self.x_equil = np.append(self.x_equil, x_e_orbit)
+        self.x_equil = self.x_equil[1:] 
+ 
+        self.y_equil = np.append(self.y_equil, y_e_orbit)
+        self.y_equil = self.y_equil[1:] 
 
-        #gui.a.set_xlim((self.x_cartesian_LQG[0], self.x_cartesian_LQG[len(self.x_cartesian_LQG) - 1]))
-        gui.a.plot(self.x_cartesian_LQG, self.y_cartesian_LQG, linewidth=4, color='g', linestyle='--')
-        #gui.a.plot(self.x_equil, self.y_equil, linewidth=2, color='r', linestyle='-')
-# 
+        #update the gui plot 
+        gui.a.set_xlim(-1*(10**7),4.5*(10**7))
+        gui.a.set_ylim(-1*(10**7),1*(10**7))
+        gui.a.set_aspect('equal', adjustable='box')
+        gui.a.plot(self.x_cartesian_LQG, self.y_cartesian_LQG, linewidth=3, color='g', linestyle='--')
+        gui.a.plot(self.x_equil, self.y_equil, linewidth=0.5, color='r', linestyle='-')
+#         gui.a.title("Satellite Orbit Without Control Input")
 #         gui.b.set_xlim((self.x_cartesian[0], self.x_cartesian[len(self.x_cartesian) - 1]))
 #         gui.b.plot(self.x_cartesian, self.y_cartesian, linewidth=4, color='g', linestyle='--')
 #         gui.b.plot(self.x_equil, self.y_equil, linewidth=2, color='r', linestyle='-')
@@ -557,10 +593,13 @@ def main():
             # These two lines are the non-blocking versions of root.mainloop()
             root.update_idletasks()
             root.update()
-
+  
             # Update GUI displays
+            gui_instance.update_state_display()
             gui_instance.updateGraphs()
             gui.canvas.draw()
+            #add pause for graphics
+            plt.pause(0.005)
 
     else:
         # Analysis, no serial interface
