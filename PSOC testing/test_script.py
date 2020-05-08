@@ -73,6 +73,9 @@ class psoc_interface:
                 print('bytes: ', struct.pack('d', Kinf[x][y]), 'len: ', len(struct.pack('d', Kinf[x][y])))
                 buffer += struct.pack('d', Kinf[x][y])
 
+        print('TEST', struct.unpack('d', buffer[-8:]))
+        print('TEST', struct.unpack('d', buffer[120:]))
+
         packet_size = len(buffer)+2
 
         # Transmit byte array
@@ -129,7 +132,8 @@ class psoc_interface:
 
             return input_1, input_2
         else:
-            print('Error!')
+            print('Error! Printing incorrect command or packet size.')
+            print('Command:', command, 'Packet size:', packet_size)
 
 
 # testing
@@ -138,11 +142,14 @@ psoc = psoc_interface(ser)
 # test_double = psoc.relay_double(1.234567)
 # print(test_double)
 
-# psoc.send_sim_env_info(np.array([[1.0, 1.0, 1.0, 1.0],
-#                                  [1.0, 1.0, 1.0, 1.0],
-#                                  [1.0, 1.0, 1.0, 1.0],
-#                                  [1.0, 1.0, 1.0, 9.8]]))
+psoc.send_sim_env_info(np.array([[1.0, 1.0, 1.0, 1.0],
+                                 [1.0, 1.0, 1.0, 1.0],
+                                 [1.0, 1.0, 1.0, 1.0],
+                                 [1.0, 1.0, 1.0, 9.34267]]))
 psoc.start_psoc()
+input_1, input_2 = psoc.request_input()
+print(input_1, input_2)
+
 input_1, input_2 = psoc.request_input()
 print(input_1, input_2)
 

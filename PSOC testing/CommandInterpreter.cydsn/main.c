@@ -30,11 +30,13 @@ double Input2;
 uint8 *PtrInput1;
 uint8 *PtrInput2;
 
+double *PtrTest;
+
 struct command_protocol
 {
     uint8 packet_size;
     uint8 command;
-    uint8 buffer[64];
+    uint8 buffer[128];
 } Command_Packet;
 
 struct command_protocol Transmit_Packet;
@@ -143,7 +145,10 @@ int main(void)
                     // Kinf storage
                     
                     //Command_Packet.packet_size;
-                    Input1 = (double) Command_Packet.packet_size;
+
+                    PtrTest = &Command_Packet.buffer[120];
+                    Input1 = *PtrTest;
+                    /*
                     for (i = 0; i < 4; ++i)
                     {
                         for (j = 0; j < 4; ++j)
@@ -152,26 +157,31 @@ int main(void)
                             Kinf[i][j] = (double) *PtrKinf;
                         }
                     }
+                    */
                     CommandReady = 0;
                 break;
                 
                 case 3:
-                    // Start timing for computation alongside Python
-                    TimeStart = Time;
-                    ActiveFlag = TRUE;
+                    if (ActiveFlag == FALSE)
+                    {
+                        // Start timing for computation alongside Python
+                        TimeStart = Time;
+                        ActiveFlag = TRUE;
+                        CommandReady = 0;
+                        
+                        // Relay command that timing has started
+                        Transmit_Packet.command = Command_Packet.command;
+                        TransmitBuffer[1] = Transmit_Packet.command;
+                        
+                        // Set packet size for this relay
+                        Transmit_Packet.packet_size = 2;
+                        TransmitBuffer[0] = Transmit_Packet.packet_size;
+                    }
                     CommandReady = 0;
-                    
-                    // Set command that timing has started
-                    Transmit_Packet.command = Command_Packet.command;
-                    TransmitBuffer[1] = Transmit_Packet.command;
-                    
-                    // Set packet size for this relay
-                    Transmit_Packet.packet_size = 2;
-                    TransmitBuffer[0] = Transmit_Packet.packet_size;
-            break;
+                break;
                 
                 case 4:
-                    LEDDrive_Write(1);
+                    LEDDrive_Write(!LEDDrive_Read());
                     // Input requested
                     if (ActiveFlag)
                     {   
@@ -188,7 +198,7 @@ int main(void)
                         
                         // Set input 1 to Kinf[3][3] for testing
                         //Input1 = Kinf[3][3];
-                        Input2 = 9.7834594324234 + (double) Time - TimeStart;
+                        Input2 = 5.01 + (double) Time - TimeStart;
                         
                         // Pointer declaration for sending doubles by byte
                         uint8 *PtrInput1 = &Input1;
@@ -208,8 +218,8 @@ int main(void)
                             TransmitBuffer[i+2+8] = Transmit_Packet.buffer[i+2+8];
                             ++PtrInput2;
                         }
+                        }
                         CommandReady = 0;
-                    }
                 break;
                 
                 case 5:
