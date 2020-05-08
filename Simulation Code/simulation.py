@@ -465,9 +465,8 @@ class gui:
         self.time_label.pack(side=TOP)
         
         #unsure if should be using full_sim_discrete here?? please clarify function
-        self.e_orbit=self.sim_env.full_sim_discrete(np.linspace(0,self.timestep,self.timestep))
-        self.x_equil = np.zeros((4,1))
-        self.y_equil= np.zeros((4,1))
+        self.eq_orbit = self.sim_env.equil_orbit(1000)
+        self.x_eq, self.y_eq = self.sim_env.convert_cartesian(self.eq_orbit)
         
         #add in "STOP" button to terminate process
         button = tkinter.Button(master=self.root, text="EXIT ORBIT", command=self.root.destroy)
@@ -510,15 +509,12 @@ class gui:
         #timestep is moving too fast so only update every 5 timesteps
         if self.timestep%5 == 0:
             self.time_label['text']=self.timestep
-        self.e_orbit=self.sim_env.full_sim_discrete(np.linspace(0,self.timestep,self.timestep))
-        x_e_orbit,y_e_orbit=self.sim_env.convert_cartesian(self.e_orbit[:,-1])
-        
         #get the updated states from the PSOC
         for state_iter in range(len(self.sim_env.x0)):
             self.state_sys[state_iter]=self.sim_env.x_step[state_iter]
         #print(self.state_sys)
         #add equilibrium orbit to measurement
-        self.state_sys+=np.transpose(self.sim_env.equil_orbit(1))[0]
+        #self.state_sys+=np.transpose(self.sim_env.equil_orbit(1))[0]
         #print(self.state_sys)
         
         #convert polar to cartestian for plotting
@@ -537,25 +533,19 @@ class gui:
 #         self.y_cartesian = np.append(self.y_cartesian, y)
 #         self.y_cartesian = self.y_cartesian[len(y):] 
         
-        #set up equilibrium plot data
-        self.x_equil = np.append(self.x_equil, x_e_orbit)
-        self.x_equil = self.x_equil[1:] 
- 
-        self.y_equil = np.append(self.y_equil, y_e_orbit)
-        self.y_equil = self.y_equil[1:] 
 
         #update the gui plot 
         self.a.set_xlim(-1*(10**7),4.5*(10**7))
-        self.a.set_ylim(-1*(10**7),1*(10**7))
+        self.a.set_ylim(-1*(10**7),4.5*(10**7))
         self.a.set_aspect('equal', adjustable='box')
         self.a.plot(self.x_cartesian_LQG, self.y_cartesian_LQG, linewidth=3, color='g', linestyle='--')
-        self.a.plot(self.x_equil, self.y_equil, linewidth=0.5, color='r', linestyle='-')
+        self.a.plot(self.x_eq, self.y_eq, linewidth=1, color='r', linestyle='--')
         
         self.b.set_xlim(-1*(10**7),4.5*(10**7))
-        self.b.set_ylim(-1*(10**7),1*(10**7))
+        self.b.set_ylim(-1*(10**7),4.5*(10**7))
         self.b.set_aspect('equal', adjustable='box')
         #self.b.plot(self.x_cartesian_LQG, self.y_cartesian_LQG, linewidth=3, color='g', linestyle='--')
-        self.b.plot(self.x_equil, self.y_equil, linewidth=0.5, color='r', linestyle='-')
+        self.b.plot(self.x_eq, self.y_eq, linewidth=1, color='r', linestyle='--')
 
     #Stop Button
     def _quit(self):
@@ -566,7 +556,7 @@ class gui:
 
 def main():
 
-    hardware_in_loop = True
+    hardware_in_loop =True
     lqg_active = False
 
     # Initial conditions (deviation from equilibrium in polar coordinates)
