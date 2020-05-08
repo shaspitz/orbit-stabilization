@@ -455,35 +455,48 @@ class gui:
         self.x_cartesian_LQG = np.zeros((2,1))
         self.y_cartesian_LQG= np.zeros((2,1))
         
+        #add in label with timestep
         self.timestep=0
+        self.timestep_label = Label(self.root,text="Tme Elapsed Since Entering Orbit:")
+        #self.timestep_label.grid(row=0,column=2)  
+        self.timestep_label.pack(side=TOP)
+        self.time_label = Label(self.root,text=str(self.timestep))
+        #self.time_label.grid(row=1,column=2)      
+        self.time_label.pack(side=TOP)
+        
         #unsure if should be using full_sim_discrete here?? please clarify function
         self.e_orbit=self.sim_env.full_sim_discrete(np.linspace(0,self.timestep,self.timestep))
         self.x_equil = np.zeros((4,1))
         self.y_equil= np.zeros((4,1))
         
+        #add in "STOP" button to terminate process
+        button = tkinter.Button(master=self.root, text="EXIT ORBIT", command=self.root.destroy)
+        #button.grid(row=2,column=2)
+        button.pack(side=TOP)
+        
         #set up figure for gui
-        self.fig = Figure()
-        gui.a = self.fig.add_subplot(2,1,1)
+        self.fig1 = plt.Figure()
+        self.a = self.fig1.add_subplot(2,1,1)
         circle = plt.Circle((0, 0), self.sim_env.R, color='b')
         self.a.add_artist(circle)
+        self.a.set_title('Satellite Path With Control Input')
         
+        #set up figure for gui
+        self.fig2 = plt.Figure()
+        self.b = self.fig2.add_subplot(2,1,1)
+        circle = plt.Circle((0, 0), self.sim_env.R, color='b')
+        self.b.add_artist(circle)
+        self.b.set_title('Satellite Path Without Control Input')
         
-        #self.a.title("Satellite Path With Control Input")
-#         self.b = self.fig.add_subplot(2,1,2)
-#         self.b.ax.add_artist(circle)
-#         self.b.suptitle("Satellite Path Without Control Input")
-
         #draw plots on gui 
-        gui.canvas = FigureCanvasTkAgg(self.fig,master=self.root)
-        gui.canvas.get_tk_widget().pack(side=tkinter.LEFT)
-        gui.canvas.draw()
-        self.a_label = Label(self.root,text="Satellite Path Without Control Input") #assumes that data is coming in at 1kHz or so.
-        self.a_label.pack(side=tkinter.LEFT)
+        gui.canvasa = FigureCanvasTkAgg(self.fig1,master=self.root)
+        gui.canvasa.get_tk_widget().pack(side=LEFT)
+        gui.canvasb = FigureCanvasTkAgg(self.fig2,master=self.root)
+        #gui.canvasb.get_tk_widget().grid(row=3,column=3)
+        gui.canvasb.get_tk_widget().pack(side=RIGHT)
+        gui.canvasa.draw()
+        gui.canvasb.draw()
         
-        #add in "STOP" button to terminate process
-        #Stop doesn't work when pressed
-        button = tkinter.Button(master=self.root, text="Quit", command=quit)
-        button.pack(side=tkinter.TOP)
         
         
     def update_state_display(self):
@@ -494,6 +507,9 @@ class gui:
     def updateGraphs(self):
         #calculate the updated equilibrium orbit position and convert to cartesian
         self.timestep+=1
+        #timestep is moving too fast so only update every 5 timesteps
+        if self.timestep%5 == 0:
+            self.time_label['text']=self.timestep
         self.e_orbit=self.sim_env.full_sim_discrete(np.linspace(0,self.timestep,self.timestep))
         x_e_orbit,y_e_orbit=self.sim_env.convert_cartesian(self.e_orbit[:,-1])
         
@@ -529,16 +545,18 @@ class gui:
         self.y_equil = self.y_equil[1:] 
 
         #update the gui plot 
-        gui.a.set_xlim(-1*(10**7),4.5*(10**7))
-        gui.a.set_ylim(-1*(10**7),1*(10**7))
-        gui.a.set_aspect('equal', adjustable='box')
-        gui.a.plot(self.x_cartesian_LQG, self.y_cartesian_LQG, linewidth=3, color='g', linestyle='--')
-        gui.a.plot(self.x_equil, self.y_equil, linewidth=0.5, color='r', linestyle='-')
-#         gui.a.title("Satellite Orbit Without Control Input")
-#         gui.b.set_xlim((self.x_cartesian[0], self.x_cartesian[len(self.x_cartesian) - 1]))
-#         gui.b.plot(self.x_cartesian, self.y_cartesian, linewidth=4, color='g', linestyle='--')
-#         gui.b.plot(self.x_equil, self.y_equil, linewidth=2, color='r', linestyle='-')
-#     
+        self.a.set_xlim(-1*(10**7),4.5*(10**7))
+        self.a.set_ylim(-1*(10**7),1*(10**7))
+        self.a.set_aspect('equal', adjustable='box')
+        self.a.plot(self.x_cartesian_LQG, self.y_cartesian_LQG, linewidth=3, color='g', linestyle='--')
+        self.a.plot(self.x_equil, self.y_equil, linewidth=0.5, color='r', linestyle='-')
+        
+        self.b.set_xlim(-1*(10**7),4.5*(10**7))
+        self.b.set_ylim(-1*(10**7),1*(10**7))
+        self.b.set_aspect('equal', adjustable='box')
+        #self.b.plot(self.x_cartesian_LQG, self.y_cartesian_LQG, linewidth=3, color='g', linestyle='--')
+        self.b.plot(self.x_equil, self.y_equil, linewidth=0.5, color='r', linestyle='-')
+
     #Stop Button
     def _quit(self):
         self.root.quit()     # stops mainloop
@@ -587,7 +605,7 @@ def main():
         executed
         '''
 
-        print('Entering loop')
+        print('Entering loop') 
         while True:
             schedule.run_pending()
             # Implement ping-pong Queue object here to handle inputs?
@@ -599,7 +617,8 @@ def main():
             # Update GUI displays
             gui_instance.update_state_display()
             gui_instance.updateGraphs()
-            gui.canvas.draw()
+            gui.canvasa.draw()
+            gui.canvasb.draw()
             #add pause for graphics
             plt.pause(0.005)
 
