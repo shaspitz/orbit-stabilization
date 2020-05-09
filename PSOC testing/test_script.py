@@ -48,39 +48,33 @@ class psoc_interface:
         Kinf -> 4x4 array
         Finf -> 2x4 array
         '''
-        # Send Kinf
+        # Construct packet containing Kinf
         command = 2
 
         buffer = bytes()
         for row in range(len(Kinf)):
             for col in range(len(Kinf[0])):
-                print('component of Kinf: ', Kinf[row][col])
-                print('bytes: ', struct.pack('d', Kinf[row][col]), 'len: ',
-                      len(struct.pack('d', Kinf[row][col])))
                 buffer += struct.pack('d', Kinf[row][col])
 
         packet_size = len(buffer)+2
 
-        # Transmit byte array
+        # Transmit packet for Kinf
         transmit_packet = bytes([packet_size])
         transmit_packet += bytes([command])
         transmit_packet += buffer
         self.ser.write(transmit_packet)
 
-        # Send Ts and Finf
+        # Construct packet containing Ts and Finf
         command = 3
 
         buffer = bytes([int(Ts)])
         for row in range(len(Finf)):
             for col in range(len(Finf[0])):
-                print('component of Finf: ', Finf[row][col])
-                print('bytes: ', struct.pack('d', Finf[row][col]), 'len: ',
-                      len(struct.pack('d', Finf[row][col])))
                 buffer += struct.pack('d', Finf[row][col])
 
         packet_size = len(buffer)+2
 
-        # Transmit byte array
+        # Transmit packet for Ts and Finf
         transmit_packet = bytes([packet_size])
         transmit_packet += bytes([command])
         transmit_packet += buffer
@@ -89,7 +83,7 @@ class psoc_interface:
     def start_psoc(self):
         '''
         Constructs and sends packet containing command to start psoc timer
-        and activate other commands
+        and activate flag enabling all other commands
         '''
         command = 4
         packet_size = 2
@@ -104,7 +98,7 @@ class psoc_interface:
         command_return = int.from_bytes(self.ser.read(), byteorder='little')
 
         if packet_size_return == packet_size and command_return == command:
-            print('psoc timing started!')
+            print('psoc timing started')
 
     def request_input(self):
         '''
@@ -114,12 +108,12 @@ class psoc_interface:
         command = 5
         packet_size = 2
 
-        # Transmit byte array
+        # Transmit byte array with command
         transmit_packet = bytes([packet_size])
         transmit_packet += bytes([command])
         self.ser.write(transmit_packet)
 
-        # Receive byte array
+        # Receive byte array with inputs
         packet_size_return = int.from_bytes(self.ser.read(), byteorder='little')
         command_return = int.from_bytes(self.ser.read(), byteorder='little')
 
@@ -139,8 +133,28 @@ class psoc_interface:
         Note that input is a 2d numpy array
         '''
         command = 6
-        return 0
 
+        buffer = bytes()
+        for state in range(len(meas)):
+            buffer += struct.pack('d', meas[state][0])
+
+        packet_size = len(buffer)+2
+
+        # Transmit packet with measurement
+        transmit_packet = bytes([packet_size])
+        transmit_packet += bytes([command])
+        transmit_packet += buffer
+        self.ser.write(transmit_packet)
+
+        # Receive byte array confirming measurement was obtained
+        packet_size_return = int.from_bytes(self.ser.read(), byteorder='little')
+        command_return = int.from_bytes(self.ser.read(), byteorder='little')
+
+        if packet_size_return == 2 and command_return == command:
+            print('Measurement processed by psoc')
+        else:
+            print('Error! Printing incorrect command or packet size.')
+            print('Command:', command_return, 'Packet size:', packet_size_return)
 
 # testing
 
@@ -165,8 +179,14 @@ psoc.send_sim_env_info(Kinf=np.array([[1.0, 2.0, 3.0, 4.0],
                                       Finf=np.array([[1.0, 2.0, 3.0, 4.0],
                                                      [5.0, 6.0, 7.0, 8.0]]))
 psoc.start_psoc()
+
 input_1, input_2 = psoc.request_input()
 print(input_1, input_2)
+
+psoc.send_measurement(np.array([[235234.032],
+                                [0.234625],
+                                [0.000000312315],
+                                [0.00000000000000003123]]))
 
 input_1, input_2 = psoc.request_input()
 print(input_1, input_2)

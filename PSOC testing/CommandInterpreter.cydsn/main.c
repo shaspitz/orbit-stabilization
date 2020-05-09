@@ -56,7 +56,7 @@ CY_ISR(TimerInterrupt)
 
 CY_ISR(ByteReceived)
 { 
-    //LEDDrive_Write(1);
+    LEDDrive_Write(1);
     ReceivedBuffer[ByteCount++] = (uint8) (UART1_GetByte()&0x00ff);
     if(FirstByte == 0)
     {
@@ -66,14 +66,14 @@ CY_ISR(ByteReceived)
     }
     Count = ByteCounter_ReadCounter();
     Status = ByteCounter_ReadStatusRegister();
-    //LEDDrive_Write(0);
+    LEDDrive_Write(0);
     
 }
 
 CY_ISR(CommandReceived)
 {
     uint8 i;
-    //LEDDrive_Write(1);
+    LEDDrive_Write(1);
     if(CommandReady == 0)
     {
         Command_Packet.packet_size = ReceivedBuffer[0];
@@ -89,7 +89,7 @@ CY_ISR(CommandReceived)
         ByteCount = 0;
     }
     ByteCounter_ReadStatusRegister();
-    //LEDDrive_Write(0);
+    LEDDrive_Write(0);
 }
 
 int main(void)
@@ -261,7 +261,6 @@ int main(void)
                     break;
                 
                 case 5:
-                    LEDDrive_Write(!LEDDrive_Read());
                     // Input requested
                     if (ActiveFlag)
                     {   
@@ -276,8 +275,8 @@ int main(void)
                         // Values of those doubles (will be LQG eventually)
                         
                         // Set input 1 to Kinf[3][3] for testing
-                        Input1 = Finf[0][2];
-                        Input2 = Finf[1][3];
+                        Input1 = CurrMeas[0];
+                        Input2 = CurrMeas[3];
                         
                         // Set pointers for sending doubles by byte
                         PtrInput1 = (uint8*) &Input1;
@@ -310,6 +309,24 @@ int main(void)
                         //double CurrMeas[4];
                         //double *PtrMeas;
                         
+                        /*For same reason as above, had to hardcode measurement processing
+                        to replace the following for loop.
+                        
+                        for (i = 0; i < 4; ++i)
+                        {
+                            PtrMeas = (double*) &Command_Packet.buffer[8*i];
+                            CurrMeas[i] = *PtrMeas;
+                        }
+                        */
+                        
+                        PtrMeas = (double*) &Command_Packet.buffer[0];
+                        CurrMeas[0] = *PtrMeas;
+                        PtrMeas = (double*) &Command_Packet.buffer[8];
+                        CurrMeas[1] = *PtrMeas;
+                        PtrMeas = (double*) &Command_Packet.buffer[16];
+                        CurrMeas[2] = *PtrMeas;
+                        PtrMeas = (double*) &Command_Packet.buffer[24];
+                        CurrMeas[3] = *PtrMeas;
                         
                         // Relay command that measurements were received
                         Transmit_Packet.command = Command_Packet.command;
