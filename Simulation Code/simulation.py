@@ -462,12 +462,9 @@ class sim_env:
     def convert_cartesian(sys_sol):
         '''
         Converts from polar coordinates describing state to
-        2D cartesian coordinates
+        2D cartesian coordinates.
+        (For 1D arrays only)
         '''
-#         x_sol = [sys_sol[0][i]*np.cos(
-#             sys_sol[2][i]) for i in range(len(sys_sol[0]))]
-#         y_sol = [sys_sol[0][i]*np.sin(
-#             sys_sol[2][i]) for i in range(len(sys_sol[0]))]
         x_sol = sys_sol[0]*np.cos(sys_sol[2])
         y_sol = sys_sol[0]*np.sin(sys_sol[2])
 
@@ -484,9 +481,10 @@ class sim_env:
 
 
 class gui:
-
+    '''
+    Graphical user interface class
+    '''
     def __init__(self, master, sim_env):
-        # Set up class parameters
         self.master = master
         self.sim_env = sim_env
 
@@ -499,7 +497,8 @@ class gui:
         self.name_label = Label(self.master, text="Incoming States")
         self.name_label.pack(side=BOTTOM)
         self.name_label.configure(background="forestgreen", width=1000)
-        self.values_label = Label(self.master, text='R                        Rdot                       Phi                      Phidot')
+        self.values_label = Label(self.master,
+                                  text='R                        Rdot                       Phi                      Phidot')
         self.values_label.pack(side=BOTTOM)
         self.values_label.configure(background="forestgreen", width=1000)
         self.data_label = Label(self.master, text=str(self.state_display))
@@ -511,8 +510,13 @@ class gui:
         self.x_input = np.array([x])
         self.y_input = np.array([y])
 
+        x, y = self.sim_env.convert_cartesian(self.sim_env.gui_state_no_input)
+        self.x_no_input = np.array([x])
+        self.y_no_input = np.array([y])
+
         # Add in label with time step
-        self.timestep_label = Label(self.master, text="Time Elapsed Since Entering Orbit:")
+        self.timestep_label = Label(self.master,
+                                    text="Time Elapsed Since Entering Orbit:")
         self.timestep_label.pack(side=TOP)
         self.time_label = Label(self.master, text=str(self.sim_env.t_instance))
         self.time_label.pack(side=TOP)
@@ -522,7 +526,8 @@ class gui:
         self.x_eq, self.y_eq = self.sim_env.convert_cartesian(self.eq_orbit)
 
         # "STOP" button to terminate process
-        button = tkinter.Button(master=self.master, text="EXIT ORBIT", command=self.master.destroy)
+        button = tkinter.Button(master=self.master, text="EXIT ORBIT",
+                                command=self.master.destroy)
         button.pack(side=TOP)
 
         # Figure 1
@@ -557,13 +562,21 @@ class gui:
         self.data_label['text'] = self.sim_env.gui_state
         self.time_label['text'] = self.sim_env.t_instance
 
-        # Convert gui_state to cartesian coordinates for plotting
+        # Convert gui state to cartesian coordinates for plotting
         x, y = self.sim_env.convert_cartesian(self.sim_env.gui_state)
 
         # append data to array if new solution exists
         if x != self.x_input[-1] and y != self.y_input[-1]:
             self.x_input = np.append(self.x_input, x)
             self.y_input = np.append(self.y_input, y)
+
+        # Do same for state without input
+        x, y = self.sim_env.convert_cartesian(self.sim_env.gui_state_no_input)
+
+        # append data to array if new solution exists
+        if x != self.x_no_input[-1] and y != self.y_no_input[-1]:
+            self.x_no_input = np.append(self.x_input, x)
+            self.y_no_input = np.append(self.y_input, y)
 
         # Update plots
         self.a.set_xlim(-2*(10**7), 4.5*(10**7))
@@ -575,8 +588,8 @@ class gui:
         self.b.set_xlim(-2*(10**7), 4.5*(10**7))
         self.b.set_ylim(-2*(10**7), 4.5*(10**7))
         self.b.set_aspect('equal', adjustable='box')
-#         self.b.plot(self.x_cartesian_LQG, self.y_cartesian_LQG, linewidth=3,
-#                     color='g', linestyle='--')
+        self.b.plot(self.x_no_input, self.y_no_input, linewidth=3,
+                    color='g', linestyle='--')
 
     # Stop Button
     def _quit(self):
