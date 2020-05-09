@@ -64,7 +64,6 @@ class sim_env:
 
     # Orbit turn rate for linearization [rad/s]
     w0 = 7.2910**-5
-#     w0 = 4*10**-2
 
     # Orbital period [s]
     t_orbital = 2*np.pi/w0
@@ -79,7 +78,7 @@ class sim_env:
     Noise is assumed unbiased and Gaussian. Below the system's process noise
     covariance matrix is defined.
     '''
-    V = np.array([[5e8, 0, 0, 0],
+    V = np.array([[5e10/2, 0, 0, 0],
                   [0, 10e-3, 0, 0],
                   [0, 0, 10e-10, 0],
                   [0, 0, 0, 10e-20]])
@@ -575,8 +574,8 @@ class gui:
 
         # append data to array if new solution exists
         if x != self.x_no_input[-1] and y != self.y_no_input[-1]:
-            self.x_no_input = np.append(self.x_input, x)
-            self.y_no_input = np.append(self.y_input, y)
+            self.x_no_input = np.append(self.x_no_input, x)
+            self.y_no_input = np.append(self.y_no_input, y)
 
         # Update plots
         self.a.set_xlim(-2*(10**7), 4.5*(10**7))
@@ -596,7 +595,6 @@ class gui:
         '''
         Stops mainloop. This is necessary on Windows to prevent
         Fatal Python Error: PyEval_RestoreThread: NULL state
-
         '''
         self.master.quit()
         self.master.destroy()
