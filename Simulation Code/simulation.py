@@ -16,16 +16,12 @@ import schedule
 import threading
 import time
 import serial
+import struct
 from scipy.integrate import solve_ivp
 from scipy.linalg import solve_discrete_are
-from matplotlib.backends.backend_tkagg import ( FigureCanvasTkAgg, NavigationToolbar2Tk)
-from matplotlib.figure import Figure
-from matplotlib.backend_bases import key_press_handler
-import matplotlib.animation as animation
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import tkinter as tk
-import tkinter.ttk as ttk
 from tkinter import Tk, Label, Button, filedialog
-from matplotlib.figure import Figure
 from tkinter import *
 import tkinter.messagebox
 
@@ -47,6 +43,177 @@ Inputs:
 u1(t) = F_rad/m,
 u2(t) = F_tan/m
 '''
+
+
+class psoc_interface:
+    '''
+    Class for communicating with psoc micrcontroller
+    '''
+    def __init__(self, ser):
+        self.ser = ser
+
+    def relay_double(self, double):
+        '''
+        Sends and receives a double to and from psoc
+        (for testing, currently doesn't work with other functions)
+        '''
+        command = 1
+        buffer = struct.pack('d', double)
+        packet_size = len(buffer) + 2
+
+        # Transmit byte array
+        transmit_packet = bytes([packet_size])
+        transmit_packet += bytes([command])
+        transmit_packet += buffer
+        self.ser.write(transmit_packet)
+
+        # Receive byte array
+        packet_size = int.from_bytes(self.ser.read(), byteorder='little')
+        command = int.from_bytes(self.ser.read(), byteorder='little')
+        if command == 1 and packet_size == 10:
+            buffer = self.ser.read(packet_size-2)
+            double = struct.unpack('d', buffer)[0]
+
+            return double
+        else:
+            print('Error!')
+
+    def send_sim_env_info(self, Kinf, Ts=None, Finf=None):
+        '''
+        Initializes psoc interface with parameters for
+        simulation, estimation and control
+        Ts   -> scalar
+        Kinf -> 4x4 array
+        Finf -> 2x4 array
+        '''
+        # Construct packet containing Kinf
+        command = 2
+
+        buffer = bytes()
+        for row in range(len(Kinf)):
+            for col in range(len(Kinf[0])):
+                buffer += struct.pack('d', Kinf[row][col])
+
+        packet_size = len(buffer)+2
+
+        # Transmit packet for Kinf
+        transmit_packet = bytes([packet_size])
+        transmit_packet += bytes([command])
+        transmit_packet += buffer
+        self.ser.write(transmit_packet)
+
+        # Receive relayed byte array and confirm Kinf was receieved
+        packet_size_return = int.from_bytes(self.ser.read(), byteorder='little')
+        command_return = int.from_bytes(self.ser.read(), byteorder='little')
+
+        if packet_size_return == 2 and command_return == command:
+            print('Kinf received')
+
+        # Construct packet containing Ts and Finf
+        command = 3
+
+        buffer = bytes([int(Ts)])
+        for row in range(len(Finf)):
+            for col in range(len(Finf[0])):
+                buffer += struct.pack('d', Finf[row][col])
+
+        packet_size = len(buffer)+2
+
+        # Transmit packet for Ts and Finf
+        transmit_packet = bytes([packet_size])
+        transmit_packet += bytes([command])
+        transmit_packet += buffer
+        self.ser.write(transmit_packet)
+
+        # Receive relayed byte array and confirm Ts and Finf were receieved
+        packet_size_return = int.from_bytes(self.ser.read(), byteorder='little')
+        command_return = int.from_bytes(self.ser.read(), byteorder='little')
+
+        if packet_size_return == 2 and command_return == command:
+            print('Ts and Finf received')
+
+    def start_psoc(self):
+        '''
+        Constructs and sends packet containing command to start psoc timer
+        and activate flag enabling all other commands
+        '''
+        command = 4
+        packet_size = 2
+
+        # Transmit byte array
+        transmit_packet = bytes([packet_size])
+        transmit_packet += bytes([command])
+        self.ser.write(transmit_packet)
+
+        # Receive relayed byte array and confirm psoc started
+        packet_size_return = int.from_bytes(self.ser.read(), byteorder='little')
+        command_return = int.from_bytes(self.ser.read(), byteorder='little')
+
+        if packet_size_return == packet_size and command_return == command:
+            print('psoc timing started')
+
+        elif packet_size_return == packet_size and command_return == 44:
+            print('psoc timing already started, possible error')
+
+    def request_input(self):
+        '''
+        Receives two double precision floats from PSOC
+        (for getting inputs)
+        '''
+        command = 5
+        packet_size = 2
+
+        # Transmit byte array with command
+        transmit_packet = bytes([packet_size])
+        transmit_packet += bytes([command])
+        self.ser.write(transmit_packet)
+
+        # Receive byte array with inputs
+        packet_size_return = int.from_bytes(self.ser.read(),
+                                            byteorder='little')
+        command_return = int.from_bytes(self.ser.read(), byteorder='little')
+
+        if packet_size_return == packet_size+20 and command_return == command:
+            buffer = self.ser.read(packet_size_return-2)
+            input_1 = struct.unpack('d', buffer[:8])[0]
+            input_2 = struct.unpack('d', buffer[8:16])[0]
+            psoc_time = struct.unpack('I', buffer[16:20])[0]
+
+            return input_1, input_2, psoc_time
+        else:
+            print('Error! Printing incorrect command or packet size.')
+            print('Command:', command_return, 'Packet size:',
+                  packet_size_return)
+
+    def send_measurement(self, meas):
+        '''
+        Sends current measurement of the satellite state to psoc
+        Note that input is a 1d numpy array
+        '''
+        command = 6
+
+        buffer = bytes()
+        for state in range(len(meas)):
+            buffer += struct.pack('d', meas[state])
+
+        packet_size = len(buffer)+2
+
+        # Transmit packet with measurement
+        transmit_packet = bytes([packet_size])
+        transmit_packet += bytes([command])
+        transmit_packet += buffer
+        self.ser.write(transmit_packet)
+
+        # Receive byte array confirming measurement was obtained
+        packet_size_return = int.from_bytes(self.ser.read(), byteorder='little')
+        command_return = int.from_bytes(self.ser.read(), byteorder='little')
+
+        if packet_size_return == 2 and command_return == command:
+            print('Measurement processed by psoc')
+        else:
+            print('Error! Printing incorrect command or packet size.')
+            print('Command:', command_return, 'Packet size:',
+                  packet_size_return)
 
 
 class sim_env:
@@ -109,10 +276,13 @@ class sim_env:
 #     H = np.eye(4)
 #     W = np.eye(4)
 
-    def __init__(self, hardware_in_loop, lqg_active, x0, Ts):
+    def __init__(self, psoc, hardware_in_loop, lqg_active, x0, Ts):
         '''
         Constructor for instance variables
         '''
+        self.psoc = psoc
+        if psoc is not None:
+            self.ser = psoc.ser
         self.t_instance = 0
         self.x0 = x0
         self.x_step = x0
@@ -120,7 +290,7 @@ class sim_env:
         self.gui_state = x0 + self.equil(self.t_instance)
         self.gui_state_no_input = x0 + self.equil(self.t_instance)
         self.Ts = Ts
-        self.u = np.zeros((2, 1))  # Change later when LQG implemented?
+        self.u = np.zeros((2, 1))
 
         # A and B matricies for continuous system, dx/dt = Ax + Bu + v(k)
         self.A_continuous = np.array([[0, 1, 0, 0],
@@ -177,14 +347,6 @@ class sim_env:
 
             # Variable for checking if PSOC misses input timing
             self.last_input = None
-
-            # Serial configuration
-            self.ser = serial.Serial(port='COM5', baudrate=115200, parity='N')
-            if self.ser.is_open:
-                self.ser.close()
-                self.ser.open()
-            else:
-                self.ser.open()
 
             self.first_sim_step = True
 
@@ -389,39 +551,17 @@ class sim_env:
 
         return equil_orbit
 
-    def input_command(self):
-        '''
-        Writes input command to PSOC and obtains corresponding control input
-        '''
-
-        # Write input command to PSOC
-        self.ser.write(str.encode('u'))
-
-        # Get input integers from PSOC
-        s = self.ser.readline().decode()
-        s_processed = np.array([[int(x.strip())] for x in s.split(',')])
-        self.PSOC_time, self.u = s_processed[0][0], s_processed[1:3]
-        print('PSOC time: ', self.PSOC_time, '\n', 'input: ', self.u)
-
-    def start_command(self):
-        '''
-        Send start message to PSOC
-        '''
-        self.ser.write(str.encode('s'))
-
     def scheduler_function(self):
         '''
         Command scheduler function that gets called
         at start of every 'real' time step
         '''
-        # Simulate system forward at start of every second
-        self.step_sim_cont()
 
         # Sleep for 0.8 seconds so simulation can finish
         time.sleep(0.8)
 
         # Send simulated measurement to PSOC for LQG computation
-#         self.send_measurement()
+        self.psoc.send_measurement(self.x_step)
 
         # Sleep for 0.1 seconds before requesting input
         time.sleep(0.1)
@@ -432,7 +572,14 @@ class sim_env:
         input commands are sent at intervals of (0.9sec, 1.9sec, 2.9sec, etc.)
         This timing scheme assumes that u(0) = 0
         '''
-        self.input_command()
+        input_1, input_2, psoc_time = self.psoc.request_input()
+        self.u = np.array([[input_1],
+                           [input_2]])
+
+        # Simulate system forward at start of every second
+        self.step_sim_cont()
+
+        print('Current psoc time: ', psoc_time)
 
     def plot_solution(self, x_sol, y_sol, title, sol_type, t_end):
         '''
@@ -604,7 +751,7 @@ class gui:
 def main():
 
     hardware_in_loop = True
-    lqg_active = False
+    lqg_active = True
 
     # Initial conditions (deviation from equilibrium in polar coordinates)
     x0 = np.array([10e4, 0, 0, 0])
@@ -612,10 +759,21 @@ def main():
     if hardware_in_loop:
 
         # Simulation sample time, not 'real' sampling time
-        Ts = 1000
+        Ts = 5
+
+        # Serial configuration
+        ser = serial.Serial(port='COM5', baudrate=115200, parity='N')
+        if ser.is_open:
+            ser.close()
+            ser.open()
+        else:
+            ser.open()
+
+        # Psoc interface instantiation
+        psoc = psoc_interface(ser)
 
         # Simulation environment instantiation
-        sim_env_instance = sim_env(hardware_in_loop, lqg_active, x0, Ts)
+        sim_env_instance = sim_env(psoc, hardware_in_loop, lqg_active, x0, Ts)
 
         # GUI instantiation
         root = tk.Tk()
@@ -630,7 +788,7 @@ def main():
         '''
         sec_equiv = 1.002518  # 'real' sampling time
 
-        sim_env_instance.start_command()
+        sim_env_instance.psoc.start_psoc()
 
         # schedule periodic sim/input command of system, (0sec, 1sec, 2sec, etc.)
         schedule.every(1*sec_equiv).seconds.do(sim_env_instance.run_threaded,
@@ -657,13 +815,13 @@ def main():
 
     else:
         # Analysis, no serial interface
-        t_end = 26e4/2  # [sec]
+        t_end = 5.0e4  # [sec]
         sim_steps = 1000
         t_sim = np.linspace(0, t_end, sim_steps)
         Ts = t_sim[-1] / len(t_sim)
 
         # Simulation environment instantiation
-        sim_env_instance = sim_env(hardware_in_loop, lqg_active, x0, Ts)
+        sim_env_instance = sim_env(None, hardware_in_loop, lqg_active, x0, Ts)
 
         # Full linear and discrete simulations
         sys_sol_cont = sim_env_instance.full_sim_cont(t_sim)
