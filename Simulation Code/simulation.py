@@ -55,7 +55,7 @@ class psoc_interface:
     def relay_double(self, double):
         '''
         Sends and receives a double to and from psoc
-        (for testing, currently doesn't work with other functions)
+        (for testing)
         '''
         command = 1
         buffer = struct.pack('d', double)
@@ -78,7 +78,7 @@ class psoc_interface:
         else:
             print('Error!')
 
-    def send_sim_env_info(self, Kinf, Ts=None, Finf=None):
+    def send_sim_env_info(self, Kinf, Finf, Ts=None):
         '''
         Initializes psoc interface with parameters for
         simulation, estimation and control
@@ -111,6 +111,9 @@ class psoc_interface:
 
         # Construct packet containing Ts and Finf
         command = 3
+
+        if Ts is None:
+            Ts = 1
 
         buffer = bytes([int(Ts)])
         for row in range(len(Finf)):
@@ -248,7 +251,7 @@ class sim_env:
     Noise is assumed unbiased and Gaussian. Below the system's process noise
     covariance matrix is defined.
     '''
-    V = np.array([[5e7, 0, 0, 0],
+    V = np.array([[5e9/2, 0, 0, 0],
                   [0, 10e-3, 0, 0],
                   [0, 0, 10e-10, 0],
                   [0, 0, 0, 10e-20]])
@@ -273,8 +276,6 @@ class sim_env:
                   [0, 1, 0, 0],
                   [0, 0, 1, 0],
                   [0, 0, 0, 1]])
-#     H = np.eye(4)
-#     W = np.eye(4)
 
     def __init__(self, psoc, hardware_in_loop, lqg_active, x0, Ts):
         '''
@@ -327,10 +328,10 @@ class sim_env:
             # Initialize x_est with 2D array of x0
             self.x_est = np.array([[self.x0[i]] for i in range(len(self.x0))])
             self.R_m = np.eye(2)
-            self.Q_m = np.array([[1, 0, 0, 0],
-                                [0, 1, 0, 0],
-                                [0, 0, 1, 0],
-                                [0, 0, 0, 1]])
+            self.Q_m = 2*np.array([[1, 0, 0, 0],
+                                   [0, 1, 0, 0],
+                                   [0, 0, 1, 0],
+                                   [0, 0, 0, 1]])
             self.Pinf = solve_discrete_are(
                 self.A_discrete.T, self.H.T, sim_env.V, sim_env.W)
             self.Kinf = self.Pinf @ (self.H.T) @ (np.linalg.inv(
@@ -348,7 +349,8 @@ class sim_env:
             # Variable for checking if PSOC misses input timing
             self.last_input = None
 
-            self.first_sim_step = True
+            # Send system matricies to psoc for input computation
+            psoc.send_sim_env_info(self.Kinf, self.Finf, None)
 
     def nl_dyn_cont(self, t, x, u=np.zeros(2)):
         '''
@@ -556,6 +558,8 @@ class sim_env:
         Command scheduler function that gets called
         at start of every 'real' time step
         '''
+        # Simulate system forward at start of every second
+        self.step_sim_cont()
 
         # Sleep for 0.8 seconds so simulation can finish
         time.sleep(0.8)
@@ -575,9 +579,6 @@ class sim_env:
         input_1, input_2, psoc_time = self.psoc.request_input()
         self.u = np.array([[input_1],
                            [input_2]])
-
-        # Simulate system forward at start of every second
-        self.step_sim_cont()
 
         print('Current psoc time: ', psoc_time)
 
@@ -754,12 +755,12 @@ def main():
     lqg_active = True
 
     # Initial conditions (deviation from equilibrium in polar coordinates)
-    x0 = np.array([10e4, 0, 0, 0])
+    x0 = np.array([10e5/2, 0, 0, 0])
 
     if hardware_in_loop:
 
         # Simulation sample time, not 'real' sampling time
-        Ts = 5
+        Ts = 500
 
         # Serial configuration
         ser = serial.Serial(port='COM5', baudrate=115200, parity='N')
