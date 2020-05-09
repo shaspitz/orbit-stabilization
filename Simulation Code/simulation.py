@@ -115,8 +115,8 @@ class sim_env:
         self.x0 = x0
         self.x_step = x0
         self.x_step_no_input = x0
-        self.gui_state = x0
-        self.gui_state_no_input = x0
+        self.gui_state = x0 + self.equil(self.t_instance)
+        self.gui_state_no_input = x0 + self.equil(self.t_instance)
         self.Ts = Ts
         self.u = np.zeros((2, 1))  # Change later when LQG implemented?
 
@@ -318,7 +318,7 @@ class sim_env:
         # propagate instance time forward from step simulated time
         self.t_instance += t_sim[-1]
 
-        # add equilibrium back to solution (only second time step)
+        # add equilibrium back to both solutions (only second time step)
         for i in range(len(step_sol.y)):
             step_sol.y[i][-1] = step_sol.y[i][-1] + self.equil(
                 self.t_instance)[i]
@@ -507,16 +507,14 @@ class gui:
         self.data_label.configure(background="forestgreen", width=1000)
 
         # Set arrays for no control (from PSOC) and equilibrium orbits
-        self.state_sys = np.array([state for state in self.sim_env.x0])
-        self.x_cartesian_LQG = np.zeros((2, 1))
-        self.y_cartesian_LQG = np.zeros((2, 1))
+        x, y = self.sim_env.convert_cartesian(self.sim_env.gui_state)
+        self.x_cartesian_LQG = np.array([x])
+        self.y_cartesian_LQG = np.array([y])
 
         # Add in label with time step
-        # Shawn comment: what is this time step???
-        self.timestep = 0
         self.timestep_label = Label(self.master, text="Time Elapsed Since Entering Orbit:")
         self.timestep_label.pack(side=TOP)
-        self.time_label = Label(self.master, text=str(self.timestep))
+        self.time_label = Label(self.master, text=str(self.sim_env.t_instance))
         self.time_label.pack(side=TOP)
 
         # Equilibrium orbit
@@ -527,21 +525,23 @@ class gui:
         button = tkinter.Button(master=self.master, text="EXIT ORBIT", command=self.master.destroy)
         button.pack(side=TOP)
 
-        #set up figure for gui
+        # Figure 1
         self.fig1 = plt.Figure()
         self.a = self.fig1.add_subplot(1,1,1)
         circle = plt.Circle((0, 0), self.sim_env.R, color='b')
         self.a.add_artist(circle)
+        self.a.plot(self.x_eq, self.y_eq, linewidth=1, color='r', linestyle='--')
         self.a.set_title('Satellite Path With Control Input')
 
-        #set up figure for gui
+        # Figure 2
         self.fig2 = plt.Figure()
         self.b = self.fig2.add_subplot(1,1,1)
         circle = plt.Circle((0, 0), self.sim_env.R, color='b')
         self.b.add_artist(circle)
+        self.b.plot(self.x_eq, self.y_eq, linewidth=1, color='r', linestyle='--')
         self.b.set_title('Satellite Path Without Control Input')
 
-        #draw plots on gui 
+        # Init plots
         gui.canvasa = FigureCanvasTkAgg(self.fig1,master=self.master)
         gui.canvasa.get_tk_widget().pack(side=LEFT)
         gui.canvasb = FigureCanvasTkAgg(self.fig2,master=self.master)
@@ -549,60 +549,40 @@ class gui:
         gui.canvasa.draw()
         gui.canvasb.draw()
 
-
     def updateGraphs(self):
 
         # Update state display window
-        self.data_label['text'] = self.sim_env.x_step
+        self.data_label['text'] = self.sim_env.gui_state
+        self.time_label['text'] = self.sim_env.t_instance
 
-        #calculate the updated equilibrium orbit position and convert to cartesian
-        self.timestep+=1
-        #timestep is moving too fast so only update every 5 timesteps
-        if self.timestep%5 == 0:
-            self.time_label['text']=self.timestep
-        #get the updated states from the PSOC
-        for state_iter in range(len(self.sim_env.x0)):
-            self.state_sys[state_iter]=self.sim_env.x_step[state_iter]
-        #print(self.state_sys)
-        #add equilibrium orbit to measurement
-        self.state_sys+=self.sim_env.equil(self.timestep)
-#         print(self.state_sys)
+        # Convert gui_state to cartesian coordinates for plotting
+        x, y = self.sim_env.convert_cartesian(self.sim_env.gui_state)
 
-        #convert polar to cartestian for plotting
-        x,y=self.sim_env.convert_cartesian(self.state_sys)
+        # append data to array if new solution exists
+        if x != self.x_cartesian_LQG[-1] and y != self.y_cartesian_LQG[-1]:
+            self.x_cartesian_LQG = np.append(self.x_cartesian_LQG, x)
+            self.y_cartesian_LQG = np.append(self.y_cartesian_LQG, y)
 
-        # append data to array, and then remove the old items
-        self.x_cartesian_LQG = np.append(self.x_cartesian_LQG, x)
-        self.x_cartesian_LQG = self.x_cartesian_LQG[1:]
-
-        self.y_cartesian_LQG = np.append(self.y_cartesian_LQG, y)
-        self.y_cartesian_LQG = self.y_cartesian_LQG[1:]
-
-#         self.x_cartesian = np.append(self.x_cartesian, x)
-#         self.x_cartesian = self.x_cartesian[len(x):] 
-# 
-#         self.y_cartesian = np.append(self.y_cartesian, y)
-#         self.y_cartesian = self.y_cartesian[len(y):] 
-
-
-        #update the gui plot 
-        self.a.set_xlim(-2*(10**7),4.5*(10**7))
-        self.a.set_ylim(-2*(10**7),4.5*(10**7))
-        self.a.set_aspect('equal',adjustable='box')
+        # Update plots
+        self.a.set_xlim(-2*(10**7), 4.5*(10**7))
+        self.a.set_ylim(-2*(10**7), 4.5*(10**7))
+        self.a.set_aspect('equal', adjustable='box')
         self.a.plot(self.x_cartesian_LQG, self.y_cartesian_LQG, linewidth=3, color='g', linestyle='--')
-        self.a.plot(self.x_eq, self.y_eq, linewidth=1, color='r', linestyle='--')
 
-        self.b.set_xlim(-2*(10**7),4.5*(10**7))
-        self.b.set_ylim(-2*(10**7),4.5*(10**7))
-        self.b.set_aspect('equal',adjustable='box')
+        self.b.set_xlim(-2*(10**7), 4.5*(10**7))
+        self.b.set_ylim(-2*(10**7), 4.5*(10**7))
+        self.b.set_aspect('equal', adjustable='box')
         #self.b.plot(self.x_cartesian_LQG, self.y_cartesian_LQG, linewidth=3, color='g', linestyle='--')
-        self.b.plot(self.x_eq, self.y_eq, linewidth=1, color='r', linestyle='--')
 
-    #Stop Button
+    # Stop Button
     def _quit(self):
-        self.master.quit()     # stops mainloop
-        self.master.destroy()  # this is necessary on Windows to prevent
-                    # Fatal Python Error: PyEval_RestoreThread: NULL tstate
+        '''
+        Stops mainloop. This is necessary on Windows to prevent
+        Fatal Python Error: PyEval_RestoreThread: NULL tstate
+
+        '''
+        self.master.quit()
+        self.master.destroy()
 
 
 def main():
@@ -616,7 +596,7 @@ def main():
     if hardware_in_loop:
 
         # Simulation sample time, not 'real' sampling time
-        Ts = 1
+        Ts = 1000
 
         # Simulation environment instantiation
         sim_env_instance = sim_env(hardware_in_loop, lqg_active, x0, Ts)
