@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
   28:main.c        **** double *PtrKinf;
   29:main.c        **** double Kinf[4][4];
   30:main.c        **** uint8 Ts;
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 2
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 2
 
 
   31:main.c        **** double *PtrFinf;
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
   56              		.thumb_func
   57              		.type	ByteReceived, %function
   58              	ByteReceived:
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 3
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 3
 
 
   59              	.LFB64:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
   70:main.c        ****     Status = ByteCounter_ReadStatusRegister();
  100              		.loc 1 70 0
  101 0030 FFF7FEFF 		bl	ByteCounter_ReadStatusRegister
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 4
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 4
 
 
  102              	.LVL5:
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  145 0010 1078     		ldrb	r0, [r2]	@ zero_extendqisi2
  146 0012 104B     		ldr	r3, .L15+8
  147 0014 1870     		strb	r0, [r3]
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 5
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 5
 
 
   82:main.c        ****         Command_Packet.command = ReceivedBuffer[1];
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
   94:main.c        ****     LEDDrive_Write(0);
  188              		.loc 1 94 0
  189 0044 0020     		movs	r0, #0
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 6
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 6
 
 
  190 0046 FFF7FEFF 		bl	LEDDrive_Write
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  104:main.c        ****     TimerInterrupt_StartEx(TimerInterrupt);
  235              		.loc 1 104 0
  236 000e 9748     		ldr	r0, .L39
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 7
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 7
 
 
  237 0010 FFF7FEFF 		bl	TimerInterrupt_StartEx
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  275              	.LVL28:
  121:main.c        ****     CommandReceived_StartEx(CommandReceived);
  276              		.loc 1 121 0
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 8
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 8
 
 
  277 0048 8A48     		ldr	r0, .L39+8
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  137:main.c        ****                     Transmit_Packet.command = Command_Packet.command;
  316              		.loc 1 137 0
  317 007a 8149     		ldr	r1, .L39+20
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 9
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 9
 
 
  318 007c 4B70     		strb	r3, [r1, #1]
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  360 00ae E0E1     		b	.L19
  361              	.L22:
  362              	.LVL38:
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 10
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 10
 
 
  148:main.c        ****                 
@@ -548,419 +548,420 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  152:main.c        ****                     /* Something having to do with memory allocation 
  153:main.c        ****                     is blocking the below statement (debugged for hours
  154:main.c        ****                     but could not find why the for loops would not execute).
- 155:main.c        ****                     The below statement is hard coded below to perform the
- 156:main.c        ****                     same functionality, which worked.
- 157:main.c        ****                     
- 158:main.c        ****                     for (i = 0; i < 4; ++i)
- 159:main.c        ****                     {
- 160:main.c        ****                         for (j = 0; j < 4; ++j)
- 161:main.c        ****                         {    
- 162:main.c        ****                             PtrKinf = (double*) &Command_Packet.buffer[32*i + 8*j];
- 163:main.c        ****                             Kinf[i][j] = *PtrKinf;
- 164:main.c        ****                         }
- 165:main.c        ****                     }
- 166:main.c        ****                     */
- 167:main.c        ****                     
- 168:main.c        ****                     i = 1;
- 169:main.c        ****                     j = 1;
- 170:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[0];
- 363              		.loc 1 170 0
+ 155:main.c        ****                     This is likely an issue with psoc, not with C.
+ 156:main.c        ****                     The below statement is hard coded below to perform the
+ 157:main.c        ****                     same functionality, which worked.
+ 158:main.c        ****                     
+ 159:main.c        ****                     for (i = 0; i < 4; ++i)
+ 160:main.c        ****                     {
+ 161:main.c        ****                         for (j = 0; j < 4; ++j)
+ 162:main.c        ****                         {    
+ 163:main.c        ****                             PtrKinf = (double*) &Command_Packet.buffer[32*i + 8*j];
+ 164:main.c        ****                             Kinf[i][j] = *PtrKinf;
+ 165:main.c        ****                         }
+ 166:main.c        ****                     }
+ 167:main.c        ****                     */
+ 168:main.c        ****                     
+ 169:main.c        ****                     i = 1;
+ 170:main.c        ****                     j = 1;
+ 171:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[0];
+ 363              		.loc 1 171 0
  364 00b0 7548     		ldr	r0, .L39+28
- 171:main.c        ****                     Kinf[i*0][j*0] = *PtrKinf;
- 365              		.loc 1 171 0
+ 172:main.c        ****                     Kinf[i*0][j*0] = *PtrKinf;
+ 365              		.loc 1 172 0
  366 00b2 821E     		subs	r2, r0, #2
  367 00b4 7549     		ldr	r1, .L39+32
  368 00b6 0468     		ldr	r4, [r0]	@ unaligned
  369 00b8 4568     		ldr	r5, [r0, #4]	@ unaligned
  370 00ba C1E90045 		strd	r4, [r1]
- 172:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[8];
- 371              		.loc 1 172 0
+ 173:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[8];
+ 371              		.loc 1 173 0
  372 00be 1046     		mov	r0, r2
- 173:main.c        ****                     Kinf[i*0][j*1] = *PtrKinf;
- 373              		.loc 1 173 0
+ 174:main.c        ****                     Kinf[i*0][j*1] = *PtrKinf;
+ 373              		.loc 1 174 0
  374 00c0 50F80A6F 		ldr	r6, [r0, #10]!	@ unaligned
  375 00c4 3446     		mov	r4, r6
  376 00c6 4568     		ldr	r5, [r0, #4]	@ unaligned
  377 00c8 C1E90245 		strd	r4, [r1, #8]
- 174:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[16];
- 378              		.loc 1 174 0
+ 175:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[16];
+ 378              		.loc 1 175 0
  379 00cc 1046     		mov	r0, r2
- 175:main.c        ****                     Kinf[i*0][j*2] = *PtrKinf;
- 380              		.loc 1 175 0
+ 176:main.c        ****                     Kinf[i*0][j*2] = *PtrKinf;
+ 380              		.loc 1 176 0
  381 00ce 50F8126F 		ldr	r6, [r0, #18]!	@ unaligned
  382 00d2 3446     		mov	r4, r6
  383 00d4 4568     		ldr	r5, [r0, #4]	@ unaligned
  384 00d6 C1E90445 		strd	r4, [r1, #16]
- 176:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[24];
- 385              		.loc 1 176 0
+ 177:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[24];
+ 385              		.loc 1 177 0
  386 00da 1046     		mov	r0, r2
- 177:main.c        ****                     Kinf[i*0][j*3] = *PtrKinf;
- 387              		.loc 1 177 0
+ 178:main.c        ****                     Kinf[i*0][j*3] = *PtrKinf;
+ 387              		.loc 1 178 0
  388 00dc 50F81A6F 		ldr	r6, [r0, #26]!	@ unaligned
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 11
+
+
  389 00e0 3446     		mov	r4, r6
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 11
-
-
  390 00e2 4568     		ldr	r5, [r0, #4]	@ unaligned
  391 00e4 C1E90645 		strd	r4, [r1, #24]
- 178:main.c        ****                     
- 179:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[32];
- 392              		.loc 1 179 0
+ 179:main.c        ****                     
+ 180:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[32];
+ 392              		.loc 1 180 0
  393 00e8 1046     		mov	r0, r2
- 180:main.c        ****                     Kinf[i*1][j*0] = *PtrKinf;
- 394              		.loc 1 180 0
+ 181:main.c        ****                     Kinf[i*1][j*0] = *PtrKinf;
+ 394              		.loc 1 181 0
  395 00ea 50F8226F 		ldr	r6, [r0, #34]!	@ unaligned
  396 00ee 3446     		mov	r4, r6
  397 00f0 4568     		ldr	r5, [r0, #4]	@ unaligned
  398 00f2 C1E90845 		strd	r4, [r1, #32]
- 181:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[40];
- 399              		.loc 1 181 0
+ 182:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[40];
+ 399              		.loc 1 182 0
  400 00f6 1046     		mov	r0, r2
- 182:main.c        ****                     Kinf[i*1][j*1] = *PtrKinf;
- 401              		.loc 1 182 0
+ 183:main.c        ****                     Kinf[i*1][j*1] = *PtrKinf;
+ 401              		.loc 1 183 0
  402 00f8 50F82A6F 		ldr	r6, [r0, #42]!	@ unaligned
  403 00fc 3446     		mov	r4, r6
  404 00fe 4568     		ldr	r5, [r0, #4]	@ unaligned
  405 0100 C1E90A45 		strd	r4, [r1, #40]
- 183:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[48];
- 406              		.loc 1 183 0
+ 184:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[48];
+ 406              		.loc 1 184 0
  407 0104 1046     		mov	r0, r2
- 184:main.c        ****                     Kinf[i*1][j*2] = *PtrKinf;
- 408              		.loc 1 184 0
+ 185:main.c        ****                     Kinf[i*1][j*2] = *PtrKinf;
+ 408              		.loc 1 185 0
  409 0106 50F8326F 		ldr	r6, [r0, #50]!	@ unaligned
  410 010a 3446     		mov	r4, r6
  411 010c 4568     		ldr	r5, [r0, #4]	@ unaligned
  412 010e C1E90C45 		strd	r4, [r1, #48]
- 185:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[56];
- 413              		.loc 1 185 0
+ 186:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[56];
+ 413              		.loc 1 186 0
  414 0112 1046     		mov	r0, r2
- 186:main.c        ****                     Kinf[i*1][j*3] = *PtrKinf;
- 415              		.loc 1 186 0
+ 187:main.c        ****                     Kinf[i*1][j*3] = *PtrKinf;
+ 415              		.loc 1 187 0
  416 0114 50F83A6F 		ldr	r6, [r0, #58]!	@ unaligned
  417 0118 3446     		mov	r4, r6
  418 011a 4568     		ldr	r5, [r0, #4]	@ unaligned
  419 011c C1E90E45 		strd	r4, [r1, #56]
- 187:main.c        ****                     
- 188:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[64];
- 420              		.loc 1 188 0
+ 188:main.c        ****                     
+ 189:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[64];
+ 420              		.loc 1 189 0
  421 0120 1046     		mov	r0, r2
- 189:main.c        ****                     Kinf[i*2][j*0] = *PtrKinf;
- 422              		.loc 1 189 0
+ 190:main.c        ****                     Kinf[i*2][j*0] = *PtrKinf;
+ 422              		.loc 1 190 0
  423 0122 50F8426F 		ldr	r6, [r0, #66]!	@ unaligned
  424 0126 3446     		mov	r4, r6
  425 0128 4568     		ldr	r5, [r0, #4]	@ unaligned
  426 012a C1E91045 		strd	r4, [r1, #64]
- 190:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[72];
- 427              		.loc 1 190 0
+ 191:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[72];
+ 427              		.loc 1 191 0
  428 012e 1046     		mov	r0, r2
- 191:main.c        ****                     Kinf[i*2][j*1] = *PtrKinf;
- 429              		.loc 1 191 0
+ 192:main.c        ****                     Kinf[i*2][j*1] = *PtrKinf;
+ 429              		.loc 1 192 0
  430 0130 50F84A6F 		ldr	r6, [r0, #74]!	@ unaligned
  431 0134 3446     		mov	r4, r6
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 12
+
+
  432 0136 4568     		ldr	r5, [r0, #4]	@ unaligned
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 12
-
-
  433 0138 C1E91245 		strd	r4, [r1, #72]
- 192:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[80];
- 434              		.loc 1 192 0
+ 193:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[80];
+ 434              		.loc 1 193 0
  435 013c 1046     		mov	r0, r2
- 193:main.c        ****                     Kinf[i*2][j*2] = *PtrKinf;
- 436              		.loc 1 193 0
+ 194:main.c        ****                     Kinf[i*2][j*2] = *PtrKinf;
+ 436              		.loc 1 194 0
  437 013e 50F8526F 		ldr	r6, [r0, #82]!	@ unaligned
  438 0142 3446     		mov	r4, r6
  439 0144 4568     		ldr	r5, [r0, #4]	@ unaligned
  440 0146 C1E91445 		strd	r4, [r1, #80]
- 194:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[88];
- 441              		.loc 1 194 0
+ 195:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[88];
+ 441              		.loc 1 195 0
  442 014a 1046     		mov	r0, r2
- 195:main.c        ****                     Kinf[i*2][j*3] = *PtrKinf;
- 443              		.loc 1 195 0
+ 196:main.c        ****                     Kinf[i*2][j*3] = *PtrKinf;
+ 443              		.loc 1 196 0
  444 014c 50F85A6F 		ldr	r6, [r0, #90]!	@ unaligned
  445 0150 3446     		mov	r4, r6
  446 0152 4568     		ldr	r5, [r0, #4]	@ unaligned
  447 0154 C1E91645 		strd	r4, [r1, #88]
- 196:main.c        ****                     
- 197:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[96];
- 448              		.loc 1 197 0
+ 197:main.c        ****                     
+ 198:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[96];
+ 448              		.loc 1 198 0
  449 0158 1046     		mov	r0, r2
- 198:main.c        ****                     Kinf[i*3][j*0] = *PtrKinf;
- 450              		.loc 1 198 0
+ 199:main.c        ****                     Kinf[i*3][j*0] = *PtrKinf;
+ 450              		.loc 1 199 0
  451 015a 50F8626F 		ldr	r6, [r0, #98]!	@ unaligned
  452 015e 3446     		mov	r4, r6
  453 0160 4568     		ldr	r5, [r0, #4]	@ unaligned
  454 0162 C1E91845 		strd	r4, [r1, #96]
- 199:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[104];
- 455              		.loc 1 199 0
+ 200:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[104];
+ 455              		.loc 1 200 0
  456 0166 1046     		mov	r0, r2
- 200:main.c        ****                     Kinf[i*3][j*1] = *PtrKinf;
- 457              		.loc 1 200 0
+ 201:main.c        ****                     Kinf[i*3][j*1] = *PtrKinf;
+ 457              		.loc 1 201 0
  458 0168 50F86A6F 		ldr	r6, [r0, #106]!	@ unaligned
  459 016c 3446     		mov	r4, r6
  460 016e 4568     		ldr	r5, [r0, #4]	@ unaligned
  461 0170 C1E91A45 		strd	r4, [r1, #104]
- 201:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[112];
- 462              		.loc 1 201 0
+ 202:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[112];
+ 462              		.loc 1 202 0
  463 0174 1046     		mov	r0, r2
- 202:main.c        ****                     Kinf[i*3][j*2] = *PtrKinf;
- 464              		.loc 1 202 0
+ 203:main.c        ****                     Kinf[i*3][j*2] = *PtrKinf;
+ 464              		.loc 1 203 0
  465 0176 50F8726F 		ldr	r6, [r0, #114]!	@ unaligned
  466 017a 3446     		mov	r4, r6
  467 017c 4568     		ldr	r5, [r0, #4]	@ unaligned
  468 017e C1E91C45 		strd	r4, [r1, #112]
- 203:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[120];
- 469              		.loc 1 203 0
+ 204:main.c        ****                     PtrKinf = (double*) &Command_Packet.buffer[120];
+ 469              		.loc 1 204 0
  470 0182 7A32     		adds	r2, r2, #122
  471 0184 4248     		ldr	r0, .L39+36
  472 0186 0260     		str	r2, [r0]
- 204:main.c        ****                     Kinf[i*3][j*3] = *PtrKinf;
- 473              		.loc 1 204 0
+ 205:main.c        ****                     Kinf[i*3][j*3] = *PtrKinf;
+ 473              		.loc 1 205 0
  474 0188 1468     		ldr	r4, [r2]	@ unaligned
  475 018a 5568     		ldr	r5, [r2, #4]	@ unaligned
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 13
+
+
  476 018c C1E91E45 		strd	r4, [r1, #120]
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 13
-
-
- 205:main.c        ****                     
- 206:main.c        ****                     // Relay command that Kinf was received
- 207:main.c        ****                     Transmit_Packet.command = Command_Packet.command;
- 477              		.loc 1 207 0
+ 206:main.c        ****                     
+ 207:main.c        ****                     // Relay command that Kinf was received
+ 208:main.c        ****                     Transmit_Packet.command = Command_Packet.command;
+ 477              		.loc 1 208 0
  478 0190 3B49     		ldr	r1, .L39+20
  479 0192 4B70     		strb	r3, [r1, #1]
- 208:main.c        ****                     TransmitBuffer[1] = Transmit_Packet.command;
- 480              		.loc 1 208 0
+ 209:main.c        ****                     TransmitBuffer[1] = Transmit_Packet.command;
+ 480              		.loc 1 209 0
  481 0194 3B4A     		ldr	r2, .L39+24
  482 0196 5370     		strb	r3, [r2, #1]
- 209:main.c        ****                     Transmit_Packet.packet_size = 2;
- 483              		.loc 1 209 0
+ 210:main.c        ****                     Transmit_Packet.packet_size = 2;
+ 483              		.loc 1 210 0
  484 0198 0223     		movs	r3, #2
  485 019a 0B70     		strb	r3, [r1]
- 210:main.c        ****                     TransmitBuffer[0] = Transmit_Packet.packet_size;
- 486              		.loc 1 210 0
+ 211:main.c        ****                     TransmitBuffer[0] = Transmit_Packet.packet_size;
+ 486              		.loc 1 211 0
  487 019c 1370     		strb	r3, [r2]
- 211:main.c        ****                 
- 212:main.c        ****                     CommandReady = 0;
- 488              		.loc 1 212 0
+ 212:main.c        ****                 
+ 213:main.c        ****                     CommandReady = 0;
+ 488              		.loc 1 213 0
  489 019e 0022     		movs	r2, #0
  490 01a0 354B     		ldr	r3, .L39+12
  491 01a2 DA71     		strb	r2, [r3, #7]
- 213:main.c        ****                     break;
- 492              		.loc 1 213 0
+ 214:main.c        ****                     break;
+ 492              		.loc 1 214 0
  493 01a4 65E1     		b	.L19
  494              	.LVL39:
  495              	.L23:
- 214:main.c        ****                 
- 215:main.c        ****                 case 3:
- 216:main.c        ****                     // Ts and Finf storage
- 217:main.c        ****                     Ts = Command_Packet.buffer[0];
- 496              		.loc 1 217 0
+ 215:main.c        ****                 
+ 216:main.c        ****                 case 3:
+ 217:main.c        ****                     // Ts and Finf storage
+ 218:main.c        ****                     Ts = Command_Packet.buffer[0];
+ 496              		.loc 1 218 0
  497 01a6 354A     		ldr	r2, .L39+16
  498 01a8 9078     		ldrb	r0, [r2, #2]	@ zero_extendqisi2
  499 01aa 3A49     		ldr	r1, .L39+40
  500 01ac 0870     		strb	r0, [r1]
- 218:main.c        ****                     
- 219:main.c        ****                     /* For same reason as for Kinf, had to hardcode Finf processing
- 220:main.c        **** 
- 221:main.c        ****                     for (i = 0; i < 2; ++i)
- 222:main.c        ****                     {
- 223:main.c        ****                         for (j = 0; j < 4; ++j)
- 224:main.c        ****                         {    
- 225:main.c        ****                             PtrFinf = (double*) &Command_Packet.buffer[1 + 32*i + 8*j];
- 226:main.c        ****                             Finf[i][j] = *PtrFinf;
- 227:main.c        ****                         }
- 228:main.c        ****                     }
- 229:main.c        ****                     */
- 230:main.c        ****                     
- 231:main.c        ****                     PtrFinf = (double*) &Command_Packet.buffer[1 + 32*0 + 8*0];
- 501              		.loc 1 231 0
+ 219:main.c        ****                     
+ 220:main.c        ****                     /* For same reason as for Kinf, had to hardcode Finf processing
+ 221:main.c        **** 
+ 222:main.c        ****                     for (i = 0; i < 2; ++i)
+ 223:main.c        ****                     {
+ 224:main.c        ****                         for (j = 0; j < 4; ++j)
+ 225:main.c        ****                         {    
+ 226:main.c        ****                             PtrFinf = (double*) &Command_Packet.buffer[1 + 32*i + 8*j];
+ 227:main.c        ****                             Finf[i][j] = *PtrFinf;
+ 228:main.c        ****                         }
+ 229:main.c        ****                     }
+ 230:main.c        ****                     */
+ 231:main.c        ****                     
+ 232:main.c        ****                     PtrFinf = (double*) &Command_Packet.buffer[1 + 32*0 + 8*0];
+ 501              		.loc 1 232 0
  502 01ae 1046     		mov	r0, r2
- 232:main.c        ****                     Finf[0][0] = *PtrFinf;
- 503              		.loc 1 232 0
+ 233:main.c        ****                     Finf[0][0] = *PtrFinf;
+ 503              		.loc 1 233 0
  504 01b0 50F8036F 		ldr	r6, [r0, #3]!	@ unaligned
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 14
+
+
  505 01b4 3849     		ldr	r1, .L39+44
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 14
-
-
  506 01b6 3446     		mov	r4, r6
  507 01b8 4568     		ldr	r5, [r0, #4]	@ unaligned
  508 01ba C1E90045 		strd	r4, [r1]
- 233:main.c        ****                     PtrFinf = (double*) &Command_Packet.buffer[1 + 32*0 + 8*1];
- 509              		.loc 1 233 0
+ 234:main.c        ****                     PtrFinf = (double*) &Command_Packet.buffer[1 + 32*0 + 8*1];
+ 509              		.loc 1 234 0
  510 01be 1046     		mov	r0, r2
- 234:main.c        ****                     Finf[0][1] = *PtrFinf;
- 511              		.loc 1 234 0
+ 235:main.c        ****                     Finf[0][1] = *PtrFinf;
+ 511              		.loc 1 235 0
  512 01c0 50F80B6F 		ldr	r6, [r0, #11]!	@ unaligned
  513 01c4 3446     		mov	r4, r6
  514 01c6 4568     		ldr	r5, [r0, #4]	@ unaligned
  515 01c8 C1E90245 		strd	r4, [r1, #8]
- 235:main.c        ****                     PtrFinf = (double*) &Command_Packet.buffer[1 + 32*0 + 8*2];
- 516              		.loc 1 235 0
+ 236:main.c        ****                     PtrFinf = (double*) &Command_Packet.buffer[1 + 32*0 + 8*2];
+ 516              		.loc 1 236 0
  517 01cc 1046     		mov	r0, r2
- 236:main.c        ****                     Finf[0][2] = *PtrFinf;
- 518              		.loc 1 236 0
+ 237:main.c        ****                     Finf[0][2] = *PtrFinf;
+ 518              		.loc 1 237 0
  519 01ce 50F8136F 		ldr	r6, [r0, #19]!	@ unaligned
  520 01d2 3446     		mov	r4, r6
  521 01d4 4568     		ldr	r5, [r0, #4]	@ unaligned
  522 01d6 C1E90445 		strd	r4, [r1, #16]
- 237:main.c        ****                     PtrFinf = (double*) &Command_Packet.buffer[1 + 32*0 + 8*3];
- 523              		.loc 1 237 0
+ 238:main.c        ****                     PtrFinf = (double*) &Command_Packet.buffer[1 + 32*0 + 8*3];
+ 523              		.loc 1 238 0
  524 01da 1046     		mov	r0, r2
- 238:main.c        ****                     Finf[0][3] = *PtrFinf;
- 525              		.loc 1 238 0
+ 239:main.c        ****                     Finf[0][3] = *PtrFinf;
+ 525              		.loc 1 239 0
  526 01dc 50F81B6F 		ldr	r6, [r0, #27]!	@ unaligned
  527 01e0 3446     		mov	r4, r6
  528 01e2 4568     		ldr	r5, [r0, #4]	@ unaligned
  529 01e4 C1E90645 		strd	r4, [r1, #24]
- 239:main.c        ****                     
- 240:main.c        ****                     PtrFinf = (double*) &Command_Packet.buffer[1 + 32*1 + 8*0];
- 530              		.loc 1 240 0
+ 240:main.c        ****                     
+ 241:main.c        ****                     PtrFinf = (double*) &Command_Packet.buffer[1 + 32*1 + 8*0];
+ 530              		.loc 1 241 0
  531 01e8 1046     		mov	r0, r2
- 241:main.c        ****                     Finf[1][0] = *PtrFinf;
- 532              		.loc 1 241 0
+ 242:main.c        ****                     Finf[1][0] = *PtrFinf;
+ 532              		.loc 1 242 0
  533 01ea 50F8236F 		ldr	r6, [r0, #35]!	@ unaligned
  534 01ee 3446     		mov	r4, r6
  535 01f0 4568     		ldr	r5, [r0, #4]	@ unaligned
  536 01f2 C1E90845 		strd	r4, [r1, #32]
- 242:main.c        ****                     PtrFinf = (double*) &Command_Packet.buffer[1 + 32*1 + 8*1];
- 537              		.loc 1 242 0
+ 243:main.c        ****                     PtrFinf = (double*) &Command_Packet.buffer[1 + 32*1 + 8*1];
+ 537              		.loc 1 243 0
  538 01f6 1046     		mov	r0, r2
- 243:main.c        ****                     Finf[1][1] = *PtrFinf;
- 539              		.loc 1 243 0
+ 244:main.c        ****                     Finf[1][1] = *PtrFinf;
+ 539              		.loc 1 244 0
  540 01f8 50F82B6F 		ldr	r6, [r0, #43]!	@ unaligned
  541 01fc 3446     		mov	r4, r6
  542 01fe 4568     		ldr	r5, [r0, #4]	@ unaligned
  543 0200 C1E90A45 		strd	r4, [r1, #40]
- 244:main.c        ****                     PtrFinf = (double*) &Command_Packet.buffer[1 + 32*1 + 8*2];
- 544              		.loc 1 244 0
+ 245:main.c        ****                     PtrFinf = (double*) &Command_Packet.buffer[1 + 32*1 + 8*2];
+ 544              		.loc 1 245 0
  545 0204 1046     		mov	r0, r2
- 245:main.c        ****                     Finf[1][2] = *PtrFinf;
- 546              		.loc 1 245 0
+ 246:main.c        ****                     Finf[1][2] = *PtrFinf;
+ 546              		.loc 1 246 0
  547 0206 50F8336F 		ldr	r6, [r0, #51]!	@ unaligned
  548 020a 3446     		mov	r4, r6
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 15
+
+
  549 020c 4568     		ldr	r5, [r0, #4]	@ unaligned
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 15
-
-
  550 020e C1E90C45 		strd	r4, [r1, #48]
- 246:main.c        ****                     PtrFinf = (double*) &Command_Packet.buffer[1 + 32*1 + 8*3];
- 551              		.loc 1 246 0
+ 247:main.c        ****                     PtrFinf = (double*) &Command_Packet.buffer[1 + 32*1 + 8*3];
+ 551              		.loc 1 247 0
  552 0212 3B32     		adds	r2, r2, #59
  553 0214 2148     		ldr	r0, .L39+48
  554 0216 0260     		str	r2, [r0]
- 247:main.c        ****                     Finf[1][3] = *PtrFinf;
- 555              		.loc 1 247 0
+ 248:main.c        ****                     Finf[1][3] = *PtrFinf;
+ 555              		.loc 1 248 0
  556 0218 1468     		ldr	r4, [r2]	@ unaligned
  557 021a 5568     		ldr	r5, [r2, #4]	@ unaligned
  558 021c C1E90E45 		strd	r4, [r1, #56]
- 248:main.c        ****                     
- 249:main.c        ****                     // Relay command that Ts and Finf was received
- 250:main.c        ****                     Transmit_Packet.command = Command_Packet.command;
- 559              		.loc 1 250 0
+ 249:main.c        ****                     
+ 250:main.c        ****                     // Relay command that Ts and Finf was received
+ 251:main.c        ****                     Transmit_Packet.command = Command_Packet.command;
+ 559              		.loc 1 251 0
  560 0220 1749     		ldr	r1, .L39+20
  561 0222 4B70     		strb	r3, [r1, #1]
- 251:main.c        ****                     TransmitBuffer[1] = Transmit_Packet.command;
- 562              		.loc 1 251 0
+ 252:main.c        ****                     TransmitBuffer[1] = Transmit_Packet.command;
+ 562              		.loc 1 252 0
  563 0224 174A     		ldr	r2, .L39+24
  564 0226 5370     		strb	r3, [r2, #1]
- 252:main.c        ****                     Transmit_Packet.packet_size = 2;
- 565              		.loc 1 252 0
+ 253:main.c        ****                     Transmit_Packet.packet_size = 2;
+ 565              		.loc 1 253 0
  566 0228 0223     		movs	r3, #2
  567 022a 0B70     		strb	r3, [r1]
- 253:main.c        ****                     TransmitBuffer[0] = Transmit_Packet.packet_size;
- 568              		.loc 1 253 0
+ 254:main.c        ****                     TransmitBuffer[0] = Transmit_Packet.packet_size;
+ 568              		.loc 1 254 0
  569 022c 1370     		strb	r3, [r2]
- 254:main.c        ****                     
- 255:main.c        ****                     CommandReady = 0;
- 570              		.loc 1 255 0
+ 255:main.c        ****                     
+ 256:main.c        ****                     CommandReady = 0;
+ 570              		.loc 1 256 0
  571 022e 0022     		movs	r2, #0
  572 0230 114B     		ldr	r3, .L39+12
  573 0232 DA71     		strb	r2, [r3, #7]
- 256:main.c        ****                     break;
- 574              		.loc 1 256 0
+ 257:main.c        ****                     break;
+ 574              		.loc 1 257 0
  575 0234 1DE1     		b	.L19
  576              	.L24:
- 257:main.c        ****                 
- 258:main.c        ****                 case 4:
- 259:main.c        ****                     if (ActiveFlag == FALSE)
- 577              		.loc 1 259 0
+ 258:main.c        ****                 
+ 259:main.c        ****                 case 4:
+ 260:main.c        ****                     if (ActiveFlag == FALSE)
+ 577              		.loc 1 260 0
  578 0236 67B9     		cbnz	r7, .L29
- 260:main.c        ****                     {
- 261:main.c        ****                         // Start timing for computation alongside Python
- 262:main.c        ****                         TimeStart = Time;
- 579              		.loc 1 262 0
+ 261:main.c        ****                     {
+ 262:main.c        ****                         // Start timing for computation alongside Python
+ 263:main.c        ****                         TimeStart = Time;
+ 579              		.loc 1 263 0
  580 0238 0F4A     		ldr	r2, .L39+12
  581 023a 1168     		ldr	r1, [r2]
  582 023c 184A     		ldr	r2, .L39+52
  583 023e 1160     		str	r1, [r2]
  584              	.LVL40:
- 263:main.c        ****                         ActiveFlag = TRUE;
- 264:main.c        ****                         CommandReady = 0;
- 265:main.c        ****                         
- 266:main.c        ****                         // Relay command that timing is starting now
- 267:main.c        ****                         Transmit_Packet.command = Command_Packet.command;
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 16
+ 264:main.c        ****                         ActiveFlag = TRUE;
+ 265:main.c        ****                         CommandReady = 0;
+ 266:main.c        ****                         
+ 267:main.c        ****                         // Relay command that timing is starting now
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 16
 
 
- 585              		.loc 1 267 0
+ 268:main.c        ****                         Transmit_Packet.command = Command_Packet.command;
+ 585              		.loc 1 268 0
  586 0240 0F49     		ldr	r1, .L39+20
  587 0242 4B70     		strb	r3, [r1, #1]
- 268:main.c        ****                         TransmitBuffer[1] = Transmit_Packet.command;
- 588              		.loc 1 268 0
+ 269:main.c        ****                         TransmitBuffer[1] = Transmit_Packet.command;
+ 588              		.loc 1 269 0
  589 0244 0F4A     		ldr	r2, .L39+24
  590 0246 5370     		strb	r3, [r2, #1]
- 269:main.c        ****                         Transmit_Packet.packet_size = 2;
- 591              		.loc 1 269 0
+ 270:main.c        ****                         Transmit_Packet.packet_size = 2;
+ 591              		.loc 1 270 0
  592 0248 0223     		movs	r3, #2
  593 024a 0B70     		strb	r3, [r1]
- 270:main.c        ****                         TransmitBuffer[0] = Transmit_Packet.packet_size;
- 594              		.loc 1 270 0
+ 271:main.c        ****                         TransmitBuffer[0] = Transmit_Packet.packet_size;
+ 594              		.loc 1 271 0
  595 024c 1370     		strb	r3, [r2]
- 263:main.c        ****                         CommandReady = 0;
- 596              		.loc 1 263 0
+ 264:main.c        ****                         CommandReady = 0;
+ 596              		.loc 1 264 0
  597 024e 0127     		movs	r7, #1
  598 0250 07E0     		b	.L30
  599              	.LVL41:
  600              	.L29:
- 271:main.c        ****                     }
- 272:main.c        ****                     else
- 273:main.c        ****                     {
- 274:main.c        ****                         // Relay command that timing has already started
- 275:main.c        ****                         Transmit_Packet.command = 44;
- 601              		.loc 1 275 0
+ 272:main.c        ****                     }
+ 273:main.c        ****                     else
+ 274:main.c        ****                     {
+ 275:main.c        ****                         // Relay command that timing has already started
+ 276:main.c        ****                         Transmit_Packet.command = 44;
+ 601              		.loc 1 276 0
  602 0252 0B49     		ldr	r1, .L39+20
  603 0254 2C22     		movs	r2, #44
  604 0256 4A70     		strb	r2, [r1, #1]
- 276:main.c        ****                         TransmitBuffer[1] = Transmit_Packet.command;
- 605              		.loc 1 276 0
+ 277:main.c        ****                         TransmitBuffer[1] = Transmit_Packet.command;
+ 605              		.loc 1 277 0
  606 0258 0A4B     		ldr	r3, .L39+24
  607 025a 5A70     		strb	r2, [r3, #1]
- 277:main.c        ****                         Transmit_Packet.packet_size = 2;
- 608              		.loc 1 277 0
+ 278:main.c        ****                         Transmit_Packet.packet_size = 2;
+ 608              		.loc 1 278 0
  609 025c 0222     		movs	r2, #2
  610 025e 0A70     		strb	r2, [r1]
- 278:main.c        ****                         TransmitBuffer[0] = Transmit_Packet.packet_size;
- 611              		.loc 1 278 0
+ 279:main.c        ****                         TransmitBuffer[0] = Transmit_Packet.packet_size;
+ 611              		.loc 1 279 0
  612 0260 1A70     		strb	r2, [r3]
  613              	.LVL42:
  614              	.L30:
- 279:main.c        ****                     }
- 280:main.c        ****                     CommandReady = 0;
- 615              		.loc 1 280 0
+ 280:main.c        ****                     }
+ 281:main.c        ****                     CommandReady = 0;
+ 615              		.loc 1 281 0
  616 0262 0022     		movs	r2, #0
  617 0264 044B     		ldr	r3, .L39+12
  618 0266 DA71     		strb	r2, [r3, #7]
- 281:main.c        ****                     break;
- 619              		.loc 1 281 0
+ 282:main.c        ****                     break;
+ 619              		.loc 1 282 0
  620 0268 03E1     		b	.L19
  621              	.L40:
  622 026a 00BF     		.align	2
  623              	.L39:
  624 026c 00000000 		.word	TimerInterrupt
  625 0270 00000000 		.word	ByteReceived
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 17
+
+
  626 0274 00000000 		.word	CommandReceived
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 17
-
-
  627 0278 00000000 		.word	.LANCHOR0
  628 027c 00000000 		.word	Command_Packet
  629 0280 00000000 		.word	Transmit_Packet
@@ -973,54 +974,54 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  636 029c 00000000 		.word	PtrFinf
  637 02a0 00000000 		.word	TimeStart
  638              	.L25:
- 282:main.c        ****                 
- 283:main.c        ****                 case 5:
- 284:main.c        ****                     // Input requested
- 285:main.c        ****                     if (ActiveFlag)
- 639              		.loc 1 285 0
+ 283:main.c        ****                 
+ 284:main.c        ****                 case 5:
+ 285:main.c        ****                     // Input requested
+ 286:main.c        ****                     if (ActiveFlag)
+ 639              		.loc 1 286 0
  640 02a4 002F     		cmp	r7, #0
  641 02a6 00F0B980 		beq	.L31
- 286:main.c        ****                     {   
- 287:main.c        ****                         // Set command for sending inputs
- 288:main.c        ****                         Transmit_Packet.command = Command_Packet.command;
- 642              		.loc 1 288 0
+ 287:main.c        ****                     {   
+ 288:main.c        ****                         // Set command for sending inputs
+ 289:main.c        ****                         Transmit_Packet.command = Command_Packet.command;
+ 642              		.loc 1 289 0
  643 02aa 7549     		ldr	r1, .L41
  644 02ac 4B70     		strb	r3, [r1, #1]
- 289:main.c        ****                         TransmitBuffer[1] = Transmit_Packet.command;
- 645              		.loc 1 289 0
+ 290:main.c        ****                         TransmitBuffer[1] = Transmit_Packet.command;
+ 645              		.loc 1 290 0
  646 02ae 754A     		ldr	r2, .L41+4
  647 02b0 5370     		strb	r3, [r2, #1]
- 290:main.c        ****                         
- 291:main.c        ****                         // Set packet size for sending inputs and current time
- 292:main.c        ****                         Transmit_Packet.packet_size = 22;
- 648              		.loc 1 292 0
+ 291:main.c        ****                         
+ 292:main.c        ****                         // Set packet size for sending inputs and current time
+ 293:main.c        ****                         Transmit_Packet.packet_size = 22;
+ 648              		.loc 1 293 0
  649 02b2 1623     		movs	r3, #22
  650 02b4 0B70     		strb	r3, [r1]
- 293:main.c        ****                         TransmitBuffer[0] = Transmit_Packet.packet_size;
- 651              		.loc 1 293 0
+ 294:main.c        ****                         TransmitBuffer[0] = Transmit_Packet.packet_size;
+ 651              		.loc 1 294 0
  652 02b6 1370     		strb	r3, [r2]
- 294:main.c        ****                         
- 295:main.c        ****                         // Values of those doubles (will be LQG eventually)
- 296:main.c        ****                         
- 297:main.c        ****                         /*
- 298:main.c        ****                         Steady state LQR feedback policy: u_opt = -Finf * x_est.
- 299:main.c        ****                         Where Finf is a 2x4 matrix and x_est is a 4x1 column vector.
- 300:main.c        ****                         We assume perfect state knowledge, ie. our latest measurement
- 301:main.c        ****                         is our estimate of the state
- 302:main.c        ****                         */
- 303:main.c        **** 
- 304:main.c        ****                         Input1 = -(Finf[0][0] * CurrMeas[0] + Finf[0][1] * CurrMeas[1]
- 653              		.loc 1 304 0
+ 295:main.c        ****                         
+ 296:main.c        ****                         // Values of those doubles (will be LQG eventually)
+ 297:main.c        ****                         
+ 298:main.c        ****                         /*
+ 299:main.c        ****                         Steady state LQR feedback policy: u_opt = -Finf * x_est.
+ 300:main.c        ****                         Where Finf is a 2x4 matrix and x_est is a 4x1 column vector.
+ 301:main.c        ****                         We assume perfect state knowledge, ie. our latest measurement
+ 302:main.c        ****                         is our estimate of the state
+ 303:main.c        ****                         */
+ 304:main.c        **** 
+ 305:main.c        ****                         Input1 = -(Finf[0][0] * CurrMeas[0] + Finf[0][1] * CurrMeas[1]
+ 653              		.loc 1 305 0
  654 02b8 734C     		ldr	r4, .L41+8
  655 02ba 744D     		ldr	r5, .L41+12
  656 02bc D5E90023 		ldrd	r2, [r5]
  657 02c0 CDE90023 		strd	r2, [sp]
  658 02c4 D4E90001 		ldrd	r0, [r4]
  659 02c8 FFF7FEFF 		bl	__aeabi_dmul
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 18
+
+
  660              	.LVL43:
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 18
-
-
  661 02cc 8046     		mov	r8, r0
  662 02ce 8946     		mov	r9, r1
  663 02d0 D5E90212 		ldrd	r1, [r5, #8]
@@ -1038,8 +1039,8 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  675              	.LVL45:
  676 02f0 8246     		mov	r10, r0
  677 02f2 8B46     		mov	fp, r1
- 305:main.c        ****                         + Finf[0][2] * CurrMeas[2] + Finf[0][3] * CurrMeas[3]);
- 678              		.loc 1 305 0
+ 306:main.c        ****                         + Finf[0][2] * CurrMeas[2] + Finf[0][3] * CurrMeas[3]);
+ 678              		.loc 1 306 0
  679 02f4 D5E90489 		ldrd	r8, [r5, #16]
  680 02f8 4246     		mov	r2, r8
  681 02fa 4B46     		mov	r3, r9
@@ -1064,23 +1065,23 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  700 0328 DDE90401 		ldrd	r0, [sp, #16]
  701 032c FFF7FEFF 		bl	__aeabi_dadd
  702              	.LVL49:
- 304:main.c        ****                         + Finf[0][2] * CurrMeas[2] + Finf[0][3] * CurrMeas[3]);
- 703              		.loc 1 304 0
+ 305:main.c        ****                         + Finf[0][2] * CurrMeas[2] + Finf[0][3] * CurrMeas[3]);
+ 703              		.loc 1 305 0
  704 0330 574D     		ldr	r5, .L41+16
  705 0332 0246     		mov	r2, r0
  706 0334 01F10043 		add	r3, r1, #-2147483648
  707 0338 C5E90023 		strd	r2, [r5]
- 306:main.c        ****                         
- 307:main.c        ****                         Input2 = -(Finf[1][0] * CurrMeas[0] + Finf[1][1] * CurrMeas[1]
- 708              		.loc 1 307 0
+ 307:main.c        ****                         
+ 308:main.c        ****                         Input2 = -(Finf[1][0] * CurrMeas[0] + Finf[1][1] * CurrMeas[1]
+ 708              		.loc 1 308 0
  709 033c D4E90823 		ldrd	r2, [r4, #32]
  710 0340 DDE90001 		ldrd	r0, [sp]
  711 0344 FFF7FEFF 		bl	__aeabi_dmul
  712              	.LVL50:
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 19
+
+
  713 0348 CDE90001 		strd	r0, [sp]
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 19
-
-
  714 034c D4E90A23 		ldrd	r2, [r4, #40]
  715 0350 DDE90201 		ldrd	r0, [sp, #8]
  716 0354 FFF7FEFF 		bl	__aeabi_dmul
@@ -1091,8 +1092,8 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  721 0360 FFF7FEFF 		bl	__aeabi_dadd
  722              	.LVL52:
  723 0364 CDE90001 		strd	r0, [sp]
- 308:main.c        ****                         + Finf[1][2] * CurrMeas[2] + Finf[1][3] * CurrMeas[3]);
- 724              		.loc 1 308 0
+ 309:main.c        ****                         + Finf[1][2] * CurrMeas[2] + Finf[1][3] * CurrMeas[3]);
+ 724              		.loc 1 309 0
  725 0368 D4E90C23 		ldrd	r2, [r4, #48]
  726 036c 4046     		mov	r0, r8
  727 036e 4946     		mov	r1, r9
@@ -1116,15 +1117,15 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  745 0396 4946     		mov	r1, r9
  746 0398 FFF7FEFF 		bl	__aeabi_dadd
  747              	.LVL56:
- 307:main.c        ****                         + Finf[1][2] * CurrMeas[2] + Finf[1][3] * CurrMeas[3]);
- 748              		.loc 1 307 0
+ 308:main.c        ****                         + Finf[1][2] * CurrMeas[2] + Finf[1][3] * CurrMeas[3]);
+ 748              		.loc 1 308 0
  749 039c 3D4C     		ldr	r4, .L41+20
  750 039e 0246     		mov	r2, r0
  751 03a0 01F10043 		add	r3, r1, #-2147483648
  752 03a4 C4E90023 		strd	r2, [r4]
- 309:main.c        ****                         
- 310:main.c        ****                         CurrTime = Time - TimeStart;
- 753              		.loc 1 310 0
+ 310:main.c        ****                         
+ 311:main.c        ****                         CurrTime = Time - TimeStart;
+ 753              		.loc 1 311 0
  754 03a8 3B4B     		ldr	r3, .L41+24
  755 03aa 1B68     		ldr	r3, [r3]
  756 03ac 3B4A     		ldr	r2, .L41+28
@@ -1132,38 +1133,38 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  758 03b0 9B1A     		subs	r3, r3, r2
  759 03b2 3B4A     		ldr	r2, .L41+32
  760 03b4 1360     		str	r3, [r2]
- 311:main.c        ****                         
- 312:main.c        ****                         // Set pointers for sending inputs and psoc time by byte
- 313:main.c        ****                         PtrInput1 = (uint8*) &Input1;
- 761              		.loc 1 313 0
+ 312:main.c        ****                         
+ 313:main.c        ****                         // Set pointers for sending inputs and psoc time by byte
+ 314:main.c        ****                         PtrInput1 = (uint8*) &Input1;
+ 761              		.loc 1 314 0
  762 03b6 3B4B     		ldr	r3, .L41+36
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 20
+
+
  763 03b8 1D60     		str	r5, [r3]
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 20
-
-
- 314:main.c        ****                         PtrInput2 = (uint8*) &Input2;
- 764              		.loc 1 314 0
+ 315:main.c        ****                         PtrInput2 = (uint8*) &Input2;
+ 764              		.loc 1 315 0
  765 03ba 3B4B     		ldr	r3, .L41+40
  766 03bc 1C60     		str	r4, [r3]
- 315:main.c        ****                         PtrTime = (uint8*) &CurrTime;
- 767              		.loc 1 315 0
+ 316:main.c        ****                         PtrTime = (uint8*) &CurrTime;
+ 767              		.loc 1 316 0
  768 03be 3B4B     		ldr	r3, .L41+44
  769 03c0 1A60     		str	r2, [r3]
  770              	.LVL57:
- 316:main.c        ****                         
- 317:main.c        ****                         /*
- 318:main.c        ****                         Load bytes representing doubles into transmit buffer via
- 319:main.c        ****                         iteration of pointers
- 320:main.c        ****                         */
- 321:main.c        ****                         for (i=0; i < (Transmit_Packet.packet_size-2)/2; ++i)
- 771              		.loc 1 321 0
+ 317:main.c        ****                         
+ 318:main.c        ****                         /*
+ 319:main.c        ****                         Load bytes representing doubles into transmit buffer via
+ 320:main.c        ****                         iteration of pointers
+ 321:main.c        ****                         */
+ 322:main.c        ****                         for (i=0; i < (Transmit_Packet.packet_size-2)/2; ++i)
+ 771              		.loc 1 322 0
  772 03c2 0023     		movs	r3, #0
  773 03c4 16E0     		b	.L32
  774              	.LVL58:
  775              	.L33:
- 322:main.c        ****                         {
- 323:main.c        ****                             Transmit_Packet.buffer[i+2] = *PtrInput1;
- 776              		.loc 1 323 0 discriminator 3
+ 323:main.c        ****                         {
+ 324:main.c        ****                             Transmit_Packet.buffer[i+2] = *PtrInput1;
+ 776              		.loc 1 324 0 discriminator 3
  777 03c6 9C1C     		adds	r4, r3, #2
  778 03c8 3648     		ldr	r0, .L41+36
  779 03ca 0168     		ldr	r1, [r0]
@@ -1171,40 +1172,40 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  781 03d0 2B4A     		ldr	r2, .L41
  782 03d2 1519     		adds	r5, r2, r4
  783 03d4 AE70     		strb	r6, [r5, #2]
- 324:main.c        ****                             TransmitBuffer[i+2] = Transmit_Packet.buffer[i+2];
- 784              		.loc 1 324 0 discriminator 3
+ 325:main.c        ****                             TransmitBuffer[i+2] = Transmit_Packet.buffer[i+2];
+ 784              		.loc 1 325 0 discriminator 3
  785 03d6 2B4D     		ldr	r5, .L41+4
  786 03d8 2E55     		strb	r6, [r5, r4]
- 325:main.c        ****                             ++PtrInput1;
- 787              		.loc 1 325 0 discriminator 3
+ 326:main.c        ****                             ++PtrInput1;
+ 787              		.loc 1 326 0 discriminator 3
  788 03da 0160     		str	r1, [r0]
- 326:main.c        ****                             
- 327:main.c        ****                             Transmit_Packet.buffer[i+2+8] = *PtrInput2;
- 789              		.loc 1 327 0 discriminator 3
+ 327:main.c        ****                             
+ 328:main.c        ****                             Transmit_Packet.buffer[i+2+8] = *PtrInput2;
+ 789              		.loc 1 328 0 discriminator 3
  790 03dc 03F10A04 		add	r4, r3, #10
  791 03e0 3148     		ldr	r0, .L41+40
  792 03e2 0168     		ldr	r1, [r0]
  793 03e4 11F8016B 		ldrb	r6, [r1], #1	@ zero_extendqisi2
  794 03e8 2244     		add	r2, r2, r4
  795 03ea 9670     		strb	r6, [r2, #2]
- 328:main.c        ****                             TransmitBuffer[i+2+8] = Transmit_Packet.buffer[i+2+8];
- 796              		.loc 1 328 0 discriminator 3
+ 329:main.c        ****                             TransmitBuffer[i+2+8] = Transmit_Packet.buffer[i+2+8];
+ 796              		.loc 1 329 0 discriminator 3
  797 03ec 2E55     		strb	r6, [r5, r4]
- 329:main.c        ****                             ++PtrInput2;
- 798              		.loc 1 329 0 discriminator 3
+ 330:main.c        ****                             ++PtrInput2;
+ 798              		.loc 1 330 0 discriminator 3
  799 03ee 0160     		str	r1, [r0]
- 321:main.c        ****                         {
- 800              		.loc 1 321 0 discriminator 3
+ 322:main.c        ****                         {
+ 800              		.loc 1 322 0 discriminator 3
  801 03f0 0133     		adds	r3, r3, #1
  802              	.LVL59:
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 21
+
+
  803 03f2 DBB2     		uxtb	r3, r3
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 21
-
-
  804              	.LVL60:
  805              	.L32:
- 321:main.c        ****                         {
- 806              		.loc 1 321 0 is_stmt 0 discriminator 1
+ 322:main.c        ****                         {
+ 806              		.loc 1 322 0 is_stmt 0 discriminator 1
  807 03f4 092B     		cmp	r3, #9
  808 03f6 E6DD     		ble	.L33
  809 03f8 0023     		movs	r3, #0
@@ -1212,12 +1213,12 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  811 03fa 0DE0     		b	.L34
  812              	.LVL62:
  813              	.L35:
- 330:main.c        ****                         }
- 331:main.c        ****                         
- 332:main.c        ****                         for (i=0; i < 4; ++i)
- 333:main.c        ****                         {
- 334:main.c        ****                             Transmit_Packet.buffer[i+2+16] = *PtrTime;
- 814              		.loc 1 334 0 is_stmt 1 discriminator 3
+ 331:main.c        ****                         }
+ 332:main.c        ****                         
+ 333:main.c        ****                         for (i=0; i < 4; ++i)
+ 334:main.c        ****                         {
+ 335:main.c        ****                             Transmit_Packet.buffer[i+2+16] = *PtrTime;
+ 814              		.loc 1 335 0 is_stmt 1 discriminator 3
  815 03fc 03F11204 		add	r4, r3, #18
  816 0400 2A48     		ldr	r0, .L41+44
  817 0402 0268     		ldr	r2, [r0]
@@ -1225,135 +1226,135 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  819 0408 1D49     		ldr	r1, .L41
  820 040a 2144     		add	r1, r1, r4
  821 040c 8D70     		strb	r5, [r1, #2]
- 335:main.c        ****                             TransmitBuffer[i+2+16] = Transmit_Packet.buffer[i+2+16];
- 822              		.loc 1 335 0 discriminator 3
+ 336:main.c        ****                             TransmitBuffer[i+2+16] = Transmit_Packet.buffer[i+2+16];
+ 822              		.loc 1 336 0 discriminator 3
  823 040e 1D49     		ldr	r1, .L41+4
  824 0410 0D55     		strb	r5, [r1, r4]
- 336:main.c        ****                             ++PtrTime;
- 825              		.loc 1 336 0 discriminator 3
+ 337:main.c        ****                             ++PtrTime;
+ 825              		.loc 1 337 0 discriminator 3
  826 0412 0260     		str	r2, [r0]
- 332:main.c        ****                         {
- 827              		.loc 1 332 0 discriminator 3
+ 333:main.c        ****                         {
+ 827              		.loc 1 333 0 discriminator 3
  828 0414 0133     		adds	r3, r3, #1
  829              	.LVL63:
  830 0416 DBB2     		uxtb	r3, r3
  831              	.LVL64:
  832              	.L34:
- 332:main.c        ****                         {
- 833              		.loc 1 332 0 is_stmt 0 discriminator 1
+ 333:main.c        ****                         {
+ 833              		.loc 1 333 0 is_stmt 0 discriminator 1
  834 0418 032B     		cmp	r3, #3
  835 041a EFD9     		bls	.L35
  836              	.LVL65:
  837              	.L31:
- 337:main.c        ****                         }
- 338:main.c        ****                     }
- 339:main.c        ****                     CommandReady = 0;
- 838              		.loc 1 339 0 is_stmt 1
+ 338:main.c        ****                         }
+ 339:main.c        ****                     }
+ 340:main.c        ****                     CommandReady = 0;
+ 838              		.loc 1 340 0 is_stmt 1
  839 041c 0022     		movs	r2, #0
  840 041e 1E4B     		ldr	r3, .L41+24
  841 0420 DA71     		strb	r2, [r3, #7]
- 340:main.c        ****                     break;
- 842              		.loc 1 340 0
+ 341:main.c        ****                     break;
+ 842              		.loc 1 341 0
  843 0422 26E0     		b	.L19
  844              	.L26:
- 341:main.c        ****                 
- 342:main.c        ****                 case 6:
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 22
+ 342:main.c        ****                 
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 22
 
 
- 343:main.c        ****                     // Incoming measurement data
- 344:main.c        ****                     if (ActiveFlag)
- 845              		.loc 1 344 0
+ 343:main.c        ****                 case 6:
+ 344:main.c        ****                     // Incoming measurement data
+ 345:main.c        ****                     if (ActiveFlag)
+ 845              		.loc 1 345 0
  846 0424 17B3     		cbz	r7, .L36
- 345:main.c        ****                     {
- 346:main.c        ****                         // Process and store current measurement
- 347:main.c        ****                         // These are the instantiations up top
- 348:main.c        ****                         //double CurrMeas[4];
- 349:main.c        ****                         //double *PtrMeas;
- 350:main.c        ****                         
- 351:main.c        ****                         /*For same reason as above, had to hardcode measurement processing
- 352:main.c        ****                         to replace the following for loop.
- 353:main.c        ****                         
- 354:main.c        ****                         for (i = 0; i < 4; ++i)
- 355:main.c        ****                         {
- 356:main.c        ****                             PtrMeas = (double*) &Command_Packet.buffer[8*i];
- 357:main.c        ****                             CurrMeas[i] = *PtrMeas;
- 358:main.c        ****                         }
- 359:main.c        ****                         */
- 360:main.c        ****                         
- 361:main.c        ****                         PtrMeas = (double*) &Command_Packet.buffer[0];
- 847              		.loc 1 361 0
+ 346:main.c        ****                     {
+ 347:main.c        ****                         // Process and store current measurement
+ 348:main.c        ****                         // These are the instantiations up top
+ 349:main.c        ****                         //double CurrMeas[4];
+ 350:main.c        ****                         //double *PtrMeas;
+ 351:main.c        ****                         
+ 352:main.c        ****                         /*For same reason as above, had to hardcode measurement processing
+ 353:main.c        ****                         to replace the following for loop.
+ 354:main.c        ****                         
+ 355:main.c        ****                         for (i = 0; i < 4; ++i)
+ 356:main.c        ****                         {
+ 357:main.c        ****                             PtrMeas = (double*) &Command_Packet.buffer[8*i];
+ 358:main.c        ****                             CurrMeas[i] = *PtrMeas;
+ 359:main.c        ****                         }
+ 360:main.c        ****                         */
+ 361:main.c        ****                         
+ 362:main.c        ****                         PtrMeas = (double*) &Command_Packet.buffer[0];
+ 847              		.loc 1 362 0
  848 0426 224D     		ldr	r5, .L41+48
- 362:main.c        ****                         CurrMeas[0] = *PtrMeas;
- 849              		.loc 1 362 0
+ 363:main.c        ****                         CurrMeas[0] = *PtrMeas;
+ 849              		.loc 1 363 0
  850 0428 AA1E     		subs	r2, r5, #2
  851 042a 184C     		ldr	r4, .L41+12
  852 042c 2868     		ldr	r0, [r5]	@ unaligned
  853 042e 6968     		ldr	r1, [r5, #4]	@ unaligned
  854 0430 C4E90001 		strd	r0, [r4]
- 363:main.c        ****                         PtrMeas = (double*) &Command_Packet.buffer[8];
- 855              		.loc 1 363 0
+ 364:main.c        ****                         PtrMeas = (double*) &Command_Packet.buffer[8];
+ 855              		.loc 1 364 0
  856 0434 1546     		mov	r5, r2
- 364:main.c        ****                         CurrMeas[1] = *PtrMeas;
- 857              		.loc 1 364 0
+ 365:main.c        ****                         CurrMeas[1] = *PtrMeas;
+ 857              		.loc 1 365 0
  858 0436 55F80A6F 		ldr	r6, [r5, #10]!	@ unaligned
  859 043a 3046     		mov	r0, r6
  860 043c 6968     		ldr	r1, [r5, #4]	@ unaligned
  861 043e C4E90201 		strd	r0, [r4, #8]
- 365:main.c        ****                         PtrMeas = (double*) &Command_Packet.buffer[16];
- 862              		.loc 1 365 0
+ 366:main.c        ****                         PtrMeas = (double*) &Command_Packet.buffer[16];
+ 862              		.loc 1 366 0
  863 0442 1546     		mov	r5, r2
- 366:main.c        ****                         CurrMeas[2] = *PtrMeas;
- 864              		.loc 1 366 0
+ 367:main.c        ****                         CurrMeas[2] = *PtrMeas;
+ 864              		.loc 1 367 0
  865 0444 55F8126F 		ldr	r6, [r5, #18]!	@ unaligned
  866 0448 3046     		mov	r0, r6
  867 044a 6968     		ldr	r1, [r5, #4]	@ unaligned
  868 044c C4E90401 		strd	r0, [r4, #16]
- 367:main.c        ****                         PtrMeas = (double*) &Command_Packet.buffer[24];
- 869              		.loc 1 367 0
+ 368:main.c        ****                         PtrMeas = (double*) &Command_Packet.buffer[24];
+ 869              		.loc 1 368 0
  870 0450 1A32     		adds	r2, r2, #26
  871 0452 1849     		ldr	r1, .L41+52
  872 0454 0A60     		str	r2, [r1]
- 368:main.c        ****                         CurrMeas[3] = *PtrMeas;
- 873              		.loc 1 368 0
+ 369:main.c        ****                         CurrMeas[3] = *PtrMeas;
+ 873              		.loc 1 369 0
  874 0456 1068     		ldr	r0, [r2]	@ unaligned
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 23
+
+
  875 0458 5168     		ldr	r1, [r2, #4]	@ unaligned
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 23
-
-
  876 045a C4E90601 		strd	r0, [r4, #24]
- 369:main.c        ****                         
- 370:main.c        ****                         // Relay command that measurements were received
- 371:main.c        ****                         Transmit_Packet.command = Command_Packet.command;
- 877              		.loc 1 371 0
+ 370:main.c        ****                         
+ 371:main.c        ****                         // Relay command that measurements were received
+ 372:main.c        ****                         Transmit_Packet.command = Command_Packet.command;
+ 877              		.loc 1 372 0
  878 045e 0849     		ldr	r1, .L41
  879 0460 4B70     		strb	r3, [r1, #1]
- 372:main.c        ****                         TransmitBuffer[1] = Transmit_Packet.command;
- 880              		.loc 1 372 0
+ 373:main.c        ****                         TransmitBuffer[1] = Transmit_Packet.command;
+ 880              		.loc 1 373 0
  881 0462 084A     		ldr	r2, .L41+4
  882 0464 5370     		strb	r3, [r2, #1]
- 373:main.c        ****                         Transmit_Packet.packet_size = 2;
- 883              		.loc 1 373 0
+ 374:main.c        ****                         Transmit_Packet.packet_size = 2;
+ 883              		.loc 1 374 0
  884 0466 0223     		movs	r3, #2
  885 0468 0B70     		strb	r3, [r1]
- 374:main.c        ****                         TransmitBuffer[0] = Transmit_Packet.packet_size;
- 886              		.loc 1 374 0
+ 375:main.c        ****                         TransmitBuffer[0] = Transmit_Packet.packet_size;
+ 886              		.loc 1 375 0
  887 046a 1370     		strb	r3, [r2]
  888              	.L36:
- 375:main.c        ****                     }
- 376:main.c        ****                     CommandReady = 0;
- 889              		.loc 1 376 0
+ 376:main.c        ****                     }
+ 377:main.c        ****                     CommandReady = 0;
+ 889              		.loc 1 377 0
  890 046c 0022     		movs	r2, #0
  891 046e 0A4B     		ldr	r3, .L41+24
  892 0470 DA71     		strb	r2, [r3, #7]
  893              	.L19:
- 377:main.c        ****                     break;
- 378:main.c        ****                 
- 379:main.c        ****                 default:
- 380:main.c        ****                     break;
- 381:main.c        ****             }
- 382:main.c        ****             UART1_PutArray(TransmitBuffer,Transmit_Packet.packet_size);
- 894              		.loc 1 382 0
+ 378:main.c        ****                     break;
+ 379:main.c        ****                 
+ 380:main.c        ****                 default:
+ 381:main.c        ****                     break;
+ 382:main.c        ****             }
+ 383:main.c        ****             UART1_PutArray(TransmitBuffer,Transmit_Packet.packet_size);
+ 894              		.loc 1 383 0
  895 0472 034B     		ldr	r3, .L41
  896 0474 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
  897 0476 0348     		ldr	r0, .L41+4
@@ -1377,10 +1378,10 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  915 04ac 00000000 		.word	PtrTime
  916 04b0 02000000 		.word	Command_Packet+2
  917 04b4 00000000 		.word	PtrMeas
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 24
+
+
  918              		.cfi_endproc
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 24
-
-
  919              	.LFE66:
  920              		.size	main, .-main
  921              		.comm	Transmit_Packet,130,4
@@ -1437,10 +1438,10 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  972              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
  973              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
  974              		.file 6 "Generated_Source\\PSoC5/Timer_1.h"
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 25
+
+
  975              		.file 7 "Generated_Source\\PSoC5/LEDDrive.h"
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 25
-
-
  976              		.file 8 "Generated_Source\\PSoC5/UART1.h"
  977              		.file 9 "Generated_Source\\PSoC5/ByteCounter.h"
  978              		.file 10 "Generated_Source\\PSoC5/TimerInterrupt.h"
@@ -1455,10 +1456,10 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  987 0006 00000000 		.4byte	.Ldebug_abbrev0
  988 000a 04       		.byte	0x4
  989 000b 01       		.uleb128 0x1
- 990 000c CC020000 		.4byte	.LASF72
+ 990 000c 4C020000 		.4byte	.LASF72
  991 0010 0C       		.byte	0xc
- 992 0011 E7030000 		.4byte	.LASF73
- 993 0015 28010000 		.4byte	.LASF74
+ 992 0011 67030000 		.4byte	.LASF73
+ 993 0015 59040000 		.4byte	.LASF74
  994 0019 00000000 		.4byte	.Ldebug_ranges0+0
  995 001d 00000000 		.4byte	0
  996 0021 00000000 		.4byte	.Ldebug_line0
@@ -1469,7 +1470,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1001 002c 02       		.uleb128 0x2
  1002 002d 01       		.byte	0x1
  1003 002e 08       		.byte	0x8
- 1004 002f 2E020000 		.4byte	.LASF1
+ 1004 002f AE010000 		.4byte	.LASF1
  1005 0033 02       		.uleb128 0x2
  1006 0034 02       		.byte	0x2
  1007 0035 05       		.byte	0x5
@@ -1477,31 +1478,31 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1009 003a 02       		.uleb128 0x2
  1010 003b 02       		.byte	0x2
  1011 003c 07       		.byte	0x7
- 1012 003d B9020000 		.4byte	.LASF3
+ 1012 003d 39020000 		.4byte	.LASF3
  1013 0041 03       		.uleb128 0x3
- 1014 0042 49040000 		.4byte	.LASF9
+ 1014 0042 C9030000 		.4byte	.LASF9
  1015 0046 02       		.byte	0x2
  1016 0047 3F       		.byte	0x3f
  1017 0048 4C000000 		.4byte	0x4c
  1018 004c 02       		.uleb128 0x2
  1019 004d 04       		.byte	0x4
  1020 004e 05       		.byte	0x5
- 1021 004f B1010000 		.4byte	.LASF4
+ 1021 004f 31010000 		.4byte	.LASF4
  1022 0053 02       		.uleb128 0x2
  1023 0054 04       		.byte	0x4
  1024 0055 07       		.byte	0x7
- 1025 0056 A1020000 		.4byte	.LASF5
+ 1025 0056 21020000 		.4byte	.LASF5
  1026 005a 02       		.uleb128 0x2
  1027 005b 08       		.byte	0x8
  1028 005c 05       		.byte	0x5
  1029 005d 1A010000 		.4byte	.LASF6
  1030 0061 02       		.uleb128 0x2
  1031 0062 08       		.byte	0x8
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 26
+
+
  1032 0063 07       		.byte	0x7
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 26
-
-
- 1033 0064 63020000 		.4byte	.LASF7
+ 1033 0064 E3010000 		.4byte	.LASF7
  1034 0068 04       		.uleb128 0x4
  1035 0069 04       		.byte	0x4
  1036 006a 05       		.byte	0x5
@@ -1509,9 +1510,9 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1038 006f 02       		.uleb128 0x2
  1039 0070 04       		.byte	0x4
  1040 0071 07       		.byte	0x7
- 1041 0072 88020000 		.4byte	.LASF8
+ 1041 0072 08020000 		.4byte	.LASF8
  1042 0076 03       		.uleb128 0x3
- 1043 0077 8A030000 		.4byte	.LASF10
+ 1043 0077 0A030000 		.4byte	.LASF10
  1044 007b 03       		.byte	0x3
  1045 007c 2C       		.byte	0x2c
  1046 007d 41000000 		.4byte	0x41
@@ -1521,7 +1522,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1050 0087 E401     		.2byte	0x1e4
  1051 0089 2C000000 		.4byte	0x2c
  1052 008d 05       		.uleb128 0x5
- 1053 008e E0030000 		.4byte	.LASF12
+ 1053 008e 60030000 		.4byte	.LASF12
  1054 0092 04       		.byte	0x4
  1055 0093 E601     		.2byte	0x1e6
  1056 0095 53000000 		.4byte	0x53
@@ -1532,42 +1533,42 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1061 00a0 02       		.uleb128 0x2
  1062 00a1 08       		.byte	0x8
  1063 00a2 04       		.byte	0x4
- 1064 00a3 07040000 		.4byte	.LASF14
+ 1064 00a3 87030000 		.4byte	.LASF14
  1065 00a7 02       		.uleb128 0x2
  1066 00a8 01       		.byte	0x1
  1067 00a9 08       		.byte	0x8
- 1068 00aa 69030000 		.4byte	.LASF15
+ 1068 00aa E9020000 		.4byte	.LASF15
  1069 00ae 02       		.uleb128 0x2
  1070 00af 08       		.byte	0x8
  1071 00b0 04       		.byte	0x4
- 1072 00b1 22020000 		.4byte	.LASF16
+ 1072 00b1 A2010000 		.4byte	.LASF16
  1073 00b5 02       		.uleb128 0x2
  1074 00b6 04       		.byte	0x4
  1075 00b7 07       		.byte	0x7
  1076 00b8 41000000 		.4byte	.LASF17
  1077 00bc 06       		.uleb128 0x6
- 1078 00bd 02020000 		.4byte	.LASF75
+ 1078 00bd 82010000 		.4byte	.LASF75
  1079 00c1 82       		.byte	0x82
  1080 00c2 01       		.byte	0x1
  1081 00c3 2A       		.byte	0x2a
  1082 00c4 ED000000 		.4byte	0xed
  1083 00c8 07       		.uleb128 0x7
- 1084 00c9 95020000 		.4byte	.LASF18
+ 1084 00c9 15020000 		.4byte	.LASF18
  1085 00cd 01       		.byte	0x1
  1086 00ce 2C       		.byte	0x2c
  1087 00cf 81000000 		.4byte	0x81
  1088 00d3 00       		.byte	0
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 27
+
+
  1089 00d4 07       		.uleb128 0x7
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 27
-
-
- 1090 00d5 D1040000 		.4byte	.LASF19
+ 1090 00d5 51040000 		.4byte	.LASF19
  1091 00d9 01       		.byte	0x1
  1092 00da 2D       		.byte	0x2d
  1093 00db 81000000 		.4byte	0x81
  1094 00df 01       		.byte	0x1
  1095 00e0 07       		.uleb128 0x7
- 1096 00e1 D4030000 		.4byte	.LASF20
+ 1096 00e1 54030000 		.4byte	.LASF20
  1097 00e5 01       		.byte	0x1
  1098 00e6 2E       		.byte	0x2e
  1099 00e7 ED000000 		.4byte	0xed
@@ -1581,7 +1582,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1107 00fb 7F       		.byte	0x7f
  1108 00fc 00       		.byte	0
  1109 00fd 0A       		.uleb128 0xa
- 1110 00fe 7B030000 		.4byte	.LASF21
+ 1110 00fe FB020000 		.4byte	.LASF21
  1111 0102 01       		.byte	0x1
  1112 0103 34       		.byte	0x34
  1113 0104 00000000 		.4byte	.LFB63
@@ -1617,10 +1618,10 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1143 0149 0A050000 		.4byte	0x50a
  1144 014d 0B       		.uleb128 0xb
  1145 014e 24000000 		.4byte	.LVL3
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 28
+
+
  1146 0152 15050000 		.4byte	0x515
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 28
-
-
  1147 0156 0B       		.uleb128 0xb
  1148 0157 2C000000 		.4byte	.LVL4
  1149 015b 20050000 		.4byte	0x520
@@ -1638,7 +1639,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1161 0176 00       		.byte	0
  1162 0177 00       		.byte	0
  1163 0178 0A       		.uleb128 0xa
- 1164 0179 D9040000 		.4byte	.LASF23
+ 1164 0179 DF040000 		.4byte	.LASF23
  1165 017d 01       		.byte	0x1
  1166 017e 4B       		.byte	0x4b
  1167 017f 00000000 		.4byte	.LFB65
@@ -1677,10 +1678,10 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1200 01c5 00       		.byte	0
  1201 01c6 10       		.uleb128 0x10
  1202 01c7 5E000000 		.4byte	.LASF76
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 29
+
+
  1203 01cb 01       		.byte	0x1
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 29
-
-
  1204 01cc 61       		.byte	0x61
  1205 01cd 68000000 		.4byte	0x68
  1206 01d1 00000000 		.4byte	.LFB66
@@ -1701,7 +1702,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1221 01f1 81000000 		.4byte	0x81
  1222 01f5 98000000 		.4byte	.LLST2
  1223 01f9 11       		.uleb128 0x11
- 1224 01fa 3E040000 		.4byte	.LASF24
+ 1224 01fa BE030000 		.4byte	.LASF24
  1225 01fe 01       		.byte	0x1
  1226 01ff 7F       		.byte	0x7f
  1227 0200 81000000 		.4byte	0x81
@@ -1737,10 +1738,10 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1257 024b 30       		.byte	0x30
  1258 024c 00       		.byte	0
  1259 024d 0C       		.uleb128 0xc
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 30
+
+
  1260 024e 24000000 		.4byte	.LVL20
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 30
-
-
  1261 0252 6D050000 		.4byte	0x56d
  1262 0256 60020000 		.4byte	0x260
  1263 025a 0D       		.uleb128 0xd
@@ -1797,10 +1798,10 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1314 02cf 50       		.byte	0x50
  1315 02d0 05       		.uleb128 0x5
  1316 02d1 03       		.byte	0x3
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 31
+
+
  1317 02d2 00000000 		.4byte	CommandReceived
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 31
-
-
  1318 02d6 00       		.byte	0
  1319 02d7 0B       		.uleb128 0xb
  1320 02d8 52000000 		.4byte	.LVL30
@@ -1817,14 +1818,14 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1331 02f2 00       		.byte	0
  1332 02f3 00       		.byte	0
  1333 02f4 12       		.uleb128 0x12
- 1334 02f5 6E030000 		.4byte	.LASF25
+ 1334 02f5 EE020000 		.4byte	.LASF25
  1335 02f9 05       		.byte	0x5
  1336 02fa 1207     		.2byte	0x712
  1337 02fc 00030000 		.4byte	0x300
  1338 0300 13       		.uleb128 0x13
  1339 0301 76000000 		.4byte	0x76
  1340 0305 14       		.uleb128 0x14
- 1341 0306 BA010000 		.4byte	.LASF26
+ 1341 0306 3A010000 		.4byte	.LASF26
  1342 030a 01       		.byte	0x1
  1343 030b 0D       		.byte	0xd
  1344 030c 81000000 		.4byte	0x81
@@ -1832,7 +1833,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1346 0311 03       		.byte	0x3
  1347 0312 00000000 		.4byte	ByteCount
  1348 0316 14       		.uleb128 0x14
- 1349 0317 18020000 		.4byte	.LASF27
+ 1349 0317 98010000 		.4byte	.LASF27
  1350 031b 01       		.byte	0x1
  1351 031c 0E       		.byte	0xe
  1352 031d 81000000 		.4byte	0x81
@@ -1840,7 +1841,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1354 0322 03       		.byte	0x3
  1355 0323 00000000 		.4byte	FirstByte
  1356 0327 14       		.uleb128 0x14
- 1357 0328 0E040000 		.4byte	.LASF28
+ 1357 0328 8E030000 		.4byte	.LASF28
  1358 032c 01       		.byte	0x1
  1359 032d 0F       		.byte	0xf
  1360 032e 81000000 		.4byte	0x81
@@ -1848,7 +1849,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1362 0333 03       		.byte	0x3
  1363 0334 00000000 		.4byte	CommandReady
  1364 0338 14       		.uleb128 0x14
- 1365 0339 B3020000 		.4byte	.LASF29
+ 1365 0339 33020000 		.4byte	.LASF29
  1366 033d 01       		.byte	0x1
  1367 033e 10       		.byte	0x10
  1368 033f 81000000 		.4byte	0x81
@@ -1856,11 +1857,11 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1370 0344 03       		.byte	0x3
  1371 0345 00000000 		.4byte	Count
  1372 0349 14       		.uleb128 0x14
- 1373 034a 6A040000 		.4byte	.LASF30
+ 1373 034a EA030000 		.4byte	.LASF30
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 32
+
+
  1374 034e 01       		.byte	0x1
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 32
-
-
  1375 034f 11       		.byte	0x11
  1376 0350 81000000 		.4byte	0x81
  1377 0354 05       		.uleb128 0x5
@@ -1890,7 +1891,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1401 0387 03       		.byte	0x3
  1402 0388 00000000 		.4byte	TransmitBuffer
  1403 038c 14       		.uleb128 0x14
- 1404 038d 39040000 		.4byte	.LASF33
+ 1404 038d B9030000 		.4byte	.LASF33
  1405 0391 01       		.byte	0x1
  1406 0392 16       		.byte	0x16
  1407 0393 8D000000 		.4byte	0x8d
@@ -1898,7 +1899,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1409 0398 03       		.byte	0x3
  1410 0399 00000000 		.4byte	Time
  1411 039d 14       		.uleb128 0x14
- 1412 039e 3C020000 		.4byte	.LASF34
+ 1412 039e BC010000 		.4byte	.LASF34
  1413 03a2 01       		.byte	0x1
  1414 03a3 17       		.byte	0x17
  1415 03a4 8D000000 		.4byte	0x8d
@@ -1906,7 +1907,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1417 03a9 03       		.byte	0x3
  1418 03aa 00000000 		.4byte	TimeStart
  1419 03ae 14       		.uleb128 0x14
- 1420 03af FE040000 		.4byte	.LASF35
+ 1420 03af 04050000 		.4byte	.LASF35
  1421 03b3 01       		.byte	0x1
  1422 03b4 18       		.byte	0x18
  1423 03b5 8D000000 		.4byte	0x8d
@@ -1917,10 +1918,10 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1428 03c0 4A000000 		.4byte	.LASF36
  1429 03c4 01       		.byte	0x1
  1430 03c5 19       		.byte	0x19
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 33
+
+
  1431 03c6 D0030000 		.4byte	0x3d0
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 33
-
-
  1432 03ca 05       		.uleb128 0x5
  1433 03cb 03       		.byte	0x3
  1434 03cc 00000000 		.4byte	PtrTime
@@ -1949,7 +1950,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1457 0401 03       		.byte	0x3
  1458 0402 00       		.byte	0
  1459 0403 14       		.uleb128 0x14
- 1460 0404 DB030000 		.4byte	.LASF38
+ 1460 0404 5B030000 		.4byte	.LASF38
  1461 0408 01       		.byte	0x1
  1462 0409 1D       		.byte	0x1d
  1463 040a ED030000 		.4byte	0x3ed
@@ -1965,7 +1966,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1473 041f 03       		.byte	0x3
  1474 0420 00000000 		.4byte	Ts
  1475 0424 14       		.uleb128 0x14
- 1476 0425 71040000 		.4byte	.LASF39
+ 1476 0425 F1030000 		.4byte	.LASF39
  1477 0429 01       		.byte	0x1
  1478 042a 1F       		.byte	0x1f
  1479 042b E7030000 		.4byte	0x3e7
@@ -1977,16 +1978,16 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1485 043a 4B040000 		.4byte	0x44b
  1486 043e 09       		.uleb128 0x9
  1487 043f B5000000 		.4byte	0xb5
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 34
+
+
  1488 0443 01       		.byte	0x1
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 34
-
-
  1489 0444 09       		.uleb128 0x9
  1490 0445 B5000000 		.4byte	0xb5
  1491 0449 03       		.byte	0x3
  1492 044a 00       		.byte	0
  1493 044b 14       		.uleb128 0x14
- 1494 044c 13020000 		.4byte	.LASF40
+ 1494 044c 93010000 		.4byte	.LASF40
  1495 0450 01       		.byte	0x1
  1496 0451 20       		.byte	0x20
  1497 0452 35040000 		.4byte	0x435
@@ -1994,7 +1995,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1499 0457 03       		.byte	0x3
  1500 0458 00000000 		.4byte	Finf
  1501 045c 14       		.uleb128 0x14
- 1502 045d 7A020000 		.4byte	.LASF41
+ 1502 045d FA010000 		.4byte	.LASF41
  1503 0461 01       		.byte	0x1
  1504 0462 22       		.byte	0x22
  1505 0463 A0000000 		.4byte	0xa0
@@ -2002,7 +2003,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1507 0468 03       		.byte	0x3
  1508 0469 00000000 		.4byte	Input1
  1509 046d 14       		.uleb128 0x14
- 1510 046e 81020000 		.4byte	.LASF42
+ 1510 046e 01020000 		.4byte	.LASF42
  1511 0472 01       		.byte	0x1
  1512 0473 23       		.byte	0x23
  1513 0474 A0000000 		.4byte	0xa0
@@ -2010,7 +2011,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1515 0479 03       		.byte	0x3
  1516 047a 00000000 		.4byte	Input2
  1517 047e 14       		.uleb128 0x14
- 1518 047f BD040000 		.4byte	.LASF43
+ 1518 047f 3D040000 		.4byte	.LASF43
  1519 0483 01       		.byte	0x1
  1520 0484 24       		.byte	0x24
  1521 0485 D0030000 		.4byte	0x3d0
@@ -2018,7 +2019,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1523 048a 03       		.byte	0x3
  1524 048b 00000000 		.4byte	PtrInput1
  1525 048f 14       		.uleb128 0x14
- 1526 0490 C7040000 		.4byte	.LASF44
+ 1526 0490 47040000 		.4byte	.LASF44
  1527 0494 01       		.byte	0x1
  1528 0495 25       		.byte	0x25
  1529 0496 D0030000 		.4byte	0x3d0
@@ -2033,18 +2034,18 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1538 04ae 03       		.byte	0x3
  1539 04af 00       		.byte	0
  1540 04b0 14       		.uleb128 0x14
- 1541 04b1 A8010000 		.4byte	.LASF45
+ 1541 04b1 28010000 		.4byte	.LASF45
  1542 04b5 01       		.byte	0x1
  1543 04b6 27       		.byte	0x27
  1544 04b7 A0040000 		.4byte	0x4a0
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 35
+
+
  1545 04bb 05       		.uleb128 0x5
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 35
-
-
  1546 04bc 03       		.byte	0x3
  1547 04bd 00000000 		.4byte	CurrMeas
  1548 04c1 14       		.uleb128 0x14
- 1549 04c2 CC030000 		.4byte	.LASF46
+ 1549 04c2 4C030000 		.4byte	.LASF46
  1550 04c6 01       		.byte	0x1
  1551 04c7 28       		.byte	0x28
  1552 04c8 E7030000 		.4byte	0x3e7
@@ -2052,7 +2053,7 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1554 04cd 03       		.byte	0x3
  1555 04ce 00000000 		.4byte	PtrMeas
  1556 04d2 14       		.uleb128 0x14
- 1557 04d3 5A030000 		.4byte	.LASF47
+ 1557 04d3 DA020000 		.4byte	.LASF47
  1558 04d7 01       		.byte	0x1
  1559 04d8 2F       		.byte	0x2f
  1560 04d9 BC000000 		.4byte	0xbc
@@ -2078,18 +2079,18 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1580 0508 07       		.byte	0x7
  1581 0509 2F       		.byte	0x2f
  1582 050a 17       		.uleb128 0x17
- 1583 050b 2B040000 		.4byte	.LASF51
- 1584 050f 2B040000 		.4byte	.LASF51
+ 1583 050b AB030000 		.4byte	.LASF51
+ 1584 050f AB030000 		.4byte	.LASF51
  1585 0513 08       		.byte	0x8
  1586 0514 72       		.byte	0x72
  1587 0515 17       		.uleb128 0x17
- 1588 0516 EE030000 		.4byte	.LASF52
- 1589 051a EE030000 		.4byte	.LASF52
+ 1588 0516 6E030000 		.4byte	.LASF52
+ 1589 051a 6E030000 		.4byte	.LASF52
  1590 051e 09       		.byte	0x9
  1591 051f 63       		.byte	0x63
  1592 0520 17       		.uleb128 0x17
- 1593 0521 A5040000 		.4byte	.LASF53
- 1594 0525 A5040000 		.4byte	.LASF53
+ 1593 0521 25040000 		.4byte	.LASF53
+ 1594 0525 25040000 		.4byte	.LASF53
  1595 0529 09       		.byte	0x9
  1596 052a 5D       		.byte	0x5d
  1597 052b 17       		.uleb128 0x17
@@ -2097,37 +2098,37 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1599 0530 B9000000 		.4byte	.LASF54
  1600 0534 09       		.byte	0x9
  1601 0535 52       		.byte	0x52
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 36
+
+
  1602 0536 17       		.uleb128 0x17
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 36
-
-
- 1603 0537 BE030000 		.4byte	.LASF55
- 1604 053b BE030000 		.4byte	.LASF55
+ 1603 0537 3E030000 		.4byte	.LASF55
+ 1604 053b 3E030000 		.4byte	.LASF55
  1605 053f 06       		.byte	0x6
  1606 0540 5A       		.byte	0x5a
  1607 0541 17       		.uleb128 0x17
- 1608 0542 ED010000 		.4byte	.LASF56
- 1609 0546 ED010000 		.4byte	.LASF56
+ 1608 0542 6D010000 		.4byte	.LASF56
+ 1609 0546 6D010000 		.4byte	.LASF56
  1610 054a 0A       		.byte	0xa
  1611 054b 17       		.byte	0x17
  1612 054c 17       		.uleb128 0x17
- 1613 054d C4010000 		.4byte	.LASF57
- 1614 0551 C4010000 		.4byte	.LASF57
+ 1613 054d 44010000 		.4byte	.LASF57
+ 1614 0551 44010000 		.4byte	.LASF57
  1615 0555 0A       		.byte	0xa
  1616 0556 18       		.byte	0x18
  1617 0557 17       		.uleb128 0x17
- 1618 0558 8F040000 		.4byte	.LASF58
- 1619 055c 8F040000 		.4byte	.LASF58
+ 1618 0558 0F040000 		.4byte	.LASF58
+ 1619 055c 0F040000 		.4byte	.LASF58
  1620 0560 0A       		.byte	0xa
  1621 0561 23       		.byte	0x23
  1622 0562 17       		.uleb128 0x17
- 1623 0563 1B040000 		.4byte	.LASF59
- 1624 0567 1B040000 		.4byte	.LASF59
+ 1623 0563 9B030000 		.4byte	.LASF59
+ 1624 0567 9B030000 		.4byte	.LASF59
  1625 056b 0B       		.byte	0xb
  1626 056c 2F       		.byte	0x2f
  1627 056d 17       		.uleb128 0x17
- 1628 056e E9040000 		.4byte	.LASF60
- 1629 0572 E9040000 		.4byte	.LASF60
+ 1628 056e EF040000 		.4byte	.LASF60
+ 1629 0572 EF040000 		.4byte	.LASF60
  1630 0576 0C       		.byte	0xc
  1631 0577 2F       		.byte	0x2f
  1632 0578 17       		.uleb128 0x17
@@ -2136,8 +2137,8 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1635 0581 08       		.byte	0x8
  1636 0582 54       		.byte	0x54
  1637 0583 17       		.uleb128 0x17
- 1638 0584 DB010000 		.4byte	.LASF62
- 1639 0588 DB010000 		.4byte	.LASF62
+ 1638 0584 5B010000 		.4byte	.LASF62
+ 1639 0588 5B010000 		.4byte	.LASF62
  1640 058c 09       		.byte	0x9
  1641 058d 4F       		.byte	0x4f
  1642 058e 17       		.uleb128 0x17
@@ -2146,8 +2147,8 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1645 0597 09       		.byte	0x9
  1646 0598 71       		.byte	0x71
  1647 0599 17       		.uleb128 0x17
- 1648 059a 46020000 		.4byte	.LASF64
- 1649 059e 46020000 		.4byte	.LASF64
+ 1648 059a C6010000 		.4byte	.LASF64
+ 1649 059e C6010000 		.4byte	.LASF64
  1650 05a2 09       		.byte	0x9
  1651 05a3 51       		.byte	0x51
  1652 05a4 17       		.uleb128 0x17
@@ -2157,30 +2158,30 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1656 05ae 17       		.byte	0x17
  1657 05af 17       		.uleb128 0x17
  1658 05b0 00000000 		.4byte	.LASF66
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 37
+
+
  1659 05b4 00000000 		.4byte	.LASF66
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 37
-
-
  1660 05b8 0D       		.byte	0xd
  1661 05b9 18       		.byte	0x18
  1662 05ba 17       		.uleb128 0x17
- 1663 05bb AA030000 		.4byte	.LASF67
- 1664 05bf AA030000 		.4byte	.LASF67
+ 1663 05bb 2A030000 		.4byte	.LASF67
+ 1664 05bf 2A030000 		.4byte	.LASF67
  1665 05c3 0D       		.byte	0xd
  1666 05c4 23       		.byte	0x23
  1667 05c5 17       		.uleb128 0x17
- 1668 05c6 79040000 		.4byte	.LASF68
- 1669 05ca 79040000 		.4byte	.LASF68
+ 1668 05c6 F9030000 		.4byte	.LASF68
+ 1669 05ca F9030000 		.4byte	.LASF68
  1670 05ce 0E       		.byte	0xe
  1671 05cf 17       		.byte	0x17
  1672 05d0 17       		.uleb128 0x17
- 1673 05d1 92030000 		.4byte	.LASF69
- 1674 05d5 92030000 		.4byte	.LASF69
+ 1673 05d1 12030000 		.4byte	.LASF69
+ 1674 05d5 12030000 		.4byte	.LASF69
  1675 05d9 0E       		.byte	0xe
  1676 05da 18       		.byte	0x18
  1677 05db 17       		.uleb128 0x17
- 1678 05dc 53040000 		.4byte	.LASF70
- 1679 05e0 53040000 		.4byte	.LASF70
+ 1678 05dc D3030000 		.4byte	.LASF70
+ 1679 05e0 D3030000 		.4byte	.LASF70
  1680 05e4 0E       		.byte	0xe
  1681 05e5 23       		.byte	0x23
  1682 05e6 17       		.uleb128 0x17
@@ -2217,10 +2218,10 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1713 0017 0B       		.uleb128 0xb
  1714 0018 3E       		.uleb128 0x3e
  1715 0019 0B       		.uleb128 0xb
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 38
+
+
  1716 001a 03       		.uleb128 0x3
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 38
-
-
  1717 001b 0E       		.uleb128 0xe
  1718 001c 00       		.byte	0
  1719 001d 00       		.byte	0
@@ -2277,10 +2278,10 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1770 0050 00       		.byte	0
  1771 0051 00       		.byte	0
  1772 0052 07       		.uleb128 0x7
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 39
+
+
  1773 0053 0D       		.uleb128 0xd
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 39
-
-
  1774 0054 00       		.byte	0
  1775 0055 03       		.uleb128 0x3
  1776 0056 0E       		.uleb128 0xe
@@ -2337,10 +2338,10 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1827 008a 13       		.uleb128 0x13
  1828 008b 00       		.byte	0
  1829 008c 00       		.byte	0
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 40
+
+
  1830 008d 0B       		.uleb128 0xb
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 40
-
-
  1831 008e 898201   		.uleb128 0x4109
  1832 0091 00       		.byte	0
  1833 0092 11       		.uleb128 0x11
@@ -2397,10 +2398,10 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1884 00cc 2E       		.uleb128 0x2e
  1885 00cd 01       		.byte	0x1
  1886 00ce 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 41
+
+
  1887 00cf 19       		.uleb128 0x19
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 41
-
-
  1888 00d0 03       		.uleb128 0x3
  1889 00d1 0E       		.uleb128 0xe
  1890 00d2 3A       		.uleb128 0x3a
@@ -2457,10 +2458,10 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1941 0107 19       		.uleb128 0x19
  1942 0108 00       		.byte	0
  1943 0109 00       		.byte	0
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 42
+
+
  1944 010a 13       		.uleb128 0x13
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 42
-
-
  1945 010b 35       		.uleb128 0x35
  1946 010c 00       		.byte	0
  1947 010d 49       		.uleb128 0x49
@@ -2517,10 +2518,10 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  1998 0140 19       		.uleb128 0x19
  1999 0141 3C       		.uleb128 0x3c
  2000 0142 19       		.uleb128 0x19
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 43
+
+
  2001 0143 6E       		.uleb128 0x6e
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 43
-
-
  2002 0144 0E       		.uleb128 0xe
  2003 0145 03       		.uleb128 0x3
  2004 0146 0E       		.uleb128 0xe
@@ -2577,10 +2578,10 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  2055 0068 F2030000 		.4byte	.LVL59
  2056 006c 0100     		.2byte	0x1
  2057 006e 53       		.byte	0x53
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 44
+
+
  2058 006f F4030000 		.4byte	.LVL60
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 44
-
-
  2059 0073 FA030000 		.4byte	.LVL61
  2060 0077 0100     		.2byte	0x1
  2061 0079 53       		.byte	0x53
@@ -2637,10 +2638,10 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  2112 001c 4C000000 		.4byte	.LFE64-.LFB64
  2113 0020 00000000 		.4byte	.LFB65
  2114 0024 58000000 		.4byte	.LFE65-.LFB65
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 45
+
+
  2115 0028 00000000 		.4byte	.LFB66
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 45
-
-
  2116 002c B8040000 		.4byte	.LFE66-.LFB66
  2117 0030 00000000 		.4byte	0
  2118 0034 00000000 		.4byte	0
@@ -2697,10 +2698,10 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  2147      61727400 
  2148              	.LASF76:
  2149 005e 6D61696E 		.ascii	"main\000"
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 46
+
+
  2149      00
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 46
-
-
  2150              	.LASF37:
  2151 0063 5074724B 		.ascii	"PtrKinf\000"
  2151      696E6600 
@@ -2757,298 +2758,298 @@ ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 1
  2173      52656365 
  2173      69766564 
  2173      00
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 47
+
+
  2174              	.LASF6:
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 47
-
-
  2175 011a 6C6F6E67 		.ascii	"long long int\000"
  2175      206C6F6E 
  2175      6720696E 
  2175      7400
- 2176              	.LASF74:
- 2177 0128 433A5C55 		.ascii	"C:\\Users\\shawn\\Desktop\\Real-Time-Estimation-and"
- 2177      73657273 
- 2177      5C736861 
- 2177      776E5C44 
- 2177      65736B74 
- 2178 0157 2D436F6E 		.ascii	"-Control-For-Satellite-Orbit-Stabilization\\PSOC te"
- 2178      74726F6C 
- 2178      2D466F72 
- 2178      2D536174 
- 2178      656C6C69 
- 2179 0189 7374696E 		.ascii	"sting\\CommandInterpreter.cydsn\000"
- 2179      675C436F 
- 2179      6D6D616E 
- 2179      64496E74 
- 2179      65727072 
- 2180              	.LASF45:
- 2181 01a8 43757272 		.ascii	"CurrMeas\000"
- 2181      4D656173 
- 2181      00
- 2182              	.LASF4:
- 2183 01b1 6C6F6E67 		.ascii	"long int\000"
- 2183      20696E74 
- 2183      00
- 2184              	.LASF26:
- 2185 01ba 42797465 		.ascii	"ByteCount\000"
+ 2176              	.LASF45:
+ 2177 0128 43757272 		.ascii	"CurrMeas\000"
+ 2177      4D656173 
+ 2177      00
+ 2178              	.LASF4:
+ 2179 0131 6C6F6E67 		.ascii	"long int\000"
+ 2179      20696E74 
+ 2179      00
+ 2180              	.LASF26:
+ 2181 013a 42797465 		.ascii	"ByteCount\000"
+ 2181      436F756E 
+ 2181      7400
+ 2182              	.LASF57:
+ 2183 0144 54696D65 		.ascii	"TimerInterrupt_StartEx\000"
+ 2183      72496E74 
+ 2183      65727275 
+ 2183      70745F53 
+ 2183      74617274 
+ 2184              	.LASF62:
+ 2185 015b 42797465 		.ascii	"ByteCounter_Start\000"
  2185      436F756E 
+ 2185      7465725F 
+ 2185      53746172 
  2185      7400
- 2186              	.LASF57:
- 2187 01c4 54696D65 		.ascii	"TimerInterrupt_StartEx\000"
+ 2186              	.LASF56:
+ 2187 016d 54696D65 		.ascii	"TimerInterrupt_Start\000"
  2187      72496E74 
  2187      65727275 
  2187      70745F53 
  2187      74617274 
- 2188              	.LASF62:
- 2189 01db 42797465 		.ascii	"ByteCounter_Start\000"
- 2189      436F756E 
- 2189      7465725F 
- 2189      53746172 
- 2189      7400
- 2190              	.LASF56:
- 2191 01ed 54696D65 		.ascii	"TimerInterrupt_Start\000"
- 2191      72496E74 
- 2191      65727275 
- 2191      70745F53 
- 2191      74617274 
- 2192              	.LASF75:
- 2193 0202 636F6D6D 		.ascii	"command_protocol\000"
- 2193      616E645F 
- 2193      70726F74 
- 2193      6F636F6C 
- 2193      00
- 2194              	.LASF40:
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 48
+ 2188              	.LASF75:
+ 2189 0182 636F6D6D 		.ascii	"command_protocol\000"
+ 2189      616E645F 
+ 2189      70726F74 
+ 2189      6F636F6C 
+ 2189      00
+ 2190              	.LASF40:
+ 2191 0193 46696E66 		.ascii	"Finf\000"
+ 2191      00
+ 2192              	.LASF27:
+ 2193 0198 46697273 		.ascii	"FirstByte\000"
+ 2193      74427974 
+ 2193      6500
+ 2194              	.LASF16:
+ 2195 01a2 6C6F6E67 		.ascii	"long double\000"
+ 2195      20646F75 
+ 2195      626C6500 
+ 2196              	.LASF1:
+ 2197 01ae 756E7369 		.ascii	"unsigned char\000"
+ 2197      676E6564 
+ 2197      20636861 
+ 2197      7200
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 48
 
 
- 2195 0213 46696E66 		.ascii	"Finf\000"
- 2195      00
- 2196              	.LASF27:
- 2197 0218 46697273 		.ascii	"FirstByte\000"
- 2197      74427974 
- 2197      6500
- 2198              	.LASF16:
- 2199 0222 6C6F6E67 		.ascii	"long double\000"
- 2199      20646F75 
- 2199      626C6500 
- 2200              	.LASF1:
- 2201 022e 756E7369 		.ascii	"unsigned char\000"
- 2201      676E6564 
- 2201      20636861 
- 2201      7200
- 2202              	.LASF34:
- 2203 023c 54696D65 		.ascii	"TimeStart\000"
- 2203      53746172 
- 2203      7400
- 2204              	.LASF64:
- 2205 0246 42797465 		.ascii	"ByteCounter_SetInterruptMode\000"
- 2205      436F756E 
- 2205      7465725F 
- 2205      53657449 
- 2205      6E746572 
- 2206              	.LASF7:
- 2207 0263 6C6F6E67 		.ascii	"long long unsigned int\000"
- 2207      206C6F6E 
- 2207      6720756E 
- 2207      7369676E 
- 2207      65642069 
- 2208              	.LASF41:
- 2209 027a 496E7075 		.ascii	"Input1\000"
- 2209      743100
- 2210              	.LASF42:
- 2211 0281 496E7075 		.ascii	"Input2\000"
- 2211      743200
- 2212              	.LASF8:
- 2213 0288 756E7369 		.ascii	"unsigned int\000"
- 2213      676E6564 
- 2213      20696E74 
- 2213      00
- 2214              	.LASF18:
- 2215 0295 7061636B 		.ascii	"packet_size\000"
- 2215      65745F73 
- 2215      697A6500 
- 2216              	.LASF5:
- 2217 02a1 6C6F6E67 		.ascii	"long unsigned int\000"
- 2217      20756E73 
- 2217      69676E65 
- 2217      6420696E 
- 2217      7400
- 2218              	.LASF29:
- 2219 02b3 436F756E 		.ascii	"Count\000"
- 2219      7400
- 2220              	.LASF3:
- 2221 02b9 73686F72 		.ascii	"short unsigned int\000"
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 49
+ 2198              	.LASF34:
+ 2199 01bc 54696D65 		.ascii	"TimeStart\000"
+ 2199      53746172 
+ 2199      7400
+ 2200              	.LASF64:
+ 2201 01c6 42797465 		.ascii	"ByteCounter_SetInterruptMode\000"
+ 2201      436F756E 
+ 2201      7465725F 
+ 2201      53657449 
+ 2201      6E746572 
+ 2202              	.LASF7:
+ 2203 01e3 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2203      206C6F6E 
+ 2203      6720756E 
+ 2203      7369676E 
+ 2203      65642069 
+ 2204              	.LASF41:
+ 2205 01fa 496E7075 		.ascii	"Input1\000"
+ 2205      743100
+ 2206              	.LASF42:
+ 2207 0201 496E7075 		.ascii	"Input2\000"
+ 2207      743200
+ 2208              	.LASF8:
+ 2209 0208 756E7369 		.ascii	"unsigned int\000"
+ 2209      676E6564 
+ 2209      20696E74 
+ 2209      00
+ 2210              	.LASF18:
+ 2211 0215 7061636B 		.ascii	"packet_size\000"
+ 2211      65745F73 
+ 2211      697A6500 
+ 2212              	.LASF5:
+ 2213 0221 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2213      20756E73 
+ 2213      69676E65 
+ 2213      6420696E 
+ 2213      7400
+ 2214              	.LASF29:
+ 2215 0233 436F756E 		.ascii	"Count\000"
+ 2215      7400
+ 2216              	.LASF3:
+ 2217 0239 73686F72 		.ascii	"short unsigned int\000"
+ 2217      7420756E 
+ 2217      7369676E 
+ 2217      65642069 
+ 2217      6E7400
+ 2218              	.LASF72:
+ 2219 024c 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2219      43313120 
+ 2219      352E342E 
+ 2219      31203230 
+ 2219      31363036 
+ 2220 027f 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 2220      20726576 
+ 2220      6973696F 
+ 2220      6E203233 
+ 2220      37373135 
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 49
 
 
- 2221      7420756E 
- 2221      7369676E 
- 2221      65642069 
- 2221      6E7400
- 2222              	.LASF72:
- 2223 02cc 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 2223      43313120 
- 2223      352E342E 
- 2223      31203230 
- 2223      31363036 
- 2224 02ff 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 2224      20726576 
- 2224      6973696F 
- 2224      6E203233 
- 2224      37373135 
- 2225 0332 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 2225      66756E63 
- 2225      74696F6E 
- 2225      2D736563 
- 2225      74696F6E 
- 2226              	.LASF47:
- 2227 035a 436F6D6D 		.ascii	"Command_Packet\000"
- 2227      616E645F 
- 2227      5061636B 
- 2227      657400
- 2228              	.LASF15:
- 2229 0369 63686172 		.ascii	"char\000"
- 2229      00
- 2230              	.LASF25:
- 2231 036e 49544D5F 		.ascii	"ITM_RxBuffer\000"
- 2231      52784275 
- 2231      66666572 
- 2231      00
- 2232              	.LASF21:
- 2233 037b 54696D65 		.ascii	"TimerInterrupt\000"
- 2233      72496E74 
- 2233      65727275 
- 2233      707400
- 2234              	.LASF10:
- 2235 038a 696E7433 		.ascii	"int32_t\000"
- 2235      325F7400 
- 2236              	.LASF69:
- 2237 0392 436F6D6D 		.ascii	"CommandReceived_StartEx\000"
- 2237      616E6452 
- 2237      65636569 
- 2237      7665645F 
+ 2221 02b2 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2221      66756E63 
+ 2221      74696F6E 
+ 2221      2D736563 
+ 2221      74696F6E 
+ 2222              	.LASF47:
+ 2223 02da 436F6D6D 		.ascii	"Command_Packet\000"
+ 2223      616E645F 
+ 2223      5061636B 
+ 2223      657400
+ 2224              	.LASF15:
+ 2225 02e9 63686172 		.ascii	"char\000"
+ 2225      00
+ 2226              	.LASF25:
+ 2227 02ee 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2227      52784275 
+ 2227      66666572 
+ 2227      00
+ 2228              	.LASF21:
+ 2229 02fb 54696D65 		.ascii	"TimerInterrupt\000"
+ 2229      72496E74 
+ 2229      65727275 
+ 2229      707400
+ 2230              	.LASF10:
+ 2231 030a 696E7433 		.ascii	"int32_t\000"
+ 2231      325F7400 
+ 2232              	.LASF69:
+ 2233 0312 436F6D6D 		.ascii	"CommandReceived_StartEx\000"
+ 2233      616E6452 
+ 2233      65636569 
+ 2233      7665645F 
+ 2233      53746172 
+ 2234              	.LASF67:
+ 2235 032a 42797465 		.ascii	"ByteReceived_Enable\000"
+ 2235      52656365 
+ 2235      69766564 
+ 2235      5F456E61 
+ 2235      626C6500 
+ 2236              	.LASF55:
+ 2237 033e 54696D65 		.ascii	"Timer_1_Start\000"
+ 2237      725F315F 
  2237      53746172 
- 2238              	.LASF67:
- 2239 03aa 42797465 		.ascii	"ByteReceived_Enable\000"
- 2239      52656365 
- 2239      69766564 
- 2239      5F456E61 
- 2239      626C6500 
- 2240              	.LASF55:
- 2241 03be 54696D65 		.ascii	"Timer_1_Start\000"
- 2241      725F315F 
- 2241      53746172 
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 50
+ 2237      7400
+ 2238              	.LASF46:
+ 2239 034c 5074724D 		.ascii	"PtrMeas\000"
+ 2239      65617300 
+ 2240              	.LASF20:
+ 2241 0354 62756666 		.ascii	"buffer\000"
+ 2241      657200
+ 2242              	.LASF38:
+ 2243 035b 4B696E66 		.ascii	"Kinf\000"
+ 2243      00
+ 2244              	.LASF12:
+ 2245 0360 75696E74 		.ascii	"uint32\000"
+ 2245      333200
+ 2246              	.LASF73:
+ 2247 0367 6D61696E 		.ascii	"main.c\000"
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 50
 
 
- 2241      7400
- 2242              	.LASF46:
- 2243 03cc 5074724D 		.ascii	"PtrMeas\000"
- 2243      65617300 
- 2244              	.LASF20:
- 2245 03d4 62756666 		.ascii	"buffer\000"
- 2245      657200
- 2246              	.LASF38:
- 2247 03db 4B696E66 		.ascii	"Kinf\000"
- 2247      00
- 2248              	.LASF12:
- 2249 03e0 75696E74 		.ascii	"uint32\000"
- 2249      333200
- 2250              	.LASF73:
- 2251 03e7 6D61696E 		.ascii	"main.c\000"
- 2251      2E6300
- 2252              	.LASF52:
- 2253 03ee 42797465 		.ascii	"ByteCounter_WriteCompare\000"
- 2253      436F756E 
- 2253      7465725F 
- 2253      57726974 
- 2253      65436F6D 
- 2254              	.LASF14:
- 2255 0407 646F7562 		.ascii	"double\000"
- 2255      6C6500
- 2256              	.LASF28:
- 2257 040e 436F6D6D 		.ascii	"CommandReady\000"
- 2257      616E6452 
- 2257      65616479 
- 2257      00
- 2258              	.LASF59:
- 2259 041b 55415254 		.ascii	"UARTReset_Write\000"
- 2259      52657365 
- 2259      745F5772 
- 2259      69746500 
- 2260              	.LASF51:
- 2261 042b 55415254 		.ascii	"UART1_GetByte\000"
- 2261      315F4765 
- 2261      74427974 
- 2261      6500
- 2262              	.LASF33:
- 2263 0439 54696D65 		.ascii	"Time\000"
- 2263      00
- 2264              	.LASF24:
- 2265 043e 41637469 		.ascii	"ActiveFlag\000"
- 2265      7665466C 
- 2265      616700
- 2266              	.LASF9:
- 2267 0449 5F5F696E 		.ascii	"__int32_t\000"
- 2267      7433325F 
- 2267      7400
- 2268              	.LASF70:
- 2269 0453 436F6D6D 		.ascii	"CommandReceived_Enable\000"
- 2269      616E6452 
- 2269      65636569 
- 2269      7665645F 
- 2269      456E6162 
-ARM GAS  C:\Users\shawn\AppData\Local\Temp\cc2iPVpa.s 			page 51
+ 2247      2E6300
+ 2248              	.LASF52:
+ 2249 036e 42797465 		.ascii	"ByteCounter_WriteCompare\000"
+ 2249      436F756E 
+ 2249      7465725F 
+ 2249      57726974 
+ 2249      65436F6D 
+ 2250              	.LASF14:
+ 2251 0387 646F7562 		.ascii	"double\000"
+ 2251      6C6500
+ 2252              	.LASF28:
+ 2253 038e 436F6D6D 		.ascii	"CommandReady\000"
+ 2253      616E6452 
+ 2253      65616479 
+ 2253      00
+ 2254              	.LASF59:
+ 2255 039b 55415254 		.ascii	"UARTReset_Write\000"
+ 2255      52657365 
+ 2255      745F5772 
+ 2255      69746500 
+ 2256              	.LASF51:
+ 2257 03ab 55415254 		.ascii	"UART1_GetByte\000"
+ 2257      315F4765 
+ 2257      74427974 
+ 2257      6500
+ 2258              	.LASF33:
+ 2259 03b9 54696D65 		.ascii	"Time\000"
+ 2259      00
+ 2260              	.LASF24:
+ 2261 03be 41637469 		.ascii	"ActiveFlag\000"
+ 2261      7665466C 
+ 2261      616700
+ 2262              	.LASF9:
+ 2263 03c9 5F5F696E 		.ascii	"__int32_t\000"
+ 2263      7433325F 
+ 2263      7400
+ 2264              	.LASF70:
+ 2265 03d3 436F6D6D 		.ascii	"CommandReceived_Enable\000"
+ 2265      616E6452 
+ 2265      65636569 
+ 2265      7665645F 
+ 2265      456E6162 
+ 2266              	.LASF30:
+ 2267 03ea 53746174 		.ascii	"Status\000"
+ 2267      757300
+ 2268              	.LASF39:
+ 2269 03f1 50747246 		.ascii	"PtrFinf\000"
+ 2269      696E6600 
+ 2270              	.LASF68:
+ 2271 03f9 436F6D6D 		.ascii	"CommandReceived_Start\000"
+ 2271      616E6452 
+ 2271      65636569 
+ 2271      7665645F 
+ 2271      53746172 
+ 2272              	.LASF58:
+ 2273 040f 54696D65 		.ascii	"TimerInterrupt_Enable\000"
+ 2273      72496E74 
+ARM GAS  C:\Users\shawn\AppData\Local\Temp\ccMLTV83.s 			page 51
 
 
- 2270              	.LASF30:
- 2271 046a 53746174 		.ascii	"Status\000"
- 2271      757300
- 2272              	.LASF39:
- 2273 0471 50747246 		.ascii	"PtrFinf\000"
- 2273      696E6600 
- 2274              	.LASF68:
- 2275 0479 436F6D6D 		.ascii	"CommandReceived_Start\000"
- 2275      616E6452 
- 2275      65636569 
- 2275      7665645F 
- 2275      53746172 
- 2276              	.LASF58:
- 2277 048f 54696D65 		.ascii	"TimerInterrupt_Enable\000"
- 2277      72496E74 
- 2277      65727275 
- 2277      70745F45 
- 2277      6E61626C 
- 2278              	.LASF53:
- 2279 04a5 42797465 		.ascii	"ByteCounter_ReadCounter\000"
- 2279      436F756E 
- 2279      7465725F 
- 2279      52656164 
- 2279      436F756E 
- 2280              	.LASF43:
- 2281 04bd 50747249 		.ascii	"PtrInput1\000"
- 2281      6E707574 
- 2281      3100
- 2282              	.LASF44:
- 2283 04c7 50747249 		.ascii	"PtrInput2\000"
- 2283      6E707574 
- 2283      3200
- 2284              	.LASF19:
- 2285 04d1 636F6D6D 		.ascii	"command\000"
- 2285      616E6400 
+ 2273      65727275 
+ 2273      70745F45 
+ 2273      6E61626C 
+ 2274              	.LASF53:
+ 2275 0425 42797465 		.ascii	"ByteCounter_ReadCounter\000"
+ 2275      436F756E 
+ 2275      7465725F 
+ 2275      52656164 
+ 2275      436F756E 
+ 2276              	.LASF43:
+ 2277 043d 50747249 		.ascii	"PtrInput1\000"
+ 2277      6E707574 
+ 2277      3100
+ 2278              	.LASF44:
+ 2279 0447 50747249 		.ascii	"PtrInput2\000"
+ 2279      6E707574 
+ 2279      3200
+ 2280              	.LASF19:
+ 2281 0451 636F6D6D 		.ascii	"command\000"
+ 2281      616E6400 
+ 2282              	.LASF74:
+ 2283 0459 433A5C55 		.ascii	"C:\\Users\\shawn\\Desktop\\Real-Time-Estimation-and"
+ 2283      73657273 
+ 2283      5C736861 
+ 2283      776E5C44 
+ 2283      65736B74 
+ 2284 0488 2D436F6E 		.ascii	"-Control-For-Satellite-Orbit-Stabilization\\PSOC Em"
+ 2284      74726F6C 
+ 2284      2D466F72 
+ 2284      2D536174 
+ 2284      656C6C69 
+ 2285 04ba 62656464 		.ascii	"bedded Code\\CommandInterpreter.cydsn\000"
+ 2285      65642043 
+ 2285      6F64655C 
+ 2285      436F6D6D 
+ 2285      616E6449 
  2286              	.LASF23:
- 2287 04d9 436F6D6D 		.ascii	"CommandReceived\000"
+ 2287 04df 436F6D6D 		.ascii	"CommandReceived\000"
  2287      616E6452 
  2287      65636569 
  2287      76656400 
  2288              	.LASF60:
- 2289 04e9 42797465 		.ascii	"ByteCountReset_Write\000"
+ 2289 04ef 42797465 		.ascii	"ByteCountReset_Write\000"
  2289      436F756E 
  2289      74526573 
  2289      65745F57 
  2289      72697465 
  2290              	.LASF35:
- 2291 04fe 43757272 		.ascii	"CurrTime\000"
+ 2291 0504 43757272 		.ascii	"CurrTime\000"
  2291      54696D65 
  2291      00
  2292              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

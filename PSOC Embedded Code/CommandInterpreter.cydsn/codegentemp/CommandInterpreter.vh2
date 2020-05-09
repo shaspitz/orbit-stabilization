@@ -2,7 +2,7 @@
 --	Conversion of CommandInterpreter.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Sat May 09 14:09:10 2020
+--	Sat May 09 15:42:15 2020
 --
 
 USE cypress.cypress.all;

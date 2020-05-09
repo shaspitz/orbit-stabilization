@@ -1,5 +1,5 @@
--- Project:   C:\Users\shawn\Desktop\PSOC testing\CommandInterpreter.cydsn\CommandInterpreter.cyprj
--- Generated: 05/09/2020 14:09:14
+-- Project:   C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC Embedded Code\CommandInterpreter.cydsn\CommandInterpreter.cyprj
+-- Generated: 05/09/2020 15:42:19
 -- PSoC Creator  4.2
 
 ENTITY CommandInterpreter IS

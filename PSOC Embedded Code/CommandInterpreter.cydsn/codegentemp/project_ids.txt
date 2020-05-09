@@ -1,6 +1,6 @@
-C:\Users\shawn\Desktop\PSOC testing\CommandInterpreter.cydsn\CommandInterpreter.cyprj|c0d1b557-485b-45a0-a9c1-b638efc03650
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|2654d961-078b-4916-9af1-c1bccd0f25ed
-C:\Users\shawn\OneDrive\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|7176a732-9b8d-4916-9387-8c1a3f534397
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|52605a13-d16d-4d3d-8db5-23c4ffa6f65f
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|becd633b-f19b-4b58-b76e-dad6e867a908
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|7e3101e4-ec9d-40af-a313-30df924abfc2
+C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC Embedded Code\CommandInterpreter.cydsn\CommandInterpreter.cyprj|72210912-b054-4077-a79b-a87d7f4ddb26
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|4adf8c1c-6404-45e5-85f9-c075f1a347c7
+C:\Users\shawn\OneDrive\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|fef8cad9-b995-46d7-bf41-280e0289a3c7
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|cfd3f758-60ac-45bf-8f45-533802bb3cb4
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|2ec85a98-708e-4d16-b4ef-8247fb8eba4a
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|0043938e-5e98-4b4a-bd83-3cf1195ad637
