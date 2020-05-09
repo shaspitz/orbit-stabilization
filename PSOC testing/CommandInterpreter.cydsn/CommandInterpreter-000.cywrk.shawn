@@ -18,7 +18,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="CommandInterpreter-000\CommandInterpreter\TopDesign">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="CommandInterpreter-000\CommandInterpreter\Source Files\main.c">
 <ExpandedNodeIds>
 <v>CommandInterpreter-000</v>
 <v>CommandInterpreter-000\CommandInterpreter</v>
@@ -124,46 +124,6 @@
 <VisibleNodeIds>
 <v>CommandInterpreter-000</v>
 <v>CommandInterpreter-000\CommandInterpreter</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\ByteCounter.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\ByteCounter_PM.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\ByteCountReset.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\ByteCountReset_PM.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\ByteReceived.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\CommandReceived.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\LEDDrive.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\LEDDrive_PM.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer_1.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer_1_PM.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\TimerInterrupt.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\UART1.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\UART1_BOOT.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\UART1_INT.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\UART1_IntClock.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\UART1_PM.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\UARTReset.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\Listing Files\UARTReset_PM.lst</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\CommandInterpreter.elf</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\CommandInterpreter.hex</v>
-<v>CommandInterpreter-000\CommandInterpreter\CortexM3\ARM_GCC_541\Debug\CommandInterpreter.map</v>
-<v>CommandInterpreter-000\CommandInterpreter\CommandInterpreter.gpdsc</v>
 <v>CommandInterpreter-000\CommandInterpreter\CommandInterpreter.rpt</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
@@ -229,7 +189,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1006, 634" SelectedTabbedMdiWindow="0033b509-d729-4726-b4d4-6132aaff6d16"><DocumentWindow Key="C:\Users\shawn\Desktop\Real-Time-Estimation-and-Control-For-Satellite-Orbit-Stabilization\PSOC testing\CommandInterpreter.cydsn\main.c" Guid="0033b509-d729-4726-b4d4-6132aaff6d16" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="91b4f616-c139-41c1-a378-3389507a0e75" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1006, 634" SelectedTabbedMdiWindow="84155826-ac75-427b-b270-7c8f22531cd7"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="91b4f616-c139-41c1-a378-3389507a0e75" /><DocumentWindow Key="C:\Users\shawn\Desktop\PSOC testing\CommandInterpreter.cydsn\main.c" Guid="84155826-ac75-427b-b270-7c8f22531cd7" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
