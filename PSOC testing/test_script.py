@@ -183,10 +183,10 @@ psoc.start_psoc()
 input_1, input_2 = psoc.request_input()
 print(input_1, input_2)
 
-psoc.send_measurement(np.array([[235234.032],
-                                [0.234625],
-                                [0.000000312315],
-                                [0.00000000000000003123]]))
+psoc.send_measurement(np.array([[50.2],
+                                [5.234625],
+                                [42.63],
+                                [42.63]]))
 
 input_1, input_2 = psoc.request_input()
 print(input_1, input_2)
@@ -194,6 +194,13 @@ print(input_1, input_2)
 input_1, input_2 = psoc.request_input()
 print(input_1, input_2)
 
-# psoc_interface.send_sim_env_info(1, 5.6*np.ones((4, 4)))
+Finf=np.array([[1.0, 2.0, 3.0, 4.0],
+               [5.0, 6.0, 7.0, 8.0]])
 
+x_est = np.array([[50.2],
+          [5.234625],
+          [42.63],
+          [42.63]])
+
+print(-Finf @ x_est)
 

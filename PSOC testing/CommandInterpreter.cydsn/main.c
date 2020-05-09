@@ -274,9 +274,18 @@ int main(void)
                         
                         // Values of those doubles (will be LQG eventually)
                         
-                        // Set input 1 to Kinf[3][3] for testing
-                        Input1 = CurrMeas[0];
-                        Input2 = CurrMeas[3];
+                        /*
+                        Steady state LQR feedback policy: u_opt = -Finf * x_est.
+                        Where Finf is a 2x4 matrix and x_est is a 4x1 column vector.
+                        We assume perfect state knowledge, ie. our latest measurement
+                        is our estimate of the state
+                        */
+
+                        Input1 = -(Finf[0][0] * CurrMeas[0] + Finf[0][1] * CurrMeas[1]
+                        + Finf[0][2] * CurrMeas[2] + Finf[0][3] * CurrMeas[3]);
+                        
+                        Input2 = -(Finf[1][0] * CurrMeas[0] + Finf[1][1] * CurrMeas[1]
+                        + Finf[1][2] * CurrMeas[2] + Finf[1][3] * CurrMeas[3]);
                         
                         // Set pointers for sending doubles by byte
                         PtrInput1 = (uint8*) &Input1;
