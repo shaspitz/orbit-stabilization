@@ -73,10 +73,10 @@ class sim_env:
     Noise is assumed unbiased and Gaussian. Below the system's process noise
     covariance matrix is defined.
     '''
-    V = np.array([[10e8/2, 0, 0, 0],
-                  [0, 10e-3, 0, 0],
-                  [0, 0, 10e-10, 0],
-                  [0, 0, 0, 10e-20]])
+    V = np.array([[5e7, 0, 0, 0],
+                  [0, 10, 0, 0],
+                  [0, 0, 10e-5, 0],
+                  [0, 0, 0, 10e-10]])
 
     '''
     Measurement noise covariance matrix is define below. The measurement
@@ -582,7 +582,7 @@ def main():
 
     else:
         # Analysis, no serial interface
-        t_end = 10e4/2  # [sec]
+        t_end = 26e4/2  # [sec]
         sim_steps = 1000
         t_sim = np.linspace(0, t_end, sim_steps)
         Ts = t_sim[-1] / len(t_sim)
