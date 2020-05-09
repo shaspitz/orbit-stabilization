@@ -21,6 +21,8 @@ uint8 TransmitBuffer[130];
 // Timing
 uint32 Time = 0; //ms
 uint32 TimeStart; //ms
+uint32 CurrTime; //ms
+uint8 *PtrTime;
 
 // Initialize parameters for various commands
 double *PtrKinf;
@@ -201,6 +203,12 @@ int main(void)
                     PtrKinf = (double*) &Command_Packet.buffer[120];
                     Kinf[i*3][j*3] = *PtrKinf;
                     
+                    // Relay command that Kinf was received
+                    Transmit_Packet.command = Command_Packet.command;
+                    TransmitBuffer[1] = Transmit_Packet.command;
+                    Transmit_Packet.packet_size = 2;
+                    TransmitBuffer[0] = Transmit_Packet.packet_size;
+                
                     CommandReady = 0;
                     break;
                 
@@ -238,6 +246,12 @@ int main(void)
                     PtrFinf = (double*) &Command_Packet.buffer[1 + 32*1 + 8*3];
                     Finf[1][3] = *PtrFinf;
                     
+                    // Relay command that Ts and Finf was received
+                    Transmit_Packet.command = Command_Packet.command;
+                    TransmitBuffer[1] = Transmit_Packet.command;
+                    Transmit_Packet.packet_size = 2;
+                    TransmitBuffer[0] = Transmit_Packet.packet_size;
+                    
                     CommandReady = 0;
                     break;
                 
@@ -249,11 +263,17 @@ int main(void)
                         ActiveFlag = TRUE;
                         CommandReady = 0;
                         
-                        // Relay command that timing has started
+                        // Relay command that timing is starting now
                         Transmit_Packet.command = Command_Packet.command;
                         TransmitBuffer[1] = Transmit_Packet.command;
-                        
-                        // Set packet size for this relay
+                        Transmit_Packet.packet_size = 2;
+                        TransmitBuffer[0] = Transmit_Packet.packet_size;
+                    }
+                    else
+                    {
+                        // Relay command that timing has already started
+                        Transmit_Packet.command = 44;
+                        TransmitBuffer[1] = Transmit_Packet.command;
                         Transmit_Packet.packet_size = 2;
                         TransmitBuffer[0] = Transmit_Packet.packet_size;
                     }
@@ -268,8 +288,8 @@ int main(void)
                         Transmit_Packet.command = Command_Packet.command;
                         TransmitBuffer[1] = Transmit_Packet.command;
                         
-                        // Set packet size for sending inputs
-                        Transmit_Packet.packet_size = 18;
+                        // Set packet size for sending inputs and current time
+                        Transmit_Packet.packet_size = 22;
                         TransmitBuffer[0] = Transmit_Packet.packet_size;
                         
                         // Values of those doubles (will be LQG eventually)
@@ -287,9 +307,12 @@ int main(void)
                         Input2 = -(Finf[1][0] * CurrMeas[0] + Finf[1][1] * CurrMeas[1]
                         + Finf[1][2] * CurrMeas[2] + Finf[1][3] * CurrMeas[3]);
                         
-                        // Set pointers for sending doubles by byte
+                        CurrTime = Time - TimeStart;
+                        
+                        // Set pointers for sending inputs and psoc time by byte
                         PtrInput1 = (uint8*) &Input1;
                         PtrInput2 = (uint8*) &Input2;
+                        PtrTime = (uint8*) &CurrTime;
                         
                         /*
                         Load bytes representing doubles into transmit buffer via
@@ -304,6 +327,13 @@ int main(void)
                             Transmit_Packet.buffer[i+2+8] = *PtrInput2;
                             TransmitBuffer[i+2+8] = Transmit_Packet.buffer[i+2+8];
                             ++PtrInput2;
+                        }
+                        
+                        for (i=0; i < 4; ++i)
+                        {
+                            Transmit_Packet.buffer[i+2+16] = *PtrTime;
+                            TransmitBuffer[i+2+16] = Transmit_Packet.buffer[i+2+16];
+                            ++PtrTime;
                         }
                     }
                     CommandReady = 0;
@@ -340,8 +370,6 @@ int main(void)
                         // Relay command that measurements were received
                         Transmit_Packet.command = Command_Packet.command;
                         TransmitBuffer[1] = Transmit_Packet.command;
-                        
-                        // Set packet size for this relay
                         Transmit_Packet.packet_size = 2;
                         TransmitBuffer[0] = Transmit_Packet.packet_size;
                     }

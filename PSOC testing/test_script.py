@@ -64,6 +64,13 @@ class psoc_interface:
         transmit_packet += buffer
         self.ser.write(transmit_packet)
 
+        # Receive relayed byte array and confirm Kinf was receieved
+        packet_size_return = int.from_bytes(self.ser.read(), byteorder='little')
+        command_return = int.from_bytes(self.ser.read(), byteorder='little')
+
+        if packet_size_return == 2 and command_return == command:
+            print('Kinf received')
+
         # Construct packet containing Ts and Finf
         command = 3
 
@@ -79,6 +86,13 @@ class psoc_interface:
         transmit_packet += bytes([command])
         transmit_packet += buffer
         self.ser.write(transmit_packet)
+
+        # Receive relayed byte array and confirm Ts and Finf were receieved
+        packet_size_return = int.from_bytes(self.ser.read(), byteorder='little')
+        command_return = int.from_bytes(self.ser.read(), byteorder='little')
+
+        if packet_size_return == 2 and command_return == command:
+            print('Ts and Finf received')
 
     def start_psoc(self):
         '''
@@ -100,6 +114,9 @@ class psoc_interface:
         if packet_size_return == packet_size and command_return == command:
             print('psoc timing started')
 
+        elif packet_size_return == packet_size and command_return == 44:
+            print('psoc timing already started, possible error')
+
     def request_input(self):
         '''
         Receives two double precision floats from PSOC
@@ -114,18 +131,21 @@ class psoc_interface:
         self.ser.write(transmit_packet)
 
         # Receive byte array with inputs
-        packet_size_return = int.from_bytes(self.ser.read(), byteorder='little')
+        packet_size_return = int.from_bytes(self.ser.read(),
+                                            byteorder='little')
         command_return = int.from_bytes(self.ser.read(), byteorder='little')
 
-        if packet_size_return == packet_size+16 and command_return == command:
+        if packet_size_return == packet_size+20 and command_return == command:
             buffer = self.ser.read(packet_size_return-2)
             input_1 = struct.unpack('d', buffer[:8])[0]
-            input_2 = struct.unpack('d', buffer[8:])[0]
+            input_2 = struct.unpack('d', buffer[8:16])[0]
+            psoc_time = struct.unpack('I', buffer[16:20])[0]
 
-            return input_1, input_2
+            return input_1, input_2, psoc_time
         else:
             print('Error! Printing incorrect command or packet size.')
-            print('Command:', command_return, 'Packet size:', packet_size_return)
+            print('Command:', command_return, 'Packet size:',
+                  packet_size_return)
 
     def send_measurement(self, meas):
         '''
@@ -154,7 +174,9 @@ class psoc_interface:
             print('Measurement processed by psoc')
         else:
             print('Error! Printing incorrect command or packet size.')
-            print('Command:', command_return, 'Packet size:', packet_size_return)
+            print('Command:', command_return, 'Packet size:',
+                  packet_size_return)
+
 
 # testing
 
@@ -180,19 +202,19 @@ psoc.send_sim_env_info(Kinf=np.array([[1.0, 2.0, 3.0, 4.0],
                                                      [5.0, 6.0, 7.0, 8.0]]))
 psoc.start_psoc()
 
-input_1, input_2 = psoc.request_input()
-print(input_1, input_2)
+input_1, input_2, psoc_time = psoc.request_input()
+print(input_1, input_2, psoc_time)
 
 psoc.send_measurement(np.array([[50.2],
                                 [5.234625],
                                 [42.63],
                                 [42.63]]))
 
-input_1, input_2 = psoc.request_input()
-print(input_1, input_2)
+input_1, input_2, psoc_time = psoc.request_input()
+print(input_1, input_2, psoc_time)
 
-input_1, input_2 = psoc.request_input()
-print(input_1, input_2)
+input_1, input_2, psoc_time = psoc.request_input()
+print(input_1, input_2, psoc_time)
 
 Finf=np.array([[1.0, 2.0, 3.0, 4.0],
                [5.0, 6.0, 7.0, 8.0]])
