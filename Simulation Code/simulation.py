@@ -506,10 +506,10 @@ class gui:
         self.data_label.pack(side=BOTTOM)
         self.data_label.configure(background="forestgreen", width=1000)
 
-        # Set arrays for no control (from PSOC) and equilibrium orbits
+        # Init arrays for plotting
         x, y = self.sim_env.convert_cartesian(self.sim_env.gui_state)
-        self.x_cartesian_LQG = np.array([x])
-        self.y_cartesian_LQG = np.array([y])
+        self.x_input = np.array([x])
+        self.y_input = np.array([y])
 
         # Add in label with time step
         self.timestep_label = Label(self.master, text="Time Elapsed Since Entering Orbit:")
@@ -527,27 +527,29 @@ class gui:
 
         # Figure 1
         self.fig1 = plt.Figure()
-        self.a = self.fig1.add_subplot(1,1,1)
+        self.a = self.fig1.add_subplot(1, 1, 1)
         circle = plt.Circle((0, 0), self.sim_env.R, color='b')
         self.a.add_artist(circle)
-        self.a.plot(self.x_eq, self.y_eq, linewidth=1, color='r', linestyle='--')
+        self.a.plot(self.x_eq, self.y_eq, linewidth=1, color='r',
+                    linestyle='--')
         self.a.set_title('Satellite Path With Control Input')
 
         # Figure 2
         self.fig2 = plt.Figure()
-        self.b = self.fig2.add_subplot(1,1,1)
+        self.b = self.fig2.add_subplot(1, 1, 1)
         circle = plt.Circle((0, 0), self.sim_env.R, color='b')
         self.b.add_artist(circle)
-        self.b.plot(self.x_eq, self.y_eq, linewidth=1, color='r', linestyle='--')
+        self.b.plot(self.x_eq, self.y_eq, linewidth=1, color='r',
+                    linestyle='--')
         self.b.set_title('Satellite Path Without Control Input')
 
         # Init plots
-        gui.canvasa = FigureCanvasTkAgg(self.fig1,master=self.master)
-        gui.canvasa.get_tk_widget().pack(side=LEFT)
-        gui.canvasb = FigureCanvasTkAgg(self.fig2,master=self.master)
-        gui.canvasb.get_tk_widget().pack(side=RIGHT)
-        gui.canvasa.draw()
-        gui.canvasb.draw()
+        gui.canvas_a = FigureCanvasTkAgg(self.fig1, master=self.master)
+        gui.canvas_a.get_tk_widget().pack(side=LEFT)
+        gui.canvas_b = FigureCanvasTkAgg(self.fig2, master=self.master)
+        gui.canvas_b.get_tk_widget().pack(side=RIGHT)
+        gui.canvas_a.draw()
+        gui.canvas_b.draw()
 
     def updateGraphs(self):
 
@@ -559,26 +561,28 @@ class gui:
         x, y = self.sim_env.convert_cartesian(self.sim_env.gui_state)
 
         # append data to array if new solution exists
-        if x != self.x_cartesian_LQG[-1] and y != self.y_cartesian_LQG[-1]:
-            self.x_cartesian_LQG = np.append(self.x_cartesian_LQG, x)
-            self.y_cartesian_LQG = np.append(self.y_cartesian_LQG, y)
+        if x != self.x_input[-1] and y != self.y_input[-1]:
+            self.x_input = np.append(self.x_input, x)
+            self.y_input = np.append(self.y_input, y)
 
         # Update plots
         self.a.set_xlim(-2*(10**7), 4.5*(10**7))
         self.a.set_ylim(-2*(10**7), 4.5*(10**7))
         self.a.set_aspect('equal', adjustable='box')
-        self.a.plot(self.x_cartesian_LQG, self.y_cartesian_LQG, linewidth=3, color='g', linestyle='--')
+        self.a.plot(self.x_input, self.y_input, linewidth=3,
+                    color='g', linestyle='--')
 
         self.b.set_xlim(-2*(10**7), 4.5*(10**7))
         self.b.set_ylim(-2*(10**7), 4.5*(10**7))
         self.b.set_aspect('equal', adjustable='box')
-        #self.b.plot(self.x_cartesian_LQG, self.y_cartesian_LQG, linewidth=3, color='g', linestyle='--')
+#         self.b.plot(self.x_cartesian_LQG, self.y_cartesian_LQG, linewidth=3,
+#                     color='g', linestyle='--')
 
     # Stop Button
     def _quit(self):
         '''
         Stops mainloop. This is necessary on Windows to prevent
-        Fatal Python Error: PyEval_RestoreThread: NULL tstate
+        Fatal Python Error: PyEval_RestoreThread: NULL state
 
         '''
         self.master.quit()
@@ -627,22 +631,17 @@ def main():
         executed
         '''
 
-        print('Entering loop')
+        print('Entering main loop')
         while True:
+            # Threading
             schedule.run_pending()
-            # Implement ping-pong Queue object here to handle inputs?
 
-            # These two lines are the non-blocking versions of root.mainloop()
+            # GUI
             root.update_idletasks()
             root.update()
-
-            # Update GUI displays
-            #gui_instance.update_state_display()
             gui_instance.updateGraphs()
-            gui.canvasa.draw()
-            gui.canvasb.draw()
-#             #add pause for graphics
-#             plt.pause(0.005)
+            gui.canvas_a.draw()
+            gui.canvas_b.draw()
 
     else:
         # Analysis, no serial interface
