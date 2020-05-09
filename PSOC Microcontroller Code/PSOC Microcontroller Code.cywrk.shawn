@@ -90,9 +90,6 @@
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\LEDDrive.lst</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\LEDDrive_PM.lst</v>
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer_1.lst</v>
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer_1_PM.lst</v>
@@ -127,9 +124,6 @@
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\LEDDrive.lst</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\LEDDrive_PM.lst</v>
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer_1.lst</v>
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer_1_PM.lst</v>
@@ -164,7 +158,6 @@
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\cy_isr_v1_70.pdf</v>
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\cy_pins_v2_20</v>
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CyControlReg_v1_80.pdf</v>
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\Timer_v2_80.pdf</v>
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\UART_v2_50.pdf</v>
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\ZeroTerminal.pdf</v>
@@ -180,7 +173,6 @@
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\cy_isr_v1_70.pdf</v>
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\cy_pins_v2_20</v>
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>PSOC Microcontroller Code\PSOC Microcontroller Code\CyControlReg_v1_80.pdf</v>
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\Timer_v2_80.pdf</v>
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\UART_v2_50.pdf</v>
 <v>PSOC Microcontroller Code\PSOC Microcontroller Code\ZeroTerminal.pdf</v>
