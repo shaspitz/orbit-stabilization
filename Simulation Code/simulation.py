@@ -64,6 +64,7 @@ class sim_env:
 
     # Orbit turn rate for linearization [rad/s]
     w0 = 7.2910**-5
+#     w0 = 4*10**-2
 
     # Orbital period [s]
     t_orbital = 2*np.pi/w0
@@ -78,7 +79,7 @@ class sim_env:
     Noise is assumed unbiased and Gaussian. Below the system's process noise
     covariance matrix is defined.
     '''
-    V = np.array([[5e7, 0, 0, 0],
+    V = np.array([[5e8, 0, 0, 0],
                   [0, 10e-3, 0, 0],
                   [0, 0, 10e-10, 0],
                   [0, 0, 0, 10e-20]])
@@ -113,8 +114,11 @@ class sim_env:
         self.t_instance = 0
         self.x0 = x0
         self.x_step = x0
+        self.x_step_no_input = x0
+        self.gui_state = x0
+        self.gui_state_no_input = x0
         self.Ts = Ts
-        self.u = np.zeros((2, 1))  # Change later when LQG implemented
+        self.u = np.zeros((2, 1))  # Change later when LQG implemented?
 
         # A and B matricies for continuous system, dx/dt = Ax + Bu + v(k)
         self.A_continuous = np.array([[0, 1, 0, 0],
@@ -152,11 +156,11 @@ class sim_env:
             self.x_est = np.array([[self.x0[i]] for i in range(len(self.x0))])
 
             # These need tuning
-            self.R_m = 25e12*np.eye(2)
-            self.Q_m = 25e4*np.array([[1, 0, 0, 0],
-                                    [0, 1, 0, 0],
-                                    [0, 0, 1, 0],
-                                    [0, 0, 0, 1]])
+            self.R_m = np.eye(2)
+            self.Q_m = np.array([[1, 0, 0, 0],
+                                [0, 1, 0, 0],
+                                [0, 0, 1, 0],
+                                [0, 0, 0, 1]])
             self.Pinf = solve_discrete_are(
                 self.A_discrete.T, self.H.T, sim_env.V, sim_env.W)
             self.Kinf = self.Pinf @ (self.H.T) @ (np.linalg.inv(
@@ -277,10 +281,6 @@ class sim_env:
         additive ZOH noise, and discrete inputs.
         Instance variable Ts is simulation length and ZOH process noise length
         '''
-        # Base case: skip first sim step for hardware in loop
-#         if self.hardware_in_loop and self.first_sim_step:
-#             self.first_sim_step = False
-#             return 0
 
         if self.hardware_in_loop:
             # Immediately check if we received a new input from PSOC
@@ -296,15 +296,24 @@ class sim_env:
                              self.x_step, method='RK45',
                              t_eval=t_sim, args=(self.u, ))
 
+        # Evaluate same solution with no input
+        step_sol_no_input = solve_ivp(self.lin_dyn_cont,
+                                      [t_sim[0], t_sim[-1:]],
+                                      self.x_step_no_input, method='RK45',
+                                      t_eval=t_sim, args=(np.zeros((2, 1)), ))
+
         # Add process noise to step_sol
         v = np.array([np.random.normal(0, np.sqrt(sim_env.V[0][0])),
                       np.random.normal(0, np.sqrt(sim_env.V[1][1])),
                       np.random.normal(0, np.sqrt(sim_env.V[2][2])),
                       np.random.normal(0, np.sqrt(sim_env.V[3][3]))])
         step_sol.y[:, -1] += v
+        step_sol_no_input.y[:, -1] += v
 
         # reset IC for next step (no equilibrium added)
         self.x_step = np.array([sol[-1] for sol in step_sol.y])
+        self.x_step_no_input = np.array([sol[-1]
+                                         for sol in step_sol_no_input.y])
 
         # propagate instance time forward from step simulated time
         self.t_instance += t_sim[-1]
@@ -313,14 +322,19 @@ class sim_env:
         for i in range(len(step_sol.y)):
             step_sol.y[i][-1] = step_sol.y[i][-1] + self.equil(
                 self.t_instance)[i]
+        for i in range(len(step_sol_no_input.y)):
+            step_sol_no_input.y[i][-1] = step_sol_no_input.y[i][-1] + self.equil(
+                self.t_instance)[i]
 
         # Update last input
         self.last_input = self.u
 
         if self.hardware_in_loop:
-            # Real time visualization (eventually tkinter GUI)
-            print('Simulation and input: ', [sol[-1] for sol in step_sol.y],
-                  self.u, 'simulation time: ', self.t_instance)
+            # Store state for GUI
+            self.gui_state = step_sol.y[:, -1]
+            self.gui_state_no_input = step_sol_no_input.y[:, -1]
+            print('input: ', self.gui_state)
+            print('no input: ', self.gui_state_no_input)
         else:
             return step_sol.y[:, -1]
 
@@ -395,33 +409,6 @@ class sim_env:
         '''
         self.ser.write(str.encode('s'))
 
-    def send_lqg_command(self):
-        '''
-        Send LQG matricies, Kinf and Finf to the PSOC for C implementation
-        '''
-        self.ser.write(str.encode('l'))
-        # Perhaps restructure commands to have a packet attached to their ends
-
-    def send_measurement(self):
-        '''
-        Send simulated measurement to PSOC for LQG feedback computation
-        Measurements are rounded to 10 significant figures
-        '''
-#         self.ser.write(str.encode('m'))
-#         zk = self.gen_measurement()
-#         zk_str = ''
-#         for i in range(len(zk)):
-#             zk_str += str(sim_env.round_sig_fig(zk[i][0], sig_fig=10))
-#             if i < len(zk) - 1:
-#                 zk_str += ','
-#
-#         print('Measurement string sent to psoc: ', zk_str)
-#         self.ser.write(zk_str.encode('ascii'))
-#
-#         Read relayed measurement
-#         s = self.ser.readline().decode('ascii')
-#         print('Relayed meas: ', s)
-
     def scheduler_function(self):
         '''
         Command scheduler function that gets called
@@ -434,7 +421,7 @@ class sim_env:
         time.sleep(0.8)
 
         # Send simulated measurement to PSOC for LQG computation
-        self.send_measurement()
+#         self.send_measurement()
 
         # Sleep for 0.1 seconds before requesting input
         time.sleep(0.1)
@@ -483,7 +470,6 @@ class sim_env:
 #             sys_sol[2][i]) for i in range(len(sys_sol[0]))]
         x_sol = sys_sol[0]*np.cos(sys_sol[2])
         y_sol = sys_sol[0]*np.sin(sys_sol[2])
-        
 
         return x_sol, y_sol
 
@@ -500,53 +486,54 @@ class sim_env:
 class gui:
 
     def __init__(self, master, sim_env):
-        #set up class parameters
-        self.master=master
+        # Set up class parameters
+        self.master = master
         self.sim_env = sim_env
-        #self.root = root
-        #add in overall title
-        self.master.wm_title("Real Time Satellite Visualization")
-        
-        # Initialize state display
-        self.state_display = np.transpose(np.array([state for state in sim_env.x0]))
-        
-        self.name_label=Label(self.master, text="Incoming States")
-        self.name_label.pack(side=BOTTOM)
-        self.name_label.configure(background="forestgreen",width=1000)
-        self.values_label=Label(self.master, text='R                        Rdot                       Phi                      Phidot')
-        self.values_label.pack(side=BOTTOM)
-        self.values_label.configure(background="forestgreen",width=1000)
-        self.data_label=Label(self.master, text=str(self.state_display))
-        self.data_label.pack(side=BOTTOM)
-        self.data_label.configure(background="forestgreen",width=1000)
 
-        #set arrays for no control (from PSOC) and equilibrium orbits
+        # GUI title
+        self.master.wm_title("Real Time Satellite Visualization")
+
+        # Initialize state display
+        self.state_display = sim_env.x0
+
+        self.name_label = Label(self.master, text="Incoming States")
+        self.name_label.pack(side=BOTTOM)
+        self.name_label.configure(background="forestgreen", width=1000)
+        self.values_label = Label(self.master, text='R                        Rdot                       Phi                      Phidot')
+        self.values_label.pack(side=BOTTOM)
+        self.values_label.configure(background="forestgreen", width=1000)
+        self.data_label = Label(self.master, text=str(self.state_display))
+        self.data_label.pack(side=BOTTOM)
+        self.data_label.configure(background="forestgreen", width=1000)
+
+        # Set arrays for no control (from PSOC) and equilibrium orbits
         self.state_sys = np.array([state for state in self.sim_env.x0])
-        self.x_cartesian_LQG = np.zeros((2,1))
-        self.y_cartesian_LQG= np.zeros((2,1))
-        
-        #add in label with timestep
-        self.timestep=0
-        self.timestep_label = Label(self.master,text="Time Elapsed Since Entering Orbit:")
+        self.x_cartesian_LQG = np.zeros((2, 1))
+        self.y_cartesian_LQG = np.zeros((2, 1))
+
+        # Add in label with time step
+        # Shawn comment: what is this time step???
+        self.timestep = 0
+        self.timestep_label = Label(self.master, text="Time Elapsed Since Entering Orbit:")
         self.timestep_label.pack(side=TOP)
-        self.time_label = Label(self.master,text=str(self.timestep))
+        self.time_label = Label(self.master, text=str(self.timestep))
         self.time_label.pack(side=TOP)
-        
-        #unsure if should be using full_sim_discrete here?? please clarify function
+
+        # Equilibrium orbit
         self.eq_orbit = self.sim_env.equil_orbit(1000)
         self.x_eq, self.y_eq = self.sim_env.convert_cartesian(self.eq_orbit)
-        
-        #add in "STOP" button to terminate process
+
+        # "STOP" button to terminate process
         button = tkinter.Button(master=self.master, text="EXIT ORBIT", command=self.master.destroy)
         button.pack(side=TOP)
-        
+
         #set up figure for gui
         self.fig1 = plt.Figure()
         self.a = self.fig1.add_subplot(1,1,1)
         circle = plt.Circle((0, 0), self.sim_env.R, color='b')
         self.a.add_artist(circle)
         self.a.set_title('Satellite Path With Control Input')
-        
+
         #set up figure for gui
         self.fig2 = plt.Figure()
         self.b = self.fig2.add_subplot(1,1,1)
@@ -561,13 +548,13 @@ class gui:
         gui.canvasb.get_tk_widget().pack(side=RIGHT)
         gui.canvasa.draw()
         gui.canvasb.draw()
-        
-        
+
+
     def updateGraphs(self):
-        
-        #update state display window
-        self.data_label['text']=self.sim_env.x_step
-            
+
+        # Update state display window
+        self.data_label['text'] = self.sim_env.x_step
+
         #calculate the updated equilibrium orbit position and convert to cartesian
         self.timestep+=1
         #timestep is moving too fast so only update every 5 timesteps
@@ -579,24 +566,24 @@ class gui:
         #print(self.state_sys)
         #add equilibrium orbit to measurement
         self.state_sys+=self.sim_env.equil(self.timestep)
-        print(self.state_sys)
-        
+#         print(self.state_sys)
+
         #convert polar to cartestian for plotting
         x,y=self.sim_env.convert_cartesian(self.state_sys)
-        
+
         # append data to array, and then remove the old items
         self.x_cartesian_LQG = np.append(self.x_cartesian_LQG, x)
-        self.x_cartesian_LQG = self.x_cartesian_LQG[1:] 
-        
+        self.x_cartesian_LQG = self.x_cartesian_LQG[1:]
+
         self.y_cartesian_LQG = np.append(self.y_cartesian_LQG, y)
-        self.y_cartesian_LQG = self.y_cartesian_LQG[1:] 
-        
+        self.y_cartesian_LQG = self.y_cartesian_LQG[1:]
+
 #         self.x_cartesian = np.append(self.x_cartesian, x)
 #         self.x_cartesian = self.x_cartesian[len(x):] 
 # 
 #         self.y_cartesian = np.append(self.y_cartesian, y)
 #         self.y_cartesian = self.y_cartesian[len(y):] 
-        
+
 
         #update the gui plot 
         self.a.set_xlim(-2*(10**7),4.5*(10**7))
@@ -604,7 +591,7 @@ class gui:
         self.a.set_aspect('equal',adjustable='box')
         self.a.plot(self.x_cartesian_LQG, self.y_cartesian_LQG, linewidth=3, color='g', linestyle='--')
         self.a.plot(self.x_eq, self.y_eq, linewidth=1, color='r', linestyle='--')
-        
+
         self.b.set_xlim(-2*(10**7),4.5*(10**7))
         self.b.set_ylim(-2*(10**7),4.5*(10**7))
         self.b.set_aspect('equal',adjustable='box')
@@ -616,7 +603,7 @@ class gui:
         self.master.quit()     # stops mainloop
         self.master.destroy()  # this is necessary on Windows to prevent
                     # Fatal Python Error: PyEval_RestoreThread: NULL tstate
-                    
+
 
 def main():
 
@@ -633,6 +620,7 @@ def main():
 
         # Simulation environment instantiation
         sim_env_instance = sim_env(hardware_in_loop, lqg_active, x0, Ts)
+
         # GUI instantiation
         root = tk.Tk()
         gui_instance = gui(root, sim_env_instance)
@@ -659,7 +647,7 @@ def main():
         executed
         '''
 
-        print('Entering loop') 
+        print('Entering loop')
         while True:
             schedule.run_pending()
             # Implement ping-pong Queue object here to handle inputs?
@@ -667,14 +655,14 @@ def main():
             # These two lines are the non-blocking versions of root.mainloop()
             root.update_idletasks()
             root.update()
-  
+
             # Update GUI displays
             #gui_instance.update_state_display()
             gui_instance.updateGraphs()
             gui.canvasa.draw()
             gui.canvasb.draw()
-            #add pause for graphics
-            plt.pause(0.005)
+#             #add pause for graphics
+#             plt.pause(0.005)
 
     else:
         # Analysis, no serial interface
