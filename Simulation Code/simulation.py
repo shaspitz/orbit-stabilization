@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import schedule
 import threading
+import time
 import serial
 from scipy.integrate import solve_ivp
 from scipy.linalg import solve_discrete_are
@@ -92,6 +93,12 @@ class sim_env:
                   [0, 0, 10e-5, 0],
                   [0, 0, 0, 10e-10]])
 
+    # Uncomment for more realistic noise
+#     W = np.array([[10e2, 0, 0, 0],
+#                   [0, 10e-8, 0, 0],
+#                   [0, 0, 10e-18, 0],
+#                   [0, 0, 0, 10e-25]])
+
     H = np.array([[1, 0, 0, 0],
                   [0, 1, 0, 0],
                   [0, 0, 1, 0],
@@ -163,6 +170,10 @@ class sim_env:
         self.hardware_in_loop = hardware_in_loop
 
         if self.hardware_in_loop:
+
+            # Variable for checking if PSOC misses input timing
+            self.last_input = None
+
             # Serial configuration
             self.ser = serial.Serial(port='COM5', baudrate=115200, parity='N')
             if self.ser.is_open:
@@ -223,13 +234,14 @@ class sim_env:
             zk = self.gen_measurement()
 
             # Kalman filter estimate
-            self.x_est = self.A_discrete @ self.x_est - self.B_discrete @ self.Finf @ self.x_est + self.Kinf @ zk
+            self.x_est = (self.A_discrete @ self.x_est -
+                          self.B_discrete @ self.Finf @ self.x_est + self.Kinf @ zk)
 
             # Uncomment this if you want LQR only (perfect state knowledge)
             # self.x_est = x
 
             # Estimate error
-            print('Estimate Error, e(k): ', x - self.x_est)
+#             print('Estimate Error, e(k): ', x - self.x_est)
 
             # Apply linear feedback LQR policy accordingly
             x_next = (self.A_discrete @ x - self.B_discrete @
@@ -244,17 +256,17 @@ class sim_env:
 
     def gen_measurement(self):
         '''
-        2 state measurement right now
+        Generates full state measurement
         '''
         wk = np.array([[np.random.normal(0, np.sqrt(sim_env.W[0][0]))],
                       [np.random.normal(0, np.sqrt(sim_env.W[1][1]))],
                       [np.random.normal(0, np.sqrt(sim_env.W[2][2]))],
                       [np.random.normal(0, np.sqrt(sim_env.W[3][3]))]])
 
-        # ODE solver uses 1-d arrays, convert to 2-d arrays for lin alg
+        # Convert to 2-d array for lin alg
         xk = np.array([[self.x_step[i]] for i in range(len(self.x_step))])
 
-        # Add generated measurement noise onto perfect measurement of state
+        # Add generated measurement noise onto true state
         zk = self.H @ xk + wk
 
         return zk
@@ -266,9 +278,14 @@ class sim_env:
         Instance variable Ts is simulation length and ZOH process noise length
         '''
         # Base case: skip first sim step for hardware in loop
-        if self.hardware_in_loop and self.first_sim_step:
-            self.first_sim_step = False
-            return 0
+#         if self.hardware_in_loop and self.first_sim_step:
+#             self.first_sim_step = False
+#             return 0
+
+        if self.hardware_in_loop:
+            # Immediately check if we received a new input from PSOC
+            if (self.u == self.last_input).all():
+                print('Missed Timing or no new input')
 
         # Simulate forward 'Ts' seconds (one step)
         t_sim = np.linspace(0, self.Ts, 2)
@@ -296,6 +313,9 @@ class sim_env:
         for i in range(len(step_sol.y)):
             step_sol.y[i][-1] = step_sol.y[i][-1] + self.equil(
                 self.t_instance)[i]
+
+        # Update last input
+        self.last_input = self.u
 
         if self.hardware_in_loop:
             # Real time visualization (eventually tkinter GUI)
@@ -381,6 +401,51 @@ class sim_env:
         '''
         self.ser.write(str.encode('l'))
         # Perhaps restructure commands to have a packet attached to their ends
+
+    def send_measurement(self):
+        '''
+        Send simulated measurement to PSOC for LQG feedback computation
+        Measurements are rounded to 10 significant figures
+        '''
+#         self.ser.write(str.encode('m'))
+#         zk = self.gen_measurement()
+#         zk_str = ''
+#         for i in range(len(zk)):
+#             zk_str += str(sim_env.round_sig_fig(zk[i][0], sig_fig=10))
+#             if i < len(zk) - 1:
+#                 zk_str += ','
+#
+#         print('Measurement string sent to psoc: ', zk_str)
+#         self.ser.write(zk_str.encode('ascii'))
+#
+#         Read relayed measurement
+#         s = self.ser.readline().decode('ascii')
+#         print('Relayed meas: ', s)
+
+    def scheduler_function(self):
+        '''
+        Command scheduler function that gets called
+        at start of every 'real' time step
+        '''
+        # Simulate system forward at start of every second
+        self.step_sim_cont()
+
+        # Sleep for 0.8 seconds so simulation can finish
+        time.sleep(0.8)
+
+        # Send simulated measurement to PSOC for LQG computation
+        self.send_measurement()
+
+        # Sleep for 0.1 seconds before requesting input
+        time.sleep(0.1)
+
+        '''
+        Input commands applied to next time step,
+        ie. x(k+1) = x(k) + u(k-1)
+        input commands are sent at intervals of (0.9sec, 1.9sec, 2.9sec, etc.)
+        This timing scheme assumes that u(0) = 0
+        '''
+        self.input_command()
 
     def plot_solution(self, x_sol, y_sol, title, sol_type, t_end):
         '''
@@ -555,8 +620,8 @@ class gui:
 
 def main():
 
-    hardware_in_loop = False
-    lqg_active = True
+    hardware_in_loop = True
+    lqg_active = False
 
     # Initial conditions (deviation from equilibrium in polar coordinates)
     x0 = np.array([10e4, 0, 0, 0])
@@ -564,7 +629,7 @@ def main():
     if hardware_in_loop:
 
         # Simulation sample time, not 'real' sampling time
-        Ts = 100
+        Ts = 1
 
         # Simulation environment instantiation
         sim_env_instance = sim_env(hardware_in_loop, lqg_active, x0, Ts)
@@ -572,7 +637,6 @@ def main():
         root = tk.Tk()
         gui_instance = gui(root, sim_env_instance)
 
-        sim_env_instance.start_command()
         '''
         Schedule periodic execution of input command tasks.
         Note that Python does not run in real time, so additional .002518
@@ -580,12 +644,13 @@ def main():
         counteract Windows' latency in sending input commands to PSOC.
         Allow for +-10 ms in communication timing error.
         '''
-        schedule.every(1.002518).seconds.do(sim_env_instance.run_threaded,
-                                            sim_env_instance.input_command)
+        sec_equiv = 1.002518  # 'real' sampling time
 
-        # schedule periodic sim of system (lower freq than input commands)
-        schedule.every(2).seconds.do(sim_env_instance.run_threaded,
-                                     sim_env_instance.step_sim_cont)
+        sim_env_instance.start_command()
+
+        # schedule periodic sim/input command of system, (0sec, 1sec, 2sec, etc.)
+        schedule.every(1*sec_equiv).seconds.do(sim_env_instance.run_threaded,
+                                               sim_env_instance.scheduler_function)
 
         '''
         ^^^ the above involves real-time considerations because we have to
