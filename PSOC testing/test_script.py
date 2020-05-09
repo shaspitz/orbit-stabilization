@@ -8,14 +8,6 @@ import serial as ser
 import time
 import numpy as np
 
-# Serial configuration
-ser = ser.Serial(port='COM5', baudrate=115200, parity='N')
-if ser.is_open:
-    ser.close()
-    ser.open()
-else:
-    ser.open()
-
 
 class psoc_interface:
 
@@ -35,13 +27,13 @@ class psoc_interface:
         transmit_packet = bytes([packet_size])
         transmit_packet += bytes([command])
         transmit_packet += buffer
-        ser.write(transmit_packet)
+        self.ser.write(transmit_packet)
 
         # Receive byte array
-        packet_size = int.from_bytes(ser.read(), byteorder='little')
-        command = int.from_bytes(ser.read(), byteorder='little')
+        packet_size = int.from_bytes(self.ser.read(), byteorder='little')
+        command = int.from_bytes(self.ser.read(), byteorder='little')
         if command == 1 and packet_size == 10:
-            buffer = ser.read(packet_size-2)
+            buffer = self.ser.read(packet_size-2)
             double = struct.unpack('d', buffer)[0]
 
             return double
@@ -56,22 +48,16 @@ class psoc_interface:
         Kinf -> 4x4 array
         Finf -> 2x4 array
         '''
+        # Send Kinf
         command = 2
-        # Add Ts and Finf to packet later
-#         buffer = bytes([Ts])
 
-        '''
-        implement embedded for loops here to load buffer
-        with all the floats from Kinf anf Finf. 
-        If this is too many bytes at once, might need to split up
-        into separate functions.
-        '''
         buffer = bytes()
-        for x in range(len(Kinf)):
-            for y in range(len(Kinf[0])):
-                print('component of Kinf: ', Kinf[x][y])
-                print('bytes: ', struct.pack('d', Kinf[x][y]), 'len: ', len(struct.pack('d', Kinf[x][y])))
-                buffer += struct.pack('d', Kinf[x][y])
+        for row in range(len(Kinf)):
+            for col in range(len(Kinf[0])):
+                print('component of Kinf: ', Kinf[row][col])
+                print('bytes: ', struct.pack('d', Kinf[row][col]), 'len: ',
+                      len(struct.pack('d', Kinf[row][col])))
+                buffer += struct.pack('d', Kinf[row][col])
 
         packet_size = len(buffer)+2
 
@@ -79,34 +65,31 @@ class psoc_interface:
         transmit_packet = bytes([packet_size])
         transmit_packet += bytes([command])
         transmit_packet += buffer
-        ser.write(transmit_packet)
+        self.ser.write(transmit_packet)
 
-        return 0
+        # Send Ts and Finf
+        command = 3
+
+        buffer = bytes([int(Ts)])
+        for row in range(len(Finf)):
+            for col in range(len(Finf[0])):
+                print('component of Finf: ', Finf[row][col])
+                print('bytes: ', struct.pack('d', Finf[row][col]), 'len: ',
+                      len(struct.pack('d', Finf[row][col])))
+                buffer += struct.pack('d', Finf[row][col])
+
+        packet_size = len(buffer)+2
+
+        # Transmit byte array
+        transmit_packet = bytes([packet_size])
+        transmit_packet += bytes([command])
+        transmit_packet += buffer
+        self.ser.write(transmit_packet)
 
     def start_psoc(self):
         '''
         Constructs and sends packet containing command to start psoc timer
         and activate other commands
-        '''
-        command = 3
-        packet_size = 2
-
-        # Transmit byte array
-        transmit_packet = bytes([packet_size])
-        transmit_packet += bytes([command])
-        self.ser.write(transmit_packet)
-
-        # Receive relayed byte array and confirm psoc started
-        packet_size = int.from_bytes(self.ser.read(), byteorder='little')
-        command = int.from_bytes(ser.read(), byteorder='little')
-
-        if packet_size == 2 and command == 3:
-            print('psoc timing started!')
-
-    def request_input(self):
-        '''
-        Receives two double precision floats from PSOC
-        (for getting inputs)
         '''
         command = 4
         packet_size = 2
@@ -116,45 +99,74 @@ class psoc_interface:
         transmit_packet += bytes([command])
         self.ser.write(transmit_packet)
 
-        packet_size = int.from_bytes(self.ser.read(), byteorder='little')
+        # Receive relayed byte array and confirm psoc started
+        packet_size_return = int.from_bytes(self.ser.read(), byteorder='little')
+        command_return = int.from_bytes(self.ser.read(), byteorder='little')
 
-        command = int.from_bytes(self.ser.read(), byteorder='little')
+        if packet_size_return == packet_size and command_return == command:
+            print('psoc timing started!')
 
-        if command == 4 and packet_size == 18:
+    def request_input(self):
+        '''
+        Receives two double precision floats from PSOC
+        (for getting inputs)
+        '''
+        command = 5
+        packet_size = 2
 
-            # Receive byte array
-            buffer = ser.read(packet_size-2)
+        # Transmit byte array
+        transmit_packet = bytes([packet_size])
+        transmit_packet += bytes([command])
+        self.ser.write(transmit_packet)
+
+        # Receive byte array
+        packet_size_return = int.from_bytes(self.ser.read(), byteorder='little')
+        command_return = int.from_bytes(self.ser.read(), byteorder='little')
+
+        if packet_size_return == packet_size+16 and command_return == command:
+            buffer = self.ser.read(packet_size_return-2)
             input_1 = struct.unpack('d', buffer[:8])[0]
             input_2 = struct.unpack('d', buffer[8:])[0]
 
             return input_1, input_2
         else:
             print('Error! Printing incorrect command or packet size.')
-            print('Command:', command, 'Packet size:', packet_size)
+            print('Command:', command_return, 'Packet size:', packet_size_return)
 
     def send_measurement(self, meas):
         '''
         Sends current measurement of the satellite state to psoc
         Note that input is a 2d numpy array
         '''
-        command = 5
+        command = 6
         return 0
 
 
 # testing
+
+# Serial configuration
+ser = ser.Serial(port='COM5', baudrate=115200, parity='N')
+if ser.is_open:
+    ser.close()
+    ser.open()
+else:
+    ser.open()
+
 psoc = psoc_interface(ser)
 
 # test_double = psoc.relay_double(1.234567)
 # print(test_double)
 
-psoc.send_sim_env_info(np.array([[1.0, 2.0, 3.0, 4.0],
-                                 [5.0, 6.0, 7.0, 8.0],
-                                 [9.0, 10.0, 11.0, 12.0],
-                                 [13.0, 14.0, 15.0, 16.0]]))
+psoc.send_sim_env_info(Kinf=np.array([[1.0, 2.0, 3.0, 4.0],
+                                      [5.0, 6.0, 7.0, 8.0],
+                                      [9.0, 10.0, 11.0, 12.0],
+                                      [13.0, 14.0, 15.0, 16.0]]),
+                                      Ts=5,
+                                      Finf=np.array([[1.0, 2.0, 3.0, 4.0],
+                                                     [5.0, 6.0, 7.0, 8.0]]))
 psoc.start_psoc()
 input_1, input_2 = psoc.request_input()
 print(input_1, input_2)
-
 
 input_1, input_2 = psoc.request_input()
 print(input_1, input_2)

@@ -23,8 +23,11 @@ uint32 Time = 0; //ms
 uint32 TimeStart; //ms
 
 // Initialize parameters for various commands
-double Kinf[4][4];
 double *PtrKinf;
+double Kinf[4][4];
+uint8 Ts;
+double *PtrFinf;
+double Finf[2][4];
 
 double Input1;
 double Input2;
@@ -141,74 +144,104 @@ int main(void)
                     CommandReady = 0;
                     break;
                 
-                case 2:
-                    // Store simulation environment information (Ts, Kinf, Finf)
-                    
+                case 2:                   
                     // Kinf storage
                     
-                    //Command_Packet.packet_size;
+                    /* Something having to do with memory allocation 
+                    is blocking the below statement (debugged for hours
+                    but could not find why the for loops would not execute).
+                    The below statement is hard coded below to perform the
+                    same functionality, which worked.
                     
+                    for (i = 0; i < 4; ++i)
+                    {
+                        for (j = 0; j < 4; ++j)
+                        {    
+                            PtrKinf = (double*) &Command_Packet.buffer[32*i + 8*j];
+                            Kinf[i][j] = *PtrKinf;
+                        }
+                    }
+                    */
                     
                     i = 1;
                     j = 1;
                     PtrKinf = (double*) &Command_Packet.buffer[0];
                     Kinf[i*0][j*0] = *PtrKinf;
-                    PtrKinf = &Command_Packet.buffer[8];
+                    PtrKinf = (double*) &Command_Packet.buffer[8];
                     Kinf[i*0][j*1] = *PtrKinf;
-                    PtrKinf = &Command_Packet.buffer[16];
+                    PtrKinf = (double*) &Command_Packet.buffer[16];
                     Kinf[i*0][j*2] = *PtrKinf;
-                    PtrKinf = &Command_Packet.buffer[24];
+                    PtrKinf = (double*) &Command_Packet.buffer[24];
                     Kinf[i*0][j*3] = *PtrKinf;
                     
-                    PtrKinf = &Command_Packet.buffer[32];
+                    PtrKinf = (double*) &Command_Packet.buffer[32];
                     Kinf[i*1][j*0] = *PtrKinf;
-                    PtrKinf = &Command_Packet.buffer[40];
+                    PtrKinf = (double*) &Command_Packet.buffer[40];
                     Kinf[i*1][j*1] = *PtrKinf;
-                    PtrKinf = &Command_Packet.buffer[48];
+                    PtrKinf = (double*) &Command_Packet.buffer[48];
                     Kinf[i*1][j*2] = *PtrKinf;
-                    PtrKinf = &Command_Packet.buffer[56];
+                    PtrKinf = (double*) &Command_Packet.buffer[56];
                     Kinf[i*1][j*3] = *PtrKinf;
                     
-                    PtrKinf = &Command_Packet.buffer[64];
+                    PtrKinf = (double*) &Command_Packet.buffer[64];
                     Kinf[i*2][j*0] = *PtrKinf;
-                    PtrKinf = &Command_Packet.buffer[72];
+                    PtrKinf = (double*) &Command_Packet.buffer[72];
                     Kinf[i*2][j*1] = *PtrKinf;
-                    PtrKinf = &Command_Packet.buffer[80];
+                    PtrKinf = (double*) &Command_Packet.buffer[80];
                     Kinf[i*2][j*2] = *PtrKinf;
-                    PtrKinf = &Command_Packet.buffer[88];
+                    PtrKinf = (double*) &Command_Packet.buffer[88];
                     Kinf[i*2][j*3] = *PtrKinf;
                     
-                    PtrKinf = &Command_Packet.buffer[96];
+                    PtrKinf = (double*) &Command_Packet.buffer[96];
                     Kinf[i*3][j*0] = *PtrKinf;
-                    PtrKinf = &Command_Packet.buffer[104];
+                    PtrKinf = (double*) &Command_Packet.buffer[104];
                     Kinf[i*3][j*1] = *PtrKinf;
-                    PtrKinf = &Command_Packet.buffer[112];
+                    PtrKinf = (double*) &Command_Packet.buffer[112];
                     Kinf[i*3][j*2] = *PtrKinf;
-                    PtrKinf = &Command_Packet.buffer[120];
+                    PtrKinf = (double*) &Command_Packet.buffer[120];
                     Kinf[i*3][j*3] = *PtrKinf;
-                    
-                      
-                    /*
-                    for (i = 0; i < 4; ++i)
-                    {
-                        for (j = 0; j < 4; ++j)
-                        {   
-                            
-                            PtrKinf = (double*) &Command_Packet.buffer[32*i + 8*j];
-                            Kinf[i][j] = 5.0;
-                            
-                        }
-                    }
-                    */
-                    
-                    // Testing
-                    Input1 = Kinf[1][1];
-                    Input2 = Kinf[2][2];
                     
                     CommandReady = 0;
                     break;
                 
                 case 3:
+                    // Ts and Finf storage
+                    Ts = Command_Packet.buffer[0];
+                    
+                    /* For same reason as for Kinf, had to hardcode Finf processing
+
+                    for (i = 0; i < 2; ++i)
+                    {
+                        for (j = 0; j < 4; ++j)
+                        {    
+                            PtrFinf = (double*) &Command_Packet.buffer[1 + 32*i + 8*j];
+                            Finf[i][j] = *PtrFinf;
+                        }
+                    }
+                    */
+                    
+                    PtrFinf = (double*) &Command_Packet.buffer[1 + 32*0 + 8*0];
+                    Finf[0][0] = *PtrFinf;
+                    PtrFinf = (double*) &Command_Packet.buffer[1 + 32*0 + 8*1];
+                    Finf[0][1] = *PtrFinf;
+                    PtrFinf = (double*) &Command_Packet.buffer[1 + 32*0 + 8*2];
+                    Finf[0][2] = *PtrFinf;
+                    PtrFinf = (double*) &Command_Packet.buffer[1 + 32*0 + 8*3];
+                    Finf[0][3] = *PtrFinf;
+                    
+                    PtrFinf = (double*) &Command_Packet.buffer[1 + 32*1 + 8*0];
+                    Finf[1][0] = *PtrFinf;
+                    PtrFinf = (double*) &Command_Packet.buffer[1 + 32*1 + 8*1];
+                    Finf[1][1] = *PtrFinf;
+                    PtrFinf = (double*) &Command_Packet.buffer[1 + 32*1 + 8*2];
+                    Finf[1][2] = *PtrFinf;
+                    PtrFinf = (double*) &Command_Packet.buffer[1 + 32*1 + 8*3];
+                    Finf[1][3] = *PtrFinf;
+                    
+                    CommandReady = 0;
+                    break;
+                
+                case 4:
                     if (ActiveFlag == FALSE)
                     {
                         // Start timing for computation alongside Python
@@ -227,7 +260,7 @@ int main(void)
                     CommandReady = 0;
                     break;
                 
-                case 4:
+                case 5:
                     LEDDrive_Write(!LEDDrive_Read());
                     // Input requested
                     if (ActiveFlag)
@@ -241,11 +274,10 @@ int main(void)
                         TransmitBuffer[0] = Transmit_Packet.packet_size;
                         
                         // Values of those doubles (will be LQG eventually)
-                        //Input1 = 5.678 + (double) Time;
                         
                         // Set input 1 to Kinf[3][3] for testing
-                        //Input1 = Kinf[3][3];
-                        //Input2 = 5.01 + (double) Time - TimeStart;
+                        Input1 = Finf[0][2];
+                        Input2 = Finf[1][3];
                         
                         // Set pointers for sending doubles by byte
                         PtrInput1 = (uint8*) &Input1;
@@ -269,7 +301,7 @@ int main(void)
                     CommandReady = 0;
                     break;
                 
-                case 5:
+                case 6:
                     // Incoming measurement data
                     if (ActiveFlag)
                     {
