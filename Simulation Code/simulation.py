@@ -74,9 +74,9 @@ class sim_env:
     covariance matrix is defined.
     '''
     V = np.array([[5e7, 0, 0, 0],
-                  [0, 10, 0, 0],
-                  [0, 0, 10e-5, 0],
-                  [0, 0, 0, 10e-10]])
+                  [0, 10e-3, 0, 0],
+                  [0, 0, 10e-10, 0],
+                  [0, 0, 0, 10e-20]])
 
     '''
     Measurement noise covariance matrix is define below. The measurement
@@ -84,7 +84,7 @@ class sim_env:
     we receive a measurement for every state.
     '''
     W = np.array([[10e7, 0, 0, 0],
-                  [0, 1, 0, 0],
+                  [0, 10, 0, 0],
                   [0, 0, 10e-5, 0],
                   [0, 0, 0, 10e-10]])
 
