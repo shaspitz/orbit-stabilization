@@ -5,6 +5,9 @@ UC Berkeley ME235 Final Project
 
 Dynamics system model from ETH Zurich:
 https://ethz.ch/content/dam/ethz/special-interest/mavt/dynamic-systems-n-control/idsc-dam/Lectures/System-Modeling/Slides_HS17/Lecture12.pdf
+
+Presentation slide:
+https://docs.google.com/presentation/d/1Rhr5aofIPFaC-z4hrk5cZNBMRoIGt4HtfMeYdc_Dp0o/edit#slide=id.g546b429d19_3_0
 '''
 
 import matplotlib.pyplot as plt
