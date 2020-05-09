@@ -21,7 +21,6 @@ import matplotlib.animation as animation
 import tkinter as tk
 import tkinter.ttk as ttk
 from tkinter import Tk, Label, Button, filedialog
-
 from matplotlib.figure import Figure
 from tkinter import *
 import tkinter.messagebox
@@ -63,7 +62,7 @@ class sim_env:
     G = 6.673*(10**(-11))
 
     # Orbit turn rate for linearization [rad/s]
-    w0 = 7.2910**-3
+    w0 = 7.2910**-5
 
     # Orbital period [s]
     t_orbital = 2*np.pi/w0
@@ -439,16 +438,22 @@ class gui:
         #set up class parameters
         self.master=master
         self.sim_env = sim_env
-        self.root = tk.Tk()
+        #self.root = root
         #add in overall title
-        self.root.wm_title("Real Time Satellite Visualization")
+        self.master.wm_title("Real Time Satellite Visualization")
         
         # Initialize state display
-        self.state_display = np.array([tk.StringVar() for state in sim_env.x0])
-        self.update_state_display()
-        for state_iter in range(len(self.sim_env.x0)):
-            tk.Label(master, textvariable=self.state_display[
-                state_iter]).grid(row=state_iter, column=0)
+        self.state_display = np.transpose(np.array([state for state in sim_env.x0]))
+        
+        self.name_label=Label(self.master, text="Incoming States")
+        self.name_label.pack(side=BOTTOM)
+        self.name_label.configure(background="forestgreen",width=1000)
+        self.values_label=Label(self.master, text='R                        Rdot                       Phi                      Phidot')
+        self.values_label.pack(side=BOTTOM)
+        self.values_label.configure(background="forestgreen",width=1000)
+        self.data_label=Label(self.master, text=str(self.state_display))
+        self.data_label.pack(side=BOTTOM)
+        self.data_label.configure(background="forestgreen",width=1000)
 
         #set arrays for no control (from PSOC) and equilibrium orbits
         self.state_sys = np.array([state for state in self.sim_env.x0])
@@ -457,11 +462,9 @@ class gui:
         
         #add in label with timestep
         self.timestep=0
-        self.timestep_label = Label(self.root,text="Tme Elapsed Since Entering Orbit:")
-        #self.timestep_label.grid(row=0,column=2)  
+        self.timestep_label = Label(self.master,text="Time Elapsed Since Entering Orbit:")
         self.timestep_label.pack(side=TOP)
-        self.time_label = Label(self.root,text=str(self.timestep))
-        #self.time_label.grid(row=1,column=2)      
+        self.time_label = Label(self.master,text=str(self.timestep))
         self.time_label.pack(side=TOP)
         
         #unsure if should be using full_sim_discrete here?? please clarify function
@@ -469,41 +472,37 @@ class gui:
         self.x_eq, self.y_eq = self.sim_env.convert_cartesian(self.eq_orbit)
         
         #add in "STOP" button to terminate process
-        button = tkinter.Button(master=self.root, text="EXIT ORBIT", command=self.root.destroy)
-        #button.grid(row=2,column=2)
+        button = tkinter.Button(master=self.master, text="EXIT ORBIT", command=self.master.destroy)
         button.pack(side=TOP)
         
         #set up figure for gui
         self.fig1 = plt.Figure()
-        self.a = self.fig1.add_subplot(2,1,1)
+        self.a = self.fig1.add_subplot(1,1,1)
         circle = plt.Circle((0, 0), self.sim_env.R, color='b')
         self.a.add_artist(circle)
         self.a.set_title('Satellite Path With Control Input')
         
         #set up figure for gui
         self.fig2 = plt.Figure()
-        self.b = self.fig2.add_subplot(2,1,1)
+        self.b = self.fig2.add_subplot(1,1,1)
         circle = plt.Circle((0, 0), self.sim_env.R, color='b')
         self.b.add_artist(circle)
         self.b.set_title('Satellite Path Without Control Input')
-        
+
         #draw plots on gui 
-        gui.canvasa = FigureCanvasTkAgg(self.fig1,master=self.root)
+        gui.canvasa = FigureCanvasTkAgg(self.fig1,master=self.master)
         gui.canvasa.get_tk_widget().pack(side=LEFT)
-        gui.canvasb = FigureCanvasTkAgg(self.fig2,master=self.root)
-        #gui.canvasb.get_tk_widget().grid(row=3,column=3)
+        gui.canvasb = FigureCanvasTkAgg(self.fig2,master=self.master)
         gui.canvasb.get_tk_widget().pack(side=RIGHT)
         gui.canvasa.draw()
         gui.canvasb.draw()
         
         
-        
-    def update_state_display(self):
-        #update state display window
-        for state_iter in range(len(self.sim_env.x0)):
-            self.state_display[state_iter].set(repr(self.sim_env.x_step[state_iter]))
-            
     def updateGraphs(self):
+        
+        #update state display window
+        self.data_label['text']=self.sim_env.x_step
+            
         #calculate the updated equilibrium orbit position and convert to cartesian
         self.timestep+=1
         #timestep is moving too fast so only update every 5 timesteps
@@ -535,22 +534,22 @@ class gui:
         
 
         #update the gui plot 
-        self.a.set_xlim(-1*(10**7),4.5*(10**7))
-        self.a.set_ylim(-1*(10**7),4.5*(10**7))
-        self.a.set_aspect('equal', adjustable='box')
+        self.a.set_xlim(-2*(10**7),4.5*(10**7))
+        self.a.set_ylim(-2*(10**7),4.5*(10**7))
+        self.a.set_aspect('equal',adjustable='box')
         self.a.plot(self.x_cartesian_LQG, self.y_cartesian_LQG, linewidth=3, color='g', linestyle='--')
         self.a.plot(self.x_eq, self.y_eq, linewidth=1, color='r', linestyle='--')
         
-        self.b.set_xlim(-1*(10**7),4.5*(10**7))
-        self.b.set_ylim(-1*(10**7),4.5*(10**7))
-        self.b.set_aspect('equal', adjustable='box')
+        self.b.set_xlim(-2*(10**7),4.5*(10**7))
+        self.b.set_ylim(-2*(10**7),4.5*(10**7))
+        self.b.set_aspect('equal',adjustable='box')
         #self.b.plot(self.x_cartesian_LQG, self.y_cartesian_LQG, linewidth=3, color='g', linestyle='--')
         self.b.plot(self.x_eq, self.y_eq, linewidth=1, color='r', linestyle='--')
 
     #Stop Button
     def _quit(self):
-        self.root.quit()     # stops mainloop
-        self.root.destroy()  # this is necessary on Windows to prevent
+        self.master.quit()     # stops mainloop
+        self.master.destroy()  # this is necessary on Windows to prevent
                     # Fatal Python Error: PyEval_RestoreThread: NULL tstate
                     
 
@@ -565,7 +564,7 @@ def main():
     if hardware_in_loop:
 
         # Simulation sample time, not 'real' sampling time
-        Ts = 2
+        Ts = 100
 
         # Simulation environment instantiation
         sim_env_instance = sim_env(hardware_in_loop, lqg_active, x0, Ts)
@@ -605,7 +604,7 @@ def main():
             root.update()
   
             # Update GUI displays
-            gui_instance.update_state_display()
+            #gui_instance.update_state_display()
             gui_instance.updateGraphs()
             gui.canvasa.draw()
             gui.canvasb.draw()
