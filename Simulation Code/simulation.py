@@ -147,11 +147,11 @@ class sim_env:
             self.x_est = np.array([[self.x0[i]] for i in range(len(self.x0))])
 
             # These need tuning
-            self.R_m = np.eye(2)
-            self.Q_m = np.array([[1, 0, 0, 0],
-                                 [0, 0, 0, 0],
-                                 [0, 0, 1, 0],
-                                 [0, 0, 0, 1]])
+            self.R_m = 25e12*np.eye(2)
+            self.Q_m = 25e4*np.array([[1, 0, 0, 0],
+                                    [0, 1, 0, 0],
+                                    [0, 0, 1, 0],
+                                    [0, 0, 0, 1]])
             self.Pinf = solve_discrete_are(
                 self.A_discrete.T, self.H.T, sim_env.V, sim_env.W)
             self.Kinf = self.Pinf @ (self.H.T) @ (np.linalg.inv(
