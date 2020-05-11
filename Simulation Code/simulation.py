@@ -572,6 +572,8 @@ class sim_env:
         # Sleep for 0.1 seconds before requesting input
         time.sleep(0.1)
 
+        print('Input @ this timestep: ', self.u)
+
         '''
         Input commands applied to next time step,
         ie. x(k+1) = x(k) + u(k-1)
@@ -772,12 +774,12 @@ def main():
     lqg_active = True
 
     # Initial conditions (deviation from equilibrium in polar coordinates)
-    x0 = np.array([10e5/2, 0, 0, 0])
+    x0 = np.array([10e5, 0, 0, 0])
 
     if hardware_in_loop:
 
         # Simulation sample time, not 'real' sampling time
-        Ts = 500
+        Ts = 100
 
         # Serial configuration
         ser = serial.Serial(port='COM5', baudrate=115200, parity='N')
