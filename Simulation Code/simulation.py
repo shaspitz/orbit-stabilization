@@ -20,12 +20,9 @@ import struct
 from scipy.integrate import solve_ivp
 from scipy.linalg import solve_discrete_are
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-from matplotlib.offsetbox import TextArea, DrawingArea, OffsetImage, AnnotationBbox
+from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 import matplotlib.image as mpimg
-import tkinter as tk
-from tkinter import Tk, Label, Button, filedialog
 from tkinter import *
-import tkinter.messagebox
 
 
 '''
@@ -646,15 +643,19 @@ class gui:
         # Initialize state display
         self.state_display = sim_env.x0
 
-        self.name_label = Label(self.master, text="Incoming States",font=("Helvetica", 14))
+        self.name_label = Label(self.master, text="Incoming States",
+                                font=("Helvetica", 14))
         self.name_label.pack(side=BOTTOM)
-        self.name_label.configure(background="forestgreen",fg="white", width=1000)
-        spaces=str("                        ")
+        self.name_label.configure(background="forestgreen", fg="white", width=1000)
+        spaces = "                        "
         self.values_label = Label(self.master,
-                                  text='R'+spaces+'Rdot'+spaces+'Phi'+spaces+'Phidot',font=("Helvetica", 14))
+                                  text='R'+spaces+'Rdot'+spaces+
+                                  'Phi'+spaces+'Phidot', font=("Helvetica", 14))
         self.values_label.pack(side=BOTTOM)
-        self.values_label.configure(background="forestgreen",fg="white", width=1000)
-        self.data_label = Label(self.master, fg="white",text=str(self.state_display),font=("Helvetica", 14))
+        self.values_label.configure(background="forestgreen", fg="white",
+                                    width=1000)
+        self.data_label = Label(self.master, fg="white",
+                                text=str(self.state_display), font=("Helvetica", 14))
         self.data_label.pack(side=BOTTOM)
         self.data_label.configure(background="forestgreen", width=1000)
 
@@ -669,9 +670,11 @@ class gui:
 
         # Add in label with time step
         self.timestep_label = Label(self.master,
-                                    text="Time Elapsed Since Entering Orbit:",font=("Helvetica", 14))
+                                    text="Time Elapsed Since Entering Orbit:",
+                                    font=("Helvetica", 14))
         self.timestep_label.pack(side=TOP)
-        self.time_label = Label(self.master, text=str(self.sim_env.t_instance),font=("Helvetica", 14))
+        self.time_label = Label(self.master, text=str(self.sim_env.t_instance),
+                                font=("Helvetica", 14))
         self.time_label.pack(side=TOP)
 
         # Equilibrium orbit
@@ -679,8 +682,9 @@ class gui:
         self.x_eq, self.y_eq = self.sim_env.convert_cartesian(self.eq_orbit)
 
         # "STOP" button to terminate process
-        button = tkinter.Button(master=self.master, text="EXIT ORBIT",fg="red",font=("Helvetica", 14),
-                                command=self.master.destroy)
+        button = Button(master=self.master, text="EXIT ORBIT",
+                        fg="red", font=("Helvetica", 14),
+                        command=self.master.destroy)
         button.pack(side=TOP)
 
         # Figure 1
@@ -688,31 +692,27 @@ class gui:
         self.a = self.fig1.add_subplot(1, 1, 1)
         earth = mpimg.imread('earth.png')
         imagebox = OffsetImage(earth, zoom=0.13)
-        earth_img = AnnotationBbox(imagebox,(0.3, 0.3),frameon=False)
+        earth_img = AnnotationBbox(imagebox, (0.3, 0.3), frameon=False)
         self.a.add_artist(earth_img)
-#         circle = plt.Circle((0, 0), self.sim_env.R, color='b')
-#         self.a.add_artist(circle)
         self.a.plot(self.x_eq, self.y_eq, linewidth=1, color='r',
-                    linestyle='--',label='Equilibrium Orbit')
+                    linestyle='--', label='Equilibrium Orbit')
         self.a.plot(self.x_input, self.y_input, linewidth=3,
-                    color='g', linestyle='--',label='Real-Time Orbit')
-        self.fig1.legend(loc=1,fontsize="small")
+                    color='g', linestyle='--', label='Real-Time Orbit')
+        self.fig1.legend(loc=1, fontsize="small")
         self.a.set_title('Satellite Path With Control Input')
 
         # Figure 2
         self.fig2 = plt.Figure()
         self.b = self.fig2.add_subplot(1, 1, 1)
-        #circle = plt.Circle((0, 0), self.sim_env.R, color='b')
-        #self.b.add_artist(circle)
         earth = mpimg.imread('earth.png')
         imagebox = OffsetImage(earth, zoom=0.13)
-        earth_img = AnnotationBbox(imagebox,(0.3, 0.3),frameon=False)
+        earth_img = AnnotationBbox(imagebox, (0.3, 0.3), frameon=False)
         self.b.add_artist(earth_img)
         self.b.plot(self.x_eq, self.y_eq, linewidth=1, color='r',
-                    linestyle='--',label='Equilibrium Orbit')
+                    linestyle='--', label='Equilibrium Orbit')
         self.b.plot(self.x_no_input, self.y_no_input, linewidth=3,
-                    color='g', linestyle='--',label='Real-Time Orbit')
-        self.fig2.legend(loc=1,fontsize="small")
+                    color='g', linestyle='--', label='Real-Time Orbit')
+        self.fig2.legend(loc=1, fontsize="small")
         self.b.set_title('Satellite Path Without Control Input')
 
         # Init plots
@@ -750,7 +750,7 @@ class gui:
         self.a.set_ylim(-1*(10**7), 4.5*(10**7))
         self.a.set_aspect('equal', adjustable='box')
         self.a.plot(self.x_input, self.y_input, linewidth=3,
-                    color='g', linestyle='--',label='Real-Time Orbit')
+                    color='g', linestyle='--', label='Real-Time Orbit')
 
         self.b.set_xlim(-1*(10**7), 4.5*(10**7))
         self.b.set_ylim(-1*(10**7), 4.5*(10**7))
@@ -796,7 +796,7 @@ def main():
         sim_env_instance = sim_env(psoc, hardware_in_loop, lqg_active, x0, Ts)
 
         # GUI instantiation
-        root = tk.Tk()
+        root = Tk()
         gui_instance = gui(root, sim_env_instance)
 
         '''
@@ -810,9 +810,10 @@ def main():
 
         sim_env_instance.psoc.start_psoc()
 
-        # schedule periodic sim/input command of system, (0sec, 1sec, 2sec, etc.)
-        schedule.every(1*sec_equiv).seconds.do(sim_env_instance.run_threaded,
-                                               sim_env_instance.scheduler_function)
+        # schedule periodic sim/input command of system, (0sec, 1sec, etc.)
+        schedule.every(1*sec_equiv).seconds.do(
+            sim_env_instance.run_threaded,
+            sim_env_instance.scheduler_function)
 
         '''
         ^^^ the above involves real-time considerations because we have to
