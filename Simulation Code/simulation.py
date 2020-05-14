@@ -44,7 +44,7 @@ u2(t) = F_tan/m
 '''
 
 
-class psoc_interface:
+class Psoc_interface:
     '''
     Class for communicating with psoc micrcontroller
     '''
@@ -218,7 +218,7 @@ class psoc_interface:
                   packet_size_return)
 
 
-class sim_env:
+class Sim_env:
     '''
     Simulation environment class
     '''
@@ -294,28 +294,28 @@ class sim_env:
 
         # A and B matricies for continuous system, dx/dt = Ax + Bu + v(k)
         self.A_continuous = np.array([[0, 1, 0, 0],
-                                      [3*sim_env.w0**2,
-                                       0, 0, 2*sim_env.r0*sim_env.w0],
+                                      [3*Sim_env.w0**2,
+                                       0, 0, 2*Sim_env.r0*Sim_env.w0],
                                       [0, 0, 0, 1],
-                                      [0, -2*sim_env.w0/sim_env.r0, 0, 0]])
+                                      [0, -2*Sim_env.w0/Sim_env.r0, 0, 0]])
 
         self.B_continuous = np.array([[0, 0],
                                       [1, 0],
                                       [0, 0],
-                                      [0, 1/sim_env.r0]])
+                                      [0, 1/Sim_env.r0]])
 
         # A and B matricies for discrete system, x(k+1) = Ax(k) + Bu(k) + v(k)
         # Note: discretized by hand using forward Euler method
         self.A_discrete = np.array([[1, Ts, 0, 0],
-                                    [3*Ts*sim_env.w0**2,
-                                     1, 0, 2*Ts*sim_env.r0*sim_env.w0],
+                                    [3*Ts*Sim_env.w0**2,
+                                     1, 0, 2*Ts*Sim_env.r0*Sim_env.w0],
                                     [0, 0, 1, Ts],
-                                    [0, -2*Ts*sim_env.w0/sim_env.r0, 0, 1]])
+                                    [0, -2*Ts*Sim_env.w0/Sim_env.r0, 0, 1]])
 
         self.B_discrete = np.array([[0, 0],
                                     [1+Ts, 0],
                                     [0, 0],
-                                    [0, (1+Ts)/sim_env.r0]])
+                                    [0, (1+Ts)/Sim_env.r0]])
 
         # Run-types
         self.lqg_active = lqg_active
@@ -332,9 +332,9 @@ class sim_env:
                                    [0, 0, 1, 0],
                                    [0, 0, 0, 1]])
             self.Pinf = solve_discrete_are(
-                self.A_discrete.T, self.H.T, sim_env.V, sim_env.W)
+                self.A_discrete.T, self.H.T, Sim_env.V, Sim_env.W)
             self.Kinf = self.Pinf @ (self.H.T) @ (np.linalg.inv(
-                self.H @self.Pinf @self.H.T + sim_env.W))
+                self.H @self.Pinf @self.H.T + Sim_env.W))
             self.Uinf = solve_discrete_are(
                 self.A_discrete, self.B_discrete, self.Q_m, self.R_m)
             self.Finf = np.linalg.inv(
@@ -357,10 +357,10 @@ class sim_env:
         Note: ODE took too long to solve, nl dynamics are no longer used.
         '''
         x_out = np.array([x[1],
-                          x[0]*x[3]**2-sim_env.G*sim_env.M*x[
-                              0]**2+u[0]/sim_env.m,
+                          x[0]*x[3]**2-Sim_env.G*Sim_env.M*x[
+                              0]**2+u[0]/Sim_env.m,
                           x[3],
-                          ((-2*x[1]*x[3])/x[0])+u[1]/(sim_env.m*x[0])])
+                          ((-2*x[1]*x[3])/x[0])+u[1]/(Sim_env.m*x[0])])
 
         return x_out
 
@@ -391,10 +391,10 @@ class sim_env:
         x = np.array([[x[i]] for i in range(len(x))])
 
         # Process noise
-        v = np.array([[np.random.normal(0, np.sqrt(sim_env.V[0][0]))],
-                      [np.random.normal(0, np.sqrt(sim_env.V[1][1]))],
-                      [np.random.normal(0, np.sqrt(sim_env.V[2][2]))],
-                      [np.random.normal(0, np.sqrt(sim_env.V[3][3]))]])
+        v = np.array([[np.random.normal(0, np.sqrt(Sim_env.V[0][0]))],
+                      [np.random.normal(0, np.sqrt(Sim_env.V[1][1]))],
+                      [np.random.normal(0, np.sqrt(Sim_env.V[2][2]))],
+                      [np.random.normal(0, np.sqrt(Sim_env.V[3][3]))]])
 
         if self.lqg_active:
             # Obtain measurement
@@ -402,7 +402,8 @@ class sim_env:
 
             # Kalman filter estimate
             self.x_est = (self.A_discrete @ self.x_est -
-                          self.B_discrete @ self.Finf @ self.x_est + self.Kinf @ zk)
+                          self.B_discrete @ self.Finf @ self.x_est
+                          + self.Kinf @ zk)
 
             # Uncomment this if you want LQR only (perfect state knowledge)
             # self.x_est = x
@@ -425,10 +426,10 @@ class sim_env:
         '''
         Generates full state measurement
         '''
-        wk = np.array([[np.random.normal(0, np.sqrt(sim_env.W[0][0]))],
-                      [np.random.normal(0, np.sqrt(sim_env.W[1][1]))],
-                      [np.random.normal(0, np.sqrt(sim_env.W[2][2]))],
-                      [np.random.normal(0, np.sqrt(sim_env.W[3][3]))]])
+        wk = np.array([[np.random.normal(0, np.sqrt(Sim_env.W[0][0]))],
+                      [np.random.normal(0, np.sqrt(Sim_env.W[1][1]))],
+                      [np.random.normal(0, np.sqrt(Sim_env.W[2][2]))],
+                      [np.random.normal(0, np.sqrt(Sim_env.W[3][3]))]])
 
         # Convert to 2-d array for lin alg
         xk = np.array([[self.x_step[i]] for i in range(len(self.x_step))])
@@ -466,10 +467,10 @@ class sim_env:
                                       t_eval=t_sim, args=(np.zeros((2, 1)), ))
 
         # Add process noise to step_sol
-        v = np.array([np.random.normal(0, np.sqrt(sim_env.V[0][0])),
-                      np.random.normal(0, np.sqrt(sim_env.V[1][1])),
-                      np.random.normal(0, np.sqrt(sim_env.V[2][2])),
-                      np.random.normal(0, np.sqrt(sim_env.V[3][3]))])
+        v = np.array([np.random.normal(0, np.sqrt(Sim_env.V[0][0])),
+                      np.random.normal(0, np.sqrt(Sim_env.V[1][1])),
+                      np.random.normal(0, np.sqrt(Sim_env.V[2][2])),
+                      np.random.normal(0, np.sqrt(Sim_env.V[3][3]))])
         step_sol.y[:, -1] += v
         step_sol_no_input.y[:, -1] += v
 
@@ -536,7 +537,7 @@ class sim_env:
         '''
         For adding equilibrium trajectory back to solution
         '''
-        return np.array([sim_env.r0, 0, sim_env.w0*t, sim_env.w0])
+        return np.array([Sim_env.r0, 0, Sim_env.w0*t, Sim_env.w0])
 
     def equil_orbit(self, N, t_end=None):
         '''
@@ -544,7 +545,7 @@ class sim_env:
         '''
         equil_orbit = np.zeros((len(self.x0), N))
         if t_end is None:
-            for k, t in enumerate(np.linspace(0, sim_env.t_orbital, N)):
+            for k, t in enumerate(np.linspace(0, Sim_env.t_orbital, N)):
                 equil_orbit[:, k] = self.equil(t)
         else:
             for k, t in enumerate(np.linspace(0, t_end, N)):
@@ -590,14 +591,14 @@ class sim_env:
         # Generate equilibrium orbit for visualization
         if t_end is None:
             equil_orbit = self.equil_orbit(100)
-            x_equil, y_equil = sim_env.convert_cartesian(equil_orbit)
+            x_equil, y_equil = Sim_env.convert_cartesian(equil_orbit)
         else:
             equil_orbit = self.equil_orbit(100, t_end)
-            x_equil, y_equil = sim_env.convert_cartesian(equil_orbit)
+            x_equil, y_equil = Sim_env.convert_cartesian(equil_orbit)
 
         # Plotting
         fig, ax = plt.subplots()
-        circle = plt.Circle((0, 0), sim_env.R, color='b')
+        circle = plt.Circle((0, 0), Sim_env.R, color='b')
         ax.add_artist(circle)
         ax.plot(x_sol, y_sol, linewidth=4, color='g', linestyle='--')
         ax.plot(x_equil, y_equil, linewidth=2, color='r', linestyle='--')
@@ -629,7 +630,7 @@ class sim_env:
         job_thread.start()
 
 
-class gui:
+class Gui:
     '''
     Graphical user interface class
     '''
@@ -716,12 +717,12 @@ class gui:
         self.b.set_title('Satellite Path Without Control Input')
 
         # Init plots
-        gui.canvas_a = FigureCanvasTkAgg(self.fig1, master=self.master)
-        gui.canvas_a.get_tk_widget().pack(side=LEFT)
-        gui.canvas_b = FigureCanvasTkAgg(self.fig2, master=self.master)
-        gui.canvas_b.get_tk_widget().pack(side=RIGHT)
-        gui.canvas_a.draw()
-        gui.canvas_b.draw()
+        Gui.canvas_a = FigureCanvasTkAgg(self.fig1, master=self.master)
+        Gui.canvas_a.get_tk_widget().pack(side=LEFT)
+        Gui.canvas_b = FigureCanvasTkAgg(self.fig2, master=self.master)
+        Gui.canvas_b.get_tk_widget().pack(side=RIGHT)
+        Gui.canvas_a.draw()
+        Gui.canvas_b.draw()
 
     def updateGraphs(self):
 
@@ -790,14 +791,14 @@ def main():
             ser.open()
 
         # Psoc interface instantiation
-        psoc = psoc_interface(ser)
+        psoc = Psoc_interface(ser)
 
         # Simulation environment instantiation
-        sim_env_instance = sim_env(psoc, hardware_in_loop, lqg_active, x0, Ts)
+        sim_env_instance = Sim_env(psoc, hardware_in_loop, lqg_active, x0, Ts)
 
         # GUI instantiation
         root = Tk()
-        gui_instance = gui(root, sim_env_instance)
+        gui_instance = Gui(root, sim_env_instance)
 
         '''
         Schedule periodic execution of input command tasks.
@@ -831,8 +832,8 @@ def main():
             root.update_idletasks()
             root.update()
             gui_instance.updateGraphs()
-            gui.canvas_a.draw()
-            gui.canvas_b.draw()
+            gui_instance.canvas_a.draw()
+            gui_instance.canvas_b.draw()
 
     else:
         # Analysis, no serial interface
@@ -842,7 +843,7 @@ def main():
         Ts = t_sim[-1] / len(t_sim)
 
         # Simulation environment instantiation
-        sim_env_instance = sim_env(None, hardware_in_loop, lqg_active, x0, Ts)
+        sim_env_instance = Sim_env(None, hardware_in_loop, lqg_active, x0, Ts)
 
         # Full linear and discrete simulations
         sys_sol_cont = sim_env_instance.full_sim_cont(t_sim)
@@ -855,7 +856,8 @@ def main():
             sys_sol_discrete)
 
         # Plotting for continuous and discrete solutions
-        title = 'Satellite Path (LQG with Measurement Noise, ZOH Process Noise)'
+        title = 'Satellite Path (LQG with Measurement Noise,'
+        ' ZOH Process Noise)'
         sol_type = 'Continuous Model'
         sim_env_instance.plot_solution(
             x_sat_cont, y_sat_cont, title, sol_type, t_end)
