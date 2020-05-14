@@ -1,5 +1,8 @@
 /*
 ========================================
+ Contains the embedded C code ran on the
+ PSOC microcontroller during simulation
+
  Author: Shawn Marshall-Spitzbart
 ========================================
 */
