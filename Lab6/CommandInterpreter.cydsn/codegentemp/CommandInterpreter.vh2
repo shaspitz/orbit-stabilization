@@ -1,0 +1,1576 @@
+--
+--	Conversion of CommandInterpreter.v to vh2:
+--
+--	Cypress Semiconductor - WARP Version 6.3 IR 41
+--	Wed Apr 29 18:12:09 2020
+--
+
+USE cypress.cypress.all;
+USE cypress.rtlpkg.all;
+ENTITY top_RTL IS
+ATTRIBUTE part_name of top_RTL:TYPE IS "cpsoc3";
+END top_RTL;
+--------------------------------------------------------
+ARCHITECTURE R_T_L OF top_RTL IS
+SIGNAL \LabVIEW_UART:Net_9\ : bit;
+SIGNAL \LabVIEW_UART:Net_61\ : bit;
+SIGNAL one : bit;
+SIGNAL \LabVIEW_UART:BUART:clock_op\ : bit;
+SIGNAL \LabVIEW_UART:BUART:reset_reg\ : bit;
+SIGNAL Net_6 : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_hd_send_break\ : bit;
+SIGNAL \LabVIEW_UART:BUART:HalfDuplexSend\ : bit;
+SIGNAL \LabVIEW_UART:BUART:FinalParityType_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:FinalParityType_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:FinalAddrMode_2\ : bit;
+SIGNAL \LabVIEW_UART:BUART:FinalAddrMode_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:FinalAddrMode_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_ctrl_mark\ : bit;
+SIGNAL \LabVIEW_UART:BUART:reset_sr\ : bit;
+SIGNAL \LabVIEW_UART:BUART:HalfDuplexSend_last\ : bit;
+SIGNAL Net_2 : bit;
+SIGNAL \LabVIEW_UART:BUART:txn\ : bit;
+SIGNAL Net_8 : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_interrupt_out\ : bit;
+SIGNAL Net_9 : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_interrupt_out\ : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_state_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_state_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_bitclk_enable_pre\ : bit;
+SIGNAL zero : bit;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:ce0\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:ce0\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:cl0\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:cl0\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:z0\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:z0\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:ff0\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:ff0\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:ce1\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:ce1\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:cl1\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:cl1\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:z1\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:z1\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:ff1\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:ff1\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:ov_msb\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:ov_msb\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:co_msb\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:co_msb\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:cmsb\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:cmsb\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:tx_shift_out\ : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_fifo_notfull\ : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_fifo_empty\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:f1_bus_stat\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:f1_bus_stat\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:f1_blk_stat\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:f1_blk_stat\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:ce0_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:ce0_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:cl0_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:cl0_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:z0_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:z0_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:ff0_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:ff0_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:ce1_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:ce1_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:cl1_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:cl1_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:z1_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:z1_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:ff1_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:ff1_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:ov_msb_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:ov_msb_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:co_msb_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:co_msb_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:cmsb_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:cmsb_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:so_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:so_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:f0_bus_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:f0_bus_stat_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:f0_blk_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:f0_blk_stat_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:f1_bus_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:f1_bus_stat_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sTX:TxShifter:f1_blk_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sTX:TxShifter:f1_blk_stat_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:counter_load_not\ : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_state_2\ : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_bitclk_dp\ : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_counter_dp\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sc_out_7\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sc_out_6\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sc_out_5\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sc_out_4\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sc_out_3\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sc_out_2\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sc_out_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sc_out_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_counter_tc\ : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_status_6\ : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_status_5\ : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_status_4\ : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_status_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_status_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_status_2\ : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_status_3\ : bit;
+SIGNAL Net_4 : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_bitclk\ : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_ctrl_mark_last\ : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_mark\ : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_parity_bit\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_addressmatch\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_addressmatch1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_addressmatch2\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_state_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_state_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_bitclk_enable\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_postpoll\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_load_fifo\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:RxShifter:cl0\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:RxShifter:cl0\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sRX:RxShifter:z0\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:RxShifter:z0\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sRX:RxShifter:ff0\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:RxShifter:ff0\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sRX:RxShifter:cl1\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:RxShifter:cl1\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sRX:RxShifter:z1\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:RxShifter:z1\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sRX:RxShifter:ff1\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:RxShifter:ff1\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sRX:RxShifter:ov_msb\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:RxShifter:ov_msb\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sRX:RxShifter:co_msb\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:RxShifter:co_msb\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sRX:RxShifter:cmsb\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:RxShifter:cmsb\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:hd_shift_out\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_fifonotempty\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_fifofull\ : bit;
+SIGNAL \LabVIEW_UART:BUART:hd_tx_fifo_notfull\ : bit;
+SIGNAL \LabVIEW_UART:BUART:hd_tx_fifo_empty\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:RxShifter:ce0_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:RxShifter:ce0_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sRX:RxShifter:cl0_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:RxShifter:cl0_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sRX:RxShifter:z0_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:RxShifter:z0_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sRX:RxShifter:ff0_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:RxShifter:ff0_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sRX:RxShifter:ce1_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:RxShifter:ce1_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sRX:RxShifter:cl1_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:RxShifter:cl1_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sRX:RxShifter:z1_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:RxShifter:z1_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sRX:RxShifter:ff1_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:RxShifter:ff1_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sRX:RxShifter:ov_msb_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:RxShifter:ov_msb_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sRX:RxShifter:co_msb_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:RxShifter:co_msb_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sRX:RxShifter:cmsb_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:RxShifter:cmsb_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sRX:RxShifter:so_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:RxShifter:so_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sRX:RxShifter:f0_bus_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:RxShifter:f0_bus_stat_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sRX:RxShifter:f0_blk_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:RxShifter:f0_blk_stat_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sRX:RxShifter:f1_bus_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:RxShifter:f1_bus_stat_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sRX:RxShifter:f1_blk_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:RxShifter:f1_blk_stat_reg\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:rx_counter_load\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_state_3\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_state_2\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_bitclk_pre\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_count_2\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_count_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_count_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_bitclk_pre16x\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_count_6\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_count_5\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_count_4\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_count_3\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_count7_tc\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_count7_bit8_wire\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_bitclk\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_state_stop1_reg\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_poll_bit1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_poll_bit2\ : bit;
+SIGNAL \LabVIEW_UART:BUART:pollingrange\ : bit;
+SIGNAL \LabVIEW_UART:BUART:pollcount_1\ : bit;
+SIGNAL Net_7 : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:add_vv_vv_MODGEN_1_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:pollcount_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:add_vv_vv_MODGEN_1_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:cmp_vv_vv_MODGEN_2\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:cmp_vv_vv_MODGEN_3\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:a_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODIN1_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:a_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODIN1_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:b_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:b_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:s_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:s_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:newa_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODIN2_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:newa_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODIN2_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:newb_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:newb_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:dataa_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:dataa_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:datab_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:datab_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:lta_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:gta_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:lta_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:gta_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:newa_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODIN3_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:newa_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODIN3_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:newb_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:newb_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:dataa_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:dataa_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:datab_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:datab_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:lta_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:gta_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:lta_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:gta_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_status_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_markspace_status\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_status_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_status_2\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_parity_error_status\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_status_3\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_stop_bit_error\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_status_4\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_status_5\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_status_6\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_addr_match_status\ : bit;
+SIGNAL Net_3 : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_markspace_pre\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_parity_error_pre\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_break_status\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:cmp_vv_vv_MODGEN_4\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_address_detected\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_last\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_parity_bit\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:cmp_vv_vv_MODGEN_5\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newa_6\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newa_5\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newa_4\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newa_3\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODIN4_6\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newa_2\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODIN4_5\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newa_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODIN4_4\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newa_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODIN4_3\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newb_6\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newb_5\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newb_4\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newb_3\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newb_2\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newb_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:newb_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:dataa_6\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:dataa_5\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:dataa_4\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:dataa_3\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:dataa_2\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:dataa_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:dataa_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:datab_6\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:datab_5\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:datab_4\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:datab_3\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:datab_2\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:datab_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:datab_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:lta_6\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:gta_6\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:lta_5\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:gta_5\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:lta_4\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:gta_4\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:lta_3\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:gta_3\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:lta_2\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:gta_2\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:lta_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:gta_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:lta_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_4:g2:a0:gta_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:newa_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:newb_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:dataa_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:datab_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:a_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:b_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:xnor_array_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:aeqb_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:eq_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:eqi_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:aeqb_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:albi_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:agbi_1\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:lt_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:gt_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:lti_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:gti_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:albi_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:agbi_0\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:xeq\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:xneq\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:xlt\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:xlte\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:xgt\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:g1:a0:xgte\ : bit;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:lt\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:MODULE_5:lt\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:eq\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:MODULE_5:eq\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:gt\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:MODULE_5:gt\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:gte\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:MODULE_5:gte\:SIGNAL IS 2;
+SIGNAL \LabVIEW_UART:BUART:sRX:MODULE_5:lte\ : bit;
+ATTRIBUTE port_state_att of \LabVIEW_UART:BUART:sRX:MODULE_5:lte\:SIGNAL IS 2;
+SIGNAL tmpOE__Rx_1_net_0 : bit;
+SIGNAL tmpIO_0__Rx_1_net_0 : bit;
+TERMINAL tmpSIOVREF__Rx_1_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__Rx_1_net_0 : bit;
+SIGNAL tmpOE__Tx_1_net_0 : bit;
+SIGNAL tmpFB_0__Tx_1_net_0 : bit;
+SIGNAL tmpIO_0__Tx_1_net_0 : bit;
+TERMINAL tmpSIOVREF__Tx_1_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__Tx_1_net_0 : bit;
+SIGNAL \UARTReset:clk\ : bit;
+SIGNAL \UARTReset:rst\ : bit;
+SIGNAL \UARTReset:control_out_0\ : bit;
+SIGNAL Net_14 : bit;
+SIGNAL \UARTReset:control_out_1\ : bit;
+SIGNAL Net_15 : bit;
+SIGNAL \UARTReset:control_out_2\ : bit;
+SIGNAL Net_16 : bit;
+SIGNAL \UARTReset:control_out_3\ : bit;
+SIGNAL Net_18 : bit;
+SIGNAL \UARTReset:control_out_4\ : bit;
+SIGNAL Net_19 : bit;
+SIGNAL \UARTReset:control_out_5\ : bit;
+SIGNAL Net_20 : bit;
+SIGNAL \UARTReset:control_out_6\ : bit;
+SIGNAL Net_21 : bit;
+SIGNAL \UARTReset:control_out_7\ : bit;
+SIGNAL \UARTReset:control_7\ : bit;
+SIGNAL \UARTReset:control_6\ : bit;
+SIGNAL \UARTReset:control_5\ : bit;
+SIGNAL \UARTReset:control_4\ : bit;
+SIGNAL \UARTReset:control_3\ : bit;
+SIGNAL \UARTReset:control_2\ : bit;
+SIGNAL \UARTReset:control_1\ : bit;
+SIGNAL \UARTReset:control_0\ : bit;
+SIGNAL \LEDDrive:clk\ : bit;
+SIGNAL \LEDDrive:rst\ : bit;
+SIGNAL Net_27 : bit;
+SIGNAL \LEDDrive:control_out_0\ : bit;
+SIGNAL Net_24 : bit;
+SIGNAL \LEDDrive:control_out_1\ : bit;
+SIGNAL Net_25 : bit;
+SIGNAL \LEDDrive:control_out_2\ : bit;
+SIGNAL Net_26 : bit;
+SIGNAL \LEDDrive:control_out_3\ : bit;
+SIGNAL Net_28 : bit;
+SIGNAL \LEDDrive:control_out_4\ : bit;
+SIGNAL Net_29 : bit;
+SIGNAL \LEDDrive:control_out_5\ : bit;
+SIGNAL Net_30 : bit;
+SIGNAL \LEDDrive:control_out_6\ : bit;
+SIGNAL Net_31 : bit;
+SIGNAL \LEDDrive:control_out_7\ : bit;
+SIGNAL \LEDDrive:control_7\ : bit;
+SIGNAL \LEDDrive:control_6\ : bit;
+SIGNAL \LEDDrive:control_5\ : bit;
+SIGNAL \LEDDrive:control_4\ : bit;
+SIGNAL \LEDDrive:control_3\ : bit;
+SIGNAL \LEDDrive:control_2\ : bit;
+SIGNAL \LEDDrive:control_1\ : bit;
+SIGNAL \LEDDrive:control_0\ : bit;
+SIGNAL tmpOE__LED_net_0 : bit;
+SIGNAL tmpFB_0__LED_net_0 : bit;
+SIGNAL tmpIO_0__LED_net_0 : bit;
+TERMINAL tmpSIOVREF__LED_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__LED_net_0 : bit;
+SIGNAL Net_38 : bit;
+SIGNAL \ByteCounter:Net_43\ : bit;
+SIGNAL Net_35 : bit;
+SIGNAL \ByteCounter:Net_49\ : bit;
+SIGNAL \ByteCounter:Net_82\ : bit;
+SIGNAL \ByteCounter:Net_89\ : bit;
+SIGNAL \ByteCounter:Net_95\ : bit;
+SIGNAL \ByteCounter:Net_91\ : bit;
+SIGNAL \ByteCounter:Net_102\ : bit;
+SIGNAL Net_37 : bit;
+SIGNAL \ByteCounter:CounterUDB:ClockOutFromEnBlock\ : bit;
+SIGNAL \ByteCounter:CounterUDB:ctrl_cmod_2\ : bit;
+SIGNAL \ByteCounter:CounterUDB:ctrl_cmod_1\ : bit;
+SIGNAL \ByteCounter:CounterUDB:ctrl_cmod_0\ : bit;
+SIGNAL \ByteCounter:CounterUDB:ctrl_capmode_1\ : bit;
+SIGNAL \ByteCounter:CounterUDB:ctrl_capmode_0\ : bit;
+SIGNAL \ByteCounter:CounterUDB:Clk_Ctl_i\ : bit;
+SIGNAL \ByteCounter:CounterUDB:control_7\ : bit;
+SIGNAL \ByteCounter:CounterUDB:control_6\ : bit;
+SIGNAL \ByteCounter:CounterUDB:control_5\ : bit;
+SIGNAL \ByteCounter:CounterUDB:control_4\ : bit;
+SIGNAL \ByteCounter:CounterUDB:control_3\ : bit;
+SIGNAL \ByteCounter:CounterUDB:control_2\ : bit;
+SIGNAL \ByteCounter:CounterUDB:control_1\ : bit;
+SIGNAL \ByteCounter:CounterUDB:control_0\ : bit;
+SIGNAL \ByteCounter:CounterUDB:ctrl_enable\ : bit;
+SIGNAL \ByteCounter:CounterUDB:prevCapture\ : bit;
+SIGNAL \ByteCounter:CounterUDB:capt_rising\ : bit;
+SIGNAL \ByteCounter:CounterUDB:capt_falling\ : bit;
+SIGNAL \ByteCounter:CounterUDB:capt_either_edge\ : bit;
+SIGNAL \ByteCounter:CounterUDB:hwCapture\ : bit;
+SIGNAL \ByteCounter:CounterUDB:reload\ : bit;
+SIGNAL Net_34 : bit;
+SIGNAL Net_36 : bit;
+SIGNAL \ByteCounter:CounterUDB:final_enable\ : bit;
+SIGNAL \ByteCounter:CounterUDB:counter_enable\ : bit;
+SIGNAL \ByteCounter:CounterUDB:status_0\ : bit;
+SIGNAL \ByteCounter:CounterUDB:cmp_out_status\ : bit;
+SIGNAL \ByteCounter:CounterUDB:status_1\ : bit;
+SIGNAL \ByteCounter:CounterUDB:per_zero\ : bit;
+SIGNAL \ByteCounter:CounterUDB:status_2\ : bit;
+SIGNAL \ByteCounter:CounterUDB:overflow_status\ : bit;
+SIGNAL \ByteCounter:CounterUDB:status_3\ : bit;
+SIGNAL \ByteCounter:CounterUDB:underflow_status\ : bit;
+SIGNAL \ByteCounter:CounterUDB:status_4\ : bit;
+SIGNAL \ByteCounter:CounterUDB:status_5\ : bit;
+SIGNAL \ByteCounter:CounterUDB:fifo_full\ : bit;
+SIGNAL \ByteCounter:CounterUDB:status_6\ : bit;
+SIGNAL \ByteCounter:CounterUDB:fifo_nempty\ : bit;
+SIGNAL \ByteCounter:CounterUDB:overflow\ : bit;
+SIGNAL \ByteCounter:CounterUDB:dp_dir\ : bit;
+SIGNAL \ByteCounter:CounterUDB:per_equal\ : bit;
+SIGNAL \ByteCounter:CounterUDB:underflow\ : bit;
+SIGNAL \ByteCounter:CounterUDB:overflow_reg_i\ : bit;
+SIGNAL \ByteCounter:CounterUDB:underflow_reg_i\ : bit;
+SIGNAL \ByteCounter:CounterUDB:tc_i\ : bit;
+SIGNAL \ByteCounter:CounterUDB:tc_reg_i\ : bit;
+SIGNAL \ByteCounter:CounterUDB:cmp_out_i\ : bit;
+SIGNAL \ByteCounter:CounterUDB:cmp_equal\ : bit;
+SIGNAL \ByteCounter:CounterUDB:prevCompare\ : bit;
+SIGNAL \ByteCounter:CounterUDB:cmp_out_reg_i\ : bit;
+SIGNAL \ByteCounter:CounterUDB:count_stored_i\ : bit;
+SIGNAL \ByteCounter:CounterUDB:count_enable\ : bit;
+SIGNAL \ByteCounter:CounterUDB:reload_tc\ : bit;
+SIGNAL \ByteCounter:CounterUDB:cs_addr_2\ : bit;
+SIGNAL \ByteCounter:CounterUDB:cs_addr_1\ : bit;
+SIGNAL \ByteCounter:CounterUDB:cs_addr_0\ : bit;
+SIGNAL \ByteCounter:CounterUDB:nc42\ : bit;
+SIGNAL \ByteCounter:CounterUDB:per_FF\ : bit;
+SIGNAL \ByteCounter:CounterUDB:cmp_less\ : bit;
+SIGNAL \ByteCounter:CounterUDB:sC8:counterdp:z1\ : bit;
+ATTRIBUTE port_state_att of \ByteCounter:CounterUDB:sC8:counterdp:z1\:SIGNAL IS 2;
+SIGNAL \ByteCounter:CounterUDB:sC8:counterdp:ff1\ : bit;
+ATTRIBUTE port_state_att of \ByteCounter:CounterUDB:sC8:counterdp:ff1\:SIGNAL IS 2;
+SIGNAL \ByteCounter:CounterUDB:sC8:counterdp:ov_msb\ : bit;
+ATTRIBUTE port_state_att of \ByteCounter:CounterUDB:sC8:counterdp:ov_msb\:SIGNAL IS 2;
+SIGNAL \ByteCounter:CounterUDB:sC8:counterdp:co_msb\ : bit;
+ATTRIBUTE port_state_att of \ByteCounter:CounterUDB:sC8:counterdp:co_msb\:SIGNAL IS 2;
+SIGNAL \ByteCounter:CounterUDB:sC8:counterdp:cmsb\ : bit;
+ATTRIBUTE port_state_att of \ByteCounter:CounterUDB:sC8:counterdp:cmsb\:SIGNAL IS 2;
+SIGNAL \ByteCounter:CounterUDB:sC8:counterdp:so\ : bit;
+ATTRIBUTE port_state_att of \ByteCounter:CounterUDB:sC8:counterdp:so\:SIGNAL IS 2;
+SIGNAL \ByteCounter:CounterUDB:sC8:counterdp:f1_bus_stat\ : bit;
+ATTRIBUTE port_state_att of \ByteCounter:CounterUDB:sC8:counterdp:f1_bus_stat\:SIGNAL IS 2;
+SIGNAL \ByteCounter:CounterUDB:sC8:counterdp:f1_blk_stat\ : bit;
+ATTRIBUTE port_state_att of \ByteCounter:CounterUDB:sC8:counterdp:f1_blk_stat\:SIGNAL IS 2;
+SIGNAL \ByteCounter:CounterUDB:sC8:counterdp:ce0_reg\ : bit;
+ATTRIBUTE port_state_att of \ByteCounter:CounterUDB:sC8:counterdp:ce0_reg\:SIGNAL IS 2;
+SIGNAL \ByteCounter:CounterUDB:sC8:counterdp:cl0_reg\ : bit;
+ATTRIBUTE port_state_att of \ByteCounter:CounterUDB:sC8:counterdp:cl0_reg\:SIGNAL IS 2;
+SIGNAL \ByteCounter:CounterUDB:sC8:counterdp:z0_reg\ : bit;
+ATTRIBUTE port_state_att of \ByteCounter:CounterUDB:sC8:counterdp:z0_reg\:SIGNAL IS 2;
+SIGNAL \ByteCounter:CounterUDB:sC8:counterdp:ff0_reg\ : bit;
+ATTRIBUTE port_state_att of \ByteCounter:CounterUDB:sC8:counterdp:ff0_reg\:SIGNAL IS 2;
+SIGNAL \ByteCounter:CounterUDB:sC8:counterdp:ce1_reg\ : bit;
+ATTRIBUTE port_state_att of \ByteCounter:CounterUDB:sC8:counterdp:ce1_reg\:SIGNAL IS 2;
+SIGNAL \ByteCounter:CounterUDB:sC8:counterdp:cl1_reg\ : bit;
+ATTRIBUTE port_state_att of \ByteCounter:CounterUDB:sC8:counterdp:cl1_reg\:SIGNAL IS 2;
+SIGNAL \ByteCounter:CounterUDB:sC8:counterdp:z1_reg\ : bit;
+ATTRIBUTE port_state_att of \ByteCounter:CounterUDB:sC8:counterdp:z1_reg\:SIGNAL IS 2;
+SIGNAL \ByteCounter:CounterUDB:sC8:counterdp:ff1_reg\ : bit;
+ATTRIBUTE port_state_att of \ByteCounter:CounterUDB:sC8:counterdp:ff1_reg\:SIGNAL IS 2;
+SIGNAL \ByteCounter:CounterUDB:sC8:counterdp:ov_msb_reg\ : bit;
+ATTRIBUTE port_state_att of \ByteCounter:CounterUDB:sC8:counterdp:ov_msb_reg\:SIGNAL IS 2;
+SIGNAL \ByteCounter:CounterUDB:sC8:counterdp:co_msb_reg\ : bit;
+ATTRIBUTE port_state_att of \ByteCounter:CounterUDB:sC8:counterdp:co_msb_reg\:SIGNAL IS 2;
+SIGNAL \ByteCounter:CounterUDB:sC8:counterdp:cmsb_reg\ : bit;
+ATTRIBUTE port_state_att of \ByteCounter:CounterUDB:sC8:counterdp:cmsb_reg\:SIGNAL IS 2;
+SIGNAL \ByteCounter:CounterUDB:sC8:counterdp:so_reg\ : bit;
+ATTRIBUTE port_state_att of \ByteCounter:CounterUDB:sC8:counterdp:so_reg\:SIGNAL IS 2;
+SIGNAL \ByteCounter:CounterUDB:sC8:counterdp:f0_bus_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \ByteCounter:CounterUDB:sC8:counterdp:f0_bus_stat_reg\:SIGNAL IS 2;
+SIGNAL \ByteCounter:CounterUDB:sC8:counterdp:f0_blk_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \ByteCounter:CounterUDB:sC8:counterdp:f0_blk_stat_reg\:SIGNAL IS 2;
+SIGNAL \ByteCounter:CounterUDB:sC8:counterdp:f1_bus_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \ByteCounter:CounterUDB:sC8:counterdp:f1_bus_stat_reg\:SIGNAL IS 2;
+SIGNAL \ByteCounter:CounterUDB:sC8:counterdp:f1_blk_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \ByteCounter:CounterUDB:sC8:counterdp:f1_blk_stat_reg\:SIGNAL IS 2;
+SIGNAL \ByteCountReset:clk\ : bit;
+SIGNAL \ByteCountReset:rst\ : bit;
+SIGNAL \ByteCountReset:control_out_0\ : bit;
+SIGNAL Net_49 : bit;
+SIGNAL \ByteCountReset:control_out_1\ : bit;
+SIGNAL Net_50 : bit;
+SIGNAL \ByteCountReset:control_out_2\ : bit;
+SIGNAL Net_51 : bit;
+SIGNAL \ByteCountReset:control_out_3\ : bit;
+SIGNAL Net_53 : bit;
+SIGNAL \ByteCountReset:control_out_4\ : bit;
+SIGNAL Net_54 : bit;
+SIGNAL \ByteCountReset:control_out_5\ : bit;
+SIGNAL Net_55 : bit;
+SIGNAL \ByteCountReset:control_out_6\ : bit;
+SIGNAL Net_56 : bit;
+SIGNAL \ByteCountReset:control_out_7\ : bit;
+SIGNAL \ByteCountReset:control_7\ : bit;
+SIGNAL \ByteCountReset:control_6\ : bit;
+SIGNAL \ByteCountReset:control_5\ : bit;
+SIGNAL \ByteCountReset:control_4\ : bit;
+SIGNAL \ByteCountReset:control_3\ : bit;
+SIGNAL \ByteCountReset:control_2\ : bit;
+SIGNAL \ByteCountReset:control_1\ : bit;
+SIGNAL \ByteCountReset:control_0\ : bit;
+SIGNAL Net_59 : bit;
+SIGNAL Net_61 : bit;
+SIGNAL \Timer_1:Net_260\ : bit;
+SIGNAL \Timer_1:Net_266\ : bit;
+SIGNAL \Timer_1:Net_51\ : bit;
+SIGNAL \Timer_1:Net_261\ : bit;
+SIGNAL \Timer_1:Net_57\ : bit;
+SIGNAL Net_62 : bit;
+SIGNAL Net_67 : bit;
+SIGNAL \Timer_1:Net_102\ : bit;
+SIGNAL \LabVIEW_UART:BUART:reset_reg\\D\ : bit;
+SIGNAL \LabVIEW_UART:BUART:txn\\D\ : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_state_1\\D\ : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_state_0\\D\ : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_state_2\\D\ : bit;
+SIGNAL Net_4D : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_bitclk\\D\ : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_ctrl_mark_last\\D\ : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_mark\\D\ : bit;
+SIGNAL \LabVIEW_UART:BUART:tx_parity_bit\\D\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_state_1\\D\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_state_0\\D\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_load_fifo\\D\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_state_3\\D\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_state_2\\D\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_bitclk\\D\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_state_stop1_reg\\D\ : bit;
+SIGNAL \LabVIEW_UART:BUART:pollcount_1\\D\ : bit;
+SIGNAL \LabVIEW_UART:BUART:pollcount_0\\D\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_markspace_status\\D\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_parity_error_status\\D\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_stop_bit_error\\D\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_addr_match_status\\D\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_markspace_pre\\D\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_parity_error_pre\\D\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_break_status\\D\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_address_detected\\D\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_last\\D\ : bit;
+SIGNAL \LabVIEW_UART:BUART:rx_parity_bit\\D\ : bit;
+SIGNAL \ByteCounter:CounterUDB:prevCapture\\D\ : bit;
+SIGNAL \ByteCounter:CounterUDB:overflow_reg_i\\D\ : bit;
+SIGNAL \ByteCounter:CounterUDB:underflow_reg_i\\D\ : bit;
+SIGNAL \ByteCounter:CounterUDB:tc_reg_i\\D\ : bit;
+SIGNAL \ByteCounter:CounterUDB:prevCompare\\D\ : bit;
+SIGNAL \ByteCounter:CounterUDB:cmp_out_reg_i\\D\ : bit;
+SIGNAL \ByteCounter:CounterUDB:count_stored_i\\D\ : bit;
+BEGIN
+
+one <=  ('1') ;
+
+Net_2 <= (not \LabVIEW_UART:BUART:txn\);
+
+zero <=  ('0') ;
+
+\LabVIEW_UART:BUART:counter_load_not\ <= ((not \LabVIEW_UART:BUART:tx_bitclk_enable_pre\ and \LabVIEW_UART:BUART:tx_state_2\)
+	OR \LabVIEW_UART:BUART:tx_state_0\
+	OR \LabVIEW_UART:BUART:tx_state_1\);
+
+\LabVIEW_UART:BUART:tx_status_0\ <= ((not \LabVIEW_UART:BUART:tx_state_1\ and not \LabVIEW_UART:BUART:tx_state_0\ and \LabVIEW_UART:BUART:tx_bitclk_enable_pre\ and \LabVIEW_UART:BUART:tx_fifo_empty\ and \LabVIEW_UART:BUART:tx_state_2\));
+
+\LabVIEW_UART:BUART:tx_status_2\ <= (not \LabVIEW_UART:BUART:tx_fifo_notfull\);
+
+\LabVIEW_UART:BUART:tx_bitclk\\D\ <= ((not \LabVIEW_UART:BUART:tx_state_2\ and \LabVIEW_UART:BUART:tx_bitclk_enable_pre\)
+	OR (\LabVIEW_UART:BUART:tx_state_0\ and \LabVIEW_UART:BUART:tx_bitclk_enable_pre\)
+	OR (\LabVIEW_UART:BUART:tx_state_1\ and \LabVIEW_UART:BUART:tx_bitclk_enable_pre\));
+
+\LabVIEW_UART:BUART:tx_mark\\D\ <= ((not \LabVIEW_UART:BUART:reset_reg\ and \LabVIEW_UART:BUART:tx_mark\));
+
+\LabVIEW_UART:BUART:tx_state_2\\D\ <= ((not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:tx_state_2\ and \LabVIEW_UART:BUART:tx_state_1\ and \LabVIEW_UART:BUART:tx_counter_dp\ and \LabVIEW_UART:BUART:tx_bitclk\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:tx_state_2\ and \LabVIEW_UART:BUART:tx_state_1\ and \LabVIEW_UART:BUART:tx_state_0\ and \LabVIEW_UART:BUART:tx_bitclk\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:tx_state_1\ and \LabVIEW_UART:BUART:tx_state_0\ and \LabVIEW_UART:BUART:tx_state_2\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:tx_state_0\ and \LabVIEW_UART:BUART:tx_state_1\ and \LabVIEW_UART:BUART:tx_state_2\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:tx_bitclk_enable_pre\ and \LabVIEW_UART:BUART:tx_state_2\));
+
+\LabVIEW_UART:BUART:tx_state_1\\D\ <= ((not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:tx_state_1\ and not \LabVIEW_UART:BUART:tx_state_2\ and \LabVIEW_UART:BUART:tx_state_0\ and \LabVIEW_UART:BUART:tx_bitclk\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:tx_state_2\ and not \LabVIEW_UART:BUART:tx_bitclk\ and \LabVIEW_UART:BUART:tx_state_1\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:tx_bitclk_enable_pre\ and \LabVIEW_UART:BUART:tx_state_1\ and \LabVIEW_UART:BUART:tx_state_2\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:tx_state_0\ and not \LabVIEW_UART:BUART:tx_counter_dp\ and \LabVIEW_UART:BUART:tx_state_1\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:tx_state_0\ and \LabVIEW_UART:BUART:tx_state_1\ and \LabVIEW_UART:BUART:tx_state_2\));
+
+\LabVIEW_UART:BUART:tx_state_0\\D\ <= ((not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:tx_state_1\ and not \LabVIEW_UART:BUART:tx_fifo_empty\ and \LabVIEW_UART:BUART:tx_bitclk_enable_pre\ and \LabVIEW_UART:BUART:tx_state_2\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:tx_state_1\ and not \LabVIEW_UART:BUART:tx_state_0\ and not \LabVIEW_UART:BUART:tx_fifo_empty\ and not \LabVIEW_UART:BUART:tx_state_2\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:tx_bitclk_enable_pre\ and \LabVIEW_UART:BUART:tx_state_0\ and \LabVIEW_UART:BUART:tx_state_2\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:tx_state_2\ and not \LabVIEW_UART:BUART:tx_bitclk\ and \LabVIEW_UART:BUART:tx_state_0\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:tx_fifo_empty\ and \LabVIEW_UART:BUART:tx_state_0\ and \LabVIEW_UART:BUART:tx_state_2\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:tx_state_1\ and \LabVIEW_UART:BUART:tx_state_0\ and \LabVIEW_UART:BUART:tx_state_2\));
+
+\LabVIEW_UART:BUART:txn\\D\ <= ((not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:tx_state_0\ and not \LabVIEW_UART:BUART:tx_shift_out\ and not \LabVIEW_UART:BUART:tx_state_2\ and not \LabVIEW_UART:BUART:tx_counter_dp\ and \LabVIEW_UART:BUART:tx_state_1\ and \LabVIEW_UART:BUART:tx_bitclk\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:tx_state_1\ and not \LabVIEW_UART:BUART:tx_state_2\ and not \LabVIEW_UART:BUART:tx_bitclk\ and \LabVIEW_UART:BUART:tx_state_0\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:tx_state_1\ and not \LabVIEW_UART:BUART:tx_shift_out\ and not \LabVIEW_UART:BUART:tx_state_2\ and \LabVIEW_UART:BUART:tx_state_0\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:tx_bitclk\ and \LabVIEW_UART:BUART:txn\ and \LabVIEW_UART:BUART:tx_state_1\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and \LabVIEW_UART:BUART:txn\ and \LabVIEW_UART:BUART:tx_state_2\));
+
+\LabVIEW_UART:BUART:tx_parity_bit\\D\ <= ((not \LabVIEW_UART:BUART:tx_state_0\ and \LabVIEW_UART:BUART:txn\ and \LabVIEW_UART:BUART:tx_parity_bit\)
+	OR (not \LabVIEW_UART:BUART:tx_state_1\ and not \LabVIEW_UART:BUART:tx_state_0\ and \LabVIEW_UART:BUART:tx_parity_bit\)
+	OR \LabVIEW_UART:BUART:tx_parity_bit\);
+
+\LabVIEW_UART:BUART:rx_counter_load\ <= ((not \LabVIEW_UART:BUART:rx_state_1\ and not \LabVIEW_UART:BUART:rx_state_0\ and not \LabVIEW_UART:BUART:rx_state_3\ and not \LabVIEW_UART:BUART:rx_state_2\));
+
+\LabVIEW_UART:BUART:rx_bitclk_pre\ <= ((not \LabVIEW_UART:BUART:rx_count_2\ and not \LabVIEW_UART:BUART:rx_count_1\ and not \LabVIEW_UART:BUART:rx_count_0\));
+
+\LabVIEW_UART:BUART:rx_state_stop1_reg\\D\ <= (not \LabVIEW_UART:BUART:rx_state_2\
+	OR not \LabVIEW_UART:BUART:rx_state_3\
+	OR \LabVIEW_UART:BUART:rx_state_0\
+	OR \LabVIEW_UART:BUART:rx_state_1\);
+
+\LabVIEW_UART:BUART:pollcount_1\\D\ <= ((not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:rx_count_2\ and not \LabVIEW_UART:BUART:rx_count_1\ and not \LabVIEW_UART:BUART:pollcount_1\ and Net_7 and \LabVIEW_UART:BUART:pollcount_0\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:rx_count_2\ and not \LabVIEW_UART:BUART:rx_count_1\ and not \LabVIEW_UART:BUART:pollcount_0\ and \LabVIEW_UART:BUART:pollcount_1\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:rx_count_2\ and not \LabVIEW_UART:BUART:rx_count_1\ and not Net_7 and \LabVIEW_UART:BUART:pollcount_1\));
+
+\LabVIEW_UART:BUART:pollcount_0\\D\ <= ((not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:rx_count_2\ and not \LabVIEW_UART:BUART:rx_count_1\ and not \LabVIEW_UART:BUART:pollcount_0\ and Net_7)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:rx_count_2\ and not \LabVIEW_UART:BUART:rx_count_1\ and not Net_7 and \LabVIEW_UART:BUART:pollcount_0\));
+
+\LabVIEW_UART:BUART:rx_postpoll\ <= ((Net_7 and \LabVIEW_UART:BUART:pollcount_0\)
+	OR \LabVIEW_UART:BUART:pollcount_1\);
+
+\LabVIEW_UART:BUART:rx_status_4\ <= ((\LabVIEW_UART:BUART:rx_load_fifo\ and \LabVIEW_UART:BUART:rx_fifofull\));
+
+\LabVIEW_UART:BUART:rx_status_5\ <= ((\LabVIEW_UART:BUART:rx_fifonotempty\ and \LabVIEW_UART:BUART:rx_state_stop1_reg\));
+
+\LabVIEW_UART:BUART:rx_stop_bit_error\\D\ <= ((not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:rx_state_1\ and not \LabVIEW_UART:BUART:rx_state_0\ and not \LabVIEW_UART:BUART:pollcount_1\ and not \LabVIEW_UART:BUART:pollcount_0\ and \LabVIEW_UART:BUART:rx_bitclk_enable\ and \LabVIEW_UART:BUART:rx_state_3\ and \LabVIEW_UART:BUART:rx_state_2\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:rx_state_1\ and not \LabVIEW_UART:BUART:rx_state_0\ and not \LabVIEW_UART:BUART:pollcount_1\ and not Net_7 and \LabVIEW_UART:BUART:rx_bitclk_enable\ and \LabVIEW_UART:BUART:rx_state_3\ and \LabVIEW_UART:BUART:rx_state_2\));
+
+\LabVIEW_UART:BUART:rx_load_fifo\\D\ <= ((not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:rx_state_1\ and not \LabVIEW_UART:BUART:rx_state_0\ and not \LabVIEW_UART:BUART:rx_state_2\ and \LabVIEW_UART:BUART:rx_bitclk_enable\ and \LabVIEW_UART:BUART:rx_state_3\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:rx_state_1\ and not \LabVIEW_UART:BUART:rx_state_3\ and not \LabVIEW_UART:BUART:rx_state_2\ and not \LabVIEW_UART:BUART:rx_count_6\ and not \LabVIEW_UART:BUART:rx_count_4\ and \LabVIEW_UART:BUART:rx_state_0\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:rx_state_1\ and not \LabVIEW_UART:BUART:rx_state_3\ and not \LabVIEW_UART:BUART:rx_state_2\ and not \LabVIEW_UART:BUART:rx_count_6\ and not \LabVIEW_UART:BUART:rx_count_5\ and \LabVIEW_UART:BUART:rx_state_0\));
+
+\LabVIEW_UART:BUART:rx_state_3\\D\ <= ((not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:rx_state_1\ and not \LabVIEW_UART:BUART:rx_state_2\ and not \LabVIEW_UART:BUART:rx_count_6\ and not \LabVIEW_UART:BUART:rx_count_4\ and \LabVIEW_UART:BUART:rx_state_0\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:rx_state_1\ and not \LabVIEW_UART:BUART:rx_state_2\ and not \LabVIEW_UART:BUART:rx_count_6\ and not \LabVIEW_UART:BUART:rx_count_5\ and \LabVIEW_UART:BUART:rx_state_0\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:rx_bitclk_enable\ and \LabVIEW_UART:BUART:rx_state_3\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and \LabVIEW_UART:BUART:rx_state_1\ and \LabVIEW_UART:BUART:rx_state_3\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:rx_state_2\ and \LabVIEW_UART:BUART:rx_state_3\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and \LabVIEW_UART:BUART:rx_state_0\ and \LabVIEW_UART:BUART:rx_state_3\));
+
+\LabVIEW_UART:BUART:rx_state_2\\D\ <= ((not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:rx_state_1\ and not \LabVIEW_UART:BUART:rx_state_0\ and not \LabVIEW_UART:BUART:rx_state_3\ and not \LabVIEW_UART:BUART:rx_state_2\ and not Net_7 and \LabVIEW_UART:BUART:rx_last\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:rx_state_1\ and not \LabVIEW_UART:BUART:rx_state_0\ and not \LabVIEW_UART:BUART:rx_state_2\ and \LabVIEW_UART:BUART:rx_bitclk_enable\ and \LabVIEW_UART:BUART:rx_state_3\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:rx_state_1\ and not \LabVIEW_UART:BUART:rx_state_3\ and not \LabVIEW_UART:BUART:rx_count_6\ and not \LabVIEW_UART:BUART:rx_count_4\ and \LabVIEW_UART:BUART:rx_state_0\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:rx_state_1\ and not \LabVIEW_UART:BUART:rx_state_3\ and not \LabVIEW_UART:BUART:rx_count_6\ and not \LabVIEW_UART:BUART:rx_count_5\ and \LabVIEW_UART:BUART:rx_state_0\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:rx_bitclk_enable\ and \LabVIEW_UART:BUART:rx_state_2\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and \LabVIEW_UART:BUART:rx_state_1\ and \LabVIEW_UART:BUART:rx_state_2\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and \LabVIEW_UART:BUART:rx_state_0\ and \LabVIEW_UART:BUART:rx_state_2\));
+
+\LabVIEW_UART:BUART:rx_state_1\\D\ <= ((not \LabVIEW_UART:BUART:reset_reg\ and \LabVIEW_UART:BUART:rx_state_1\));
+
+\LabVIEW_UART:BUART:rx_state_0\\D\ <= ((not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:rx_state_1\ and not \LabVIEW_UART:BUART:rx_state_3\ and not \LabVIEW_UART:BUART:pollcount_1\ and not \LabVIEW_UART:BUART:pollcount_0\ and \LabVIEW_UART:BUART:rx_bitclk_enable\ and \LabVIEW_UART:BUART:rx_state_2\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and not \LabVIEW_UART:BUART:rx_state_1\ and not \LabVIEW_UART:BUART:rx_state_3\ and not \LabVIEW_UART:BUART:pollcount_1\ and not Net_7 and \LabVIEW_UART:BUART:rx_bitclk_enable\ and \LabVIEW_UART:BUART:rx_state_2\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and \LabVIEW_UART:BUART:rx_state_0\ and \LabVIEW_UART:BUART:rx_count_5\ and \LabVIEW_UART:BUART:rx_count_4\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and \LabVIEW_UART:BUART:rx_state_0\ and \LabVIEW_UART:BUART:rx_count_6\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and \LabVIEW_UART:BUART:rx_state_0\ and \LabVIEW_UART:BUART:rx_state_3\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and \LabVIEW_UART:BUART:rx_state_1\ and \LabVIEW_UART:BUART:rx_state_0\)
+	OR (not \LabVIEW_UART:BUART:reset_reg\ and \LabVIEW_UART:BUART:rx_state_0\ and \LabVIEW_UART:BUART:rx_state_2\));
+
+\LabVIEW_UART:BUART:rx_last\\D\ <= ((not \LabVIEW_UART:BUART:reset_reg\ and Net_7));
+
+\LabVIEW_UART:BUART:rx_address_detected\\D\ <= ((not \LabVIEW_UART:BUART:reset_reg\ and \LabVIEW_UART:BUART:rx_address_detected\));
+
+\ByteCounter:CounterUDB:reload\ <= (Net_36
+	OR Net_34);
+
+\ByteCounter:CounterUDB:status_0\ <= ((not \ByteCounter:CounterUDB:prevCompare\ and \ByteCounter:CounterUDB:cmp_out_i\));
+
+\ByteCounter:CounterUDB:status_2\ <= ((not \ByteCounter:CounterUDB:overflow_reg_i\ and \ByteCounter:CounterUDB:per_equal\));
+
+\ByteCounter:CounterUDB:count_enable\ <= ((not \ByteCounter:CounterUDB:count_stored_i\ and Net_9 and \ByteCounter:CounterUDB:control_7\));
+
+\LabVIEW_UART:IntClock\:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"b0162966-0060-4af5-82d1-fcb491ad7619/be0a0e37-ad17-42ca-b5a1-1a654d736358",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"1085069444.44444",
+		is_direct=>'0',
+		is_digital=>'1')
+	PORT MAP(clock_out=>\LabVIEW_UART:Net_9\,
+		dig_domain_out=>open);
+\LabVIEW_UART:BUART:ClkSync\:cy_psoc3_udb_clock_enable_v1_0
+	GENERIC MAP(sync_mode=>'1')
+	PORT MAP(clock_in=>\LabVIEW_UART:Net_9\,
+		enable=>one,
+		clock_out=>\LabVIEW_UART:BUART:clock_op\);
+\LabVIEW_UART:BUART:sTX:TxShifter:u0\:cy_psoc3_dp
+	GENERIC MAP(cy_dpconfig=>"0000000000000000000000000000000000000000000000000000000011000000000000000000000000000010010000000000000000000000000000000000000011111111000000001111111111111111000000000000000001000100111100000000000000001100",
+		d0_init=>"00000000",
+		d1_init=>"00000000",
+		a0_init=>"00000000",
+		a1_init=>"00000000",
+		ce0_sync=>'1',
+		cl0_sync=>'1',
+		z0_sync=>'1',
+		ff0_sync=>'1',
+		ce1_sync=>'1',
+		cl1_sync=>'1',
+		z1_sync=>'1',
+		ff1_sync=>'1',
+		ov_msb_sync=>'1',
+		co_msb_sync=>'1',
+		cmsb_sync=>'1',
+		so_sync=>'1',
+		f0_bus_sync=>'1',
+		f0_blk_sync=>'1',
+		f1_bus_sync=>'1',
+		f1_blk_sync=>'1')
+	PORT MAP(reset=>\LabVIEW_UART:BUART:reset_reg\,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		cs_addr=>(\LabVIEW_UART:BUART:tx_state_1\, \LabVIEW_UART:BUART:tx_state_0\, \LabVIEW_UART:BUART:tx_bitclk_enable_pre\),
+		route_si=>zero,
+		route_ci=>zero,
+		f0_load=>zero,
+		f1_load=>zero,
+		d0_load=>zero,
+		d1_load=>zero,
+		ce0=>open,
+		cl0=>open,
+		z0=>open,
+		ff0=>open,
+		ce1=>open,
+		cl1=>open,
+		z1=>open,
+		ff1=>open,
+		ov_msb=>open,
+		co_msb=>open,
+		cmsb=>open,
+		so=>\LabVIEW_UART:BUART:tx_shift_out\,
+		f0_bus_stat=>\LabVIEW_UART:BUART:tx_fifo_notfull\,
+		f0_blk_stat=>\LabVIEW_UART:BUART:tx_fifo_empty\,
+		f1_bus_stat=>open,
+		f1_blk_stat=>open,
+		ce0_reg=>open,
+		cl0_reg=>open,
+		z0_reg=>open,
+		ff0_reg=>open,
+		ce1_reg=>open,
+		cl1_reg=>open,
+		z1_reg=>open,
+		ff1_reg=>open,
+		ov_msb_reg=>open,
+		co_msb_reg=>open,
+		cmsb_reg=>open,
+		so_reg=>open,
+		f0_bus_stat_reg=>open,
+		f0_blk_stat_reg=>open,
+		f1_bus_stat_reg=>open,
+		f1_blk_stat_reg=>open,
+		ci=>zero,
+		co=>open,
+		sir=>zero,
+		sor=>open,
+		sil=>zero,
+		sol=>open,
+		msbi=>zero,
+		msbo=>open,
+		cei=>(zero, zero),
+		ceo=>open,
+		cli=>(zero, zero),
+		clo=>open,
+		zi=>(zero, zero),
+		zo=>open,
+		fi=>(zero, zero),
+		fo=>open,
+		capi=>(zero, zero),
+		capo=>open,
+		cfbi=>zero,
+		cfbo=>open,
+		pi=>(zero, zero, zero, zero,
+			zero, zero, zero, zero),
+		po=>open);
+\LabVIEW_UART:BUART:sTX:sCLOCK:TxBitClkGen\:cy_psoc3_dp
+	GENERIC MAP(cy_dpconfig=>"1010100001000000001000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111000000001111111100000111001000000100000000000101111100000000000000001000",
+		d0_init=>"00000000",
+		d1_init=>"00000000",
+		a0_init=>"00000000",
+		a1_init=>"00000000",
+		ce0_sync=>'1',
+		cl0_sync=>'1',
+		z0_sync=>'1',
+		ff0_sync=>'1',
+		ce1_sync=>'1',
+		cl1_sync=>'1',
+		z1_sync=>'1',
+		ff1_sync=>'1',
+		ov_msb_sync=>'1',
+		co_msb_sync=>'1',
+		cmsb_sync=>'1',
+		so_sync=>'1',
+		f0_bus_sync=>'1',
+		f0_blk_sync=>'1',
+		f1_bus_sync=>'1',
+		f1_blk_sync=>'1')
+	PORT MAP(reset=>\LabVIEW_UART:BUART:reset_reg\,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		cs_addr=>(zero, zero, \LabVIEW_UART:BUART:counter_load_not\),
+		route_si=>zero,
+		route_ci=>zero,
+		f0_load=>zero,
+		f1_load=>zero,
+		d0_load=>zero,
+		d1_load=>zero,
+		ce0=>open,
+		cl0=>open,
+		z0=>open,
+		ff0=>open,
+		ce1=>open,
+		cl1=>open,
+		z1=>open,
+		ff1=>open,
+		ov_msb=>open,
+		co_msb=>open,
+		cmsb=>open,
+		so=>open,
+		f0_bus_stat=>open,
+		f0_blk_stat=>open,
+		f1_bus_stat=>open,
+		f1_blk_stat=>open,
+		ce0_reg=>\LabVIEW_UART:BUART:tx_bitclk_enable_pre\,
+		cl0_reg=>open,
+		z0_reg=>open,
+		ff0_reg=>open,
+		ce1_reg=>\LabVIEW_UART:BUART:tx_counter_dp\,
+		cl1_reg=>open,
+		z1_reg=>open,
+		ff1_reg=>open,
+		ov_msb_reg=>open,
+		co_msb_reg=>open,
+		cmsb_reg=>open,
+		so_reg=>open,
+		f0_bus_stat_reg=>open,
+		f0_blk_stat_reg=>open,
+		f1_bus_stat_reg=>open,
+		f1_blk_stat_reg=>open,
+		ci=>zero,
+		co=>open,
+		sir=>zero,
+		sor=>open,
+		sil=>zero,
+		sol=>open,
+		msbi=>zero,
+		msbo=>open,
+		cei=>(zero, zero),
+		ceo=>open,
+		cli=>(zero, zero),
+		clo=>open,
+		zi=>(zero, zero),
+		zo=>open,
+		fi=>(zero, zero),
+		fo=>open,
+		capi=>(zero, zero),
+		capo=>open,
+		cfbi=>zero,
+		cfbo=>open,
+		pi=>(zero, zero, zero, zero,
+			zero, zero, zero, zero),
+		po=>(\LabVIEW_UART:BUART:sc_out_7\, \LabVIEW_UART:BUART:sc_out_6\, \LabVIEW_UART:BUART:sc_out_5\, \LabVIEW_UART:BUART:sc_out_4\,
+			\LabVIEW_UART:BUART:sc_out_3\, \LabVIEW_UART:BUART:sc_out_2\, \LabVIEW_UART:BUART:sc_out_1\, \LabVIEW_UART:BUART:sc_out_0\));
+\LabVIEW_UART:BUART:sTX:TxSts\:cy_psoc3_statusi
+	GENERIC MAP(cy_force_order=>'1',
+		cy_md_select=>"0000001",
+		cy_int_mask=>"1111111")
+	PORT MAP(reset=>\LabVIEW_UART:BUART:reset_reg\,
+		clock=>\LabVIEW_UART:BUART:clock_op\,
+		status=>(zero, zero, zero, \LabVIEW_UART:BUART:tx_fifo_notfull\,
+			\LabVIEW_UART:BUART:tx_status_2\, \LabVIEW_UART:BUART:tx_fifo_empty\, \LabVIEW_UART:BUART:tx_status_0\),
+		interrupt=>\LabVIEW_UART:BUART:tx_interrupt_out\);
+\LabVIEW_UART:BUART:sRX:RxShifter:u0\:cy_psoc3_dp
+	GENERIC MAP(cy_dpconfig=>"0000000000000000000000000000000000000000000000000000001001000000000100000000000000010000001100000001000000000000000100100001000011111111000000001111111111111111101000000110001001000001111100000000000000001100",
+		d0_init=>"00000000",
+		d1_init=>"00000000",
+		a0_init=>"00000000",
+		a1_init=>"00000000",
+		ce0_sync=>'1',
+		cl0_sync=>'1',
+		z0_sync=>'1',
+		ff0_sync=>'1',
+		ce1_sync=>'1',
+		cl1_sync=>'1',
+		z1_sync=>'1',
+		ff1_sync=>'1',
+		ov_msb_sync=>'1',
+		co_msb_sync=>'1',
+		cmsb_sync=>'1',
+		so_sync=>'1',
+		f0_bus_sync=>'1',
+		f0_blk_sync=>'1',
+		f1_bus_sync=>'1',
+		f1_blk_sync=>'1')
+	PORT MAP(reset=>\LabVIEW_UART:BUART:reset_reg\,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		cs_addr=>(\LabVIEW_UART:BUART:rx_state_1\, \LabVIEW_UART:BUART:rx_state_0\, \LabVIEW_UART:BUART:rx_bitclk_enable\),
+		route_si=>\LabVIEW_UART:BUART:rx_postpoll\,
+		route_ci=>zero,
+		f0_load=>\LabVIEW_UART:BUART:rx_load_fifo\,
+		f1_load=>zero,
+		d0_load=>zero,
+		d1_load=>zero,
+		ce0=>\LabVIEW_UART:BUART:rx_addressmatch1\,
+		cl0=>open,
+		z0=>open,
+		ff0=>open,
+		ce1=>\LabVIEW_UART:BUART:rx_addressmatch2\,
+		cl1=>open,
+		z1=>open,
+		ff1=>open,
+		ov_msb=>open,
+		co_msb=>open,
+		cmsb=>open,
+		so=>\LabVIEW_UART:BUART:hd_shift_out\,
+		f0_bus_stat=>\LabVIEW_UART:BUART:rx_fifonotempty\,
+		f0_blk_stat=>\LabVIEW_UART:BUART:rx_fifofull\,
+		f1_bus_stat=>\LabVIEW_UART:BUART:hd_tx_fifo_notfull\,
+		f1_blk_stat=>\LabVIEW_UART:BUART:hd_tx_fifo_empty\,
+		ce0_reg=>open,
+		cl0_reg=>open,
+		z0_reg=>open,
+		ff0_reg=>open,
+		ce1_reg=>open,
+		cl1_reg=>open,
+		z1_reg=>open,
+		ff1_reg=>open,
+		ov_msb_reg=>open,
+		co_msb_reg=>open,
+		cmsb_reg=>open,
+		so_reg=>open,
+		f0_bus_stat_reg=>open,
+		f0_blk_stat_reg=>open,
+		f1_bus_stat_reg=>open,
+		f1_blk_stat_reg=>open,
+		ci=>zero,
+		co=>open,
+		sir=>zero,
+		sor=>open,
+		sil=>zero,
+		sol=>open,
+		msbi=>zero,
+		msbo=>open,
+		cei=>(zero, zero),
+		ceo=>open,
+		cli=>(zero, zero),
+		clo=>open,
+		zi=>(zero, zero),
+		zo=>open,
+		fi=>(zero, zero),
+		fo=>open,
+		capi=>(zero, zero),
+		capo=>open,
+		cfbi=>zero,
+		cfbo=>open,
+		pi=>(zero, zero, zero, zero,
+			zero, zero, zero, zero),
+		po=>open);
+\LabVIEW_UART:BUART:sRX:RxBitCounter\:cy_psoc3_count7
+	GENERIC MAP(cy_period=>"1110010",
+		cy_init_value=>"0000000",
+		cy_route_ld=>'1',
+		cy_route_en=>'1',
+		cy_alt_mode=>'0')
+	PORT MAP(clock=>\LabVIEW_UART:BUART:clock_op\,
+		reset=>\LabVIEW_UART:BUART:reset_reg\,
+		load=>\LabVIEW_UART:BUART:rx_counter_load\,
+		enable=>one,
+		count=>(\LabVIEW_UART:BUART:rx_count_6\, \LabVIEW_UART:BUART:rx_count_5\, \LabVIEW_UART:BUART:rx_count_4\, \LabVIEW_UART:BUART:rx_count_3\,
+			\LabVIEW_UART:BUART:rx_count_2\, \LabVIEW_UART:BUART:rx_count_1\, \LabVIEW_UART:BUART:rx_count_0\),
+		tc=>\LabVIEW_UART:BUART:rx_count7_tc\);
+\LabVIEW_UART:BUART:sRX:RxSts\:cy_psoc3_statusi
+	GENERIC MAP(cy_force_order=>'1',
+		cy_md_select=>"1011111",
+		cy_int_mask=>"1111111")
+	PORT MAP(reset=>\LabVIEW_UART:BUART:reset_reg\,
+		clock=>\LabVIEW_UART:BUART:clock_op\,
+		status=>(zero, \LabVIEW_UART:BUART:rx_status_5\, \LabVIEW_UART:BUART:rx_status_4\, \LabVIEW_UART:BUART:rx_status_3\,
+			\LabVIEW_UART:BUART:rx_status_2\, zero, zero),
+		interrupt=>Net_9);
+Rx_1:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"1425177d-0d0e-4468-8bcc-e638e5509a9b",
+		drive_mode=>"001",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"I",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"00",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(one),
+		y=>(zero),
+		fb=>Net_7,
+		analog=>(open),
+		io=>(tmpIO_0__Rx_1_net_0),
+		siovref=>(tmpSIOVREF__Rx_1_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>one,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>one,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__Rx_1_net_0);
+Tx_1:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"ed092b9b-d398-4703-be89-cebf998501f6",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"1",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"1",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(one),
+		y=>Net_2,
+		fb=>(tmpFB_0__Tx_1_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__Tx_1_net_0),
+		siovref=>(tmpSIOVREF__Tx_1_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>one,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>one,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__Tx_1_net_0);
+\UARTReset:Sync:ctrl_reg\:cy_psoc3_control
+	GENERIC MAP(cy_init_value=>"00000001",
+		cy_force_order=>'1',
+		cy_ctrl_mode_1=>"00000000",
+		cy_ctrl_mode_0=>"00000000",
+		cy_ext_reset=>'0')
+	PORT MAP(reset=>zero,
+		clock=>zero,
+		control=>(\UARTReset:control_7\, \UARTReset:control_6\, \UARTReset:control_5\, \UARTReset:control_4\,
+			\UARTReset:control_3\, \UARTReset:control_2\, \UARTReset:control_1\, Net_6));
+ByteReceived:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_9);
+\LEDDrive:Sync:ctrl_reg\:cy_psoc3_control
+	GENERIC MAP(cy_init_value=>"00000000",
+		cy_force_order=>'1',
+		cy_ctrl_mode_1=>"00000000",
+		cy_ctrl_mode_0=>"00000000",
+		cy_ext_reset=>'0')
+	PORT MAP(reset=>zero,
+		clock=>zero,
+		control=>(\LEDDrive:control_7\, \LEDDrive:control_6\, \LEDDrive:control_5\, \LEDDrive:control_4\,
+			\LEDDrive:control_3\, \LEDDrive:control_2\, \LEDDrive:control_1\, Net_27));
+LED:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"e851a3b9-efb8-48be-bbb8-b303b216c393",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"1",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(one),
+		y=>Net_27,
+		fb=>(tmpFB_0__LED_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__LED_net_0),
+		siovref=>(tmpSIOVREF__LED_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>one,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>one,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__LED_net_0);
+\ByteCounter:CounterUDB:clock_enable_block\:cy_psoc3_udb_clock_enable_v1_0
+	GENERIC MAP(sync_mode=>'1')
+	PORT MAP(clock_in=>Net_37,
+		enable=>one,
+		clock_out=>\ByteCounter:CounterUDB:ClockOutFromEnBlock\);
+\ByteCounter:CounterUDB:sCTRLReg:cy_psoc3_udb_Ctl_Clk_Sync\:cy_psoc3_udb_clock_enable_v1_0
+	GENERIC MAP(sync_mode=>'1')
+	PORT MAP(clock_in=>Net_37,
+		enable=>one,
+		clock_out=>\ByteCounter:CounterUDB:Clk_Ctl_i\);
+\ByteCounter:CounterUDB:sCTRLReg:ctrlreg\:cy_psoc3_control
+	GENERIC MAP(cy_init_value=>"00000000",
+		cy_force_order=>'1',
+		cy_ctrl_mode_1=>"00000000",
+		cy_ctrl_mode_0=>"11111111",
+		cy_ext_reset=>'0')
+	PORT MAP(reset=>zero,
+		clock=>\ByteCounter:CounterUDB:Clk_Ctl_i\,
+		control=>(\ByteCounter:CounterUDB:control_7\, \ByteCounter:CounterUDB:control_6\, \ByteCounter:CounterUDB:control_5\, \ByteCounter:CounterUDB:control_4\,
+			\ByteCounter:CounterUDB:control_3\, \ByteCounter:CounterUDB:control_2\, \ByteCounter:CounterUDB:control_1\, \ByteCounter:CounterUDB:control_0\));
+\ByteCounter:CounterUDB:sSTSReg:stsreg\:cy_psoc3_statusi
+	GENERIC MAP(cy_force_order=>'1',
+		cy_md_select=>"0011111",
+		cy_int_mask=>"1111111")
+	PORT MAP(reset=>Net_34,
+		clock=>\ByteCounter:CounterUDB:ClockOutFromEnBlock\,
+		status=>(\ByteCounter:CounterUDB:status_6\, \ByteCounter:CounterUDB:status_5\, zero, zero,
+			\ByteCounter:CounterUDB:status_2\, \ByteCounter:CounterUDB:status_1\, \ByteCounter:CounterUDB:status_0\),
+		interrupt=>Net_38);
+\ByteCounter:CounterUDB:sC8:counterdp:u0\:cy_psoc3_dp
+	GENERIC MAP(cy_dpconfig=>"0000000001000000000000001000000001000000010000000000000010000000000000000100000010101000010100000010000001000000101010000101000011111111000000001111111111111111101000000000000000000001000000000000000000011000",
+		d0_init=>"00000000",
+		d1_init=>"00000000",
+		a0_init=>"00000000",
+		a1_init=>"00000000",
+		ce0_sync=>'1',
+		cl0_sync=>'1',
+		z0_sync=>'1',
+		ff0_sync=>'1',
+		ce1_sync=>'1',
+		cl1_sync=>'1',
+		z1_sync=>'1',
+		ff1_sync=>'1',
+		ov_msb_sync=>'1',
+		co_msb_sync=>'1',
+		cmsb_sync=>'1',
+		so_sync=>'1',
+		f0_bus_sync=>'1',
+		f0_blk_sync=>'1',
+		f1_bus_sync=>'1',
+		f1_blk_sync=>'1')
+	PORT MAP(reset=>zero,
+		clk=>\ByteCounter:CounterUDB:ClockOutFromEnBlock\,
+		cs_addr=>(one, \ByteCounter:CounterUDB:count_enable\, \ByteCounter:CounterUDB:reload\),
+		route_si=>zero,
+		route_ci=>zero,
+		f0_load=>zero,
+		f1_load=>zero,
+		d0_load=>zero,
+		d1_load=>zero,
+		ce0=>\ByteCounter:CounterUDB:per_equal\,
+		cl0=>\ByteCounter:CounterUDB:nc42\,
+		z0=>\ByteCounter:CounterUDB:status_1\,
+		ff0=>\ByteCounter:CounterUDB:per_FF\,
+		ce1=>\ByteCounter:CounterUDB:cmp_out_i\,
+		cl1=>\ByteCounter:CounterUDB:cmp_less\,
+		z1=>open,
+		ff1=>open,
+		ov_msb=>open,
+		co_msb=>open,
+		cmsb=>open,
+		so=>open,
+		f0_bus_stat=>\ByteCounter:CounterUDB:status_6\,
+		f0_blk_stat=>\ByteCounter:CounterUDB:status_5\,
+		f1_bus_stat=>open,
+		f1_blk_stat=>open,
+		ce0_reg=>open,
+		cl0_reg=>open,
+		z0_reg=>open,
+		ff0_reg=>open,
+		ce1_reg=>open,
+		cl1_reg=>open,
+		z1_reg=>open,
+		ff1_reg=>open,
+		ov_msb_reg=>open,
+		co_msb_reg=>open,
+		cmsb_reg=>open,
+		so_reg=>open,
+		f0_bus_stat_reg=>open,
+		f0_blk_stat_reg=>open,
+		f1_bus_stat_reg=>open,
+		f1_blk_stat_reg=>open,
+		ci=>zero,
+		co=>open,
+		sir=>zero,
+		sor=>open,
+		sil=>zero,
+		sol=>open,
+		msbi=>zero,
+		msbo=>open,
+		cei=>(zero, zero),
+		ceo=>open,
+		cli=>(zero, zero),
+		clo=>open,
+		zi=>(zero, zero),
+		zo=>open,
+		fi=>(zero, zero),
+		fo=>open,
+		capi=>(zero, zero),
+		capo=>open,
+		cfbi=>zero,
+		cfbo=>open,
+		pi=>(zero, zero, zero, zero,
+			zero, zero, zero, zero),
+		po=>open);
+Clock_1:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"be971226-320e-40a8-bf73-b4d7f06e3004",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"83333333.3333333",
+		is_direct=>'0',
+		is_digital=>'1')
+	PORT MAP(clock_out=>Net_37,
+		dig_domain_out=>open);
+\ByteCountReset:Sync:ctrl_reg\:cy_psoc3_control
+	GENERIC MAP(cy_init_value=>"00000001",
+		cy_force_order=>'1',
+		cy_ctrl_mode_1=>"00000000",
+		cy_ctrl_mode_0=>"00000000",
+		cy_ext_reset=>'0')
+	PORT MAP(reset=>zero,
+		clock=>zero,
+		control=>(\ByteCountReset:control_7\, \ByteCountReset:control_6\, \ByteCountReset:control_5\, \ByteCountReset:control_4\,
+			\ByteCountReset:control_3\, \ByteCountReset:control_2\, \ByteCountReset:control_1\, Net_34));
+CommandReceived:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_38);
+timer_clock:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"c0fb34bd-1044-4931-9788-16b01ce89812",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"41666666666.6667",
+		is_direct=>'0',
+		is_digital=>'1')
+	PORT MAP(clock_out=>Net_59,
+		dig_domain_out=>open);
+\Timer_1:TimerHW\:cy_psoc3_timer_v1_0
+	GENERIC MAP(cy_registers=>"")
+	PORT MAP(clock=>Net_59,
+		kill=>zero,
+		enable=>one,
+		capture=>zero,
+		timer_reset=>zero,
+		tc=>\Timer_1:Net_51\,
+		compare=>\Timer_1:Net_261\,
+		interrupt=>Net_62);
+TimerInterrupt:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_62);
+\LabVIEW_UART:BUART:reset_reg\:cy_dff
+	PORT MAP(d=>Net_6,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>\LabVIEW_UART:BUART:reset_reg\);
+\LabVIEW_UART:BUART:txn\:cy_dff
+	PORT MAP(d=>\LabVIEW_UART:BUART:txn\\D\,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>\LabVIEW_UART:BUART:txn\);
+\LabVIEW_UART:BUART:tx_state_1\:cy_dff
+	PORT MAP(d=>\LabVIEW_UART:BUART:tx_state_1\\D\,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>\LabVIEW_UART:BUART:tx_state_1\);
+\LabVIEW_UART:BUART:tx_state_0\:cy_dff
+	PORT MAP(d=>\LabVIEW_UART:BUART:tx_state_0\\D\,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>\LabVIEW_UART:BUART:tx_state_0\);
+\LabVIEW_UART:BUART:tx_state_2\:cy_dff
+	PORT MAP(d=>\LabVIEW_UART:BUART:tx_state_2\\D\,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>\LabVIEW_UART:BUART:tx_state_2\);
+Net_4:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>Net_4);
+\LabVIEW_UART:BUART:tx_bitclk\:cy_dff
+	PORT MAP(d=>\LabVIEW_UART:BUART:tx_bitclk\\D\,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>\LabVIEW_UART:BUART:tx_bitclk\);
+\LabVIEW_UART:BUART:tx_ctrl_mark_last\:cy_dff
+	PORT MAP(d=>\LabVIEW_UART:BUART:tx_ctrl_mark_last\,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>\LabVIEW_UART:BUART:tx_ctrl_mark_last\);
+\LabVIEW_UART:BUART:tx_mark\:cy_dff
+	PORT MAP(d=>\LabVIEW_UART:BUART:tx_mark\\D\,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>\LabVIEW_UART:BUART:tx_mark\);
+\LabVIEW_UART:BUART:tx_parity_bit\:cy_dff
+	PORT MAP(d=>\LabVIEW_UART:BUART:tx_parity_bit\\D\,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>\LabVIEW_UART:BUART:tx_parity_bit\);
+\LabVIEW_UART:BUART:rx_state_1\:cy_dff
+	PORT MAP(d=>\LabVIEW_UART:BUART:rx_state_1\\D\,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>\LabVIEW_UART:BUART:rx_state_1\);
+\LabVIEW_UART:BUART:rx_state_0\:cy_dff
+	PORT MAP(d=>\LabVIEW_UART:BUART:rx_state_0\\D\,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>\LabVIEW_UART:BUART:rx_state_0\);
+\LabVIEW_UART:BUART:rx_load_fifo\:cy_dff
+	PORT MAP(d=>\LabVIEW_UART:BUART:rx_load_fifo\\D\,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>\LabVIEW_UART:BUART:rx_load_fifo\);
+\LabVIEW_UART:BUART:rx_state_3\:cy_dff
+	PORT MAP(d=>\LabVIEW_UART:BUART:rx_state_3\\D\,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>\LabVIEW_UART:BUART:rx_state_3\);
+\LabVIEW_UART:BUART:rx_state_2\:cy_dff
+	PORT MAP(d=>\LabVIEW_UART:BUART:rx_state_2\\D\,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>\LabVIEW_UART:BUART:rx_state_2\);
+\LabVIEW_UART:BUART:rx_bitclk\:cy_dff
+	PORT MAP(d=>\LabVIEW_UART:BUART:rx_bitclk_pre\,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>\LabVIEW_UART:BUART:rx_bitclk_enable\);
+\LabVIEW_UART:BUART:rx_state_stop1_reg\:cy_dff
+	PORT MAP(d=>\LabVIEW_UART:BUART:rx_state_stop1_reg\\D\,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>\LabVIEW_UART:BUART:rx_state_stop1_reg\);
+\LabVIEW_UART:BUART:pollcount_1\:cy_dff
+	PORT MAP(d=>\LabVIEW_UART:BUART:pollcount_1\\D\,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>\LabVIEW_UART:BUART:pollcount_1\);
+\LabVIEW_UART:BUART:pollcount_0\:cy_dff
+	PORT MAP(d=>\LabVIEW_UART:BUART:pollcount_0\\D\,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>\LabVIEW_UART:BUART:pollcount_0\);
+\LabVIEW_UART:BUART:rx_markspace_status\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>\LabVIEW_UART:BUART:rx_markspace_status\);
+\LabVIEW_UART:BUART:rx_parity_error_status\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>\LabVIEW_UART:BUART:rx_status_2\);
+\LabVIEW_UART:BUART:rx_stop_bit_error\:cy_dff
+	PORT MAP(d=>\LabVIEW_UART:BUART:rx_stop_bit_error\\D\,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>\LabVIEW_UART:BUART:rx_status_3\);
+\LabVIEW_UART:BUART:rx_addr_match_status\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>\LabVIEW_UART:BUART:rx_addr_match_status\);
+\LabVIEW_UART:BUART:rx_markspace_pre\:cy_dff
+	PORT MAP(d=>\LabVIEW_UART:BUART:rx_markspace_pre\,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>\LabVIEW_UART:BUART:rx_markspace_pre\);
+\LabVIEW_UART:BUART:rx_parity_error_pre\:cy_dff
+	PORT MAP(d=>\LabVIEW_UART:BUART:rx_parity_error_pre\,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>\LabVIEW_UART:BUART:rx_parity_error_pre\);
+\LabVIEW_UART:BUART:rx_break_status\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>\LabVIEW_UART:BUART:rx_break_status\);
+\LabVIEW_UART:BUART:rx_address_detected\:cy_dff
+	PORT MAP(d=>\LabVIEW_UART:BUART:rx_address_detected\\D\,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>\LabVIEW_UART:BUART:rx_address_detected\);
+\LabVIEW_UART:BUART:rx_last\:cy_dff
+	PORT MAP(d=>\LabVIEW_UART:BUART:rx_last\\D\,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>\LabVIEW_UART:BUART:rx_last\);
+\LabVIEW_UART:BUART:rx_parity_bit\:cy_dff
+	PORT MAP(d=>\LabVIEW_UART:BUART:rx_parity_bit\,
+		clk=>\LabVIEW_UART:BUART:clock_op\,
+		q=>\LabVIEW_UART:BUART:rx_parity_bit\);
+\ByteCounter:CounterUDB:prevCapture\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\ByteCounter:CounterUDB:ClockOutFromEnBlock\,
+		q=>\ByteCounter:CounterUDB:prevCapture\);
+\ByteCounter:CounterUDB:overflow_reg_i\:cy_dff
+	PORT MAP(d=>\ByteCounter:CounterUDB:per_equal\,
+		clk=>\ByteCounter:CounterUDB:ClockOutFromEnBlock\,
+		q=>\ByteCounter:CounterUDB:overflow_reg_i\);
+\ByteCounter:CounterUDB:underflow_reg_i\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\ByteCounter:CounterUDB:ClockOutFromEnBlock\,
+		q=>\ByteCounter:CounterUDB:underflow_reg_i\);
+\ByteCounter:CounterUDB:tc_reg_i\:cy_dff
+	PORT MAP(d=>\ByteCounter:CounterUDB:per_equal\,
+		clk=>\ByteCounter:CounterUDB:ClockOutFromEnBlock\,
+		q=>\ByteCounter:CounterUDB:tc_reg_i\);
+\ByteCounter:CounterUDB:prevCompare\:cy_dff
+	PORT MAP(d=>\ByteCounter:CounterUDB:cmp_out_i\,
+		clk=>\ByteCounter:CounterUDB:ClockOutFromEnBlock\,
+		q=>\ByteCounter:CounterUDB:prevCompare\);
+\ByteCounter:CounterUDB:cmp_out_reg_i\:cy_dff
+	PORT MAP(d=>\ByteCounter:CounterUDB:cmp_out_i\,
+		clk=>\ByteCounter:CounterUDB:ClockOutFromEnBlock\,
+		q=>Net_36);
+\ByteCounter:CounterUDB:count_stored_i\:cy_dff
+	PORT MAP(d=>Net_9,
+		clk=>\ByteCounter:CounterUDB:ClockOutFromEnBlock\,
+		q=>\ByteCounter:CounterUDB:count_stored_i\);
+
+END R_T_L;
