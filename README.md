@@ -1,2 +1,2 @@
-# Hardware-In-Loop-Estimation-and-Control-For-Satellite-Orbit-Stabilization
+# Hardware-In-Loop-Estimation-and-Control-for-Satellite-Orbit-Stabilization
 A project involving hardware-in-the-loop simulation of a satellite orbiting earth. The nonlinear system dynamics and noisy measurements are simulated in Python, while control algorithms are computed in C on a PSOC microcontroller. The simulation environment interfaces with our microcontroller via UART serial communication.
